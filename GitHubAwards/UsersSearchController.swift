@@ -19,6 +19,7 @@ class UsersSearchController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        GetUsers(searchOptions: SearchOptions()).fetch()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

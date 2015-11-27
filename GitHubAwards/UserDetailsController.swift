@@ -21,7 +21,6 @@ class UserDetailsController: UIViewController {
     
     var rankings = [Ranking]()
     
-    
     var user: User? {
         didSet {
             rankings = user?.rankings ?? []
