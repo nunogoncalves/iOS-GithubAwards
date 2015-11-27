@@ -103,7 +103,7 @@
 				85D320FB1C02062E001B7C7A /* Info.plist */,
 				85D320F81C02062E001B7C7A /* LaunchScreen.storyboard */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		858B910A1C085A3300B510B3 /* Resources */ = {
@@ -111,16 +111,16 @@
 			children = (
 				85D320F61C02062E001B7C7A /* Assets.xcassets */,
 			);
-			name = Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		858B910B1C085A5700B510B3 /* Custom Cells */ = {
 			isa = PBXGroup;
 			children = (
-				85D3211D1C0211C2001B7C7A /* UserCell.swift */,
 				85D321261C022D86001B7C7A /* RankingCell.swift */,
+				85D3211D1C0211C2001B7C7A /* UserCell.swift */,
 			);
-			name = "Custom Cells";
+			path = "Custom Cells";
 			sourceTree = "<group>";
 		};
 		858B910C1C085A7000B510B3 /* Helpers */ = {
@@ -128,7 +128,7 @@
 			children = (
 				85D321221C0222F4001B7C7A /* ImageLoader.swift */,
 			);
-			name = Helpers;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		858B910D1C085AC700B510B3 /* Use Cases */ = {
@@ -136,7 +136,7 @@
 			children = (
 				858B910F1C085B0800B510B3 /* Users */,
 			);
-			name = "Use Cases";
+			path = "Use Cases";
 			sourceTree = "<group>";
 		};
 		858B910F1C085B0800B510B3 /* Users */ = {
@@ -144,7 +144,7 @@
 			children = (
 				858B91101C085B1600B510B3 /* GetUsers.swift */,
 			);
-			name = Users;
+			path = Users;
 			sourceTree = "<group>";
 		};
 		85AFEC1C1C046898006FC129 /* Models */ = {
@@ -154,18 +154,18 @@
 				858B91121C085B4C00B510B3 /* SearchOptions.swift */,
 				85D321201C0219C7001B7C7A /* User.swift */,
 			);
-			name = Models;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		85AFEC1D1C0468A1006FC129 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				85D320F11C02062E001B7C7A /* LanguageRankingsController.swift */,
-				85D321241C022480001B7C7A /* UserDetailsController.swift */,
 				85198B751C05CE6C007ACC73 /* LanguagesController.swift */,
+				85D321241C022480001B7C7A /* UserDetailsController.swift */,
 				85168C831C0733BA00091553 /* UsersSearchController.swift */,
 			);
-			name = Controllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		85D320E31C02062E001B7C7A = {
@@ -191,14 +191,14 @@
 		85D320EE1C02062E001B7C7A /* GitHubAwards */ = {
 			isa = PBXGroup;
 			children = (
-				858B910B1C085A5700B510B3 /* Custom Cells */,
 				85AFEC1D1C0468A1006FC129 /* Controllers */,
-				85AFEC1C1C046898006FC129 /* Models */,
+				858B910B1C085A5700B510B3 /* Custom Cells */,
 				858B910C1C085A7000B510B3 /* Helpers */,
+				85AFEC1C1C046898006FC129 /* Models */,
 				858B910A1C085A3300B510B3 /* Resources */,
-				85D320F31C02062E001B7C7A /* Main.storyboard */,
 				858B91091C0859F900B510B3 /* Supporting Files */,
 				858B910D1C085AC700B510B3 /* Use Cases */,
+				85D320F31C02062E001B7C7A /* Main.storyboard */,
 			);
 			path = GitHubAwards;
 			sourceTree = "<group>";
@@ -207,8 +207,8 @@
 			isa = PBXGroup;
 			children = (
 				85D321041C02062E001B7C7A /* GitHubAwardsTests.swift */,
-				858B91141C085E6400B510B3 /* SearchOptionsTests.swift */,
 				85D321061C02062E001B7C7A /* Info.plist */,
+				858B91141C085E6400B510B3 /* SearchOptionsTests.swift */,
 			);
 			path = GitHubAwardsTests;
 			sourceTree = "<group>";
@@ -407,6 +407,7 @@
 				85D320F41C02062E001B7C7A /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		85D320F81C02062E001B7C7A /* LaunchScreen.storyboard */ = {
@@ -415,6 +416,7 @@
 				85D320F91C02062E001B7C7A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -505,7 +507,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = GitHubAwards/Info.plist;
+				INFOPLIST_FILE = "GitHubAwards/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.ios.GitHubAwards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -516,7 +518,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = GitHubAwards/Info.plist;
+				INFOPLIST_FILE = "GitHubAwards/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.ios.GitHubAwards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
