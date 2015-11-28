@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		85168C841C0733BA00091553 /* UsersSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85168C831C0733BA00091553 /* UsersSearchController.swift */; };
 		85198B761C05CE6C007ACC73 /* LanguagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85198B751C05CE6C007ACC73 /* LanguagesController.swift */; };
+		851D3C381C09134600870813 /* NetworkRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D3C371C09134600870813 /* NetworkRequester.swift */; };
+		851D3C3A1C0913E900870813 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D3C391C0913E900870813 /* NetworkResponse.swift */; };
+		853C48DD1C0921AF00373A92 /* Paginator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48DC1C0921AF00373A92 /* Paginator.swift */; };
+		853C48DF1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */; };
 		858B91111C085B1600B510B3 /* GetUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858B91101C085B1600B510B3 /* GetUsers.swift */; };
 		858B91131C085B4C00B510B3 /* SearchOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858B91121C085B4C00B510B3 /* SearchOptions.swift */; };
 		858B91151C085E6400B510B3 /* SearchOptionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858B91141C085E6400B510B3 /* SearchOptionsTests.swift */; };
@@ -47,6 +51,10 @@
 /* Begin PBXFileReference section */
 		85168C831C0733BA00091553 /* UsersSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersSearchController.swift; sourceTree = "<group>"; };
 		85198B751C05CE6C007ACC73 /* LanguagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguagesController.swift; sourceTree = "<group>"; };
+		851D3C371C09134600870813 /* NetworkRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequester.swift; sourceTree = "<group>"; };
+		851D3C391C0913E900870813 /* NetworkResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
+		853C48DC1C0921AF00373A92 /* Paginator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paginator.swift; sourceTree = "<group>"; };
+		853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertUsersDictionaryToUsers.swift; sourceTree = "<group>"; };
 		858B91101C085B1600B510B3 /* GetUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUsers.swift; sourceTree = "<group>"; };
 		858B91121C085B4C00B510B3 /* SearchOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchOptions.swift; sourceTree = "<group>"; };
 		858B91141C085E6400B510B3 /* SearchOptionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchOptionsTests.swift; sourceTree = "<group>"; };
@@ -96,6 +104,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		851D3C361C09131D00870813 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				851D3C371C09134600870813 /* NetworkRequester.swift */,
+				851D3C391C0913E900870813 /* NetworkResponse.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		853C48DB1C09218800373A92 /* NetworkToModelMappers */ = {
+			isa = PBXGroup;
+			children = (
+				853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */,
+			);
+			name = NetworkToModelMappers;
+			sourceTree = "<group>";
+		};
 		858B91091C0859F900B510B3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +159,7 @@
 		858B910D1C085AC700B510B3 /* Use Cases */ = {
 			isa = PBXGroup;
 			children = (
+				853C48DB1C09218800373A92 /* NetworkToModelMappers */,
 				858B910F1C085B0800B510B3 /* Users */,
 			);
 			path = "Use Cases";
@@ -150,6 +176,7 @@
 		85AFEC1C1C046898006FC129 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				853C48DC1C0921AF00373A92 /* Paginator.swift */,
 				85AFEC1E1C0468CB006FC129 /* Ranking.swift */,
 				858B91121C085B4C00B510B3 /* SearchOptions.swift */,
 				85D321201C0219C7001B7C7A /* User.swift */,
@@ -195,6 +222,7 @@
 				858B910B1C085A5700B510B3 /* Custom Cells */,
 				858B910C1C085A7000B510B3 /* Helpers */,
 				85AFEC1C1C046898006FC129 /* Models */,
+				851D3C361C09131D00870813 /* Networking */,
 				858B910A1C085A3300B510B3 /* Resources */,
 				858B91091C0859F900B510B3 /* Supporting Files */,
 				858B910D1C085AC700B510B3 /* Use Cases */,
@@ -361,10 +389,14 @@
 				85168C841C0733BA00091553 /* UsersSearchController.swift in Sources */,
 				85D321231C0222F4001B7C7A /* ImageLoader.swift in Sources */,
 				85D320F01C02062E001B7C7A /* AppDelegate.swift in Sources */,
+				851D3C381C09134600870813 /* NetworkRequester.swift in Sources */,
+				851D3C3A1C0913E900870813 /* NetworkResponse.swift in Sources */,
 				85D3211E1C0211C2001B7C7A /* UserCell.swift in Sources */,
 				85AFEC1F1C0468CB006FC129 /* Ranking.swift in Sources */,
+				853C48DF1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift in Sources */,
 				85D321271C022D86001B7C7A /* RankingCell.swift in Sources */,
 				858B91111C085B1600B510B3 /* GetUsers.swift in Sources */,
+				853C48DD1C0921AF00373A92 /* Paginator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,7 +17,19 @@ class GetUsers {
     }
     
     func fetch() {
-        print("\(baseUrl)/?\(searchOptions.urlEncoded())")
+        let url = "\(baseUrl)/?\(searchOptions.urlEncoded())"
+        print(url)
+        let responseHandler = NetworkResponse()
+        responseHandler.failureCallback = {
+            print("failure in get users")
+        }
+        responseHandler.successCallback = { data in
+            let paginator = Paginator(dictionary: data).currentPage
+            paginator
+            ConvertUsersDictionaryToUsers(data: data)
+        }
+        
+        NetworkRequester.makeGet(url, networdResponseHandler: responseHandler)
     }
     
 }
