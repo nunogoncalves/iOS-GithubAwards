@@ -10,9 +10,9 @@ import UIKit
 
 class UsersSearchController: UIViewController {
 
-    var users = [
-        User(login: "nunogoncalves", avatarUrl: "https://avatars.githubusercontent.com/u/3007012?v=3"),
-        User(login: "vetras", avatarUrl: "https://avatars0.githubusercontent.com/u/2528664?v=3&s=460")
+    var users: [User] = [
+//        User(login: "nunogoncalves", avatarUrl: "https://avatars.githubusercontent.com/u/3007012?v=3"),
+//        User(login: "vetras", avatarUrl: "https://avatars0.githubusercontent.com/u/2528664?v=3&s=460")
     ]
     
     @IBOutlet weak var usersTable: UITableView!
@@ -22,8 +22,15 @@ class UsersSearchController: UIViewController {
         let searchOptions = SearchOptions()
         searchOptions.language = "swift"
         searchOptions.location = "Lisbon"
-        searchOptions.locationType = "city"
-        GetUsers(searchOptions: searchOptions).fetch()
+        searchOptions.locationType = .City
+        GetUsers(searchOptions: searchOptions).fetch(success: { [weak self] usersResult in
+            self?.users = usersResult
+            self?.usersTable.reloadData()
+            }, failure: { [weak self] in
+                let alert = UIAlertController(title: "Error", message: "Error loading users", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Cancel, handler: nil))
+                self?.presentViewController(alert, animated: true, completion: nil)
+        })
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

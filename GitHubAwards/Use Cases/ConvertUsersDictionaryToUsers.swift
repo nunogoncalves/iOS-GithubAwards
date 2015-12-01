@@ -10,8 +10,21 @@ import Foundation
 
 class ConvertUsersDictionaryToUsers {
     
+    private let data: NSDictionary
+    
+    var users = [User]()
+    
     init(data: NSDictionary) {
-        print(data["users"])
+        self.data = data
+        buildUsers()
     }
     
+    private func buildUsers() {
+        guard let dataUsers = data["users"] as? Array<NSDictionary> else {
+            return
+        }
+        for u in dataUsers {
+            users.append(CreateUserFromDictionary(userDic: u).user)
+        }
+    }
 }

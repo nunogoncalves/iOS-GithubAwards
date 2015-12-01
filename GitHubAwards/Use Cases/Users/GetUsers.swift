@@ -6,6 +6,8 @@
 //  Copyright © 2015 Nuno Gonçalves. All rights reserved.
 //
 
+import Foundation
+
 class GetUsers {
 
     private let baseUrl = "http://localhost:2000/api/v0/users"
@@ -16,20 +18,30 @@ class GetUsers {
         self.searchOptions = searchOptions
     }
     
-    func fetch() {
+    func fetch(success success: [User] -> (), failure: () -> ()) {
         let url = "\(baseUrl)/?\(searchOptions.urlEncoded())"
-        print(url)
-        let responseHandler = NetworkResponse()
-        responseHandler.failureCallback = {
-            print("failure in get users")
-        }
-        responseHandler.successCallback = { data in
-            let paginator = Paginator(dictionary: data).currentPage
-            paginator
-            ConvertUsersDictionaryToUsers(data: data)
+
+        let qos = Int(QOS_CLASS_USER_INTERACTIVE.rawValue)
+        dispatch_async(dispatch_get_global_queue(qos, 0)) {
+            
+            let responseHandler = NetworkResponse()
+            responseHandler.failureCallback = {
+                failure()
+                print("failure in get users")
+            }
+            responseHandler.successCallback = { data in
+                let paginator = Paginator(dictionary: data).currentPage
+                paginator
+                let users = ConvertUsersDictionaryToUsers(data: data).users
+                dispatch_async(dispatch_get_main_queue()) {
+                    success(users)
+                }
+            }
+            NetworkRequester.makeGet(url, networdResponseHandler: responseHandler)
         }
         
-        NetworkRequester.makeGet(url, networdResponseHandler: responseHandler)
     }
     
+    func x() {
+    }
 }

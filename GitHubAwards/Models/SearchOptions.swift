@@ -10,8 +10,8 @@ class SearchOptions {
     
     var language = "JavaScript"
     var location = "San Francisco"
-    var locationType = "worldwide"
-    private let locationTypes = ["city", "country", "world"]
+    var locationType = LocationType.World
+//    private let locationTypes = ["city", "country", "world"]
     
     var page = 0
     
@@ -20,7 +20,7 @@ class SearchOptions {
     }
     
     private func buildLanguage() -> String {
-        let lang = language
+        let lang = language.lowercaseString
         return "language=\(lang)"
     }
     
@@ -42,6 +42,6 @@ class SearchOptions {
     }
     
     private func getRealType() -> String {
-        return locationTypes.indexOf(locationType) > -1 ? locationType : "world"
+        return locationType.rawValue
     }
 }

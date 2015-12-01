@@ -10,9 +10,9 @@ import Foundation
 
 class NetworkRequester {
     
-    static func makeGet(url: String, networdResponseHandler: NetworkResponse) {
+    static func makeGet(urlStr: String, networdResponseHandler: NetworkResponse) {
         //http://stackoverflow.com/questions/24016142/how-to-make-an-http-request-in-swift
-        let url = NSURL(string: url)
+        let url = NSURL(string: urlStr.urlEncoded())
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
             if let response = response as? NSHTTPURLResponse {
                 if response.statusCode == 200 {

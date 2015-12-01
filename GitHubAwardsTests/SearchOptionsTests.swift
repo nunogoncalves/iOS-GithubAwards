@@ -43,7 +43,7 @@ class SearchOptionsTests: XCTestCase {
     }
     
     func testCity() {
-        searchOptions.locationType = "city"
+        searchOptions.locationType = .City
         searchOptions.location = "Lisbon"
         let expected = "language=JavaScript&city=Lisbon&type=city"
         let got = searchOptions.urlEncoded()
@@ -51,7 +51,7 @@ class SearchOptionsTests: XCTestCase {
     }
     
     func testNoCountry() {
-        searchOptions.locationType = "country"
+        searchOptions.locationType = .Country
         let expected = "language=JavaScript&country=San Francisco&type=country"
         let got = searchOptions.urlEncoded()
         assert(expected == got, "Expected \(expected), got \(got)")
@@ -59,7 +59,7 @@ class SearchOptionsTests: XCTestCase {
     
     func testCountry() {
         searchOptions.language = "Swift"
-        searchOptions.locationType = "country"
+        searchOptions.locationType = .Country
         searchOptions.location = "Portugal"
         
         let expected = "language=Swift&country=Portugal&type=country"
