@@ -26,7 +26,9 @@ class GetUsers {
             
             let responseHandler = NetworkResponse()
             responseHandler.failureCallback = {
-                failure()
+                dispatch_async(dispatch_get_main_queue()) {
+                    failure()
+                }
                 print("failure in get users")
             }
             responseHandler.successCallback = { data in

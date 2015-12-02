@@ -15,6 +15,16 @@
 		853C48DF1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */; };
 		853C48E11C09A28400373A92 /* SearchUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48E01C09A28400373A92 /* SearchUser.swift */; };
 		853C48E31C09A35F00373A92 /* CreateUserFromDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48E21C09A35F00373A92 /* CreateUserFromDictionary.swift */; };
+		85820F3C1C0E2BCE0069D085 /* GithubLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85820F3A1C0E2BCE0069D085 /* GithubLoadingView.swift */; };
+		85820F3D1C0E2BCE0069D085 /* GithubLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85820F3B1C0E2BCE0069D085 /* GithubLoadingView.xib */; };
+		85820F471C0E2C1A0069D085 /* tmp-0.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85820F3F1C0E2C1A0069D085 /* tmp-0.gif */; };
+		85820F481C0E2C1A0069D085 /* tmp-1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85820F401C0E2C1A0069D085 /* tmp-1.gif */; };
+		85820F491C0E2C1A0069D085 /* tmp-2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85820F411C0E2C1A0069D085 /* tmp-2.gif */; };
+		85820F4A1C0E2C1A0069D085 /* tmp-3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85820F421C0E2C1A0069D085 /* tmp-3.gif */; };
+		85820F4B1C0E2C1A0069D085 /* tmp-4.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85820F431C0E2C1A0069D085 /* tmp-4.gif */; };
+		85820F4C1C0E2C1A0069D085 /* tmp-5.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85820F441C0E2C1A0069D085 /* tmp-5.gif */; };
+		85820F4D1C0E2C1A0069D085 /* tmp-6.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85820F451C0E2C1A0069D085 /* tmp-6.gif */; };
+		85820F4E1C0E2C1A0069D085 /* tmp-7.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85820F461C0E2C1A0069D085 /* tmp-7.gif */; };
 		858B91111C085B1600B510B3 /* GetUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858B91101C085B1600B510B3 /* GetUsers.swift */; };
 		858B91131C085B4C00B510B3 /* SearchOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858B91121C085B4C00B510B3 /* SearchOptions.swift */; };
 		858B91151C085E6400B510B3 /* SearchOptionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858B91141C085E6400B510B3 /* SearchOptionsTests.swift */; };
@@ -62,6 +72,16 @@
 		853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertUsersDictionaryToUsers.swift; sourceTree = "<group>"; };
 		853C48E01C09A28400373A92 /* SearchUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUser.swift; sourceTree = "<group>"; };
 		853C48E21C09A35F00373A92 /* CreateUserFromDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserFromDictionary.swift; sourceTree = "<group>"; };
+		85820F3A1C0E2BCE0069D085 /* GithubLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubLoadingView.swift; sourceTree = "<group>"; };
+		85820F3B1C0E2BCE0069D085 /* GithubLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GithubLoadingView.xib; sourceTree = "<group>"; };
+		85820F3F1C0E2C1A0069D085 /* tmp-0.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "tmp-0.gif"; path = "Images/tmp-0.gif"; sourceTree = "<group>"; };
+		85820F401C0E2C1A0069D085 /* tmp-1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "tmp-1.gif"; path = "Images/tmp-1.gif"; sourceTree = "<group>"; };
+		85820F411C0E2C1A0069D085 /* tmp-2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "tmp-2.gif"; path = "Images/tmp-2.gif"; sourceTree = "<group>"; };
+		85820F421C0E2C1A0069D085 /* tmp-3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "tmp-3.gif"; path = "Images/tmp-3.gif"; sourceTree = "<group>"; };
+		85820F431C0E2C1A0069D085 /* tmp-4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "tmp-4.gif"; path = "Images/tmp-4.gif"; sourceTree = "<group>"; };
+		85820F441C0E2C1A0069D085 /* tmp-5.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "tmp-5.gif"; path = "Images/tmp-5.gif"; sourceTree = "<group>"; };
+		85820F451C0E2C1A0069D085 /* tmp-6.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "tmp-6.gif"; path = "Images/tmp-6.gif"; sourceTree = "<group>"; };
+		85820F461C0E2C1A0069D085 /* tmp-7.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "tmp-7.gif"; path = "Images/tmp-7.gif"; sourceTree = "<group>"; };
 		858B91101C085B1600B510B3 /* GetUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUsers.swift; sourceTree = "<group>"; };
 		858B91121C085B4C00B510B3 /* SearchOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchOptions.swift; sourceTree = "<group>"; };
 		858B91141C085E6400B510B3 /* SearchOptionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchOptionsTests.swift; sourceTree = "<group>"; };
@@ -132,6 +152,30 @@
 			name = DictionaryModelMappers;
 			sourceTree = "<group>";
 		};
+		85820F391C0E2B900069D085 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				85820F3A1C0E2BCE0069D085 /* GithubLoadingView.swift */,
+				85820F3B1C0E2BCE0069D085 /* GithubLoadingView.xib */,
+			);
+			name = CustomViews;
+			sourceTree = "<group>";
+		};
+		85820F3E1C0E2BDE0069D085 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				85820F3F1C0E2C1A0069D085 /* tmp-0.gif */,
+				85820F401C0E2C1A0069D085 /* tmp-1.gif */,
+				85820F411C0E2C1A0069D085 /* tmp-2.gif */,
+				85820F421C0E2C1A0069D085 /* tmp-3.gif */,
+				85820F431C0E2C1A0069D085 /* tmp-4.gif */,
+				85820F441C0E2C1A0069D085 /* tmp-5.gif */,
+				85820F451C0E2C1A0069D085 /* tmp-6.gif */,
+				85820F461C0E2C1A0069D085 /* tmp-7.gif */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		858B91091C0859F900B510B3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +189,7 @@
 		858B910A1C085A3300B510B3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				85820F3E1C0E2BDE0069D085 /* Images */,
 				85D320F61C02062E001B7C7A /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -241,6 +286,7 @@
 			children = (
 				85AFEC1D1C0468A1006FC129 /* Controllers */,
 				858B910B1C085A5700B510B3 /* Custom Cells */,
+				85820F391C0E2B900069D085 /* CustomViews */,
 				8599284F1C0DAB0E000ABE8C /* Extensions */,
 				858B910C1C085A7000B510B3 /* Helpers */,
 				85AFEC1C1C046898006FC129 /* Models */,
@@ -379,7 +425,16 @@
 			files = (
 				85D320FA1C02062E001B7C7A /* LaunchScreen.storyboard in Resources */,
 				85D320F71C02062E001B7C7A /* Assets.xcassets in Resources */,
+				85820F4E1C0E2C1A0069D085 /* tmp-7.gif in Resources */,
+				85820F481C0E2C1A0069D085 /* tmp-1.gif in Resources */,
+				85820F3D1C0E2BCE0069D085 /* GithubLoadingView.xib in Resources */,
+				85820F4D1C0E2C1A0069D085 /* tmp-6.gif in Resources */,
+				85820F4C1C0E2C1A0069D085 /* tmp-5.gif in Resources */,
 				85D320F51C02062E001B7C7A /* Main.storyboard in Resources */,
+				85820F471C0E2C1A0069D085 /* tmp-0.gif in Resources */,
+				85820F4A1C0E2C1A0069D085 /* tmp-3.gif in Resources */,
+				85820F491C0E2C1A0069D085 /* tmp-2.gif in Resources */,
+				85820F4B1C0E2C1A0069D085 /* tmp-4.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +461,7 @@
 			files = (
 				853C48E11C09A28400373A92 /* SearchUser.swift in Sources */,
 				858B91131C085B4C00B510B3 /* SearchOptions.swift in Sources */,
+				85820F3C1C0E2BCE0069D085 /* GithubLoadingView.swift in Sources */,
 				859928511C0DAB23000ABE8C /* String.swift in Sources */,
 				853C48E31C09A35F00373A92 /* CreateUserFromDictionary.swift in Sources */,
 				85D321211C0219C7001B7C7A /* User.swift in Sources */,
