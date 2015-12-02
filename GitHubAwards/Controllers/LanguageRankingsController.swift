@@ -19,6 +19,10 @@ class LanguageRankingsController: UIViewController {
         selectedLocationType = locationTypes[locationTypeControl.selectedSegmentIndex]!
         tableTopConstraint.constant = selectedLocationType.hasName() ? 50 : 10
         
+        animateLocationTypeChanged()
+    }
+    
+    private func animateLocationTypeChanged() {
         UIView.animateWithDuration(0.5) { [weak self] in
             self?.view.layoutIfNeeded()
             self?.searchContainer.alpha = self!.selectedLocationType.hasName() ? 1.0 : 0.0
@@ -38,7 +42,6 @@ class LanguageRankingsController: UIViewController {
 
     var selectedIndex = -1
     
-    var city = "Lisbon"
     var language = "JavaScript" {
         didSet {
             navigationItem.title = language
@@ -52,7 +55,6 @@ class LanguageRankingsController: UIViewController {
     var refreshControl: UIRefreshControl!
     
     var isAnimating = false
-    var timer: NSTimer?
     var loadingDuration: NSTimeInterval = 4.0
     
     override func viewDidLoad() {
@@ -61,8 +63,7 @@ class LanguageRankingsController: UIViewController {
         usersTable.dataSource = self
         
         setUpRefreshControl()
-        addRefreshControl()
-        
+
         userSearchOptions.language = language
         userSearcher = GetUsers(searchOptions: userSearchOptions)
         searchUsers()
@@ -84,44 +85,13 @@ class LanguageRankingsController: UIViewController {
         userSearcher.fetch(success: { [weak self] users in
             self?.users = users
             self?.usersTable.reloadData()
-            self?.endOfWork()
+            self?.stopLoadingIndicator()
             }, failure: { [weak self] in
-                self?.endOfWork()
-                let alert = UIAlertController(title: "Error", message: "Error loading users", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Cancel, handler: nil))
-//                self?.presentViewController(alert, animated: true, completion: nil)
-                
-                
-                let window = UIApplication.sharedApplication().keyWindow!
-                let v = UIView(frame: CGRectMake(0, -100, window.frame.width, 100))
-//                v.alpha = 0.5
-                v.backgroundColor = UIColor.redColor()
-                
-                let bounds = v.frame
-                let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .Light)) as UIVisualEffectView
-                visualEffectView.frame = bounds
-                visualEffectView.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
-                
-                window.addSubview(v)
-                window.addSubview(visualEffectView)
-                
-                UIView.animateWithDuration(0.75, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.3, options: [], animations: {
-                        v.frame = CGRectOffset(v.frame, 0, 64)
-                    }, completion: nil)
-                
-                self?.performSelector("bla:", withObject: v, afterDelay: 2.0)
+                self?.stopLoadingIndicator()
+                AlertError.alertError()
             })
     }
     
-    func bla(v: UIView) {
-//    func bla() {
-        print("bla")
-        UIView.animateWithDuration(0.3, animations: {
-            v.frame = CGRectOffset(v.frame, 0, -64)
-            }, completion: { _ in
-                v.removeFromSuperview()
-        })
-    }
     
     private func setUpRefreshControl() {
         refreshControl = UIRefreshControl()
@@ -130,10 +100,11 @@ class LanguageRankingsController: UIViewController {
         
         refreshControl.addTarget(self, action: "searchUsers", forControlEvents:.ValueChanged)
         
-        addLoadingView()
+        addLoadingViewToRefreshControl()
+        addRefreshControl()
     }
     
-    private func addLoadingView() {
+    private func addLoadingViewToRefreshControl() {
         loadingView = GithubLoadingView(frame: refreshControl.bounds)
         refreshControl.addSubview(loadingView.view)
     }
@@ -155,29 +126,8 @@ extension LanguageRankingsController : UITableViewDelegate {
         }
     }
     
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        if refreshControl.refreshing {
-            if !isAnimating {
-                setUpTimer()
-            }
-        }
-    }
-    
-    func setUpTimer() {
-//        timer = NSTimer.scheduledTimerWithTimeInterval(
-//            loadingDuration,
-//            target: self,
-//            selector: "endOfWork",
-//            userInfo: nil,
-//            repeats: true)
-    }
-    
-    
-    func endOfWork() {
+    func stopLoadingIndicator() {
         refreshControl.endRefreshing()
-        
-        timer?.invalidate()
-        timer = nil
     }
 }
 
