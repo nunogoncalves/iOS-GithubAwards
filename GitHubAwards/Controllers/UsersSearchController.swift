@@ -10,10 +10,7 @@ import UIKit
 
 class UsersSearchController: UIViewController {
 
-    var users: [User] = [
-//        User(login: "nunogoncalves", avatarUrl: "https://avatars.githubusercontent.com/u/3007012?v=3"),
-//        User(login: "vetras", avatarUrl: "https://avatars0.githubusercontent.com/u/2528664?v=3&s=460")
-    ]
+    var users: [User] = []
     
     @IBOutlet weak var usersTable: UITableView!
     

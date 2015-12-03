@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "A491FEC3504CACA8A367681F1E66F589840DE7DF+++8828EC8",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "A491FEC3504CACA8A367681F1E66F589840DE7DF+++7B8AE4E" : 0,
+    "A491FEC3504CACA8A367681F1E66F589840DE7DF+++8828EC8" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "4747BBEC-4D1B-4F43-9244-93B25699E4E2",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "A491FEC3504CACA8A367681F1E66F589840DE7DF+++7B8AE4E" : "",
+    "A491FEC3504CACA8A367681F1E66F589840DE7DF+++8828EC8" : "GitHubAwards"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "GitHubAwards",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "GitHubAwards.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/nunogoncalves\/iOS-GitHubAwards.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A491FEC3504CACA8A367681F1E66F589840DE7DF+++7B8AE4E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/nunogoncalves\/iOS-GitHubAwards.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A491FEC3504CACA8A367681F1E66F589840DE7DF+++8828EC8"
+    }
+  ]
+}
