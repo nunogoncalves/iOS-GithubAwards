@@ -53,12 +53,8 @@ extension LanguagesController : UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("LanguageCell", forIndexPath: indexPath)
-        let language = languages[indexPath.row];
-
-        cell.textLabel?.text = language
-        
-        cell.imageView?.image = LanguageImage.loadFor(language)
+        let cell = tableView.dequeueReusableCellWithIdentifier("LanguageCell", forIndexPath: indexPath) as! LanguageCell
+        cell.language = languages[indexPath.row]
         return cell
     }
     

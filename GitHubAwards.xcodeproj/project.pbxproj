@@ -32,6 +32,7 @@
 		856A72E31C122C1E008415A4 /* css.png in Resources */ = {isa = PBXBuildFile; fileRef = 856A72DE1C122C1E008415A4 /* css.png */; };
 		856A72E41C122C1E008415A4 /* objective-c.png in Resources */ = {isa = PBXBuildFile; fileRef = 856A72DF1C122C1E008415A4 /* objective-c.png */; };
 		856A72E51C122C1E008415A4 /* shell.png in Resources */ = {isa = PBXBuildFile; fileRef = 856A72E01C122C1E008415A4 /* shell.png */; };
+		856A72E71C12509F008415A4 /* LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856A72E61C12509F008415A4 /* LanguageCell.swift */; };
 		857C48951C119307000F035C /* LanguageImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C48941C119307000F035C /* LanguageImage.swift */; };
 		857C48991C119FF3000F035C /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 857C48981C119FF3000F035C /* background.png */; };
 		857C489B1C11A041000F035C /* riscas.png in Resources */ = {isa = PBXBuildFile; fileRef = 857C489A1C11A041000F035C /* riscas.png */; };
@@ -113,6 +114,7 @@
 		856A72DE1C122C1E008415A4 /* css.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = css.png; sourceTree = "<group>"; };
 		856A72DF1C122C1E008415A4 /* objective-c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "objective-c.png"; sourceTree = "<group>"; };
 		856A72E01C122C1E008415A4 /* shell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shell.png; sourceTree = "<group>"; };
+		856A72E61C12509F008415A4 /* LanguageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageCell.swift; sourceTree = "<group>"; };
 		857C48941C119307000F035C /* LanguageImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageImage.swift; sourceTree = "<group>"; };
 		857C48981C119FF3000F035C /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		857C489A1C11A041000F035C /* riscas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = riscas.png; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 		858B910B1C085A5700B510B3 /* Custom Cells */ = {
 			isa = PBXGroup;
 			children = (
+				856A72E61C12509F008415A4 /* LanguageCell.swift */,
 				85D321261C022D86001B7C7A /* RankingCell.swift */,
 				85D3211D1C0211C2001B7C7A /* UserCell.swift */,
 			);
@@ -566,6 +569,7 @@
 				853C48E31C09A35F00373A92 /* CreateUserFromDictionary.swift in Sources */,
 				85D321211C0219C7001B7C7A /* User.swift in Sources */,
 				85D321251C022480001B7C7A /* UserDetailsController.swift in Sources */,
+				856A72E71C12509F008415A4 /* LanguageCell.swift in Sources */,
 				85820F511C0EF4FC0069D085 /* NotifyError.swift in Sources */,
 				8599284C1C0D9436000ABE8C /* LocationType.swift in Sources */,
 				85198B761C05CE6C007ACC73 /* LanguagesController.swift in Sources */,
