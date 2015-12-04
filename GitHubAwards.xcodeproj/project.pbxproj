@@ -119,14 +119,14 @@
 		857C489C1C11A146000F035C /* img-min.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-min.png"; sourceTree = "<group>"; };
 		85820F3A1C0E2BCE0069D085 /* GithubLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubLoadingView.swift; sourceTree = "<group>"; };
 		85820F3B1C0E2BCE0069D085 /* GithubLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GithubLoadingView.xib; sourceTree = "<group>"; };
-		85820F3F1C0E2C1A0069D085 /* tmp-0.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "tmp-0.gif"; path = "Images/tmp-0.gif"; sourceTree = "<group>"; };
-		85820F401C0E2C1A0069D085 /* tmp-1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "tmp-1.gif"; path = "Images/tmp-1.gif"; sourceTree = "<group>"; };
-		85820F411C0E2C1A0069D085 /* tmp-2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "tmp-2.gif"; path = "Images/tmp-2.gif"; sourceTree = "<group>"; };
-		85820F421C0E2C1A0069D085 /* tmp-3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "tmp-3.gif"; path = "Images/tmp-3.gif"; sourceTree = "<group>"; };
-		85820F431C0E2C1A0069D085 /* tmp-4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "tmp-4.gif"; path = "Images/tmp-4.gif"; sourceTree = "<group>"; };
-		85820F441C0E2C1A0069D085 /* tmp-5.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "tmp-5.gif"; path = "Images/tmp-5.gif"; sourceTree = "<group>"; };
-		85820F451C0E2C1A0069D085 /* tmp-6.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "tmp-6.gif"; path = "Images/tmp-6.gif"; sourceTree = "<group>"; };
-		85820F461C0E2C1A0069D085 /* tmp-7.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "tmp-7.gif"; path = "Images/tmp-7.gif"; sourceTree = "<group>"; };
+		85820F3F1C0E2C1A0069D085 /* tmp-0.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "tmp-0.gif"; sourceTree = "<group>"; };
+		85820F401C0E2C1A0069D085 /* tmp-1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "tmp-1.gif"; sourceTree = "<group>"; };
+		85820F411C0E2C1A0069D085 /* tmp-2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "tmp-2.gif"; sourceTree = "<group>"; };
+		85820F421C0E2C1A0069D085 /* tmp-3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "tmp-3.gif"; sourceTree = "<group>"; };
+		85820F431C0E2C1A0069D085 /* tmp-4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "tmp-4.gif"; sourceTree = "<group>"; };
+		85820F441C0E2C1A0069D085 /* tmp-5.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "tmp-5.gif"; sourceTree = "<group>"; };
+		85820F451C0E2C1A0069D085 /* tmp-6.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "tmp-6.gif"; sourceTree = "<group>"; };
+		85820F461C0E2C1A0069D085 /* tmp-7.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "tmp-7.gif"; sourceTree = "<group>"; };
 		85820F501C0EF4FC0069D085 /* NotifyError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifyError.swift; sourceTree = "<group>"; };
 		858B91101C085B1600B510B3 /* GetUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUsers.swift; sourceTree = "<group>"; };
 		858B91121C085B4C00B510B3 /* SearchOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchOptions.swift; sourceTree = "<group>"; };
@@ -197,7 +197,7 @@
 				853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */,
 				853C48E21C09A35F00373A92 /* CreateUserFromDictionary.swift */,
 			);
-			name = DictionaryModelMappers;
+			path = DictionaryModelMappers;
 			sourceTree = "<group>";
 		};
 		85820F391C0E2B900069D085 /* CustomViews */ = {
@@ -210,29 +210,29 @@
 				85B501841C10FD8400BBFD56 /* LanguageTitleView.swift */,
 				85B501821C10FCC300BBFD56 /* LanguageTitleView.xib */,
 			);
-			name = CustomViews;
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		85820F3E1C0E2BDE0069D085 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				850485341C104AE8004D952A /* GenericLanguage.png */,
 				857C48981C119FF3000F035C /* background.png */,
-				857C489C1C11A146000F035C /* img-min.png */,
-				857C489A1C11A041000F035C /* riscas.png */,
 				8504853C1C104C2B004D952A /* c#.png */,
-				856A72DC1C122C1E008415A4 /* c.png */,
 				856A72DD1C122C1E008415A4 /* c++.png */,
+				856A72DC1C122C1E008415A4 /* c.png */,
 				856A72DE1C122C1E008415A4 /* css.png */,
-				856A72DF1C122C1E008415A4 /* objective-c.png */,
-				856A72E01C122C1E008415A4 /* shell.png */,
 				8504853D1C104C2B004D952A /* go.png */,
+				857C489C1C11A146000F035C /* img-min.png */,
+				850485351C104AE8004D952A /* java.png */,
+				850485361C104AE8004D952A /* javascript.png */,
+				856A72DF1C122C1E008415A4 /* objective-c.png */,
 				8504853E1C104C2B004D952A /* pearl.png */,
 				8504853F1C104C2B004D952A /* php.png */,
 				850485401C104C2B004D952A /* python.png */,
+				857C489A1C11A041000F035C /* riscas.png */,
 				850485411C104C2B004D952A /* ruby.png */,
-				850485341C104AE8004D952A /* GenericLanguage.png */,
-				850485351C104AE8004D952A /* java.png */,
-				850485361C104AE8004D952A /* javascript.png */,
+				856A72E01C122C1E008415A4 /* shell.png */,
 				850485371C104AE8004D952A /* swift.png */,
 				85820F3F1C0E2C1A0069D085 /* tmp-0.gif */,
 				85820F401C0E2C1A0069D085 /* tmp-1.gif */,
@@ -243,7 +243,7 @@
 				85820F451C0E2C1A0069D085 /* tmp-6.gif */,
 				85820F461C0E2C1A0069D085 /* tmp-7.gif */,
 			);
-			name = Images;
+			path = Images;
 			sourceTree = "<group>";
 		};
 		85820F4F1C0EF4ED0069D085 /* Notifications */ = {
@@ -251,7 +251,7 @@
 			children = (
 				85820F501C0EF4FC0069D085 /* NotifyError.swift */,
 			);
-			name = Notifications;
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 		858B91091C0859F900B510B3 /* Supporting Files */ = {
@@ -292,8 +292,8 @@
 		858B910D1C085AC700B510B3 /* Use Cases */ = {
 			isa = PBXGroup;
 			children = (
-				85820F4F1C0EF4ED0069D085 /* Notifications */,
 				853C48DB1C09218800373A92 /* DictionaryModelMappers */,
+				85820F4F1C0EF4ED0069D085 /* Notifications */,
 				858B910F1C085B0800B510B3 /* Users */,
 			);
 			path = "Use Cases";
@@ -313,18 +313,18 @@
 			children = (
 				859928501C0DAB23000ABE8C /* String.swift */,
 			);
-			name = Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		85AFEC1C1C046898006FC129 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				857C48941C119307000F035C /* LanguageImage.swift */,
+				8599284B1C0D9436000ABE8C /* LocationType.swift */,
 				853C48DC1C0921AF00373A92 /* Paginator.swift */,
 				85AFEC1E1C0468CB006FC129 /* Ranking.swift */,
 				858B91121C085B4C00B510B3 /* SearchOptions.swift */,
 				85D321201C0219C7001B7C7A /* User.swift */,
-				8599284B1C0D9436000ABE8C /* LocationType.swift */,
-				857C48941C119307000F035C /* LanguageImage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -373,8 +373,8 @@
 				858B910A1C085A3300B510B3 /* Resources */,
 				858B91091C0859F900B510B3 /* Supporting Files */,
 				858B910D1C085AC700B510B3 /* Use Cases */,
-				85D320F31C02062E001B7C7A /* Main.storyboard */,
 				85D320F81C02062E001B7C7A /* LaunchScreen.storyboard */,
+				85D320F31C02062E001B7C7A /* Main.storyboard */,
 			);
 			path = GitHubAwards;
 			sourceTree = "<group>";
@@ -382,10 +382,10 @@
 		85D321031C02062E001B7C7A /* GitHubAwardsTests */ = {
 			isa = PBXGroup;
 			children = (
-				8599284D1C0D9579000ABE8C /* LocationTypeTests.swift */,
 				85D321041C02062E001B7C7A /* GitHubAwardsTests.swift */,
-				858B91141C085E6400B510B3 /* SearchOptionsTests.swift */,
 				85D321061C02062E001B7C7A /* Info.plist */,
+				8599284D1C0D9579000ABE8C /* LocationTypeTests.swift */,
+				858B91141C085E6400B510B3 /* SearchOptionsTests.swift */,
 			);
 			path = GitHubAwardsTests;
 			sourceTree = "<group>";
@@ -636,7 +636,7 @@
 				85D320F91C02062E001B7C7A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			path = "Supporting Files/.";
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
