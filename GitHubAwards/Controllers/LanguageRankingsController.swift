@@ -42,11 +42,15 @@ class LanguageRankingsController: UIViewController {
 
     var selectedIndex = -1
     
-    var language = "JavaScript" {
+    var language: String? {
         didSet {
-            navigationItem.title = language
+            let lang = language ?? ""
+            userSearchOptions.language = lang
+            languageTitleView.language = lang
         }
     }
+    
+    let languageTitleView = LanguageTitleView(frame: CGRectMake(0.0, 0.0, 120.0, 40.0))
     
     let userSearchOptions = SearchOptions()
     var userSearcher: GetUsers!
@@ -64,9 +68,16 @@ class LanguageRankingsController: UIViewController {
         
         setUpRefreshControl()
 
-        userSearchOptions.language = language
         userSearcher = GetUsers(searchOptions: userSearchOptions)
         searchUsers()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.titleView = languageTitleView;
+    }
+    
+    private func setNavigationTitle() {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

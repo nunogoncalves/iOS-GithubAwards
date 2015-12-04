@@ -31,12 +31,10 @@ extension LanguagesController : UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("LanguageCell", forIndexPath: indexPath)
         let language = languages[indexPath.row];
+
         cell.textLabel?.text = language
-        var langImage = UIImage(named: "\(language.lowercaseString).png")
-        if (langImage == nil) {
-            langImage = UIImage(named: "GenericLanguage.png")
-        }
-        cell.imageView?.image = langImage!
+        
+        cell.imageView?.image = LanguageImage.loadFor(language)
         return cell
     }
     

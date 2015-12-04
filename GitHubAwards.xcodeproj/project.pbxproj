@@ -27,6 +27,7 @@
 		853C48DF1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */; };
 		853C48E11C09A28400373A92 /* SearchUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48E01C09A28400373A92 /* SearchUser.swift */; };
 		853C48E31C09A35F00373A92 /* CreateUserFromDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48E21C09A35F00373A92 /* CreateUserFromDictionary.swift */; };
+		857C48951C119307000F035C /* LanguageImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C48941C119307000F035C /* LanguageImage.swift */; };
 		85820F3C1C0E2BCE0069D085 /* GithubLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85820F3A1C0E2BCE0069D085 /* GithubLoadingView.swift */; };
 		85820F3D1C0E2BCE0069D085 /* GithubLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85820F3B1C0E2BCE0069D085 /* GithubLoadingView.xib */; };
 		85820F471C0E2C1A0069D085 /* tmp-0.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85820F3F1C0E2C1A0069D085 /* tmp-0.gif */; };
@@ -45,6 +46,8 @@
 		8599284E1C0D9579000ABE8C /* LocationTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8599284D1C0D9579000ABE8C /* LocationTypeTests.swift */; };
 		859928511C0DAB23000ABE8C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859928501C0DAB23000ABE8C /* String.swift */; };
 		85AFEC1F1C0468CB006FC129 /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AFEC1E1C0468CB006FC129 /* Ranking.swift */; };
+		85B501831C10FCC300BBFD56 /* LanguageTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85B501821C10FCC300BBFD56 /* LanguageTitleView.xib */; };
+		85B501851C10FD8400BBFD56 /* LanguageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B501841C10FD8400BBFD56 /* LanguageTitleView.swift */; };
 		85D320F01C02062E001B7C7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D320EF1C02062E001B7C7A /* AppDelegate.swift */; };
 		85D320F21C02062E001B7C7A /* LanguageRankingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D320F11C02062E001B7C7A /* LanguageRankingsController.swift */; };
 		85D320F51C02062E001B7C7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85D320F31C02062E001B7C7A /* Main.storyboard */; };
@@ -97,6 +100,7 @@
 		853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertUsersDictionaryToUsers.swift; sourceTree = "<group>"; };
 		853C48E01C09A28400373A92 /* SearchUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUser.swift; sourceTree = "<group>"; };
 		853C48E21C09A35F00373A92 /* CreateUserFromDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserFromDictionary.swift; sourceTree = "<group>"; };
+		857C48941C119307000F035C /* LanguageImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageImage.swift; sourceTree = "<group>"; };
 		85820F3A1C0E2BCE0069D085 /* GithubLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubLoadingView.swift; sourceTree = "<group>"; };
 		85820F3B1C0E2BCE0069D085 /* GithubLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GithubLoadingView.xib; sourceTree = "<group>"; };
 		85820F3F1C0E2C1A0069D085 /* tmp-0.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "tmp-0.gif"; path = "Images/tmp-0.gif"; sourceTree = "<group>"; };
@@ -115,6 +119,8 @@
 		8599284D1C0D9579000ABE8C /* LocationTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTypeTests.swift; sourceTree = "<group>"; };
 		859928501C0DAB23000ABE8C /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		85AFEC1E1C0468CB006FC129 /* Ranking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
+		85B501821C10FCC300BBFD56 /* LanguageTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageTitleView.xib; sourceTree = "<group>"; };
+		85B501841C10FD8400BBFD56 /* LanguageTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageTitleView.swift; sourceTree = "<group>"; };
 		85D320EC1C02062E001B7C7A /* GitHubAwards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubAwards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85D320EF1C02062E001B7C7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85D320F11C02062E001B7C7A /* LanguageRankingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageRankingsController.swift; sourceTree = "<group>"; };
@@ -185,6 +191,8 @@
 				850485321C0FB11A004D952A /* AlertView.xib */,
 				85820F3A1C0E2BCE0069D085 /* GithubLoadingView.swift */,
 				85820F3B1C0E2BCE0069D085 /* GithubLoadingView.xib */,
+				85B501821C10FCC300BBFD56 /* LanguageTitleView.xib */,
+				85B501841C10FD8400BBFD56 /* LanguageTitleView.swift */,
 			);
 			name = CustomViews;
 			sourceTree = "<group>";
@@ -293,6 +301,7 @@
 				858B91121C085B4C00B510B3 /* SearchOptions.swift */,
 				85D321201C0219C7001B7C7A /* User.swift */,
 				8599284B1C0D9436000ABE8C /* LocationType.swift */,
+				857C48941C119307000F035C /* LanguageImage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -477,6 +486,7 @@
 				85820F3D1C0E2BCE0069D085 /* GithubLoadingView.xib in Resources */,
 				850485431C104C2B004D952A /* go.png in Resources */,
 				850485451C104C2B004D952A /* php.png in Resources */,
+				85B501831C10FCC300BBFD56 /* LanguageTitleView.xib in Resources */,
 				85820F4D1C0E2C1A0069D085 /* tmp-6.gif in Resources */,
 				85820F4C1C0E2C1A0069D085 /* tmp-5.gif in Resources */,
 				850485471C104C2B004D952A /* ruby.png in Resources */,
@@ -532,10 +542,12 @@
 				85D321231C0222F4001B7C7A /* ImageLoader.swift in Sources */,
 				85D320F01C02062E001B7C7A /* AppDelegate.swift in Sources */,
 				851D3C381C09134600870813 /* NetworkRequester.swift in Sources */,
+				857C48951C119307000F035C /* LanguageImage.swift in Sources */,
 				851D3C3A1C0913E900870813 /* NetworkResponse.swift in Sources */,
 				85D3211E1C0211C2001B7C7A /* UserCell.swift in Sources */,
 				85AFEC1F1C0468CB006FC129 /* Ranking.swift in Sources */,
 				850485311C0FB10C004D952A /* AlertView.swift in Sources */,
+				85B501851C10FD8400BBFD56 /* LanguageTitleView.swift in Sources */,
 				853C48DF1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift in Sources */,
 				85D321271C022D86001B7C7A /* RankingCell.swift in Sources */,
 				858B91111C085B1600B510B3 /* GetUsers.swift in Sources */,
