@@ -72,6 +72,8 @@ class LanguageRankingsController: UIViewController {
         searchUsers()
     }
     
+//    http://stackoverflow.com/questions/21429346/ios-splash-screen-animation
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.titleView = languageTitleView;
@@ -99,7 +101,7 @@ class LanguageRankingsController: UIViewController {
             self?.stopLoadingIndicator()
             }, failure: { [weak self] in
                 self?.stopLoadingIndicator()
-                AlertError.alertError()
+                NotifyError.display()
             })
     }
     

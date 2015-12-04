@@ -24,7 +24,8 @@ class AlertView: UIView {
     }
     
     func commontInit() {
-        view = loadViewFromNib()
+        loadViewFromNib()
+        
         view.layoutIfNeeded()
         blurView.layoutIfNeeded()
         view.frame = bounds
@@ -33,25 +34,14 @@ class AlertView: UIView {
         let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .Light)) as UIVisualEffectView
         visualEffectView.frame = bounds
         visualEffectView.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
-        visualEffectView.frame = CGRectMake(0, 0, view.frame.width, view.frame.height)
+        visualEffectView.frame = CGRectMake(0, 0, blurView.frame.width, blurView.frame.height)
         
         blurView.addSubview(visualEffectView)
-        
-        print(view.frame)
-        print(blurView.frame)
-        print(visualEffectView.frame)
-        
-        view.layoutIfNeeded()
-        blurView.layoutIfNeeded()
-        layoutIfNeeded()
     }
     
-    private func loadViewFromNib() -> UIView {
-        let bundle = NSBundle(forClass: self.dynamicType)
-        let nib = UINib(nibName: "AlertView", bundle: bundle)
-        
-        let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
-        return view
+    private func loadViewFromNib() {
+        NSBundle.mainBundle().loadNibNamed("AlertView", owner: self, options: nil)
+        addSubview(view)
     }
     
 }
