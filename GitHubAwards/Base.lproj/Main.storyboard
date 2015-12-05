@@ -21,11 +21,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jDn-g3-b3A">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="mka-yx-wL4">
+                                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="AAR-44-pJD">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="gza-o9-9bA" id="tVL-nW-hPm"/>
+                                            </connections>
+                                        </searchBar>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.18823529410000001" green="0.71372549019999998" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="AAR-44-pJD" secondAttribute="trailing" id="kHx-FU-WV1"/>
+                                        <constraint firstItem="AAR-44-pJD" firstAttribute="top" secondItem="mka-yx-wL4" secondAttribute="top" id="ofa-JD-sai"/>
+                                        <constraint firstAttribute="bottom" secondItem="AAR-44-pJD" secondAttribute="bottom" id="wGx-jL-ReT"/>
+                                        <constraint firstItem="AAR-44-pJD" firstAttribute="leading" secondItem="mka-yx-wL4" secondAttribute="leading" id="zsK-ws-caS"/>
+                                    </constraints>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LanguageCell" rowHeight="60" id="1xN-Qi-pZb" customClass="LanguageCell" customModule="GitHubAwards" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="65" width="320" height="60"/>
+                                        <rect key="frame" x="0.0" y="109" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1xN-Qi-pZb" id="Qdl-P5-WI9">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
@@ -75,7 +95,7 @@
                             <constraint firstAttribute="trailing" secondItem="jDn-g3-b3A" secondAttribute="trailing" id="PZQ-v4-4D3"/>
                             <constraint firstItem="jDn-g3-b3A" firstAttribute="top" secondItem="Jq3-3W-WTg" secondAttribute="top" id="dIY-Gj-9Jk"/>
                             <constraint firstItem="jDn-g3-b3A" firstAttribute="leading" secondItem="Jq3-3W-WTg" secondAttribute="leading" id="hut-O1-4be"/>
-                            <constraint firstItem="jDn-g3-b3A" firstAttribute="bottom" secondItem="2XL-SE-Yyp" secondAttribute="top" id="trk-SR-X8u"/>
+                            <constraint firstItem="jDn-g3-b3A" firstAttribute="bottom" secondItem="2XL-SE-Yyp" secondAttribute="top" constant="49" id="trk-SR-X8u"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Languages" id="HCk-6x-duK"/>

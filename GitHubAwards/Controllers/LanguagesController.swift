@@ -37,11 +37,17 @@ class LanguagesController: UIViewController {
         "VimL","Visual Basic","Volt","WebIDL","XC","XML","XProc","XQuery","XSLT","Xojo","Xtend",
         "Zephir", "Zimpl","eC","nesC","ooc","wisp","xBase"
     ]
+    
+    var displayingLanguages = [String]()
   
+    override func viewDidLoad() {
+        displayingLanguages = languages
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "GoToLanguageRankings" {
             let vc = segue.destinationViewController as! LanguageRankingsController
-            vc.language = languages[languagesTable.indexPathForSelectedRow!.row]
+            vc.language = displayingLanguages[languagesTable.indexPathForSelectedRow!.row]
         }
     }
 }
@@ -49,13 +55,25 @@ class LanguagesController: UIViewController {
 extension LanguagesController : UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return languages.count
+        return displayingLanguages.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("LanguageCell", forIndexPath: indexPath) as! LanguageCell
-        cell.language = languages[indexPath.row]
+        cell.language = displayingLanguages[indexPath.row]
         return cell
     }
-    
+}
+
+extension LanguagesController : UISearchBarDelegate {
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == "" {
+            displayingLanguages = languages
+        } else {
+            let resultPredicate = NSPredicate(format: "self contains[c] %@", searchText)
+            displayingLanguages = languages.filter { resultPredicate.evaluateWithObject($0) }
+        }
+       
+        languagesTable.reloadData()
+    }
 }

@@ -20,9 +20,4 @@ class LanguageCell: UITableViewCell {
             languageImageView.image = LanguageImage.loadFor(lang)
         }
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
 }

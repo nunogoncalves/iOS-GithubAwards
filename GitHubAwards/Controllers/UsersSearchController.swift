@@ -23,10 +23,8 @@ class UsersSearchController: UIViewController {
         GetUsers(searchOptions: searchOptions).fetch(success: { [weak self] usersResult in
             self?.users = usersResult
             self?.usersTable.reloadData()
-            }, failure: { [weak self] in
-                let alert = UIAlertController(title: "Error", message: "Error loading users", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Cancel, handler: nil))
-                self?.presentViewController(alert, animated: true, completion: nil)
+            }, failure: { _ in
+                NotifyError.display()
         })
     }
     
