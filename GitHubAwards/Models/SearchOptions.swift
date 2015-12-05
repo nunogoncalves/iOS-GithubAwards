@@ -11,9 +11,8 @@ class SearchOptions {
     var language = "JavaScript"
     var location = "San Francisco"
     var locationType = LocationType.World
-//    private let locationTypes = ["city", "country", "world"]
     
-    var page = 0
+    var page = 1
     
     func urlEncoded() -> String {
         return "\(buildLanguage())\(buildLocation())\(buildType())\(buildPage())"
@@ -27,7 +26,7 @@ class SearchOptions {
     private func buildLocation() -> String {
         let type = getRealType()
         if type == "world" { return "" }
-        return "&\(type)=\(location)"
+        return "&\(type)=\(location.lowercaseString)"
     }
     
     private func buildType() -> String {

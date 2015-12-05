@@ -69,6 +69,9 @@
 		85D321231C0222F4001B7C7A /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D321221C0222F4001B7C7A /* ImageLoader.swift */; };
 		85D321251C022480001B7C7A /* UserDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D321241C022480001B7C7A /* UserDetailsController.swift */; };
 		85D321271C022D86001B7C7A /* RankingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D321261C022D86001B7C7A /* RankingCell.swift */; };
+		85E6566B1C134B4E00BB4278 /* UsersListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E6566A1C134B4E00BB4278 /* UsersListResponse.swift */; };
+		85E6566D1C134C7000BB4278 /* PaginatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E6566C1C134C7000BB4278 /* PaginatorTests.swift */; };
+		85E6566F1C1352C600BB4278 /* PaginaTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E6566E1C1352C600BB4278 /* PaginaTable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +160,9 @@
 		85D321221C0222F4001B7C7A /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		85D321241C022480001B7C7A /* UserDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailsController.swift; sourceTree = "<group>"; };
 		85D321261C022D86001B7C7A /* RankingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingCell.swift; sourceTree = "<group>"; };
+		85E6566A1C134B4E00BB4278 /* UsersListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersListResponse.swift; sourceTree = "<group>"; };
+		85E6566C1C134C7000BB4278 /* PaginatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginatorTests.swift; sourceTree = "<group>"; };
+		85E6566E1C1352C600BB4278 /* PaginaTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginaTable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +217,7 @@
 				85820F3B1C0E2BCE0069D085 /* GithubLoadingView.xib */,
 				85B501841C10FD8400BBFD56 /* LanguageTitleView.swift */,
 				85B501821C10FCC300BBFD56 /* LanguageTitleView.xib */,
+				85E6566E1C1352C600BB4278 /* PaginaTable.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -328,6 +335,7 @@
 				85AFEC1E1C0468CB006FC129 /* Ranking.swift */,
 				858B91121C085B4C00B510B3 /* SearchOptions.swift */,
 				85D321201C0219C7001B7C7A /* User.swift */,
+				85E6566A1C134B4E00BB4278 /* UsersListResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -386,9 +394,10 @@
 			isa = PBXGroup;
 			children = (
 				85D321041C02062E001B7C7A /* GitHubAwardsTests.swift */,
-				85D321061C02062E001B7C7A /* Info.plist */,
 				8599284D1C0D9579000ABE8C /* LocationTypeTests.swift */,
+				85E6566C1C134C7000BB4278 /* PaginatorTests.swift */,
 				858B91141C085E6400B510B3 /* SearchOptionsTests.swift */,
+				85D321061C02062E001B7C7A /* Info.plist */,
 			);
 			path = GitHubAwardsTests;
 			sourceTree = "<group>";
@@ -570,6 +579,7 @@
 				85D321211C0219C7001B7C7A /* User.swift in Sources */,
 				85D321251C022480001B7C7A /* UserDetailsController.swift in Sources */,
 				856A72E71C12509F008415A4 /* LanguageCell.swift in Sources */,
+				85E6566F1C1352C600BB4278 /* PaginaTable.swift in Sources */,
 				85820F511C0EF4FC0069D085 /* NotifyError.swift in Sources */,
 				8599284C1C0D9436000ABE8C /* LocationType.swift in Sources */,
 				85198B761C05CE6C007ACC73 /* LanguagesController.swift in Sources */,
@@ -585,6 +595,7 @@
 				850485311C0FB10C004D952A /* AlertView.swift in Sources */,
 				85B501851C10FD8400BBFD56 /* LanguageTitleView.swift in Sources */,
 				853C48DF1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift in Sources */,
+				85E6566B1C134B4E00BB4278 /* UsersListResponse.swift in Sources */,
 				85D321271C022D86001B7C7A /* RankingCell.swift in Sources */,
 				858B91111C085B1600B510B3 /* GetUsers.swift in Sources */,
 				853C48DD1C0921AF00373A92 /* Paginator.swift in Sources */,
@@ -598,6 +609,7 @@
 				8599284E1C0D9579000ABE8C /* LocationTypeTests.swift in Sources */,
 				858B91151C085E6400B510B3 /* SearchOptionsTests.swift in Sources */,
 				85D321051C02062E001B7C7A /* GitHubAwardsTests.swift in Sources */,
+				85E6566D1C134C7000BB4278 /* PaginatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,7 +21,7 @@ class UsersSearchController: UIViewController {
         searchOptions.location = "Lisbon"
         searchOptions.locationType = .City
         GetUsers(searchOptions: searchOptions).fetch(success: { [weak self] usersResult in
-            self?.users = usersResult
+            self?.users = usersResult.users
             self?.usersTable.reloadData()
             }, failure: { _ in
                 NotifyError.display()

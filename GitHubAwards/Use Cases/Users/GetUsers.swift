@@ -18,8 +18,9 @@ class GetUsers {
         self.searchOptions = searchOptions
     }
     
-    func fetch(success success: [User] -> (), failure: () -> ()) {
+    func fetch(success success: UsersListResponse -> (), failure: () -> ()) {
         let url = "\(baseUrl)/?\(searchOptions.urlEncoded())"
+        print(url)
 
         let qos = Int(QOS_CLASS_USER_INTERACTIVE.rawValue)
         dispatch_async(dispatch_get_global_queue(qos, 0)) {
@@ -29,14 +30,13 @@ class GetUsers {
                 dispatch_async(dispatch_get_main_queue()) {
                     failure()
                 }
-                print("failure in get users")
             }
             responseHandler.successCallback = { data in
-                let paginator = Paginator(dictionary: data).currentPage
-                paginator
+                let paginator = Paginator(dictionary: data)
                 let users = ConvertUsersDictionaryToUsers(data: data).users
+                let usersResponse = UsersListResponse(users: users, paginator: paginator)
                 dispatch_async(dispatch_get_main_queue()) {
-                    success(users)
+                    success(usersResponse)
                 }
             }
             NetworkRequester.makeGet(url, networdResponseHandler: responseHandler)

@@ -10,7 +10,7 @@ import UIKit
 
 class LanguageRankingsController: UIViewController {
 
-    @IBOutlet weak var usersTable: UITableView!
+    @IBOutlet weak var usersTable: PaginaTable!
     @IBOutlet weak var searchContainer: UIView!
 
     @IBOutlet weak var tableTopConstraint: NSLayoutConstraint!
@@ -55,6 +55,10 @@ class LanguageRankingsController: UIViewController {
     let userSearchOptions = SearchOptions()
     var userSearcher: GetUsers!
     
+    var latestUserResponse: UsersListResponse?
+    
+    var isSearching = false
+    
     var loadingView: GithubLoadingView!
     var refreshControl: UIRefreshControl!
     
@@ -92,17 +96,35 @@ class LanguageRankingsController: UIViewController {
     }
     
     func searchUsers() {
+        isSearching = true
         userSearchOptions.locationType = selectedLocationType
         userSearchOptions.location = locationNameTextField.text!
         
-        userSearcher.fetch(success: { [weak self] users in
-            self?.users = users
-            self?.usersTable.reloadData()
-            self?.stopLoadingIndicator()
+        userSearcher.fetch(success: { [weak self] usersResponse in
+            self?.handleUsersResponseSuccess(usersResponse)
             }, failure: { [weak self] in
                 self?.stopLoadingIndicator()
                 NotifyError.display()
             })
+    }
+    
+    private func handleUsersResponseSuccess(usersResponse: UsersListResponse) {
+        isSearching = false
+        latestUserResponse = usersResponse
+        print(usersResponse.users.count)
+        if usersResponse.isFirstPage() {
+            users = usersResponse.users
+        } else {
+            users.appendContentsOf(usersResponse.users)
+        }
+        
+        if usersResponse.isLastPage() {
+            usersTable.hideFooter()
+        } else {
+            usersTable.showFooter()
+        }
+        usersTable.reloadData()
+        stopLoadingIndicator()
     }
     
     
@@ -130,10 +152,30 @@ class LanguageRankingsController: UIViewController {
 
 extension LanguageRankingsController : UITableViewDelegate {
     func scrollViewDidScroll(scrollView: UIScrollView) {
+        searchUsersIfTableReady()
+        updateRefreshControl()
+    }
+    
+    func searchUsersIfTableReady() {
+        if !usersTable.isFooterVisible() {
+            return
+        }
+        
+        if isSearching {
+            return
+        }
+        
+        if latestUserResponse!.hasMoreUsers() {
+            userSearchOptions.page += 1
+            searchUsers()
+        }
+    }
+    
+    private func updateRefreshControl() {
         if refreshControl.refreshing {
             loadingView.setLoading()
         } else {
-            let y = scrollView.contentOffset.y
+            let y = usersTable.contentOffset.y
             let perc = y * 100 / 220
             loadingView.setStaticWith(Int(abs(perc)), offset: y)
         }

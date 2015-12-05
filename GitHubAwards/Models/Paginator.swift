@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Paginator {
+struct Paginator {
     
     let currentPage: Int
     let totalPages: Int
@@ -18,6 +18,18 @@ class Paginator {
         currentPage = dictionary["page"] as! Int
         totalPages = dictionary["total_pages"] as! Int
         totalCount = dictionary["total_count"] as! Int
+    }
+    
+    func isFirstPage() -> Bool {
+        return currentPage == 1
+    }
+    
+    func isLastPage() -> Bool {
+        return currentPage >= totalPages
+    }
+    
+    func hasMorePages() -> Bool {
+        return !isLastPage()
     }
     
 }

@@ -24,37 +24,37 @@ class SearchOptionsTests: XCTestCase {
     }
     
     func testNoLanguageNorLocation() {
-        let expected = "language=JavaScript&type=world"
+        let expected = "language=javascript&type=world"
         let got = searchOptions.urlEncoded()
-        assert(expected == got, "Expected \(expected), got \(got)")
+        XCTAssertEqual(expected, got, "Expected \(expected), got \(got)")
     }
     
     func testLanguage() {
         searchOptions.language = "Swift"
-        let expected = "language=Swift&type=world"
+        let expected = "language=swift&type=world"
         let got = searchOptions.urlEncoded()
-        assert(expected == got, "Expected \(expected), got \(got)")
+        XCTAssertEqual(expected, got, "Expected \(expected), got \(got)")
     }
     
     func testNoCity() {
-        let expected = "language=JavaScript&type=world"
+        let expected = "language=javascript&type=world"
         let got = searchOptions.urlEncoded()
-        assert(expected == got, "Expected \(expected), got \(got)")
+        XCTAssertEqual(expected, got, "Expected \(expected), got \(got)")
     }
     
     func testCity() {
         searchOptions.locationType = .City
         searchOptions.location = "Lisbon"
-        let expected = "language=JavaScript&city=Lisbon&type=city"
+        let expected = "language=javascript&city=lisbon&type=city"
         let got = searchOptions.urlEncoded()
-        assert(expected == got, "Expected \(expected), got \(got)")
+        XCTAssertEqual(expected, got, "Expected \(expected), got \(got)")
     }
     
     func testNoCountry() {
         searchOptions.locationType = .Country
-        let expected = "language=JavaScript&country=San Francisco&type=country"
+        let expected = "language=javascript&country=san francisco&type=country"
         let got = searchOptions.urlEncoded()
-        assert(expected == got, "Expected \(expected), got \(got)")
+        XCTAssertEqual(expected, got, "Expected \(expected), got \(got)")
     }
     
     func testCountry() {
@@ -62,17 +62,17 @@ class SearchOptionsTests: XCTestCase {
         searchOptions.locationType = .Country
         searchOptions.location = "Portugal"
         
-        let expected = "language=Swift&country=Portugal&type=country"
+        let expected = "language=swift&country=portugal&type=country"
         let got = searchOptions.urlEncoded()
-        assert(expected == got, "Expected \(expected), got \(got)")
+        XCTAssertEqual(expected, got, "Expected \(expected), got \(got)")
     }
     
     func testPage() {
         searchOptions.page = 3
         
-        let expected = "language=JavaScript&type=world&page=3"
+        let expected = "language=javascript&type=world&page=3"
         let got = searchOptions.urlEncoded()
-        assert(expected == got, "Expected \(expected), got \(got)")
+        XCTAssertEqual(expected, got, "Expected \(expected), got \(got)")
     }
     
     func testPerformanceExample() {
