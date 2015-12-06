@@ -6,13 +6,16 @@
 //  Copyright © 2015 Nuno Gonçalves. All rights reserved.
 //
 
-struct UsersListResponse {
+struct UsersListResponse : Book {
     
     let users: [User]
     let paginator: Paginator
     
+    var data: [AnyObject]
+    
     init(users: [User], paginator: Paginator) {
         self.users = users
+        data = users
         self.paginator = paginator
     }
     

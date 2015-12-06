@@ -14,7 +14,7 @@ struct Paginator {
     let totalPages: Int
     let totalCount: Int
     
-    init(dictionary: NSDictionary) {
+    init(dictionary: NSDictionary = ["page": 1, "total_pages": 1, "total_count": 1]) {
         currentPage = dictionary["page"] as! Int
         totalPages = dictionary["total_pages"] as! Int
         totalCount = dictionary["total_count"] as! Int

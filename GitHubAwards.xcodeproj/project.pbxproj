@@ -72,6 +72,10 @@
 		85E6566B1C134B4E00BB4278 /* UsersListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E6566A1C134B4E00BB4278 /* UsersListResponse.swift */; };
 		85E6566D1C134C7000BB4278 /* PaginatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E6566C1C134C7000BB4278 /* PaginatorTests.swift */; };
 		85E6566F1C1352C600BB4278 /* PaginaTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E6566E1C1352C600BB4278 /* PaginaTable.swift */; };
+		85E656721C139ED100BB4278 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E656711C139ED100BB4278 /* TableViewDataSource.swift */; };
+		85E656741C139F5100BB4278 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E656731C139F5100BB4278 /* Book.swift */; };
+		85E656761C13A23400BB4278 /* LanguageUsersTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E656751C13A23400BB4278 /* LanguageUsersTableDataSource.swift */; };
+		85E656781C13AB8A00BB4278 /* TableStateListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E656771C13AB8A00BB4278 /* TableStateListener.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +167,10 @@
 		85E6566A1C134B4E00BB4278 /* UsersListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersListResponse.swift; sourceTree = "<group>"; };
 		85E6566C1C134C7000BB4278 /* PaginatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginatorTests.swift; sourceTree = "<group>"; };
 		85E6566E1C1352C600BB4278 /* PaginaTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginaTable.swift; sourceTree = "<group>"; };
+		85E656711C139ED100BB4278 /* TableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
+		85E656731C139F5100BB4278 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		85E656751C13A23400BB4278 /* LanguageUsersTableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageUsersTableDataSource.swift; sourceTree = "<group>"; };
+		85E656771C13AB8A00BB4278 /* TableStateListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableStateListener.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -329,13 +337,17 @@
 		85AFEC1C1C046898006FC129 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				85E656731C139F5100BB4278 /* Book.swift */,
 				857C48941C119307000F035C /* LanguageImage.swift */,
 				8599284B1C0D9436000ABE8C /* LocationType.swift */,
 				853C48DC1C0921AF00373A92 /* Paginator.swift */,
 				85AFEC1E1C0468CB006FC129 /* Ranking.swift */,
 				858B91121C085B4C00B510B3 /* SearchOptions.swift */,
+				85E656711C139ED100BB4278 /* TableViewDataSource.swift */,
 				85D321201C0219C7001B7C7A /* User.swift */,
 				85E6566A1C134B4E00BB4278 /* UsersListResponse.swift */,
+				85E656751C13A23400BB4278 /* LanguageUsersTableDataSource.swift */,
+				85E656771C13AB8A00BB4278 /* TableStateListener.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -573,11 +585,14 @@
 			files = (
 				853C48E11C09A28400373A92 /* SearchUser.swift in Sources */,
 				858B91131C085B4C00B510B3 /* SearchOptions.swift in Sources */,
+				85E656781C13AB8A00BB4278 /* TableStateListener.swift in Sources */,
+				85E656721C139ED100BB4278 /* TableViewDataSource.swift in Sources */,
 				85820F3C1C0E2BCE0069D085 /* GithubLoadingView.swift in Sources */,
 				859928511C0DAB23000ABE8C /* String.swift in Sources */,
 				853C48E31C09A35F00373A92 /* CreateUserFromDictionary.swift in Sources */,
 				85D321211C0219C7001B7C7A /* User.swift in Sources */,
 				85D321251C022480001B7C7A /* UserDetailsController.swift in Sources */,
+				85E656741C139F5100BB4278 /* Book.swift in Sources */,
 				856A72E71C12509F008415A4 /* LanguageCell.swift in Sources */,
 				85E6566F1C1352C600BB4278 /* PaginaTable.swift in Sources */,
 				85820F511C0EF4FC0069D085 /* NotifyError.swift in Sources */,
@@ -587,6 +602,7 @@
 				85168C841C0733BA00091553 /* UsersSearchController.swift in Sources */,
 				85D321231C0222F4001B7C7A /* ImageLoader.swift in Sources */,
 				85D320F01C02062E001B7C7A /* AppDelegate.swift in Sources */,
+				85E656761C13A23400BB4278 /* LanguageUsersTableDataSource.swift in Sources */,
 				851D3C381C09134600870813 /* NetworkRequester.swift in Sources */,
 				857C48951C119307000F035C /* LanguageImage.swift in Sources */,
 				851D3C3A1C0913E900870813 /* NetworkResponse.swift in Sources */,

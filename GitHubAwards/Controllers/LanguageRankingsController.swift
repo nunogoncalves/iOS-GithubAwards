@@ -38,10 +38,6 @@ class LanguageRankingsController: UIViewController {
     let locationTypes: [Int : LocationType] = [0 : .City, 1 : .Country, 2 : .World]
     var selectedLocationType = LocationType.World
 
-    var users = [User]()
-
-    var selectedIndex = -1
-    
     var language: String? {
         didSet {
             let lang = language ?? ""
@@ -52,81 +48,45 @@ class LanguageRankingsController: UIViewController {
     
     let languageTitleView = LanguageTitleView(frame: CGRectMake(0.0, 0.0, 120.0, 40.0))
     
+    var usersTableDataSource: LanguageUsersTableDataSource!
     let userSearchOptions = SearchOptions()
-    var userSearcher: GetUsers!
-    
     var latestUserResponse: UsersListResponse?
-    
-    var isSearching = false
     
     var loadingView: GithubLoadingView!
     var refreshControl: UIRefreshControl!
     
-    var isAnimating = false
-    var loadingDuration: NSTimeInterval = 4.0
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         usersTable.delegate = self
-        usersTable.dataSource = self
+        usersTableDataSource = LanguageUsersTableDataSource(searchOptions: userSearchOptions)
+        usersTableDataSource.tableStateListener = self
+        usersTable.dataSource = usersTableDataSource
         
         setUpRefreshControl()
 
-        userSearcher = GetUsers(searchOptions: userSearchOptions)
         searchUsers()
     }
-    
-//    http://stackoverflow.com/questions/21429346/ios-splash-screen-animation
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.titleView = languageTitleView;
     }
     
-    private func setNavigationTitle() {
-    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let selectedIndex = usersTable.indexPathForSelectedRow?.row
+        let selectedIndex = usersTable.indexPathForSelectedRow
 
         if (segue.identifier == "UserDetailsSegue" && selectedIndex != nil) {
             let destVC = segue.destinationViewController as! UserDetailsController
-            destVC.user = users[selectedIndex!]
+            destVC.user = usersTableDataSource.dataForIndexPath(selectedIndex!) as? User
         }
     }
     
     func searchUsers() {
-        isSearching = true
         userSearchOptions.locationType = selectedLocationType
         userSearchOptions.location = locationNameTextField.text!
         
-        userSearcher.fetch(success: { [weak self] usersResponse in
-            self?.handleUsersResponseSuccess(usersResponse)
-            }, failure: { [weak self] in
-                self?.stopLoadingIndicator()
-                NotifyError.display()
-            })
+        usersTableDataSource.searchUsers()
     }
-    
-    private func handleUsersResponseSuccess(usersResponse: UsersListResponse) {
-        isSearching = false
-        latestUserResponse = usersResponse
-        print(usersResponse.users.count)
-        if usersResponse.isFirstPage() {
-            users = usersResponse.users
-        } else {
-            users.appendContentsOf(usersResponse.users)
-        }
-        
-        if usersResponse.isLastPage() {
-            usersTable.hideFooter()
-        } else {
-            usersTable.showFooter()
-        }
-        usersTable.reloadData()
-        stopLoadingIndicator()
-    }
-    
     
     private func setUpRefreshControl() {
         refreshControl = UIRefreshControl()
@@ -161,14 +121,7 @@ extension LanguageRankingsController : UITableViewDelegate {
             return
         }
         
-        if isSearching {
-            return
-        }
-        
-        if latestUserResponse!.hasMoreUsers() {
-            userSearchOptions.page += 1
-            searchUsers()
-        }
+        searchUsers()
     }
     
     private func updateRefreshControl() {
@@ -186,15 +139,19 @@ extension LanguageRankingsController : UITableViewDelegate {
     }
 }
 
-extension LanguageRankingsController : UITableViewDataSource {
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users.count
+extension LanguageRankingsController : TableStateListener {
+    func newDataArrived(paginator: Paginator) {
+        if paginator.isLastPage() {
+            usersTable.hideFooter()
+        } else {
+            usersTable.showFooter()
+        }
+        usersTable.reloadData()
+        stopLoadingIndicator()
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("UserCell", forIndexPath: indexPath) as! UserCell
-        cell.user = users[indexPath.row]
-        return cell
+    func failedToGetData() {
+        stopLoadingIndicator()
+        NotifyError.display()
     }
 }
