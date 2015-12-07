@@ -15,8 +15,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        setUpBarsAppearance()
+       
         return true
+    }
+
+    private func setUpBarsAppearance() {
+        setUpTabsAppearance()
+        setUpNavigationAppearance()
+    }
+    
+    private func setUpTabsAppearance() {
+        UITabBar.appearance().tintColor = .whiteColor()
+        UITabBar.appearance().barTintColor = UIColor.fromHex(K.navAndTabBarsColor)
+    }
+    
+    private func setUpNavigationAppearance() {
+        UINavigationBar.appearance().barTintColor = UIColor.fromHex(K.navAndTabBarsColor)
+        UINavigationBar.appearance().tintColor = .whiteColor()
+        
+        UINavigationBar.appearance().titleTextAttributes = [
+            NSForegroundColorAttributeName : UIColor.whiteColor(),
+        ]
+
     }
 
     func applicationWillResignActive(application: UIApplication) {}

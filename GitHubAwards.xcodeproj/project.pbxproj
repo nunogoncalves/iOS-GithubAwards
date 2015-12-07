@@ -19,6 +19,10 @@
 		850485451C104C2B004D952A /* php.png in Resources */ = {isa = PBXBuildFile; fileRef = 8504853F1C104C2B004D952A /* php.png */; };
 		850485461C104C2B004D952A /* python.png in Resources */ = {isa = PBXBuildFile; fileRef = 850485401C104C2B004D952A /* python.png */; };
 		850485471C104C2B004D952A /* ruby.png in Resources */ = {isa = PBXBuildFile; fileRef = 850485411C104C2B004D952A /* ruby.png */; };
+		8508B7671C1593230024684F /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 8508B7641C1593230024684F /* 3.png */; };
+		8508B7681C1593230024684F /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8508B7651C1593230024684F /* 2.png */; };
+		8508B7691C1593230024684F /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8508B7661C1593230024684F /* 1.png */; };
+		8508B76B1C1593D40024684F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8508B76A1C1593D40024684F /* UIColor.swift */; };
 		85168C841C0733BA00091553 /* UsersSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85168C831C0733BA00091553 /* UsersSearchController.swift */; };
 		85198B761C05CE6C007ACC73 /* LanguagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85198B751C05CE6C007ACC73 /* LanguagesController.swift */; };
 		851D3C381C09134600870813 /* NetworkRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D3C371C09134600870813 /* NetworkRequester.swift */; };
@@ -76,6 +80,8 @@
 		85E656741C139F5100BB4278 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E656731C139F5100BB4278 /* Book.swift */; };
 		85E656761C13A23400BB4278 /* LanguageUsersTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E656751C13A23400BB4278 /* LanguageUsersTableDataSource.swift */; };
 		85E656781C13AB8A00BB4278 /* TableStateListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E656771C13AB8A00BB4278 /* TableStateListener.swift */; };
+		85FA59631C15C5C00097732B /* UserTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59621C15C5C00097732B /* UserTopCell.swift */; };
+		85FA59651C1645B00097732B /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59641C1645B00097732B /* K.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +114,10 @@
 		8504853F1C104C2B004D952A /* php.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = php.png; sourceTree = "<group>"; };
 		850485401C104C2B004D952A /* python.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = python.png; sourceTree = "<group>"; };
 		850485411C104C2B004D952A /* ruby.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ruby.png; sourceTree = "<group>"; };
+		8508B7641C1593230024684F /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		8508B7651C1593230024684F /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		8508B7661C1593230024684F /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		8508B76A1C1593D40024684F /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		85168C831C0733BA00091553 /* UsersSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersSearchController.swift; sourceTree = "<group>"; };
 		85198B751C05CE6C007ACC73 /* LanguagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguagesController.swift; sourceTree = "<group>"; };
 		851D3C371C09134600870813 /* NetworkRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequester.swift; sourceTree = "<group>"; };
@@ -171,6 +181,8 @@
 		85E656731C139F5100BB4278 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		85E656751C13A23400BB4278 /* LanguageUsersTableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageUsersTableDataSource.swift; sourceTree = "<group>"; };
 		85E656771C13AB8A00BB4278 /* TableStateListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableStateListener.swift; sourceTree = "<group>"; };
+		85FA59621C15C5C00097732B /* UserTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTopCell.swift; sourceTree = "<group>"; };
+		85FA59641C1645B00097732B /* K.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +245,9 @@
 		85820F3E1C0E2BDE0069D085 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8508B7641C1593230024684F /* 3.png */,
+				8508B7651C1593230024684F /* 2.png */,
+				8508B7661C1593230024684F /* 1.png */,
 				850485341C104AE8004D952A /* GenericLanguage.png */,
 				857C48981C119FF3000F035C /* background.png */,
 				8504853C1C104C2B004D952A /* c#.png */,
@@ -295,6 +310,7 @@
 				856A72E61C12509F008415A4 /* LanguageCell.swift */,
 				85D321261C022D86001B7C7A /* RankingCell.swift */,
 				85D3211D1C0211C2001B7C7A /* UserCell.swift */,
+				85FA59621C15C5C00097732B /* UserTopCell.swift */,
 			);
 			path = "Custom Cells";
 			sourceTree = "<group>";
@@ -330,6 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				859928501C0DAB23000ABE8C /* String.swift */,
+				8508B76A1C1593D40024684F /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -339,15 +356,16 @@
 			children = (
 				85E656731C139F5100BB4278 /* Book.swift */,
 				857C48941C119307000F035C /* LanguageImage.swift */,
+				85E656751C13A23400BB4278 /* LanguageUsersTableDataSource.swift */,
 				8599284B1C0D9436000ABE8C /* LocationType.swift */,
 				853C48DC1C0921AF00373A92 /* Paginator.swift */,
 				85AFEC1E1C0468CB006FC129 /* Ranking.swift */,
 				858B91121C085B4C00B510B3 /* SearchOptions.swift */,
+				85E656771C13AB8A00BB4278 /* TableStateListener.swift */,
 				85E656711C139ED100BB4278 /* TableViewDataSource.swift */,
 				85D321201C0219C7001B7C7A /* User.swift */,
 				85E6566A1C134B4E00BB4278 /* UsersListResponse.swift */,
-				85E656751C13A23400BB4278 /* LanguageUsersTableDataSource.swift */,
-				85E656771C13AB8A00BB4278 /* TableStateListener.swift */,
+				85FA59641C1645B00097732B /* K.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -527,7 +545,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8508B7671C1593230024684F /* 3.png in Resources */,
 				85D320FA1C02062E001B7C7A /* LaunchScreen.storyboard in Resources */,
+				8508B7681C1593230024684F /* 2.png in Resources */,
 				85D320F71C02062E001B7C7A /* Assets.xcassets in Resources */,
 				85820F4E1C0E2C1A0069D085 /* tmp-7.gif in Resources */,
 				85820F481C0E2C1A0069D085 /* tmp-1.gif in Resources */,
@@ -559,6 +579,7 @@
 				85820F4B1C0E2C1A0069D085 /* tmp-4.gif in Resources */,
 				857C489B1C11A041000F035C /* riscas.png in Resources */,
 				850485381C104AE8004D952A /* GenericLanguage.png in Resources */,
+				8508B7691C1593230024684F /* 1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,12 +605,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				853C48E11C09A28400373A92 /* SearchUser.swift in Sources */,
+				85FA59651C1645B00097732B /* K.swift in Sources */,
 				858B91131C085B4C00B510B3 /* SearchOptions.swift in Sources */,
 				85E656781C13AB8A00BB4278 /* TableStateListener.swift in Sources */,
 				85E656721C139ED100BB4278 /* TableViewDataSource.swift in Sources */,
 				85820F3C1C0E2BCE0069D085 /* GithubLoadingView.swift in Sources */,
 				859928511C0DAB23000ABE8C /* String.swift in Sources */,
 				853C48E31C09A35F00373A92 /* CreateUserFromDictionary.swift in Sources */,
+				8508B76B1C1593D40024684F /* UIColor.swift in Sources */,
 				85D321211C0219C7001B7C7A /* User.swift in Sources */,
 				85D321251C022480001B7C7A /* UserDetailsController.swift in Sources */,
 				85E656741C139F5100BB4278 /* Book.swift in Sources */,
@@ -606,6 +629,7 @@
 				851D3C381C09134600870813 /* NetworkRequester.swift in Sources */,
 				857C48951C119307000F035C /* LanguageImage.swift in Sources */,
 				851D3C3A1C0913E900870813 /* NetworkResponse.swift in Sources */,
+				85FA59631C15C5C00097732B /* UserTopCell.swift in Sources */,
 				85D3211E1C0211C2001B7C7A /* UserCell.swift in Sources */,
 				85AFEC1F1C0468CB006FC129 /* Ranking.swift in Sources */,
 				850485311C0FB10C004D952A /* AlertView.swift in Sources */,
