@@ -30,12 +30,12 @@ class LanguageRankingsController: UIViewController {
     }
     
     @IBAction func searchClicked() {
-        searchUsers()
+        searchUsers(true)
     }
 
     @IBOutlet weak var locationNameTextField: UITextField!
     
-    let locationTypes: [Int : LocationType] = [0 : .City, 1 : .Country, 2 : .World]
+    let locationTypes: [Int : LocationType] = [0 : .World, 1 : .Country, 2 : .City]
     var selectedLocationType = LocationType.World
 
     var language: String? {
@@ -52,9 +52,6 @@ class LanguageRankingsController: UIViewController {
     let userSearchOptions = SearchOptions()
     var latestUserResponse: UsersListResponse?
     
-    var loadingView: GithubLoadingView!
-    var refreshControl: UIRefreshControl!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         usersTable.delegate = self
@@ -62,9 +59,13 @@ class LanguageRankingsController: UIViewController {
         usersTableDataSource.tableStateListener = self
         usersTable.dataSource = usersTableDataSource
         
-        setUpRefreshControl()
-
+        usersTable.addRefreshController(self, action: "searchUsersx")
         searchUsers()
+
+   }
+    
+    func searchUsersx() {
+        print("oi")
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -81,39 +82,26 @@ class LanguageRankingsController: UIViewController {
         }
     }
     
-    func searchUsers() {
+    func searchUsers(reset: Bool = false) {
         userSearchOptions.locationType = selectedLocationType
         userSearchOptions.location = locationNameTextField.text!
         
-        usersTableDataSource.searchUsers()
-    }
-    
-    private func setUpRefreshControl() {
-        refreshControl = UIRefreshControl()
-        refreshControl.backgroundColor = UIColor.clearColor()
-        refreshControl.tintColor = UIColor.clearColor()
-        
-        refreshControl.addTarget(self, action: "searchUsers", forControlEvents:.ValueChanged)
-        
-        addLoadingViewToRefreshControl()
-        addRefreshControl()
-    }
-    
-    private func addLoadingViewToRefreshControl() {
-        loadingView = GithubLoadingView(frame: refreshControl.bounds)
-        refreshControl.addSubview(loadingView.view)
-    }
-    
-    private func addRefreshControl() {
-        usersTable.addSubview(refreshControl)
-        usersTable.layoutIfNeeded()
+        usersTableDataSource.searchUsers(reset)
     }
 }
 
 extension LanguageRankingsController : UITableViewDelegate {
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        searchUsersIfTableReady()
         updateRefreshControl()
+        
+        if usersTable.isRefreshing() {
+            searchUsers(true)
+            return
+        }
+        
+        if usersTableDataSource.hasMoreDataAvailable() {
+            searchUsersIfTableReady()
+        }
     }
     
     func searchUsersIfTableReady() {
@@ -125,27 +113,17 @@ extension LanguageRankingsController : UITableViewDelegate {
     }
     
     private func updateRefreshControl() {
-        if refreshControl.refreshing {
-            loadingView.setLoading()
-        } else {
-            let y = usersTable.contentOffset.y
-            let perc = y * 100 / 220
-            loadingView.setStaticWith(Int(abs(perc)), offset: y)
-        }
+        usersTable.updateRefreshControl()
     }
     
     func stopLoadingIndicator() {
-        refreshControl.endRefreshing()
+        usersTable.stopLoadingIndicator()
     }
 }
 
 extension LanguageRankingsController : TableStateListener {
     func newDataArrived(paginator: Paginator) {
-        if paginator.isLastPage() {
-            usersTable.hideFooter()
-        } else {
-            usersTable.showFooter()
-        }
+        paginator.isLastPage() ? usersTable.hideFooter() : usersTable.showFooter()
         usersTable.reloadData()
         stopLoadingIndicator()
     }

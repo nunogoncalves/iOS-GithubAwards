@@ -31,4 +31,7 @@ struct UsersListResponse : Book {
         return paginator.hasMorePages()
     }
     
+    func hasMorePages() -> Bool {
+        return hasMoreUsers()
+    }
 }
