@@ -27,7 +27,7 @@ class LanguageUsersTableDataSource : NSObject, TableViewDataSource {
     }
     
     func cellIdentifierForIndex(indexPath: NSIndexPath) -> String {
-        return "UserCell"
+        return indexPath.row < 3 ? "TopUserCell" : "UserCell"
     }
     
     func dataForIndexPath(indexPath: NSIndexPath) -> AnyObject {
@@ -39,13 +39,27 @@ class LanguageUsersTableDataSource : NSObject, TableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifierForIndex(indexPath), forIndexPath: indexPath) as! UserCell
-        cell.user = dataForIndexPath(indexPath) as! User
-        return cell
+        if indexPath.row < 3 {
+            let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifierForIndex(indexPath), forIndexPath: indexPath) as! UserTopCell
+            cell.position = indexPath.row + 1
+            cell.user = dataForIndexPath(indexPath) as! User
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifierForIndex(indexPath), forIndexPath: indexPath) as! UserCell
+            cell.position = indexPath.row + 1
+            cell.user = dataForIndexPath(indexPath) as! User
+            return cell
+        }
     }
     
-    func searchUsers() {
+    func searchUsers(reset: Bool = false) {
         if isSearching {
+            return
+        }
+
+        if reset {
+            searchOptions.page = 1
+            reallyFetchUsers()
             return
         }
         
@@ -78,6 +92,10 @@ class LanguageUsersTableDataSource : NSObject, TableViewDataSource {
     
     func failure() {
         tableStateListener?.failedToGetData()
+    }
+    
+    func hasMoreDataAvailable() -> Bool {
+        return book.hasMorePages()
     }
     
 }
