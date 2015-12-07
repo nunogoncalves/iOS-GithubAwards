@@ -11,7 +11,7 @@ class K {
     static let navAndTabBarsColor: UInt = 0x5C43AC
  
     static let firstInRankingColor: UInt = 0x5C43AC
-    static let secondInRankingColor: UInt = 0x5C43AC
-    static let thirdnRankingColor: UInt = 0x5C43AC
+    static let secondInRankingColor: UInt = 0x7C68BC
+    static let thirdInRankingColor: UInt = 0x9D8ECD
     
 }

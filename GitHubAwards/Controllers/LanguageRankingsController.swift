@@ -58,14 +58,21 @@ class LanguageRankingsController: UIViewController {
         usersTableDataSource = LanguageUsersTableDataSource(searchOptions: userSearchOptions)
         usersTableDataSource.tableStateListener = self
         usersTable.dataSource = usersTableDataSource
+        usersTable.hideFooter()
         
-        usersTable.addRefreshController(self, action: "searchUsersx")
-        searchUsers()
-
+        usersTable.addRefreshController(self, action: "freshSearchUsers")
+        freshSearchUsers()
    }
     
-    func searchUsersx() {
-        print("oi")
+    func freshSearchUsers() {
+        searchUsers(true)
+    }
+    
+    func searchUsers(reset: Bool = false) {
+        userSearchOptions.locationType = selectedLocationType
+        userSearchOptions.location = locationNameTextField.text!
+        
+        usersTableDataSource.searchUsers(reset)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -82,15 +89,13 @@ class LanguageRankingsController: UIViewController {
         }
     }
     
-    func searchUsers(reset: Bool = false) {
-        userSearchOptions.locationType = selectedLocationType
-        userSearchOptions.location = locationNameTextField.text!
-        
-        usersTableDataSource.searchUsers(reset)
-    }
 }
 
 extension LanguageRankingsController : UITableViewDelegate {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return indexPath.row < 3 ? 60 : 44
+    }
+    
     func scrollViewDidScroll(scrollView: UIScrollView) {
         updateRefreshControl()
         
@@ -109,7 +114,7 @@ extension LanguageRankingsController : UITableViewDelegate {
             return
         }
         
-        searchUsers()
+        freshSearchUsers()
     }
     
     private func updateRefreshControl() {

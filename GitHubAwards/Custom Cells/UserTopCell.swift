@@ -13,10 +13,12 @@ class UserTopCell : UITableViewCell {
     @IBOutlet weak var rankingImageView: UIImageView!
     @IBOutlet weak var login: UILabel!
     @IBOutlet weak var avatar: UIImageView!
+    @IBOutlet weak var avatarBackground: UIView!
     
     @IBOutlet weak var background: UIView!
     
-    let positionColors: [UInt] = [K.firstInRankingColor, K.secondInRankingColor, K.thirdnRankingColor]
+    let positionColors: [UInt] = [K.firstInRankingColor, K.secondInRankingColor, K.thirdInRankingColor]
+    let avatarBGColors: [UInt] = [K.secondInRankingColor, K.thirdInRankingColor, 0xE5E5FF]
     
     var position: Int? {
         didSet {
@@ -24,6 +26,7 @@ class UserTopCell : UITableViewCell {
                 rankingImageView.image = UIImage(named: "\(position!).png")
                 let color = UIColor.fromHex(positionColors[position! - 1])
                 background.backgroundColor = color
+                avatarBackground.backgroundColor = UIColor.fromHex(avatarBGColors[position! - 1])
             }
         }
     }
