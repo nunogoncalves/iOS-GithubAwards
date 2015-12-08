@@ -16,16 +16,12 @@ class UsersSearchController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let searchOptions = SearchOptions()
-        searchOptions.language = "swift"
-        searchOptions.location = "Lisbon"
-        searchOptions.locationType = .City
-        GetUsers(searchOptions: searchOptions).fetch(success: { [weak self] usersResult in
-            self?.users = usersResult.users
-            self?.usersTable.reloadData()
-            }, failure: { _ in
-                NotifyError.display()
-        })
+//        GetUser(login: "nunogoncalves")).fetch(success: { [weak self] usersResult in
+//            self?.users = usersResult.users
+//            self?.usersTable.reloadData()
+//            }, failure: { _ in
+//                NotifyError.display()
+//        })
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
