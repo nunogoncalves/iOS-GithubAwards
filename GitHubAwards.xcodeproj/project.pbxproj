@@ -29,8 +29,8 @@
 		851D3C3A1C0913E900870813 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D3C391C0913E900870813 /* NetworkResponse.swift */; };
 		853C48DD1C0921AF00373A92 /* Paginator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48DC1C0921AF00373A92 /* Paginator.swift */; };
 		853C48DF1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */; };
-		853C48E11C09A28400373A92 /* SearchUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48E01C09A28400373A92 /* SearchUser.swift */; };
-		853C48E31C09A35F00373A92 /* CreateUserFromDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48E21C09A35F00373A92 /* CreateUserFromDictionary.swift */; };
+		853C48E11C09A28400373A92 /* GetUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48E01C09A28400373A92 /* GetUser.swift */; };
+		853C48E31C09A35F00373A92 /* CreateBasicUserFromDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48E21C09A35F00373A92 /* CreateBasicUserFromDictionary.swift */; };
 		856A72E11C122C1E008415A4 /* c.png in Resources */ = {isa = PBXBuildFile; fileRef = 856A72DC1C122C1E008415A4 /* c.png */; };
 		856A72E21C122C1E008415A4 /* c++.png in Resources */ = {isa = PBXBuildFile; fileRef = 856A72DD1C122C1E008415A4 /* c++.png */; };
 		856A72E31C122C1E008415A4 /* css.png in Resources */ = {isa = PBXBuildFile; fileRef = 856A72DE1C122C1E008415A4 /* css.png */; };
@@ -82,6 +82,7 @@
 		85E656781C13AB8A00BB4278 /* TableStateListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E656771C13AB8A00BB4278 /* TableStateListener.swift */; };
 		85FA59631C15C5C00097732B /* UserTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59621C15C5C00097732B /* UserTopCell.swift */; };
 		85FA59651C1645B00097732B /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59641C1645B00097732B /* K.swift */; };
+		85FA59671C16D6660097732B /* CreateFullUserFromDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59661C16D6660097732B /* CreateFullUserFromDictionary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,8 +125,8 @@
 		851D3C391C0913E900870813 /* NetworkResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 		853C48DC1C0921AF00373A92 /* Paginator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paginator.swift; sourceTree = "<group>"; };
 		853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertUsersDictionaryToUsers.swift; sourceTree = "<group>"; };
-		853C48E01C09A28400373A92 /* SearchUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUser.swift; sourceTree = "<group>"; };
-		853C48E21C09A35F00373A92 /* CreateUserFromDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserFromDictionary.swift; sourceTree = "<group>"; };
+		853C48E01C09A28400373A92 /* GetUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUser.swift; sourceTree = "<group>"; };
+		853C48E21C09A35F00373A92 /* CreateBasicUserFromDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBasicUserFromDictionary.swift; sourceTree = "<group>"; };
 		856A72DC1C122C1E008415A4 /* c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = c.png; sourceTree = "<group>"; };
 		856A72DD1C122C1E008415A4 /* c++.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "c++.png"; sourceTree = "<group>"; };
 		856A72DE1C122C1E008415A4 /* css.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = css.png; sourceTree = "<group>"; };
@@ -183,6 +184,7 @@
 		85E656771C13AB8A00BB4278 /* TableStateListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableStateListener.swift; sourceTree = "<group>"; };
 		85FA59621C15C5C00097732B /* UserTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTopCell.swift; sourceTree = "<group>"; };
 		85FA59641C1645B00097732B /* K.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
+		85FA59661C16D6660097732B /* CreateFullUserFromDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFullUserFromDictionary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,7 +225,8 @@
 			isa = PBXGroup;
 			children = (
 				853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */,
-				853C48E21C09A35F00373A92 /* CreateUserFromDictionary.swift */,
+				853C48E21C09A35F00373A92 /* CreateBasicUserFromDictionary.swift */,
+				85FA59661C16D6660097732B /* CreateFullUserFromDictionary.swift */,
 			);
 			path = DictionaryModelMappers;
 			sourceTree = "<group>";
@@ -337,7 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				858B91101C085B1600B510B3 /* GetUsers.swift */,
-				853C48E01C09A28400373A92 /* SearchUser.swift */,
+				853C48E01C09A28400373A92 /* GetUser.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				85E656731C139F5100BB4278 /* Book.swift */,
+				85FA59641C1645B00097732B /* K.swift */,
 				857C48941C119307000F035C /* LanguageImage.swift */,
 				85E656751C13A23400BB4278 /* LanguageUsersTableDataSource.swift */,
 				8599284B1C0D9436000ABE8C /* LocationType.swift */,
@@ -365,7 +369,6 @@
 				85E656711C139ED100BB4278 /* TableViewDataSource.swift */,
 				85D321201C0219C7001B7C7A /* User.swift */,
 				85E6566A1C134B4E00BB4278 /* UsersListResponse.swift */,
-				85FA59641C1645B00097732B /* K.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -604,14 +607,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				853C48E11C09A28400373A92 /* SearchUser.swift in Sources */,
+				853C48E11C09A28400373A92 /* GetUser.swift in Sources */,
 				85FA59651C1645B00097732B /* K.swift in Sources */,
 				858B91131C085B4C00B510B3 /* SearchOptions.swift in Sources */,
 				85E656781C13AB8A00BB4278 /* TableStateListener.swift in Sources */,
 				85E656721C139ED100BB4278 /* TableViewDataSource.swift in Sources */,
 				85820F3C1C0E2BCE0069D085 /* GithubLoadingView.swift in Sources */,
 				859928511C0DAB23000ABE8C /* String.swift in Sources */,
-				853C48E31C09A35F00373A92 /* CreateUserFromDictionary.swift in Sources */,
+				853C48E31C09A35F00373A92 /* CreateBasicUserFromDictionary.swift in Sources */,
 				8508B76B1C1593D40024684F /* UIColor.swift in Sources */,
 				85D321211C0219C7001B7C7A /* User.swift in Sources */,
 				85D321251C022480001B7C7A /* UserDetailsController.swift in Sources */,
@@ -629,6 +632,7 @@
 				851D3C381C09134600870813 /* NetworkRequester.swift in Sources */,
 				857C48951C119307000F035C /* LanguageImage.swift in Sources */,
 				851D3C3A1C0913E900870813 /* NetworkResponse.swift in Sources */,
+				85FA59671C16D6660097732B /* CreateFullUserFromDictionary.swift in Sources */,
 				85FA59631C15C5C00097732B /* UserTopCell.swift in Sources */,
 				85D3211E1C0211C2001B7C7A /* UserCell.swift in Sources */,
 				85AFEC1F1C0468CB006FC129 /* Ranking.swift in Sources */,

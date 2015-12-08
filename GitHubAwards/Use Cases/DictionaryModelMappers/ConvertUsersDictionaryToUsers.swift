@@ -24,7 +24,7 @@ class ConvertUsersDictionaryToUsers {
             return
         }
         for u in dataUsers {
-            users.append(CreateUserFromDictionary(userDic: u).user)
+            users.append(CreateBasicUserFromDictionary(userDic: u).user)
         }
     }
 }

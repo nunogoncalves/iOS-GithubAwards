@@ -1,49 +1,43 @@
 //
-//  GetUsers.swift
+//  SearchUser.swift
 //  GitHubAwards
 //
-//  Created by Nuno Gonçalves on 27/11/15.
+//  Created by Nuno Gonçalves on 28/11/15.
 //  Copyright © 2015 Nuno Gonçalves. All rights reserved.
 //
 
 import Foundation
 
-class GetUsers {
+class GetUser {
 
-    private let baseUrl = "http://localhost:2000/api/v0/users"
+    private let login: String
     
-    private let searchOptions: SearchOptions
-    
-    init(searchOptions: SearchOptions) {
-        self.searchOptions = searchOptions
+    init(login: String) {
+        self.login = login
     }
     
-    func fetch(success success: UsersListResponse -> (),
+    func fetch(success: (User -> ()),
                failure: () -> ()) {
-        let url = "\(baseUrl)/?\(searchOptions.urlEncoded())"
 
         let qos = Int(QOS_CLASS_USER_INTERACTIVE.rawValue)
         dispatch_async(dispatch_get_global_queue(qos, 0)) {
-            
+                    
             let responseHandler = NetworkResponse()
             responseHandler.failureCallback = {
                 dispatch_async(dispatch_get_main_queue()) {
                     failure()
                 }
             }
+            
             responseHandler.successCallback = { data in
-                let paginator = Paginator(dictionary: data)
-                let users = ConvertUsersDictionaryToUsers(data: data).users
-                let usersResponse = UsersListResponse(users: users, paginator: paginator)
+                let user = CreateFullUserFromDictionary(userDic: data["user"]! as! NSDictionary).user
                 dispatch_async(dispatch_get_main_queue()) {
-                    success(usersResponse)
+                    success(user)
                 }
             }
+//            let url = "\(K.usersBaseUrl)/\(self.login)"
+            let url = "\(K.usersBaseUrl)/nunogoncalves"
             NetworkRequester.makeGet(url, networdResponseHandler: responseHandler)
         }
-        
-    }
-    
-    func x() {
     }
 }

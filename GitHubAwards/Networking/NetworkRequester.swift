@@ -22,6 +22,8 @@ class NetworkRequester {
                     } catch _ {
                         networdResponseHandler.failure()
                     }
+                } else {
+                    networdResponseHandler.failure()
                 }
             } else {
                 networdResponseHandler.failure()

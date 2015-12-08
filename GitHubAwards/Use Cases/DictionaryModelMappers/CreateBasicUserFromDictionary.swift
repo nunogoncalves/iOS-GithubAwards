@@ -8,13 +8,16 @@
 
 import Foundation
 
-class CreateUserFromDictionary {
+class CreateBasicUserFromDictionary {
     
     let user: User
     
+    let userDic: NSDictionary
+    
     init(userDic: NSDictionary) {
-       user = User(login: (userDic["login"] ?? "") as! String,
-                   avatarUrl: (userDic["gravatar_url"] ?? "") as! String)
+        self.userDic = userDic
+        user = User(login: (userDic["login"] ?? "") as! String,
+                    avatarUrl: (userDic["gravatar_url"] ?? "") as! String)
     }
     
 }

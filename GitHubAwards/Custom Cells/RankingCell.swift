@@ -32,17 +32,20 @@ class RankingCell: UITableViewCell {
     
     var ranking: Ranking? {
         didSet {
-            languageLabel.text = ranking?.language ?? ""
-            cityNameLabel.text = ranking?.city ?? ""
-            setRankingsIn(cityRankingLabel, userRanking: ranking?.cityRanking, locationRanking: ranking?.cityTotal, rankingImage: cityTrophyImage)
-            countryNameLabel.text = ranking!.country ?? ""
-            setRankingsIn(countryRankingLabel, userRanking: ranking?.countryRanking, locationRanking: ranking?.countryTotal, rankingImage: countryTrophyImage)
-            setRankingsIn(worldRankingLabel, userRanking: ranking?.worldRanking, locationRanking: ranking?.worldTotal, rankingImage: worldTrophyImage)
+            guard let ranking = ranking else {
+                return
+            }
+            languageLabel.text = ranking.language ?? ""
+            cityNameLabel.text = ranking.city ?? ""
+            setRankingsIn(cityRankingLabel, userRanking: ranking.cityRanking, locationRanking: ranking.cityTotal, rankingImage: cityTrophyImage)
+            countryNameLabel.text = ranking.country ?? ""
+            setRankingsIn(countryRankingLabel, userRanking: ranking.countryRanking, locationRanking: ranking.countryTotal, rankingImage: countryTrophyImage)
+            setRankingsIn(worldRankingLabel, userRanking: ranking.worldRanking, locationRanking: ranking.worldTotal, rankingImage: worldTrophyImage)
  
-            let repos = ranking?.repositories ?? 0
+            let repos = ranking.repositories ?? 0
             reposLabel.text = "\(repos)"
             
-            let stars = ranking?.stars ?? 0
+            let stars = ranking.stars ?? 0
             starsLabel.text = "\(stars)"
             
         }
