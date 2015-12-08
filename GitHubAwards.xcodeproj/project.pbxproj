@@ -83,6 +83,7 @@
 		85FA59631C15C5C00097732B /* UserTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59621C15C5C00097732B /* UserTopCell.swift */; };
 		85FA59651C1645B00097732B /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59641C1645B00097732B /* K.swift */; };
 		85FA59671C16D6660097732B /* CreateFullUserFromDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59661C16D6660097732B /* CreateFullUserFromDictionary.swift */; };
+		85FA596B1C1739560097732B /* GetLanguages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA596A1C1739560097732B /* GetLanguages.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -185,6 +186,7 @@
 		85FA59621C15C5C00097732B /* UserTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTopCell.swift; sourceTree = "<group>"; };
 		85FA59641C1645B00097732B /* K.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		85FA59661C16D6660097732B /* CreateFullUserFromDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFullUserFromDictionary.swift; sourceTree = "<group>"; };
+		85FA596A1C1739560097732B /* GetLanguages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetLanguages.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -331,6 +333,7 @@
 			children = (
 				853C48DB1C09218800373A92 /* DictionaryModelMappers */,
 				85820F4F1C0EF4ED0069D085 /* Notifications */,
+				85FA596C1C17395C0097732B /* Languages */,
 				858B910F1C085B0800B510B3 /* Users */,
 			);
 			path = "Use Cases";
@@ -442,6 +445,14 @@
 				85D321111C02062E001B7C7A /* Info.plist */,
 			);
 			path = GitHubAwardsUITests;
+			sourceTree = "<group>";
+		};
+		85FA596C1C17395C0097732B /* Languages */ = {
+			isa = PBXGroup;
+			children = (
+				85FA596A1C1739560097732B /* GetLanguages.swift */,
+			);
+			name = Languages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -637,6 +648,7 @@
 				85D3211E1C0211C2001B7C7A /* UserCell.swift in Sources */,
 				85AFEC1F1C0468CB006FC129 /* Ranking.swift in Sources */,
 				850485311C0FB10C004D952A /* AlertView.swift in Sources */,
+				85FA596B1C1739560097732B /* GetLanguages.swift in Sources */,
 				85B501851C10FD8400BBFD56 /* LanguageTitleView.swift in Sources */,
 				853C48DF1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift in Sources */,
 				85E6566B1C134B4E00BB4278 /* UsersListResponse.swift in Sources */,

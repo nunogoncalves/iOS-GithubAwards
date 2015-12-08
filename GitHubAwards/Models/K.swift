@@ -15,4 +15,5 @@ class K {
     static let thirdInRankingColor: UInt = 0x9D8ECD
     
     static let usersBaseUrl = "http://localhost:2000/api/v0/users"
+    static let languagesBaseUrl = "http://localhost:2000/api/v0/languages"
 }
