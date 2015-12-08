@@ -41,6 +41,7 @@ class LanguageRankingsController: UIViewController {
     var language: String? {
         didSet {
             let lang = language ?? ""
+            navigationItem.title = language
             userSearchOptions.language = lang
             languageTitleView.language = lang
         }
