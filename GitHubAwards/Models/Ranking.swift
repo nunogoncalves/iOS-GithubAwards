@@ -8,6 +8,8 @@
 
 class Ranking {
     
+    weak var user: User?
+    
     var city: String?
     var cityRanking: Int?
     var cityTotal: Int?

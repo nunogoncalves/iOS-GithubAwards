@@ -23,12 +23,20 @@ class RankingCell: UITableViewCell {
     @IBOutlet weak var countryTrophyImage: UIImageView!
     @IBOutlet weak var worldTrophyImage: UIImageView!
     
+    @IBAction func languageClicked() {
+        guard let user = user, let language = ranking?.language else { return }
+        let url = NSURL(string: "https://github.com/search?q=user:\(user.login!)+language:\(language)")
+        UIApplication.sharedApplication().openURL(url!)
+    }
+    
     let throphies = [
         1: UIImage(named: "GoldTrophy"),
         2: UIImage(named: "SilverTrophy"),
         3: UIImage(named: "BronzeTrophy"),
         4: UIImage(named: "Trophy")
     ]
+    
+    var user: User?
     
     var ranking: Ranking? {
         didSet {

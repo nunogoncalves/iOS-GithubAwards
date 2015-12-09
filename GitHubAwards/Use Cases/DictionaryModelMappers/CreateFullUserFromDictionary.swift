@@ -55,6 +55,7 @@ class CreateFullUserFromDictionary: CreateBasicUserFromDictionary {
                 language: language,
                 repositories: repositories,
                 stars: stars)
+            ranking.user = user
             ranks.append(ranking)
         }
         return ranks

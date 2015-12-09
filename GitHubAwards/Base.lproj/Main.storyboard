@@ -517,14 +517,20 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jqg-6w-iuR" userLabel="Header">
                                                     <rect key="frame" x="3" y="3" width="314" height="40"/>
                                                     <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H3a-Ee-L9b">
+                                                            <rect key="frame" x="0.0" y="0.0" width="314" height="40"/>
+                                                            <connections>
+                                                                <action selector="languageClicked" destination="Zwu-dX-JXR" eventType="touchUpInside" id="jwW-ba-qEQ"/>
+                                                            </connections>
+                                                        </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swift" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54r-5A-drR">
-                                                            <rect key="frame" x="8" y="10" width="41" height="21"/>
+                                                            <rect key="frame" x="8" y="10.5" width="40.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repos:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TwM-Xg-QYW">
-                                                            <rect key="frame" x="159" y="11" width="45" height="17"/>
+                                                            <rect key="frame" x="159.5" y="11" width="44.5" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -557,11 +563,15 @@
                                                         <constraint firstItem="54r-5A-drR" firstAttribute="centerY" secondItem="jqg-6w-iuR" secondAttribute="centerY" id="JgD-RD-0Hr"/>
                                                         <constraint firstItem="MBb-mx-72w" firstAttribute="centerY" secondItem="jqg-6w-iuR" secondAttribute="centerY" id="LXv-YU-ehk"/>
                                                         <constraint firstItem="cXW-cv-gNW" firstAttribute="centerY" secondItem="jqg-6w-iuR" secondAttribute="centerY" id="POl-oU-xVB"/>
+                                                        <constraint firstItem="H3a-Ee-L9b" firstAttribute="top" secondItem="jqg-6w-iuR" secondAttribute="top" id="Td6-xE-acu"/>
+                                                        <constraint firstItem="H3a-Ee-L9b" firstAttribute="leading" secondItem="jqg-6w-iuR" secondAttribute="leading" id="VI7-ae-7N2"/>
                                                         <constraint firstItem="54r-5A-drR" firstAttribute="leading" secondItem="jqg-6w-iuR" secondAttribute="leading" constant="8" id="Vuk-Wb-haK"/>
                                                         <constraint firstAttribute="trailing" secondItem="cXW-cv-gNW" secondAttribute="trailing" constant="8" id="dOF-qq-OKz"/>
+                                                        <constraint firstAttribute="trailing" secondItem="H3a-Ee-L9b" secondAttribute="trailing" id="hdu-KH-JoZ"/>
                                                         <constraint firstItem="cOu-TQ-3e5" firstAttribute="leading" secondItem="MBb-mx-72w" secondAttribute="trailing" constant="20" id="i3L-s8-0Ts"/>
                                                         <constraint firstItem="TwM-Xg-QYW" firstAttribute="centerY" secondItem="jqg-6w-iuR" secondAttribute="centerY" id="mfh-KN-oVd"/>
                                                         <constraint firstItem="cXW-cv-gNW" firstAttribute="leading" secondItem="cOu-TQ-3e5" secondAttribute="trailing" constant="5" id="qWu-7P-OK4"/>
+                                                        <constraint firstAttribute="bottom" secondItem="H3a-Ee-L9b" secondAttribute="bottom" id="vBl-nq-4Tc"/>
                                                     </constraints>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -599,7 +609,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Portugal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzD-mo-qXV">
-                                                            <rect key="frame" x="8" y="20" width="65" height="21"/>
+                                                            <rect key="frame" x="8" y="20.5" width="65" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
