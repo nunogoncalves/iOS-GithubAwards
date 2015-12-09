@@ -10,38 +10,87 @@ import UIKit
 
 class UsersSearchController: UIViewController {
 
-    var users: [User] = []
+    var user: User?
     
-    @IBOutlet weak var usersTable: UITableView!
+    @IBOutlet weak var resultsScroll: UIScrollView!
+    @IBOutlet weak var searchField: UISearchBar!
+    var searchingLabel: UILabel!
+    
+    @IBAction func searchClicked() {
+        if let login = searchField.text {
+            if login.characters.count > 0 {
+                searchUserFor(login)
+            }
+        }
+    }
+    
+    var timer: NSTimer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        GetUser(login: "nunogoncalves")).fetch(success: { [weak self] usersResult in
-//            self?.users = usersResult.users
-//            self?.usersTable.reloadData()
-//            }, failure: { _ in
-//                NotifyError.display()
-//        })
+        searchingLabel = UILabel(frame: CGRectMake(10, 20, resultsScroll.frame.width - 20, 20))
+        searchingLabel.textColor = .whiteColor()
+        resultsScroll.addSubview(searchingLabel)
+        resultsScroll.contentSize = CGSizeMake(resultsScroll.frame.size.width, CGFloat(20));
+    }
+
+    private func restartTimer() {
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "refreshSearchingLabel", userInfo: nil, repeats: true)
+    }
+    
+    var points = 0
+    
+    func refreshSearchingLabel() {
+        points += 1
+        if points == 4 { points = 0 }
+        searchingLabel.text = "Searching\(String(count: points, repeatedValue: Character(".")))"
+    }
+
+    var numberOfSubviews = 2
+    private func addLabelToScroll(text: String) {
+        let label = UILabel(frame: CGRectMake(10, CGFloat(20 * numberOfSubviews), resultsScroll.frame.width - 20, 20))
+        label.text = text
+        label.textColor = .whiteColor()
+        resultsScroll.addSubview(label)
+        resultsScroll.contentSize = CGSizeMake(resultsScroll.frame.size.width, CGFloat(20 * (numberOfSubviews + 1)));
+        numberOfSubviews += 1
+        
+        if resultsScroll.contentSize.height > resultsScroll.bounds.size.height {
+            let bottomOffset = CGPointMake(0, resultsScroll.contentSize.height - resultsScroll.bounds.size.height);
+            resultsScroll.setContentOffset(bottomOffset, animated: true)
+        }
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "UsersSearchToDetailSegue" {
             let vc = segue.destinationViewController as! UserDetailsController
-            vc.user = users[usersTable.indexPathForSelectedRow!.row]
+            if let user = user {
+                vc.user = user
+            }
         }
     }
-}
-
-extension UsersSearchController: UITableViewDataSource {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users.count
+    private func searchUserFor(login: String) {
+        showLoadingIndicatior()
+        GetUser(login: login).fetch(gotUser, failure: failedToSearchForUser)
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("UserCell", forIndexPath: indexPath) as! UserCell
-        cell.user = users[indexPath.row]
-        return cell
+    private func gotUser(user: User) {
+        addLabelToScroll("Found user \(searchField.text!)")
+        stopLoadingIndicator()
     }
-
+    
+    private func failedToSearchForUser() {
+        NotifyError.display()
+    }
+    
+    private func showLoadingIndicatior() {
+        restartTimer()
+    }
+    
+    private func stopLoadingIndicator() {
+        timer?.invalidate()
+        timer = nil
+    }
 }
