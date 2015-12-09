@@ -24,9 +24,9 @@ class UserTopCell : UITableViewCell {
         didSet {
             if position < 4 && position > 0 {
                 rankingImageView.image = UIImage(named: "\(position!).png")
-                let color = UIColor.fromHex(positionColors[position! - 1])
+                let color = UIColor(rgbValue: positionColors[position! - 1])
                 background.backgroundColor = color
-                avatarBackground.backgroundColor = UIColor.fromHex(avatarBGColors[position! - 1])
+                avatarBackground.backgroundColor = UIColor(rgbValue: avatarBGColors[position! - 1])
             }
         }
     }

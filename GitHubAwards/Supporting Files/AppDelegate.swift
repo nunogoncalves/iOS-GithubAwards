@@ -28,11 +28,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setUpTabsAppearance() {
         UITabBar.appearance().tintColor = .whiteColor()
-        UITabBar.appearance().barTintColor = UIColor.fromHex(K.navAndTabBarsColor)
+        UITabBar.appearance().barTintColor = UIColor(rgbValue: K.navAndTabBarsColor)
     }
     
     private func setUpNavigationAppearance() {
-        UINavigationBar.appearance().barTintColor = UIColor.fromHex(K.navAndTabBarsColor)
+        UINavigationBar.appearance().barTintColor = UIColor(rgbValue: K.navAndTabBarsColor)
         UINavigationBar.appearance().tintColor = .whiteColor()
         
         UINavigationBar.appearance().titleTextAttributes = [

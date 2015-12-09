@@ -11,7 +11,15 @@ import UIKit
 class UserDetailsController: UIViewController {
 
     @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var profileBackgroundView: UIView!
     @IBOutlet weak var countryAndCityLabel: UILabel!
+    
+    @IBAction func viewGithubProfileClicked() {
+        if let user = user {
+            let url = NSURL(string: "http://github.com/\(user.login!)")
+            UIApplication.sharedApplication().openURL(url!)
+        }
+    }
     
     @IBOutlet weak var rankingsTable: UITableView!
     
@@ -29,11 +37,24 @@ class UserDetailsController: UIViewController {
     }
     
     override func viewDidLoad() {
+        loadAvatar()
+        applyGradient()
+    }
+    
+    private func loadAvatar() {
         if let avatarUrl = user!.avatarUrl {
             ImageLoader.fetchAndLoad(avatarUrl, imageView: avatarImageView) {
                 self.loading.stopAnimating()
             }
         }
+    }
+    
+    private func applyGradient() {
+        view.layoutIfNeeded()
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.frame = profileBackgroundView.bounds
+        gradient.colors = [UIColor(rgbValue: 0x7354D7).CGColor, UIColor(rgbValue: K.firstInRankingColor).CGColor]
+        profileBackgroundView.layer.insertSublayer(gradient, atIndex: 0)
     }
 }
 
