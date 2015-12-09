@@ -13,13 +13,19 @@ typealias Language = String
 class LanguagesController: UIViewController {
     
     @IBOutlet weak var languagesTable: UITableView!
+    @IBOutlet weak var loadingIndicator: GithubLoadingView?
+    @IBOutlet weak var tryAgainButton: UIButton!
     
-    var languages: [Language] = []
+    @IBAction func tryAgainClicked() {
+        searchLanguages()
+    }
+    
+    var allLanguages: [Language] = []
     
     var displayingLanguages = [String]()
   
     override func viewDidLoad() {
-        GetLanguages().fetch(success: gotLanguages, failure: failedToLoadLanguages)
+        searchLanguages()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -28,15 +34,31 @@ class LanguagesController: UIViewController {
             vc.language = displayingLanguages[languagesTable.indexPathForSelectedRow!.row]
         }
     }
+    
+    private func searchLanguages() {
+        languagesTable.hidden = true
+        loadingIndicator?.hidden = false
+        GetLanguages().fetch(success: gotLanguages, failure: failedToLoadLanguages)
+        loadingIndicator?.setLoading()
+    }
 }
 
 extension LanguagesController {
     private func gotLanguages(languages: [Language]) {
-        self.displayingLanguages = languages
+        self.allLanguages = languages
+        self.displayingLanguages = allLanguages
+        
+        languagesTable.hidden = false
+
+        loadingIndicator?.hidden = true
+        
+        tryAgainButton.hidden = true
         languagesTable.reloadData()
     }
     
     private func failedToLoadLanguages() {
+        tryAgainButton.hidden = false
+        loadingIndicator?.hidden = true
         NotifyError.display()
     }
 }
@@ -57,12 +79,11 @@ extension LanguagesController : UITableViewDataSource {
 extension LanguagesController : UISearchBarDelegate {
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == "" {
-            displayingLanguages = languages
+            displayingLanguages = allLanguages
         } else {
             let resultPredicate = NSPredicate(format: "self contains[c] %@", searchText)
-            displayingLanguages = languages.filter { resultPredicate.evaluateWithObject($0) }
+            displayingLanguages = allLanguages.filter { resultPredicate.evaluateWithObject($0) }
         }
-       
         languagesTable.reloadData()
     }
 }
