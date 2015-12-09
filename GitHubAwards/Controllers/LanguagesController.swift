@@ -36,10 +36,20 @@ class LanguagesController: UIViewController {
     }
     
     private func searchLanguages() {
-        languagesTable.hidden = true
-        loadingIndicator?.hidden = false
+        setSearching()
         GetLanguages().fetch(success: gotLanguages, failure: failedToLoadLanguages)
-        loadingIndicator?.setLoading()
+    }
+    
+    private func setSearching() {
+        languagesTable.hide()
+        tryAgainButton.hide()
+        loadingIndicator?.show()
+    }
+    
+    private func endSearching() {
+        languagesTable.show()
+        tryAgainButton.hide()
+        loadingIndicator?.hide()
     }
 }
 
@@ -48,17 +58,13 @@ extension LanguagesController {
         self.allLanguages = languages
         self.displayingLanguages = allLanguages
         
-        languagesTable.hidden = false
-
-        loadingIndicator?.hidden = true
-        
-        tryAgainButton.hidden = true
         languagesTable.reloadData()
+        endSearching()
     }
     
     private func failedToLoadLanguages() {
-        tryAgainButton.hidden = false
-        loadingIndicator?.hidden = true
+        tryAgainButton.show()
+        loadingIndicator?.hide()
         NotifyError.display()
     }
 }
