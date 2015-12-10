@@ -14,6 +14,11 @@ class UserDetailsController: UIViewController {
     @IBOutlet weak var profileBackgroundView: UIView!
     @IBOutlet weak var countryAndCityLabel: UILabel!
     
+    @IBOutlet weak var totalReposLabel: UILabel!
+    @IBOutlet weak var totalStarsLabel: UILabel!
+    @IBOutlet weak var totalLanguagesLabel: UILabel!
+    @IBOutlet weak var totalTrophiesLabel: UILabel!
+    
     @IBAction func viewGithubProfileClicked() {
         if let user = user {
             let url = NSURL(string: "http://github.com/\(user.login!)")
@@ -61,6 +66,7 @@ class UserDetailsController: UIViewController {
 // Mark - Fetch callbacks
 extension UserDetailsController {
     func userSuccess(user: User) {
+        applyReposStarsAndTrophiesLabelsFor(user)
         if let city = user.city {
             countryAndCityLabel.text = "\(user.country!), \(city)"
         } else {
@@ -73,6 +79,28 @@ extension UserDetailsController {
     func failure() {
         NotifyError.display()
     }
+    
+    private func applyReposStarsAndTrophiesLabelsFor(user: User) {
+        var repos = 0
+        var stars = 0
+        var trophies = 0
+        
+        for rank in user.rankings {
+            repos += rank.repositories ?? 0
+            stars += rank.stars ?? 0
+            trophies += calculateTrophiesOf(rank)
+        }
+        
+        totalReposLabel.text = "\(repos)"
+        totalStarsLabel.text = "\(stars)"
+        totalLanguagesLabel.text = "\(user.rankings.count)"
+        totalTrophiesLabel.text = "\(trophies)"
+    }
+    
+    private func calculateTrophiesOf(rank: Ranking) -> Int {
+        return (rank.worldRanking < 4 ? 1 : 0) + (rank.cityRanking < 4 ? 1 : 0) + (rank.countryRanking < 4 ? 1 : 0)
+    }
+    
 }
 
 extension UserDetailsController: UITableViewDelegate {

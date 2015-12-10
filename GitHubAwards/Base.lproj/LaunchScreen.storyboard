@@ -17,17 +17,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="FKW-dj-p6b">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="FKW-dj-p6b">
+                                <rect key="frame" x="0.0" y="-20" width="320" height="500"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="riscas.png" translatesAutoresizingMaskIntoConstraints="NO" id="TV7-DY-o10">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="riscas.png" translatesAutoresizingMaskIntoConstraints="NO" id="TV7-DY-o10">
-                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-min.png" translatesAutoresizingMaskIntoConstraints="NO" id="ncB-sH-bex">
-                                <rect key="frame" x="85" y="165" width="150" height="150"/>
+                                <rect key="frame" x="60" y="140" width="200" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="zEf-ZQ-M73"/>
-                                    <constraint firstAttribute="height" constant="150" id="zLe-Z4-GP0"/>
+                                    <constraint firstAttribute="width" constant="200" id="zEf-ZQ-M73"/>
+                                    <constraint firstAttribute="height" constant="200" id="zLe-Z4-GP0"/>
                                 </constraints>
                             </imageView>
                         </subviews>
