@@ -9,25 +9,21 @@
 import UIKit
 
 class UsersSearchController: UIViewController {
-
-    var user: User?
-    
+   
     @IBOutlet weak var resultsScroll: UIScrollView!
     @IBOutlet weak var searchField: UISearchBar!
-    var searchingLabel: UILabel!
+    @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var userLoginLabel: UILabel!
     
-    @IBAction func searchClicked() {
-        if let login = searchField.text {
-            if login.characters.count > 0 {
-                searchUserFor(login)
-            }
-        }
-    }
+    var searchingLabel: UILabel!
+
+    var user: User?
     
     var timer: NSTimer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchField.delegate = self
         searchingLabel = UILabel(frame: CGRectMake(10, 20, resultsScroll.frame.width - 20, 20))
         searchingLabel.textColor = .whiteColor()
         resultsScroll.addSubview(searchingLabel)
@@ -78,11 +74,15 @@ class UsersSearchController: UIViewController {
     
     private func gotUser(user: User) {
         addLabelToScroll("Found user \(searchField.text!)")
+        userLoginLabel.text = user.login!
+        self.user = user
+        ImageLoader.fetchAndLoad(user.avatarUrl!, imageView: avatarImageView)
         stopLoadingIndicator()
     }
     
     private func failedToSearchForUser() {
         NotifyError.display()
+        stopLoadingIndicator()
     }
     
     private func showLoadingIndicatior() {
@@ -92,5 +92,29 @@ class UsersSearchController: UIViewController {
     private func stopLoadingIndicator() {
         timer?.invalidate()
         timer = nil
+    }
+}
+
+extension UsersSearchController : UISearchBarDelegate {
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        guard let text = searchBar.text else {
+            return
+        }
+        
+        if text.characters.count > 2 {
+            searchUserFor(text)
+            searchBar.setShowsCancelButton(false, animated: true)
+            searchBar.resignFirstResponder()
+        }
     }
 }
