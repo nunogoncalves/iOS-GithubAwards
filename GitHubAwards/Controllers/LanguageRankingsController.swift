@@ -65,7 +65,7 @@ class LanguageRankingsController: UIViewController {
         freshSearchUsers()
    }
     
-    func freshSearchUsers() {
+    @objc private func freshSearchUsers() {
         searchUsers(true)
     }
     

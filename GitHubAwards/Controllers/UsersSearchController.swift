@@ -31,12 +31,18 @@ class UsersSearchController: UIViewController {
     }
 
     private func restartTimer() {
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "refreshSearchingLabel", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(
+            0.5,
+            target: self,
+            selector: "refreshSearchingLabel",
+            userInfo: nil,
+            repeats: true
+        )
     }
     
     var points = 0
     
-    func refreshSearchingLabel() {
+    @objc private func refreshSearchingLabel() {
         points += 1
         if points == 4 { points = 0 }
         searchingLabel.text = "Searching\(String(count: points, repeatedValue: Character(".")))"

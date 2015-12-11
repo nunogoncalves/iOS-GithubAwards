@@ -43,7 +43,7 @@ class NotifyError: NSObject {
         )
     }
     
-    static func onTap(tapGesture: UITapGestureRecognizer) {
+    @objc private static func onTap(tapGesture: UITapGestureRecognizer) {
         dismiss(tapGesture.view!)
     }
     
