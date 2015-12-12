@@ -12,6 +12,7 @@ typealias Language = String
 
 class LanguagesController: UIViewController {
     
+    @IBOutlet weak var searchBar: SearchBar!
     @IBOutlet weak var languagesTable: UITableView!
     @IBOutlet weak var loadingIndicator: GithubLoadingView?
     @IBOutlet weak var tryAgainButton: UIButton!
@@ -25,6 +26,7 @@ class LanguagesController: UIViewController {
     var displayingLanguages = [String]()
   
     override func viewDidLoad() {
+        searchBar.searchDelegate = self
         searchLanguages()
     }
     

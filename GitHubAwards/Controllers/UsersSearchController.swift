@@ -11,7 +11,7 @@ import UIKit
 class UsersSearchController: UIViewController {
    
     @IBOutlet weak var resultsScroll: UIScrollView!
-    @IBOutlet weak var searchField: UISearchBar!
+    @IBOutlet weak var searchField: SearchBar!
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var userLoginLabel: UILabel!
     
@@ -23,7 +23,7 @@ class UsersSearchController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchField.delegate = self
+        searchField.searchDelegate = self
         searchingLabel = UILabel(frame: CGRectMake(10, 20, resultsScroll.frame.width - 20, 20))
         searchingLabel.textColor = .whiteColor()
         resultsScroll.addSubview(searchingLabel)
@@ -102,15 +102,6 @@ class UsersSearchController: UIViewController {
 }
 
 extension UsersSearchController : UISearchBarDelegate {
-    
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-        searchBar.setShowsCancelButton(true, animated: true)
-    }
-    
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        searchBar.setShowsCancelButton(false, animated: true)
-        searchBar.resignFirstResponder()
-    }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         guard let text = searchBar.text else {
