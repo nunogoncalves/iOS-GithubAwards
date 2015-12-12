@@ -24,20 +24,20 @@ class SearchOptionsTests: XCTestCase {
     }
     
     func testNoLanguageNorLocation() {
-        let expected = "language=javascript&type=world"
+        let expected = "language=javascript&type=world&page=1"
         let got = searchOptions.urlEncoded()
         XCTAssertEqual(expected, got, "Expected \(expected), got \(got)")
     }
     
     func testLanguage() {
         searchOptions.language = "Swift"
-        let expected = "language=swift&type=world"
+        let expected = "language=swift&type=world&page=1"
         let got = searchOptions.urlEncoded()
         XCTAssertEqual(expected, got, "Expected \(expected), got \(got)")
     }
     
     func testNoCity() {
-        let expected = "language=javascript&type=world"
+        let expected = "language=javascript&type=world&page=1"
         let got = searchOptions.urlEncoded()
         XCTAssertEqual(expected, got, "Expected \(expected), got \(got)")
     }
@@ -45,14 +45,14 @@ class SearchOptionsTests: XCTestCase {
     func testCity() {
         searchOptions.locationType = .City
         searchOptions.location = "Lisbon"
-        let expected = "language=javascript&city=lisbon&type=city"
+        let expected = "language=javascript&city=lisbon&type=city&page=1"
         let got = searchOptions.urlEncoded()
         XCTAssertEqual(expected, got, "Expected \(expected), got \(got)")
     }
     
     func testNoCountry() {
         searchOptions.locationType = .Country
-        let expected = "language=javascript&country=san francisco&type=country"
+        let expected = "language=javascript&country=san francisco&type=country&page=1"
         let got = searchOptions.urlEncoded()
         XCTAssertEqual(expected, got, "Expected \(expected), got \(got)")
     }
@@ -62,7 +62,7 @@ class SearchOptionsTests: XCTestCase {
         searchOptions.locationType = .Country
         searchOptions.location = "Portugal"
         
-        let expected = "language=swift&country=portugal&type=country"
+        let expected = "language=swift&country=portugal&type=country&page=1"
         let got = searchOptions.urlEncoded()
         XCTAssertEqual(expected, got, "Expected \(expected), got \(got)")
     }
