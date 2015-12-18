@@ -26,10 +26,6 @@ class LanguageUsersTableDataSource : NSObject, TableViewDataSource {
         userSearcher = GetUsers.init(searchOptions: searchOptions)
     }
     
-    func cellIdentifierForIndex(indexPath: NSIndexPath) -> String {
-        return indexPath.row < 3 ? "TopUserCell" : "UserCell"
-    }
-    
     func dataForIndexPath(indexPath: NSIndexPath) -> AnyObject {
         return book.data[indexPath.row]
     }
@@ -38,11 +34,15 @@ class LanguageUsersTableDataSource : NSObject, TableViewDataSource {
         return book.data.count
     }
     
+    func cellIdentifierForIndex(indexPath: NSIndexPath) -> String {
+        return indexPath.row < 3 ? "TopUserCell" : "UserCell"
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.row < 3 {
             let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifierForIndex(indexPath), forIndexPath: indexPath) as! UserTopCell
-            cell.position = indexPath.row + 1
-            cell.user = dataForIndexPath(indexPath) as! User
+            let user = dataForIndexPath(indexPath) as! User
+            cell.userPresenter = UserPresenter(user: user, ranking: indexPath.row + 1)
             return cell
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifierForIndex(indexPath), forIndexPath: indexPath) as! UserCell

@@ -16,27 +16,26 @@ class UserTopCell : UITableViewCell {
     @IBOutlet weak var avatarBackground: UIView!
     
     @IBOutlet weak var background: UIView!
+
+    var userPresenter: UserPresenter? { didSet { self.fillDataFrom() } }
     
-    let positionColors: [UInt] = [K.firstInRankingColor, K.secondInRankingColor, K.thirdInRankingColor]
-    let avatarBGColors: [UInt] = [K.secondInRankingColor, K.thirdInRankingColor, 0xE5E5FF]
+    private func fillDataFrom() {
+        fillRankingInformation()
+        login.text = userPresenter!.login()
+        fillAvatar()
+    }
     
-    var position: Int? {
-        didSet {
-            if position < 4 && position > 0 {
-                rankingImageView.image = UIImage(named: "\(position!).png")
-                let color = UIColor(rgbValue: positionColors[position! - 1])
-                background.backgroundColor = color
-                avatarBackground.backgroundColor = UIColor(rgbValue: avatarBGColors[position! - 1])
-            }
+    private func fillRankingInformation() {
+        if userPresenter!.isPodiumRanking() {
+            rankingImageView.image = UIImage(named: userPresenter!.rankingImageName())
+            background.backgroundColor = UIColor(rgbValue: userPresenter!.backgroundColor())
+            avatarBackground.backgroundColor = UIColor(rgbValue: userPresenter!.avatarBackgroundColor())
         }
     }
     
-    var user: User! {
-        didSet {
-            login.text = user.login
-            if let avatarUrl = user.avatarUrl {
-                ImageLoader.fetchAndLoad(avatarUrl, imageView: avatar)
-            }
+    private func fillAvatar() {
+        if let avatarUrl = userPresenter!.avatarUrl() {
+            ImageLoader.fetchAndLoad(avatarUrl, imageView: avatar)
         }
     }
 }
