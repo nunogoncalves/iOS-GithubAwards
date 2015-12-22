@@ -53,9 +53,7 @@ class LanguageUsersTableDataSource : NSObject, TableViewDataSource {
     }
     
     func searchUsers(reset: Bool = false) {
-        if isSearching {
-            return
-        }
+        if isSearching { return }
 
         if reset {
             searchOptions.page = 1

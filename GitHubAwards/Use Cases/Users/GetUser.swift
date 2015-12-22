@@ -37,7 +37,7 @@ class GetUser {
             }
 //            let url = "\(K.usersBaseUrl)/\(self.login)"
             let url = "\(K.usersBaseUrl)/nunogoncalves"
-            NetworkRequester.makeGet(url, networdResponseHandler: responseHandler)
+            NetworkRequester(networkResponseHandler: responseHandler).makeGet(url)
         }
     }
 }

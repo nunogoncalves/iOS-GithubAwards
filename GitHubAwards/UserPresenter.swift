@@ -15,8 +15,16 @@ class UserPresenter {
     let user: User
     let ranking: Int
     
-    private let positionColors: [UInt] = [K.firstInRankingColor, K.secondInRankingColor, K.thirdInRankingColor]
-    private let avatarBGColors: [UInt] = [K.secondInRankingColor, K.thirdInRankingColor, 0xE5E5FF]
+    private let positionColors: [UInt] = [
+        K.firstInRankingColor,
+        K.secondInRankingColor,
+        K.thirdInRankingColor
+    ]
+    private let avatarBGColors: [UInt] = [
+        K.secondInRankingColor,
+        K.thirdInRankingColor,
+        0xE5E5FF
+    ]
     
     init(user: User, ranking: Int) {
         self.user = user

@@ -17,9 +17,9 @@ class UserTopCell : UITableViewCell {
     
     @IBOutlet weak var background: UIView!
 
-    var userPresenter: UserPresenter? { didSet { self.fillDataFrom() } }
+    var userPresenter: UserPresenter? { didSet { self.fillDataFromPresenter() } }
     
-    private func fillDataFrom() {
+    private func fillDataFromPresenter() {
         fillRankingInformation()
         login.text = userPresenter!.login()
         fillAvatar()
@@ -28,8 +28,8 @@ class UserTopCell : UITableViewCell {
     private func fillRankingInformation() {
         if userPresenter!.isPodiumRanking() {
             rankingImageView.image = UIImage(named: userPresenter!.rankingImageName())
-            background.backgroundColor = UIColor(rgbValue: userPresenter!.backgroundColor())
-            avatarBackground.backgroundColor = UIColor(rgbValue: userPresenter!.avatarBackgroundColor())
+            background.backgroundColor = UIColor(rgbValue: userPresenter!.backgroundColor()!)
+            avatarBackground.backgroundColor = UIColor(rgbValue: userPresenter!.avatarBackgroundColor()!)
         }
     }
     

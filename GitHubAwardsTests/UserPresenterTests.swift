@@ -11,8 +11,19 @@ import XCTest
 
 class UserPresenterTests: XCTestCase {
 
+    var nunoWithAvatar: User!
+    var userPresenter_1st: UserPresenter!
+    var userPresenter_2nd: UserPresenter!
+    var userPresenter_3rd: UserPresenter!
+    var userPresenter_4th: UserPresenter!
+    
     override func setUp() {
         super.setUp()
+        nunoWithAvatar = User(login: "nuno", avatarUrl: "AvatarUrl")
+        userPresenter_1st = UserPresenter(user: nunoWithAvatar, ranking: 1)
+        userPresenter_2nd = UserPresenter(user: nunoWithAvatar, ranking: 2)
+        userPresenter_3rd = UserPresenter(user: nunoWithAvatar, ranking: 3)
+        userPresenter_4th = UserPresenter(user: nunoWithAvatar, ranking: 4)
     }
     
     override func tearDown() {
@@ -21,81 +32,47 @@ class UserPresenterTests: XCTestCase {
 
     func testIsInPodium() {
         for i in 1...3 {
-            let user = User(login: "nuno", avatarUrl: "AvatarUrl")
-            let userPresenter = UserPresenter(user: user, ranking: i)
-            
+            let userPresenter = UserPresenter(user: nunoWithAvatar, ranking: i)
             XCTAssertEqual(userPresenter.isPodiumRanking(), true, "Expected user ranking (\(i)) to be in the podium")
         }
     }
 
     func testIsNotInPodium() {
-        let user = User(login: "nuno", avatarUrl: "AvatarUrl")
-        let userPresenter = UserPresenter(user: user, ranking: 4)
-        
-        XCTAssertEqual(userPresenter.isPodiumRanking(), false, "Expected user not to be in the podium")
+        XCTAssertEqual(userPresenter_4th.isPodiumRanking(), false, "Expected user not to be in the podium")
     }
 
     
     func testRankingColors() {
-        var user = User(login: "nuno", avatarUrl: "AvatarUrl")
-        var userPresenter = UserPresenter(user: user, ranking: 1)
-        XCTAssertEqual(userPresenter.backgroundColor(), K.firstInRankingColor, "Expected 1st place color to be \(K.firstInRankingColor)")
+        XCTAssertEqual(userPresenter_1st.backgroundColor(), K.firstInRankingColor, "Expected 1st place color to be \(K.firstInRankingColor)")
 
-        user = User(login: "nuno", avatarUrl: "AvatarUrl")
-        userPresenter = UserPresenter(user: user, ranking: 2)
-       
-        XCTAssertEqual(userPresenter.backgroundColor(), K.secondInRankingColor, "Expected 1st place color to be \(K.secondInRankingColor)")
+        XCTAssertEqual(userPresenter_2nd.backgroundColor(), K.secondInRankingColor, "Expected 1st place color to be \(K.secondInRankingColor)")
 
-        user = User(login: "nuno", avatarUrl: "AvatarUrl")
-        userPresenter = UserPresenter(user: user, ranking: 3)
-        K.thirdInRankingColor
-        XCTAssertEqual(userPresenter.backgroundColor(), K.thirdInRankingColor, "Expected 1st place color to be \(K.thirdInRankingColor)")
+        XCTAssertEqual(userPresenter_3rd.backgroundColor(), K.thirdInRankingColor, "Expected 1st place color to be \(K.thirdInRankingColor)")
         
-        user = User(login: "nuno", avatarUrl: "AvatarUrl")
-        userPresenter = UserPresenter(user: user, ranking: 4)
        
-        XCTAssertEqual(userPresenter.backgroundColor(), nil, "Expected 1st place color to be \(K.firstInRankingColor)")
+        XCTAssertEqual(userPresenter_4th.backgroundColor(), nil, "Expected 1st place color to be \(K.firstInRankingColor)")
     }
     
     func testAvatarBgColors() {
-        var user = User(login: "nuno", avatarUrl: "AvatarUrl")
-        var userPresenter = UserPresenter(user: user, ranking: 1)
-        XCTAssertEqual(userPresenter.avatarBackgroundColor(), K.secondInRankingColor, "Expected 1st place color to be \(K.secondInRankingColor)")
+        XCTAssertEqual(userPresenter_1st.avatarBackgroundColor(), K.secondInRankingColor, "Expected 1st place color to be \(K.secondInRankingColor)")
         
-        user = User(login: "nuno", avatarUrl: "AvatarUrl")
-        userPresenter = UserPresenter(user: user, ranking: 2)
+        XCTAssertEqual(userPresenter_2nd.avatarBackgroundColor(), K.thirdInRankingColor, "Expected 2nd place color to be \(K.thirdInRankingColor)")
         
-        XCTAssertEqual(userPresenter.avatarBackgroundColor(), K.thirdInRankingColor, "Expected 2nd place color to be \(K.thirdInRankingColor)")
+        XCTAssertEqual(userPresenter_3rd.avatarBackgroundColor(), 0xE5E5FF, "Expected 3rd place color to be \(0xE5E5FF)")
         
-        user = User(login: "nuno", avatarUrl: "AvatarUrl")
-        userPresenter = UserPresenter(user: user, ranking: 3)
-        K.thirdInRankingColor
-        XCTAssertEqual(userPresenter.avatarBackgroundColor(), 0xE5E5FF, "Expected 3rd place color to be \(0xE5E5FF)")
-        
-        user = User(login: "nuno", avatarUrl: "AvatarUrl")
-        userPresenter = UserPresenter(user: user, ranking: 4)
-        
-        XCTAssertEqual(userPresenter.avatarBackgroundColor(), nil, "Expected 4th place color to be \(K.firstInRankingColor)")
+        XCTAssertEqual(userPresenter_4th.avatarBackgroundColor(), nil, "Expected 4th place color to be \(K.firstInRankingColor)")
     }
     
     func testRankingImageName() {
-        let user = User(login: "nuno", avatarUrl: "AvatarUrl")
-        let userPresenter = UserPresenter(user: user, ranking: 4)
-        
-        XCTAssertEqual(userPresenter.rankingImageName(), "4.png", "Expected image name to be 4.png")
+        XCTAssertEqual(userPresenter_4th.rankingImageName(), "4.png", "Expected image name to be 4.png")
     }
     
     func testLogin() {
-        let user = User(login: "nuno", avatarUrl: "AvatarUrl")
-        let userPresenter = UserPresenter(user: user, ranking: 4)
-        
-        XCTAssertEqual(userPresenter.login(), "nuno", "Expected login to be Nuno")
+        XCTAssertEqual(userPresenter_4th.login(), "nuno", "Expected login to be Nuno")
     }
     
     func testAvatar() {
-        let user = User(login: "nuno", avatarUrl: "AvatarUrl")
-        let userPresenter = UserPresenter(user: user, ranking: 4)
-        XCTAssertEqual(userPresenter.avatarUrl(), "AvatarUrl", "Expected avatar to be AvatarUrl")
+        XCTAssertEqual(userPresenter_4th.avatarUrl(), "AvatarUrl", "Expected avatar to be AvatarUrl")
     }
     
     func testPerformanceExample() {

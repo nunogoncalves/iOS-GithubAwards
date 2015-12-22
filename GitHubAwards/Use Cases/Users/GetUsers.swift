@@ -39,11 +39,8 @@ class GetUsers {
                     success(usersResponse)
                 }
             }
-            NetworkRequester.makeGet(url, networdResponseHandler: responseHandler)
+            NetworkRequester(networkResponseHandler: responseHandler).makeGet(url)
         }
         
-    }
-    
-    func x() {
     }
 }
