@@ -17,13 +17,13 @@ class NetworkRequester {
     }
     
     func makeGet(urlStr: String) {
-        //http://stackoverflow.com/questions/24016142/how-to-make-an-http-request-in-swift
         let task = buildRequesterTaskFor(urlStr)
         task.resume()
     }
     
     private func buildRequesterTaskFor(urlStr: String) -> NSURLSessionDataTask {
         let url = NSURL(string: urlStr.urlEncoded())
+        //http://stackoverflow.com/questions/24016142/how-to-make-an-http-request-in-swift
         return NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: completionHandler)
     }
     
