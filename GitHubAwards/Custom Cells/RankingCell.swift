@@ -24,49 +24,53 @@ class RankingCell: UITableViewCell {
     @IBOutlet weak var worldTrophyImage: UIImageView!
     
     @IBAction func languageClicked() {
-        guard let user = user, let language = ranking?.language else { return }
-        let url = NSURL(string: "https://github.com/search?q=user:\(user.login!)+language:\(language)")
-        UIApplication.sharedApplication().openURL(url!)
+        showUserLanguageReposInBrowser()
     }
     
-    let throphies = [
-        1: UIImage(named: "GoldTrophy"),
-        2: UIImage(named: "SilverTrophy"),
-        3: UIImage(named: "BronzeTrophy"),
-        4: UIImage(named: "Trophy")
-    ]
-    
-    var user: User?
-    
-    var ranking: Ranking? {
+    var rankingPresenter: RankingPresenter? {
         didSet {
-            guard let ranking = ranking else {
-                return
-            }
-            languageLabel.text = ranking.language ?? ""
-            cityNameLabel.text = ranking.city ?? ""
-            setRankingsIn(cityRankingLabel, userRanking: ranking.cityRanking, locationRanking: ranking.cityTotal, rankingImage: cityTrophyImage)
-            countryNameLabel.text = ranking.country ?? ""
-            setRankingsIn(countryRankingLabel, userRanking: ranking.countryRanking, locationRanking: ranking.countryTotal, rankingImage: countryTrophyImage)
-            setRankingsIn(worldRankingLabel, userRanking: ranking.worldRanking, locationRanking: ranking.worldTotal, rankingImage: worldTrophyImage)
- 
-            let repos = ranking.repositories ?? 0
-            reposLabel.text = "\(repos)"
-            
-            let stars = ranking.stars ?? 0
-            starsLabel.text = "\(stars)"
-            
+            fillCell()
         }
     }
     
-    private func setRankingsIn(label: UILabel, userRanking: Int?, locationRanking: Int?, rankingImage: UIImageView) {
-        if userRanking != nil && locationRanking != nil {
-            label.text = "\(userRanking!)/\(locationRanking!)"
-            let throphyIndex = userRanking! < 4 ? userRanking! : 4
-            rankingImage.image = throphies[throphyIndex]!
-        } else {
-            label.text = "-/-"
+    private func fillCell() {
+        guard let rankingPresenter = rankingPresenter else {
+            return
         }
+        
+        fillLangReposAndStars(rankingPresenter)
+        fillCityLabels(rankingPresenter)
+        fillCountryLabels(rankingPresenter)
+        fillWorldLabels(rankingPresenter)
     }
 
+    private func fillLangReposAndStars(rankingPresenter: RankingPresenter) {
+        languageLabel.text = rankingPresenter.language
+        reposLabel.text = rankingPresenter.repositories
+        starsLabel.text = rankingPresenter.stars
+    }
+    
+    private func fillCityLabels(rankingPresenter: RankingPresenter) {
+        cityNameLabel.text = rankingPresenter.city
+        cityRankingLabel.text = rankingPresenter.rankingForCity
+        cityTrophyImage.image = UIImage(named: rankingPresenter.cityRankingImage)
+    }
+    
+    private func fillCountryLabels(rankingPresenter: RankingPresenter) {
+        countryNameLabel.text = rankingPresenter.country
+        countryRankingLabel.text = rankingPresenter.rankingForCountry
+        countryTrophyImage.image = UIImage(named: rankingPresenter.countryRankingImage)
+    }
+    
+    private func fillWorldLabels(rankingPresenter: RankingPresenter) {
+        worldRankingLabel.text = rankingPresenter.rankingForWorld
+        worldTrophyImage.image = UIImage(named: rankingPresenter.worldRankingImage)
+    }
+
+    
+    private func showUserLanguageReposInBrowser() {
+        guard let rankingPresenter = rankingPresenter else { return }
+        let url = NSURL(string: "https://github.com/search?q=user:\(rankingPresenter.userLogin)+language:\(rankingPresenter.language)")
+        UIApplication.sharedApplication().openURL(url!)
+    }
 }

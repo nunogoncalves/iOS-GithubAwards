@@ -10,8 +10,6 @@ import Foundation
 
 class GetUsers {
 
-    private let baseUrl = "http://localhost:2000/api/v0/users"
-    
     private let searchOptions: SearchOptions
     
     init(searchOptions: SearchOptions) {
@@ -20,7 +18,7 @@ class GetUsers {
     
     func fetch(success success: UsersListResponse -> (),
                failure: () -> ()) {
-        let url = "\(baseUrl)/?\(searchOptions.urlEncoded())"
+        let url = "\(K.usersBaseUrl)/?\(searchOptions.urlEncoded())"
 
         let qos = Int(QOS_CLASS_USER_INTERACTIVE.rawValue)
         dispatch_async(dispatch_get_global_queue(qos, 0)) {

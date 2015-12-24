@@ -115,8 +115,7 @@ extension UserDetailsController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("RankingCell", forIndexPath: indexPath) as! RankingCell
-        cell.ranking = rankings[indexPath.row]
-        cell.user = user
+        cell.rankingPresenter = RankingPresenter(ranking: rankings[indexPath.row])
         return cell
     }
 }
