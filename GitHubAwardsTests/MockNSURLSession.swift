@@ -10,7 +10,10 @@ import Foundation
 
 class MockNSURLSession: NSURLSession {
     
-    var completionHandler: ((NSData!, NSURLResponse!, NSError!) -> Void)?
+    typealias Response = (data: NSData?, urlResponse: NSURLResponse?, error: NSError?)
+    typealias CompletionHandler = ((NSData!, NSURLResponse!, NSError!) -> Void)
+    
+    var completionHandler: CompletionHandler?
     
     static var mockResponse: (data: NSData?, urlResponse: NSURLResponse?, error: NSError?) = (data: nil, urlResponse: nil, error: nil)
     
@@ -18,18 +21,17 @@ class MockNSURLSession: NSURLSession {
         return MockNSURLSession()
     }
     
-    override func dataTaskWithURL(url: NSURL, completionHandler: ((NSData!, NSURLResponse!, NSError!) -> Void)?) -> NSURLSessionDataTask {
+    override func dataTaskWithURL(url: NSURL, completionHandler: CompletionHandler) -> NSURLSessionDataTask {
         self.completionHandler = completionHandler
         return MockTask(response: MockNSURLSession.mockResponse, completionHandler: completionHandler)
     }
     
     class MockTask: NSURLSessionDataTask {
-        typealias Response = (data: NSData?, urlResponse: NSURLResponse?, error: NSError?)
         var mockResponse: Response
-        let completionHandler: ((NSData!, NSURLResponse!, NSError!) -> Void)?
+        let completionHandler: CompletionHandler?
         
         init(response: Response, completionHandler: ((NSData!, NSURLResponse!, NSError!) -> Void)?) {
-            self.mockResponse = response
+            mockResponse = response
             self.completionHandler = completionHandler
         }
         override func resume() {
