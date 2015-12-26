@@ -10,6 +10,8 @@ import Foundation
 
 class NetworkRequester {
 
+    var URLSession = NSURLSession.self
+
     let networkResponseHandler: NetworkResponse
     
     init(networkResponseHandler: NetworkResponse) {
@@ -24,7 +26,7 @@ class NetworkRequester {
     private func buildRequesterTaskFor(urlStr: String) -> NSURLSessionDataTask {
         let url = NSURL(string: urlStr.urlEncoded())
         //http://stackoverflow.com/questions/24016142/how-to-make-an-http-request-in-swift
-        return NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: completionHandler)
+        return URLSession.sharedSession().dataTaskWithURL(url!, completionHandler: completionHandler)
     }
     
     private func completionHandler(data: NSData?, response: NSURLResponse?, error: NSError?) {
