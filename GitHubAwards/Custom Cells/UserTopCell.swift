@@ -27,7 +27,7 @@ class UserTopCell : UITableViewCell {
     
     private func fillRankingInformation() {
         if userPresenter!.isPodiumRanking() {
-            rankingImageView.image = UIImage(named: userPresenter!.rankingImageName())
+            rankingImageView.image = UIImage(named: userPresenter!.rankingImageName()!)
             background.backgroundColor = UIColor(rgbValue: userPresenter!.backgroundColor()!)
             avatarBackground.backgroundColor = UIColor(rgbValue: userPresenter!.avatarBackgroundColor()!)
         }

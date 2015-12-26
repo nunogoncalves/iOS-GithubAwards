@@ -6,78 +6,245 @@
 //  Copyright © 2015 Nuno Gonçalves. All rights reserved.
 //
 
+import Quick
+import Nimble
 import XCTest
 @testable import GitHubAwards
 
-class UserPresenterTests: XCTestCase {
+class UserPresenterTests: QuickSpec {
+    
+    override func spec() {
+        
+        var user: User!
+        var userPresenter: UserPresenter!
 
-    var nunoWithAvatar: User!
-    var userPresenter_1st: UserPresenter!
-    var userPresenter_2nd: UserPresenter!
-    var userPresenter_3rd: UserPresenter!
-    var userPresenter_4th: UserPresenter!
+        describe("UserPresenter") {
+            context("User is first in ranking") {
+                beforeEach {
+                    user = User(login: "nuno", avatarUrl: "AvatarUrl")
+                    userPresenter = UserPresenter(user: user, ranking: 1)
+                }
+                
+                it("is in podium") {
+                    XCTAssertEqual(userPresenter.isPodiumRanking(), true)
+                }
+                
+                it("has 1st place background color") {
+                    XCTAssertEqual(
+                        userPresenter.backgroundColor(),
+                        K.firstInRankingColor,
+                        "Expected 1st place color to be \(K.firstInRankingColor)"
+                    )
+                }
+                
+                it("has 1st place avatar background color") {
+                    XCTAssertEqual(
+                        userPresenter.avatarBackgroundColor(),
+                        K.secondInRankingColor,
+                        "Expected 1st place color to be \(K.secondInRankingColor)"
+                    )
+                }
+
+                it("returns gold trophy image name") {
+                    XCTAssertEqual(userPresenter.rankingImageName(), "1.png", "Expected image name to be 1.png")
+                }
+                
+                it("returns login") {
+                    XCTAssertEqual(userPresenter.login(), "nuno", "Expected login to be Nuno")
+                }
+                
+                it("returns avatar url") {
+                    XCTAssertEqual(userPresenter.avatarUrl(), "AvatarUrl", "Expected avatar to be AvatarUrl")
+                }
+            }
+            
+            context("User is second in ranking") {
+                beforeEach {
+                    user = User(login: "Katrina", avatarUrl: "KatrinaAvatarUrl")
+                    userPresenter = UserPresenter(user: user, ranking: 2)
+                }
+                
+                it("is in podium") {
+                    XCTAssertEqual(userPresenter.isPodiumRanking(), true)
+                }
+                
+                it("has 1st place background color") {
+                    XCTAssertEqual(
+                        userPresenter.backgroundColor(),
+                        K.secondInRankingColor,
+                        "Expected 1st place color to be \(K.secondInRankingColor)"
+                    )
+                }
+                
+                it("has 2nd place avatar background color") {
+                    XCTAssertEqual(
+                        userPresenter.avatarBackgroundColor(),
+                        K.thirdInRankingColor,
+                        "Expected 2nd place color to be \(K.thirdInRankingColor)"
+                    )
+                }
+                
+                it("returns silver trophy image name") {
+                    XCTAssertEqual(userPresenter.rankingImageName(), "2.png", "Expected image name to be 2.png")
+                }
+                
+                it("returns login") {
+                    XCTAssertEqual(userPresenter.login(), "Katrina", "Expected login to be Katrina")
+                }
+                
+                it("returns avatar url") {
+                    XCTAssertEqual(userPresenter.avatarUrl(), "KatrinaAvatarUrl", "Expected avatar to be KatrinaAvatarUrl")
+                }
+            }
+            
+            context("User is third in ranking") {
+                beforeEach {
+                    user = User(login: "Bianca", avatarUrl: "BiancaAvatarUrl")
+                    userPresenter = UserPresenter(user: user, ranking: 3)
+                }
+                
+                it("is in podium") {
+                    XCTAssertEqual(userPresenter.isPodiumRanking(), true)
+                }
+                
+                it("has 3rd place background color") {
+                    XCTAssertEqual(
+                        userPresenter.backgroundColor(),
+                        K.thirdInRankingColor,
+                        "Expected 3rd place color to be \(K.thirdInRankingColor)"
+                    )
+                }
+                
+                it("has 3rd place avatar background color") {
+                    XCTAssertEqual(
+                        userPresenter.avatarBackgroundColor(),
+                        0xE5E5FF,
+                        "Expected 3rd place color to be \(0xE5E5FF)"
+                    )
+                }
+                
+                it("returns bronze trophy image name") {
+                    XCTAssertEqual(
+                        userPresenter.rankingImageName(),
+                        "3.png",
+                        "Expected image name to be 3.png"
+                    )
+                }
+                
+                it("returns login") {
+                    XCTAssertEqual(
+                        userPresenter.login(),
+                        "Bianca",
+                        "Expected login to be Bianca"
+                    )
+                }
+                
+                it("returns avatar url") {
+                    XCTAssertEqual(
+                        userPresenter.avatarUrl(),
+                        "BiancaAvatarUrl",
+                        "Expected avatar to be BiancaAvatarUrl"
+                    )
+                }
+            }
+            
+            context("User is fourth in ranking") {
+                beforeEach {
+                    user = User(login: "HarrisonFord", avatarUrl: "HarrisonAvatarUrl")
+                    userPresenter = UserPresenter(user: user, ranking: 4)
+                }
+                
+                it("is not in podium") {
+                    XCTAssertEqual(userPresenter.isPodiumRanking(), false)
+                }
+                
+                it("has 4th place background color") {
+                    XCTAssertEqual(
+                        userPresenter.backgroundColor(),
+                        nil,
+                        "Expected 4th place color to be nil"
+                    )
+                }
+                
+                it("has 4th place avatar background color") {
+                    XCTAssertEqual(
+                        userPresenter.avatarBackgroundColor(),
+                        nil,
+                        "Expected 4th place color to be nil"
+                    )
+                }
+                
+                it("returns regular trophy image name") {
+                    XCTAssertEqual(
+                        userPresenter.rankingImageName(),
+                        nil,
+                        "Expected image name to be nil")
+                }
+                
+                it("returns login") {
+                    XCTAssertEqual(userPresenter.login(), "HarrisonFord", "Expected login to be HarrisonFord")
+                }
+                
+                it("returns avatar url") {
+                    XCTAssertEqual(userPresenter.avatarUrl(), "HarrisonAvatarUrl", "Expected avatar to be HarrisonAvatarUrl")
+                }
+            }
+            
+            context("User is 1000th in ranking") {
+                beforeEach {
+                    user = User(login: "Walter White", avatarUrl: "WalterWhiteAvatarUrl")
+                    userPresenter = UserPresenter(user: user, ranking: 1000)
+                }
+                
+                it("is not in podium") {
+                    XCTAssertEqual(userPresenter.isPodiumRanking(), false)
+                }
+                
+                it("has regular place background color") {
+                    XCTAssertEqual(
+                        userPresenter.backgroundColor(),
+                        nil,
+                        "Expected 4th place color to be nil"
+                    )
+                }
+                
+                it("has regular place avatar background color") {
+                    XCTAssertEqual(
+                        userPresenter.avatarBackgroundColor(),
+                        nil,
+                        "Expected 4th place color to be nil"
+                    )
+                }
+                
+                it("returns regular trophy image name") {
+                    XCTAssertEqual(
+                        userPresenter.rankingImageName(),
+                        nil,
+                        "Expected image name to be nil")
+                }
+                
+                it("returns login") {
+                    XCTAssertEqual(userPresenter.login(), "Walter White", "Expected login to be HarrisonFord")
+                }
+                
+                it("returns avatar url") {
+                    XCTAssertEqual(userPresenter.avatarUrl(), "WalterWhiteAvatarUrl", "Expected avatar to be HarrisonAvatarUrl")
+                }
+            }
+        }
+    }
     
     override func setUp() {
         super.setUp()
-        nunoWithAvatar = User(login: "nuno", avatarUrl: "AvatarUrl")
-        userPresenter_1st = UserPresenter(user: nunoWithAvatar, ranking: 1)
-        userPresenter_2nd = UserPresenter(user: nunoWithAvatar, ranking: 2)
-        userPresenter_3rd = UserPresenter(user: nunoWithAvatar, ranking: 3)
-        userPresenter_4th = UserPresenter(user: nunoWithAvatar, ranking: 4)
     }
     
     override func tearDown() {
         super.tearDown()
     }
 
-    func testIsInPodium() {
-        for i in 1...3 {
-            let userPresenter = UserPresenter(user: nunoWithAvatar, ranking: i)
-            XCTAssertEqual(userPresenter.isPodiumRanking(), true, "Expected user ranking (\(i)) to be in the podium")
-        }
-    }
-
-    func testIsNotInPodium() {
-        XCTAssertEqual(userPresenter_4th.isPodiumRanking(), false, "Expected user not to be in the podium")
-    }
-
-    
-    func testRankingColors() {
-        XCTAssertEqual(userPresenter_1st.backgroundColor(), K.firstInRankingColor, "Expected 1st place color to be \(K.firstInRankingColor)")
-
-        XCTAssertEqual(userPresenter_2nd.backgroundColor(), K.secondInRankingColor, "Expected 1st place color to be \(K.secondInRankingColor)")
-
-        XCTAssertEqual(userPresenter_3rd.backgroundColor(), K.thirdInRankingColor, "Expected 1st place color to be \(K.thirdInRankingColor)")
-        
-       
-        XCTAssertEqual(userPresenter_4th.backgroundColor(), nil, "Expected 1st place color to be \(K.firstInRankingColor)")
-    }
-    
-    func testAvatarBgColors() {
-        XCTAssertEqual(userPresenter_1st.avatarBackgroundColor(), K.secondInRankingColor, "Expected 1st place color to be \(K.secondInRankingColor)")
-        
-        XCTAssertEqual(userPresenter_2nd.avatarBackgroundColor(), K.thirdInRankingColor, "Expected 2nd place color to be \(K.thirdInRankingColor)")
-        
-        XCTAssertEqual(userPresenter_3rd.avatarBackgroundColor(), 0xE5E5FF, "Expected 3rd place color to be \(0xE5E5FF)")
-        
-        XCTAssertEqual(userPresenter_4th.avatarBackgroundColor(), nil, "Expected 4th place color to be \(K.firstInRankingColor)")
-    }
-    
-    func testRankingImageName() {
-        XCTAssertEqual(userPresenter_4th.rankingImageName(), "4.png", "Expected image name to be 4.png")
-    }
-    
-    func testLogin() {
-        XCTAssertEqual(userPresenter_4th.login(), "nuno", "Expected login to be Nuno")
-    }
-    
-    func testAvatar() {
-        XCTAssertEqual(userPresenter_4th.avatarUrl(), "AvatarUrl", "Expected avatar to be AvatarUrl")
-    }
     
     func testPerformanceExample() {
-//        self.measureBlock {
-//        }
+//        self.measureBlock {}
     }
 
 }

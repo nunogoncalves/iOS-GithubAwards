@@ -35,8 +35,11 @@ class UserPresenter {
         return ranking < 4 && ranking > 0
     }
     
-    func rankingImageName() -> String {
-       return "\(ranking).png"
+    func rankingImageName() -> String? {
+        if isPodiumRanking() {
+            return "\(ranking).png"
+        }
+        return nil
     }
     
     func backgroundColor() -> UInt? {
