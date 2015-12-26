@@ -23,7 +23,7 @@ class NetworkRequesterTests : QuickSpec {
         
         it("calls response success method") {
             var responseStr = ""
-            responseHandler.successCallback = { data in
+            responseHandler.successCallback = { _ in
                 responseStr = "success"
             }
             
@@ -31,8 +31,8 @@ class NetworkRequesterTests : QuickSpec {
                 responseStr = "failure"
             }
             
-            let jsonData = try! NSJSONSerialization.dataWithJSONObject(["meta": ["code": 200], "data": ["username": "dasdom", "name": "Dpminik Hauser", "id": "1472"]], options: NSJSONWritingOptions.PrettyPrinted)
-            let urlResponse = NSHTTPURLResponse(URL: NSURL(string: "\(K.usersBaseUrl)/users")!, statusCode: 200, HTTPVersion: nil, headerFields: nil)
+            let jsonData = try! NSJSONSerialization.dataWithJSONObject(["": ""], options: NSJSONWritingOptions.PrettyPrinted)
+            let urlResponse = NSHTTPURLResponse(URL: NSURL(string: "")!, statusCode: 200, HTTPVersion: nil, headerFields: nil)
             
             MockNSURLSession.mockResponse = (jsonData, urlResponse: urlResponse, error: nil)
             
@@ -51,8 +51,8 @@ class NetworkRequesterTests : QuickSpec {
                 responseStr = "failure"
             }
             
-            let jsonData = try! NSJSONSerialization.dataWithJSONObject(["meta": ["code": 200], "data": ["username": "dasdom", "name": "Dpminik Hauser", "id": "1472"]], options: NSJSONWritingOptions.PrettyPrinted)
-            let urlResponse = NSHTTPURLResponse(URL: NSURL(string: "\(K.usersBaseUrl)/users")!, statusCode: 404, HTTPVersion: nil, headerFields: nil)
+            let jsonData = try! NSJSONSerialization.dataWithJSONObject(["": ""], options: NSJSONWritingOptions.PrettyPrinted)
+            let urlResponse = NSHTTPURLResponse(URL: NSURL(string: "")!, statusCode: 404, HTTPVersion: nil, headerFields: nil)
             
             MockNSURLSession.mockResponse = (jsonData, urlResponse: urlResponse, error: nil)
             
