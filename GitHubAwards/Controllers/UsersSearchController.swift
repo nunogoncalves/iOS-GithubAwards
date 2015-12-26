@@ -44,24 +44,8 @@ class UsersSearchController: UIViewController {
     
     @objc private func refreshSearchingLabel() {
         points += 1
-        if points == 4 { points = 0 }
+        if points > 3 { points = 0 }
         searchingLabel.text = "Searching\(String(count: points, repeatedValue: Character(".")))"
-    }
-
-    var numberOfSubviews = 2
-    private func addLabelToScroll(text: String) {
-        let label = UILabel(frame: CGRectMake(10, CGFloat(20 * numberOfSubviews), resultsScroll.frame.width - 20, 20))
-        label.text = text
-        label.textColor = .whiteColor()
-        resultsScroll.addSubview(label)
-        resultsScroll.contentSize = CGSizeMake(resultsScroll.frame.size.width, CGFloat(20 * (numberOfSubviews + 1)));
-        numberOfSubviews += 1
-        
-        if resultsScroll.contentSize.height > resultsScroll.bounds.size.height {
-            let bottomOffset = CGPointMake(0, resultsScroll.contentSize.height - resultsScroll.bounds.size.height);
-            resultsScroll.setContentOffset(bottomOffset, animated: true)
-        }
-        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -84,6 +68,22 @@ class UsersSearchController: UIViewController {
         self.user = user
         ImageLoader.fetchAndLoad(user.avatarUrl!, imageView: avatarImageView)
         stopLoadingIndicator()
+    }
+    
+    var numberOfSubviews = 2
+    private func addLabelToScroll(text: String) {
+        let label = UILabel(frame: CGRectMake(10, CGFloat(20 * numberOfSubviews), resultsScroll.frame.width - 20, 20))
+        label.text = text
+        label.textColor = .whiteColor()
+        resultsScroll.addSubview(label)
+        resultsScroll.contentSize = CGSizeMake(resultsScroll.frame.size.width, CGFloat(20 * (numberOfSubviews + 1)));
+        numberOfSubviews += 1
+        
+        if resultsScroll.contentSize.height > resultsScroll.bounds.size.height {
+            let bottomOffset = CGPointMake(0, resultsScroll.contentSize.height - resultsScroll.bounds.size.height);
+            resultsScroll.setContentOffset(bottomOffset, animated: true)
+        }
+        
     }
     
     private func failedToSearchForUser() {

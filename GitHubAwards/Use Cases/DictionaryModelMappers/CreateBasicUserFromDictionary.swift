@@ -23,10 +23,7 @@ class CreateBasicUserFromDictionary {
 
 extension CreateBasicUserFromDictionary {
     private static func buildUserFrom(userDic: NSDictionary) -> User {
-        let user = User(login: loginFrom(userDic),
-                        avatarUrl: avatarUrlFrom(userDic)
-        )
-        return user
+        return User(login: loginFrom(userDic), avatarUrl: avatarUrlFrom(userDic))
     }
     
     private static func loginFrom(userDic: NSDictionary) -> String {
