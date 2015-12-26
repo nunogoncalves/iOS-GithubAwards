@@ -6,66 +6,84 @@
 //  Copyright © 2015 Nuno Gonçalves. All rights reserved.
 //
 
+import Quick
+import Nimble
 import XCTest
 @testable import GitHubAwards
 
-class LocationTypeTests: XCTestCase {
+class LocationTypeTests: QuickSpec {
     
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-    
-    func testIsCity() {
-        let type = LocationType.getTypeFor("city")
-        XCTAssert(type == .City, "Expected .City, got \(type)")
-    }
-    
-    func testIsCityCase() {
-        let type = LocationType.getTypeFor("CITY")
-        XCTAssert(type == .City, "Expected .City, got \(type)")
-    }
-    
-    func testIsCountry() {
-        let type = LocationType.getTypeFor("country")
-        XCTAssert(type == .Country, "Expected .Country, got \(type)")
-    }
-    
-    func testIsCountryCase() {
-        let type = LocationType.getTypeFor("COUNTRY")
-        XCTAssert(type == .Country, "Expected .Country, got \(type)")
-    }
-    
-    func testIsWorld() {
-        let type = LocationType.getTypeFor("world")
-        XCTAssert(type == .World, "Expected .World, got \(type)")
-    }
-    
-    func testIsWorldCase() {
-        let type = LocationType.getTypeFor("WORLD")
-        XCTAssert(type == .World, "Expected .World, got \(type)")
-    }
-    
-    func testIsWorldRandomRawValue() {
-        let type = LocationType.getTypeFor("RaNdOmTyPe")
-        XCTAssert(type == .World, "Expected .World, got \(type)")
-    }
-    
-    func testHasNameCity() {
-        let type = LocationType.City
-        XCTAssert(type.hasName(), "Expected .City to have a name.")
-    }
-    
-    func testHasNameCountry() {
-        let type = LocationType.Country
-        XCTAssert(type.hasName(), "Expected .Country to have a name.")
-    }
-    
-    func testHasNameWorld() {
-        let type = LocationType.World
-        XCTAssert(!type.hasName(), "Expected .World not to have a name.")
+    override func spec() {
+        
+        describe("a city") {
+            it("builds a city location type from city string") {
+                let type = LocationType.getTypeFor("city")
+                XCTAssertEqual(type, LocationType.City, "Expected .City, got \(type)")
+            }
+            
+            it("builds a city location type from CITY string") {
+                let type = LocationType.getTypeFor("city")
+                XCTAssertEqual(type, LocationType.City, "Expected .City, got \(type)")
+            }
+            
+            it("builds a city location type from cItY string") {
+                let type = LocationType.getTypeFor("cItY")
+                XCTAssertEqual(type, LocationType.City, "Expected .City, got \(type)")
+            }
+            
+            it("has name") {
+                let type = LocationType.City
+                XCTAssertEqual(type.hasName(), true, "Expected .City to have a name.")
+            }
+        }
+        
+        describe("a country") {
+            it("builds a city location type from country string") {
+                let type = LocationType.getTypeFor("country")
+                XCTAssertEqual(type, LocationType.Country, "Expected .Country, got \(type)")
+            }
+            
+            it("builds a city location type from COUNTRY string") {
+                let type = LocationType.getTypeFor("COUNTRY")
+                XCTAssertEqual(type, LocationType.Country, "Expected .Country, got \(type)")
+            }
+            
+            it("builds a city location type from cOuNtRy string") {
+                let type = LocationType.getTypeFor("cOuNtRy")
+                XCTAssertEqual(type, LocationType.Country, "Expected .Country, got \(type)")
+            }
+            
+            it("has name") {
+                let type = LocationType.Country
+                XCTAssertEqual(type.hasName(), true, "Expected .Country to have a name.")
+            }
+        }
+        
+        describe("the world") {
+            it("builds a world location type from world string") {
+                let type = LocationType.getTypeFor("world")
+                XCTAssertEqual(type, LocationType.World, "Expected .World, got \(type)")
+            }
+            
+            it("builds a world location type from WORLD string") {
+                let type = LocationType.getTypeFor("WORLD")
+                XCTAssertEqual(type, LocationType.World, "Expected .World, got \(type)")
+            }
+            
+            it("builds a world location type from wORlD string") {
+                let type = LocationType.getTypeFor("wORlD")
+                XCTAssertEqual(type, LocationType.World, "Expected .World, got \(type)")
+            }
+            
+            it("builds a world location type from a RANDOM_STR string") {
+                let type = LocationType.getTypeFor("RANDOM_STR")
+                XCTAssertEqual(type, LocationType.World, "Expected .World, got \(type)")
+            }
+            
+            it("doesn't have name") {
+                let type = LocationType.World
+                XCTAssertEqual(type.hasName(), false, "Expected .World not to have a name.")
+            }
+        }
     }
 }
