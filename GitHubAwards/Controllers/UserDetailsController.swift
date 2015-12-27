@@ -46,8 +46,8 @@ class UserDetailsController: UIViewController {
         }
     }
     
-    let cellInsertionInterval: NSTimeInterval = 0.3
-    let cellAnimationDuration: NSTimeInterval = 0.2
+    let cellInsertionInterval: NSTimeInterval = 0.2
+    let cellAnimationDuration: NSTimeInterval = 0.1
     
     override func viewDidLoad() {
         loadAvatar()
@@ -100,7 +100,6 @@ extension UserDetailsController {
         }
         
         tempRankings.append(rankings[tempRankings.count])
-        
         rankingsTable.insertRowsAtIndexPaths([NSIndexPath(forRow: (tempRankings.count - 1), inSection: 0)], withRowAnimation: UITableViewRowAnimation.Automatic)
     }
     
