@@ -99,10 +99,17 @@ class UsersSearchController: UIViewController {
         timer?.invalidate()
         timer = nil
     }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
 }
 
 extension UsersSearchController : UISearchBarDelegate {
     
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         guard let text = searchBar.text else {
             return
@@ -110,8 +117,12 @@ extension UsersSearchController : UISearchBarDelegate {
         
         if text.characters.count > 2 {
             searchUserFor(text)
-            searchBar.setShowsCancelButton(false, animated: true)
             searchBar.resignFirstResponder()
+            navigationController?.setNavigationBarHidden(false, animated: true)
         }
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
 }

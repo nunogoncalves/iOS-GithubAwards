@@ -28,27 +28,24 @@ extension SearchBar : UISearchBarDelegate {
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         if (searchDelegate?.searchBarTextDidBeginEditing != nil) {
             searchDelegate?.searchBarTextDidBeginEditing!(searchBar)
-        } else {
-            searchBar.setShowsCancelButton(true, animated: true)
         }
+        searchBar.setShowsCancelButton(true, animated: true)
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         if (searchDelegate?.searchBarCancelButtonClicked != nil) {
             searchDelegate?.searchBarCancelButtonClicked!(searchBar)
-        } else {
-            searchBar.setShowsCancelButton(false, animated: true)
-            searchBar.resignFirstResponder()
         }
+        searchBar.setShowsCancelButton(false, animated: true)
+        searchBar.resignFirstResponder()
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         if (searchDelegate?.searchBarSearchButtonClicked != nil) {
             searchDelegate?.searchBarSearchButtonClicked!(searchBar)
-        } else {
-            searchBar.setShowsCancelButton(false, animated: true)
-            searchBar.resignFirstResponder()
         }
+        searchBar.setShowsCancelButton(false, animated: true)
+        searchBar.resignFirstResponder()
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {

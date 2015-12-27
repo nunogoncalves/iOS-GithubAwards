@@ -978,7 +978,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" barStyle="black" placeholder="Search for a user" translatesAutoresizingMaskIntoConstraints="NO" id="58a-rn-9kZ" customClass="SearchBar" customModule="GitHubAwards" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="65" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                                 <scopeButtonTitles>
                                     <string>Title</string>
@@ -993,7 +993,7 @@
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2yu-hb-3VL">
-                                <rect key="frame" x="10" y="115" width="300" height="75"/>
+                                <rect key="frame" x="10" y="114" width="300" height="75"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BoS-Fa-joT">
                                         <rect key="frame" x="8" y="7" width="60" height="60"/>
@@ -1030,6 +1030,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.26472116023936165" green="0.26472116023936165" blue="0.26472116023936165" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="58a-rn-9kZ" firstAttribute="top" secondItem="wjr-nN-3mE" secondAttribute="bottom" id="4vc-jA-6iA"/>
                             <constraint firstItem="2yu-hb-3VL" firstAttribute="leading" secondItem="Qlu-PQ-YZz" secondAttribute="leading" id="8aQ-n9-MRh"/>
                             <constraint firstItem="2yu-hb-3VL" firstAttribute="trailing" secondItem="Qlu-PQ-YZz" secondAttribute="trailing" id="SMu-5t-jIw"/>
                             <constraint firstItem="58a-rn-9kZ" firstAttribute="top" secondItem="XW7-GX-bFf" secondAttribute="topMargin" constant="65" id="SoS-EE-TsY"/>
@@ -1043,6 +1044,7 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="SoS-EE-TsY"/>
                                 <exclude reference="Vt9-Ra-Kcm"/>
                             </mask>
                         </variation>

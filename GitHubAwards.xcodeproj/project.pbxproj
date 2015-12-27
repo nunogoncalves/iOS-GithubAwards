@@ -63,6 +63,7 @@
 		8599284C1C0D9436000ABE8C /* LocationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8599284B1C0D9436000ABE8C /* LocationType.swift */; };
 		8599284E1C0D9579000ABE8C /* LocationTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8599284D1C0D9579000ABE8C /* LocationTypeTests.swift */; };
 		859928511C0DAB23000ABE8C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859928501C0DAB23000ABE8C /* String.swift */; };
+		859CE4BF1C2FDF3D008A7856 /* UsersListResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859CE4BE1C2FDF3D008A7856 /* UsersListResponseTests.swift */; };
 		85A1D2D01C2EB3A800774F49 /* MockNSURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A1D2CF1C2EB3A800774F49 /* MockNSURLSession.swift */; };
 		85A1D2D21C2EB53500774F49 /* NetworkRequesterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A1D2D11C2EB53500774F49 /* NetworkRequesterTests.swift */; };
 		85AFEC1F1C0468CB006FC129 /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AFEC1E1C0468CB006FC129 /* Ranking.swift */; };
@@ -174,6 +175,7 @@
 		8599284B1C0D9436000ABE8C /* LocationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationType.swift; sourceTree = "<group>"; };
 		8599284D1C0D9579000ABE8C /* LocationTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTypeTests.swift; sourceTree = "<group>"; };
 		859928501C0DAB23000ABE8C /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		859CE4BE1C2FDF3D008A7856 /* UsersListResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersListResponseTests.swift; sourceTree = "<group>"; };
 		85A1D2CF1C2EB3A800774F49 /* MockNSURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNSURLSession.swift; sourceTree = "<group>"; };
 		85A1D2D11C2EB53500774F49 /* NetworkRequesterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequesterTests.swift; sourceTree = "<group>"; };
 		85AFEC1E1C0468CB006FC129 /* Ranking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
@@ -501,6 +503,7 @@
 				85E6566C1C134C7000BB4278 /* PaginatorTests.swift */,
 				8517ECBE1C2C1EDB00467985 /* RankingPresenterTests.swift */,
 				858B91141C085E6400B510B3 /* SearchOptionsTests.swift */,
+				859CE4BE1C2FDF3D008A7856 /* UsersListResponseTests.swift */,
 				85FC70671C2456FF00971081 /* UserPresenterTests.swift */,
 				85D321061C02062E001B7C7A /* Info.plist */,
 			);
@@ -829,6 +832,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8599284E1C0D9579000ABE8C /* LocationTypeTests.swift in Sources */,
+				859CE4BF1C2FDF3D008A7856 /* UsersListResponseTests.swift in Sources */,
 				85FC70681C2456FF00971081 /* UserPresenterTests.swift in Sources */,
 				858B91151C085E6400B510B3 /* SearchOptionsTests.swift in Sources */,
 				8517ECBF1C2C1EDB00467985 /* RankingPresenterTests.swift in Sources */,

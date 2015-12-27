@@ -31,6 +31,7 @@ class LanguagesController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
         if segue.identifier == "GoToLanguageRankings" {
             let vc = segue.destinationViewController as! LanguageRankingsController
             vc.language = displayingLanguages[languagesTable.indexPathForSelectedRow!.row]
@@ -93,5 +94,17 @@ extension LanguagesController : UISearchBarDelegate {
             displayingLanguages = allLanguages.filter { resultPredicate.evaluateWithObject($0) }
         }
         languagesTable.reloadData()
+    }
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
 }

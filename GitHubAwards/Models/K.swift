@@ -14,8 +14,8 @@ class K {
     static let secondInRankingColor: UInt = 0x7C68BC
     static let thirdInRankingColor: UInt = 0x9D8ECD
     
-    private static let apiBaseUrl = "http://d93ea47.ngrok.com"
-//    static let apiBaseUrl = "http://localhost:2000"
+//    private static let apiBaseUrl = "http://d93ea47.ngrok.com"
+    private static let apiBaseUrl = "http://localhost:2000"
     static let usersBaseUrl = "\(apiBaseUrl)/api/v0/users"
     static let languagesBaseUrl = "\(apiBaseUrl)/api/v0/languages"
 }
