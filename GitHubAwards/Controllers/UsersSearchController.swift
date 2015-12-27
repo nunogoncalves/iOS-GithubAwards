@@ -15,6 +15,12 @@ class UsersSearchController: UIViewController {
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var userLoginLabel: UILabel!
     
+    @IBOutlet weak var userResultContainer: UIView!
+    @IBOutlet weak var userContainerTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var loadingIndicator: GithubLoadingView!
+    
+
+    
     var searchingLabel: UILabel!
 
     var user: User?
@@ -59,15 +65,25 @@ class UsersSearchController: UIViewController {
     
     private func searchUserFor(login: String) {
         showLoadingIndicatior()
+        userResultContainer.hidden = true
+        loadingIndicator.hidden = false
+        userContainerTopConstraint.constant = -80.0
         GetUser(login: login).fetch(gotUser, failure: failedToSearchForUser)
     }
     
     private func gotUser(user: User) {
         addLabelToScroll("Found user \(searchField.text!)")
+        userResultContainer.hidden = false
         userLoginLabel.text = user.login!
+        loadingIndicator.hidden = true
         self.user = user
         ImageLoader.fetchAndLoad(user.avatarUrl!, imageView: avatarImageView)
         stopLoadingIndicator()
+        
+        userContainerTopConstraint.constant = 6.0
+        UIView.animateWithDuration(0.3) {
+            self.view.layoutIfNeeded()
+        }
     }
     
     var numberOfSubviews = 2

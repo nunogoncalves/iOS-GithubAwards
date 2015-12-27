@@ -14,6 +14,8 @@ class UserDetailsController: UIViewController {
     @IBOutlet weak var profileBackgroundView: UIView!
     @IBOutlet weak var countryAndCityLabel: UILabel!
     
+    @IBOutlet weak var loadingView: GithubLoadingView!
+    
     @IBOutlet weak var totalReposLabel: UILabel!
     @IBOutlet weak var totalStarsLabel: UILabel!
     @IBOutlet weak var totalLanguagesLabel: UILabel!
@@ -32,6 +34,9 @@ class UserDetailsController: UIViewController {
     
     var rankings = [Ranking]()
     
+    var timer: NSTimer!
+    var tempRankings = [Ranking]()
+    
     var user: User? {
         didSet {
             if let user = user {
@@ -40,6 +45,9 @@ class UserDetailsController: UIViewController {
             }
         }
     }
+    
+    let cellInsertionInterval: NSTimeInterval = 0.3
+    let cellAnimationDuration: NSTimeInterval = 0.2
     
     override func viewDidLoad() {
         loadAvatar()
@@ -73,10 +81,31 @@ extension UserDetailsController {
             countryAndCityLabel.text = "\(user.country!)"
         }
         rankings = user.rankings
-        rankingsTable.reloadData()
+        loadingView.hidden = true
+        addItemsToTable()
+//        rankingsTable.reloadData()
+        
+    }
+    
+    func addItemsToTable() {
+        addAnotherCell()
+        timer = NSTimer.scheduledTimerWithTimeInterval(cellInsertionInterval, target: self, selector: "addAnotherCell", userInfo: nil, repeats: true)
+    }
+ 
+    @objc private func addAnotherCell() {
+        if tempRankings.count == rankings.count {
+            timer.invalidate()
+            timer = nil
+            return
+        }
+        
+        tempRankings.append(rankings[tempRankings.count])
+        
+        rankingsTable.insertRowsAtIndexPaths([NSIndexPath(forRow: (tempRankings.count - 1), inSection: 0)], withRowAnimation: UITableViewRowAnimation.Automatic)
     }
     
     func failure() {
+        loadingView.hidden = true
         NotifyError.display()
     }
     
@@ -104,13 +133,22 @@ extension UserDetailsController {
 }
 
 extension UserDetailsController: UITableViewDelegate {
-    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let center = cell.center
+        cell.center = CGPointMake(center.x - 50, center.y)
+        
+        UIView.beginAnimations("position", context: nil)
+        UIView.setAnimationDuration(cellAnimationDuration)
+        cell.center = center
+        UIView.commitAnimations()
+    }
 }
 
 extension UserDetailsController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rankings.count
+        return tempRankings.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
