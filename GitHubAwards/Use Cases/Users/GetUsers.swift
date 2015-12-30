@@ -37,7 +37,7 @@ class GetUsers {
                     success(usersResponse)
                 }
             }
-            NetworkRequester(networkResponseHandler: responseHandler).makeGet(url)
+            Network.Requester(networkResponseHandler: responseHandler).makeGet(url)
         }
         
     }

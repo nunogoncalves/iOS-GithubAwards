@@ -27,7 +27,7 @@ class GetLanguages {
                     success(languages)
                 }
             }
-            NetworkRequester(networkResponseHandler: responseHandler).makeGet(K.languagesBaseUrl)
+            Network.Requester(networkResponseHandler: responseHandler).makeGet(K.languagesBaseUrl)
         }
     }
 }
