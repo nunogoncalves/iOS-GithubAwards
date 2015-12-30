@@ -16,6 +16,7 @@ class UsersSearchController: UIViewController {
     @IBOutlet weak var userLoginLabel: UILabel!
     
     @IBOutlet weak var userResultContainer: UIView!
+    @IBOutlet weak var userResultContainerBackground: UIImageView!
     @IBOutlet weak var userContainerTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var loadingIndicator: GithubLoadingView!
     
@@ -72,6 +73,7 @@ class UsersSearchController: UIViewController {
     }
     
     private func gotUser(user: User) {
+        userResultContainerBackground.hide()
         addLabelToScroll("Found user \(searchField.text!)")
         userResultContainer.hidden = false
         userLoginLabel.text = user.login!

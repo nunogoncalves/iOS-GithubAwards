@@ -23,8 +23,7 @@ class UserDetailsController: UIViewController {
     
     @IBAction func viewGithubProfileClicked() {
         if let user = user {
-            let url = NSURL(string: "http://github.com/\(user.login!)")
-            UIApplication.sharedApplication().openURL(url!)
+            Browser.openPage("http://github.com/\(user.login!)")
         }
     }
     
@@ -34,7 +33,7 @@ class UserDetailsController: UIViewController {
     
     var rankings = [Ranking]()
     
-    var timer: NSTimer!
+    weak var timer: NSTimer!
     var tempRankings = [Ranking]()
     
     var user: User? {
@@ -46,12 +45,21 @@ class UserDetailsController: UIViewController {
         }
     }
     
+    var animateCells = true
+    
     let cellInsertionInterval: NSTimeInterval = 0.2
     let cellAnimationDuration: NSTimeInterval = 0.1
     
     override func viewDidLoad() {
         loadAvatar()
         applyGradient()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        if timer != nil {
+            invalidateTimer()
+        }
     }
     
     private func loadAvatar() {
@@ -83,7 +91,7 @@ extension UserDetailsController {
         rankings = user.rankings
         loadingView.hidden = true
         addItemsToTable()
-//        rankingsTable.reloadData()
+        rankingsTable.reloadData()
         
     }
     
@@ -94,13 +102,17 @@ extension UserDetailsController {
  
     @objc private func addAnotherCell() {
         if tempRankings.count == rankings.count {
-            timer.invalidate()
-            timer = nil
+            invalidateTimer()
             return
         }
         
         tempRankings.append(rankings[tempRankings.count])
         rankingsTable.insertRowsAtIndexPaths([NSIndexPath(forRow: (tempRankings.count - 1), inSection: 0)], withRowAnimation: UITableViewRowAnimation.Automatic)
+    }
+    
+    private func invalidateTimer() {
+        timer.invalidate()
+        timer = nil
     }
     
     func failure() {
@@ -133,14 +145,21 @@ extension UserDetailsController {
 
 extension UserDetailsController: UITableViewDelegate {
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        
+        if !animateCells {
+            return
+        }
+
         let center = cell.center
-        cell.center = CGPointMake(center.x - 50, center.y)
+        cell.center = CGPointMake(center.x - (view.frame.width), center.y)
         
         UIView.beginAnimations("position", context: nil)
         UIView.setAnimationDuration(cellAnimationDuration)
         cell.center = center
         UIView.commitAnimations()
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        animateCells = false
     }
 }
 
