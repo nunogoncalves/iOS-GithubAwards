@@ -41,6 +41,7 @@
 		856A72E51C122C1E008415A4 /* shell.png in Resources */ = {isa = PBXBuildFile; fileRef = 856A72E01C122C1E008415A4 /* shell.png */; };
 		856A72E71C12509F008415A4 /* LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856A72E61C12509F008415A4 /* LanguageCell.swift */; };
 		856D67671C3424C900A77678 /* Browser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856D67661C3424C900A77678 /* Browser.swift */; };
+		856D676A1C342C6900A77678 /* Getter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856D67691C342C6900A77678 /* Getter.swift */; };
 		857C48951C119307000F035C /* LanguageImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C48941C119307000F035C /* LanguageImage.swift */; };
 		857C48991C119FF3000F035C /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 857C48981C119FF3000F035C /* background.png */; };
 		857C489B1C11A041000F035C /* riscas.png in Resources */ = {isa = PBXBuildFile; fileRef = 857C489A1C11A041000F035C /* riscas.png */; };
@@ -94,7 +95,7 @@
 		85FA59631C15C5C00097732B /* UserTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59621C15C5C00097732B /* UserTopCell.swift */; };
 		85FA59651C1645B00097732B /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59641C1645B00097732B /* K.swift */; };
 		85FA59671C16D6660097732B /* CreateFullUserFromDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59661C16D6660097732B /* CreateFullUserFromDictionary.swift */; };
-		85FA596B1C1739560097732B /* GetLanguages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA596A1C1739560097732B /* GetLanguages.swift */; };
+		85FA596B1C1739560097732B /* Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA596A1C1739560097732B /* Get.swift */; };
 		85FC70661C244CAA00971081 /* UserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC70651C244CAA00971081 /* UserPresenter.swift */; };
 		85FC70681C2456FF00971081 /* UserPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC70671C2456FF00971081 /* UserPresenterTests.swift */; };
 		C657C80956D153E47A9D5CE1 /* Pods_GitHubAwardsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D538C8C8F49F914BD66B647 /* Pods_GitHubAwardsUITests.framework */; };
@@ -154,6 +155,7 @@
 		856A72E01C122C1E008415A4 /* shell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shell.png; sourceTree = "<group>"; };
 		856A72E61C12509F008415A4 /* LanguageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageCell.swift; sourceTree = "<group>"; };
 		856D67661C3424C900A77678 /* Browser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Browser.swift; sourceTree = "<group>"; };
+		856D67691C342C6900A77678 /* Getter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Getter.swift; sourceTree = "<group>"; };
 		857C48941C119307000F035C /* LanguageImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageImage.swift; sourceTree = "<group>"; };
 		857C48981C119FF3000F035C /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		857C489A1C11A041000F035C /* riscas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = riscas.png; sourceTree = "<group>"; };
@@ -213,7 +215,7 @@
 		85FA59621C15C5C00097732B /* UserTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTopCell.swift; sourceTree = "<group>"; };
 		85FA59641C1645B00097732B /* K.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		85FA59661C16D6660097732B /* CreateFullUserFromDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFullUserFromDictionary.swift; sourceTree = "<group>"; };
-		85FA596A1C1739560097732B /* GetLanguages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetLanguages.swift; sourceTree = "<group>"; };
+		85FA596A1C1739560097732B /* Get.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Get.swift; sourceTree = "<group>"; };
 		85FC70651C244CAA00971081 /* UserPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPresenter.swift; sourceTree = "<group>"; };
 		85FC70671C2456FF00971081 /* UserPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPresenterTests.swift; sourceTree = "<group>"; };
 		8D538C8C8F49F914BD66B647 /* Pods_GitHubAwardsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubAwardsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -272,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				851D3C371C09134600870813 /* Requester.swift */,
+				856D67691C342C6900A77678 /* Getter.swift */,
 			);
 			name = Network;
 			path = ../Networking;
@@ -542,7 +545,7 @@
 		85FA596C1C17395C0097732B /* Languages */ = {
 			isa = PBXGroup;
 			children = (
-				85FA596A1C1739560097732B /* GetLanguages.swift */,
+				85FA596A1C1739560097732B /* Get.swift */,
 			);
 			name = Languages;
 			sourceTree = "<group>";
@@ -837,7 +840,8 @@
 				85D3211E1C0211C2001B7C7A /* UserCell.swift in Sources */,
 				85AFEC1F1C0468CB006FC129 /* Ranking.swift in Sources */,
 				850485311C0FB10C004D952A /* AlertView.swift in Sources */,
-				85FA596B1C1739560097732B /* GetLanguages.swift in Sources */,
+				856D676A1C342C6900A77678 /* Getter.swift in Sources */,
+				85FA596B1C1739560097732B /* Get.swift in Sources */,
 				85B501851C10FD8400BBFD56 /* LanguageTitleView.swift in Sources */,
 				85B2C2D01C18D07800112D95 /* UIView.swift in Sources */,
 				853C48DF1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift in Sources */,

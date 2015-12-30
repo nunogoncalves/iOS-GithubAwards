@@ -40,7 +40,7 @@ class LanguagesController: UIViewController {
     
     private func searchLanguages() {
         setSearching()
-        GetLanguages().fetch(success: gotLanguages, failure: failedToLoadLanguages)
+        Languages.Get().get(success: gotLanguages, failure: failedToLoadLanguages)
     }
     
     private func setSearching() {
