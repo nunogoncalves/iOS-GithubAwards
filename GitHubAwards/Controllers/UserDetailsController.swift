@@ -40,7 +40,7 @@ class UserDetailsController: UIViewController {
         didSet {
             if let user = user {
                 navigationItem.title = user.login
-                GetUser(login: user.login!).fetch(userSuccess, failure: failure)
+                Users.GetOne(login: user.login!).get(success: userSuccess, failure: failure)
             }
         }
     }

@@ -13,7 +13,7 @@ class LanguageUsersTableDataSource : NSObject, TableViewDataSource {
     var book: Book
     var searchOptions: SearchOptions
     
-    var userSearcher: GetUsers
+    var userSearcher: Users.GetList
     var latestUserResponse: UsersListResponse!
     
     var isSearching = false
@@ -23,7 +23,7 @@ class LanguageUsersTableDataSource : NSObject, TableViewDataSource {
     init(searchOptions: SearchOptions) {
         self.searchOptions = searchOptions
         book = UsersListResponse(users: [], paginator: Paginator())
-        userSearcher = GetUsers.init(searchOptions: searchOptions)
+        userSearcher = Users.GetList(searchOptions: searchOptions)
     }
     
     func dataForIndexPath(indexPath: NSIndexPath) -> AnyObject {
@@ -73,7 +73,7 @@ class LanguageUsersTableDataSource : NSObject, TableViewDataSource {
     
     private func reallyFetchUsers() {
         isSearching = true
-        userSearcher.fetch(success: usersSuccess, failure: failure)
+        userSearcher.get(success: usersSuccess, failure: failure)
     }
     
     func usersSuccess(usersResponse: UsersListResponse) {

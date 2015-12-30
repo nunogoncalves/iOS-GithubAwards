@@ -69,7 +69,7 @@ class UsersSearchController: UIViewController {
         userResultContainer.hidden = true
         loadingIndicator.hidden = false
         userContainerTopConstraint.constant = -80.0
-        GetUser(login: login).fetch(gotUser, failure: failedToSearchForUser)
+        Users.GetOne(login: login).get(success: gotUser, failure: failedToSearchForUser)
     }
     
     private func gotUser(user: User) {
