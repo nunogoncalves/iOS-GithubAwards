@@ -15,7 +15,7 @@ class GetLanguages {
         let qos = Int(QOS_CLASS_USER_INTERACTIVE.rawValue)
         dispatch_async(dispatch_get_global_queue(qos, 0)) {
                 
-            let responseHandler = NetworkResponse()
+            let responseHandler = Data.HandleResponse()
             responseHandler.failureCallback = {
                 dispatch_async(dispatch_get_main_queue()) {
                     failure()

@@ -12,9 +12,9 @@ class NetworkRequester {
 
     var URLSession = NSURLSession.self
 
-    let networkResponseHandler: NetworkResponse
+    let networkResponseHandler: Data.HandleResponse
     
-    init(networkResponseHandler: NetworkResponse) {
+    init(networkResponseHandler: Data.HandleResponse) {
         self.networkResponseHandler = networkResponseHandler
     }
     
