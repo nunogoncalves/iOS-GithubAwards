@@ -13,11 +13,11 @@ import Nimble
 class NetworkRequesterTests : QuickSpec {
     
     override func spec() {
-        let responseHandler = NetworkResponse()
-        var requester: NetworkRequester!
+        let responseHandler = Data.HandleResponse()
+        var requester: Network.Requester!
         
         beforeEach {
-            requester = NetworkRequester(networkResponseHandler: responseHandler)
+            requester = Network.Requester(networkResponseHandler: responseHandler)
             requester.URLSession = MockNSURLSession.self
         }
         
