@@ -144,7 +144,7 @@
 		8517ECBE1C2C1EDB00467985 /* RankingPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingPresenterTests.swift; sourceTree = "<group>"; };
 		85198B751C05CE6C007ACC73 /* LanguagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguagesController.swift; sourceTree = "<group>"; };
 		851D3C371C09134600870813 /* Requester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
-		851D3C391C0913E900870813 /* HandleResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HandleResponse.swift; path = ../Networking/HandleResponse.swift; sourceTree = "<group>"; };
+		851D3C391C0913E900870813 /* HandleResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandleResponse.swift; sourceTree = "<group>"; };
 		853C48DC1C0921AF00373A92 /* Paginator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paginator.swift; sourceTree = "<group>"; };
 		853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertUsersDictionaryToUsers.swift; sourceTree = "<group>"; };
 		853C48E01C09A28400373A92 /* GetOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetOne.swift; sourceTree = "<group>"; };
@@ -275,11 +275,10 @@
 		851D3C361C09131D00870813 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				851D3C371C09134600870813 /* Requester.swift */,
 				856D67691C342C6900A77678 /* Getter.swift */,
+				851D3C371C09134600870813 /* Requester.swift */,
 			);
-			name = Network;
-			path = ../Networking;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		853C48DB1C09218800373A92 /* DictionaryModelMappers */ = {
@@ -297,7 +296,7 @@
 			children = (
 				856D67661C3424C900A77678 /* Browser.swift */,
 			);
-			name = Browser;
+			path = Browser;
 			sourceTree = "<group>";
 		};
 		856D67681C3426C200A77678 /* Data */ = {
@@ -305,7 +304,7 @@
 			children = (
 				851D3C391C0913E900870813 /* HandleResponse.swift */,
 			);
-			name = Data;
+			path = Data;
 			sourceTree = "<group>";
 		};
 		85820F391C0E2B900069D085 /* CustomViews */ = {
@@ -326,9 +325,9 @@
 		85820F3E1C0E2BDE0069D085 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				8508B7641C1593230024684F /* 3.png */,
-				8508B7651C1593230024684F /* 2.png */,
 				8508B7661C1593230024684F /* 1.png */,
+				8508B7651C1593230024684F /* 2.png */,
+				8508B7641C1593230024684F /* 3.png */,
 				850485341C104AE8004D952A /* GenericLanguage.png */,
 				857C48981C119FF3000F035C /* background.png */,
 				8504853C1C104C2B004D952A /* c#.png */,
@@ -408,12 +407,12 @@
 		858B910D1C085AC700B510B3 /* Use Cases */ = {
 			isa = PBXGroup;
 			children = (
-				856D67681C3426C200A77678 /* Data */,
 				856D67651C3424BA00A77678 /* Browser */,
+				856D67681C3426C200A77678 /* Data */,
 				853C48DB1C09218800373A92 /* DictionaryModelMappers */,
+				85FA596C1C17395C0097732B /* Languages */,
 				851D3C361C09131D00870813 /* Network */,
 				85820F4F1C0EF4ED0069D085 /* Notifications */,
-				85FA596C1C17395C0097732B /* Languages */,
 				858B910F1C085B0800B510B3 /* Users */,
 			);
 			path = "Use Cases";
@@ -444,7 +443,7 @@
 			children = (
 				85A1D2CF1C2EB3A800774F49 /* MockNSURLSession.swift */,
 			);
-			name = Mocks;
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		85AFEC1C1C046898006FC129 /* Models */ = {
@@ -480,12 +479,12 @@
 		85D320E31C02062E001B7C7A = {
 			isa = PBXGroup;
 			children = (
+				285330A629B775DCF5F8AA67 /* Frameworks */,
 				85D320EE1C02062E001B7C7A /* GitHubAwards */,
 				85D321031C02062E001B7C7A /* GitHubAwardsTests */,
 				85D3210E1C02062E001B7C7A /* GitHubAwardsUITests */,
-				85D320ED1C02062E001B7C7A /* Products */,
 				244F8BB1AB6827B60701FFBC /* Pods */,
-				285330A629B775DCF5F8AA67 /* Frameworks */,
+				85D320ED1C02062E001B7C7A /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -524,14 +523,14 @@
 				85A1D2CE1C2EB39500774F49 /* Mocks */,
 				857E2C361C1C87370095DCC0 /* ConvertUsersDictionaryToUsersTests.swift */,
 				85D321041C02062E001B7C7A /* GitHubAwardsTests.swift */,
+				85D321061C02062E001B7C7A /* Info.plist */,
 				8599284D1C0D9579000ABE8C /* LocationTypeTests.swift */,
 				85A1D2D11C2EB53500774F49 /* NetworkRequesterTests.swift */,
 				85E6566C1C134C7000BB4278 /* PaginatorTests.swift */,
 				8517ECBE1C2C1EDB00467985 /* RankingPresenterTests.swift */,
 				858B91141C085E6400B510B3 /* SearchOptionsTests.swift */,
-				859CE4BE1C2FDF3D008A7856 /* UsersListResponseTests.swift */,
 				85FC70671C2456FF00971081 /* UserPresenterTests.swift */,
-				85D321061C02062E001B7C7A /* Info.plist */,
+				859CE4BE1C2FDF3D008A7856 /* UsersListResponseTests.swift */,
 			);
 			path = GitHubAwardsTests;
 			sourceTree = "<group>";
@@ -550,16 +549,16 @@
 			children = (
 				85FA596A1C1739560097732B /* Get.swift */,
 			);
-			name = Languages;
+			path = Languages;
 			sourceTree = "<group>";
 		};
 		85FC70641C244C4900971081 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
-				85FC70651C244CAA00971081 /* UserPresenter.swift */,
 				8517ECBC1C2C11AB00467985 /* RankingPresenter.swift */,
+				85FC70651C244CAA00971081 /* UserPresenter.swift */,
 			);
-			name = Presenters;
+			path = Presenters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
