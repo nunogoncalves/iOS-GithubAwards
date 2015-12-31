@@ -15,18 +15,17 @@ class UsersSearchController: UIViewController {
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var userLoginLabel: UILabel!
     
-    @IBOutlet weak var userResultContainer: UIView!
     @IBOutlet weak var userResultContainerBackground: UIImageView!
     @IBOutlet weak var userContainerTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var loadingIndicator: GithubLoadingView!
-    
-
     
     var searchingLabel: UILabel!
 
     var user: User?
     
     var timer: NSTimer?
+    
+    let userMovementAnimationDuration: NSTimeInterval = 0.3
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,16 +65,15 @@ class UsersSearchController: UIViewController {
     
     private func searchUserFor(login: String) {
         showLoadingIndicatior()
-        userResultContainer.hidden = true
         loadingIndicator.hidden = false
         userContainerTopConstraint.constant = -80.0
+        UIView.animateWithDuration(userMovementAnimationDuration) { self.view.layoutIfNeeded() }
         Users.GetOne(login: login).get(success: gotUser, failure: failedToSearchForUser)
     }
     
     private func gotUser(user: User) {
         userResultContainerBackground.hide()
         addLabelToScroll("Found user \(searchField.text!)")
-        userResultContainer.hidden = false
         userLoginLabel.text = user.login!
         loadingIndicator.hidden = true
         self.user = user

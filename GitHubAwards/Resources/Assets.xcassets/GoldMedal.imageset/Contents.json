@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "sunRaysLarge.png",
+      "filename" : "goldMedal.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "sunRaysLarge@2x.png",
+      "filename" : "goldMedal@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "sunRaysLarge@3x.png",
+      "filename" : "goldMedal@3x.png",
       "scale" : "3x"
     }
   ],

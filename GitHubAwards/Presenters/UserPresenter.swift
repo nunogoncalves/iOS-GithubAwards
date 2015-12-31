@@ -15,14 +15,17 @@ class UserPresenter {
     let user: User
     let ranking: Int
     
+    private let medalImages = ["GoldMedal", "SilverMedal", "BronzeMedal"]
+    
     private let positionColors: [UInt] = [
-        K.firstInRankingColor,
-        K.secondInRankingColor,
-        K.thirdInRankingColor
+        kColors.firstInRankingColor,
+        kColors.secondInRankingColor,
+        kColors.thirdInRankingColor
     ]
+    
     private let avatarBGColors: [UInt] = [
-        K.secondInRankingColor,
-        K.thirdInRankingColor,
+        kColors.secondInRankingColor,
+        kColors.thirdInRankingColor,
         0xE5E5FF
     ]
     
@@ -34,10 +37,10 @@ class UserPresenter {
     func isPodiumRanking() -> Bool {
         return ranking < 4 && ranking > 0
     }
-    
+
     func rankingImageName() -> String? {
         if isPodiumRanking() {
-            return "\(ranking).png"
+            return medalImages[ranking - 1]
         }
         return nil
     }

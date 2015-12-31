@@ -18,7 +18,7 @@ extension Users {
         }
         
         func getUrl() -> String {
-            return "\(K.usersBaseUrl)/?\(searchOptions.urlEncoded())"
+            return "\(kUrls.usersBaseUrl)/?\(searchOptions.urlEncoded())"
         }
         
         func getDataFrom(dictionary: NSDictionary) -> UsersListResponse {

@@ -19,7 +19,7 @@ extension Users {
         
         func getUrl() -> String {
             //let url = "\(K.usersBaseUrl)/\(self.login)"
-            return "\(K.usersBaseUrl)/nunogoncalves"
+            return "\(kUrls.usersBaseUrl)/nunogoncalves"
         }
         
         func getDataFrom(dictionary: NSDictionary) -> User {
