@@ -14,10 +14,15 @@ class GithubLoadingView: UIView {
     @IBOutlet weak var loadingIndicatorImageView: UIImageView!
     @IBOutlet weak var staticImage: UIImageView!
     
-    let images = [
-        UIImage(named: "tmp-0.gif")!, UIImage(named: "tmp-1.gif")!, UIImage(named: "tmp-2.gif")!,
-        UIImage(named: "tmp-3.gif")!, UIImage(named: "tmp-4.gif")!, UIImage(named: "tmp-5.gif")!,
-        UIImage(named: "tmp-6.gif")!, UIImage(named: "tmp-7.gif")!,
+    private let images = [
+        UIImage(named: "GithubLoading-0.gif")!,
+        UIImage(named: "GithubLoading-1.gif")!,
+        UIImage(named: "GithubLoading-2.gif")!,
+        UIImage(named: "GithubLoading-3.gif")!,
+        UIImage(named: "GithubLoading-4.gif")!,
+        UIImage(named: "GithubLoading-5.gif")!,
+        UIImage(named: "GithubLoading-6.gif")!,
+        UIImage(named: "GithubLoading-7.gif")!,
     ]
     
     override init(frame: CGRect) {
@@ -35,7 +40,7 @@ class GithubLoadingView: UIView {
         view.frame = bounds
         view.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
         
-        loadingIndicatorImageView.image = UIImage(named: "tmp-0.gif")!
+        loadingIndicatorImageView.image = UIImage(named: "GithubLoading-0.gif")!
         loadingIndicatorImageView.animationImages = images
         loadingIndicatorImageView.animationDuration = 0.75
         loadingIndicatorImageView.startAnimating()
