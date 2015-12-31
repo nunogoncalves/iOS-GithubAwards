@@ -51,14 +51,14 @@
 		857E2C371C1C87370095DCC0 /* ConvertUsersDictionaryToUsersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857E2C361C1C87370095DCC0 /* ConvertUsersDictionaryToUsersTests.swift */; };
 		85820F3C1C0E2BCE0069D085 /* GithubLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85820F3A1C0E2BCE0069D085 /* GithubLoadingView.swift */; };
 		85820F3D1C0E2BCE0069D085 /* GithubLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85820F3B1C0E2BCE0069D085 /* GithubLoadingView.xib */; };
-		85820F471C0E2C1A0069D085 /* tmp-0.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85820F3F1C0E2C1A0069D085 /* tmp-0.gif */; };
-		85820F481C0E2C1A0069D085 /* tmp-1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85820F401C0E2C1A0069D085 /* tmp-1.gif */; };
-		85820F491C0E2C1A0069D085 /* tmp-2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85820F411C0E2C1A0069D085 /* tmp-2.gif */; };
-		85820F4A1C0E2C1A0069D085 /* tmp-3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85820F421C0E2C1A0069D085 /* tmp-3.gif */; };
-		85820F4B1C0E2C1A0069D085 /* tmp-4.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85820F431C0E2C1A0069D085 /* tmp-4.gif */; };
-		85820F4C1C0E2C1A0069D085 /* tmp-5.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85820F441C0E2C1A0069D085 /* tmp-5.gif */; };
-		85820F4D1C0E2C1A0069D085 /* tmp-6.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85820F451C0E2C1A0069D085 /* tmp-6.gif */; };
-		85820F4E1C0E2C1A0069D085 /* tmp-7.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85820F461C0E2C1A0069D085 /* tmp-7.gif */; };
+		85820F471C0E2C1A0069D085 /* GithubLoading-0.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85820F3F1C0E2C1A0069D085 /* GithubLoading-0.gif */; };
+		85820F481C0E2C1A0069D085 /* GithubLoading-1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85820F401C0E2C1A0069D085 /* GithubLoading-1.gif */; };
+		85820F491C0E2C1A0069D085 /* GithubLoading-2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85820F411C0E2C1A0069D085 /* GithubLoading-2.gif */; };
+		85820F4A1C0E2C1A0069D085 /* GithubLoading-3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85820F421C0E2C1A0069D085 /* GithubLoading-3.gif */; };
+		85820F4B1C0E2C1A0069D085 /* GithubLoading-4.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85820F431C0E2C1A0069D085 /* GithubLoading-4.gif */; };
+		85820F4C1C0E2C1A0069D085 /* GithubLoading-5.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85820F441C0E2C1A0069D085 /* GithubLoading-5.gif */; };
+		85820F4D1C0E2C1A0069D085 /* GithubLoading-6.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85820F451C0E2C1A0069D085 /* GithubLoading-6.gif */; };
+		85820F4E1C0E2C1A0069D085 /* GithubLoading-7.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85820F461C0E2C1A0069D085 /* GithubLoading-7.gif */; };
 		85820F511C0EF4FC0069D085 /* NotifyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85820F501C0EF4FC0069D085 /* NotifyError.swift */; };
 		858B91111C085B1600B510B3 /* GetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858B91101C085B1600B510B3 /* GetList.swift */; };
 		858B91131C085B4C00B510B3 /* SearchOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858B91121C085B4C00B510B3 /* SearchOptions.swift */; };
@@ -71,7 +71,6 @@
 		85A1D2D21C2EB53500774F49 /* NetworkRequesterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A1D2D11C2EB53500774F49 /* NetworkRequesterTests.swift */; };
 		85AFEC1F1C0468CB006FC129 /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AFEC1E1C0468CB006FC129 /* Ranking.swift */; };
 		85B2C2D01C18D07800112D95 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B2C2CF1C18D07800112D95 /* UIView.swift */; };
-		85B2C2D21C197EE400112D95 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 85B2C2D11C197EE400112D95 /* star.png */; };
 		85B501831C10FCC300BBFD56 /* LanguageTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85B501821C10FCC300BBFD56 /* LanguageTitleView.xib */; };
 		85B501851C10FD8400BBFD56 /* LanguageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B501841C10FD8400BBFD56 /* LanguageTitleView.swift */; };
 		85D320F01C02062E001B7C7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D320EF1C02062E001B7C7A /* AppDelegate.swift */; };
@@ -166,14 +165,14 @@
 		857E2C361C1C87370095DCC0 /* ConvertUsersDictionaryToUsersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertUsersDictionaryToUsersTests.swift; sourceTree = "<group>"; };
 		85820F3A1C0E2BCE0069D085 /* GithubLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubLoadingView.swift; sourceTree = "<group>"; };
 		85820F3B1C0E2BCE0069D085 /* GithubLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GithubLoadingView.xib; sourceTree = "<group>"; };
-		85820F3F1C0E2C1A0069D085 /* tmp-0.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "tmp-0.gif"; sourceTree = "<group>"; };
-		85820F401C0E2C1A0069D085 /* tmp-1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "tmp-1.gif"; sourceTree = "<group>"; };
-		85820F411C0E2C1A0069D085 /* tmp-2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "tmp-2.gif"; sourceTree = "<group>"; };
-		85820F421C0E2C1A0069D085 /* tmp-3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "tmp-3.gif"; sourceTree = "<group>"; };
-		85820F431C0E2C1A0069D085 /* tmp-4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "tmp-4.gif"; sourceTree = "<group>"; };
-		85820F441C0E2C1A0069D085 /* tmp-5.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "tmp-5.gif"; sourceTree = "<group>"; };
-		85820F451C0E2C1A0069D085 /* tmp-6.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "tmp-6.gif"; sourceTree = "<group>"; };
-		85820F461C0E2C1A0069D085 /* tmp-7.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "tmp-7.gif"; sourceTree = "<group>"; };
+		85820F3F1C0E2C1A0069D085 /* GithubLoading-0.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "GithubLoading-0.gif"; sourceTree = "<group>"; };
+		85820F401C0E2C1A0069D085 /* GithubLoading-1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "GithubLoading-1.gif"; sourceTree = "<group>"; };
+		85820F411C0E2C1A0069D085 /* GithubLoading-2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "GithubLoading-2.gif"; sourceTree = "<group>"; };
+		85820F421C0E2C1A0069D085 /* GithubLoading-3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "GithubLoading-3.gif"; sourceTree = "<group>"; };
+		85820F431C0E2C1A0069D085 /* GithubLoading-4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "GithubLoading-4.gif"; sourceTree = "<group>"; };
+		85820F441C0E2C1A0069D085 /* GithubLoading-5.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "GithubLoading-5.gif"; sourceTree = "<group>"; };
+		85820F451C0E2C1A0069D085 /* GithubLoading-6.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "GithubLoading-6.gif"; sourceTree = "<group>"; };
+		85820F461C0E2C1A0069D085 /* GithubLoading-7.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "GithubLoading-7.gif"; sourceTree = "<group>"; };
 		85820F501C0EF4FC0069D085 /* NotifyError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifyError.swift; sourceTree = "<group>"; };
 		858B91101C085B1600B510B3 /* GetList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetList.swift; sourceTree = "<group>"; };
 		858B91121C085B4C00B510B3 /* SearchOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchOptions.swift; sourceTree = "<group>"; };
@@ -186,7 +185,6 @@
 		85A1D2D11C2EB53500774F49 /* NetworkRequesterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequesterTests.swift; sourceTree = "<group>"; };
 		85AFEC1E1C0468CB006FC129 /* Ranking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
 		85B2C2CF1C18D07800112D95 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		85B2C2D11C197EE400112D95 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		85B501821C10FCC300BBFD56 /* LanguageTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageTitleView.xib; sourceTree = "<group>"; };
 		85B501841C10FD8400BBFD56 /* LanguageTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageTitleView.swift; sourceTree = "<group>"; };
 		85D320EC1C02062E001B7C7A /* GitHubAwards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubAwards.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -345,16 +343,8 @@
 				857C489A1C11A041000F035C /* riscas.png */,
 				850485411C104C2B004D952A /* ruby.png */,
 				856A72E01C122C1E008415A4 /* shell.png */,
-				85B2C2D11C197EE400112D95 /* star.png */,
 				850485371C104AE8004D952A /* swift.png */,
-				85820F3F1C0E2C1A0069D085 /* tmp-0.gif */,
-				85820F401C0E2C1A0069D085 /* tmp-1.gif */,
-				85820F411C0E2C1A0069D085 /* tmp-2.gif */,
-				85820F421C0E2C1A0069D085 /* tmp-3.gif */,
-				85820F431C0E2C1A0069D085 /* tmp-4.gif */,
-				85820F441C0E2C1A0069D085 /* tmp-5.gif */,
-				85820F451C0E2C1A0069D085 /* tmp-6.gif */,
-				85820F461C0E2C1A0069D085 /* tmp-7.gif */,
+				85A9E55D1C351CAD0011DAA4 /* GithubLoading */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -444,6 +434,21 @@
 				85A1D2CF1C2EB3A800774F49 /* MockNSURLSession.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		85A9E55D1C351CAD0011DAA4 /* GithubLoading */ = {
+			isa = PBXGroup;
+			children = (
+				85820F3F1C0E2C1A0069D085 /* GithubLoading-0.gif */,
+				85820F401C0E2C1A0069D085 /* GithubLoading-1.gif */,
+				85820F411C0E2C1A0069D085 /* GithubLoading-2.gif */,
+				85820F421C0E2C1A0069D085 /* GithubLoading-3.gif */,
+				85820F431C0E2C1A0069D085 /* GithubLoading-4.gif */,
+				85820F441C0E2C1A0069D085 /* GithubLoading-5.gif */,
+				85820F451C0E2C1A0069D085 /* GithubLoading-6.gif */,
+				85820F461C0E2C1A0069D085 /* GithubLoading-7.gif */,
+			);
+			name = GithubLoading;
 			sourceTree = "<group>";
 		};
 		85AFEC1C1C046898006FC129 /* Models */ = {
@@ -674,35 +679,34 @@
 				85D320FA1C02062E001B7C7A /* LaunchScreen.storyboard in Resources */,
 				8508B7681C1593230024684F /* 2.png in Resources */,
 				85D320F71C02062E001B7C7A /* Assets.xcassets in Resources */,
-				85820F4E1C0E2C1A0069D085 /* tmp-7.gif in Resources */,
-				85820F481C0E2C1A0069D085 /* tmp-1.gif in Resources */,
+				85820F4E1C0E2C1A0069D085 /* GithubLoading-7.gif in Resources */,
+				85820F481C0E2C1A0069D085 /* GithubLoading-1.gif in Resources */,
 				85820F3D1C0E2BCE0069D085 /* GithubLoadingView.xib in Resources */,
 				850485431C104C2B004D952A /* go.png in Resources */,
 				857C48991C119FF3000F035C /* background.png in Resources */,
 				850485451C104C2B004D952A /* php.png in Resources */,
 				857C489D1C11A146000F035C /* img-min.png in Resources */,
 				85B501831C10FCC300BBFD56 /* LanguageTitleView.xib in Resources */,
-				85820F4D1C0E2C1A0069D085 /* tmp-6.gif in Resources */,
-				85820F4C1C0E2C1A0069D085 /* tmp-5.gif in Resources */,
+				85820F4D1C0E2C1A0069D085 /* GithubLoading-6.gif in Resources */,
+				85820F4C1C0E2C1A0069D085 /* GithubLoading-5.gif in Resources */,
 				850485471C104C2B004D952A /* ruby.png in Resources */,
 				850485441C104C2B004D952A /* pearl.png in Resources */,
 				85D320F51C02062E001B7C7A /* Main.storyboard in Resources */,
 				856A72E31C122C1E008415A4 /* css.png in Resources */,
 				8504853A1C104AE8004D952A /* javascript.png in Resources */,
-				85820F471C0E2C1A0069D085 /* tmp-0.gif in Resources */,
+				85820F471C0E2C1A0069D085 /* GithubLoading-0.gif in Resources */,
 				856A72E41C122C1E008415A4 /* objective-c.png in Resources */,
 				850485331C0FB11A004D952A /* AlertView.xib in Resources */,
 				856A72E51C122C1E008415A4 /* shell.png in Resources */,
 				850485421C104C2B004D952A /* c#.png in Resources */,
-				85820F4A1C0E2C1A0069D085 /* tmp-3.gif in Resources */,
+				85820F4A1C0E2C1A0069D085 /* GithubLoading-3.gif in Resources */,
 				856A72E21C122C1E008415A4 /* c++.png in Resources */,
 				850485391C104AE8004D952A /* java.png in Resources */,
 				8504853B1C104AE8004D952A /* swift.png in Resources */,
-				85820F491C0E2C1A0069D085 /* tmp-2.gif in Resources */,
-				85B2C2D21C197EE400112D95 /* star.png in Resources */,
+				85820F491C0E2C1A0069D085 /* GithubLoading-2.gif in Resources */,
 				856A72E11C122C1E008415A4 /* c.png in Resources */,
 				850485461C104C2B004D952A /* python.png in Resources */,
-				85820F4B1C0E2C1A0069D085 /* tmp-4.gif in Resources */,
+				85820F4B1C0E2C1A0069D085 /* GithubLoading-4.gif in Resources */,
 				857C489B1C11A041000F035C /* riscas.png in Resources */,
 				850485381C104AE8004D952A /* GenericLanguage.png in Resources */,
 				8508B7691C1593230024684F /* 1.png in Resources */,

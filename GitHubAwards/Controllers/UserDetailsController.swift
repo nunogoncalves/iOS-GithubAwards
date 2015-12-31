@@ -74,7 +74,10 @@ class UserDetailsController: UIViewController {
         view.layoutIfNeeded()
         let gradient: CAGradientLayer = CAGradientLayer()
         gradient.frame = profileBackgroundView.bounds
-        gradient.colors = [UIColor(rgbValue: 0x7354D7).CGColor, UIColor(rgbValue: K.firstInRankingColor).CGColor]
+        let colorStart: UInt = 0x2F9DE6
+        let colorEnd: UInt = 0x2FB9E6
+//        gradient.colors = [UIColor(rgbValue: 0x7354D7).CGColor, UIColor(rgbValue: K.firstInRankingColor).CGColor]
+        gradient.colors = [UIColor(rgbValue: colorStart).CGColor, UIColor(rgbValue: colorEnd).CGColor]
         profileBackgroundView.layer.insertSublayer(gradient, atIndex: 0)
     }
 }
