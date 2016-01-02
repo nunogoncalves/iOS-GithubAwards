@@ -8,8 +8,8 @@
 
 struct UsersListResponse : Book {
     
-    let users: [User]
-    let paginator: Paginator
+    var users: [User]
+    var paginator: Paginator
     
     var data: [AnyObject]
     

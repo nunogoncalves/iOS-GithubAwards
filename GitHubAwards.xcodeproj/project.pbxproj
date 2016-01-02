@@ -69,6 +69,7 @@
 		859CE4BF1C2FDF3D008A7856 /* UsersListResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859CE4BE1C2FDF3D008A7856 /* UsersListResponseTests.swift */; };
 		85A1D2D01C2EB3A800774F49 /* MockNSURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A1D2CF1C2EB3A800774F49 /* MockNSURLSession.swift */; };
 		85A1D2D21C2EB53500774F49 /* NetworkRequesterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A1D2D11C2EB53500774F49 /* NetworkRequesterTests.swift */; };
+		85A9E55F1C36C4870011DAA4 /* IntroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A9E55E1C36C4870011DAA4 /* IntroController.swift */; };
 		85AFEC1F1C0468CB006FC129 /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AFEC1E1C0468CB006FC129 /* Ranking.swift */; };
 		85B2C2D01C18D07800112D95 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B2C2CF1C18D07800112D95 /* UIView.swift */; };
 		85B501831C10FCC300BBFD56 /* LanguageTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85B501821C10FCC300BBFD56 /* LanguageTitleView.xib */; };
@@ -183,6 +184,7 @@
 		859CE4BE1C2FDF3D008A7856 /* UsersListResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersListResponseTests.swift; sourceTree = "<group>"; };
 		85A1D2CF1C2EB3A800774F49 /* MockNSURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNSURLSession.swift; sourceTree = "<group>"; };
 		85A1D2D11C2EB53500774F49 /* NetworkRequesterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequesterTests.swift; sourceTree = "<group>"; };
+		85A9E55E1C36C4870011DAA4 /* IntroController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroController.swift; sourceTree = "<group>"; };
 		85AFEC1E1C0468CB006FC129 /* Ranking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
 		85B2C2CF1C18D07800112D95 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		85B501821C10FCC300BBFD56 /* LanguageTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageTitleView.xib; sourceTree = "<group>"; };
@@ -473,6 +475,7 @@
 		85AFEC1D1C0468A1006FC129 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				85A9E55E1C36C4870011DAA4 /* IntroController.swift */,
 				85D320F11C02062E001B7C7A /* LanguageRankingsController.swift */,
 				85198B751C05CE6C007ACC73 /* LanguagesController.swift */,
 				85D321241C022480001B7C7A /* UserDetailsController.swift */,
@@ -851,6 +854,7 @@
 				85FA596B1C1739560097732B /* Get.swift in Sources */,
 				85B501851C10FD8400BBFD56 /* LanguageTitleView.swift in Sources */,
 				85B2C2D01C18D07800112D95 /* UIView.swift in Sources */,
+				85A9E55F1C36C4870011DAA4 /* IntroController.swift in Sources */,
 				853C48DF1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift in Sources */,
 				85E6566B1C134B4E00BB4278 /* UsersListResponse.swift in Sources */,
 				85D321271C022D86001B7C7A /* RankingCell.swift in Sources */,

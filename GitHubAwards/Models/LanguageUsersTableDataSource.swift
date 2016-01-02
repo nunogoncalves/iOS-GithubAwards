@@ -77,13 +77,13 @@ class LanguageUsersTableDataSource : NSObject, TableViewDataSource {
     }
     
     func usersSuccess(usersResponse: UsersListResponse) {
-        book = usersResponse
+        book.paginator = usersResponse.paginator
         isSearching = false
         latestUserResponse = usersResponse
         if usersResponse.isFirstPage() {
             book.data = usersResponse.users
         } else {
-            book.data.appendContentsOf(usersResponse.users as [AnyObject])
+            book.data += (usersResponse.users as [AnyObject])
         }
         tableStateListener?.newDataArrived(usersResponse.paginator)
     }

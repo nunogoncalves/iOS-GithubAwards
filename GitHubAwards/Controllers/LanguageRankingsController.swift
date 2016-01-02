@@ -15,10 +15,14 @@ class LanguageRankingsController: UIViewController {
 
     @IBOutlet weak var tableTopConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var searchBar: SearchBar!
+    
     @IBAction func locationTypeChanged(locationTypeControl: UISegmentedControl) {
         selectedLocationType = locationTypes[locationTypeControl.selectedSegmentIndex]!
         tableTopConstraint.constant = selectedLocationType.hasName() ? 50 : 10
-        
+        if selectedLocationType.hasName() {
+            searchBar.placeholder = "Insert a \(selectedLocationType.rawValue)"
+        }
         animateLocationTypeChanged()
     }
     
@@ -55,6 +59,7 @@ class LanguageRankingsController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar.searchDelegate = self
         usersTable.delegate = self
         usersTableDataSource = LanguageUsersTableDataSource(searchOptions: userSearchOptions)
         usersTableDataSource.tableStateListener = self
@@ -71,7 +76,7 @@ class LanguageRankingsController: UIViewController {
     
     func searchUsers(reset: Bool = false) {
         userSearchOptions.locationType = selectedLocationType
-        userSearchOptions.location = locationNameTextField.text!
+        userSearchOptions.location = searchBar.text!
         
         usersTableDataSource.searchUsers(reset)
     }
@@ -115,7 +120,7 @@ extension LanguageRankingsController : UITableViewDelegate {
             return
         }
         
-        freshSearchUsers()
+        searchUsers(false)
     }
     
     private func updateRefreshControl() {
@@ -137,5 +142,13 @@ extension LanguageRankingsController : TableStateListener {
     func failedToGetData() {
         stopLoadingIndicator()
         NotifyError.display()
+    }
+}
+
+extension LanguageRankingsController : UISearchBarDelegate {
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        userSearchOptions.locationType = selectedLocationType
+        userSearchOptions.location = searchBar.text!
+        freshSearchUsers()
     }
 }

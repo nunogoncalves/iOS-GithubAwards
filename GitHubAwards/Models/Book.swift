@@ -8,7 +8,7 @@
 
 protocol Book {
     
-    var paginator: Paginator { get }
+    var paginator: Paginator { get set }
     var data: [AnyObject] { get set }
     
     func hasMorePages() -> Bool

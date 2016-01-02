@@ -13,6 +13,8 @@ class User {
     var city: String?
     var country: String?
     
+    var starsCount: Int?
+    
     var rankings: [Ranking] = []
     
     init(login: String, avatarUrl: String) {

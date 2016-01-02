@@ -66,4 +66,8 @@ class UserPresenter {
     func avatarUrl() -> String? {
         return user.avatarUrl
     }
+    
+    func stars() -> String {
+        return "\(user.starsCount ?? 0)"
+    }
 }
