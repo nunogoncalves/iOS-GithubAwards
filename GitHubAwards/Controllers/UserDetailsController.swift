@@ -36,14 +36,7 @@ class UserDetailsController: UIViewController {
     weak var timer: NSTimer!
     var tempRankings = [Ranking]()
     
-    var user: User? {
-        didSet {
-            if let user = user {
-                navigationItem.title = user.login
-                Users.GetOne(login: user.login!).get(success: userSuccess, failure: failure)
-            }
-        }
-    }
+    var user: User?
     
     var animateCells = true
     
@@ -53,6 +46,8 @@ class UserDetailsController: UIViewController {
     override func viewDidLoad() {
         loadAvatar()
         applyGradient()
+        navigationItem.title = user!.login
+        Users.GetOne(login: user!.login!).get(success: userSuccess, failure: failure)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -86,11 +81,12 @@ class UserDetailsController: UIViewController {
 // Mark - Fetch callbacks
 extension UserDetailsController {
     func userSuccess(user: User) {
+        self.user = user
         applyReposStarsAndTrophiesLabelsFor(user)
         if let city = user.city {
             countryAndCityLabel.text = "\(user.country!), \(city)"
         } else {
-            countryAndCityLabel.text = "\(user.country!)"
+            countryAndCityLabel.text = "\(user.country ?? "")"
         }
         rankings = user.rankings
         loadingView.hidden = true

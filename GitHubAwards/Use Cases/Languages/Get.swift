@@ -13,7 +13,7 @@ struct Languages {
     class Get: Getter {
         
         func getUrl() -> String {
-            return kUrls.languagesBaseUrl
+            return "\(kUrls.languagesBaseUrl)?sort=popularity"
         }
         
         func getDataFrom(dictionary: NSDictionary) -> [Language] {

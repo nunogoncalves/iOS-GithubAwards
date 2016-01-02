@@ -13,6 +13,7 @@ class UserTopCell : UITableViewCell {
     @IBOutlet weak var rankingImageView: UIImageView!
     @IBOutlet weak var login: UILabel!
     @IBOutlet weak var avatar: UIImageView!
+    @IBOutlet weak var starsLabel: UILabel!
     @IBOutlet weak var avatarBackground: UIView!
     
     @IBOutlet weak var background: UIView!
@@ -22,6 +23,7 @@ class UserTopCell : UITableViewCell {
     private func fillDataFromPresenter() {
         fillRankingInformation()
         login.text = userPresenter!.login()
+        starsLabel.text = userPresenter!.stars()
         fillAvatar()
     }
     

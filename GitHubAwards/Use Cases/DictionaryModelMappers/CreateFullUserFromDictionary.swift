@@ -28,11 +28,11 @@ class CreateFullUserFromDictionary: CreateBasicUserFromDictionary {
         var ranks = [Ranking]()
         for rank in rankings {
             
-            let city = (rank["city"] ?? "") as? String
+            let city = (user.city ?? "")
             let cityTotal = (rank["city_count"] ?? 0) as? Int
             let cityRanking = (rank["city_rank"] ?? 0) as? Int
             
-            let country = (rank["country"] ?? "") as? String
+            let country = (user.country ?? "")
             let countryTotal = (rank["city_count"] ?? 0) as? Int
             let countryRanking = (rank["city_rank"] ?? 0) as? Int
             

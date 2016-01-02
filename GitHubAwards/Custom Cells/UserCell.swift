@@ -11,6 +11,7 @@ class UserCell: UITableViewCell {
 
     @IBOutlet weak var login: UILabel!
     @IBOutlet weak var avatar: UIImageView!
+    @IBOutlet weak var starsLabel: UILabel!
     
     @IBOutlet weak var background: UIView!
     
@@ -30,10 +31,11 @@ class UserCell: UITableViewCell {
     
     var user: User! {
         didSet {
-            login.text = user.login
             if let avatarUrl = user.avatarUrl {
                 ImageLoader.fetchAndLoad(avatarUrl, imageView: avatar)
             }
+            login.text = user.login
+            starsLabel.text = "\(user.starsCount ?? 0)"
         }
     }
 }
