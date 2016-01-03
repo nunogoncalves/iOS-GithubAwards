@@ -999,7 +999,7 @@
                                     <constraint firstAttribute="height" constant="200" id="W3F-Jf-u2k"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2yu-hb-3VL">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2yu-hb-3VL">
                                 <rect key="frame" x="10" y="28" width="300" height="75"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BoS-Fa-joT">
@@ -1041,7 +1041,7 @@
                                     <constraint firstItem="B5U-0o-jL2" firstAttribute="leading" secondItem="BoS-Fa-joT" secondAttribute="trailing" constant="8" id="yWN-F2-JZn"/>
                                 </constraints>
                             </view>
-                            <searchBar contentMode="redraw" misplaced="YES" placeholder="Search for a user" translatesAutoresizingMaskIntoConstraints="NO" id="58a-rn-9kZ" customClass="SearchBar" customModule="GitHubAwards" customModuleProvider="target">
+                            <searchBar contentMode="redraw" placeholder="Search for a user" translatesAutoresizingMaskIntoConstraints="NO" id="58a-rn-9kZ" customClass="SearchBar" customModule="GitHubAwards" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                 <color key="backgroundColor" red="0.1843137255" green="0.61568627450000002" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
@@ -1057,7 +1057,7 @@
                                     <constraint firstAttribute="height" constant="200" id="3Ua-YF-niV"/>
                                 </constraints>
                             </scrollView>
-                            <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wgp-ga-JB8" customClass="GithubLoadingView" customModule="GitHubAwards" customModuleProvider="target">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wgp-ga-JB8" customClass="GithubLoadingView" customModule="GitHubAwards" customModuleProvider="target">
                                 <rect key="frame" x="115" y="128" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="54D-Ge-VeE"/>
@@ -1103,6 +1103,7 @@
                         <outlet property="userContainerTopConstraint" destination="Zap-KB-bP0" id="Gei-Zk-TkX"/>
                         <outlet property="userLoginLabel" destination="B5U-0o-jL2" id="0sW-NV-kPZ"/>
                         <outlet property="userResultContainerBackground" destination="uGM-hU-Kfm" id="UyD-Go-8p1"/>
+                        <outlet property="userSearchContainer" destination="2yu-hb-3VL" id="VaQ-zF-DIN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cXI-2m-Rih" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1308,6 +1309,6 @@
         <image name="github-404.png" width="1010" height="369"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yv2-Fd-0S7"/>
+        <segue reference="1gh-ve-Z92"/>
     </inferredMetricsTieBreakers>
 </document>
