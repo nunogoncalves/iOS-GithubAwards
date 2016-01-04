@@ -111,8 +111,10 @@ extension UserDetailsController {
     }
     
     private func invalidateTimer() {
-        timer.invalidate()
-        timer = nil
+        if timer != nil {
+            timer.invalidate()
+            timer = nil
+        }
     }
     
     func failure() {

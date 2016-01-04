@@ -108,6 +108,8 @@ class UsersSearchController: UIViewController {
     private func failedToSearchForUser() {
         NotifyError.display()
         stopLoadingIndicator()
+        addLabelToScroll("Not found")
+        loadingIndicator.hide()
     }
     
     private func showLoadingIndicatior() {
