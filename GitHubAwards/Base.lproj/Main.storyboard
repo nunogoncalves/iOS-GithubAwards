@@ -992,7 +992,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GithubBackground" translatesAutoresizingMaskIntoConstraints="NO" id="pQm-AU-Yl5">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GithubBackground" translatesAutoresizingMaskIntoConstraints="NO" id="pQm-AU-Yl5">
                                 <rect key="frame" x="60" y="140" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="8vT-AK-WZW"/>
@@ -1309,6 +1309,6 @@
         <image name="github-404.png" width="1010" height="369"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yv2-Fd-0S7"/>
+        <segue reference="1gh-ve-Z92"/>
     </inferredMetricsTieBreakers>
 </document>
