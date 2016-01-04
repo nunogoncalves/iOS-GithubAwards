@@ -12,6 +12,7 @@ class AlertView: UIView {
 
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var blurView: UIView!
+    @IBOutlet weak var messageLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,6 +43,10 @@ class AlertView: UIView {
     private func loadViewFromNib() {
         NSBundle.mainBundle().loadNibNamed("AlertView", owner: self, options: nil)
         addSubview(view)
+    }
+    
+    func setMessage(message: String) {
+        messageLabel.text = message
     }
     
 }

@@ -32,14 +32,36 @@ struct Network {
         }
         
         private func completionHandler(data: NSData?, response: NSURLResponse?, error: NSError?) {
+            
+            if let error = error {
+                if error.code == NetworkStatus.Offline.rawValue {
+                    return handleFailure(.Offline)
+                } else {
+                    if error.code == NetworkStatus.HostNameNotFound.rawValue {
+                        return handleFailure(.HostNameNotFound)
+                    }
+                    if error.code == NetworkStatus.CouldNotConnectToServer.rawValue {
+                        return handleFailure(.CouldNotConnectToServer)
+                    }
+                    return handleFailure(.GenericError)
+                }
+            }
+            
             guard let response = response as? NSHTTPURLResponse else {
-                return handleFailure()
+                return handleFailure(.GenericError)
             }
             
             if response.statusCode == 200 {
-                handleSuccess(data)
+                return handleSuccess(data)
             } else {
-                handleFailure()
+                if response.statusCode == 404 {
+                    return handleFailure(.NotFound)
+                } else if response.statusCode == 500 {
+                    return handleFailure(.ServerError)
+                } else {
+                    return handleFailure(.GenericError)
+                }
+                
             }
         }
         
@@ -48,12 +70,12 @@ struct Network {
                 let data = try convertDataToDictionary(data!)
                 networkResponseHandler.success(data)
             } catch _ {
-                handleFailure()
+                handleFailure(.GenericError)
             }
         }
         
-        private func handleFailure() {
-            networkResponseHandler.failure()
+        private func handleFailure(status: NetworkStatus) {
+            networkResponseHandler.failure(status)
         }
         
         private func convertDataToDictionary(data: NSData) throws -> NSDictionary {

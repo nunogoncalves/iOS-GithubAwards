@@ -117,7 +117,7 @@ extension UserDetailsController {
         }
     }
     
-    func failure() {
+    func failure(status: NetworkStatus) {
         loadingView.hidden = true
         NotifyError.display()
     }

@@ -65,7 +65,7 @@ extension LanguagesController {
         endSearching()
     }
     
-    private func failedToLoadLanguages() {
+    private func failedToLoadLanguages(status: NetworkStatus) {
         tryAgainButton.show()
         loadingIndicator?.hide()
         NotifyError.display()

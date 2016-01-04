@@ -88,7 +88,7 @@ class LanguageUsersTableDataSource : NSObject, TableViewDataSource {
         tableStateListener?.newDataArrived(usersResponse.paginator)
     }
     
-    func failure() {
+    func failure(status: NetworkStatus) {
         tableStateListener?.failedToGetData()
     }
     

@@ -67,6 +67,7 @@ class UsersSearchController: UIViewController {
     private func searchUserFor(login: String) {
         showLoadingIndicatior()
         userSearchContainer.hide()
+        userResultContainerBackground.hide()
         loadingIndicator.show()
         userContainerTopConstraint.constant = -80.0
         UIView.animateWithDuration(userMovementAnimationDuration) { self.view.layoutIfNeeded() }
@@ -78,6 +79,7 @@ class UsersSearchController: UIViewController {
         addLabelToScroll("Found user \(searchField.text!)")
         userLoginLabel.text = user.login!
         loadingIndicator.hide()
+        userResultContainerBackground.hide()
         userSearchContainer.show()
         self.user = user
         ImageLoader.fetchAndLoad(user.avatarUrl!, imageView: avatarImageView)
@@ -105,11 +107,21 @@ class UsersSearchController: UIViewController {
         
     }
     
-    private func failedToSearchForUser() {
-        NotifyError.display()
-        stopLoadingIndicator()
-        addLabelToScroll("Not found")
+    private func failedToSearchForUser(status: NetworkStatus) {
         loadingIndicator.hide()
+        stopLoadingIndicator()
+        if status.isTechnicalError() {
+            NotifyError.display(NetworkStatus.messageForStatus(status))
+        }
+        if status == .NotFound {
+            userSearchContainer.show()
+            userContainerTopConstraint.constant = 6.0
+            UIView.animateWithDuration(0.3) {
+                self.view.layoutIfNeeded()
+            }
+            userResultContainerBackground.show()
+        }
+        addLabelToScroll(NetworkStatus.messageForStatus(status))
     }
     
     private func showLoadingIndicatior() {

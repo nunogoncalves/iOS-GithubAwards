@@ -16,13 +16,16 @@ class NotifyError: NSObject {
 
     static var isDisplaying = false
     
-    static func display() {
+    static func display(message: String? = nil) {
         if isDisplaying {
             return
         }
         isDisplaying = true
         
         let v = AlertView(frame: CGRectMake(0, -64, window.frame.width, 80))
+        if let message = message {
+            v.setMessage(message)
+        }
         
         let tapGesture = UITapGestureRecognizer(target: self, action: "onTap:")
         v.addGestureRecognizer(tapGesture)

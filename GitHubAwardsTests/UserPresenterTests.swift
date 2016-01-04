@@ -32,21 +32,21 @@ class UserPresenterTests: QuickSpec {
                 it("has 1st place background color") {
                     XCTAssertEqual(
                         userPresenter.backgroundColor(),
-                        K.firstInRankingColor,
-                        "Expected 1st place color to be \(K.firstInRankingColor)"
+                        kColors.firstInRankingColor,
+                        "Expected 1st place color to be \(kColors.firstInRankingColor)"
                     )
                 }
                 
                 it("has 1st place avatar background color") {
                     XCTAssertEqual(
                         userPresenter.avatarBackgroundColor(),
-                        K.secondInRankingColor,
-                        "Expected 1st place color to be \(K.secondInRankingColor)"
+                        kColors.secondInRankingColor,
+                        "Expected 1st place color to be \(kColors.secondInRankingColor)"
                     )
                 }
 
                 it("returns gold trophy image name") {
-                    XCTAssertEqual(userPresenter.rankingImageName(), "1.png", "Expected image name to be 1.png")
+                    XCTAssertEqual(userPresenter.rankingImageName(), "GoldMedal", "Expected image name to be GoldMedal")
                 }
                 
                 it("returns login") {
@@ -71,21 +71,21 @@ class UserPresenterTests: QuickSpec {
                 it("has 1st place background color") {
                     XCTAssertEqual(
                         userPresenter.backgroundColor(),
-                        K.secondInRankingColor,
-                        "Expected 1st place color to be \(K.secondInRankingColor)"
+                        kColors.secondInRankingColor,
+                        "Expected 1st place color to be \(kColors.secondInRankingColor)"
                     )
                 }
                 
                 it("has 2nd place avatar background color") {
                     XCTAssertEqual(
                         userPresenter.avatarBackgroundColor(),
-                        K.thirdInRankingColor,
-                        "Expected 2nd place color to be \(K.thirdInRankingColor)"
+                        kColors.thirdInRankingColor,
+                        "Expected 2nd place color to be \(kColors.thirdInRankingColor)"
                     )
                 }
                 
                 it("returns silver trophy image name") {
-                    XCTAssertEqual(userPresenter.rankingImageName(), "2.png", "Expected image name to be 2.png")
+                    XCTAssertEqual(userPresenter.rankingImageName(), "SilverMedal", "Expected image name to be SilverMedal")
                 }
                 
                 it("returns login") {
@@ -110,8 +110,8 @@ class UserPresenterTests: QuickSpec {
                 it("has 3rd place background color") {
                     XCTAssertEqual(
                         userPresenter.backgroundColor(),
-                        K.thirdInRankingColor,
-                        "Expected 3rd place color to be \(K.thirdInRankingColor)"
+                        kColors.thirdInRankingColor,
+                        "Expected 3rd place color to be \(kColors.thirdInRankingColor)"
                     )
                 }
                 
@@ -126,8 +126,8 @@ class UserPresenterTests: QuickSpec {
                 it("returns bronze trophy image name") {
                     XCTAssertEqual(
                         userPresenter.rankingImageName(),
-                        "3.png",
-                        "Expected image name to be 3.png"
+                        "BronzeMedal",
+                        "Expected image name to be BronzeMedal"
                     )
                 }
                 

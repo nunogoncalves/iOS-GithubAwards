@@ -15,19 +15,19 @@ protocol Getter {
     
     func getDataFrom(dictionary: NSDictionary) -> Element
     
-    func get(success success: Element -> (), failure: () -> ())
+    func get(success success: Element -> (), failure: NetworkStatus -> ())
     
 }
 
 extension Getter {
-    func get(success success: Element -> (), failure: () -> ()) {
+    func get(success success: Element -> (), failure: NetworkStatus -> ()) {
         let qos = Int(QOS_CLASS_USER_INTERACTIVE.rawValue)
         dispatch_async(dispatch_get_global_queue(qos, 0)) {
             
             let responseHandler = Data.HandleResponse()
-            responseHandler.failureCallback = {
+            responseHandler.failureCallback = { status in
                 dispatch_async(dispatch_get_main_queue()) {
-                    failure()
+                    failure(status)
                 }
             }
             responseHandler.successCallback = { dictionary in

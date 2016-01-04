@@ -27,7 +27,7 @@ class NetworkRequesterTests : QuickSpec {
                 responseStr = "success"
             }
             
-            responseHandler.failureCallback = {
+            responseHandler.failureCallback = { _ in
                 responseStr = "failure"
             }
             
@@ -47,7 +47,7 @@ class NetworkRequesterTests : QuickSpec {
                 responseStr = "success"
             }
             
-            responseHandler.failureCallback = {
+            responseHandler.failureCallback = { _ in
                 responseStr = "failure"
             }
             
