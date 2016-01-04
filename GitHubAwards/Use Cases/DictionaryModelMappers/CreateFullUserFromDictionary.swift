@@ -33,8 +33,8 @@ class CreateFullUserFromDictionary: CreateBasicUserFromDictionary {
             let cityRanking = (rank["city_rank"] ?? 0) as? Int
             
             let country = (user.country ?? "")
-            let countryTotal = (rank["city_count"] ?? 0) as? Int
-            let countryRanking = (rank["city_rank"] ?? 0) as? Int
+            let countryTotal = (rank["country_count"] ?? 0) as? Int
+            let countryRanking = (rank["country_rank"] ?? 0) as? Int
             
             let worldTotal = (rank["world_count"] ?? 0) as? Int
             let worldRanking = (rank["world_rank"] ?? 0) as? Int
