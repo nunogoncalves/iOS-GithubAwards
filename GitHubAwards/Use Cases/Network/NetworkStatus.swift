@@ -15,8 +15,8 @@ enum NetworkStatus: Int {
     case ServerError = 500
     case GenericError = -1
     
-    static func messageForStatus(status: NetworkStatus) -> String {
-        switch status {
+    func message() -> String {
+        switch self {
         case Ok:
             return "Ok"
         case Offline:

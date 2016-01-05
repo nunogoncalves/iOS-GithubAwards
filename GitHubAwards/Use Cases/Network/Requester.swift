@@ -32,36 +32,12 @@ struct Network {
         }
         
         private func completionHandler(data: NSData?, response: NSURLResponse?, error: NSError?) {
+            let statusVerifier = VerifyRequestStatus(response: response, error: error)
             
-            if let error = error {
-                if error.code == NetworkStatus.Offline.rawValue {
-                    return handleFailure(.Offline)
-                } else {
-                    if error.code == NetworkStatus.HostNameNotFound.rawValue {
-                        return handleFailure(.HostNameNotFound)
-                    }
-                    if error.code == NetworkStatus.CouldNotConnectToServer.rawValue {
-                        return handleFailure(.CouldNotConnectToServer)
-                    }
-                    return handleFailure(.GenericError)
-                }
-            }
-            
-            guard let response = response as? NSHTTPURLResponse else {
-                return handleFailure(.GenericError)
-            }
-            
-            if response.statusCode == 200 {
-                return handleSuccess(data)
+            if statusVerifier.success() {
+                handleSuccess(data)
             } else {
-                if response.statusCode == 404 {
-                    return handleFailure(.NotFound)
-                } else if response.statusCode == 500 {
-                    return handleFailure(.ServerError)
-                } else {
-                    return handleFailure(.GenericError)
-                }
-                
+                handleFailure(statusVerifier.status())
             }
         }
         

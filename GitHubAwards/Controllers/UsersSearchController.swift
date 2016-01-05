@@ -111,7 +111,7 @@ class UsersSearchController: UIViewController {
         loadingIndicator.hide()
         stopLoadingIndicator()
         if status.isTechnicalError() {
-            NotifyError.display(NetworkStatus.messageForStatus(status))
+            NotifyError.display(status.message())
         }
         if status == .NotFound {
             userSearchContainer.show()
@@ -121,7 +121,7 @@ class UsersSearchController: UIViewController {
             }
             userResultContainerBackground.show()
         }
-        addLabelToScroll(NetworkStatus.messageForStatus(status))
+        addLabelToScroll(status.message())
     }
     
     private func showLoadingIndicatior() {
