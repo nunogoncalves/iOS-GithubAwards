@@ -32,7 +32,12 @@ struct K {
         static let languagesBaseUrl = "\(apiBaseUrl)/api/v0/languages"
     }
     
+    struct Segues {
+        static let userDetailsSegue = "UserDetailsSegue"
+    }
+    
 }
 
 typealias kColors = K.Colors
 typealias kUrls = K.Urls
+typealias kSegues = K.Segues

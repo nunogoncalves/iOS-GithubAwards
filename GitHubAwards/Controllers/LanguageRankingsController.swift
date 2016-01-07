@@ -90,8 +90,9 @@ class LanguageRankingsController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let selectedIndex = usersTable.indexPathForSelectedRow
-
-        if (segue.identifier == "UserDetailsSegue" && selectedIndex != nil) {
+        
+        if (segue.identifier == kSegues.userDetailsSegue && selectedIndex != nil) {
+            usersTable.deselectRowAtIndexPath(selectedIndex!, animated: true)
             let destVC = segue.destinationViewController as! UserDetailsController
             destVC.user = usersTableDataSource.dataForIndexPath(selectedIndex!) as? User
         }
@@ -128,6 +129,10 @@ extension LanguageRankingsController : UITableViewDelegate {
         }
         
         searchUsers(false)
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier(kSegues.userDetailsSegue, sender: self)
     }
     
     private func updateRefreshControl() {

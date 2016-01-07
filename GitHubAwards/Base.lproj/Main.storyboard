@@ -160,7 +160,7 @@
                                     <action selector="locationTypeChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="PEa-Oy-ZsP"/>
                                 </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X19-Mk-Bal" customClass="UsersTable" customModule="GitHubAwards" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X19-Mk-Bal" customClass="UsersTable" customModule="GitHubAwards" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="112" width="320" height="368"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="cVw-gA-kOQ" userLabel="Footer">
@@ -235,6 +235,7 @@
                         <outlet property="searchContainer" destination="k0M-uu-b2X" id="4Js-Mu-45M"/>
                         <outlet property="tableTopConstraint" destination="gMs-IU-fZS" id="hzy-BE-dxW"/>
                         <outlet property="usersTable" destination="X19-Mk-Bal" id="98a-nV-Lnv"/>
+                        <segue destination="U5u-hS-YPV" kind="show" identifier="UserDetailsSegue" id="82b-ih-YU7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -1120,4 +1121,7 @@
         <image name="UserActive" width="24" height="24"/>
         <image name="github-404.png" width="1010" height="369"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="82b-ih-YU7"/>
+    </inferredMetricsTieBreakers>
 </document>
