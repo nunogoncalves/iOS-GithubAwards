@@ -11,7 +11,7 @@ import UIKit
 class LanguageImage : UIImage {
 
     class func loadFor(language: String) -> UIImage {
-        if let image = UIImage(named: "\(language).png") {
+        if let image = UIImage(named: "\(language.lowercaseString).png") {
             return image
         } else {
             return UIImage(named: "GenericLanguage.png")!
