@@ -35,7 +35,7 @@ class LanguageUsersTableDataSource : NSObject, TableViewDataSource {
     }
     
     func cellIdentifierForIndex(indexPath: NSIndexPath) -> String {
-        return indexPath.row < 3 ? "TopUserCell" : "UserCell"
+        return indexPath.row < 3 ? "UserTopCell" : "UserCell"
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -96,4 +96,7 @@ class LanguageUsersTableDataSource : NSObject, TableViewDataSource {
         return book.hasMorePages()
     }
     
+    func getTotalCount() -> Int {
+        return book.paginator.totalCount
+    }
 }

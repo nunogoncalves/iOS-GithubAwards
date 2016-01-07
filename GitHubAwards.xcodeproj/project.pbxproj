@@ -47,6 +47,9 @@
 		856D67671C3424C900A77678 /* Browser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856D67661C3424C900A77678 /* Browser.swift */; };
 		856D676A1C342C6900A77678 /* Getter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856D67691C342C6900A77678 /* Getter.swift */; };
 		856D676C1C34385F00A77678 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856D676B1C34385F00A77678 /* Users.swift */; };
+		857943A41C3DCC8B00824577 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 857943A31C3DCC8B00824577 /* UserCell.xib */; };
+		857943A81C3E5A8D00824577 /* UsersTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857943A71C3E5A8D00824577 /* UsersTable.swift */; };
+		857943AC1C3E5D3100824577 /* UserTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 857943AB1C3E5D3100824577 /* UserTopCell.xib */; };
 		857C48951C119307000F035C /* LanguageImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C48941C119307000F035C /* LanguageImage.swift */; };
 		857C48991C119FF3000F035C /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 857C48981C119FF3000F035C /* background.png */; };
 		857C489B1C11A041000F035C /* riscas.png in Resources */ = {isa = PBXBuildFile; fileRef = 857C489A1C11A041000F035C /* riscas.png */; };
@@ -167,6 +170,9 @@
 		856D67661C3424C900A77678 /* Browser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Browser.swift; sourceTree = "<group>"; };
 		856D67691C342C6900A77678 /* Getter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Getter.swift; sourceTree = "<group>"; };
 		856D676B1C34385F00A77678 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		857943A31C3DCC8B00824577 /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		857943A71C3E5A8D00824577 /* UsersTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTable.swift; sourceTree = "<group>"; };
+		857943AB1C3E5D3100824577 /* UserTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTopCell.xib; sourceTree = "<group>"; };
 		857C48941C119307000F035C /* LanguageImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageImage.swift; sourceTree = "<group>"; };
 		857C48981C119FF3000F035C /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		857C489A1C11A041000F035C /* riscas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = riscas.png; sourceTree = "<group>"; };
@@ -329,6 +335,7 @@
 				85B501821C10FCC300BBFD56 /* LanguageTitleView.xib */,
 				85E6566E1C1352C600BB4278 /* PaginaTable.swift */,
 				857E2C321C1C37970095DCC0 /* SearchBar.swift */,
+				857943A71C3E5A8D00824577 /* UsersTable.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -395,7 +402,9 @@
 				856A72E61C12509F008415A4 /* LanguageCell.swift */,
 				85D321261C022D86001B7C7A /* RankingCell.swift */,
 				85D3211D1C0211C2001B7C7A /* UserCell.swift */,
+				857943A31C3DCC8B00824577 /* UserCell.xib */,
 				85FA59621C15C5C00097732B /* UserTopCell.swift */,
+				857943AB1C3E5D3100824577 /* UserTopCell.xib */,
 			);
 			path = "Custom Cells";
 			sourceTree = "<group>";
@@ -693,6 +702,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				857943AC1C3E5D3100824577 /* UserTopCell.xib in Resources */,
 				8508B7671C1593230024684F /* 3.png in Resources */,
 				85D320FA1C02062E001B7C7A /* LaunchScreen.storyboard in Resources */,
 				8508B7681C1593230024684F /* 2.png in Resources */,
@@ -715,6 +725,7 @@
 				8504853A1C104AE8004D952A /* javascript.png in Resources */,
 				85820F471C0E2C1A0069D085 /* GithubLoading-0.gif in Resources */,
 				856A72E41C122C1E008415A4 /* objective-c.png in Resources */,
+				857943A41C3DCC8B00824577 /* UserCell.xib in Resources */,
 				850485331C0FB11A004D952A /* AlertView.xib in Resources */,
 				856A72E51C122C1E008415A4 /* shell.png in Resources */,
 				850485421C104C2B004D952A /* c#.png in Resources */,
@@ -836,6 +847,7 @@
 				858B91131C085B4C00B510B3 /* SearchOptions.swift in Sources */,
 				85E656781C13AB8A00BB4278 /* TableStateListener.swift in Sources */,
 				85E656721C139ED100BB4278 /* TableViewDataSource.swift in Sources */,
+				857943A81C3E5A8D00824577 /* UsersTable.swift in Sources */,
 				85820F3C1C0E2BCE0069D085 /* GithubLoadingView.swift in Sources */,
 				859928511C0DAB23000ABE8C /* String.swift in Sources */,
 				853C48E31C09A35F00373A92 /* CreateBasicUserFromDictionary.swift in Sources */,

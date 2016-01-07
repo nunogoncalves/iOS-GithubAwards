@@ -17,6 +17,8 @@ class LanguageRankingsController: UIViewController {
     
     @IBOutlet weak var searchBar: SearchBar!
     
+    @IBOutlet weak var paginationLabel: UILabel!
+    
     @IBAction func locationTypeChanged(locationTypeControl: UISegmentedControl) {
         selectedLocationType = locationTypes[locationTypeControl.selectedSegmentIndex]!
         tableTopConstraint.constant = selectedLocationType.hasName() ? 50 : 10
@@ -103,6 +105,11 @@ extension LanguageRankingsController : UITableViewDelegate {
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
+        if let lastItemRow = usersTable.indexPathsForVisibleRows?.last?.row {
+            let total = usersTableDataSource.getTotalCount()
+            paginationLabel.text = "\(lastItemRow + 1)/\(total)"
+        }
+        
         updateRefreshControl()
         
         if usersTable.isRefreshing() {
