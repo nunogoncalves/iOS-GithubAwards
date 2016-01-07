@@ -16,23 +16,23 @@ enum NetworkStatus: Int {
     case GenericError = -1
     
     func message() -> String {
+        let technicalErrorMessage = "There was a technical problem."
         switch self {
         case Ok:
             return "Ok"
         case Offline:
-            return "Connection appears to be offline"
+            return "Connection appears to be offline."
         case HostNameNotFound:
-            return "HostName not found"
+            return technicalErrorMessage
         case CouldNotConnectToServer:
-            return "CouldNotConnectToServer"
+            return technicalErrorMessage
         case NotFound:
-            return "NotFound"
+            return "The resource you are looking for doesn't exist."
         case ServerError:
-            return "ServerError"
+            return technicalErrorMessage
         default:
-            "GenericError"
+            return technicalErrorMessage
         }
-        return "GenericError"
     }
     
     func isTechnicalError() -> Bool {

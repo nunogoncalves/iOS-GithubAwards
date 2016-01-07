@@ -89,7 +89,7 @@ class LanguageUsersTableDataSource : NSObject, TableViewDataSource {
     }
     
     func failure(status: NetworkStatus) {
-        tableStateListener?.failedToGetData()
+        tableStateListener?.failedToGetData(status)
     }
     
     func hasMoreDataAvailable() -> Bool {

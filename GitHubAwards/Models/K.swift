@@ -9,7 +9,8 @@
 struct K {
     
     struct Colors {
-        static let navAndTabBarsColor: UInt = 0x2F9DE6
+        static let tabBarColor: UInt = 0x03436E
+        static let navigationBarColor: UInt = 0x2F9DE6
         
         static let userGradientColors: [UInt] = [
             0x2F9DE6,

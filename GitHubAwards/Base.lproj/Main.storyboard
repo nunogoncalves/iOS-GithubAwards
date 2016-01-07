@@ -52,7 +52,7 @@
                                         <rect key="frame" x="0.0" y="45" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1xN-Qi-pZb" id="Qdl-P5-WI9">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="m6W-LW-9MO">
@@ -160,17 +160,20 @@
                                     <action selector="locationTypeChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="PEa-Oy-ZsP"/>
                                 </connections>
                             </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5eQ-Rl-Xx9" customClass="GithubLoadingView" customModule="GitHubAwards" customModuleProvider="target">
+                                <rect key="frame" x="115" y="251" width="90" height="90"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="Yb3-J7-Xvu"/>
+                                    <constraint firstAttribute="width" constant="90" id="gHf-ch-Rut"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X19-Mk-Bal" customClass="UsersTable" customModule="GitHubAwards" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="112" width="320" height="368"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="cVw-gA-kOQ" userLabel="Footer">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wO4-fJ-Dur">
-                                <rect key="frame" x="320" y="411" width="0.0" height="20"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wO4-fJ-Dur" userLabel="Paginator Container">
+                                <rect key="frame" x="300" y="411" width="10" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugn-IM-CtJ">
                                         <rect key="frame" x="0.0" y="11" width="0.0" height="0.0"/>
@@ -181,12 +184,18 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.85844691932624118" green="0.85844691932624118" blue="0.85844691932624118" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="Ugn-IM-CtJ" firstAttribute="centerY" secondItem="wO4-fJ-Dur" secondAttribute="centerY" id="6i4-Hi-P77"/>
-                                    <constraint firstAttribute="width" secondItem="Ugn-IM-CtJ" secondAttribute="width" id="BWU-0c-QoE"/>
+                                    <constraint firstItem="Ugn-IM-CtJ" firstAttribute="centerY" secondItem="wO4-fJ-Dur" secondAttribute="centerY" constant="-5" id="6i4-Hi-P77"/>
+                                    <constraint firstAttribute="width" secondItem="Ugn-IM-CtJ" secondAttribute="width" constant="10" id="BWU-0c-QoE"/>
                                     <constraint firstItem="Ugn-IM-CtJ" firstAttribute="centerX" secondItem="wO4-fJ-Dur" secondAttribute="centerX" id="FI6-mU-3Rm"/>
-                                    <constraint firstAttribute="height" constant="20" id="HAV-uG-r0x"/>
+                                    <constraint firstAttribute="height" constant="30" id="HAV-uG-r0x"/>
                                     <constraint firstAttribute="width" constant="50" id="Qgb-1p-RHy"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="Qgb-1p-RHy"/>
@@ -219,17 +228,20 @@
                             <constraint firstAttribute="bottomMargin" secondItem="X19-Mk-Bal" secondAttribute="bottom" id="PXA-pl-brp"/>
                             <constraint firstItem="DQs-jf-pvS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="PzQ-mh-Ffn"/>
                             <constraint firstAttribute="trailing" secondItem="k0M-uu-b2X" secondAttribute="trailing" id="Vj9-XK-xGD"/>
+                            <constraint firstItem="5eQ-Rl-Xx9" firstAttribute="centerX" secondItem="X19-Mk-Bal" secondAttribute="centerX" id="axk-Wd-1iC"/>
                             <constraint firstItem="X19-Mk-Bal" firstAttribute="top" secondItem="DQs-jf-pvS" secondAttribute="bottom" constant="10" id="gMs-IU-fZS"/>
                             <constraint firstItem="DQs-jf-pvS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="l7F-rc-XqL"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="wO4-fJ-Dur" secondAttribute="bottom" id="p8U-Qt-na8"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="wO4-fJ-Dur" secondAttribute="bottom" constant="-10" id="p8U-Qt-na8"/>
                             <constraint firstItem="X19-Mk-Bal" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qoT-NG-Fho"/>
                             <constraint firstItem="k0M-uu-b2X" firstAttribute="top" secondItem="DQs-jf-pvS" secondAttribute="bottom" constant="8" id="s0s-B2-kFX"/>
-                            <constraint firstAttribute="trailing" secondItem="wO4-fJ-Dur" secondAttribute="trailing" id="t1I-Zw-CvL"/>
+                            <constraint firstItem="5eQ-Rl-Xx9" firstAttribute="centerY" secondItem="X19-Mk-Bal" secondAttribute="centerY" id="sMN-os-SEU"/>
+                            <constraint firstAttribute="trailing" secondItem="wO4-fJ-Dur" secondAttribute="trailing" constant="10" id="t1I-Zw-CvL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Swift - Lisbon" id="9Wj-if-ER4"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="loadingIndicator" destination="5eQ-Rl-Xx9" id="Qf1-Jj-9Xj"/>
                         <outlet property="paginationLabel" destination="Ugn-IM-CtJ" id="P5c-K6-S25"/>
                         <outlet property="searchBar" destination="djR-vH-fIB" id="6tZ-7K-FDP"/>
                         <outlet property="searchContainer" destination="k0M-uu-b2X" id="4Js-Mu-45M"/>
@@ -778,7 +790,9 @@
         <scene sceneID="9WJ-VM-jS4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tZ8-WH-QBE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Languages" image="Language" id="Twa-w2-siN"/>
+                    <tabBarItem key="tabBarItem" title="Languages" image="Language" selectedImage="Language" id="Twa-w2-siN">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hIC-mA-0b1">
@@ -864,7 +878,7 @@
                                     <string>Title</string>
                                 </scopeButtonTitles>
                             </searchBar>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qlu-PQ-YZz">
+                            <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qlu-PQ-YZz">
                                 <rect key="frame" x="10" y="223" width="300" height="200"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -955,7 +969,9 @@
         <scene sceneID="Mw2-VD-RRs">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bCH-qg-oNv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Users" image="UserActive" id="vkh-W5-B4T"/>
+                    <tabBarItem key="tabBarItem" title="Users" image="UserActive" id="vkh-W5-B4T">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-5"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1hx-Ca-ZDN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

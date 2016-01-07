@@ -18,6 +18,7 @@ class LanguageRankingsController: UIViewController {
     @IBOutlet weak var searchBar: SearchBar!
     
     @IBOutlet weak var paginationLabel: UILabel!
+    @IBOutlet weak var loadingIndicator: GithubLoadingView!
     
     @IBAction func locationTypeChanged(locationTypeControl: UISegmentedControl) {
         selectedLocationType = locationTypes[locationTypeControl.selectedSegmentIndex]!
@@ -77,6 +78,8 @@ class LanguageRankingsController: UIViewController {
     }
     
     func searchUsers(reset: Bool = false) {
+        loadingIndicator.setLoading()
+        usersTable.hide()
         userSearchOptions.locationType = selectedLocationType
         userSearchOptions.location = searchBar.text!
         
@@ -147,13 +150,20 @@ extension LanguageRankingsController : UITableViewDelegate {
 extension LanguageRankingsController : TableStateListener {
     func newDataArrived(paginator: Paginator) {
         paginator.isLastPage() ? usersTable.hideFooter() : usersTable.showFooter()
+        if paginator.isFirstPage() {
+            paginationLabel.text = "1/\(paginator.totalCount)"
+        }
         usersTable.reloadData()
+        usersTable.show()
+        loadingIndicator.setStaticWith(0, offset: 0)
         stopLoadingIndicator()
     }
     
-    func failedToGetData() {
+    func failedToGetData(status: NetworkStatus) {
         stopLoadingIndicator()
-        NotifyError.display()
+        usersTable.show()
+        loadingIndicator.setStaticWith(0, offset: 0)
+        NotifyError.display(status.message())
     }
 }
 
