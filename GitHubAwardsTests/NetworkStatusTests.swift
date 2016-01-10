@@ -84,6 +84,37 @@ class NetworkStatusTests : QuickSpec {
                 }
                
             }
+            
+            context("error messages") {
+                it("ok") {
+                    let ok = NetworkStatus.Ok
+                    expect(ok.message()).to(equal("Ok"))
+                }
+                
+                it("offline") {
+                    let offline = NetworkStatus.Offline
+                    expect(offline.message()).to(equal("Connection appears to be offline."))
+                }
+                it("HostNameNotFound") {
+                    let hostNotFound = NetworkStatus.HostNameNotFound
+                    expect(hostNotFound.message()).to(equal("There was a technical problem."))
+                }
+                
+                it("Timeout") {
+                    let coundlNotConnect = NetworkStatus.CouldNotConnectToServer
+                    expect(coundlNotConnect.message()).to(equal("There was a technical problem."))
+                }
+                
+                it("NotFound") {
+                    let notFound = NetworkStatus.NotFound
+                    expect(notFound.message()).to(equal("The resource you are looking for doesn't exist."))
+                }
+                
+                it("ServerError") {
+                    let serverError = NetworkStatus.ServerError
+                    expect(serverError.message()).to(equal("There was a technical problem."))
+                }
+            }
         }
     }
 }

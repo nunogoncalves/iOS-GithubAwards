@@ -13,7 +13,7 @@ import Nimble
 class NetworkRequesterTests : QuickSpec {
     
     override func spec() {
-        let responseHandler = Data.HandleResponse()
+        let responseHandler = Data.ResponseHandler()
         var requester: Network.Requester!
         
         beforeEach {

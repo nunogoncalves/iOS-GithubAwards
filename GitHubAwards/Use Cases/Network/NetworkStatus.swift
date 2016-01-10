@@ -29,13 +29,9 @@ enum NetworkStatus: Int {
             return "Request exceded wait time."
         case Offline:
             return "Connection appears to be offline."
-        case HostNameNotFound:
-            return technicalErrorMessage
-        case CouldNotConnectToServer:
-            return technicalErrorMessage
         case NotFound:
             return "The resource you are looking for doesn't exist."
-        case ServerError:
+        case HostNameNotFound, CouldNotConnectToServer, ServerError:
             return technicalErrorMessage
         default:
             return technicalErrorMessage
