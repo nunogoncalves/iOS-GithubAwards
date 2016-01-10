@@ -13,10 +13,10 @@ struct Network {
     class Requester {
         
         var URLSession = NSURLSession.self
+        private let networkResponseHandler: Data.ResponseHandler
+        private let sessionConfBuilder = SessionConfigurationBuilder()
         
-        let networkResponseHandler: Data.HandleResponse
-        
-        init(networkResponseHandler: Data.HandleResponse) {
+        init(networkResponseHandler: Data.ResponseHandler) {
             self.networkResponseHandler = networkResponseHandler
         }
         
@@ -27,8 +27,8 @@ struct Network {
         
         private func buildRequesterTaskFor(urlStr: String) -> NSURLSessionDataTask {
             let url = NSURL(string: urlStr.urlEncoded())
-            //http://stackoverflow.com/questions/24016142/how-to-make-an-http-request-in-swift
-            return URLSession.sharedSession().dataTaskWithURL(url!, completionHandler: completionHandler)
+            let session = URLSession.init(configuration: sessionConfBuilder.sessionConfiguration())
+            return session.dataTaskWithURL(url!, completionHandler: completionHandler)
         }
         
         private func completionHandler(data: NSData?, response: NSURLResponse?, error: NSError?) {

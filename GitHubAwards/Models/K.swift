@@ -6,6 +6,8 @@
 //  Copyright © 2015 Nuno Gonçalves. All rights reserved.
 //
 
+import Foundation
+
 struct K {
     
     struct Colors {
@@ -35,10 +37,19 @@ struct K {
     
     struct Segues {
         static let userDetailsSegue = "UserDetailsSegue"
+        
+        static let worldUsersSegue = "WorldUsersSegue"
+        static let countryUsersSegue = "CountryUsersSegue"
+        static let cityUsersSegue = "CityUsersSegue"
     }
     
+    struct Timeouts {
+        static let request: NSTimeInterval = 2
+        static let resource: NSTimeInterval = 2
+    }
 }
 
 typealias kColors = K.Colors
 typealias kUrls = K.Urls
 typealias kSegues = K.Segues
+typealias kTimeout = K.Timeouts

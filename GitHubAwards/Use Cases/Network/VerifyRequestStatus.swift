@@ -15,6 +15,7 @@ class VerifyRequestStatus {
     
     private let errorCodes = [
         NetworkStatus.Offline.rawValue,
+        NetworkStatus.Timeout.rawValue,
         NetworkStatus.HostNameNotFound.rawValue,
         NetworkStatus.CouldNotConnectToServer.rawValue,
     ]

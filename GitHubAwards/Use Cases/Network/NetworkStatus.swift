@@ -8,6 +8,7 @@
 
 enum NetworkStatus: Int {
     case Ok = 200
+    case Timeout = -1001
     case Offline = -1009 //desligar a net
     case HostNameNotFound = -1003 //github-awardsboooo.com
     case CouldNotConnectToServer = -1004 //ex: localhost turned off
@@ -15,11 +16,17 @@ enum NetworkStatus: Int {
     case ServerError = 500
     case GenericError = -1
     
+    func success() -> Bool {
+        return self == .Ok
+    }
+    
     func message() -> String {
         let technicalErrorMessage = "There was a technical problem."
         switch self {
         case Ok:
             return "Ok"
+        case Timeout:
+            return "O pedido excedeu o tempo de espera"
         case Offline:
             return "Connection appears to be offline."
         case HostNameNotFound:
