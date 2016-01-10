@@ -140,7 +140,12 @@ extension UserDetailsController {
     }
     
     private func calculateTrophiesOf(rank: Ranking) -> Int {
-        return (rank.worldRanking < 4 ? 1 : 0) + (rank.cityRanking < 4 ? 1 : 0) + (rank.countryRanking < 4 ? 1 : 0)
+        return (isPodium(rank.worldRanking) ? 1 : 0) + (isPodium(rank.cityRanking) ? 1 : 0) + (isPodium(rank.countryRanking) ? 1 : 0)
+    }
+    
+    private func isPodium(rank: Int?) -> Bool {
+        if rank == nil { return false }
+        return rank! < 4 && rank! > 0
     }
     
 }
