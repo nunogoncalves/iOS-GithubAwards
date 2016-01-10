@@ -9,7 +9,7 @@
 import Foundation
 
 struct Data {
-    class HandleResponse {
+    class ResponseHandler {
         
         var successCallback: (NSDictionary -> ())?
         var failureCallback: ((NetworkStatus) -> ())?

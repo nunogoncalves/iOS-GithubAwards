@@ -24,7 +24,7 @@ extension Getter {
         let qos = Int(QOS_CLASS_USER_INTERACTIVE.rawValue)
         dispatch_async(dispatch_get_global_queue(qos, 0)) {
             
-            let responseHandler = Data.HandleResponse()
+            let responseHandler = Data.ResponseHandler()
             responseHandler.failureCallback = { status in
                 dispatch_async(dispatch_get_main_queue()) {
                     failure(status)
