@@ -35,10 +35,10 @@ class PaginaTable: UITableView {
     
     func addRefreshController(refreshActionTarget: AnyObject, action: Selector) {
         refreshControl = UIRefreshControl()
-        refreshControl.backgroundColor = UIColor.clearColor()
-        refreshControl.tintColor = UIColor.clearColor()
+        refreshControl!.backgroundColor = UIColor.clearColor()
+        refreshControl!.tintColor = UIColor.clearColor()
         
-        refreshControl.addTarget(refreshActionTarget, action: action, forControlEvents:.ValueChanged)
+        refreshControl!.addTarget(refreshActionTarget, action: action, forControlEvents:.ValueChanged)
         
         addLoadingViewToRefreshControl()
         addRefreshControl()
