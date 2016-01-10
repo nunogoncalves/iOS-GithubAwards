@@ -9,7 +9,7 @@
 enum NetworkStatus: Int {
     case Ok = 200
     case Timeout = -1001
-    case Offline = -1009 //desligar a net
+    case Offline = -1009
     case HostNameNotFound = -1003 //github-awardsboooo.com
     case CouldNotConnectToServer = -1004 //ex: localhost turned off
     case NotFound = 404
@@ -26,7 +26,7 @@ enum NetworkStatus: Int {
         case Ok:
             return "Ok"
         case Timeout:
-            return "O pedido excedeu o tempo de espera"
+            return "Request exceded wait time."
         case Offline:
             return "Connection appears to be offline."
         case HostNameNotFound:
