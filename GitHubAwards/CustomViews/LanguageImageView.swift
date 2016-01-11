@@ -17,7 +17,7 @@ class LanguageImageView : UIView {
     var language: Language? {
         didSet {
             if let language = language {
-                if let image = UIImage(named: language) {
+                if let image = UIImage(named: language.lowercaseString) {
                     imageView.image = image
                     imageView.show()
                     label.hide()
