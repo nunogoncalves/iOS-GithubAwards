@@ -27,29 +27,19 @@
                                     <constraint firstAttribute="height" constant="90" id="xLb-MG-6wG"/>
                                 </constraints>
                             </view>
+                            <searchBar contentMode="redraw" placeholder="Filter languages" translatesAutoresizingMaskIntoConstraints="NO" id="AAR-44-pJD" customClass="SearchBar" customModule="GitHubAwards" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="WgZ-Lf-ea1"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jDn-g3-b3A">
-                                <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                                <rect key="frame" x="0.0" y="108" width="320" height="323"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" id="mka-yx-wL4">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <searchBar contentMode="redraw" placeholder="Filter languages" translatesAutoresizingMaskIntoConstraints="NO" id="AAR-44-pJD" customClass="SearchBar" customModule="GitHubAwards" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                        </searchBar>
-                                    </subviews>
-                                    <color key="backgroundColor" red="0.18823529410000001" green="0.71372549019999998" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="AAR-44-pJD" secondAttribute="trailing" id="kHx-FU-WV1"/>
-                                        <constraint firstItem="AAR-44-pJD" firstAttribute="top" secondItem="mka-yx-wL4" secondAttribute="top" id="ofa-JD-sai"/>
-                                        <constraint firstAttribute="bottom" secondItem="AAR-44-pJD" secondAttribute="bottom" id="wGx-jL-ReT"/>
-                                        <constraint firstItem="AAR-44-pJD" firstAttribute="leading" secondItem="mka-yx-wL4" secondAttribute="leading" id="zsK-ws-caS"/>
-                                    </constraints>
-                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LanguageCell" rowHeight="60" id="1xN-Qi-pZb" customClass="LanguageCell" customModule="GitHubAwards" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="45" width="320" height="60"/>
+                                        <rect key="frame" x="0.0" y="1" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1xN-Qi-pZb" id="Qdl-P5-WI9">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
@@ -90,7 +80,7 @@
                                 </connections>
                             </tableView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Le-Wb-FvH">
-                                <rect key="frame" x="129" y="225" width="63" height="30"/>
+                                <rect key="frame" x="129" y="269" width="63" height="30"/>
                                 <state key="normal" title="Try again"/>
                                 <connections>
                                     <action selector="tryAgainClicked" destination="gza-o9-9bA" eventType="touchUpInside" id="Hsu-7u-RTc"/>
@@ -99,9 +89,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="jDn-g3-b3A" firstAttribute="top" secondItem="AAR-44-pJD" secondAttribute="bottom" id="7bb-pD-b6r"/>
+                            <constraint firstItem="AAR-44-pJD" firstAttribute="top" secondItem="Bnq-0K-UDK" secondAttribute="bottom" id="HVo-qV-JcL"/>
                             <constraint firstAttribute="trailing" secondItem="jDn-g3-b3A" secondAttribute="trailing" id="PZQ-v4-4D3"/>
+                            <constraint firstItem="AAR-44-pJD" firstAttribute="leading" secondItem="Jq3-3W-WTg" secondAttribute="leading" id="Thi-B6-yK3"/>
+                            <constraint firstAttribute="trailing" secondItem="AAR-44-pJD" secondAttribute="trailing" id="alm-sr-egy"/>
                             <constraint firstItem="jDn-g3-b3A" firstAttribute="top" secondItem="Jq3-3W-WTg" secondAttribute="top" id="dIY-Gj-9Jk"/>
                             <constraint firstItem="IOW-bw-wLx" firstAttribute="centerY" secondItem="jDn-g3-b3A" secondAttribute="centerY" id="e3g-wf-alS"/>
+                            <constraint firstItem="2XL-SE-Yyp" firstAttribute="top" secondItem="AAR-44-pJD" secondAttribute="bottom" constant="169" id="fkh-RZ-jNY"/>
                             <constraint firstItem="IOW-bw-wLx" firstAttribute="centerX" secondItem="jDn-g3-b3A" secondAttribute="centerX" id="hD4-mi-fiY"/>
                             <constraint firstItem="jDn-g3-b3A" firstAttribute="leading" secondItem="Jq3-3W-WTg" secondAttribute="leading" id="hut-O1-4be"/>
                             <constraint firstItem="7Le-Wb-FvH" firstAttribute="centerX" secondItem="jDn-g3-b3A" secondAttribute="centerX" id="imm-Gr-cb9"/>
@@ -114,8 +109,10 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="dIY-Gj-9Jk"/>
+                                <exclude reference="kw3-99-xnl"/>
                                 <exclude reference="trk-SR-X8u"/>
                                 <exclude reference="e3g-wf-alS"/>
+                                <exclude reference="fkh-RZ-jNY"/>
                             </mask>
                         </variation>
                     </view>

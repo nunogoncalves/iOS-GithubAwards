@@ -35,6 +35,7 @@ class LanguagesController: UIViewController {
         if segue.identifier == "GoToLanguageRankings" {
             let vc = segue.destinationViewController as! LanguageRankingsController
             vc.language = displayingLanguages[languagesTable.indexPathForSelectedRow!.row]
+            languagesTable.deselectRowAtIndexPath(languagesTable.indexPathForSelectedRow!, animated: false)
         }
     }
     
