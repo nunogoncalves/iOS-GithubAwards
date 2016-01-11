@@ -35,6 +35,7 @@ class UsersSearchController: UIViewController {
         searchingLabel.textColor = .whiteColor()
         resultsScroll.addSubview(searchingLabel)
         resultsScroll.contentSize = CGSizeMake(resultsScroll.frame.size.width, CGFloat(20));
+        searchField.becomeFirstResponder()
     }
 
     private func restartTimer() {
