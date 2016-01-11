@@ -17,7 +17,7 @@
 		8504853B1C104AE8004D952A /* swift.png in Resources */ = {isa = PBXBuildFile; fileRef = 850485371C104AE8004D952A /* swift.png */; };
 		850485421C104C2B004D952A /* c#.png in Resources */ = {isa = PBXBuildFile; fileRef = 8504853C1C104C2B004D952A /* c#.png */; };
 		850485431C104C2B004D952A /* go.png in Resources */ = {isa = PBXBuildFile; fileRef = 8504853D1C104C2B004D952A /* go.png */; };
-		850485441C104C2B004D952A /* pearl.png in Resources */ = {isa = PBXBuildFile; fileRef = 8504853E1C104C2B004D952A /* pearl.png */; };
+		850485441C104C2B004D952A /* perl.png in Resources */ = {isa = PBXBuildFile; fileRef = 8504853E1C104C2B004D952A /* perl.png */; };
 		850485451C104C2B004D952A /* php.png in Resources */ = {isa = PBXBuildFile; fileRef = 8504853F1C104C2B004D952A /* php.png */; };
 		850485461C104C2B004D952A /* python.png in Resources */ = {isa = PBXBuildFile; fileRef = 850485401C104C2B004D952A /* python.png */; };
 		850485471C104C2B004D952A /* ruby.png in Resources */ = {isa = PBXBuildFile; fileRef = 850485411C104C2B004D952A /* ruby.png */; };
@@ -145,7 +145,7 @@
 		850485371C104AE8004D952A /* swift.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swift.png; sourceTree = "<group>"; };
 		8504853C1C104C2B004D952A /* c#.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "c#.png"; sourceTree = "<group>"; };
 		8504853D1C104C2B004D952A /* go.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = go.png; sourceTree = "<group>"; };
-		8504853E1C104C2B004D952A /* pearl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pearl.png; sourceTree = "<group>"; };
+		8504853E1C104C2B004D952A /* perl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = perl.png; sourceTree = "<group>"; };
 		8504853F1C104C2B004D952A /* php.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = php.png; sourceTree = "<group>"; };
 		850485401C104C2B004D952A /* python.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = python.png; sourceTree = "<group>"; };
 		850485411C104C2B004D952A /* ruby.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ruby.png; sourceTree = "<group>"; };
@@ -369,7 +369,7 @@
 				854A40481C3AD247005E7FF1 /* github-404.png */,
 				850485361C104AE8004D952A /* javascript.png */,
 				856A72DF1C122C1E008415A4 /* objective-c.png */,
-				8504853E1C104C2B004D952A /* pearl.png */,
+				8504853E1C104C2B004D952A /* perl.png */,
 				8504853F1C104C2B004D952A /* php.png */,
 				850485401C104C2B004D952A /* python.png */,
 				857C489A1C11A041000F035C /* riscas.png */,
@@ -742,7 +742,7 @@
 				85820F4C1C0E2C1A0069D085 /* GithubLoading-5.gif in Resources */,
 				850485471C104C2B004D952A /* ruby.png in Resources */,
 				854A40491C3AD247005E7FF1 /* github-404.png in Resources */,
-				850485441C104C2B004D952A /* pearl.png in Resources */,
+				850485441C104C2B004D952A /* perl.png in Resources */,
 				85D320F51C02062E001B7C7A /* Main.storyboard in Resources */,
 				856A72E31C122C1E008415A4 /* css.png in Resources */,
 				8504853A1C104AE8004D952A /* javascript.png in Resources */,
