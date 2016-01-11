@@ -84,7 +84,7 @@ extension UserDetailsController {
         self.user = user
         applyReposStarsAndTrophiesLabelsFor(user)
         if let city = user.city {
-            countryAndCityLabel.text = "\(user.country!), \(city)"
+            countryAndCityLabel.text = "\(user.country!.capitalizedString), \(city.capitalizedString)"
         } else {
             countryAndCityLabel.text = "\(user.country ?? "")"
         }
