@@ -52,7 +52,7 @@
                                         <rect key="frame" x="0.0" y="45" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1xN-Qi-pZb" id="Qdl-P5-WI9">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="m6W-LW-9MO">
@@ -1123,7 +1123,7 @@
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="No results found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVu-Px-zCy">
                                 <rect key="frame" x="81" y="174" width="158" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DWx-sX-GX2" customClass="GithubLoadingView" customModule="GitHubAwards" customModuleProvider="target">
@@ -1142,7 +1142,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 </containerView>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fsz-pM-Mev" userLabel="Paginator Container">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fsz-pM-Mev" userLabel="Paginator Container">
                                 <rect key="frame" x="300" y="299" width="10" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Et7-J8-E82">
@@ -1190,6 +1190,7 @@
                     <connections>
                         <outlet property="githubLoadingIndicator" destination="DWx-sX-GX2" id="Sml-xa-QFs"/>
                         <outlet property="noResultsLabel" destination="JVu-Px-zCy" id="e8A-mv-bhO"/>
+                        <outlet property="pageContainer" destination="Fsz-pM-Mev" id="kG2-a3-bj5"/>
                         <outlet property="paginatorLabel" destination="Et7-J8-E82" id="l2O-VX-QX3"/>
                         <outlet property="table" destination="4Dr-wr-ECC" id="fZF-ul-amx"/>
                         <segue destination="U5u-hS-YPV" kind="show" identifier="UserDetailsSegue" id="6Le-od-Lt8"/>
@@ -1214,13 +1215,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Search for a Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lv5-pn-acz">
                                 <rect key="frame" x="81" y="106" width="158" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="No results found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMT-if-UHE">
                                 <rect key="frame" x="98" y="154" width="127" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4gb-Zm-6jp" customClass="GithubLoadingView" customModule="GitHubAwards" customModuleProvider="target">
@@ -1239,7 +1240,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 </containerView>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXI-V9-acO" userLabel="Paginator Container">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXI-V9-acO" userLabel="Paginator Container">
                                 <rect key="frame" x="300" y="308" width="10" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qr-3q-rhl">
@@ -1290,6 +1291,7 @@
                         <outlet property="emptyMessageLabel" destination="lv5-pn-acz" id="Od4-ci-Tif"/>
                         <outlet property="githubLoadingIndicator" destination="4gb-Zm-6jp" id="Nx1-Hm-krN"/>
                         <outlet property="noResultsLabel" destination="PMT-if-UHE" id="4AC-kk-96r"/>
+                        <outlet property="pageContainer" destination="xXI-V9-acO" id="DBC-Ns-a4B"/>
                         <outlet property="paginatorLabel" destination="1qr-3q-rhl" id="mFg-cx-Q5J"/>
                         <outlet property="table" destination="VFA-0R-hLv" id="1eM-7x-tHP"/>
                         <segue destination="U5u-hS-YPV" kind="show" identifier="UserDetailsSegue" id="82b-dm-sv2"/>
@@ -1314,13 +1316,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for a City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xtc-VF-1hI">
                                 <rect key="frame" x="97" y="105" width="127" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No results found " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JG4-Ut-4fV">
                                 <rect key="frame" x="95" y="105" width="131" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XgP-qq-qyn" customClass="GithubLoadingView" customModule="GitHubAwards" customModuleProvider="target">
@@ -1339,7 +1341,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 </containerView>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pbi-y5-fOy" userLabel="Paginator Container">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pbi-y5-fOy" userLabel="Paginator Container">
                                 <rect key="frame" x="300" y="308" width="10" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETV-07-9p2">
@@ -1390,6 +1392,7 @@
                         <outlet property="emptyMessageLabel" destination="Xtc-VF-1hI" id="dbw-4o-2lo"/>
                         <outlet property="githubLoadingIndicator" destination="XgP-qq-qyn" id="pEE-zH-sUg"/>
                         <outlet property="noResultsLabel" destination="JG4-Ut-4fV" id="ay3-wR-wRI"/>
+                        <outlet property="pageContainer" destination="Pbi-y5-fOy" id="Lkz-gA-IxP"/>
                         <outlet property="paginatorLabel" destination="ETV-07-9p2" id="d3f-wK-874"/>
                         <outlet property="table" destination="aNd-06-c9I" id="CjA-71-8JD"/>
                         <segue destination="U5u-hS-YPV" kind="show" identifier="UserDetailsSegue" id="fYe-Ak-nVm"/>
@@ -1414,6 +1417,6 @@
         <image name="github-404.png" width="1010" height="369"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="82b-ih-YU7"/>
+        <segue reference="6Le-od-Lt8"/>
     </inferredMetricsTieBreakers>
 </document>
