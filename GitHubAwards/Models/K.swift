@@ -44,8 +44,8 @@ struct K {
     }
     
     struct Timeouts {
-        static let request: NSTimeInterval = 2
-        static let resource: NSTimeInterval = 2
+        static let request: NSTimeInterval = 5
+        static let resource: NSTimeInterval = 5
     }
 }
 
