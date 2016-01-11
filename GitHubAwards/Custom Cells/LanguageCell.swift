@@ -11,13 +11,13 @@ import UIKit
 class LanguageCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var languageImageView: UIImageView!
+    @IBOutlet weak var languageImageView: LanguageImageView!
     
     var language: String? {
         didSet {
             let lang = language ?? ""
             nameLabel.text = lang
-            languageImageView.image = LanguageImage.loadFor(lang)
+            languageImageView.language = lang
         }
     }
 }

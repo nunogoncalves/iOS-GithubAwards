@@ -90,6 +90,8 @@
 		85A4F01B1C3F1BF0002F3405 /* CityUsersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A4F01A1C3F1BF0002F3405 /* CityUsersController.swift */; };
 		85A4F01D1C3F1C4D002F3405 /* UsersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A4F01C1C3F1C4D002F3405 /* UsersController.swift */; };
 		85A9E55F1C36C4870011DAA4 /* IntroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A9E55E1C36C4870011DAA4 /* IntroController.swift */; };
+		85AF8AF91C445E5F0022D97F /* LanguageImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85AF8AF81C445E5F0022D97F /* LanguageImageView.xib */; };
+		85AF8AFB1C445EAD0022D97F /* LanguageImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AF8AFA1C445EAD0022D97F /* LanguageImageView.swift */; };
 		85AFEC1F1C0468CB006FC129 /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AFEC1E1C0468CB006FC129 /* Ranking.swift */; };
 		85B2C2D01C18D07800112D95 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B2C2CF1C18D07800112D95 /* UIView.swift */; };
 		85B501831C10FCC300BBFD56 /* LanguageTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85B501821C10FCC300BBFD56 /* LanguageTitleView.xib */; };
@@ -226,6 +228,8 @@
 		85A4F01A1C3F1BF0002F3405 /* CityUsersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityUsersController.swift; sourceTree = "<group>"; };
 		85A4F01C1C3F1C4D002F3405 /* UsersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersController.swift; sourceTree = "<group>"; };
 		85A9E55E1C36C4870011DAA4 /* IntroController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroController.swift; sourceTree = "<group>"; };
+		85AF8AF81C445E5F0022D97F /* LanguageImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageImageView.xib; sourceTree = "<group>"; };
+		85AF8AFA1C445EAD0022D97F /* LanguageImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageImageView.swift; sourceTree = "<group>"; };
 		85AFEC1E1C0468CB006FC129 /* Ranking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
 		85B2C2CF1C18D07800112D95 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		85B501821C10FCC300BBFD56 /* LanguageTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageTitleView.xib; sourceTree = "<group>"; };
@@ -358,6 +362,8 @@
 				850485321C0FB11A004D952A /* AlertView.xib */,
 				85820F3A1C0E2BCE0069D085 /* GithubLoadingView.swift */,
 				85820F3B1C0E2BCE0069D085 /* GithubLoadingView.xib */,
+				85AF8AFA1C445EAD0022D97F /* LanguageImageView.swift */,
+				85AF8AF81C445E5F0022D97F /* LanguageImageView.xib */,
 				85B501841C10FD8400BBFD56 /* LanguageTitleView.swift */,
 				85B501821C10FCC300BBFD56 /* LanguageTitleView.xib */,
 				85E6566E1C1352C600BB4278 /* PaginaTable.swift */,
@@ -780,6 +786,7 @@
 				850485331C0FB11A004D952A /* AlertView.xib in Resources */,
 				856A72E51C122C1E008415A4 /* shell.png in Resources */,
 				850485421C104C2B004D952A /* c#.png in Resources */,
+				85AF8AF91C445E5F0022D97F /* LanguageImageView.xib in Resources */,
 				85820F4A1C0E2C1A0069D085 /* GithubLoading-3.gif in Resources */,
 				856A72E21C122C1E008415A4 /* c++.png in Resources */,
 				857113521C43BDD500011441 /* scala.png in Resources */,
@@ -909,6 +916,7 @@
 				8508B76B1C1593D40024684F /* UIColor.swift in Sources */,
 				8501F06B1C425674004BEB50 /* SessionConfigurationBuilder.swift in Sources */,
 				85D321211C0219C7001B7C7A /* User.swift in Sources */,
+				85AF8AFB1C445EAD0022D97F /* LanguageImageView.swift in Sources */,
 				85D321251C022480001B7C7A /* UserDetailsController.swift in Sources */,
 				85E656741C139F5100BB4278 /* Book.swift in Sources */,
 				856A72E71C12509F008415A4 /* LanguageCell.swift in Sources */,
