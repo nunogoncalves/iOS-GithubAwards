@@ -34,7 +34,6 @@
                     <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="SkL-5K-l6f" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="2Fj-XX-h1V"/>
                 <constraint firstItem="SkL-5K-l6f" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="9zc-cJ-ZVa"/>

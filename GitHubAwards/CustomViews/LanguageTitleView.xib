@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LanguageTitleView" customModule="GitHubAwards" customModuleProvider="target">
             <connections>
-                <outlet property="imageView" destination="2Qt-0t-Rcl" id="fWB-a6-hKd"/>
+                <outlet property="languageImageView" destination="Oxu-1G-ErP" id="Fh6-iN-gcS"/>
                 <outlet property="name" destination="xx2-vN-9rO" id="6Sf-fI-Kbd"/>
                 <outlet property="topLevelSubView" destination="iN0-l3-epB" id="eeh-aL-SIm"/>
             </connections>
@@ -21,48 +21,44 @@
                     <rect key="frame" x="0.0" y="0.0" width="141" height="20"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SiF-KE-QmU">
-                            <rect key="frame" x="0.0" y="0.0" width="34" height="20"/>
+                            <rect key="frame" x="0.0" y="0.0" width="29" height="20"/>
                         </view>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Qt-0t-Rcl">
-                            <rect key="frame" x="29" y="-5" width="30" height="30"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oxu-1G-ErP" customClass="LanguageImageView" customModule="GitHubAwards" customModuleProvider="target">
+                            <rect key="frame" x="34" y="-5" width="30" height="30"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="30" id="3E2-74-o91"/>
-                                <constraint firstAttribute="height" constant="30" id="x9d-Ou-GJr"/>
+                                <constraint firstAttribute="height" constant="30" id="KHZ-ip-cQs"/>
+                                <constraint firstAttribute="width" constant="30" id="pve-hy-k0c"/>
                             </constraints>
-                        </imageView>
+                        </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="xx2-vN-9rO">
-                            <rect key="frame" x="64" y="-1" width="43.5" height="21"/>
+                            <rect key="frame" x="69" y="-1" width="43.5" height="21"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B6N-1G-BMf">
-                            <rect key="frame" x="107" y="0.0" width="34" height="20"/>
+                            <rect key="frame" x="112.5" y="0.0" width="28.5" height="20"/>
                         </view>
                     </subviews>
                     <constraints>
                         <constraint firstItem="B6N-1G-BMf" firstAttribute="leading" secondItem="xx2-vN-9rO" secondAttribute="trailing" id="2Zw-iC-DLg"/>
-                        <constraint firstItem="SiF-KE-QmU" firstAttribute="trailing" secondItem="2Qt-0t-Rcl" secondAttribute="leading" constant="5" id="3oX-NE-W0A"/>
                         <constraint firstItem="SiF-KE-QmU" firstAttribute="centerY" secondItem="D8V-YC-4Mw" secondAttribute="centerY" id="7mh-rh-eVV"/>
                         <constraint firstItem="B6N-1G-BMf" firstAttribute="width" secondItem="SiF-KE-QmU" secondAttribute="width" id="EQ5-LI-67g"/>
+                        <constraint firstItem="Oxu-1G-ErP" firstAttribute="leading" secondItem="SiF-KE-QmU" secondAttribute="trailing" constant="5" id="FMs-rO-QeL"/>
                         <constraint firstItem="SiF-KE-QmU" firstAttribute="top" secondItem="D8V-YC-4Mw" secondAttribute="top" id="Juy-k1-TA2"/>
-                        <constraint firstItem="2Qt-0t-Rcl" firstAttribute="height" secondItem="SiF-KE-QmU" secondAttribute="height" id="N8R-OH-lMp"/>
                         <constraint firstItem="B6N-1G-BMf" firstAttribute="centerY" secondItem="D8V-YC-4Mw" secondAttribute="centerY" id="NTI-Iy-kg7"/>
+                        <constraint firstItem="xx2-vN-9rO" firstAttribute="leading" secondItem="Oxu-1G-ErP" secondAttribute="trailing" constant="5" id="NUS-uy-ddR"/>
                         <constraint firstItem="SiF-KE-QmU" firstAttribute="height" secondItem="D8V-YC-4Mw" secondAttribute="height" id="OTj-du-4Jb"/>
-                        <constraint firstItem="2Qt-0t-Rcl" firstAttribute="top" secondItem="SiF-KE-QmU" secondAttribute="bottom" id="RgG-W4-7dv"/>
                         <constraint firstItem="xx2-vN-9rO" firstAttribute="centerY" secondItem="D8V-YC-4Mw" secondAttribute="centerY" id="SNA-yY-qbS"/>
-                        <constraint firstItem="xx2-vN-9rO" firstAttribute="leading" secondItem="2Qt-0t-Rcl" secondAttribute="trailing" constant="5" id="V1v-u1-afk"/>
                         <constraint firstItem="xx2-vN-9rO" firstAttribute="leading" secondItem="B6N-1G-BMf" secondAttribute="trailing" id="Xsq-Wg-fuF"/>
                         <constraint firstItem="B6N-1G-BMf" firstAttribute="height" secondItem="SiF-KE-QmU" secondAttribute="height" id="YY5-aa-WHW"/>
+                        <constraint firstItem="Oxu-1G-ErP" firstAttribute="centerY" secondItem="D8V-YC-4Mw" secondAttribute="centerY" id="iF8-3c-jmV"/>
                         <constraint firstAttribute="trailing" secondItem="B6N-1G-BMf" secondAttribute="trailing" id="mKi-Ic-c39"/>
                         <constraint firstItem="SiF-KE-QmU" firstAttribute="leading" secondItem="D8V-YC-4Mw" secondAttribute="leading" id="mhK-65-Jsl"/>
-                        <constraint firstItem="2Qt-0t-Rcl" firstAttribute="centerY" secondItem="D8V-YC-4Mw" secondAttribute="centerY" id="zQr-6M-EH7"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="Juy-k1-TA2"/>
-                            <exclude reference="N8R-OH-lMp"/>
-                            <exclude reference="RgG-W4-7dv"/>
                             <exclude reference="Xsq-Wg-fuF"/>
                         </mask>
                     </variation>
