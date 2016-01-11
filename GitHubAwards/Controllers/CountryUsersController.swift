@@ -9,6 +9,11 @@
 import UIKit
 
 class CountryUsersController : UsersController {
+    
+    @IBOutlet weak var pageContainer: UIView! {
+        didSet { paginationContainer = pageContainer }
+    }
+    
     @IBOutlet weak var table: UsersTable! {
         didSet { usersTable = table }
     }

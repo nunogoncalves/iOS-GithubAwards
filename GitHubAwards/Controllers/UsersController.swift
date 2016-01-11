@@ -91,7 +91,7 @@ extension UsersController : UITableViewDelegate {
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        if let lastItemRow = usersTable.indexPathsForVisibleRows?.last?.row {
+        if let lastItemRow = usersTable.indexPathsForVisibleRows?.first?.row {
             let total = usersTableDataSource.getTotalCount()
             paginationLabel.text = "\(lastItemRow + 1)/\(total)"
         }
@@ -130,9 +130,11 @@ extension UsersController : TableStateListener {
         }
         usersTable.reloadData()
         if paginator.totalCount == 0 {
+            paginationContainer.hide()
             noResultsLabl.show()
             usersTable.hide()
         } else {
+            paginationContainer.show()
             usersTable.show()
             noResultsLabl.hide()
         }
