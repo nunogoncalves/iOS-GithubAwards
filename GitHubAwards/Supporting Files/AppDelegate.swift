@@ -33,10 +33,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func setUpNavigationAppearance() {
-        UINavigationBar.appearance().barTintColor = UIColor(rgbValue: kColors.navigationBarColor)
-        UINavigationBar.appearance().tintColor = .whiteColor()
+        let appearance = UINavigationBar.appearance()
+//        appearance.translucent = false
+        appearance.barTintColor = UIColor(rgbValue: kColors.navigationBarColor)
+        appearance.tintColor = .whiteColor()
         
-        UINavigationBar.appearance().titleTextAttributes = [
+        appearance.titleTextAttributes = [
             NSForegroundColorAttributeName : UIColor.whiteColor(),
         ]
 
