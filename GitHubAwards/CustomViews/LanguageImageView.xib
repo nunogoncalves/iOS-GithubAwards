@@ -20,7 +20,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evv-jF-Rx8">
                     <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                     <color key="backgroundColor" red="0.18431372549019609" green="0.61568627450980395" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                     <userDefinedRuntimeAttributes>

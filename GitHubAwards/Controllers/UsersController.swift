@@ -91,7 +91,7 @@ extension UsersController : UITableViewDelegate {
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        if let lastItemRow = usersTable.indexPathsForVisibleRows?.first?.row {
+        if let lastItemRow = usersTable.indexPathsForVisibleRows?.last?.row {
             let total = usersTableDataSource.getTotalCount()
             paginationLabel.text = "\(lastItemRow + 1)/\(total)"
         }

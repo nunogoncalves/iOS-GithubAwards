@@ -27,7 +27,7 @@
                                     <constraint firstAttribute="height" constant="90" id="xLb-MG-6wG"/>
                                 </constraints>
                             </view>
-                            <searchBar contentMode="redraw" placeholder="Filter languages" translatesAutoresizingMaskIntoConstraints="NO" id="AAR-44-pJD" customClass="SearchBar" customModule="GitHubAwards" customModuleProvider="target">
+                            <searchBar contentMode="redraw" placeholder="Filter" translatesAutoresizingMaskIntoConstraints="NO" id="AAR-44-pJD" customClass="SearchBar" customModule="GitHubAwards" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="WgZ-Lf-ea1"/>
@@ -1145,7 +1145,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.85844691930000006" green="0.85844691930000006" blue="0.85844691930000006" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.67365151263297873" green="0.67365151263297873" blue="0.67365151263297873" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="Et7-J8-E82" firstAttribute="centerY" secondItem="Fsz-pM-Mev" secondAttribute="centerY" constant="-5" id="JEA-LU-XCJ"/>
                                     <constraint firstItem="Et7-J8-E82" firstAttribute="centerX" secondItem="Fsz-pM-Mev" secondAttribute="centerX" id="Jt2-3n-8by"/>
