@@ -96,16 +96,4 @@ extension LanguagesController : UISearchBarDelegate {
         }
         languagesTable.reloadData()
     }
-    
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-        navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-    
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        navigationController?.setNavigationBarHidden(false, animated: true)
-    }
-    
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        navigationController?.setNavigationBarHidden(false, animated: true)
-    }
 }

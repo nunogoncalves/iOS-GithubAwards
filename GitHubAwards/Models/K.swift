@@ -41,6 +41,8 @@ struct K {
         static let worldUsersSegue = "WorldUsersSegue"
         static let countryUsersSegue = "CountryUsersSegue"
         static let cityUsersSegue = "CityUsersSegue"
+        
+        static let userSearchToDetail = "UsersSearchToDetailSegue"
     }
     
     struct Timeouts {
