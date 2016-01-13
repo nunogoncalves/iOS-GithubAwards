@@ -895,7 +895,7 @@
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qa1-8F-nGy" userLabel="Bottom line">
                                         <rect key="frame" x="0.0" y="65" width="320" height="1"/>
-                                        <color key="backgroundColor" red="0.85338056849999999" green="0.85338056849999999" blue="0.85338056849999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="FAx-lT-oHd"/>
                                         </constraints>
