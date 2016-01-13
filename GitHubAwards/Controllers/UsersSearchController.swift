@@ -27,8 +27,6 @@ class UsersSearchController: UIViewController {
     
     var user: User?
     
-    var timer: NSTimer?
-    
     let userMovementAnimationDuration: NSTimeInterval = 0.3
     
     override func viewDidLoad() {
@@ -42,18 +40,6 @@ class UsersSearchController: UIViewController {
     @objc private func showUser() {
         performSegueWithIdentifier(kSegues.userSearchToDetail, sender: self)
     }
-    
-    private func restartTimer() {
-        timer = NSTimer.scheduledTimerWithTimeInterval(
-            0.5,
-            target: self,
-            selector: "refreshSearchingLabel",
-            userInfo: nil,
-            repeats: true
-        )
-    }
-    
-    var points = 0
    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == kSegues.userSearchToDetail {
@@ -65,7 +51,6 @@ class UsersSearchController: UIViewController {
     }
     
     private func searchUserFor(login: String) {
-        showLoadingIndicatior()
         userSearchContainer.hide()
         loadingIndicator.show()
         userContainerTopConstraint.constant = -80.0
@@ -96,7 +81,6 @@ class UsersSearchController: UIViewController {
         userSearchContainer.show()
         self.user = user
         ImageLoader.fetchAndLoad(user.avatarUrl!, imageView: avatarImageView)
-        stopLoadingIndicator()
         
         userContainerTopConstraint.constant = 6.0
         UIView.animateWithDuration(0.3) {
@@ -112,21 +96,10 @@ class UsersSearchController: UIViewController {
         xEyeLeft.show()
         xEyeRight.show()
         
-        stopLoadingIndicator()
         if status.isTechnicalError() {
             NotifyError.display(status.message())
         }
     }
-    
-    private func showLoadingIndicatior() {
-        restartTimer()
-    }
-    
-    private func stopLoadingIndicator() {
-        timer?.invalidate()
-        timer = nil
-    }
-    
 }
 
 extension UsersSearchController : UISearchBarDelegate {
