@@ -48,6 +48,8 @@ class UserDetailsController: UIViewController {
         applyGradient()
         navigationItem.title = user!.login
         Users.GetOne(login: user!.login!).get(success: userSuccess, failure: failure)
+
+        rankingsTable.registerNib(UINib(nibName: "RankingCell", bundle: nil), forCellReuseIdentifier: "RankingCell")
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -167,6 +169,14 @@ extension UserDetailsController: UITableViewDelegate {
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         animateCells = false
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if user?.rankings[indexPath.row].country != "" {
+            return 158
+        } else {
+            return 78
+        }
     }
 }
 

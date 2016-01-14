@@ -78,12 +78,43 @@ class RankingPresenter {
         return rankings.filter { $0.isPodium() }.count > 0
     }
     
+    func hasGoldMedal() -> Bool {
+        let rankings = [worldRanking, countryRanking, cityRanking]
+        return rankings.filter { $0 == 1 }.count > 0
+    }
+    
+    func howManyDifferentMedals() -> Int {
+        var medals = 0
+        if hasGoldMedal() { medals += 1 }
+        if hasSilverMedal() { medals += 1 }
+        if hasBronzeMedal() { medals += 1 }
+        return medals
+    }
+    
+    func hasSilverMedal() -> Bool {
+        let rankings = [worldRanking, countryRanking, cityRanking]
+        return rankings.filter { $0 == 2 }.count > 0
+    }
+    
+    func hasBronzeMedal() -> Bool {
+        let rankings = [worldRanking, countryRanking, cityRanking]
+        return rankings.filter { $0 == 3 }.count > 0
+    }
+    
     func headerColorHex() -> UInt {
         return hasMedals() ? 0x03436E : 0xE0E0E0
     }
     
     func textColor() -> UInt {
         return hasMedals() ? 0xFFFFFF : 0x313131
+    }
+    
+    func repoImage() -> String {
+        return hasMedals() ? "Repository" : "RepositoryDark"
+    }
+    
+    func starImage() -> String {
+        return hasMedals() ? "Star" : "StarDark"
     }
 }
 
