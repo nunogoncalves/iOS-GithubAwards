@@ -37,10 +37,6 @@ class RankingCell: UITableViewCell {
     @IBOutlet weak var starsLabel: UILabel!
     @IBOutlet weak var starsImageView: UIImageView!
     
-    @IBAction func languageClicked() {
-        showUserLanguageReposInBrowser()
-    }
-    
     var rankingPresenter: RankingPresenter? {
         didSet {
             fillCell()
@@ -51,15 +47,18 @@ class RankingCell: UITableViewCell {
     
     let medalsVsSpace = [
         0: CGFloat(10),
-        1: CGFloat(30),
-        2: CGFloat(50),
-        3: CGFloat(70),
+        1: CGFloat(46),
+        2: CGFloat(55),
+        3: CGFloat(64),
     ]
     
     private func fillCell() {
         guard let rankingPresenter = rankingPresenter else {
             return
         }
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: "showUserLanguageReposInBrowser")
+        header.addGestureRecognizer(tapGesture)
         
         if rankingPresenter.country == "" {
             worldTopConstraint.constant = 5
@@ -146,7 +145,7 @@ class RankingCell: UITableViewCell {
         starsLabel.textColor = UIColor(rgbValue: textColor)
     }
     
-    private func showUserLanguageReposInBrowser() {
+    @objc private func showUserLanguageReposInBrowser() {
         guard let rankingPresenter = rankingPresenter else { return }
         let url = NSURL(string: "https://github.com/search?q=user:\(rankingPresenter.userLogin)+language:\(rankingPresenter.language)")
         UIApplication.sharedApplication().openURL(url!)
