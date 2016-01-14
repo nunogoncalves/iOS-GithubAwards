@@ -17,27 +17,27 @@ class RankingPresenter {
     var userLogin: String { get { return ranking.user!.login! } }
     var language: String { get { return ranking.language ?? "" } }
 
-    var city: String { get { return ranking.city ?? "" } }
-    private var cityRanking: Int { get { return ranking.cityRanking ?? 0 } }
-    private var cityTotal: Int { get { return ranking.cityTotal ?? 0 } }
-    var rankingForCity: String {
+    var city: String { get { return ranking.city?.capitalizedString ?? "" } }
+    var cityRanking: Int { get { return ranking.cityRanking ?? 0 } }
+    var cityTotal: Int { get { return ranking.cityTotal ?? 0 } }
+    var rankingOverViewForCity: String {
         get {
             return rankingOverviewFor(cityRanking, locationTotal: cityTotal)
         }
     }
 
-    var country: String { get { return ranking.country ?? "" } }
-    private var countryRanking: Int { get { return ranking.countryRanking ?? 0 } }
-    private var countryTotal: Int { get { return ranking.countryTotal ?? 0 } }
-    var rankingForCountry: String {
+    var country: String { get { return ranking.country?.capitalizedString ?? "" } }
+    var countryRanking: Int { get { return ranking.countryRanking ?? 0 } }
+    var countryTotal: Int { get { return ranking.countryTotal ?? 0 } }
+    var rankingOverViewForCountry: String {
         get {
             return rankingOverviewFor(countryRanking, locationTotal: countryTotal)
         }
     }
     
-    private var worldRanking: Int { get { return ranking.worldRanking ?? 0 } }
-    private var worldTotal: Int { get { return ranking.worldTotal ?? 0 } }
-    var rankingForWorld: String {
+    var worldRanking: Int { get { return ranking.worldRanking ?? 0 } }
+    var worldTotal: Int { get { return ranking.worldTotal ?? 0 } }
+    var rankingOverViewForWorld: String {
         get {
             return rankingOverviewFor(worldRanking, locationTotal: worldTotal)
         }
@@ -72,4 +72,23 @@ class RankingPresenter {
     private var repos: Int { get { return ranking.repositories ?? 0 } }
     var stars: String { get { return "\(starsInt)" } }
     private var starsInt: Int { get { return ranking.stars ?? 0 } }
+    
+    func hasMedals() -> Bool {
+        let rankings = [worldRanking, countryRanking, cityRanking]
+        return rankings.filter { $0.isPodium() }.count > 0
+    }
+    
+    func headerColorHex() -> UInt {
+        return hasMedals() ? 0x03436E : 0xE0E0E0
+    }
+    
+    func textColor() -> UInt {
+        return hasMedals() ? 0xFFFFFF : 0x313131
+    }
+}
+
+private extension Int {
+    func isPodium() -> Bool {
+        return self < 4 && self > 0
+    }
 }

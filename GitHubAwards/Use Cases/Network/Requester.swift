@@ -42,8 +42,9 @@ struct Network {
         }
         
         private func handleSuccess(data: NSData?) {
+            guard let data = data else { return handleFailure(.GenericError) }
             do {
-                let data = try convertDataToDictionary(data!)
+                let data = try convertDataToDictionary(data)
                 networkResponseHandler.success(data)
             } catch _ {
                 handleFailure(.GenericError)

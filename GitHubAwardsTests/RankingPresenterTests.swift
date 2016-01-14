@@ -17,6 +17,9 @@ class RankingPresenterTests: QuickSpec {
         super.spec()
         
         var rankingPresenter: RankingPresenter!
+        var zeroPresenter: RankingPresenter!
+        var onePresenter: RankingPresenter!
+        var twoPresenter: RankingPresenter!
         
         describe("Ranking presenter") {
             
@@ -240,6 +243,27 @@ class RankingPresenterTests: QuickSpec {
                 it("returns normal trophy image for world") {
                     expect(rankingPresenter.worldRankingImage).to(equal("Trophy"))
                 }
+            }
+            
+            context("has medals") {
+                beforeEach {
+                    let zeroMedalsRanking = Ranking(city: "Lisbon", cityRanking: 4, cityTotal: 765, country: "Portugal", countryTotal: 543, countryRanking: 4, worldRanking: 4, worldTotal: 12432234, language: "Swift", repositories: 4, stars: 823)
+                    let oneMedalRanking = Ranking(city: "Lisbon", cityRanking: 1, cityTotal: 765, country: "Portugal", countryTotal: 543, countryRanking: 4, worldRanking: 4, worldTotal: 12432234, language: "Swift", repositories: 4, stars: 823)
+                    
+                    let twoMedalsRanking = Ranking(city: "Lisbon", cityRanking: 1, cityTotal: 765, country: "Portugal", countryTotal: 543, countryRanking: 2, worldRanking: 4, worldTotal: 12432234, language: "Swift", repositories: 4, stars: 823)
+                    
+                    zeroPresenter = RankingPresenter(ranking: zeroMedalsRanking)
+                    onePresenter = RankingPresenter(ranking: oneMedalRanking)
+                    twoPresenter = RankingPresenter(ranking: twoMedalsRanking)
+                    
+                }
+                
+                it("has no medals") {
+                    expect(zeroPresenter.hasMedals()).to(equal(false))
+                    expect(onePresenter.hasMedals()).to(equal(true))
+                    expect(twoPresenter.hasMedals()).to(equal(true))
+                }
+                
             }
         }
     }    
