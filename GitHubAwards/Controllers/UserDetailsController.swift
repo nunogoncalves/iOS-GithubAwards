@@ -10,11 +10,26 @@ import UIKit
 
 class UserDetailsController: UIViewController {
 
+    @IBOutlet weak var avatarBackground: UIView!
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var profileBackgroundView: UIView!
     @IBOutlet weak var countryAndCityLabel: UILabel!
     
+    @IBOutlet weak var locationTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var locationCenterConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var profileTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var avatarCenterXConstraint: NSLayoutConstraint!
+    @IBOutlet weak var avatarTopConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var buttonTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var buttonCenterConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var viewOnGithubButton: UIButton!
+    
     @IBOutlet weak var loadingView: GithubLoadingView!
+    
+    @IBOutlet weak var statsContainer: UIView!
     
     @IBOutlet weak var totalReposLabel: UILabel!
     @IBOutlet weak var totalStarsLabel: UILabel!
@@ -43,7 +58,24 @@ class UserDetailsController: UIViewController {
     let cellInsertionInterval: NSTimeInterval = 0.2
     let cellAnimationDuration: NSTimeInterval = 0.1
     
+    var halfWidth: CGFloat!
+    
+    var originalAvatarTransform: CGAffineTransform!
+    var originalAvatarBackgroundWidth: CGFloat!
+
+    let profileBackgroundHeight: CGFloat = 182
+    
+    let avatarTransformMin: CGFloat = 0.5
+    var avatarTransformRelation: CGFloat!
+    
     override func viewDidLoad() {
+        view.layoutIfNeeded()
+        
+        avatarTransformRelation = (avatarTransformMin - 1) / profileBackgroundHeight
+        
+        originalAvatarBackgroundWidth = avatarBackground.frame.width
+        originalAvatarTransform = avatarBackground.transform
+        halfWidth = view.frame.width / 2
         loadAvatar()
         applyGradient()
         navigationItem.title = user!.login
@@ -169,10 +201,55 @@ extension UserDetailsController: UITableViewDelegate {
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         animateCells = false
+        
+        let y = scrollView.contentOffset.y
+        
+        if y < profileBackgroundHeight && y >= 0 {
+            moveFor(y)
+        } else {
+            if y > profileBackgroundHeight {
+                moveFor(CGFloat(profileBackgroundHeight))
+            } else if y < 0 {
+                moveFor(CGFloat(0))
+            }
+        }
+    }
+    
+    private func moveFor(offset: CGFloat) {
+        // Plenty of y = mx + b now.
+        
+        let profileBgHeight = (117 / profileBackgroundHeight) * offset + profileBackgroundHeight
+        profileTopConstraint.constant = profileBackgroundHeight - profileBgHeight
+        statsContainer.alpha = 1 - (offset / profileBackgroundHeight)
+        
+        if user!.hasLocation() { moveLocationLabel(offset) }
+        moveAvatar(offset)
+        moveButton(offset)
+    }
+    
+    private func moveLocationLabel(y: CGFloat) {
+        let transformSize = avatarTransformRelation * y + 1
+        countryAndCityLabel.transform = CGAffineTransformScale(originalAvatarTransform, transformSize, transformSize)
+        
+        locationTopConstraint.constant = -(70 / 182) * y + 90
+        locationCenterConstraint.constant = -((halfWidth - countryAndCityLabel.halfWidth() - avatarBackground.frame.width - 20) / 182) * y
+    }
+    
+    private func moveAvatar(y: CGFloat) {
+        let transformSize = avatarTransformRelation * y + 1
+        avatarBackground.transform = CGAffineTransformScale(originalAvatarTransform, transformSize, transformSize)
+        
+        avatarTopConstraint.constant = -(15 / profileBackgroundHeight) * y + 10
+        avatarCenterXConstraint.constant = -((halfWidth - avatarBackground.halfWidth() - 10) / profileBackgroundHeight) * y
+    }
+    
+    private func moveButton(y: CGFloat) {
+        buttonCenterConstraint.constant = (((halfWidth - viewOnGithubButton.halfWidth() - 10) / profileBackgroundHeight) * y)
+        buttonTopConstraint.constant = 118 - ((102 / profileBackgroundHeight) * y)
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if user?.rankings[indexPath.row].country != "" {
+        if user!.hasLocation() {
             return 158
         } else {
             return 78
@@ -190,5 +267,11 @@ extension UserDetailsController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier("RankingCell", forIndexPath: indexPath) as! RankingCell
         cell.rankingPresenter = RankingPresenter(ranking: rankings[indexPath.row])
         return cell
+    }
+}
+
+private extension UIView {
+    func halfWidth() -> CGFloat {
+        return self.frame.width / 2
     }
 }

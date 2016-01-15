@@ -21,4 +21,16 @@ class User {
         self.login = login
         self.avatarUrl = avatarUrl
     }
+    
+    func hasLocation() -> Bool {
+        return  hasCountry() || hasCity()
+    }
+    
+    func hasCountry() -> Bool {
+        return country != nil && country != ""
+    }
+    
+    func hasCity() -> Bool {
+        return city != nil && city != ""
+    }
 }
