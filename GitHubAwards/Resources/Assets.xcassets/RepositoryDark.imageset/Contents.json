@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "RepositoryDark.png",
+      "filename" : "repositoryDark.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "RepositoryDark@2x.png",
+      "filename" : "repositoryDark@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "RepositoryDark@3x.png",
+      "filename" : "repositoryDark@3x.png",
       "scale" : "3x"
     }
   ],
