@@ -22,7 +22,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SunRays" translatesAutoresizingMaskIntoConstraints="NO" id="FLw-RN-OEy">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BigMedal" translatesAutoresizingMaskIntoConstraints="NO" id="dhE-ev-zRp">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BigMedal" translatesAutoresizingMaskIntoConstraints="NO" id="dhE-ev-zRp">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BigStar" translatesAutoresizingMaskIntoConstraints="NO" id="Gd7-DA-jpQ">
