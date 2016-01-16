@@ -63,6 +63,7 @@ class UserDetailsController: UIViewController {
     var originalAvatarTransform: CGAffineTransform!
     var originalAvatarBackgroundWidth: CGFloat!
 
+    var originalLocationTransform: CGAffineTransform!
     var locationTransformRelation: CGFloat!
     
     let profileBackgroundHeight: CGFloat = 182
@@ -71,7 +72,12 @@ class UserDetailsController: UIViewController {
     var avatarTransformRelation: CGFloat!
     
     override func viewDidLoad() {
-        view.layoutIfNeeded()
+        if let city = user?.city {
+            countryAndCityLabel.text = "\(user!.country!.capitalizedString), \(city.capitalizedString)"
+        } else {
+            countryAndCityLabel.text = "\(user!.country ?? "")"
+        }
+        countryAndCityLabel.layoutIfNeeded()
         
         calculateScrollerConstants()
         loadAvatar()
@@ -86,6 +92,13 @@ class UserDetailsController: UIViewController {
         if timer != nil {
             invalidateTimer()
         }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let locationTransformMin = calculateLocationTransformMin()
+        locationTransformRelation = (locationTransformMin - 1) / profileBackgroundHeight
     }
     
     private func loadAvatar() {
@@ -109,11 +122,37 @@ class UserDetailsController: UIViewController {
     }
     
     private func calculateScrollerConstants() {
+        halfWidth = view.width / 2
+        
         avatarTransformRelation = (avatarTransformMin - 1) / profileBackgroundHeight
-        locationTransformRelation = (avatarTransformMin - 1) / profileBackgroundHeight
         originalAvatarBackgroundWidth = avatarBackground.frame.width
         originalAvatarTransform = avatarBackground.transform
-        halfWidth = view.frame.width / 2
+        
+        originalLocationTransform = countryAndCityLabel.transform
+    }
+    
+    private func calculateLocationTransformMin() -> CGFloat {
+        if locationLabelFitsWithImageAndButton() {
+            return 1.0
+        }
+        
+        let labelWidth = countryAndCityLabel.width
+        let freeSpace = view.width - (avatarTransformMin * avatarBackground.width) - viewOnGithubButton.width - 40
+        
+        let fitRelation = freeSpace / labelWidth
+        
+        return fitRelation
+    }
+    
+    private func locationLabelFitsWithImageAndButton() -> Bool {
+        let labelWidth = countryAndCityLabel.width
+        let avatarSmallWidth = avatarBackground.width * avatarTransformMin
+        let totalWidth = labelWidth + viewOnGithubButton.width + avatarSmallWidth
+        let totalSpacingBetweenViews: CGFloat = 40
+        if totalWidth + totalSpacingBetweenViews > view.width { //40 -> spacing between views
+            return false
+        }
+        return true
     }
 }
 
@@ -234,10 +273,10 @@ extension UserDetailsController: UITableViewDelegate {
     
     private func moveLocationLabel(y: CGFloat) {
         let transformSize = locationTransformRelation * y + 1
-        countryAndCityLabel.transform = CGAffineTransformScale(originalAvatarTransform, transformSize, transformSize)
+        countryAndCityLabel.transform = CGAffineTransformScale(originalLocationTransform, transformSize, transformSize)
         
         locationTopConstraint.constant = -(70 / 182) * y + 90
-        locationCenterConstraint.constant = -((halfWidth - countryAndCityLabel.halfWidth() - avatarBackground.frame.width - 20) / 182) * y
+        locationCenterConstraint.constant = -((halfWidth - countryAndCityLabel.halfWidth - avatarBackground.frame.width - 20) / 182) * y
     }
     
     private func moveAvatar(y: CGFloat) {
@@ -245,11 +284,11 @@ extension UserDetailsController: UITableViewDelegate {
         avatarBackground.transform = CGAffineTransformScale(originalAvatarTransform, transformSize, transformSize)
         
         avatarTopConstraint.constant = -(15 / profileBackgroundHeight) * y + 10
-        avatarCenterXConstraint.constant = -((halfWidth - avatarBackground.halfWidth() - 10) / profileBackgroundHeight) * y
+        avatarCenterXConstraint.constant = -((halfWidth - avatarBackground.halfWidth - 10) / profileBackgroundHeight) * y
     }
     
     private func moveButton(y: CGFloat) {
-        buttonCenterConstraint.constant = (((halfWidth - viewOnGithubButton.halfWidth() - 10) / profileBackgroundHeight) * y)
+        buttonCenterConstraint.constant = (((halfWidth - viewOnGithubButton.halfWidth - 10) / profileBackgroundHeight) * y)
         buttonTopConstraint.constant = 118 - ((102 / profileBackgroundHeight) * y)
     }
     
@@ -272,7 +311,7 @@ extension UserDetailsController: UITableViewDataSource {
 }
 
 private extension UIView {
-    func halfWidth() -> CGFloat {
-        return self.frame.width / 2
-    }
+    var halfWidth: CGFloat { get { return width / 2 } }
+    var width: CGFloat { get { return frame.width } }
+    var heigth: CGFloat { get { return frame.width } }
 }
