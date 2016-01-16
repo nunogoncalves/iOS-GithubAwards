@@ -14,6 +14,8 @@ class ImageLoader {
 
     static func fetchAndLoad(url: String, imageView: UIImageView, onFinished: () -> () = {}) {
         let url = NSURL(string: url)!
-        imageView.sd_setImageWithURL(url)
+        imageView.sd_setImageWithURL(url) { (_, _, _, _) in
+            onFinished()
+        }
     }
 }
