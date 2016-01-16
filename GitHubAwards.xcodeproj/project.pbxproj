@@ -122,6 +122,7 @@
 		85FA596B1C1739560097732B /* Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA596A1C1739560097732B /* Get.swift */; };
 		85FC70661C244CAA00971081 /* UserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC70651C244CAA00971081 /* UserPresenter.swift */; };
 		85FC70681C2456FF00971081 /* UserPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC70671C2456FF00971081 /* UserPresenterTests.swift */; };
+		A1A94B3163C26A2B75A29BF1 /* Pods_GitHubAwards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 213373F035B89BC44EDAF0FC /* Pods_GitHubAwards.framework */; };
 		C657C80956D153E47A9D5CE1 /* Pods_GitHubAwardsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D538C8C8F49F914BD66B647 /* Pods_GitHubAwardsUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -143,7 +144,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A79B47D2FE70B3964CD8179 /* Pods-GitHubAwards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubAwards.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubAwards/Pods-GitHubAwards.debug.xcconfig"; sourceTree = "<group>"; };
+		213373F035B89BC44EDAF0FC /* Pods_GitHubAwards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubAwards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B319D43CCBBE8461B0F40D8 /* Pods-GitHubAwardsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubAwardsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubAwardsUITests/Pods-GitHubAwardsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		348CFD4B1B9CEC7168BE3212 /* Pods-GitHubAwards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubAwards.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubAwards/Pods-GitHubAwards.release.xcconfig"; sourceTree = "<group>"; };
 		3A854A958A36E310FED06DF2 /* Pods-GitHubAwardsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubAwardsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubAwardsTests/Pods-GitHubAwardsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6230FC059F797C4270D8300A /* Pods-GitHubAwardsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubAwardsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubAwardsUITests/Pods-GitHubAwardsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8501F06A1C425674004BEB50 /* SessionConfigurationBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionConfigurationBuilder.swift; sourceTree = "<group>"; };
@@ -214,6 +218,7 @@
 		85820F451C0E2C1A0069D085 /* GithubLoading-6.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "GithubLoading-6.gif"; sourceTree = "<group>"; };
 		85820F461C0E2C1A0069D085 /* GithubLoading-7.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "GithubLoading-7.gif"; sourceTree = "<group>"; };
 		85820F501C0EF4FC0069D085 /* NotifyError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifyError.swift; sourceTree = "<group>"; };
+		858654F61C49BF3A0025B4F0 /* GitHubAwards-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "GitHubAwards-Bridging-Header.h"; path = "../../GitHubAwards-Bridging-Header.h"; sourceTree = "<group>"; };
 		858B91101C085B1600B510B3 /* GetList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetList.swift; sourceTree = "<group>"; };
 		858B91121C085B4C00B510B3 /* SearchOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchOptions.swift; sourceTree = "<group>"; };
 		858B91141C085E6400B510B3 /* SearchOptionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchOptionsTests.swift; sourceTree = "<group>"; };
@@ -276,6 +281,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1A94B3163C26A2B75A29BF1 /* Pods_GitHubAwards.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +311,8 @@
 				E23109ECBE8CEF6CCD2FD34D /* Pods-GitHubAwardsTests.release.xcconfig */,
 				6230FC059F797C4270D8300A /* Pods-GitHubAwardsUITests.debug.xcconfig */,
 				2B319D43CCBBE8461B0F40D8 /* Pods-GitHubAwardsUITests.release.xcconfig */,
+				1A79B47D2FE70B3964CD8179 /* Pods-GitHubAwards.debug.xcconfig */,
+				348CFD4B1B9CEC7168BE3212 /* Pods-GitHubAwards.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -314,6 +322,7 @@
 			children = (
 				CC3746364C261170EEBCB73C /* Pods_GitHubAwardsTests.framework */,
 				8D538C8C8F49F914BD66B647 /* Pods_GitHubAwardsUITests.framework */,
+				213373F035B89BC44EDAF0FC /* Pods_GitHubAwards.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -422,6 +431,7 @@
 			isa = PBXGroup;
 			children = (
 				85D320EF1C02062E001B7C7A /* AppDelegate.swift */,
+				858654F61C49BF3A0025B4F0 /* GitHubAwards-Bridging-Header.h */,
 				85D320FB1C02062E001B7C7A /* Info.plist */,
 			);
 			path = "Supporting Files";
@@ -653,9 +663,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 85D321141C02062E001B7C7A /* Build configuration list for PBXNativeTarget "GitHubAwards" */;
 			buildPhases = (
+				2E2794E1F5F81E51C6B3C424 /* Check Pods Manifest.lock */,
 				85D320E81C02062E001B7C7A /* Sources */,
 				85D320E91C02062E001B7C7A /* Frameworks */,
 				85D320EA1C02062E001B7C7A /* Resources */,
+				F60AAF3F19CAE0AE8739C5C4 /* Embed Pods Frameworks */,
+				27CB767A5F0EA6504829F7C9 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -713,7 +726,7 @@
 		85D320E41C02062E001B7C7A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0710;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Nuno Gonçalves";
 				TargetAttributes = {
@@ -837,6 +850,36 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GitHubAwardsTests/Pods-GitHubAwardsTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		27CB767A5F0EA6504829F7C9 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GitHubAwards/Pods-GitHubAwards-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2E2794E1F5F81E51C6B3C424 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		864B95A2CE4626071ACB4FC4 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -880,6 +923,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F60AAF3F19CAE0AE8739C5C4 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GitHubAwards/Pods-GitHubAwards-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F7919E0281C197799902FC73 /* Embed Pods Frameworks */ = {
@@ -1109,24 +1167,31 @@
 		};
 		85D321151C02062E001B7C7A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A79B47D2FE70B3964CD8179 /* Pods-GitHubAwards.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "GitHubAwards/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.ios.GitHubAwards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GitHubAwards-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		85D321161C02062E001B7C7A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 348CFD4B1B9CEC7168BE3212 /* Pods-GitHubAwards.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "GitHubAwards/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.ios.GitHubAwards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=*]" = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "GitHubAwards-Bridging-Header.h";
 			};
 			name = Release;
 		};

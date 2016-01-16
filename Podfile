@@ -6,7 +6,7 @@ def testing_pods
 end
 
 target 'GitHubAwards' do
-
+    pod 'SDWebImage', '~>3.7'
 end
 
 target 'GitHubAwardsTests' do
