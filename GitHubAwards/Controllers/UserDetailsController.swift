@@ -274,6 +274,9 @@ extension UserDetailsController: UITableViewDelegate {
     }
     
     private func moveLocationLabel(y: CGFloat) {
+        if locationTransformRelation == nil {
+            locationTransformRelation = avatarTransformRelation
+        }
         let transformSize = locationTransformRelation * y + 1
         countryAndCityLabel.transform = CGAffineTransformScale(originalLocationTransform, transformSize, transformSize)
         

@@ -28,7 +28,9 @@ struct Network {
         private func buildRequesterTaskFor(urlStr: String) -> NSURLSessionDataTask {
             let url = NSURL(string: urlStr.urlEncoded())
             let session = URLSession.init(configuration: sessionConfBuilder.sessionConfiguration())
-            return session.dataTaskWithURL(url!, completionHandler: completionHandler)
+            let request = NSMutableURLRequest(URL: url!)
+            request.setValue("ios", forHTTPHeaderField: "client-os")
+            return session.dataTaskWithRequest(request, completionHandler: completionHandler)
         }
         
         private func completionHandler(data: NSData?, response: NSURLResponse?, error: NSError?) {
