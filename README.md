@@ -7,4 +7,6 @@ This app uses the API provided by the GithubAwads web app made by Vincent Daubry
 
 As the web version, this is not affiliated with the GitHub company in any way.
 
-<img src="https://dl.dropboxusercontent.com/u/2001692/imagesshelf/iOSGithubAwards/githubawards16-01-2016.gif" width="200px"> 
+<p align="center">
+  <img src="https://dl.dropboxusercontent.com/u/2001692/imagesshelf/iOSGithubAwards/githubawards16-01-2016.gif" width="200px"> 
+</p>
