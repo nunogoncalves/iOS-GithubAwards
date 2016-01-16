@@ -29,6 +29,10 @@ struct K {
         static let thirdInRankingColor: UInt = 0x9D8ECD        
     }
     
+    struct Cells {
+        static let rankingCell = "RankingCell"
+    }
+    
     struct Urls {
         private static let apiBaseUrl = "http://github-awards.com"
         static let usersBaseUrl = "\(apiBaseUrl)/api/v0/users"
@@ -52,6 +56,7 @@ struct K {
 }
 
 typealias kColors = K.Colors
+typealias kCells = K.Cells
 typealias kUrls = K.Urls
 typealias kSegues = K.Segues
 typealias kTimeout = K.Timeouts

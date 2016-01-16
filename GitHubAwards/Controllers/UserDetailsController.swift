@@ -63,6 +63,8 @@ class UserDetailsController: UIViewController {
     var originalAvatarTransform: CGAffineTransform!
     var originalAvatarBackgroundWidth: CGFloat!
 
+    var locationTransformRelation: CGFloat!
+    
     let profileBackgroundHeight: CGFloat = 182
     
     let avatarTransformMin: CGFloat = 0.5
@@ -71,17 +73,12 @@ class UserDetailsController: UIViewController {
     override func viewDidLoad() {
         view.layoutIfNeeded()
         
-        avatarTransformRelation = (avatarTransformMin - 1) / profileBackgroundHeight
-        
-        originalAvatarBackgroundWidth = avatarBackground.frame.width
-        originalAvatarTransform = avatarBackground.transform
-        halfWidth = view.frame.width / 2
+        calculateScrollerConstants()
         loadAvatar()
         applyGradient()
         navigationItem.title = user!.login
+        rankingsTable.registerNib(UINib(nibName: kCells.rankingCell, bundle: nil), forCellReuseIdentifier: kCells.rankingCell)
         Users.GetOne(login: user!.login!).get(success: userSuccess, failure: failure)
-
-        rankingsTable.registerNib(UINib(nibName: "RankingCell", bundle: nil), forCellReuseIdentifier: "RankingCell")
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -109,6 +106,14 @@ class UserDetailsController: UIViewController {
     
     private func buidGradientOfColors() -> [CGColor] {
         return kColors.userGradientColors.map { UIColor(rgbValue: $0).CGColor }
+    }
+    
+    private func calculateScrollerConstants() {
+        avatarTransformRelation = (avatarTransformMin - 1) / profileBackgroundHeight
+        locationTransformRelation = (avatarTransformMin - 1) / profileBackgroundHeight
+        originalAvatarBackgroundWidth = avatarBackground.frame.width
+        originalAvatarTransform = avatarBackground.transform
+        halfWidth = view.frame.width / 2
     }
 }
 
@@ -228,7 +233,7 @@ extension UserDetailsController: UITableViewDelegate {
     }
     
     private func moveLocationLabel(y: CGFloat) {
-        let transformSize = avatarTransformRelation * y + 1
+        let transformSize = locationTransformRelation * y + 1
         countryAndCityLabel.transform = CGAffineTransformScale(originalAvatarTransform, transformSize, transformSize)
         
         locationTopConstraint.constant = -(70 / 182) * y + 90
@@ -249,11 +254,7 @@ extension UserDetailsController: UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if user!.hasLocation() {
-            return 158
-        } else {
-            return 78
-        }
+        return user!.hasLocation() ? 158 : 78
     }
 }
 
