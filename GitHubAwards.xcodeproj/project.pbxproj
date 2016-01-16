@@ -216,7 +216,7 @@
 		85820F451C0E2C1A0069D085 /* GithubLoading-6.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "GithubLoading-6.gif"; sourceTree = "<group>"; };
 		85820F461C0E2C1A0069D085 /* GithubLoading-7.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "GithubLoading-7.gif"; sourceTree = "<group>"; };
 		85820F501C0EF4FC0069D085 /* NotifyError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifyError.swift; sourceTree = "<group>"; };
-		858654F61C49BF3A0025B4F0 /* GitHubAwards-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "GitHubAwards-Bridging-Header.h"; path = "../../GitHubAwards-Bridging-Header.h"; sourceTree = "<group>"; };
+		858654F61C49BF3A0025B4F0 /* GitHubAwards-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GitHubAwards-Bridging-Header.h"; sourceTree = "<group>"; };
 		858B91101C085B1600B510B3 /* GetList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetList.swift; sourceTree = "<group>"; };
 		858B91121C085B4C00B510B3 /* SearchOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchOptions.swift; sourceTree = "<group>"; };
 		858B91141C085E6400B510B3 /* SearchOptionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchOptionsTests.swift; sourceTree = "<group>"; };
@@ -262,7 +262,7 @@
 		85E656731C139F5100BB4278 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		85E656751C13A23400BB4278 /* LanguageUsersTableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageUsersTableDataSource.swift; sourceTree = "<group>"; };
 		85E656771C13AB8A00BB4278 /* TableStateListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableStateListener.swift; sourceTree = "<group>"; };
-		85E8CC481C3AAE5A001B4129 /* NetworkStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkStatus.swift; path = "../Use Cases/Network/NetworkStatus.swift"; sourceTree = "<group>"; };
+		85E8CC481C3AAE5A001B4129 /* NetworkStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
 		85FA59621C15C5C00097732B /* UserTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTopCell.swift; sourceTree = "<group>"; };
 		85FA59641C1645B00097732B /* K.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		85FA59661C16D6660097732B /* CreateFullUserFromDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFullUserFromDictionary.swift; sourceTree = "<group>"; };
@@ -330,8 +330,8 @@
 			children = (
 				856D67691C342C6900A77678 /* Getter.swift */,
 				851D3C371C09134600870813 /* Requester.swift */,
-				854A404C1C3B369D005E7FF1 /* VerifyRequestStatus.swift */,
 				8501F06A1C425674004BEB50 /* SessionConfigurationBuilder.swift */,
+				854A404C1C3B369D005E7FF1 /* VerifyRequestStatus.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -383,13 +383,7 @@
 		85820F3E1C0E2BDE0069D085 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				857113411C43BDD500011441 /* coffeescript.png */,
-				857113421C43BDD500011441 /* erlang.png */,
-				857113441C43BDD500011441 /* haskell.png */,
-				857113451C43BDD500011441 /* lua.png */,
-				857113461C43BDD500011441 /* matlab.png */,
-				857113471C43BDD500011441 /* r.png */,
-				857113481C43BDD500011441 /* rust.png */,
+				85A9E55D1C351CAD0011DAA4 /* GithubLoading */,
 				8508B7661C1593230024684F /* 1.png */,
 				8508B7651C1593230024684F /* 2.png */,
 				8508B7641C1593230024684F /* 3.png */,
@@ -398,20 +392,26 @@
 				8504853C1C104C2B004D952A /* c#.png */,
 				856A72DD1C122C1E008415A4 /* c++.png */,
 				856A72DC1C122C1E008415A4 /* c.png */,
+				857113411C43BDD500011441 /* coffeescript.png */,
 				856A72DE1C122C1E008415A4 /* css.png */,
+				857113421C43BDD500011441 /* erlang.png */,
 				8504853D1C104C2B004D952A /* go.png */,
+				857113441C43BDD500011441 /* haskell.png */,
 				857C489C1C11A146000F035C /* img-min.png */,
 				850485351C104AE8004D952A /* java.png */,
 				850485361C104AE8004D952A /* javascript.png */,
+				857113451C43BDD500011441 /* lua.png */,
+				857113461C43BDD500011441 /* matlab.png */,
 				856A72DF1C122C1E008415A4 /* objective-c.png */,
 				8504853E1C104C2B004D952A /* perl.png */,
 				8504853F1C104C2B004D952A /* php.png */,
 				850485401C104C2B004D952A /* python.png */,
-				857113491C43BDD500011441 /* scala.png */,
+				857113471C43BDD500011441 /* r.png */,
 				850485411C104C2B004D952A /* ruby.png */,
+				857113481C43BDD500011441 /* rust.png */,
+				857113491C43BDD500011441 /* scala.png */,
 				856A72E01C122C1E008415A4 /* shell.png */,
 				850485371C104AE8004D952A /* swift.png */,
-				85A9E55D1C351CAD0011DAA4 /* GithubLoading */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -512,10 +512,10 @@
 			children = (
 				85A4F01A1C3F1BF0002F3405 /* CityUsersController.swift */,
 				85A4F0181C3F1BE4002F3405 /* CountryUsersController.swift */,
-				85A4F0161C3F1BBB002F3405 /* WorldUsersController.swift */,
 				85A4F01C1C3F1C4D002F3405 /* UsersController.swift */,
+				85A4F0161C3F1BBB002F3405 /* WorldUsersController.swift */,
 			);
-			name = ListUsers;
+			path = ListUsers;
 			sourceTree = "<group>";
 		};
 		85A9E55D1C351CAD0011DAA4 /* GithubLoading */ = {
@@ -530,7 +530,7 @@
 				85820F451C0E2C1A0069D085 /* GithubLoading-6.gif */,
 				85820F461C0E2C1A0069D085 /* GithubLoading-7.gif */,
 			);
-			name = GithubLoading;
+			path = GithubLoading;
 			sourceTree = "<group>";
 		};
 		85AFEC1C1C046898006FC129 /* Models */ = {
