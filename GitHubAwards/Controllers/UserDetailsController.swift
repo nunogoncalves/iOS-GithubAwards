@@ -80,9 +80,11 @@ class UserDetailsController: UIViewController {
         countryAndCityLabel.layoutIfNeeded()
         
         calculateScrollerConstants()
+        
         loadAvatar()
         applyGradient()
         navigationItem.title = user!.login
+        
         rankingsTable.registerNib(UINib(nibName: kCells.rankingCell, bundle: nil), forCellReuseIdentifier: kCells.rankingCell)
         Users.GetOne(login: user!.login!).get(success: userSuccess, failure: failure)
     }
@@ -275,8 +277,8 @@ extension UserDetailsController: UITableViewDelegate {
         let transformSize = locationTransformRelation * y + 1
         countryAndCityLabel.transform = CGAffineTransformScale(originalLocationTransform, transformSize, transformSize)
         
-        locationTopConstraint.constant = -(70 / 182) * y + 90
-        locationCenterConstraint.constant = -((halfWidth - countryAndCityLabel.halfWidth - avatarBackground.frame.width - 20) / 182) * y
+        locationTopConstraint.constant = -(70 / profileBackgroundHeight) * y + 90
+        locationCenterConstraint.constant = -((halfWidth - countryAndCityLabel.halfWidth - avatarBackground.frame.width - 20) / profileBackgroundHeight) * y
     }
     
     private func moveAvatar(y: CGFloat) {

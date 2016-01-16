@@ -14,7 +14,7 @@ class SearchOptions {
     
     var page = 1
     
-    func urlEncoded() -> String {
+    func urlParams() -> String {
         return "\(buildLanguage())\(buildLocation())\(buildType())\(buildPage())"
     }
     
