@@ -63,15 +63,15 @@ class LanguageRankingsController: UIViewController {
     let locationTypes: [Int : LocationType] = [0 : .World, 1 : .Country, 2 : .City]
     var selectedLocationType = LocationType.World
 
+//    let languageTitleView = LanguageTitleView(frame: CGRectMake(0.0, 0.0, 120.0, 40.0))
+    
     var language: String? {
         didSet {
             let lang = language ?? ""
-            navigationItem.title = language
-            languageTitleView.language = lang
+            navigationItem.title = lang
+//            languageTitleView.language = lang
         }
     }
-    
-    let languageTitleView = LanguageTitleView(frame: CGRectMake(0.0, 0.0, 120.0, 40.0))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,7 +80,7 @@ class LanguageRankingsController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.titleView = languageTitleView;
+//        self.navigationItem.titleView = languageTitleView;
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
