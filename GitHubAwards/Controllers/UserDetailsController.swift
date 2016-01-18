@@ -85,7 +85,7 @@ class UserDetailsController: UIViewController {
         applyGradient()
         navigationItem.title = user!.login
         
-        rankingsTable.registerNib(UINib(nibName: kCells.rankingCell, bundle: nil), forCellReuseIdentifier: kCells.rankingCell)
+        rankingsTable.registerNib(UINib(nibName: String(RankingCell), bundle: nil), forCellReuseIdentifier: String(RankingCell))
         Users.GetOne(login: user!.login!).get(success: userSuccess, failure: failure)
     }
     
@@ -309,7 +309,7 @@ extension UserDetailsController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("RankingCell", forIndexPath: indexPath) as! RankingCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(String(RankingCell), forIndexPath: indexPath) as! RankingCell
         cell.rankingPresenter = RankingPresenter(ranking: rankings[indexPath.row])
         return cell
     }
