@@ -23,7 +23,7 @@ class IntroController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        animateIntro()
+        animateIntro() 
     }
     
     private func animateIntro() {
