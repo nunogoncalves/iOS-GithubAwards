@@ -1,5 +1,5 @@
 # iOS-OctoPodium
-Github Awards
+Octo Podium
 
 Check how you rank on your location based on your number of stars of your repositories on github. You can compare yourself with other devs from your city, country or worldwide.
 
