@@ -41,7 +41,7 @@ class AlertView: UIView {
     }
     
     private func loadViewFromNib() {
-        NSBundle.mainBundle().loadNibNamed("AlertView", owner: self, options: nil)
+        NSBundle.mainBundle().loadNibNamed(String(AlertView), owner: self, options: nil)
         addSubview(view)
     }
     
