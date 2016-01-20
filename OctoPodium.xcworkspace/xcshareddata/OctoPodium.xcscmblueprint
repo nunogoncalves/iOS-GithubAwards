@@ -1,0 +1,44 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "A491FEC3504CACA8A367681F1E66F589840DE7DF+++3A64881",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "A491FEC3504CACA8A367681F1E66F589840DE7DF+++B1D1FEC" : 0,
+    "A491FEC3504CACA8A367681F1E66F589840DE7DF+++FE20E03" : 0,
+    "A491FEC3504CACA8A367681F1E66F589840DE7DF+++3A64881" : 0,
+    "A491FEC3504CACA8A367681F1E66F589840DE7DF+++B99800A" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "991A9796-3A64-4BA9-8A47-76D39D68FE75",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "A491FEC3504CACA8A367681F1E66F589840DE7DF+++B1D1FEC" : "",
+    "A491FEC3504CACA8A367681F1E66F589840DE7DF+++FE20E03" : "GitHubAwards\/",
+    "A491FEC3504CACA8A367681F1E66F589840DE7DF+++3A64881" : "OctoPodium\/",
+    "A491FEC3504CACA8A367681F1E66F589840DE7DF+++B99800A" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "OctoPodium",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "OctoPodium.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:nunogoncalves\/iOS-OctoPodium.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A491FEC3504CACA8A367681F1E66F589840DE7DF+++3A64881"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/nunogoncalves\/iOS-GitHubAwards.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A491FEC3504CACA8A367681F1E66F589840DE7DF+++B1D1FEC"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:nunogoncalves\/iOS-OctoPodium.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A491FEC3504CACA8A367681F1E66F589840DE7DF+++B99800A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:nunogoncalves\/iOS-OctoPodium.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A491FEC3504CACA8A367681F1E66F589840DE7DF+++FE20E03"
+    }
+  ]
+}

@@ -5,14 +5,14 @@ def testing_pods
     pod 'Nimble', '3.0.0'
 end
 
-target 'GitHubAwards' do
+target 'OctoPodium' do
     pod 'SDWebImage', '~>3.7'
 end
 
-target 'GitHubAwardsTests' do
+target 'OctoPodiumTests' do
   testing_pods
 end
 
-target 'GitHubAwardsUITests' do
+target 'OctoPodiumUITests' do
   testing_pods
 end
