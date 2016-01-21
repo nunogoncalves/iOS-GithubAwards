@@ -18,6 +18,8 @@ class UsersSearchController: UIViewController {
     @IBOutlet weak var userSearchContainer: UIView!
     
     @IBOutlet weak var userNotFoundLabel: UILabel!
+    @IBOutlet weak var eyeLeft: UIImageView!
+    @IBOutlet weak var eyeRight: UIImageView!
     @IBOutlet weak var xEyeLeft: UIImageView!
     @IBOutlet weak var xEyeRight: UIImageView!
     
@@ -64,6 +66,9 @@ class UsersSearchController: UIViewController {
         xEyeLeft.hide()
         xEyeRight.hide()
         
+        eyeLeft.show()
+        eyeRight.show()
+        
         userLoginLabel.text = user.login!
         
         if let city = user.city {
@@ -95,6 +100,9 @@ class UsersSearchController: UIViewController {
         userNotFoundLabel.show()
         xEyeLeft.show()
         xEyeRight.show()
+        
+        eyeLeft.hide()
+        eyeRight.hide()
         
         if status.isTechnicalError() {
             NotifyError.display(status.message())
