@@ -3,55 +3,55 @@
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "iphone-spotlight@1x.png",
+      "filename" : "iphone_spotlight_settings@1x.png",
       "scale" : "1x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "iphone-spotlight@2x.png",
+      "filename" : "iphone_spotlight_settings@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "iphone-spotlight@3x.png",
+      "filename" : "iphone_spotlight_settings@3x.png",
       "scale" : "3x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "iphone-spotlight-larger@2x.png",
+      "filename" : "iphone_spotlight@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "iphone-spotlight-larger@3x.png",
+      "filename" : "iphone_spotlight@3x.png",
       "scale" : "3x"
     },
     {
       "size" : "57x57",
       "idiom" : "iphone",
-      "filename" : "iphone-app@1x.png",
+      "filename" : "iphone_app@1x.png",
       "scale" : "1x"
     },
     {
       "size" : "57x57",
       "idiom" : "iphone",
-      "filename" : "iphone-app@2x.png",
+      "filename" : "iphone_app@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "iphone-spotlight-larger@3x-1.png",
+      "filename" : "iphone_app60@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "iphone-app-larger@3x.png",
+      "filename" : "iphone_app60@3x.png",
       "scale" : "3x"
     }
   ],
