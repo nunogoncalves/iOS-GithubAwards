@@ -66,7 +66,8 @@ class UserDetailsController: UIViewController {
     var originalLocationTransform: CGAffineTransform!
     var locationTransformRelation: CGFloat!
     
-    let profileBackgroundHeight: CGFloat = 182
+    let profileExtendedBGHeight: CGFloat = 182
+    let profileMinBGHeight: CGFloat = 117
     
     let avatarTransformMin: CGFloat = 0.5
     var avatarTransformRelation: CGFloat!
@@ -100,7 +101,7 @@ class UserDetailsController: UIViewController {
         super.viewDidAppear(animated)
         
         let locationTransformMin = calculateLocationTransformMin()
-        locationTransformRelation = (locationTransformMin - 1) / profileBackgroundHeight
+        locationTransformRelation = (locationTransformMin - 1) / profileExtendedBGHeight
     }
     
     private func loadAvatar() {
@@ -126,7 +127,7 @@ class UserDetailsController: UIViewController {
     private func calculateScrollerConstants() {
         halfWidth = view.width / 2
         
-        avatarTransformRelation = (avatarTransformMin - 1) / profileBackgroundHeight
+        avatarTransformRelation = (avatarTransformMin - 1) / profileExtendedBGHeight
         originalAvatarBackgroundWidth = avatarBackground.frame.width
         originalAvatarTransform = avatarBackground.transform
         
@@ -248,13 +249,20 @@ extension UserDetailsController: UITableViewDelegate {
     func scrollViewDidScroll(scrollView: UIScrollView) {
         animateCells = false
         
+        let contentHeight = scrollView.contentSize.height
+        let rowsHeight = contentHeight - profileMinBGHeight
+
+        if rowsHeight <= scrollView.heigth + profileExtendedBGHeight {
+            return
+        }
+        
         let y = scrollView.contentOffset.y
         
-        if y < profileBackgroundHeight && y >= 0 {
+        if y < profileExtendedBGHeight && y >= 0 {
             moveFor(y)
         } else {
-            if y > profileBackgroundHeight {
-                moveFor(CGFloat(profileBackgroundHeight))
+            if y > profileExtendedBGHeight {
+                moveFor(CGFloat(profileExtendedBGHeight))
             } else if y < 0 {
                 moveFor(CGFloat(0))
             }
@@ -264,9 +272,9 @@ extension UserDetailsController: UITableViewDelegate {
     private func moveFor(offset: CGFloat) {
         // Plenty of y = mx + b now.
         
-        let profileBgHeight = (117 / profileBackgroundHeight) * offset + profileBackgroundHeight
-        profileTopConstraint.constant = profileBackgroundHeight - profileBgHeight
-        statsContainer.alpha = 1 - (offset / profileBackgroundHeight)
+        let profileBgHeight = (profileMinBGHeight / profileExtendedBGHeight) * offset + profileExtendedBGHeight
+        profileTopConstraint.constant = profileExtendedBGHeight - profileBgHeight
+        statsContainer.alpha = 1 - (offset / profileExtendedBGHeight)
         
         if user!.hasLocation() { moveLocationLabel(offset) }
         moveAvatar(offset)
@@ -280,21 +288,21 @@ extension UserDetailsController: UITableViewDelegate {
         let transformSize = locationTransformRelation * y + 1
         countryAndCityLabel.transform = CGAffineTransformScale(originalLocationTransform, transformSize, transformSize)
         
-        locationTopConstraint.constant = -(70 / profileBackgroundHeight) * y + 90
-        locationCenterConstraint.constant = -((halfWidth - countryAndCityLabel.halfWidth - avatarBackground.frame.width - 20) / profileBackgroundHeight) * y
+        locationTopConstraint.constant = -(70 / profileExtendedBGHeight) * y + 90
+        locationCenterConstraint.constant = -((halfWidth - countryAndCityLabel.halfWidth - avatarBackground.frame.width - 20) / profileExtendedBGHeight) * y
     }
     
     private func moveAvatar(y: CGFloat) {
         let transformSize = avatarTransformRelation * y + 1
         avatarBackground.transform = CGAffineTransformScale(originalAvatarTransform, transformSize, transformSize)
         
-        avatarTopConstraint.constant = -(15 / profileBackgroundHeight) * y + 10
-        avatarCenterXConstraint.constant = -((halfWidth - avatarBackground.halfWidth - 10) / profileBackgroundHeight) * y
+        avatarTopConstraint.constant = -(15 / profileExtendedBGHeight) * y + 10
+        avatarCenterXConstraint.constant = -((halfWidth - avatarBackground.halfWidth - 10) / profileExtendedBGHeight) * y
     }
     
     private func moveButton(y: CGFloat) {
-        buttonCenterConstraint.constant = (((halfWidth - viewOnGithubButton.halfWidth - 10) / profileBackgroundHeight) * y)
-        buttonTopConstraint.constant = 118 - ((102 / profileBackgroundHeight) * y)
+        buttonCenterConstraint.constant = (((halfWidth - viewOnGithubButton.halfWidth - 10) / profileExtendedBGHeight) * y)
+        buttonTopConstraint.constant = 118 - ((102 / profileExtendedBGHeight) * y)
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
