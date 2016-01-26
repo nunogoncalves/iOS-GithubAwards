@@ -1,4 +1,8 @@
-# iOS-OctoPodium
+<h1> iOS-OctoPodium
+  <a target="_blank" href="https://itunes.apple.com/pt/app/octopodium/id1077519133">
+  <img src="http://www.busride.org/portals/83/Images/MobileApp/Apple%20App%20Rectangle.jpg" width="100px"> 
+  </a>
+</h1>
 Octo Podium
 
 Check how you rank on your location based on your number of stars of your repositories on github. You can compare yourself with other devs from your city, country or worldwide.
