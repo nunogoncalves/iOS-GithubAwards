@@ -18,7 +18,7 @@ class NetworkRequesterTests : QuickSpec {
         
         beforeEach {
             requester = Network.Requester(networkResponseHandler: responseHandler)
-            requester.URLSesesion = MockNSURLSession.self
+            requester.URLSession = MockNSURLSession.self
         }
         
         it("calls response success method") {
