@@ -230,10 +230,10 @@
 		85D320F61C02062E001B7C7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85D320F91C02062E001B7C7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85D320FB1C02062E001B7C7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		85D321001C02062E001B7C7A /* OctoPodium.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OctoPodium.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		85D321001C02062E001B7C7A /* OctoPodiumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OctoPodiumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		85D321041C02062E001B7C7A /* OctoPodiumTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OctoPodiumTests.swift; sourceTree = "<group>"; };
 		85D321061C02062E001B7C7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		85D3210B1C02062E001B7C7A /* OctoPodium.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OctoPodium.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		85D3210B1C02062E001B7C7A /* OctoPodiumUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OctoPodiumUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		85D3210F1C02062E001B7C7A /* OctoPodiumUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OctoPodiumUITests.swift; sourceTree = "<group>"; };
 		85D321111C02062E001B7C7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85D3211D1C0211C2001B7C7A /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
@@ -544,8 +544,8 @@
 			isa = PBXGroup;
 			children = (
 				85D320EC1C02062E001B7C7A /* OctoPodium.app */,
-				85D321001C02062E001B7C7A /* OctoPodium.xctest */,
-				85D3210B1C02062E001B7C7A /* OctoPodium.xctest */,
+				85D321001C02062E001B7C7A /* OctoPodiumTests.xctest */,
+				85D3210B1C02062E001B7C7A /* OctoPodiumUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -679,7 +679,7 @@
 			);
 			name = OctoPodiumTests;
 			productName = GitHubAwardsTests;
-			productReference = 85D321001C02062E001B7C7A /* OctoPodium.xctest */;
+			productReference = 85D321001C02062E001B7C7A /* OctoPodiumTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		85D3210A1C02062E001B7C7A /* OctoPodiumUITests */ = {
@@ -699,7 +699,7 @@
 			);
 			name = OctoPodiumUITests;
 			productName = GitHubAwardsUITests;
-			productReference = 85D3210B1C02062E001B7C7A /* OctoPodium.xctest */;
+			productReference = 85D3210B1C02062E001B7C7A /* OctoPodiumUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -1179,8 +1179,8 @@
 				INFOPLIST_FILE = OctoPodiumTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.ios.OctoPodiumTests;
-				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)Tests";
-				PRODUCT_NAME = OctoPodium;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = OctoPodiumTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OctoPodium.app/OctoPodium";
 			};
 			name = Debug;
@@ -1193,8 +1193,8 @@
 				INFOPLIST_FILE = OctoPodiumTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.ios.OctoPodiumTests;
-				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)Tests";
-				PRODUCT_NAME = OctoPodium;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = OctoPodiumTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OctoPodium.app/OctoPodium";
 			};
 			name = Release;
@@ -1206,7 +1206,7 @@
 				INFOPLIST_FILE = OctoPodiumUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.ios.OctoPodiumUITests;
-				PRODUCT_NAME = OctoPodium;
+				PRODUCT_NAME = OctoPodiumUITests;
 				TEST_TARGET_NAME = OctoPodium;
 				USES_XCTRUNNER = YES;
 			};
@@ -1219,7 +1219,7 @@
 				INFOPLIST_FILE = OctoPodiumUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.ios.OctoPodiumUITests;
-				PRODUCT_NAME = OctoPodium;
+				PRODUCT_NAME = OctoPodiumUITests;
 				TEST_TARGET_NAME = OctoPodium;
 				USES_XCTRUNNER = YES;
 			};

@@ -34,7 +34,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "85D320FF1C02062E001B7C7A"
-               BuildableName = "OctoPodium.xctest"
+               BuildableName = "OctoPodiumTests.xctest"
                BlueprintName = "OctoPodiumTests"
                ReferencedContainer = "container:OctoPodium.xcodeproj">
             </BuildableReference>
@@ -44,7 +44,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "85D3210A1C02062E001B7C7A"
-               BuildableName = "OctoPodium.xctest"
+               BuildableName = "OctoPodiumUITests.xctest"
                BlueprintName = "OctoPodiumUITests"
                ReferencedContainer = "container:OctoPodium.xcodeproj">
             </BuildableReference>
