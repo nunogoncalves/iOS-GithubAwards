@@ -17,18 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         setUpBarsAppearance()
-        
-        func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
-            
-            let URLCache = NSURLCache(
-                memoryCapacity: 4 * 1024 * 1024,
-                diskCapacity: 20 * 1024 * 1024,
-                diskPath: nil)
-            NSURLCache.setSharedURLCache(URLCache)
-            
-            return true
-        }
-        
+        configureCache()
+        configureGoogleAnalytics()
        
         return true
     }
@@ -36,6 +26,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func setUpBarsAppearance() {
         setUpTabsAppearance()
         setUpNavigationAppearance()
+    }
+
+    private func configureCache() {
+        let URLCache = NSURLCache(
+            memoryCapacity: 4 * 1024 * 1024,
+            diskCapacity: 20 * 1024 * 1024,
+            diskPath: nil)
+        
+        NSURLCache.setSharedURLCache(URLCache)
+    }
+    
+    private func configureGoogleAnalytics() {
+        // Configure tracker from GoogleService-Info.plist.
+        var configureError: NSError?
+        GGLContext.sharedInstance().configureWithError(&configureError)
+        assert(configureError == nil, "Error configuring Google services: \(configureError)")
+        
+        // Optional: configure GAI options.
+        let gai = GAI.sharedInstance()
+        gai.trackUncaughtExceptions = true  // report uncaught exceptions
+        gai.logger.logLevel = GAILogLevel.Verbose  // remove before app release
+
     }
     
     private func setUpTabsAppearance() {

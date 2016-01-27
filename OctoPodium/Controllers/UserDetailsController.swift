@@ -37,8 +37,9 @@ class UserDetailsController: UIViewController {
     @IBOutlet weak var totalTrophiesLabel: UILabel!
     
     @IBAction func viewGithubProfileClicked() {
-        if let user = user {
-            Browser.openPage("http://github.com/\(user.login!)")
+        if let login = user?.login {
+            Browser.openPage("http://github.com/\(login)")
+            Analytics.sendViewOnGithubAction(login)
         }
     }
     
@@ -88,6 +89,7 @@ class UserDetailsController: UIViewController {
         
         rankingsTable.registerNib(UINib(nibName: String(RankingCell), bundle: nil), forCellReuseIdentifier: String(RankingCell))
         Users.GetOne(login: user!.login!).get(success: userSuccess, failure: failure)
+        Analytics.sendScreenInfoToGoogle(kAnalytics.userDetailsScreenFor(user))
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -99,7 +101,7 @@ class UserDetailsController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
+       
         let locationTransformMin = calculateLocationTransformMin()
         locationTransformRelation = (locationTransformMin - 1) / profileExtendedBGHeight
     }

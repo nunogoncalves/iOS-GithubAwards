@@ -7,6 +7,7 @@ end
 
 target 'OctoPodium' do
     pod 'SDWebImage', '~>3.7'
+    pod 'Google/Analytics'
 end
 
 target 'OctoPodiumTests' do

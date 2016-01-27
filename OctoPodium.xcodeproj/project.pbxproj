@@ -60,6 +60,10 @@
 		857C48951C119307000F035C /* LanguageImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C48941C119307000F035C /* LanguageImage.swift */; };
 		857E2C331C1C37970095DCC0 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857E2C321C1C37970095DCC0 /* SearchBar.swift */; };
 		857E2C371C1C87370095DCC0 /* ConvertUsersDictionaryToUsersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857E2C361C1C87370095DCC0 /* ConvertUsersDictionaryToUsersTests.swift */; };
+		857EB0071C5947BF00C315DF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 857EB0061C5947BF00C315DF /* GoogleService-Info.plist */; };
+		857EB0081C5947F400C315DF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 857EB0061C5947BF00C315DF /* GoogleService-Info.plist */; };
+		857EB0091C5947F500C315DF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 857EB0061C5947BF00C315DF /* GoogleService-Info.plist */; };
+		857EB00C1C5951BB00C315DF /* SendToGoogle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857EB00B1C5951BB00C315DF /* SendToGoogle.swift */; };
 		85820F3C1C0E2BCE0069D085 /* GithubLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85820F3A1C0E2BCE0069D085 /* GithubLoadingView.swift */; };
 		85820F3D1C0E2BCE0069D085 /* GithubLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85820F3B1C0E2BCE0069D085 /* GithubLoadingView.xib */; };
 		85820F471C0E2C1A0069D085 /* GithubLoading-0.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85820F3F1C0E2C1A0069D085 /* GithubLoading-0.gif */; };
@@ -191,6 +195,8 @@
 		857C48941C119307000F035C /* LanguageImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageImage.swift; sourceTree = "<group>"; };
 		857E2C321C1C37970095DCC0 /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		857E2C361C1C87370095DCC0 /* ConvertUsersDictionaryToUsersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertUsersDictionaryToUsersTests.swift; sourceTree = "<group>"; };
+		857EB0061C5947BF00C315DF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		857EB00B1C5951BB00C315DF /* SendToGoogle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendToGoogle.swift; sourceTree = "<group>"; };
 		85820F3A1C0E2BCE0069D085 /* GithubLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubLoadingView.swift; sourceTree = "<group>"; };
 		85820F3B1C0E2BCE0069D085 /* GithubLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GithubLoadingView.xib; sourceTree = "<group>"; };
 		85820F3F1C0E2C1A0069D085 /* GithubLoading-0.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "GithubLoading-0.gif"; sourceTree = "<group>"; };
@@ -329,6 +335,14 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		857EB00A1C5951AE00C315DF /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				857EB00B1C5951BB00C315DF /* SendToGoogle.swift */,
+			);
+			name = Analytics;
+			sourceTree = "<group>";
+		};
 		85820F391C0E2B900069D085 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -391,6 +405,7 @@
 			children = (
 				85D320EF1C02062E001B7C7A /* AppDelegate.swift */,
 				85D320FB1C02062E001B7C7A /* Info.plist */,
+				857EB0061C5947BF00C315DF /* GoogleService-Info.plist */,
 				858654F61C49BF3A0025B4F0 /* OctoPodium-Bridging-Header.h */,
 			);
 			path = "Supporting Files";
@@ -430,6 +445,7 @@
 		858B910D1C085AC700B510B3 /* Use Cases */ = {
 			isa = PBXGroup;
 			children = (
+				857EB00A1C5951AE00C315DF /* Analytics */,
 				856D67651C3424BA00A77678 /* Browser */,
 				856D67681C3426C200A77678 /* Data */,
 				853C48DB1C09218800373A92 /* DictionaryModelMappers */,
@@ -791,6 +807,7 @@
 				857113511C43BDD500011441 /* rust.png in Resources */,
 				85820F4B1C0E2C1A0069D085 /* GithubLoading-4.gif in Resources */,
 				850485381C104AE8004D952A /* GenericLanguage.png in Resources */,
+				857EB0071C5947BF00C315DF /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -798,6 +815,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				857EB0081C5947F400C315DF /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -805,6 +823,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				857EB0091C5947F500C315DF /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -970,6 +989,7 @@
 				854A404D1C3B369D005E7FF1 /* VerifyRequestStatus.swift in Sources */,
 				85E656761C13A23400BB4278 /* LanguageUsersTableDataSource.swift in Sources */,
 				851D3C381C09134600870813 /* Requester.swift in Sources */,
+				857EB00C1C5951BB00C315DF /* SendToGoogle.swift in Sources */,
 				857C48951C119307000F035C /* LanguageImage.swift in Sources */,
 				851D3C3A1C0913E900870813 /* ResponseHandler.swift in Sources */,
 				85FA59671C16D6660097732B /* CreateFullUserFromDictionary.swift in Sources */,

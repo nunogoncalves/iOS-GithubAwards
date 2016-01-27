@@ -147,7 +147,7 @@ class RankingCell: UITableViewCell {
     
     @objc private func showUserLanguageReposInBrowser() {
         guard let rankingPresenter = rankingPresenter else { return }
-        let url = NSURL(string: "https://github.com/search?q=user:\(rankingPresenter.userLogin)+language:\(rankingPresenter.language)")
-        UIApplication.sharedApplication().openURL(url!)
+        Browser.openPage("https://github.com/search?q=user:\(rankingPresenter.userLogin)+language:\(rankingPresenter.language)")
+        Analytics.sendRankingClicked(rankingPresenter.userLogin, language: rankingPresenter.language)
     }
 }

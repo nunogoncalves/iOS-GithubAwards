@@ -74,6 +74,19 @@ class UsersController : UIViewController {
         userSearchOptions.location = locationName
         
         usersTableDataSource.searchUsers(reset)
+        sendSearchedLocationToAnalytics()
+    }
+    
+    private func sendSearchedLocationToAnalytics() {
+        switch selectedLocationType {
+        case .City:
+            Analytics.sendSearchedCity(locationName, forLanguage: language)
+            break
+        case .Country:
+            Analytics.sendSearchedCountry(locationName, forLanguage: language)
+            break
+        default: break
+        }
     }
     
     func stopLoadingIndicator() {
@@ -128,6 +141,7 @@ extension UsersController : TableStateListener {
         if paginator.isFirstPage() {
             paginationLabel.text = "1/\(paginator.totalCount)"
         }
+        
         usersTable.reloadData()
         if paginator.totalCount == 0 {
             paginationContainer.hide()

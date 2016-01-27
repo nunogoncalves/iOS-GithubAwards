@@ -49,9 +49,27 @@ struct K {
         static let request: NSTimeInterval = 5
         static let resource: NSTimeInterval = 5
     }
+    
+    struct Analytics {
+        static let languagesScreen = "Languages Screen"
+        
+        static func rankingScreenFor(language: String?) -> String {
+            return "Ranking Screen for \(language ?? "")"
+        }
+        
+        static let userSearchScreen = "User Search Screen"
+        static func userDetailsScreenFor(user: User?) -> String {
+            if let login = user?.login {
+                return "User Details Screen <\(login)>"
+            } else {
+                return "User Details Screen <Unkown>"
+            }
+        }
+    }
 }
 
 typealias kColors = K.Colors
 typealias kUrls = K.Urls
 typealias kSegues = K.Segues
 typealias kTimeout = K.Timeouts
+typealias kAnalytics = K.Analytics

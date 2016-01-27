@@ -28,6 +28,7 @@ class LanguagesController: UIViewController {
     override func viewDidLoad() {
         searchBar.searchDelegate = self
         searchLanguages()
+        Analytics.sendScreenInfoToGoogle(kAnalytics.languagesScreen)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
