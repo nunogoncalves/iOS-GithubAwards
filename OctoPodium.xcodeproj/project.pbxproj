@@ -1169,6 +1169,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "OctoPodium/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"OTHER_SWIFT_FLAGS[arch=*]" = "\"-D\" \"DEVELOPMENT\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.ios.octopodium;
 				PRODUCT_NAME = OctoPodium;
 				SWIFT_OBJC_BRIDGING_HEADER = "OctoPodium/Supporting Files/OctoPodium-Bridging-Header.h";
@@ -1184,6 +1185,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "OctoPodium/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"OTHER_SWIFT_FLAGS[arch=*]" = "\"-D\" \"RELEASE\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.ios.octopodium;
 				PRODUCT_NAME = OctoPodium;
 				"PROVISIONING_PROFILE[sdk=*]" = "";

@@ -16,12 +16,6 @@ struct Analytics {
             sendScreenViewToGoogle(screenName)
         }
     }
-    
-    private static func sendScreenViewToGoogle(screenName: String) {
-        tracker.set(kGAIScreenName, value: screenName)
-        let builder = GAIDictionaryBuilder.createScreenView()
-        tracker.send(builder.build() as [NSObject : AnyObject])
-    }
 
     static func sendSearchedCountry(country: String, forLanguage language: String) {
         callAsync {
@@ -59,8 +53,18 @@ struct Analytics {
         }
     }
     
+    private static func sendScreenViewToGoogle(screenName: String) {
+        #if RELEASE
+            tracker.set(kGAIScreenName, value: screenName)
+            let builder = GAIDictionaryBuilder.createScreenView()
+            tracker.send(builder.build() as [NSObject : AnyObject])
+        #endif
+    }
+    
     private static func sendEventToGoogle(category: String, action: String, label: String) {
-        let builder = GAIDictionaryBuilder.createEventWithCategory(category, action: action, label: label, value: nil)
-        tracker.send(builder.build() as [NSObject : AnyObject])
+        #if RELEASE
+            let builder = GAIDictionaryBuilder.createEventWithCategory(category, action: action, label: label, value: nil)
+            tracker.send(builder.build() as [NSObject : AnyObject])
+        #endif
     }
 }
