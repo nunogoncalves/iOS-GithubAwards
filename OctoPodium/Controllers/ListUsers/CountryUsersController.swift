@@ -38,4 +38,12 @@ class CountryUsersController : UsersController {
         super.viewDidLoad()
         selectedLocationType = .Country
     }
+    
+    override func sendSearchedLocationToAnalytics() {
+        SendToGoogleAnalytics.countrySearched(locationName, forLanguage: language)
+    }
+    
+    override func sendUserPaginatedToAnalytics(page: String) {
+        SendToGoogleAnalytics.usersPaginatedInCountry(locationName, forLanguage: language, andPage: page)
+    }
 }

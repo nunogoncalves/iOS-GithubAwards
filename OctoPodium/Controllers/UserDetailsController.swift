@@ -39,7 +39,7 @@ class UserDetailsController: UIViewController {
     @IBAction func viewGithubProfileClicked() {
         if let login = user?.login {
             Browser.openPage("http://github.com/\(login)")
-            Analytics.sendViewOnGithubAction(login)
+            SendToGoogleAnalytics.viewUserOnGithub(login)
         }
     }
     
@@ -89,7 +89,7 @@ class UserDetailsController: UIViewController {
         
         rankingsTable.registerNib(UINib(nibName: String(RankingCell), bundle: nil), forCellReuseIdentifier: String(RankingCell))
         Users.GetOne(login: user!.login!).get(success: userSuccess, failure: failure)
-        Analytics.sendScreenInfoToGoogle(kAnalytics.userDetailsScreenFor(user))
+        SendToGoogleAnalytics.enteredScreen(kAnalytics.userDetailsScreenFor(user))
     }
     
     override func viewWillDisappear(animated: Bool) {

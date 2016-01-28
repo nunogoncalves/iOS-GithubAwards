@@ -38,4 +38,12 @@ class CityUsersController : UsersController {
         super.viewDidLoad()
         selectedLocationType = .City
     }
+    
+    override func sendSearchedLocationToAnalytics() {
+        SendToGoogleAnalytics.citySearched(locationName, forLanguage: language)
+    }
+    
+    override func sendUserPaginatedToAnalytics(page: String) {
+        SendToGoogleAnalytics.usersPaginatedInCity(locationName, forLanguage: language, andPage: page)
+    }
 }

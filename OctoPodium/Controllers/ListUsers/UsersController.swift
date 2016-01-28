@@ -77,16 +77,8 @@ class UsersController : UIViewController {
         sendSearchedLocationToAnalytics()
     }
     
-    private func sendSearchedLocationToAnalytics() {
-        switch selectedLocationType {
-        case .City:
-            Analytics.sendSearchedCity(locationName, forLanguage: language)
-            break
-        case .Country:
-            Analytics.sendSearchedCountry(locationName, forLanguage: language)
-            break
-        default: break
-        }
+    func sendSearchedLocationToAnalytics() {
+        //To be overriden
     }
     
     func stopLoadingIndicator() {
@@ -95,6 +87,10 @@ class UsersController : UIViewController {
     
     private func updateRefreshControl() {
         usersTable.updateRefreshControl()
+    }
+    
+    func sendUserPaginatedToAnalytics(page: String) {
+        //To be overriden
     }
 }
 
@@ -140,6 +136,8 @@ extension UsersController : TableStateListener {
         paginator.isLastPage() ? usersTable.hideFooter() : usersTable.showFooter()
         if paginator.isFirstPage() {
             paginationLabel.text = "1/\(paginator.totalCount)"
+        } else {
+            sendUserPaginatedToAnalytics("\(paginator.currentPage)")
         }
         
         usersTable.reloadData()
