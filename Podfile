@@ -8,6 +8,7 @@ end
 target 'OctoPodium' do
     pod 'SDWebImage', '~>3.7'
     pod 'Google/Analytics'
+    pod 'Kanna', '~> 1.0.0'
 end
 
 target 'OctoPodiumTests' do
