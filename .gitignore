@@ -8,3 +8,5 @@ OctoPodium.xcworkspace/xcuserdata/nunogoncalves.xcuserdatad/UserInterfaceState.x
 OctoPodium.xcodeproj/project.xcworkspace/xcuserdata/nunogoncalves.xcuserdatad/UserInterfaceState.xcuserstate
 
 OctoPodium/Supporting Files/GoogleService-Info.plist
+
+build/*
