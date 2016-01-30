@@ -51,7 +51,7 @@ class GithubLoadingView: UIView {
 
     func setStaticWith(percentage: Int, offset: CGFloat) {
         
-        staticImage.hidden = false
+        staticImage.show()
         
         staticImage.hidden = abs(offset) < 30
         loadingIndicatorImageView.hidden = abs(offset) < 30
@@ -61,8 +61,12 @@ class GithubLoadingView: UIView {
         staticImage.image = images[x]
     }
     
+    func stop() {
+        staticImage.show()
+    }
+    
     func setLoading() {
-        staticImage.hidden = true
+        staticImage.hide()
     }
     
     private func loadViewFromNib() -> UIView {
