@@ -101,6 +101,7 @@
 		85BBDA051C5E0BB300229ED2 /* TrendingRepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BBDA031C5E0BB300229ED2 /* TrendingRepositoryCell.swift */; };
 		85BBDA061C5E0BB300229ED2 /* TrendingRepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85BBDA041C5E0BB300229ED2 /* TrendingRepositoryCell.xib */; };
 		85BBDA081C5E702C00229ED2 /* TrendingScope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BBDA071C5E702C00229ED2 /* TrendingScope.swift */; };
+		85BBDA0A1C5E85E500229ED2 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BBDA091C5E85E500229ED2 /* Reusable.swift */; };
 		85CB97DE1C5A1EAC0074F725 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 85CB97DD1C5A1EAC0074F725 /* GoogleService-Info.plist */; };
 		85D320F01C02062E001B7C7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D320EF1C02062E001B7C7A /* AppDelegate.swift */; };
 		85D320F21C02062E001B7C7A /* LanguageRankingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D320F11C02062E001B7C7A /* LanguageRankingsController.swift */; };
@@ -244,6 +245,7 @@
 		85BBDA031C5E0BB300229ED2 /* TrendingRepositoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingRepositoryCell.swift; sourceTree = "<group>"; };
 		85BBDA041C5E0BB300229ED2 /* TrendingRepositoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrendingRepositoryCell.xib; sourceTree = "<group>"; };
 		85BBDA071C5E702C00229ED2 /* TrendingScope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingScope.swift; sourceTree = "<group>"; };
+		85BBDA091C5E85E500229ED2 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		85CB97DD1C5A1EAC0074F725 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		85D320EC1C02062E001B7C7A /* OctoPodium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OctoPodium.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85D320EF1C02062E001B7C7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 				85E6566E1C1352C600BB4278 /* PaginaTable.swift */,
 				857E2C321C1C37970095DCC0 /* SearchBar.swift */,
 				857943A71C3E5A8D00824577 /* UsersTable.swift */,
+				85BBDA091C5E85E500229ED2 /* Reusable.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -1045,6 +1048,7 @@
 				85B2C2D01C18D07800112D95 /* UIView.swift in Sources */,
 				85A9E55F1C36C4870011DAA4 /* IntroController.swift in Sources */,
 				853C48DF1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift in Sources */,
+				85BBDA0A1C5E85E500229ED2 /* Reusable.swift in Sources */,
 				85E6566B1C134B4E00BB4278 /* UsersListResponse.swift in Sources */,
 				85A4F01D1C3F1C4D002F3405 /* UsersController.swift in Sources */,
 				85A4F0171C3F1BBB002F3405 /* WorldUsersController.swift in Sources */,

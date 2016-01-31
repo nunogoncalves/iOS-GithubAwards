@@ -23,7 +23,7 @@ class TrendingController : UIViewController {
         repositoriesTable.dataSource = self
         repositoriesTable.delegate = self
         
-        repositoriesTable.registerNib(UINib(nibName: String(TrendingRepositoryCell), bundle: nil), forCellReuseIdentifier: String(TrendingRepositoryCell))
+        repositoriesTable.registerReusableCell(TrendingRepositoryCell)
         
         repositoriesTable.estimatedRowHeight = 95.0
         repositoriesTable.rowHeight = UITableViewAutomaticDimension
@@ -74,7 +74,9 @@ extension TrendingController : UITableViewDataSource {
     }
     
     private func setupCell(tableView: UITableView, indexPath: NSIndexPath) -> TrendingRepositoryCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(String(TrendingRepositoryCell), forIndexPath: indexPath) as! TrendingRepositoryCell
+        
+        let cell = tableView.dequeueReusableCellFor(indexPath) as TrendingRepositoryCell
+        
         cell.repositorySince = (repository: repositories[indexPath.row], since: selectedTrendingScope.message)
         
         return cell

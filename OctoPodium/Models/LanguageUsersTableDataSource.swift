@@ -40,12 +40,12 @@ class LanguageUsersTableDataSource : NSObject, TableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.row < 3 {
-            let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifierForIndex(indexPath), forIndexPath: indexPath) as! UserTopCell
+            let cell = tableView.dequeueReusableCellFor(indexPath) as UserTopCell
             let user = dataForIndexPath(indexPath) as! User
             cell.userPresenter = UserPresenter(user: user, ranking: indexPath.row + 1)
             return cell
         } else {
-            let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifierForIndex(indexPath), forIndexPath: indexPath) as! UserCell
+            let cell = tableView.dequeueReusableCellFor(indexPath) as UserCell
             cell.position = indexPath.row + 1
             cell.user = dataForIndexPath(indexPath) as! User
             return cell

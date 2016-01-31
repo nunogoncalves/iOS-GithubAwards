@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LanguageCell: UITableViewCell {
+class LanguageCell: UITableViewCell, NibReusable {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var languageImageView: LanguageImageView!
