@@ -15,16 +15,18 @@ class TrendingRepositoryCell: UITableViewCell {
     @IBOutlet weak var languageImageView: UIImageView!
     @IBOutlet weak var languageStarsSinceLabel: UILabel!
     
-    var repository: Repository! {
+    var repositorySince: (repository: Repository, since: String)! {
         didSet {
+            let repository = repositorySince.repository
+            let since = repositorySince.since
             nameLabel.text = repository.name
             descriptionLabel.text = repository.description
             if let language = repository.language {
-                languageStarsSinceLabel.text = "• \(language ?? "") • \(repository.stars) ★ today"
+                languageStarsSinceLabel.text = "• \(language ?? "") • \(repository.stars) ★ \(since)"
                 guard let image = UIImage(named: language.lowercaseString) else { return }
                 languageImageView.image = image
             } else {
-                languageStarsSinceLabel.text = "• \(repository.stars) ★ today"
+                languageStarsSinceLabel.text = "• \(repository.stars) ★ \(since)"
                 languageImageView.image = UIImage(named: "Language")
             }
         }

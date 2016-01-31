@@ -14,8 +14,8 @@ class TrendingController : UIViewController {
     @IBOutlet weak var repositoriesTable: UITableView!
     @IBOutlet weak var loadingView: GithubLoadingView!
     
-    private let trendingScopes = ["Daily", "Weekly", "Monthly"]
-    private var selectedTrendingScope = "Daily"
+    private var trendingScopes = TrendingScope.enumerateElements
+    private var selectedTrendingScope = TrendingScope.Day
     
     private var repositories: [Repository] = []
     
@@ -39,7 +39,7 @@ class TrendingController : UIViewController {
         
         let qos = Int(QOS_CLASS_USER_INTERACTIVE.rawValue)
         dispatch_async(dispatch_get_global_queue(qos, 0)) {
-            self.repositories = Repositories.GetRepositories().get(self.selectedTrendingScope)
+            self.repositories = Repositories.GetRepositories().get(self.selectedTrendingScope.rawValue)
             dispatch_sync(dispatch_get_main_queue()) {
                 self.loadingView.hide()
                 self.repositoriesTable.show()
@@ -49,7 +49,7 @@ class TrendingController : UIViewController {
     }
     
     private func buildSegmentedControl() {
-        let segmentedControl = UISegmentedControl(items: trendingScopes)
+        let segmentedControl = UISegmentedControl(items: trendingScopes.map { $0.rawValue })
         segmentedControl.selectedSegmentIndex = 0
         
         segmentedControl.addTarget(self, action: "updateTrendingScope:", forControlEvents: .ValueChanged)
@@ -75,7 +75,7 @@ extension TrendingController : UITableViewDataSource {
     
     private func setupCell(tableView: UITableView, indexPath: NSIndexPath) -> TrendingRepositoryCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(String(TrendingRepositoryCell), forIndexPath: indexPath) as! TrendingRepositoryCell
-        cell.repository = repositories[indexPath.row]
+        cell.repositorySince = (repository: repositories[indexPath.row], since: selectedTrendingScope.message)
         
         return cell
     }

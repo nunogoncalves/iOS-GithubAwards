@@ -100,6 +100,7 @@
 		85BBDA021C5D1BDE00229ED2 /* CreateListFromHTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BBDA011C5D1BDE00229ED2 /* CreateListFromHTML.swift */; };
 		85BBDA051C5E0BB300229ED2 /* TrendingRepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BBDA031C5E0BB300229ED2 /* TrendingRepositoryCell.swift */; };
 		85BBDA061C5E0BB300229ED2 /* TrendingRepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85BBDA041C5E0BB300229ED2 /* TrendingRepositoryCell.xib */; };
+		85BBDA081C5E702C00229ED2 /* TrendingScope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BBDA071C5E702C00229ED2 /* TrendingScope.swift */; };
 		85CB97DE1C5A1EAC0074F725 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 85CB97DD1C5A1EAC0074F725 /* GoogleService-Info.plist */; };
 		85D320F01C02062E001B7C7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D320EF1C02062E001B7C7A /* AppDelegate.swift */; };
 		85D320F21C02062E001B7C7A /* LanguageRankingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D320F11C02062E001B7C7A /* LanguageRankingsController.swift */; };
@@ -242,6 +243,7 @@
 		85BBDA011C5D1BDE00229ED2 /* CreateListFromHTML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateListFromHTML.swift; sourceTree = "<group>"; };
 		85BBDA031C5E0BB300229ED2 /* TrendingRepositoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingRepositoryCell.swift; sourceTree = "<group>"; };
 		85BBDA041C5E0BB300229ED2 /* TrendingRepositoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrendingRepositoryCell.xib; sourceTree = "<group>"; };
+		85BBDA071C5E702C00229ED2 /* TrendingScope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingScope.swift; sourceTree = "<group>"; };
 		85CB97DD1C5A1EAC0074F725 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		85D320EC1C02062E001B7C7A /* OctoPodium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OctoPodium.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85D320EF1C02062E001B7C7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -540,12 +542,13 @@
 				853C48DC1C0921AF00373A92 /* Paginator.swift */,
 				85AFEC1E1C0468CB006FC129 /* Ranking.swift */,
 				85BBD9F81C5CA61000229ED2 /* Repository.swift */,
+				85BBD9FA1C5D18FC00229ED2 /* RepositoriesDataSource.swift */,
 				858B91121C085B4C00B510B3 /* SearchOptions.swift */,
 				85E656771C13AB8A00BB4278 /* TableStateListener.swift */,
 				85E656711C139ED100BB4278 /* TableViewDataSource.swift */,
+				85BBDA071C5E702C00229ED2 /* TrendingScope.swift */,
 				85D321201C0219C7001B7C7A /* User.swift */,
 				85E6566A1C134B4E00BB4278 /* UsersListResponse.swift */,
-				85BBD9FA1C5D18FC00229ED2 /* RepositoriesDataSource.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1033,6 +1036,7 @@
 				85FA59631C15C5C00097732B /* UserTopCell.swift in Sources */,
 				85D3211E1C0211C2001B7C7A /* UserCell.swift in Sources */,
 				856D676C1C34385F00A77678 /* Users.swift in Sources */,
+				85BBDA081C5E702C00229ED2 /* TrendingScope.swift in Sources */,
 				85AFEC1F1C0468CB006FC129 /* Ranking.swift in Sources */,
 				850485311C0FB10C004D952A /* AlertView.swift in Sources */,
 				856D676A1C342C6900A77678 /* Getter.swift in Sources */,
