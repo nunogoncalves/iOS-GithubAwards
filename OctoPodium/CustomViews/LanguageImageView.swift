@@ -45,7 +45,7 @@ class LanguageImageView : UIView {
     }
     
     private func commonInit() {
-        NSBundle.mainBundle().loadNibNamed("LanguageImageView", owner: self, options: nil)
+        NSBundle.mainBundle().loadNibNamed(String(LanguageImageView), owner: self, options: nil)
         addSubview(container)
     }
 }

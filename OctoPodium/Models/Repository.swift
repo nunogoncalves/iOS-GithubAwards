@@ -10,12 +10,14 @@ struct Repository {
     
     let name: String
     let stars: String
+    let language: String?
     let description: String
     
-    init(name: String, stars: String, description: String) {
+    init(name: String, stars: String, description: String, language: String?) {
         self.name = name
         self.stars = stars
         self.description = description
+        self.language = language
     }
     
 }

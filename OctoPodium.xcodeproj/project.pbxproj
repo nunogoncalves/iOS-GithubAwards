@@ -98,6 +98,8 @@
 		85BBD9FE1C5D1AA600229ED2 /* Repositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BBD9FD1C5D1AA600229ED2 /* Repositories.swift */; };
 		85BBDA001C5D1AB800229ED2 /* GetRepositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BBD9FF1C5D1AB800229ED2 /* GetRepositories.swift */; };
 		85BBDA021C5D1BDE00229ED2 /* CreateListFromHTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BBDA011C5D1BDE00229ED2 /* CreateListFromHTML.swift */; };
+		85BBDA051C5E0BB300229ED2 /* TrendingRepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BBDA031C5E0BB300229ED2 /* TrendingRepositoryCell.swift */; };
+		85BBDA061C5E0BB300229ED2 /* TrendingRepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85BBDA041C5E0BB300229ED2 /* TrendingRepositoryCell.xib */; };
 		85CB97DE1C5A1EAC0074F725 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 85CB97DD1C5A1EAC0074F725 /* GoogleService-Info.plist */; };
 		85D320F01C02062E001B7C7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D320EF1C02062E001B7C7A /* AppDelegate.swift */; };
 		85D320F21C02062E001B7C7A /* LanguageRankingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D320F11C02062E001B7C7A /* LanguageRankingsController.swift */; };
@@ -238,6 +240,8 @@
 		85BBD9FD1C5D1AA600229ED2 /* Repositories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repositories.swift; sourceTree = "<group>"; };
 		85BBD9FF1C5D1AB800229ED2 /* GetRepositories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetRepositories.swift; sourceTree = "<group>"; };
 		85BBDA011C5D1BDE00229ED2 /* CreateListFromHTML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateListFromHTML.swift; sourceTree = "<group>"; };
+		85BBDA031C5E0BB300229ED2 /* TrendingRepositoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingRepositoryCell.swift; sourceTree = "<group>"; };
+		85BBDA041C5E0BB300229ED2 /* TrendingRepositoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrendingRepositoryCell.xib; sourceTree = "<group>"; };
 		85CB97DD1C5A1EAC0074F725 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		85D320EC1C02062E001B7C7A /* OctoPodium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OctoPodium.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85D320EF1C02062E001B7C7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -436,6 +440,8 @@
 				856A72E61C12509F008415A4 /* LanguageCell.swift */,
 				85D321261C022D86001B7C7A /* RankingCell.swift */,
 				85118F1F1C47A802002B452F /* RankingCell.xib */,
+				85BBDA031C5E0BB300229ED2 /* TrendingRepositoryCell.swift */,
+				85BBDA041C5E0BB300229ED2 /* TrendingRepositoryCell.xib */,
 				85D3211D1C0211C2001B7C7A /* UserCell.swift */,
 				857943A31C3DCC8B00824577 /* UserCell.xib */,
 				85FA59621C15C5C00097732B /* UserTopCell.swift */,
@@ -821,6 +827,7 @@
 				85820F4A1C0E2C1A0069D085 /* GithubLoading-3.gif in Resources */,
 				856A72E21C122C1E008415A4 /* c++.png in Resources */,
 				857113521C43BDD500011441 /* scala.png in Resources */,
+				85BBDA061C5E0BB300229ED2 /* TrendingRepositoryCell.xib in Resources */,
 				8571134B1C43BDD500011441 /* erlang.png in Resources */,
 				850485391C104AE8004D952A /* java.png in Resources */,
 				8504853B1C104AE8004D952A /* swift.png in Resources */,
@@ -983,6 +990,7 @@
 				853C48E11C09A28400373A92 /* GetOne.swift in Sources */,
 				85FA59651C1645B00097732B /* K.swift in Sources */,
 				858B91131C085B4C00B510B3 /* SearchOptions.swift in Sources */,
+				85BBDA051C5E0BB300229ED2 /* TrendingRepositoryCell.swift in Sources */,
 				85E656781C13AB8A00BB4278 /* TableStateListener.swift in Sources */,
 				85BBD9FB1C5D18FC00229ED2 /* RepositoriesDataSource.swift in Sources */,
 				85E656721C139ED100BB4278 /* TableViewDataSource.swift in Sources */,

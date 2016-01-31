@@ -21,6 +21,12 @@ class TrendingController : UIViewController {
     
     override func viewDidLoad() {
         repositoriesTable.dataSource = self
+        repositoriesTable.delegate = self
+        
+        repositoriesTable.registerNib(UINib(nibName: String(TrendingRepositoryCell), bundle: nil), forCellReuseIdentifier: String(TrendingRepositoryCell))
+        
+        repositoriesTable.estimatedRowHeight = 95.0
+        repositoriesTable.rowHeight = UITableViewAutomaticDimension
         
         searchTrendingRepos()
         buildSegmentedControl()
@@ -63,11 +69,31 @@ extension TrendingController : UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TrendingRepository", forIndexPath: indexPath)
-        let repository = repositories[indexPath.row]
-        cell.textLabel!.text = "\(repository.name) \(repository.stars)"
-        cell.detailTextLabel!.text = repository.description
+        
+        return setupCell(tableView, indexPath: indexPath)
+    }
+    
+    private func setupCell(tableView: UITableView, indexPath: NSIndexPath) -> TrendingRepositoryCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(String(TrendingRepositoryCell), forIndexPath: indexPath) as! TrendingRepositoryCell
+        cell.repository = repositories[indexPath.row]
         
         return cell
     }
+    
+}
+
+extension TrendingController : UITableViewDelegate {
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let cell = setupCell(tableView, indexPath: indexPath)
+        return calculateHeightForConfiguredSizingCell(cell)
+    }
+    
+    private func calculateHeightForConfiguredSizingCell(cell: TrendingRepositoryCell) -> CGFloat {
+        cell.setNeedsLayout()
+        cell.layoutIfNeeded()
+        
+        let size = cell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+        return size.height
+    }
+
 }

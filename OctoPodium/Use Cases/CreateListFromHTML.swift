@@ -17,16 +17,17 @@ extension Repositories {
             guard document != nil else { return repositories }
             
             for repoHTML in getRepositoriesHTML(document!) {
-                                
+                
                 let repoDoc = Kanna.HTML(html: repoHTML.innerHTML!, encoding: NSUTF8StringEncoding)
                 
                 let metadataDoc = repoDoc!.xpath("//*[contains(@class, 'repo-list-meta')]")
                 
                 let repoName = getRepositoryNameFrom(repoHTML)
                 let stars = getStarsFrom(metadataDoc)
-                let description = getDescription(repoHTML)
+                let description = getDescriptionFrom(repoHTML)
+                let language = getLanguageFrom(metadataDoc)
                 
-                let repository = Repository(name: repoName, stars: stars, description: description)
+                let repository = Repository(name: repoName, stars: stars, description: description, language: language)
                 
                 repositories.append(repository)                
             }
@@ -53,10 +54,21 @@ extension Repositories {
             return stars!
         }
         
-        private static func getDescription(document: XMLElement) -> String {
+        private static func getDescriptionFrom(document: XMLElement) -> String {
             return document.css("p.repo-list-description").text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).replace("\n", with: "").replace("      ", with: "")
         }
         
+        private static func getLanguageFrom(document: XMLNodeSet) -> String? {
+            let metadata = document.text!.withoutSpaces()
+            
+            let language = metadata.substring("•")
+            if language == nil || language! == "" || language!.containsString("stars") {
+                return nil
+            }
+            
+            return language
+
+        }
     }
 }
 
