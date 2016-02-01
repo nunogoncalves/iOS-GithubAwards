@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kanna
 
 class TrendingController : UIViewController {
 
