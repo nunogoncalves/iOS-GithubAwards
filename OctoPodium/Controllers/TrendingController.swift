@@ -29,6 +29,8 @@ class TrendingController : UIViewController {
         
         searchTrendingRepos()
         buildSegmentedControl()
+        
+        SendToGoogleAnalytics.enteredScreen(String(TrendingController))
     }
     
     private func searchTrendingRepos() {
