@@ -6,8 +6,6 @@
 ////  Copyright © 2016 Nuno Gonçalves. All rights reserved.
 ////
 
-import Kanna
-
 extension Repositories {
     struct GetRepositories {
         func get(trending: String) -> [Repository] {

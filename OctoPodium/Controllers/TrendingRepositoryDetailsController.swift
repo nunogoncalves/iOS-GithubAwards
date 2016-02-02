@@ -44,7 +44,6 @@ class TrendingRepositoryDetailsController: UIViewController {
                 }
             }
         }
-        
     }
     
     private func gitHubApiFailed(status: NetworkStatus) {
