@@ -12,12 +12,18 @@ struct Repository {
     let stars: String
     let language: String?
     let description: String
+    let user: String
     
     init(name: String, stars: String, description: String, language: String?) {
-        self.name = name
+        self.name = name.substringAfter("/")!
         self.stars = stars
         self.description = description
         self.language = language
+        self.user = Repository.getUserFromName(name)
+    }
+    
+    private static func getUserFromName(name: String) -> String {
+        return name.substringUntil("/") ?? ""
     }
     
 }

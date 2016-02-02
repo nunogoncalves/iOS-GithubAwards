@@ -47,7 +47,7 @@ extension Repositories {
             
             var stars = metadata.substringBetween("•", and: "stars")
             if stars == nil {
-                stars = metadata.substring("stars")
+                stars = metadata.substringUntil("stars")
             }
             if stars == nil { stars = "0" }
             
@@ -61,7 +61,7 @@ extension Repositories {
         private static func getLanguageFrom(document: XMLNodeSet) -> String? {
             let metadata = document.text!.withoutSpaces()
             
-            let language = metadata.substring("•")
+            let language = metadata.substringUntil("•")
             if language == nil || language! == "" || language!.containsString("stars") {
                 return nil
             }
@@ -69,28 +69,5 @@ extension Repositories {
             return language
 
         }
-    }
-}
-
-private extension String {
-    func withoutSpaces() -> String {
-        return replace(" ", with: "")
-            .replace("\n", with: "")
-    }
-    
-    func replace(str: String, with w: String) -> String {
-        return stringByReplacingOccurrencesOfString(str, withString: w)
-    }
-    
-    func substringBetween(from: String, and to: String) -> String? {
-        let range = rangeOfString("(?<=\(from))(.*?)(?=\(to))", options: .RegularExpressionSearch)
-        guard range != nil else { return nil }
-        return self.substringWithRange(range!)
-    }
-    
-    func substring(until: String) -> String? {
-        let range = rangeOfString(until)
-        guard range != nil else { return nil }
-        return self.substringToIndex(range!.startIndex)
     }
 }

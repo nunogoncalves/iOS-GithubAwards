@@ -109,6 +109,7 @@ class UserDetailsController: UIViewController {
     
     private func loadAvatar() {
         if let avatarUrl = user!.avatarUrl {
+            guard avatarUrl != "" else { return }
             ImageLoader.fetchAndLoad(avatarUrl, imageView: avatarImageView) {
                 self.loading.stopAnimating()
             }
@@ -166,6 +167,7 @@ class UserDetailsController: UIViewController {
 extension UserDetailsController {
     func userSuccess(user: User) {
         self.user = user
+        loadAvatar()
         applyReposStarsAndTrophiesLabelsFor(user)
         if let city = user.city {
             countryAndCityLabel.text = "\(user.country!.capitalizedString), \(city.capitalizedString)"
