@@ -1241,7 +1241,9 @@
         <scene sceneID="QP4-O6-IAg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YZv-cR-8KO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Trending" image="Star" id="aUo-Xm-27F"/>
+                    <tabBarItem key="tabBarItem" title="Trending" image="Star" id="aUo-Xm-27F">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-5"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xqw-3a-BWz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
