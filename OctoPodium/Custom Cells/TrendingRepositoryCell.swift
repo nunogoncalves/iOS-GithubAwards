@@ -15,10 +15,6 @@ class TrendingRepositoryCell: UITableViewCell, NibReusable {
     @IBOutlet weak var languageImageView: UIImageView!
     @IBOutlet weak var languageStarsSinceLabel: UILabel!
     
-    @IBAction func buttonClick() {
-        print("button click")
-    }
-    
     var userClicked: ((userName: String) -> ())?
     
     var repositorySince: (repository: Repository, since: String)! {
@@ -35,8 +31,11 @@ class TrendingRepositoryCell: UITableViewCell, NibReusable {
             descriptionLabel.text = repository.description
             if let language = repository.language {
                 languageStarsSinceLabel.text = "• \(language ?? "") • \(repository.stars) ★ \(since)"
-                guard let image = UIImage(named: language.lowercaseString) else { return }
-                languageImageView.image = image
+                if let image = UIImage(named: language.lowercaseString) {
+                    languageImageView.image = image
+                } else {
+                    languageImageView.image = UIImage(named: "Language")
+                }
             } else {
                 languageStarsSinceLabel.text = "• \(repository.stars) ★ \(since)"
                 languageImageView.image = UIImage(named: "Language")
