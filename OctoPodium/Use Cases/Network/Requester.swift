@@ -58,7 +58,20 @@ struct Network {
         }
         
         private func convertDataToDictionary(data: NSData) throws -> NSDictionary {
-            return try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments) as! NSDictionary
+            let dictionary = try NSJSONSerialization
+                    .JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers)
+            
+            if dictionary is NSDictionary {
+                return dictionary as! NSDictionary
+            } else if dictionary is NSArray {
+                return ["response" : (dictionary as! NSArray)]
+            }
+            
+            throw JSONParseError.NoDicNorArray
         }
     }
+}
+
+enum JSONParseError : ErrorType {
+    case NoDicNorArray
 }
