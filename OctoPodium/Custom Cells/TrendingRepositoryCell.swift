@@ -26,13 +26,7 @@ class TrendingRepositoryCell: UITableViewCell, NibReusable {
             let repository = repositorySince.repository
             let since = repositorySince.since
             
-//            let userStr = getAttributedUser(repository.user)
-//            let repoName = NSMutableAttributedString(string: repository.name)
-//            
-//            userStr.appendAttributedString(repoName)
-            
             nameLabel.text = "\(repository.user)\(repository.name)"
-//            nameLabel.attributedText = userStr
 
             let tapGesture = UITapGestureRecognizer(target: self, action: "clickedUser")
             nameLabel.userInteractionEnabled = true
@@ -48,14 +42,6 @@ class TrendingRepositoryCell: UITableViewCell, NibReusable {
                 languageImageView.image = UIImage(named: "Language")
             }
         }
-    }
-    
-    private func getAttributedUser(user: String) -> NSMutableAttributedString {
-        let attributes = [
-            NSUnderlineStyleAttributeName : NSUnderlineStyle.StyleSingle.rawValue,
-        ]
-        
-        return NSMutableAttributedString(string: user, attributes: attributes)
     }
     
     @objc private func clickedUser() {
