@@ -14,6 +14,10 @@ struct Repository {
     let description: String
     let user: String
     
+    var completeName: String {
+        return "\(user)\(name)"
+    }
+    
     init(name: String, stars: String, description: String, language: String?) {
         self.name = name.substringAfter("/")!
         self.stars = stars

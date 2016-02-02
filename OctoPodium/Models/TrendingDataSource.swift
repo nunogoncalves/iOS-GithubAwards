@@ -16,6 +16,7 @@ class TrendingDataSource : NSObject, UITableViewDataSource {
     
     var gotRepositories: (() -> ())?
     var userClicked: ((login: String) -> ())?
+    var repositoryCellClicked: ((repository: Repository) -> ())?
     
     init(tableView: UITableView) {
         self.tableView = tableView
@@ -54,6 +55,11 @@ class TrendingDataSource : NSObject, UITableViewDataSource {
 }
 
 extension TrendingDataSource : UITableViewDelegate {
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        repositoryCellClicked?(repository: repositories[indexPath.row])
+    }
+    
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let cell = setupCell(tableView, indexPath: indexPath)
         return calculateHeightForConfiguredSizingCell(cell)

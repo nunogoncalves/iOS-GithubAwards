@@ -31,6 +31,7 @@ class TrendingController : UIViewController {
     private func setupRepositoriesTable() {
         dataSource = TrendingDataSource(tableView: repositoriesTable)
         dataSource.userClicked = userClicked
+        dataSource.repositoryCellClicked = repositoryCellClicked
         dataSource.gotRepositories = updateAfterResponse
         
         repositoriesTable.dataSource = dataSource
@@ -55,14 +56,26 @@ class TrendingController : UIViewController {
         repositoriesTable.show()
     }
     
+    private var selectedRepository: Repository?
+    
     private func userClicked(user: String) {
         performSegueWithIdentifier(kSegues.trendingToUserDetailsSegue, sender: user)
+    }
+    
+    private func repositoryCellClicked(repository: Repository) {
+        selectedRepository = repository
+        performSegueWithIdentifier(kSegues.showTrendingRepositoryDetailsSegue, sender: self)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == kSegues.trendingToUserDetailsSegue {
             let vc = segue.destinationViewController as! UserDetailsController
             vc.user = User(login: sender as! String, avatarUrl: "")
+        }
+        
+        if segue.identifier == kSegues.showTrendingRepositoryDetailsSegue {
+            let vc = segue.destinationViewController as! TrendingRepositoryDetailsController
+            vc.repository = selectedRepository
         }
     }
     
@@ -76,6 +89,7 @@ class TrendingController : UIViewController {
     
     @objc private func updateTrendingScope(control: UISegmentedControl) {
         selectedTrendingScope = trendingScopes[control.selectedSegmentIndex]
+        dataSource.trendingScope = selectedTrendingScope
         searchTrendingRepos()
     }
 }

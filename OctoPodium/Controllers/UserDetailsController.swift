@@ -257,7 +257,7 @@ extension UserDetailsController: UITableViewDelegate {
         let contentHeight = scrollView.contentSize.height
         let rowsHeight = contentHeight - profileMinBGHeight
 
-        if rowsHeight <= scrollView.heigth + profileExtendedBGHeight {
+        if rowsHeight <= scrollView.height + profileExtendedBGHeight {
             return
         }
         
@@ -326,10 +326,4 @@ extension UserDetailsController: UITableViewDataSource {
         cell.rankingPresenter = RankingPresenter(ranking: rankings[indexPath.row])
         return cell
     }
-}
-
-private extension UIView {
-    var halfWidth: CGFloat { get { return width / 2 } }
-    var width: CGFloat { get { return frame.width } }
-    var heigth: CGFloat { get { return frame.width } }
 }

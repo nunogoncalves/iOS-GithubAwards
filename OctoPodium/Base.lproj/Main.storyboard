@@ -564,7 +564,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JxY-ng-arG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2296" y="427"/>
+            <point key="canvasLocation" x="2345" y="427"/>
         </scene>
         <!--Languages-->
         <scene sceneID="9WJ-VM-jS4">
@@ -875,7 +875,7 @@
             </objects>
             <point key="canvasLocation" x="1170" y="-230"/>
         </scene>
-        <!--Daily-->
+        <!--Trending-->
         <scene sceneID="cA7-ah-6OM">
             <objects>
                 <viewController id="mQH-5a-Ynl" customClass="TrendingController" customModule="OctoPodium" customModuleProvider="target" sceneMemberID="viewController">
@@ -910,17 +910,69 @@
                             <constraint firstItem="6bm-w8-492" firstAttribute="top" secondItem="zdd-tJ-FXf" secondAttribute="bottom" constant="-50" id="uGW-7K-Bp6"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Daily" id="INw-AX-AUK"/>
+                    <navigationItem key="navigationItem" title="Trending" id="INw-AX-AUK"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="loadingView" destination="med-pO-gcX" id="Ija-Z4-nPa"/>
                         <outlet property="repositoriesTable" destination="zdd-tJ-FXf" id="rPo-Pc-qHO"/>
                         <segue destination="U5u-hS-YPV" kind="show" identifier="TrendingToUserDetailsSegue" id="PF5-Nm-xyF"/>
+                        <segue destination="ODU-lX-9pw" kind="show" identifier="ShowTrendingRepositoryDetailsSegue" id="ewy-sJ-OAe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0NP-b2-o3k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1923" y="991"/>
+        </scene>
+        <!--Trending Repository Details Controller-->
+        <scene sceneID="Gup-Bs-6Ci">
+            <objects>
+                <viewController id="ODU-lX-9pw" customClass="TrendingRepositoryDetailsController" customModule="OctoPodium" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tzN-q1-uNg"/>
+                        <viewControllerLayoutGuide type="bottom" id="9rC-H5-Wig"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ygh-ci-qcf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sfu-Di-YAo">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                            <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IJt-Zt-Hai" customClass="GithubLoadingView" customModule="OctoPodium" customModuleProvider="target">
+                                <rect key="frame" x="115" y="195" width="90" height="90"/>
+                                <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="ChZ-DZ-rA4"/>
+                                    <constraint firstAttribute="width" constant="90" id="ZBf-z0-gnB"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sfu-Di-YAo" firstAttribute="leading" secondItem="ygh-ci-qcf" secondAttribute="leading" id="9BT-61-fdb"/>
+                            <constraint firstAttribute="trailing" secondItem="sfu-Di-YAo" secondAttribute="trailing" id="Gzx-QN-XKE"/>
+                            <constraint firstItem="IJt-Zt-Hai" firstAttribute="centerX" secondItem="sfu-Di-YAo" secondAttribute="centerX" id="Xi8-vk-btS"/>
+                            <constraint firstItem="sfu-Di-YAo" firstAttribute="bottom" secondItem="9rC-H5-Wig" secondAttribute="top" constant="49" id="YrE-FJ-QGh"/>
+                            <constraint firstItem="sfu-Di-YAo" firstAttribute="top" secondItem="ygh-ci-qcf" secondAttribute="top" id="nH2-fE-QpJ"/>
+                            <constraint firstItem="IJt-Zt-Hai" firstAttribute="centerY" secondItem="sfu-Di-YAo" secondAttribute="centerY" id="sRO-OH-PJz"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="loadingView" destination="IJt-Zt-Hai" id="LDY-5f-qe9"/>
+                        <outlet property="webView" destination="sfu-Di-YAo" id="6sT-pG-gU4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cs6-Rf-xzi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2345" y="991"/>
         </scene>
         <!--Users-->
         <scene sceneID="Mw2-VD-RRs">
