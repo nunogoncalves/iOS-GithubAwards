@@ -13,6 +13,7 @@ class TrendingDataSource : NSObject, UITableViewDataSource {
     let tableView: UITableView
     var repositories = [Repository]()
     var trendingScope = TrendingScope.Day
+    var language = ""
     
     var gotRepositories: (() -> ())?
     var userClicked: ((login: String) -> ())?
@@ -45,7 +46,7 @@ class TrendingDataSource : NSObject, UITableViewDataSource {
     func search() {
         let qos = Int(QOS_CLASS_USER_INTERACTIVE.rawValue)
         dispatch_async(dispatch_get_global_queue(qos, 0)) {
-            self.repositories = Repositories.GetRepositories().get(self.trendingScope.rawValue)
+            self.repositories = Repositories.GetRepositories().get(self.trendingScope.rawValue, language: self.language)
             dispatch_sync(dispatch_get_main_queue()) {
                 self.gotRepositories?()
                 self.tableView.reloadData()

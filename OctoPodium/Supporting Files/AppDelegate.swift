@@ -60,14 +60,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setUpNavigationAppearance() {
         let appearance = UINavigationBar.appearance()
-//        appearance.translucent = false
         appearance.barTintColor = UIColor(rgbValue: kColors.navigationBarColor)
         appearance.tintColor = .whiteColor()
         
         appearance.titleTextAttributes = [
             NSForegroundColorAttributeName : UIColor.whiteColor(),
         ]
-
     }
 
     func applicationWillResignActive(application: UIApplication) {}

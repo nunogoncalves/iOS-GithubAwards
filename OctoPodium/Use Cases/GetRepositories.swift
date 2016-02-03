@@ -8,9 +8,10 @@
 
 extension Repositories {
     struct GetRepositories {
-        func get(trending: String) -> [Repository] {
+        func get(trending: String, language: String = "") -> [Repository] {
             do {
-                let url = "https://github.com/trending?since=\(trending)"
+                let lang = language == "" ? language : "/\(language)/"
+                let url = "https://github.com/trending\(lang)/?since=\(trending)"
                 let html = try NSString(contentsOfURL: NSURL(string: url)!, encoding: NSUTF8StringEncoding)
                 return Repositories.CreateListFromHTML.list(html as String)
             } catch _ {
