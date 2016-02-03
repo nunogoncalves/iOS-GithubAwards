@@ -68,6 +68,12 @@ struct SendToGoogleAnalytics {
         }
     }
     
+    static func searchedTrending(trendingScope: String, language: String) {
+        callAsync {
+            sendEvent("Search", action: "Trending<\(trendingScope)>Language<\(language)>", label: "Trending<\(trendingScope)>Language<\(language)>")
+        }
+    }
+    
     private static func callAsync(closure: () -> ()) {
         dispatch_async(dispatch_get_global_queue(qos, 0)) {
             closure()

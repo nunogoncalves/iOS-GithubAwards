@@ -44,6 +44,7 @@ class TrendingDataSource : NSObject, UITableViewDataSource {
     }
     
     func search() {
+        SendToGoogleAnalytics.searchedTrending(trendingScope.rawValue, language: language)
         let qos = Int(QOS_CLASS_USER_INTERACTIVE.rawValue)
         dispatch_async(dispatch_get_global_queue(qos, 0)) {
             self.repositories = Repositories.GetRepositories().get(self.trendingScope.rawValue, language: self.language)

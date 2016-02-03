@@ -19,6 +19,7 @@ class TrendingRepositoryDetailsController: UIViewController {
         webView.delegate = self
         navigationItem.title = repository?.name
         loadWebView()
+        SendToGoogleAnalytics.enteredScreen(String(TrendingRepositoryDetailsController))
     }
     
     private func loadWebView() {
