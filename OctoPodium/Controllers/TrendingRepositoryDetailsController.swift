@@ -28,32 +28,31 @@ class TrendingRepositoryDetailsController: UIViewController {
     
     private func getReadMeLocation() {
         guard let repository = repository else { return }
-        let responseHandler = Data.ResponseHandler()
-        responseHandler.successCallback = gotGithubApiResponse
-        responseHandler.failureCallback = gitHubApiFailed
         
-        let url = "https://api.github.com/repos/\(repository.completeName)/contents"
-        Network.Requester(networkResponseHandler: responseHandler).makeGet(url)
+        GitHub.RepoContentFetcher(repositoryName: repository.completeName)
+            .get(success: gotGithubApiResponse, failure: gitHubApiFailed)
     }
     
-    private func gotGithubApiResponse(dictionary: NSDictionary) {
-        for item in dictionary["response"] as! NSArray {
-            let name = (item["name"] as? String) ?? ""
-            if name.containsString("README") {
-                if let url = item["html_url"] as? String {
-                    gotReadMeLocation(url)
-                }
-            }
+    private func gotGithubApiResponse(readMeLocation: String) {
+        if readMeLocation != "" {
+            gotReadMeLocation(readMeLocation)
+        } else {
+            hideLoadingAndDisplay("Coudn't find a read me.")
         }
     }
     
     private func gitHubApiFailed(status: NetworkStatus) {
-        NotifyError.display(status.message())
+        hideLoadingAndDisplay(status.message())
     }
 
     private func gotReadMeLocation(url: String) {
         let url =  NSURL(string: url)
         webView.loadRequest(NSURLRequest(URL: url!))
+    }
+    
+    private func hideLoadingAndDisplay(error: String) {
+        loadingView.hide()
+        NotifyError.display(error)
     }
 }
 
@@ -106,8 +105,8 @@ extension TrendingRepositoryDetailsController : UIWebViewDelegate {
     }
     
     func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
+        hideLoadingAndDisplay("Error loading README contents")
         loadingView.hide()
-        NotifyError.display("Error loading README contents")
     }
 }
 
