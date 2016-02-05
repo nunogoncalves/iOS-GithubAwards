@@ -81,17 +81,23 @@ struct SendToGoogleAnalytics {
     }
     
     private static func sendScreenView(screenName: String) {
-        #if RELEASE
+        executeIfRelease {
             tracker.set(kGAIScreenName, value: screenName)
             let builder = GAIDictionaryBuilder.createScreenView()
             tracker.send(builder.build() as [NSObject : AnyObject])
-        #endif
+        }
     }
     
     private static func sendEvent(category: String, action: String, label: String) {
-        #if RELEASE
+        executeIfRelease {
             let builder = GAIDictionaryBuilder.createEventWithCategory(category, action: action, label: label, value: nil)
             tracker.send(builder.build() as [NSObject : AnyObject])
+        }
+    }
+    
+    private static func executeIfRelease(action: Void -> Void = {}) {
+        #if RELEASE
+            action()
         #endif
     }
 }
