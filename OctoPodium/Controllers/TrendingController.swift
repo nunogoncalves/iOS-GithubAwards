@@ -17,6 +17,7 @@ class TrendingController : UIViewController {
     private var selectedTrendingScope = TrendingScope.Day
     
     private var repositories: [Repository] = []
+    private var selectedRepository: Repository?
     
     private var dataSource: TrendingDataSource!
     
@@ -55,8 +56,6 @@ class TrendingController : UIViewController {
         loadingView.hide()
         repositoriesTable.show()
     }
-    
-    private var selectedRepository: Repository?
     
     private func userClicked(user: String) {
         performSegueWithIdentifier(kSegues.trendingToUserDetailsSegue, sender: user)
