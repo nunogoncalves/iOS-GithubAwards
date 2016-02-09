@@ -35,20 +35,32 @@ class TrendingController : UIViewController {
     
     var clicked = 0
     
-    let images = ["Language", "javascript", "java", "ruby", "swift"]
+    let images = ["", "elixir", "javascript", "java", "ruby", "swift",
+        "objective-c", "Python", "Shell", "c++", "c", "c#", "php",
+        "perl", "css", "go"
+    ]
     
     @objc private func clickedLanguage() {
         clicked += 1
-        if clicked == 5 { clicked = 0 }
+        if clicked == images.count { clicked = 0 }
         updateLanguageIcon()
         
-        dataSource.language = clicked == 0 ? "" : images[clicked]
+        dataSource.language = images[clicked]
         searchTrendingRepos()
     }
     
     private func updateLanguageIcon() {
-        let image = UIImage(named: images[clicked])?.imageWithRenderingMode(.AlwaysOriginal)
-        
+        let label = UILabel(frame: CGRectMake(0, 0, 30, 30))
+        label.textAlignment = NSTextAlignment.Center
+
+        let attrs: [String : AnyObject] = [
+            NSFontAttributeName : UIFont(name: "Helvetica", size: 10)!,
+            NSForegroundColorAttributeName : UIColor.whiteColor()
+        ]
+
+        label.attributedText = NSAttributedString(string: images[clicked], attributes: attrs)
+        let image = LanguageImage.loadForOr(images[clicked], orLabel: label).imageWithRenderingMode(.AlwaysOriginal)
+
         languageButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         languageButton.enabled = false
         
