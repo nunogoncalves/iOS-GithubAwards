@@ -21,12 +21,41 @@ class TrendingController : UIViewController {
     
     private var dataSource: TrendingDataSource!
     
+    var languageButton: UIButton!
+    
     override func viewDidLoad() {
         setupRepositoriesTable()
         buildSegmentedControl()
         searchTrendingRepos()
         
+        updateLanguageIcon()
+        
         SendToGoogleAnalytics.enteredScreen(String(TrendingController))
+    }
+    
+    var clicked = 0
+    
+    let images = ["Language", "javascript", "java", "ruby", "swift"]
+    
+    @objc private func clickedLanguage() {
+        clicked += 1
+        if clicked == 5 { clicked = 0 }
+        updateLanguageIcon()
+        
+        dataSource.language = clicked == 0 ? "" : images[clicked]
+        searchTrendingRepos()
+    }
+    
+    private func updateLanguageIcon() {
+        let image = UIImage(named: images[clicked])?.imageWithRenderingMode(.AlwaysOriginal)
+        
+        languageButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        languageButton.enabled = false
+        
+        languageButton.addTarget(self, action: "clickedLanguage", forControlEvents: .TouchUpInside)
+        languageButton.setBackgroundImage(image, forState: .Normal)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: languageButton)
     }
     
     private func setupRepositoriesTable() {
@@ -55,6 +84,7 @@ class TrendingController : UIViewController {
     private func updateAfterResponse() {
         loadingView.hide()
         repositoriesTable.show()
+        languageButton.enabled = true
     }
     
     private func userClicked(user: String) {
