@@ -350,7 +350,7 @@
 			children = (
 				855913DD1C63879700E356FD /* RepoContentsFetcher.swift */,
 			);
-			name = GitHub;
+			path = GitHub;
 			sourceTree = "<group>";
 		};
 		856D67651C3424BA00A77678 /* Browser */ = {
@@ -374,7 +374,7 @@
 			children = (
 				856E395C1C60A48F00974330 /* TrendingDataSource.swift */,
 			);
-			name = DataSources;
+			path = DataSources;
 			sourceTree = "<group>";
 		};
 		857EB00A1C5951AE00C315DF /* Analytics */ = {
@@ -382,7 +382,7 @@
 			children = (
 				857EB00B1C5951BB00C315DF /* SendToGoogle.swift */,
 			);
-			name = Analytics;
+			path = Analytics;
 			sourceTree = "<group>";
 		};
 		85820F391C0E2B900069D085 /* CustomViews */ = {
@@ -397,9 +397,9 @@
 				85B501841C10FD8400BBFD56 /* LanguageTitleView.swift */,
 				85B501821C10FCC300BBFD56 /* LanguageTitleView.xib */,
 				85E6566E1C1352C600BB4278 /* PaginaTable.swift */,
+				85BBDA091C5E85E500229ED2 /* Reusable.swift */,
 				857E2C321C1C37970095DCC0 /* SearchBar.swift */,
 				857943A71C3E5A8D00824577 /* UsersTable.swift */,
-				85BBDA091C5E85E500229ED2 /* Reusable.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -587,9 +587,9 @@
 			children = (
 				85A4F0151C3F1B97002F3405 /* ListUsers */,
 				85A9E55E1C36C4870011DAA4 /* IntroController.swift */,
-				85E389D01C6A307900C68813 /* LanguagesPopoverController.swift */,
 				85D320F11C02062E001B7C7A /* LanguageRankingsController.swift */,
 				85198B751C05CE6C007ACC73 /* LanguagesController.swift */,
+				85E389D01C6A307900C68813 /* LanguagesPopoverController.swift */,
 				85BBD9F61C5C2DCD00229ED2 /* TrendingController.swift */,
 				8530ED351C60EA7F00173835 /* TrendingRepositoryDetailsController.swift */,
 				85D321241C022480001B7C7A /* UserDetailsController.swift */,
@@ -601,11 +601,11 @@
 		85BBD9FC1C5D1A9600229ED2 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				85BBD9FD1C5D1AA600229ED2 /* Repositories.swift */,
-				85BBD9FF1C5D1AB800229ED2 /* GetRepositories.swift */,
 				85BBDA011C5D1BDE00229ED2 /* CreateListFromHTML.swift */,
+				85BBD9FF1C5D1AB800229ED2 /* GetRepositories.swift */,
+				85BBD9FD1C5D1AA600229ED2 /* Repositories.swift */,
 			);
-			name = Repositories;
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		85D320E31C02062E001B7C7A = {
@@ -654,11 +654,11 @@
 			children = (
 				85A1D2CE1C2EB39500774F49 /* Mocks */,
 				857E2C361C1C87370095DCC0 /* ConvertUsersDictionaryToUsersTests.swift */,
-				85D321041C02062E001B7C7A /* OctoPodiumTests.swift */,
 				85D321061C02062E001B7C7A /* Info.plist */,
 				8599284D1C0D9579000ABE8C /* LocationTypeTests.swift */,
 				85A1D2D11C2EB53500774F49 /* NetworkRequesterTests.swift */,
 				854A404A1C3ADCF7005E7FF1 /* NetworkStatusTests.swift */,
+				85D321041C02062E001B7C7A /* OctoPodiumTests.swift */,
 				85E6566C1C134C7000BB4278 /* PaginatorTests.swift */,
 				8517ECBE1C2C1EDB00467985 /* RankingPresenterTests.swift */,
 				858B91141C085E6400B510B3 /* SearchOptionsTests.swift */,
@@ -672,8 +672,8 @@
 		85D3210E1C02062E001B7C7A /* OctoPodiumUITests */ = {
 			isa = PBXGroup;
 			children = (
-				85D3210F1C02062E001B7C7A /* OctoPodiumUITests.swift */,
 				85D321111C02062E001B7C7A /* Info.plist */,
+				85D3210F1C02062E001B7C7A /* OctoPodiumUITests.swift */,
 			);
 			path = OctoPodiumUITests;
 			sourceTree = "<group>";
