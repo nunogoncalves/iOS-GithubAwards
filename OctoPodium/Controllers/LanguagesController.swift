@@ -28,6 +28,7 @@ class LanguagesController: UIViewController {
     override func viewDidLoad() {
         searchBar.searchDelegate = self
         searchLanguages()
+        languagesTable.registerReusableCell(LanguageCell)
         SendToGoogleAnalytics.enteredScreen(kAnalytics.languagesScreen)
     }
     
@@ -42,7 +43,7 @@ class LanguagesController: UIViewController {
     
     private func searchLanguages() {
         setSearching()
-        Languages.Get().get(success: gotLanguages, failure: failedToLoadLanguages)
+        Languages.Get().getAll(success: gotLanguages, failure: failedToLoadLanguages)
     }
     
     private func setSearching() {
