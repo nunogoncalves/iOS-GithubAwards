@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ARSPopover
 
 class TrendingController : UIViewController {
 
@@ -16,68 +17,58 @@ class TrendingController : UIViewController {
     private var trendingScopes = TrendingScope.enumerateElements
     private var selectedTrendingScope = TrendingScope.Day
     
+    private var languagesPopoverController: LanguagesPopoverController!
+    private var popoverController: ARSPopover?
+    
+    private var languageButton: UIButton!
+    private let languageImageView = LanguageImageView(frame: CGRectMake(0, 0, 30, 30))
+    
     private var repositories: [Repository] = []
     private var selectedRepository: Repository?
     
-    private var dataSource: TrendingDataSource!
+    private var trendingDataSource: TrendingDataSource!
     
-    var languageButton: UIButton!
+    private var language = ""
+    private var isSearching = false
     
     override func viewDidLoad() {
-        setupRepositoriesTable()
-        buildSegmentedControl()
-        searchTrendingRepos()
-        
-        updateLanguageIcon()
-        
+        super.viewDidLoad()
         SendToGoogleAnalytics.enteredScreen(String(TrendingController))
-    }
-    
-    var clicked = 0
-    
-    let images = ["", "elixir", "javascript", "java", "ruby", "swift",
-        "objective-c", "Python", "Shell", "c++", "c", "c#", "php",
-        "perl", "css", "go"
-    ]
-    
-    @objc private func clickedLanguage() {
-        clicked += 1
-        if clicked == images.count { clicked = 0 }
-        updateLanguageIcon()
         
-        dataSource.language = images[clicked]
+        setUpUIComponents()
+        
         searchTrendingRepos()
     }
     
-    private func updateLanguageIcon() {
-        let label = UILabel(frame: CGRectMake(0, 0, 30, 30))
-        label.textAlignment = NSTextAlignment.Center
-
-        let attrs: [String : AnyObject] = [
-            NSFontAttributeName : UIFont(name: "Helvetica", size: 10)!,
-            NSForegroundColorAttributeName : UIColor.whiteColor()
-        ]
-
-        label.attributedText = NSAttributedString(string: images[clicked], attributes: attrs)
-        let image = LanguageImage.loadForOr(images[clicked], orLabel: label).imageWithRenderingMode(.AlwaysOriginal)
-
-        languageButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
-        languageButton.enabled = false
+    private func setUpUIComponents() {
+        buildSegmentedControl()
+        setupRepositoriesTable()
         
-        languageButton.addTarget(self, action: "clickedLanguage", forControlEvents: .TouchUpInside)
-        languageButton.setBackgroundImage(image, forState: .Normal)
+        buildLanguageButton()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: languageButton)
+        updateLanguageIcon()
+        buildPopoverElements()
+    }
+    
+    private func buildSegmentedControl() {
+        let segmentedControl = UISegmentedControl(items: trendingScopes.map { $0.rawValue })
+        segmentedControl.selectedSegmentIndex = 0
+        
+        segmentedControl.addTarget(self, action: "updateTrendingScope:", forControlEvents: .ValueChanged)
+        self.navigationItem.titleView = segmentedControl
+    }
+    
+    @objc private func updateTrendingScope(control: UISegmentedControl) {
+        selectedTrendingScope = trendingScopes[control.selectedSegmentIndex]
+        trendingDataSource.trendingScope = selectedTrendingScope
+        searchTrendingRepos()
     }
     
     private func setupRepositoriesTable() {
-        dataSource = TrendingDataSource(tableView: repositoriesTable)
-        dataSource.userClicked = userClicked
-        dataSource.repositoryCellClicked = repositoryCellClicked
-        dataSource.gotRepositories = updateAfterResponse
-        
-        repositoriesTable.dataSource = dataSource
-        repositoriesTable.delegate = dataSource
+        trendingDataSource = TrendingDataSource(tableView: repositoriesTable)
+        trendingDataSource.userClicked = userClicked
+        trendingDataSource.repositoryCellClicked = repositoryCellClicked
+        trendingDataSource.gotRepositories = updateAfterResponse
         
         repositoriesTable.registerReusableCell(TrendingRepositoryCell)
         
@@ -85,17 +76,61 @@ class TrendingController : UIViewController {
         repositoriesTable.rowHeight = UITableViewAutomaticDimension
     }
     
+    private func buildLanguageButton() {
+        languageButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        languageButton.addTarget(self, action: "clickedLanguage", forControlEvents: .TouchUpInside)
+    }
+    
+    @objc private func clickedLanguage() {
+        if !isSearching {
+            showPopover()
+        }
+    }
+    
+    private func updateLanguageIcon() {
+        languageImageView.language = language
+        let image = LanguageImage.loadForOr(language, orLanguageImageView: languageImageView).imageWithRenderingMode(.AlwaysOriginal)
+        languageButton.setBackgroundImage(image, forState: .Normal)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: languageButton)
+    }
+    
+    private func buildPopoverElements() {
+        let sb = UIStoryboard.main()
+        languagesPopoverController = sb.languagesPopoverController()
+        languagesPopoverController.modalPresentationStyle = .Popover
+        languagesPopoverController.languageSelectorDelegate = self
+    }
+    
+    
+    private func showPopover() {
+        popoverController = ARSPopover()
+        popoverController!.sourceView = languageButton
+        popoverController!.sourceRect = CGRectMake(CGRectGetMidX(languageButton.bounds), CGRectGetMaxY(languageButton.bounds), 0, 0)
+        popoverController!.contentSize = CGSizeMake(view.width - 50, 300)
+        popoverController!.arrowDirection = .Up;
+        
+        presentViewController(popoverController!, animated: true) { [weak self] in
+            self?.popoverController!.insertContentIntoPopover({ [weak self] (popover, _, _) in
+                guard let s = self else { return }
+                popover.view.addSubview(s.languagesPopoverController.view)
+            })
+        }
+    }
+    
     private func searchTrendingRepos() {
         repositoriesTable.hide()
         loadingView.show()
         loadingView.setLoading()
         
-        dataSource.search()
+        trendingDataSource.language = language
+        isSearching = true
+        trendingDataSource.search()
     }
     
     private func updateAfterResponse() {
         loadingView.hide()
         repositoriesTable.show()
+        isSearching = false
         languageButton.enabled = true
     }
     
@@ -119,18 +154,33 @@ class TrendingController : UIViewController {
             vc.repository = selectedRepository
         }
     }
-    
-    private func buildSegmentedControl() {
-        let segmentedControl = UISegmentedControl(items: trendingScopes.map { $0.rawValue })
-        segmentedControl.selectedSegmentIndex = 0
+}
+
+extension TrendingController : LanguageSelectedProtocol {
+    func didSelectLanguage(language: Language) {
+        popoverController?.dismissViewControllerAnimated(true, completion: nil)
         
-        segmentedControl.addTarget(self, action: "updateTrendingScope:", forControlEvents: .ValueChanged)
-        self.navigationItem.titleView = segmentedControl
+        if self.language == language { return }
+        
+        self.language = language == "All Languages" ? "" : language.replace(" ", with: "-")
+        
+        updateLanguageIcon()
+        searchTrendingRepos()
     }
     
-    @objc private func updateTrendingScope(control: UISegmentedControl) {
-        selectedTrendingScope = trendingScopes[control.selectedSegmentIndex]
-        dataSource.trendingScope = selectedTrendingScope
-        searchTrendingRepos()
+    func noLanguagesAvailable() {
+        popoverController?.dismissViewControllerAnimated(true, completion: nil)
+        NotifyError.display("No Languages to select. Check your internet connection")
+    }
+}
+
+private extension UIStoryboard {
+    
+    static func main() -> UIStoryboard {
+        return UIStoryboard(name: "Main", bundle: nil)
+    }
+    
+    func languagesPopoverController() -> LanguagesPopoverController {
+        return instantiateViewControllerWithIdentifier(String(LanguagesPopoverController)) as! LanguagesPopoverController
     }
 }

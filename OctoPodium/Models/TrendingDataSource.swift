@@ -22,6 +22,8 @@ class TrendingDataSource : NSObject, UITableViewDataSource {
     init(tableView: UITableView) {
         self.tableView = tableView
         super.init()
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

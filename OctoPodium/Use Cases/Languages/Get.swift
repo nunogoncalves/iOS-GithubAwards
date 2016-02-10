@@ -12,6 +12,16 @@ struct Languages {
     
     class Get: Getter {
         
+        private static var languages = [Language]()
+        
+        func getAll(success success: [Language] -> (), failure: NetworkStatus -> ()) {
+            if Languages.Get.languages.count == 0 {
+                get(success: success, failure: failure)
+            } else {
+                success(Languages.Get.languages)
+            }
+        }
+
         func getUrl() -> String {
             return "\(kUrls.languagesBaseUrl)?sort=popularity"
         }

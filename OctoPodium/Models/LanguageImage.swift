@@ -18,14 +18,14 @@ class LanguageImage : UIImage {
         }
     }
     
-    class func loadForOr(language: String, orLabel label: UILabel) -> UIImage {
+    class func loadForOr(language: String, orLanguageImageView languageImageView: LanguageImageView) -> UIImage {
         if language == "" { return UIImage(named: "Language")! }
         
         if let image = UIImage(named: language.lowercaseString) {
             return image
         } else {
-            UIGraphicsBeginImageContextWithOptions(label.bounds.size, false, 0.0)
-            label.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+            UIGraphicsBeginImageContextWithOptions(languageImageView.bounds.size, false, 0.0)
+            languageImageView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
             let image = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
             return image

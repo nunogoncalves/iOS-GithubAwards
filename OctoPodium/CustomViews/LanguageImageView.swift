@@ -16,15 +16,16 @@ class LanguageImageView : UIView {
     
     var language: Language? {
         didSet {
-            if let language = language {
-                if let image = UIImage(named: language.lowercaseString) {
+            if var lang = language {
+                if lang == "" { lang = "Language" }
+                if let image = UIImage(named: lang.lowercaseString) {
                     imageView.image = image
                     imageView.show()
                     label.hide()
                 } else {
                     imageView.hide()
                     label.show()
-                    label.text = "\(language.characters.first!)"
+                    label.text = "\(lang.characters.first!)"
                 }
             } else {
                 label.text = " "
@@ -32,7 +33,7 @@ class LanguageImageView : UIView {
             }
         }
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
