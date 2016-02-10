@@ -36,6 +36,8 @@ struct K {
     }
     
     struct Segues {
+        static let showLanguageRankingSegue = "ShowLanguageRankingSegue"
+        
         static let userDetailsSegue = "UserDetailsSegue"
         
         static let worldUsersSegue = "WorldUsersSegue"

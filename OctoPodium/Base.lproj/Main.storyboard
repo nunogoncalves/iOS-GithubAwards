@@ -40,6 +40,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="gza-o9-9bA" id="dPt-5m-5c0"/>
+                                    <outlet property="delegate" destination="gza-o9-9bA" id="RDA-g7-TRx"/>
                                 </connections>
                             </tableView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Le-Wb-FvH">
@@ -86,7 +87,7 @@
                         <outlet property="loadingIndicator" destination="IOW-bw-wLx" id="o0y-Nv-0nr"/>
                         <outlet property="searchBar" destination="AAR-44-pJD" id="nnm-94-zvL"/>
                         <outlet property="tryAgainButton" destination="7Le-Wb-FvH" id="LPz-x9-M2l"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="ShowUserDetailsSegueNotUsed" id="UJ2-bd-uBP"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="ShowLanguageRankingSegue" id="UJ2-bd-uBP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gtS-g7-kZV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1321,6 +1322,6 @@
         <image name="X" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PF5-Nm-xyF"/>
+        <segue reference="82b-ih-YU7"/>
     </inferredMetricsTieBreakers>
 </document>

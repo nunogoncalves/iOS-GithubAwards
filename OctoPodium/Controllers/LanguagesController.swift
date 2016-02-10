@@ -34,7 +34,7 @@ class LanguagesController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         navigationController?.setNavigationBarHidden(false, animated: true)
-        if segue.identifier == "GoToLanguageRankings" {
+        if segue.identifier == kSegues.showLanguageRankingSegue {
             let vc = segue.destinationViewController as! LanguageRankingsController
             vc.language = displayingLanguages[languagesTable.indexPathForSelectedRow!.row]
             languagesTable.deselectRowAtIndexPath(languagesTable.indexPathForSelectedRow!, animated: false)
@@ -72,6 +72,12 @@ extension LanguagesController {
         tryAgainButton.show()
         loadingIndicator?.hide()
         NotifyError.display(status.message())
+    }
+}
+
+extension LanguagesController : UITableViewDelegate {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier(kSegues.showLanguageRankingSegue, sender: self)
     }
 }
 
