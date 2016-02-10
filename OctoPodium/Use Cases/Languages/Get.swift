@@ -14,12 +14,20 @@ struct Languages {
         
         private static var languages = [Language]()
         
+        private var successLangs: ([Language] -> ())?
+        
         func getAll(success success: [Language] -> (), failure: NetworkStatus -> ()) {
+            successLangs = success
             if Languages.Get.languages.count == 0 {
-                get(success: success, failure: failure)
+                get(success: gotLanguages, failure: failure)
             } else {
                 success(Languages.Get.languages)
             }
+        }
+        
+        private func gotLanguages(languages: [Language]) {
+            Languages.Get.languages = languages
+            successLangs?(languages)
         }
 
         func getUrl() -> String {
