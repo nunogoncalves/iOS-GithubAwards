@@ -70,6 +70,45 @@ struct K {
             }
         }
     }
+    
+    enum Fonts : String {
+        case TitilliumWebBlack = "TitilliumWeb-Black"
+        case TitilliumWebBold = "TitilliumWeb-Bold"
+        case TitilliumWebBoldItalic = "TitilliumWeb-BoldItalic"
+        case TitilliumWebExtraLight = "TitilliumWeb-ExtraLight"
+        case TitilliumWebExtraLightItalic = "TitilliumWeb-ExtraLightItalic"
+        case TitilliumWebItalic = "TitilliumWeb-Italic"
+        case TitilliumWebLight = "TitilliumWeb-Light"
+        case TitilliumWebLightItalic = "TitilliumWeb-LightItalic"
+        case TitilliumWebRegular = "TitilliumWeb-Regular"
+        case TitilliumWebSemibold = "TitilliumWeb-SemiBold"
+        case TitilliumWebSemiBoldItalic = "TitilliumWeb-SemiBoldItalic"
+        
+        var all : [Fonts] {
+            return [
+                TitilliumWebBlack,
+                TitilliumWebBold,
+                TitilliumWebBoldItalic,
+                TitilliumWebExtraLight,
+                TitilliumWebExtraLightItalic,
+                TitilliumWebItalic,
+                TitilliumWebLight,
+                TitilliumWebLightItalic,
+                TitilliumWebRegular,
+                TitilliumWebSemibold,
+                TitilliumWebSemiBoldItalic,
+            ]
+        }
+        
+        var allValues : [String] {
+            return all.map { $0.rawValue }
+        }
+        
+        func fontWith(size: CGFloat) -> UIFont {
+            return UIFont(name: self.rawValue, size: size)!
+        }
+    }
+    
 }
 
 typealias kColors = K.Colors
@@ -77,3 +116,4 @@ typealias kUrls = K.Urls
 typealias kSegues = K.Segues
 typealias kTimeout = K.Timeouts
 typealias kAnalytics = K.Analytics
+typealias kFonts = K.Fonts
