@@ -10,14 +10,19 @@ import Kanna
 
 extension Repositories {
     class CreateListFromHTML {
+        
         static func list(html: String) -> [Repository] {
             var repositories = [Repository]()
             
-            let document = Kanna.HTML(html: html, encoding: NSUTF8StringEncoding)
-            guard document != nil else { return repositories }
+            guard let document = Kanna.HTML(html: html, encoding: NSUTF8StringEncoding) else {
+                return repositories
+            }
             
-            for (i, repoHTML) in getRepositoriesHTML(document!).enumerate() {
-                let metadataDoc = document!.xpath("//*[contains(@class, 'repo-list-meta')][\(i)]")
+            let metadataDocs = document.xpath("//*[contains(@class, 'repo-list-meta')]")
+            
+            for (i, repoHTML) in getRepositoriesHTML(document).enumerate() {
+                
+                let metadataDoc = metadataDocs[i]
                 
                 let repoName = getRepositoryNameFrom(repoHTML)
                 let stars = getStarsFrom(metadataDoc)
@@ -39,9 +44,8 @@ extension Repositories {
             return document.css("a")[1].text!.withoutSpaces()
         }
         
-        private static func getStarsFrom(document: XMLNodeSet) -> String {
+        private static func getStarsFrom(document: XMLElement) -> String {
             let metadata = document.text!.withoutSpaces()
-            
             var stars = metadata.substringBetween("•", and: "stars")
             if stars == nil {
                 stars = metadata.substringUntil("stars")
@@ -55,7 +59,7 @@ extension Repositories {
             return document.css("p.repo-list-description").text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).replace("\n", with: "").replace("      ", with: "")
         }
         
-        private static func getLanguageFrom(document: XMLNodeSet) -> String? {
+        private static func getLanguageFrom(document: XMLElement) -> String? {
             let metadata = document.text!.withoutSpaces()
             
             let language = metadata.substringUntil("•")
