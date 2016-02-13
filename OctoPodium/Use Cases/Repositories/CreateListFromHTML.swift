@@ -16,11 +16,8 @@ extension Repositories {
             let document = Kanna.HTML(html: html, encoding: NSUTF8StringEncoding)
             guard document != nil else { return repositories }
             
-            for repoHTML in getRepositoriesHTML(document!) {
-                
-                let repoDoc = Kanna.HTML(html: repoHTML.innerHTML!, encoding: NSUTF8StringEncoding)
-                
-                let metadataDoc = repoDoc!.xpath("//*[contains(@class, 'repo-list-meta')]")
+            for (i, repoHTML) in getRepositoriesHTML(document!).enumerate() {
+                let metadataDoc = document!.xpath("//*[contains(@class, 'repo-list-meta')][\(i)]")
                 
                 let repoName = getRepositoryNameFrom(repoHTML)
                 let stars = getStarsFrom(metadataDoc)
