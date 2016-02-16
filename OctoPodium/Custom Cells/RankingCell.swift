@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RankingCell: UITableViewCell {
+class RankingCell: UITableViewCell, NibReusable {
 
     @IBOutlet weak var header: UIView!
     @IBOutlet weak var languageLabel: UILabel!

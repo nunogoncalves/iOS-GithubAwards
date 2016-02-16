@@ -28,12 +28,13 @@ class LanguagesController: UIViewController {
     override func viewDidLoad() {
         searchBar.searchDelegate = self
         searchLanguages()
+        languagesTable.registerReusableCell(LanguageCell)
         SendToGoogleAnalytics.enteredScreen(kAnalytics.languagesScreen)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         navigationController?.setNavigationBarHidden(false, animated: true)
-        if segue.identifier == "GoToLanguageRankings" {
+        if segue.identifier == kSegues.showLanguageRankingSegue {
             let vc = segue.destinationViewController as! LanguageRankingsController
             vc.language = displayingLanguages[languagesTable.indexPathForSelectedRow!.row]
             languagesTable.deselectRowAtIndexPath(languagesTable.indexPathForSelectedRow!, animated: false)
@@ -42,7 +43,7 @@ class LanguagesController: UIViewController {
     
     private func searchLanguages() {
         setSearching()
-        Languages.Get().get(success: gotLanguages, failure: failedToLoadLanguages)
+        Languages.Get().getAll(success: gotLanguages, failure: failedToLoadLanguages)
     }
     
     private func setSearching() {
@@ -74,6 +75,12 @@ extension LanguagesController {
     }
 }
 
+extension LanguagesController : UITableViewDelegate {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier(kSegues.showLanguageRankingSegue, sender: self)
+    }
+}
+
 extension LanguagesController : UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -81,7 +88,7 @@ extension LanguagesController : UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(String(LanguageCell), forIndexPath: indexPath) as! LanguageCell
+        let cell = tableView.dequeueReusableCellFor(indexPath) as LanguageCell
         cell.language = displayingLanguages[indexPath.row]
         return cell
     }

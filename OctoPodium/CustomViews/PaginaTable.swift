@@ -13,7 +13,7 @@ class PaginaTable: UITableView {
     var loadingView: GithubLoadingView!
     var refreshControl: UIRefreshControl!
    
-    lazy var height: CGFloat! = {
+    lazy var frameHeight: CGFloat! = {
         return self.frame.size.height
     }()
     
@@ -22,7 +22,7 @@ class PaginaTable: UITableView {
     }()
     
     func isFooterVisible() -> Bool {
-        return contentOffset.y >= (contentSize.height - height)
+        return contentOffset.y >= (contentSize.height - frameHeight)
     }
     
     func showFooter() {

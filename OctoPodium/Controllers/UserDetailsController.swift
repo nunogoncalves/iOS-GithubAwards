@@ -87,7 +87,8 @@ class UserDetailsController: UIViewController {
         applyGradient()
         navigationItem.title = user!.login
         
-        rankingsTable.registerNib(UINib(nibName: String(RankingCell), bundle: nil), forCellReuseIdentifier: String(RankingCell))
+        rankingsTable.registerReusableCell(RankingCell)
+        
         Users.GetOne(login: user!.login!).get(success: userSuccess, failure: failure)
         SendToGoogleAnalytics.enteredScreen(kAnalytics.userDetailsScreenFor(user))
     }
@@ -108,6 +109,7 @@ class UserDetailsController: UIViewController {
     
     private func loadAvatar() {
         if let avatarUrl = user!.avatarUrl {
+            guard avatarUrl != "" else { return }
             ImageLoader.fetchAndLoad(avatarUrl, imageView: avatarImageView) {
                 self.loading.stopAnimating()
             }
@@ -165,6 +167,7 @@ class UserDetailsController: UIViewController {
 extension UserDetailsController {
     func userSuccess(user: User) {
         self.user = user
+        loadAvatar()
         applyReposStarsAndTrophiesLabelsFor(user)
         if let city = user.city {
             countryAndCityLabel.text = "\(user.country!.capitalizedString), \(city.capitalizedString)"
@@ -254,7 +257,7 @@ extension UserDetailsController: UITableViewDelegate {
         let contentHeight = scrollView.contentSize.height
         let rowsHeight = contentHeight - profileMinBGHeight
 
-        if rowsHeight <= scrollView.heigth + profileExtendedBGHeight {
+        if rowsHeight <= scrollView.height + profileExtendedBGHeight {
             return
         }
         
@@ -319,14 +322,8 @@ extension UserDetailsController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(String(RankingCell), forIndexPath: indexPath) as! RankingCell
+        let cell = tableView.dequeueReusableCellFor(indexPath) as RankingCell
         cell.rankingPresenter = RankingPresenter(ranking: rankings[indexPath.row])
         return cell
     }
-}
-
-private extension UIView {
-    var halfWidth: CGFloat { get { return width / 2 } }
-    var width: CGFloat { get { return frame.width } }
-    var heigth: CGFloat { get { return frame.width } }
 }

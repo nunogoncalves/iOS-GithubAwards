@@ -6,8 +6,10 @@ def testing_pods
 end
 
 target 'OctoPodium' do
-    pod 'SDWebImage', '~>3.7'
     pod 'Google/Analytics'
+    pod 'Kanna', '~> 1.0.0'
+    pod 'SDWebImage', '~>3.7'
+    pod 'ARSPopover', '~> 2.0'
 end
 
 target 'OctoPodiumTests' do

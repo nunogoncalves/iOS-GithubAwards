@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LanguageImageView" customModule="GitHubAwards" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LanguageImageView" customModule="OctoPodium" customModuleProvider="target">
             <connections>
                 <outlet property="container" destination="iN0-l3-epB" id="m8L-gH-ead"/>
                 <outlet property="imageView" destination="SkL-5K-l6f" id="P76-lM-3vu"/>

@@ -40,16 +40,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func configureGoogleAnalytics() {
         let gai = GAI.sharedInstance()
         
-        gai.logger.logLevel = .None
         
         // Configure tracker from GoogleService-Info.plist.
         var configureError: NSError?
         GGLContext.sharedInstance().configureWithError(&configureError)
         assert(configureError == nil, "Error configuring Google services: \(configureError)")
         
-        // Optional: configure GAI options.
-        
         gai.trackUncaughtExceptions = true  // report uncaught exceptions
+        gai.logger.logLevel = .None
     }
     
     private func setUpTabsAppearance() {
@@ -60,14 +58,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setUpNavigationAppearance() {
         let appearance = UINavigationBar.appearance()
-//        appearance.translucent = false
         appearance.barTintColor = UIColor(rgbValue: kColors.navigationBarColor)
         appearance.tintColor = .whiteColor()
         
         appearance.titleTextAttributes = [
             NSForegroundColorAttributeName : UIColor.whiteColor(),
         ]
-
     }
 
     func applicationWillResignActive(application: UIApplication) {}

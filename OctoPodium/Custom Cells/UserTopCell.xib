@@ -7,11 +7,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserTopCell" rowHeight="50" id="n8P-ni-x06" customClass="UserTopCell" customModule="GitHubAwards" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserTopCell" rowHeight="50" id="n8P-ni-x06" customClass="UserTopCell" customModule="OctoPodium" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="321" height="50"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n8P-ni-x06" id="tJQ-2I-HDF">
-                <rect key="frame" x="0.0" y="0.0" width="321" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="321" height="49.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GoldMedal" translatesAutoresizingMaskIntoConstraints="NO" id="373-dC-LNO">
