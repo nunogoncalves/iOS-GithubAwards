@@ -16,30 +16,42 @@ class LanguageRankingsController: UIViewController {
     @IBOutlet weak var countryContainer: UIView!
     @IBOutlet weak var cityContainer: UIView!
     
-    @IBOutlet weak var searchBar: SearchBar!
+    lazy var listContainers: [UIView] = { [unowned self] in
+        return [self.worldContainer, self.countryContainer, self.cityContainer]
+    }()
     
+    @IBOutlet weak var searchBar: SearchBar!
     @IBOutlet weak var loadingIndicator: GithubLoadingView!
     
-    var worldController: WorldUsersController!
-    var countryController: CountryUsersController!
-    var cityController: CityUsersController!
+    private var worldController: WorldUsersController!
+    private var countryController: CountryUsersController!
+    private var cityController: CityUsersController!
     
-    var city = ""
-    var lastCitySearched = ""
-    var country = ""
-    var lastCountrySearched = ""
+    lazy var listControllers: [UsersController] = { [unowned self] in
+        return [self.worldController, self.countryController, self.cityController]
+    }()
     
+    private var city = ""
+    private var lastCitySearched = ""
+    private var country = ""
+    private var lastCountrySearched = ""
+    
+    let locationTypes: [Int : LocationType] = [0 : .World, 1 : .Country, 2 : .City]
+    var selectedLocationType = LocationType.World
+
     @IBAction func locationTypeChanged(locationTypeControl: UISegmentedControl) {
-        selectedLocationType = locationTypes[locationTypeControl.selectedSegmentIndex]!
+        let selectedIndex = locationTypeControl.selectedSegmentIndex
+        selectedLocationType = locationTypes[selectedIndex]!
         
-        let containers = [worldContainer, countryContainer, cityContainer]
-        worldContainer.hide()
-        countryContainer.hide()
-        cityContainer.hide()
+        for listView in listContainers { listView.hide() }
+        listContainers[selectedIndex].show()
         
-        containers[locationTypeControl.selectedSegmentIndex].show()
-        
-        switch selectedLocationType {
+        setSearchBarTextBasedOn(selectedLocationType)
+        animateLocationTypeChanged(selectedLocationType.hasName())
+    }
+
+    private func setSearchBarTextBasedOn(locationType: LocationType) {
+        switch locationType {
         case .Country:
             searchBar.text = country
         case .City:
@@ -47,22 +59,18 @@ class LanguageRankingsController: UIViewController {
         default: break;
         }
         
-        if selectedLocationType.hasName() {
-            searchBar.placeholder = "Insert a \(selectedLocationType.rawValue)"
+        if locationType.hasName() {
+            searchBar.placeholder = "Insert a \(locationType.rawValue)"
         }
-        animateLocationTypeChanged()
     }
     
-    private func animateLocationTypeChanged() {
+    private func animateLocationTypeChanged(showSearchBar: Bool) {
         UIView.animateWithDuration(0.5) { [weak self] in
             self?.view.layoutIfNeeded()
-            self?.searchContainer.alpha = self!.selectedLocationType.hasName() ? 1.0 : 0.0
+            self?.searchContainer.alpha = showSearchBar ? 1.0 : 0.0
         }
     }
     
-    let locationTypes: [Int : LocationType] = [0 : .World, 1 : .Country, 2 : .City]
-    var selectedLocationType = LocationType.World
-
 //    let languageTitleView = LanguageTitleView(frame: CGRectMake(0.0, 0.0, 120.0, 40.0))
     
     var language: String? {
@@ -98,38 +106,17 @@ class LanguageRankingsController: UIViewController {
     }
 }
 
-private extension UIStoryboardSegue {
-    func countryController() -> CountryUsersController {
-        return destinationViewController as! CountryUsersController
-    }
-    
-    func cityController() -> CityUsersController {
-        return destinationViewController as! CityUsersController
-    }
-    
-    func worldController() -> WorldUsersController {
-        return destinationViewController as! WorldUsersController
-    }
-    
-}
-
 extension LanguageRankingsController : UISearchBarDelegate {
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        worldController.language = language!
-        countryController.language = language!
-        cityController.language = language!
+        for controller in listControllers { controller.language = language! }
         
         switch selectedLocationType {
         case .Country:
-            if country == lastCountrySearched {
-                break
-            }
+            if country == lastCountrySearched { break }
             lastCountrySearched = country
             countryController.search(searchBar.text!)
         case .City:
-            if city == lastCitySearched {
-                break
-            }
+            if city == lastCitySearched { break }
             lastCitySearched = city
             cityController.search(searchBar.text!)
         default: return
@@ -144,6 +131,20 @@ extension LanguageRankingsController : UISearchBarDelegate {
             city = searchBar.text!
         default: return
         }
+    }
+}
+
+private extension UIStoryboardSegue {
+    func countryController() -> CountryUsersController {
+        return destinationViewController as! CountryUsersController
+    }
+    
+    func cityController() -> CityUsersController {
+        return destinationViewController as! CityUsersController
+    }
+    
+    func worldController() -> WorldUsersController {
+        return destinationViewController as! WorldUsersController
     }
     
 }

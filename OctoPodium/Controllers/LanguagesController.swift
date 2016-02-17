@@ -21,10 +21,10 @@ class LanguagesController: UIViewController {
         searchLanguages()
     }
     
-    var allLanguages: [Language] = []
+    private var allLanguages: [Language] = []
+    private var displayingLanguages = [String]()
+    private var selectedLanguage: Language!
     
-    var displayingLanguages = [String]()
-  
     override func viewDidLoad() {
         searchBar.searchDelegate = self
         searchLanguages()
@@ -33,11 +33,8 @@ class LanguagesController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        navigationController?.setNavigationBarHidden(false, animated: true)
         if segue.identifier == kSegues.showLanguageRankingSegue {
-            let vc = segue.destinationViewController as! LanguageRankingsController
-            vc.language = displayingLanguages[languagesTable.indexPathForSelectedRow!.row]
-            languagesTable.deselectRowAtIndexPath(languagesTable.indexPathForSelectedRow!, animated: false)
+            segue.rankingsController().language = selectedLanguage
         }
     }
     
@@ -77,7 +74,9 @@ extension LanguagesController {
 
 extension LanguagesController : UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        selectedLanguage = displayingLanguages[indexPath.row]
         performSegueWithIdentifier(kSegues.showLanguageRankingSegue, sender: self)
+        languagesTable.deselectRowAtIndexPath(indexPath, animated: false)
     }
 }
 
@@ -103,5 +102,11 @@ extension LanguagesController : UISearchBarDelegate {
             displayingLanguages = allLanguages.filter { resultPredicate.evaluateWithObject($0) }
         }
         languagesTable.reloadData()
+    }
+}
+
+private extension UIStoryboardSegue {
+    func rankingsController() -> LanguageRankingsController {
+        return destinationViewController as! LanguageRankingsController
     }
 }
