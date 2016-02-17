@@ -29,6 +29,7 @@
 		851D3C3A1C0913E900870813 /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D3C391C0913E900870813 /* ResponseHandler.swift */; };
 		852B43C51C6A3E4000A1B63A /* LanguageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 852B43C31C6A3E4000A1B63A /* LanguageCell.xib */; };
 		8530ED361C60EA7F00173835 /* TrendingRepositoryDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8530ED351C60EA7F00173835 /* TrendingRepositoryDetailsController.swift */; };
+		85327EED1C74FB84003C7647 /* applescript.png in Resources */ = {isa = PBXBuildFile; fileRef = 85327EEC1C74FB84003C7647 /* applescript.png */; };
 		853C48DD1C0921AF00373A92 /* Paginator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48DC1C0921AF00373A92 /* Paginator.swift */; };
 		853C48DF1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */; };
 		853C48E11C09A28400373A92 /* GetOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48E01C09A28400373A92 /* GetOne.swift */; };
@@ -48,6 +49,7 @@
 		854A404B1C3ADCF7005E7FF1 /* NetworkStatusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854A404A1C3ADCF7005E7FF1 /* NetworkStatusTests.swift */; };
 		854A404D1C3B369D005E7FF1 /* VerifyRequestStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854A404C1C3B369D005E7FF1 /* VerifyRequestStatus.swift */; };
 		854A404F1C3B3D16005E7FF1 /* VerifyRequestStatusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854A404E1C3B3D16005E7FF1 /* VerifyRequestStatusTests.swift */; };
+		8555A9FB1C74CB5500715F91 /* delphi.png in Resources */ = {isa = PBXBuildFile; fileRef = 8555A9FA1C74CB5500715F91 /* delphi.png */; };
 		855913DE1C63879700E356FD /* RepoContentsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855913DD1C63879700E356FD /* RepoContentsFetcher.swift */; };
 		856A72E31C122C1E008415A4 /* css.png in Resources */ = {isa = PBXBuildFile; fileRef = 856A72DE1C122C1E008415A4 /* css.png */; };
 		856A72E41C122C1E008415A4 /* objective-c.png in Resources */ = {isa = PBXBuildFile; fileRef = 856A72DF1C122C1E008415A4 /* objective-c.png */; };
@@ -194,6 +196,7 @@
 		851D3C391C0913E900870813 /* ResponseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseHandler.swift; sourceTree = "<group>"; };
 		852B43C31C6A3E4000A1B63A /* LanguageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageCell.xib; sourceTree = "<group>"; };
 		8530ED351C60EA7F00173835 /* TrendingRepositoryDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingRepositoryDetailsController.swift; sourceTree = "<group>"; };
+		85327EEC1C74FB84003C7647 /* applescript.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = applescript.png; sourceTree = "<group>"; };
 		853C48DC1C0921AF00373A92 /* Paginator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paginator.swift; sourceTree = "<group>"; };
 		853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertUsersDictionaryToUsers.swift; sourceTree = "<group>"; };
 		853C48E01C09A28400373A92 /* GetOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetOne.swift; sourceTree = "<group>"; };
@@ -213,6 +216,7 @@
 		854A404A1C3ADCF7005E7FF1 /* NetworkStatusTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatusTests.swift; sourceTree = "<group>"; };
 		854A404C1C3B369D005E7FF1 /* VerifyRequestStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyRequestStatus.swift; sourceTree = "<group>"; };
 		854A404E1C3B3D16005E7FF1 /* VerifyRequestStatusTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyRequestStatusTests.swift; sourceTree = "<group>"; };
+		8555A9FA1C74CB5500715F91 /* delphi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delphi.png; sourceTree = "<group>"; };
 		855913DD1C63879700E356FD /* RepoContentsFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoContentsFetcher.swift; sourceTree = "<group>"; };
 		856A72DE1C122C1E008415A4 /* css.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = css.png; sourceTree = "<group>"; };
 		856A72DF1C122C1E008415A4 /* objective-c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "objective-c.png"; sourceTree = "<group>"; };
@@ -461,9 +465,9 @@
 		85820F3E1C0E2BDE0069D085 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				857AE7851C74AD82007AEE47 /* kotlin.png */,
 				85A9E55D1C351CAD0011DAA4 /* GithubLoading */,
 				850485341C104AE8004D952A /* GenericLanguage.png */,
+				85327EEC1C74FB84003C7647 /* applescript.png */,
 				857AE76C1C74A372007AEE47 /* c.png */,
 				857AE76E1C74A3E7007AEE47 /* c#.png */,
 				857AE7701C74A477007AEE47 /* c++.png */,
@@ -471,12 +475,14 @@
 				857113411C43BDD500011441 /* coffeescript.png */,
 				856A72DE1C122C1E008415A4 /* css.png */,
 				857AE77A1C74A972007AEE47 /* dart.png */,
+				8555A9FA1C74CB5500715F91 /* delphi.png */,
 				857AE7811C74AB54007AEE47 /* elixir.png */,
 				857113421C43BDD500011441 /* erlang.png */,
 				8504853D1C104C2B004D952A /* go.png */,
 				857113441C43BDD500011441 /* haskell.png */,
 				850485351C104AE8004D952A /* java.png */,
 				850485361C104AE8004D952A /* javascript.png */,
+				857AE7851C74AD82007AEE47 /* kotlin.png */,
 				857113451C43BDD500011441 /* lua.png */,
 				857113461C43BDD500011441 /* matlab.png */,
 				857AE77F1C74AAF9007AEE47 /* ocaml.png */,
@@ -909,11 +915,13 @@
 				8549ACC81C6C8B1F004D8149 /* TitilliumWeb-Bold.ttf in Resources */,
 				850485451C104C2B004D952A /* php.png in Resources */,
 				8549ACCD1C6C8B1F004D8149 /* TitilliumWeb-Light.ttf in Resources */,
+				8555A9FB1C74CB5500715F91 /* delphi.png in Resources */,
 				85B501831C10FCC300BBFD56 /* LanguageTitleView.xib in Resources */,
 				8549ACCE1C6C8B1F004D8149 /* TitilliumWeb-LightItalic.ttf in Resources */,
 				857AE7821C74AB54007AEE47 /* elixir.png in Resources */,
 				85118F201C47A802002B452F /* RankingCell.xib in Resources */,
 				85820F4D1C0E2C1A0069D085 /* GithubLoading-6.gif in Resources */,
+				85327EED1C74FB84003C7647 /* applescript.png in Resources */,
 				85820F4C1C0E2C1A0069D085 /* GithubLoading-5.gif in Resources */,
 				850485471C104C2B004D952A /* ruby.png in Resources */,
 				850485441C104C2B004D952A /* perl.png in Resources */,
