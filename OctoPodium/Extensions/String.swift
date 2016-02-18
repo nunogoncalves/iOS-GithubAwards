@@ -36,9 +36,23 @@ extension String {
     }
     
     func substringAfter(after: String) -> String? {
-        let range = rangeOfString(after)
+        let range = rangeOfString(after)?.startIndex.advancedBy(1)
         guard range != nil else { return nil }
-        return self.substringFromIndex(range!.startIndex)
+        return self.substringFromIndex(range!)
     }
 
+    /** Joins two strings with a separator charecter. If at least one of them is nil, the seperator character is not added. */
+     /// * join(" | ", "hello", "world") produces "hello | world"
+     /// * join(" | ", "hello", nil) produces "hello"
+     /// * join(" | ", nil, "world") produces "world"
+     /// * join(" | ", nil, nil) produces ""
+    static func join(separator: String, _ str1: String?, _ str2: String?) -> String {
+        if (str1 != nil && !str1!.isEmpty && str2 != nil && !str2!.isEmpty) {
+            return "\(str1!)\(separator)\(str2!)"
+        }
+        if (str1 != nil) { return str1! }
+        if (str2 != nil) { return str2! }
+        
+        return ""
+    }
 }

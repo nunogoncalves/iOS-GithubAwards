@@ -34,6 +34,10 @@ class UserPresenter {
         self.ranking = ranking
     }
     
+    convenience init(user: User) {
+        self.init(user: user, ranking: 0)
+    }
+    
     func isPodiumRanking() -> Bool {
         return ranking < 4 && ranking > 0
     }
@@ -69,5 +73,15 @@ class UserPresenter {
     
     func stars() -> String {
         return "\(user.starsCount ?? 0)"
+    }
+    
+    func hasLocation() -> Bool {
+        return user.hasLocation()
+    }
+    
+    var fullLocation: String {
+        let city = user.city?.capitalizedString
+        let country = user.country?.capitalizedString
+        return String.join(", ", country, city)
     }
 }

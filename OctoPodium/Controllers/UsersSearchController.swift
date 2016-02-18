@@ -48,7 +48,7 @@ class UsersSearchController: UIViewController {
         if segue.identifier == kSegues.userSearchToDetail {
             let vc = segue.destinationViewController as! UserDetailsController
             if let user = user {
-                vc.user = user
+                vc.userPresenter = UserPresenter(user: user)
             }
         }
     }
@@ -63,13 +63,8 @@ class UsersSearchController: UIViewController {
     }
     
     private func gotUser(user: User) {
-        
         userNotFoundLabel.hide()
-        xEyeLeft.hide()
-        xEyeRight.hide()
-        
-        eyeLeft.show()
-        eyeRight.show()
+        showEyeBalls()
         
         userLoginLabel.text = user.login!
         
@@ -79,7 +74,7 @@ class UsersSearchController: UIViewController {
             userLocationLabel.text = "\(user.country ?? "")"
         }
         let a = user.rankings.reduce(0) { (value, ranking) -> Int in
-            return value + (ranking.stars ?? 0)
+            return value + ranking.stars
         }
         
         userStarsLabel.text = "\(a ?? 0)"
@@ -90,21 +85,32 @@ class UsersSearchController: UIViewController {
         ImageLoader.fetchAndLoad(user.avatarUrl!, imageView: avatarImageView)
         
         userContainerTopConstraint.constant = 6.0
-        UIView.animateWithDuration(0.3) {
+        UIView.animateWithDuration(userMovementAnimationDuration) {
             self.view.layoutIfNeeded()
         }
     }
     
-    private func failedToSearchForUser(status: NetworkStatus) {
-        loadingIndicator.hide()
+    private func showEyeBalls() {
+        xEyeLeft.hide()
+        xEyeRight.hide()
         
-        
-        userNotFoundLabel.show()
+        eyeLeft.show()
+        eyeRight.show()
+    }
+    
+    private func showEyeCrosses() {
         xEyeLeft.show()
         xEyeRight.show()
         
         eyeLeft.hide()
         eyeRight.hide()
+    }
+    
+    private func failedToSearchForUser(status: NetworkStatus) {
+        loadingIndicator.hide()
+        
+        userNotFoundLabel.show()
+        showEyeCrosses()
         
         if status.isTechnicalError() {
             NotifyError.display(status.message())

@@ -37,7 +37,7 @@ class UserDetailsController: UIViewController {
     @IBOutlet weak var totalTrophiesLabel: UILabel!
     
     @IBAction func viewGithubProfileClicked() {
-        if let login = user?.login {
+        if let login = userPresenter?.login() {
             Browser.openPage("http://github.com/\(login)")
             SendToGoogleAnalytics.viewUserOnGithub(login)
         }
@@ -52,7 +52,8 @@ class UserDetailsController: UIViewController {
     weak var timer: NSTimer!
     var tempRankings = [Ranking]()
     
-    var user: User?
+//    var user: User?
+    var userPresenter: UserPresenter?
     
     var animateCells = true
     
@@ -74,23 +75,19 @@ class UserDetailsController: UIViewController {
     var avatarTransformRelation: CGFloat!
     
     override func viewDidLoad() {
-        if let city = user?.city {
-            countryAndCityLabel.text = "\(user!.country!.capitalizedString), \(city.capitalizedString)"
-        } else {
-            countryAndCityLabel.text = "\(user!.country ?? "")"
-        }
+        countryAndCityLabel.text = userPresenter!.fullLocation
         countryAndCityLabel.layoutIfNeeded()
         
         calculateScrollerConstants()
         
         loadAvatar()
         applyGradient()
-        navigationItem.title = user!.login
+        navigationItem.title = userPresenter!.login()
         
         rankingsTable.registerReusableCell(RankingCell)
         
-        Users.GetOne(login: user!.login!).get(success: userSuccess, failure: failure)
-        SendToGoogleAnalytics.enteredScreen(kAnalytics.userDetailsScreenFor(user))
+        Users.GetOne(login: userPresenter!.login()).get(success: userSuccess, failure: failure)
+        SendToGoogleAnalytics.enteredScreen(kAnalytics.userDetailsScreenFor(userPresenter!.user))
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -108,7 +105,7 @@ class UserDetailsController: UIViewController {
     }
     
     private func loadAvatar() {
-        if let avatarUrl = user!.avatarUrl {
+        if let avatarUrl = userPresenter!.avatarUrl() {
             guard avatarUrl != "" else { return }
             ImageLoader.fetchAndLoad(avatarUrl, imageView: avatarImageView) {
                 self.loading.stopAnimating()
@@ -166,14 +163,10 @@ class UserDetailsController: UIViewController {
 // Mark - Fetch callbacks
 extension UserDetailsController {
     func userSuccess(user: User) {
-        self.user = user
+        self.userPresenter = UserPresenter(user: user)
         loadAvatar()
         applyReposStarsAndTrophiesLabelsFor(user)
-        if let city = user.city {
-            countryAndCityLabel.text = "\(user.country!.capitalizedString), \(city.capitalizedString)"
-        } else {
-            countryAndCityLabel.text = "\(user.country ?? "")"
-        }
+        countryAndCityLabel.text = userPresenter!.fullLocation
         rankings = user.rankings
         loadingView.hidden = true
         addItemsToTable()
@@ -281,7 +274,7 @@ extension UserDetailsController: UITableViewDelegate {
         profileTopConstraint.constant = profileExtendedBGHeight - profileBgHeight
         statsContainer.alpha = 1 - (offset / profileExtendedBGHeight)
         
-        if user!.hasLocation() { moveLocationLabel(offset) }
+        if userPresenter!.hasLocation() { moveLocationLabel(offset) }
         moveAvatar(offset)
         moveButton(offset)
     }
@@ -311,7 +304,7 @@ extension UserDetailsController: UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return user!.hasLocation() ? 158 : 78
+        return userPresenter!.hasLocation() ? 158 : 78
     }
 }
 

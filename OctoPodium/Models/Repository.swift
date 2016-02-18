@@ -11,11 +11,13 @@ struct Repository {
     let name: String
     let stars: String
     let language: String?
+    let url: String
     let description: String
     let user: String
     
+    
     var completeName: String {
-        return "\(user)\(name)"
+        return "\(user)/\(name)"
     }
     
     init(name: String, stars: String, description: String, language: String?) {
@@ -23,6 +25,7 @@ struct Repository {
         self.stars = stars
         self.description = description
         self.language = language
+        self.url = "https://github.com/\(name)"
         self.user = Repository.getUserFromName(name)
     }
     

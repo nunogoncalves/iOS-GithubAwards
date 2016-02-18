@@ -57,7 +57,8 @@ class UsersController : UIViewController {
         if (segue.identifier == kSegues.userDetailsSegue && selectedIndex != nil) {
             usersTable.deselectRowAtIndexPath(selectedIndex!, animated: true)
             let destVC = segue.destinationViewController as! UserDetailsController
-            destVC.user = usersTableDataSource.dataForIndexPath(selectedIndex!) as? User
+            let user = usersTableDataSource.dataForIndexPath(selectedIndex!) as? User
+            destVC.userPresenter = UserPresenter(user: user!)
         }
     }
     

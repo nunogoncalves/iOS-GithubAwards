@@ -67,6 +67,8 @@
 		857113501C43BDD500011441 /* r.png in Resources */ = {isa = PBXBuildFile; fileRef = 857113471C43BDD500011441 /* r.png */; };
 		857113511C43BDD500011441 /* rust.png in Resources */ = {isa = PBXBuildFile; fileRef = 857113481C43BDD500011441 /* rust.png */; };
 		857113521C43BDD500011441 /* scala.png in Resources */ = {isa = PBXBuildFile; fileRef = 857113491C43BDD500011441 /* scala.png */; };
+		857858521C7618A7009195B8 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857858511C7618A7009195B8 /* StringTests.swift */; };
+		857858541C7625CD009195B8 /* RepositoryOptionsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857858531C7625CD009195B8 /* RepositoryOptionsBuilder.swift */; };
 		857943A41C3DCC8B00824577 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 857943A31C3DCC8B00824577 /* UserCell.xib */; };
 		857943A81C3E5A8D00824577 /* UsersTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857943A71C3E5A8D00824577 /* UsersTable.swift */; };
 		857943AC1C3E5D3100824577 /* UserTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 857943AB1C3E5D3100824577 /* UserTopCell.xib */; };
@@ -234,6 +236,8 @@
 		857113471C43BDD500011441 /* r.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = r.png; sourceTree = "<group>"; };
 		857113481C43BDD500011441 /* rust.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rust.png; sourceTree = "<group>"; };
 		857113491C43BDD500011441 /* scala.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scala.png; sourceTree = "<group>"; };
+		857858511C7618A7009195B8 /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
+		857858531C7625CD009195B8 /* RepositoryOptionsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositoryOptionsBuilder.swift; path = ../Controllers/RepositoryOptionsBuilder.swift; sourceTree = "<group>"; };
 		857943A31C3DCC8B00824577 /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		857943A71C3E5A8D00824577 /* UsersTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTable.swift; sourceTree = "<group>"; };
 		857943AB1C3E5D3100824577 /* UserTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTopCell.xib; sourceTree = "<group>"; };
@@ -435,6 +439,14 @@
 			path = DataSources;
 			sourceTree = "<group>";
 		};
+		857858551C7633E1009195B8 /* AlertController */ = {
+			isa = PBXGroup;
+			children = (
+				857858531C7625CD009195B8 /* RepositoryOptionsBuilder.swift */,
+			);
+			name = AlertController;
+			sourceTree = "<group>";
+		};
 		857EB00A1C5951AE00C315DF /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
@@ -558,6 +570,7 @@
 		858B910D1C085AC700B510B3 /* Use Cases */ = {
 			isa = PBXGroup;
 			children = (
+				857858551C7633E1009195B8 /* AlertController */,
 				857EB00A1C5951AE00C315DF /* Analytics */,
 				856D67651C3424BA00A77678 /* Browser */,
 				856D67681C3426C200A77678 /* Data */,
@@ -730,6 +743,7 @@
 				85E6566C1C134C7000BB4278 /* PaginatorTests.swift */,
 				8517ECBE1C2C1EDB00467985 /* RankingPresenterTests.swift */,
 				858B91141C085E6400B510B3 /* SearchOptionsTests.swift */,
+				857858511C7618A7009195B8 /* StringTests.swift */,
 				85FC70671C2456FF00971081 /* UserPresenterTests.swift */,
 				859CE4BE1C2FDF3D008A7856 /* UsersListResponseTests.swift */,
 				854A404E1C3B3D16005E7FF1 /* VerifyRequestStatusTests.swift */,
@@ -1142,6 +1156,7 @@
 				856D67671C3424C900A77678 /* Browser.swift in Sources */,
 				85FC70661C244CAA00971081 /* UserPresenter.swift in Sources */,
 				85D321231C0222F4001B7C7A /* ImageLoader.swift in Sources */,
+				857858541C7625CD009195B8 /* RepositoryOptionsBuilder.swift in Sources */,
 				8549ACBA1C6C8A3D004D8149 /* UILabel.swift in Sources */,
 				85D320F01C02062E001B7C7A /* AppDelegate.swift in Sources */,
 				854A404D1C3B369D005E7FF1 /* VerifyRequestStatus.swift in Sources */,
@@ -1185,6 +1200,7 @@
 			files = (
 				8599284E1C0D9579000ABE8C /* LocationTypeTests.swift in Sources */,
 				859CE4BF1C2FDF3D008A7856 /* UsersListResponseTests.swift in Sources */,
+				857858521C7618A7009195B8 /* StringTests.swift in Sources */,
 				854A404F1C3B3D16005E7FF1 /* VerifyRequestStatusTests.swift in Sources */,
 				85FC70681C2456FF00971081 /* UserPresenterTests.swift in Sources */,
 				858B91151C085E6400B510B3 /* SearchOptionsTests.swift in Sources */,
@@ -1333,6 +1349,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				ENABLE_BITCODE = NO;
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					"$(inherited)",
+					"${PODS_ROOT}/Google/Headers",
+					"$(SDKROOT)/usr/include/libxml2",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Google\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleNetworkingUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
+				);
 				INFOPLIST_FILE = "OctoPodium/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1367,6 +1396,19 @@
 			baseConfigurationReference = F01D99FA28C668D09294A052 /* Pods-OctoPodiumTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_ROOT}/Google/Headers",
+					"$(SDKROOT)/usr/include/libxml2",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Google\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleNetworkingUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
+				);
 				INFOPLIST_FILE = OctoPodiumTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.ios.OctoPodiumTests;

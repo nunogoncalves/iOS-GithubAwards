@@ -21,7 +21,7 @@ class Ranking {
     
     var language: String?
     var repositories: Int?
-    var stars: Int?
+    var stars: Int
     
     init(city: String?,
         cityRanking: Int?,
@@ -45,6 +45,6 @@ class Ranking {
             self.worldTotal = worldTotal
             self.language = language
             self.repositories = repositories
-            self.stars = stars
+            self.stars = stars ?? 0
     }
 }

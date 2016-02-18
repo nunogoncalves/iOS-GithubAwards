@@ -65,15 +65,18 @@ class TrendingController : UIViewController {
     }
     
     private func setupRepositoriesTable() {
+        setupDataSource()
+
+        repositoriesTable.registerReusableCell(TrendingRepositoryCell)
+        repositoriesTable.estimatedRowHeight = 95.0
+        repositoriesTable.rowHeight = UITableViewAutomaticDimension
+    }
+    
+    private func setupDataSource() {
         trendingDataSource = TrendingDataSource(tableView: repositoriesTable)
         trendingDataSource.userClicked = userClicked
         trendingDataSource.repositoryCellClicked = repositoryCellClicked
         trendingDataSource.gotRepositories = updateAfterResponse
-        
-        repositoriesTable.registerReusableCell(TrendingRepositoryCell)
-        
-        repositoriesTable.estimatedRowHeight = 95.0
-        repositoriesTable.rowHeight = UITableViewAutomaticDimension
     }
     
     private func buildLanguageButton() {
@@ -146,7 +149,8 @@ class TrendingController : UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == kSegues.trendingToUserDetailsSegue {
             let vc = segue.destinationViewController as! UserDetailsController
-            vc.user = User(login: sender as! String, avatarUrl: "")
+            let user = User(login: sender as! String, avatarUrl: "")
+            vc.userPresenter = UserPresenter(user: user)
         }
         
         if segue.identifier == kSegues.showTrendingRepositoryDetailsSegue {

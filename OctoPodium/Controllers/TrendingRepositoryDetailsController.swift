@@ -20,6 +20,15 @@ class TrendingRepositoryDetailsController: UIViewController {
         navigationItem.title = repository?.name
         loadWebView()
         SendToGoogleAnalytics.enteredScreen(String(TrendingRepositoryDetailsController))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "showRepoOptions")
+    }
+    @objc private func showRepoOptions() {        
+        let repoBuilder = RepositoryOptionsBuilder.build(repository!) { [weak self] in
+            guard let s = self else { return }
+            let activityViewController = UIActivityViewController(activityItems: [s.repository!.url as NSString], applicationActivities: nil)
+            s.presentViewController(activityViewController, animated: true, completion: {})
+        }
+        presentViewController(repoBuilder, animated: true, completion: nil)
     }
     
     private func loadWebView() {
