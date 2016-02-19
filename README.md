@@ -1,11 +1,12 @@
+<p align="center">
+  <img src="https://dl.dropboxusercontent.com/u/2001692/imagesshelf/OctoPodium/Banner.png">
+</p>
+
 <h1> OctoPodium
   <a target="_blank" href="https://itunes.apple.com/pt/app/octopodium/id1077519133">
   <img src="http://www.busride.org/portals/83/Images/MobileApp/Apple%20App%20Rectangle.jpg" width="100px">
   </a>
 </h1>
-<p align="center">
-  <img src="https://dl.dropboxusercontent.com/u/2001692/imagesshelf/OctoPodium/AppIcon.png" width="100px">
-</p>
 
 Check how you rank on your location based on your number of stars of your repositories on github. 
 You can:
