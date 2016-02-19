@@ -51,6 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func setUpTabsAppearance() {
+        
         let tabBarAppearance = UITabBar.appearance()
         tabBarAppearance.tintColor = .whiteColor()
         tabBarAppearance.barTintColor = UIColor(rgbValue: kColors.tabBarColor)
@@ -58,6 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setUpNavigationAppearance() {
         let appearance = UINavigationBar.appearance()
+        appearance.barStyle = .Black
         appearance.barTintColor = UIColor(rgbValue: kColors.navigationBarColor)
         appearance.tintColor = .whiteColor()
         
