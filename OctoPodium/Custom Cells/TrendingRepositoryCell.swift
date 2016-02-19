@@ -22,7 +22,7 @@ class TrendingRepositoryCell: UITableViewCell, NibReusable {
             let repository = repositorySince.repository
             let since = repositorySince.since
             
-            nameLabel.text = "\(repository.user)\(repository.name)"
+            nameLabel.text = "\(repository.user)/\(repository.name)"
 
             let tapGesture = UITapGestureRecognizer(target: self, action: "clickedUser")
             nameLabel.userInteractionEnabled = true

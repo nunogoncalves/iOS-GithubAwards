@@ -10,31 +10,34 @@ import UIKit
 
 struct RepositoryOptionsBuilder {
     
-    static func build(repository: Repository, shareAction: () -> () = {}) -> UIAlertController {
+    static func build(url: String, shareAction: () -> () = {}) -> UIAlertController {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         
-        let browser = UIAlertAction(title: "View on Github", style: .Default, handler: viewOnGithub(repository))
+        let browser = actionWith(title: "View on Github", handler: viewOnGithub(url))
+        let copy = actionWith(title: "Copy URL", handler: copyToBoard(url))
+        let share = actionWith(title: "Share", handler: { _ in shareAction() })
+        
         alert.addAction(browser)
-        
-        let copy = UIAlertAction(title: "Copy URL", style: .Default, handler: copyToBoard(repository))
         alert.addAction(copy)
-        
-        alert.addAction(UIAlertAction(title: "Share", style: .Default, handler: {_ in shareAction() }))
+        alert.addAction(share)
         alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-        
         
         return alert
     }
     
-    private static func viewOnGithub(repository: Repository) -> ((UIAlertAction) -> Void)?{
+    private static func actionWith(title title: String, handler: (UIAlertAction -> Void)?) -> UIAlertAction {
+        return UIAlertAction(title: title, style: .Default, handler: handler)
+    }
+    
+    private static func viewOnGithub(url: String) -> ((UIAlertAction) -> Void)?{
         return { _ in
-            Browser.openPage(repository.url)
+            Browser.openPage(url)
         }
     }
     
-    private static func copyToBoard(repository: Repository) -> ((UIAlertAction) -> Void)? {
+    private static func copyToBoard(url: String) -> ((UIAlertAction) -> Void)? {
         return { _ in
-            UIPasteboard.generalPasteboard().string = repository.url
+            UIPasteboard.generalPasteboard().string = url
         }
     }
 }

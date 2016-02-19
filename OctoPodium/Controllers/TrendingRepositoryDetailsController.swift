@@ -23,7 +23,7 @@ class TrendingRepositoryDetailsController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "showRepoOptions")
     }
     @objc private func showRepoOptions() {        
-        let repoBuilder = RepositoryOptionsBuilder.build(repository!) { [weak self] in
+        let repoBuilder = RepositoryOptionsBuilder.build(repository!.url) { [weak self] in
             guard let s = self else { return }
             let activityViewController = UIActivityViewController(activityItems: [s.repository!.url as NSString], applicationActivities: nil)
             s.presentViewController(activityViewController, animated: true, completion: {})

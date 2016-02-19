@@ -84,4 +84,8 @@ class UserPresenter {
         let country = user.country?.capitalizedString
         return String.join(", ", country, city)
     }
+    
+    var gitHubUrl: String {
+        return "https://www.github.com/\(user.login!)"
+    }
 }

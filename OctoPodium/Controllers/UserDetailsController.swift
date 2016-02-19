@@ -84,10 +84,22 @@ class UserDetailsController: UIViewController {
         applyGradient()
         navigationItem.title = userPresenter!.login()
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "showRepoOptions")
+        
         rankingsTable.registerReusableCell(RankingCell)
         
         Users.GetOne(login: userPresenter!.login()).get(success: userSuccess, failure: failure)
         SendToGoogleAnalytics.enteredScreen(kAnalytics.userDetailsScreenFor(userPresenter!.user))
+    }
+    
+    @objc private func showRepoOptions() {
+        let userUrl = userPresenter!.gitHubUrl
+        let actionsBuilder = RepositoryOptionsBuilder.build(userUrl) { [weak self] in
+            guard let s = self else { return }
+            let activityViewController = UIActivityViewController(activityItems: [userUrl as NSString], applicationActivities: nil)
+            s.presentViewController(activityViewController, animated: true, completion: {})
+        }
+        presentViewController(actionsBuilder, animated: true, completion: nil)
     }
     
     override func viewWillDisappear(animated: Bool) {
