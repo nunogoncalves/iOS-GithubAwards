@@ -27,8 +27,10 @@ As the web version, this is not affiliated with the GitHub company in any way.
 </p>
 
 <p align="center">
-  By: @goncalvescmnuno
-  <a target="_blank" href="https://twitter.com/goncalvescmnuno">
-  <img src="https://dl.dropboxusercontent.com/u/2001692/imagesshelf/OctoPodium/twitter.png" width="20px">
-  </a>
+  <img src="https://dl.dropboxusercontent.com/u/2001692/imagesshelf/OctoPodium/twitter.png" width="20px"></br>
+  Developed by: @goncalvescmnuno
+  <a target="_blank" href="https://twitter.com/goncalvescmnuno"><a/>
+  </br>
+  Designed by: @claudiaconceic
+  <a target="_blank" href="https://twitter.com/claudiaconceic"><a/>
 </p>
