@@ -39,7 +39,7 @@ It uses the API provided by [GithubAwads](http://github-awards.com/) ([docs](htt
 - Search for users
 - View Github trending repositories, for all languages or a specific language.
 
-##Images
+##Screenshots
 <p align="center">
   <img src="https://dl.dropboxusercontent.com/u/2001692/imagesshelf/OctoPodium/Languages.png" width="150px">
   <img src="https://dl.dropboxusercontent.com/u/2001692/imagesshelf/OctoPodium/Javascript.png" width="150px">
