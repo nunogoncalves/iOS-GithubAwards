@@ -9,15 +9,37 @@
 </h1>
 
 Check how you rank on your location based on your number of stars of your repositories on github. 
-You can:
-- View rankings for a given language. For Cities, Countries or worldwide.
+
+### Requirements
+
+- iOS 8.0+
+- Xcode 7.2
+- Cocoapods 0.39.0
+
+
+### CocoaPods
+
+[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects.
+
+You can install it with the following command:
+
+```bash
+$ gem install cocoapods
+```
+
+## Notice
+It is not affiliated with the GitHub company in any way.
+
+## About
+Project written in Swift, was my first personal App published to the App Store.
+It uses the API provided by [GithubAwads](http://github-awards.com/) ([docs](http://github-awards.com/docs)) made by Vincent Daubry ([Github](https://github.com/vdaubry), [Twitter](https://twitter.com/vdaubry)).
+
+##What you can do:
+- View rankings for a given language. Select either World, a city or a country.
 - Search for users
-- View Github trending repositories
+- View Github trending repositories, for all languages or a specific language.
 
-This app uses the API provided by the GithubAwads web app ([Web app](http://github-awards.com/), [docs](http://github-awards.com/docs)) made by Vincent Daubry ([Github](https://github.com/vdaubry), [Twitter](https://twitter.com/vdaubry)).
-
-As the web version, this is not affiliated with the GitHub company in any way.
-
+##Images
 <p align="center">
   <img src="https://dl.dropboxusercontent.com/u/2001692/imagesshelf/OctoPodium/Languages.png" width="150px">
   <img src="https://dl.dropboxusercontent.com/u/2001692/imagesshelf/OctoPodium/Javascript.png" width="150px">
