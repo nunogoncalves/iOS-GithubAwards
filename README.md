@@ -31,7 +31,7 @@ $ gem install cocoapods
 It is not affiliated with the GitHub company in any way.
 
 ## About
-Project written in Swift, was my first personal App published to the App Store.
+App written in Swift, it was my first personal App published to the App Store.
 It uses the API provided by [GithubAwads](http://github-awards.com/) ([docs](http://github-awards.com/docs)) made by Vincent Daubry ([Github](https://github.com/vdaubry), [Twitter](https://twitter.com/vdaubry)).
 
 ##What you can do:
