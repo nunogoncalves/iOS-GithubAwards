@@ -208,17 +208,17 @@
 		854813A51C79059C00182C6B /* GitHub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHub.swift; sourceTree = "<group>"; };
 		854813A71C7905D200182C6B /* StarsAndForksFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarsAndForksFetcher.swift; sourceTree = "<group>"; };
 		8549ACB91C6C8A3D004D8149 /* UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
-		8549ACBC1C6C8B1F004D8149 /* TitilliumWeb-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TitilliumWeb-Black.ttf"; path = "Fonts/TitilliumWeb-Black.ttf"; sourceTree = "<group>"; };
-		8549ACBD1C6C8B1F004D8149 /* TitilliumWeb-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TitilliumWeb-Bold.ttf"; path = "Fonts/TitilliumWeb-Bold.ttf"; sourceTree = "<group>"; };
-		8549ACBE1C6C8B1F004D8149 /* TitilliumWeb-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TitilliumWeb-BoldItalic.ttf"; path = "Fonts/TitilliumWeb-BoldItalic.ttf"; sourceTree = "<group>"; };
-		8549ACBF1C6C8B1F004D8149 /* TitilliumWeb-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TitilliumWeb-ExtraLight.ttf"; path = "Fonts/TitilliumWeb-ExtraLight.ttf"; sourceTree = "<group>"; };
-		8549ACC01C6C8B1F004D8149 /* TitilliumWeb-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TitilliumWeb-ExtraLightItalic.ttf"; path = "Fonts/TitilliumWeb-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
-		8549ACC11C6C8B1F004D8149 /* TitilliumWeb-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TitilliumWeb-Italic.ttf"; path = "Fonts/TitilliumWeb-Italic.ttf"; sourceTree = "<group>"; };
-		8549ACC21C6C8B1F004D8149 /* TitilliumWeb-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TitilliumWeb-Light.ttf"; path = "Fonts/TitilliumWeb-Light.ttf"; sourceTree = "<group>"; };
-		8549ACC31C6C8B1F004D8149 /* TitilliumWeb-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TitilliumWeb-LightItalic.ttf"; path = "Fonts/TitilliumWeb-LightItalic.ttf"; sourceTree = "<group>"; };
-		8549ACC41C6C8B1F004D8149 /* TitilliumWeb-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TitilliumWeb-Regular.ttf"; path = "Fonts/TitilliumWeb-Regular.ttf"; sourceTree = "<group>"; };
-		8549ACC51C6C8B1F004D8149 /* TitilliumWeb-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TitilliumWeb-SemiBold.ttf"; path = "Fonts/TitilliumWeb-SemiBold.ttf"; sourceTree = "<group>"; };
-		8549ACC61C6C8B1F004D8149 /* TitilliumWeb-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TitilliumWeb-SemiBoldItalic.ttf"; path = "Fonts/TitilliumWeb-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		8549ACBC1C6C8B1F004D8149 /* TitilliumWeb-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Black.ttf"; sourceTree = "<group>"; };
+		8549ACBD1C6C8B1F004D8149 /* TitilliumWeb-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Bold.ttf"; sourceTree = "<group>"; };
+		8549ACBE1C6C8B1F004D8149 /* TitilliumWeb-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-BoldItalic.ttf"; sourceTree = "<group>"; };
+		8549ACBF1C6C8B1F004D8149 /* TitilliumWeb-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-ExtraLight.ttf"; sourceTree = "<group>"; };
+		8549ACC01C6C8B1F004D8149 /* TitilliumWeb-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		8549ACC11C6C8B1F004D8149 /* TitilliumWeb-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Italic.ttf"; sourceTree = "<group>"; };
+		8549ACC21C6C8B1F004D8149 /* TitilliumWeb-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Light.ttf"; sourceTree = "<group>"; };
+		8549ACC31C6C8B1F004D8149 /* TitilliumWeb-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-LightItalic.ttf"; sourceTree = "<group>"; };
+		8549ACC41C6C8B1F004D8149 /* TitilliumWeb-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Regular.ttf"; sourceTree = "<group>"; };
+		8549ACC51C6C8B1F004D8149 /* TitilliumWeb-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-SemiBold.ttf"; sourceTree = "<group>"; };
+		8549ACC61C6C8B1F004D8149 /* TitilliumWeb-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		854A404A1C3ADCF7005E7FF1 /* NetworkStatusTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatusTests.swift; sourceTree = "<group>"; };
 		854A404C1C3B369D005E7FF1 /* VerifyRequestStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyRequestStatus.swift; sourceTree = "<group>"; };
 		854A404E1C3B3D16005E7FF1 /* VerifyRequestStatusTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyRequestStatusTests.swift; sourceTree = "<group>"; };
@@ -241,7 +241,7 @@
 		857113481C43BDD500011441 /* rust.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rust.png; sourceTree = "<group>"; };
 		857113491C43BDD500011441 /* scala.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scala.png; sourceTree = "<group>"; };
 		857858511C7618A7009195B8 /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
-		857858531C7625CD009195B8 /* RepositoryOptionsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositoryOptionsBuilder.swift; path = ../Controllers/RepositoryOptionsBuilder.swift; sourceTree = "<group>"; };
+		857858531C7625CD009195B8 /* RepositoryOptionsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryOptionsBuilder.swift; sourceTree = "<group>"; };
 		857943A31C3DCC8B00824577 /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		857943A71C3E5A8D00824577 /* UsersTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTable.swift; sourceTree = "<group>"; };
 		857943AB1C3E5D3100824577 /* UserTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTopCell.xib; sourceTree = "<group>"; };
@@ -408,14 +408,14 @@
 				8549ACC51C6C8B1F004D8149 /* TitilliumWeb-SemiBold.ttf */,
 				8549ACC61C6C8B1F004D8149 /* TitilliumWeb-SemiBoldItalic.ttf */,
 			);
-			name = Fonts;
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		855913DC1C63878300E356FD /* GitHub */ = {
 			isa = PBXGroup;
 			children = (
-				855913DD1C63879700E356FD /* RepoContentsFetcher.swift */,
 				854813A51C79059C00182C6B /* GitHub.swift */,
+				855913DD1C63879700E356FD /* RepoContentsFetcher.swift */,
 				854813A71C7905D200182C6B /* StarsAndForksFetcher.swift */,
 			);
 			path = GitHub;
@@ -450,7 +450,7 @@
 			children = (
 				857858531C7625CD009195B8 /* RepositoryOptionsBuilder.swift */,
 			);
-			name = AlertController;
+			path = AlertController;
 			sourceTree = "<group>";
 		};
 		857EB00A1C5951AE00C315DF /* Analytics */ = {
@@ -486,9 +486,9 @@
 				85A9E55D1C351CAD0011DAA4 /* GithubLoading */,
 				850485341C104AE8004D952A /* GenericLanguage.png */,
 				85327EEC1C74FB84003C7647 /* applescript.png */,
-				857AE76C1C74A372007AEE47 /* c.png */,
 				857AE76E1C74A3E7007AEE47 /* c#.png */,
 				857AE7701C74A477007AEE47 /* c++.png */,
+				857AE76C1C74A372007AEE47 /* c.png */,
 				857AE7761C74A7C5007AEE47 /* clojure.png */,
 				857113411C43BDD500011441 /* coffeescript.png */,
 				856A72DE1C122C1E008415A4 /* css.png */,
@@ -503,8 +503,8 @@
 				857AE7851C74AD82007AEE47 /* kotlin.png */,
 				857113451C43BDD500011441 /* lua.png */,
 				857113461C43BDD500011441 /* matlab.png */,
-				857AE77F1C74AAF9007AEE47 /* ocaml.png */,
 				856A72DF1C122C1E008415A4 /* objective-c.png */,
+				857AE77F1C74AAF9007AEE47 /* ocaml.png */,
 				8504853E1C104C2B004D952A /* perl.png */,
 				8504853F1C104C2B004D952A /* php.png */,
 				857AE7831C74AC4E007AEE47 /* python.png */,
@@ -606,8 +606,8 @@
 			children = (
 				859928501C0DAB23000ABE8C /* String.swift */,
 				8508B76A1C1593D40024684F /* UIColor.swift */,
-				85B2C2CF1C18D07800112D95 /* UIView.swift */,
 				8549ACB91C6C8A3D004D8149 /* UILabel.swift */,
+				85B2C2CF1C18D07800112D95 /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
