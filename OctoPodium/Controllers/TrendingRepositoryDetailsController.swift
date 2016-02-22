@@ -10,6 +10,9 @@ import UIKit
 
 class TrendingRepositoryDetailsController: UIViewController {
 
+    @IBOutlet weak var forksLabel: UILabel!
+    @IBOutlet weak var starsLabel: UILabel!
+    
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var loadingView: GithubLoadingView!
     
@@ -19,6 +22,7 @@ class TrendingRepositoryDetailsController: UIViewController {
         webView.delegate = self
         navigationItem.title = repository?.name
         loadWebView()
+        fetchStarsAndForks()
         SendToGoogleAnalytics.enteredScreen(String(TrendingRepositoryDetailsController))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "showRepoOptions")
     }
@@ -40,6 +44,16 @@ class TrendingRepositoryDetailsController: UIViewController {
         
         GitHub.RepoContentFetcher(repositoryName: repository.completeName)
             .get(success: gotGithubApiResponse, failure: gitHubApiFailed)
+    }
+    
+    private func fetchStarsAndForks() {
+        guard let repository = repository else { return }
+        GitHub.StarsAndForksFetcher(repositoryName: repository.completeName).get(success: gotStarsAndForks, failure: gitHubApiFailed)
+    }
+    
+    private func gotStarsAndForks(starsAndForks: (stars: Int, forks: Int)) {
+        starsLabel.text = "Stars: \(starsAndForks.stars)"
+        forksLabel.text = "Forks: \(starsAndForks.forks)"
     }
     
     private func gotGithubApiResponse(readMeLocation: String) {
