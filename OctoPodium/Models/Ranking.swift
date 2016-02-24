@@ -47,4 +47,16 @@ class Ranking {
             self.repositories = repositories
             self.stars = stars ?? 0
     }
+    
+    var trophies: Int {
+        return (isPodium(worldRanking) ? 1 : 0) + (isPodium(cityRanking) ? 1 : 0) + (isPodium(countryRanking) ? 1 : 0)
+    }
+        
+    private func isPodium(rank: Int?) -> Bool {
+        return rank?.belongsInPodium() ?? false
+    }
+}
+
+private extension Int {
+    func belongsInPodium() -> Bool { return self < 4 && self > 0 }
 }
