@@ -15,6 +15,10 @@ class UserPresenter {
     let user: User
     let ranking: Int
     
+    let totalRepositories: Int
+    let totalStars: Int
+    let totalTrophies: Int
+    
     private let medalImages = ["GoldMedal", "SilverMedal", "BronzeMedal"]
     
     private let positionColors: [UInt] = [
@@ -32,6 +36,22 @@ class UserPresenter {
     init(user: User, ranking: Int) {
         self.user = user
         self.ranking = ranking
+        
+        let reposStarsTrophies = UserPresenter.getReposStarsAndTrophiesFrom(user)
+        totalRepositories = reposStarsTrophies.repos
+        totalStars = reposStarsTrophies.stars
+        totalTrophies = reposStarsTrophies.trophies
+    }
+    
+    private static func getReposStarsAndTrophiesFrom(user: User) -> (repos: Int, stars: Int, trophies: Int) {
+        let initialTuple = (repos: 0, stars: 0, trophies: 0)
+        
+        return user.rankings.reduce(initialTuple) { (tuple, ranking) -> (repos: Int, stars: Int, trophies: Int) in
+            let repos = tuple.repos + (ranking.repositories ?? 0)
+            let stars = tuple.stars + (ranking.stars ?? 0)
+            let trophies = tuple.trophies + ranking.trophies
+            return (repos: repos, stars: stars, trophies: trophies)
+        }
     }
     
     convenience init(user: User) {
@@ -88,4 +108,5 @@ class UserPresenter {
     var gitHubUrl: String {
         return "https://www.github.com/\(user.login!)"
     }
+    
 }

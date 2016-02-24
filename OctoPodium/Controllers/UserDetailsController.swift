@@ -214,31 +214,11 @@ extension UserDetailsController {
     }
     
     private func applyReposStarsAndTrophiesLabelsFor(user: User) {
-        var repos = 0
-        var stars = 0
-        var trophies = 0
-        
-        for rank in user.rankings {
-            repos += rank.repositories ?? 0
-            stars += rank.stars ?? 0
-            trophies += calculateTrophiesOf(rank)
-        }
-        
-        totalReposLabel.text = "\(repos)"
-        totalStarsLabel.text = "\(stars)"
+        totalReposLabel.text = "\(userPresenter!.totalRepositories)"
+        totalStarsLabel.text = "\(userPresenter!.totalStars)"
         totalLanguagesLabel.text = "\(user.rankings.count)"
-        totalTrophiesLabel.text = "\(trophies)"
+        totalTrophiesLabel.text = "\(userPresenter!.totalTrophies)"
     }
-    
-    private func calculateTrophiesOf(rank: Ranking) -> Int {
-        return (isPodium(rank.worldRanking) ? 1 : 0) + (isPodium(rank.cityRanking) ? 1 : 0) + (isPodium(rank.countryRanking) ? 1 : 0)
-    }
-    
-    private func isPodium(rank: Int?) -> Bool {
-        if rank == nil { return false }
-        return rank! < 4 && rank! > 0
-    }
-    
 }
 
 extension UserDetailsController: UITableViewDelegate {

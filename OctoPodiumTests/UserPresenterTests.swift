@@ -20,6 +20,24 @@ class UserPresenterTests: QuickSpec {
         var userPresenter: UserPresenter!
 
         describe("UserPresenter") {
+            
+            context("Stars Repos and Trophies") {
+                beforeEach {
+                    user = User(login: "Walter White", avatarUrl: "WalterWhiteAvatarUrl")
+                    let ranking1 = TestsBuilder.buildRankingWith(1, countryRanking: 1, worldRanking: 0)
+                    let ranking2 = TestsBuilder.buildRankingWith(2, countryRanking: 0, worldRanking: 2)
+                    
+                    user.rankings = [ranking1, ranking2]
+                    userPresenter = UserPresenter(user: user, ranking: 1000)
+                }
+                
+                it("has repos stars and trophies podium") {
+                    expect(userPresenter.totalRepositories).to(equal(246))
+                    expect(userPresenter.totalTrophies).to(equal(4))
+                    expect(userPresenter.totalStars).to(equal(2468))
+                }
+            }
+            
             context("User is first in ranking") {
                 beforeEach {
                     user = User(login: "nuno", avatarUrl: "AvatarUrl")
@@ -232,6 +250,7 @@ class UserPresenterTests: QuickSpec {
                     XCTAssertEqual(userPresenter.avatarUrl(), "WalterWhiteAvatarUrl", "Expected avatar to be HarrisonAvatarUrl")
                 }
             }
+
         }
     }
     
