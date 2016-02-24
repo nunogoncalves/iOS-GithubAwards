@@ -909,7 +909,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stars: 6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ua-uI-Y8S" userLabel="stars">
                                                 <rect key="frame" x="50.5" y="15" width="59.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -925,7 +925,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forks: 6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hA2-Cu-txz" userLabel="forks">
                                                 <rect key="frame" x="49" y="15" width="62" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -962,11 +962,11 @@
                                 </variation>
                             </view>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sfu-Di-YAo">
-                                <rect key="frame" x="0.0" y="114" width="320" height="366"/>
+                                <rect key="frame" x="0.0" y="114" width="320" height="317"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
                             <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IJt-Zt-Hai" customClass="GithubLoadingView" customModule="OctoPodium" customModuleProvider="target">
-                                <rect key="frame" x="115" y="252" width="90" height="90"/>
+                                <rect key="frame" x="115" y="227.5" width="90" height="90"/>
                                 <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="ChZ-DZ-rA4"/>
@@ -986,6 +986,7 @@
                             <constraint firstItem="xgx-Hg-81X" firstAttribute="leading" secondItem="ygh-ci-qcf" secondAttribute="leading" id="ByU-Gg-qox"/>
                             <constraint firstAttribute="trailing" secondItem="sfu-Di-YAo" secondAttribute="trailing" id="Gzx-QN-XKE"/>
                             <constraint firstAttribute="trailing" secondItem="xgx-Hg-81X" secondAttribute="trailing" id="Lqb-ow-qc5"/>
+                            <constraint firstItem="9rC-H5-Wig" firstAttribute="top" secondItem="sfu-Di-YAo" secondAttribute="bottom" id="RWl-8B-hAo"/>
                             <constraint firstItem="IJt-Zt-Hai" firstAttribute="centerX" secondItem="sfu-Di-YAo" secondAttribute="centerX" id="Xi8-vk-btS"/>
                             <constraint firstItem="sfu-Di-YAo" firstAttribute="bottom" secondItem="9rC-H5-Wig" secondAttribute="top" constant="49" id="YrE-FJ-QGh"/>
                             <constraint firstItem="sfu-Di-YAo" firstAttribute="top" secondItem="xgx-Hg-81X" secondAttribute="bottom" id="jqZ-WJ-1cJ"/>
@@ -995,6 +996,7 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="YrE-FJ-QGh"/>
                                 <exclude reference="nH2-fE-QpJ"/>
                             </mask>
                         </variation>
