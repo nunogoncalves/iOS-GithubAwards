@@ -32,7 +32,7 @@ It is not affiliated with the GitHub company in any way.
 
 ## About
 App written in Swift, it was my first personal App published to the App Store.
-It uses the API provided by [GithubAwads](http://github-awards.com/) ([docs](http://github-awards.com/docs)) made by Vincent Daubry ([Github](https://github.com/vdaubry), [Twitter](https://twitter.com/vdaubry)).
+It uses the API provided by [GithubAwards](http://github-awards.com/) ([docs](http://github-awards.com/docs)) made by Vincent Daubry ([Github](https://github.com/vdaubry), [Twitter](https://twitter.com/vdaubry)).
 
 ##What you can do:
 - View rankings for a given language. Select either World, a city or a country.
