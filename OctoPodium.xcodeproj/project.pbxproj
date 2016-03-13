@@ -115,6 +115,8 @@
 		85A4F0191C3F1BE4002F3405 /* CountryUsersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A4F0181C3F1BE4002F3405 /* CountryUsersController.swift */; };
 		85A4F01B1C3F1BF0002F3405 /* CityUsersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A4F01A1C3F1BF0002F3405 /* CityUsersController.swift */; };
 		85A4F01D1C3F1C4D002F3405 /* UsersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A4F01C1C3F1C4D002F3405 /* UsersController.swift */; };
+		85A731801C95F8B1002C721B /* GithubButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A7317F1C95F8B1002C721B /* GithubButton.swift */; };
+		85A731821C95F900002C721B /* GithubButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85A731811C95F900002C721B /* GithubButton.xib */; };
 		85A9E55F1C36C4870011DAA4 /* IntroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A9E55E1C36C4870011DAA4 /* IntroController.swift */; };
 		85AF8AF91C445E5F0022D97F /* LanguageImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85AF8AF81C445E5F0022D97F /* LanguageImageView.xib */; };
 		85AF8AFB1C445EAD0022D97F /* LanguageImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AF8AFA1C445EAD0022D97F /* LanguageImageView.swift */; };
@@ -289,6 +291,8 @@
 		85A4F0181C3F1BE4002F3405 /* CountryUsersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryUsersController.swift; sourceTree = "<group>"; };
 		85A4F01A1C3F1BF0002F3405 /* CityUsersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityUsersController.swift; sourceTree = "<group>"; };
 		85A4F01C1C3F1C4D002F3405 /* UsersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersController.swift; sourceTree = "<group>"; };
+		85A7317F1C95F8B1002C721B /* GithubButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubButton.swift; sourceTree = "<group>"; };
+		85A731811C95F900002C721B /* GithubButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GithubButton.xib; sourceTree = "<group>"; };
 		85A9E55E1C36C4870011DAA4 /* IntroController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroController.swift; sourceTree = "<group>"; };
 		85AF8AF81C445E5F0022D97F /* LanguageImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageImageView.xib; sourceTree = "<group>"; };
 		85AF8AFA1C445EAD0022D97F /* LanguageImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageImageView.swift; sourceTree = "<group>"; };
@@ -478,6 +482,8 @@
 			children = (
 				850485301C0FB10C004D952A /* AlertView.swift */,
 				850485321C0FB11A004D952A /* AlertView.xib */,
+				85A7317F1C95F8B1002C721B /* GithubButton.swift */,
+				85A731811C95F900002C721B /* GithubButton.xib */,
 				85820F3A1C0E2BCE0069D085 /* GithubLoadingView.swift */,
 				85820F3B1C0E2BCE0069D085 /* GithubLoadingView.xib */,
 				85AF8AFA1C445EAD0022D97F /* LanguageImageView.swift */,
@@ -964,6 +970,7 @@
 				857AE7791C74A8DB007AEE47 /* swift.png in Resources */,
 				857AE7841C74AC4E007AEE47 /* python.png in Resources */,
 				85D320F51C02062E001B7C7A /* Main.storyboard in Resources */,
+				85A731821C95F900002C721B /* GithubButton.xib in Resources */,
 				856A72E31C122C1E008415A4 /* css.png in Resources */,
 				857AE76F1C74A3E7007AEE47 /* c#.png in Resources */,
 				8504853A1C104AE8004D952A /* javascript.png in Resources */,
@@ -1178,6 +1185,7 @@
 				854813A61C79059C00182C6B /* GitHub.swift in Sources */,
 				85FC70661C244CAA00971081 /* UserPresenter.swift in Sources */,
 				85D321231C0222F4001B7C7A /* ImageLoader.swift in Sources */,
+				85A731801C95F8B1002C721B /* GithubButton.swift in Sources */,
 				857858541C7625CD009195B8 /* RepositoryOptionsBuilder.swift in Sources */,
 				8549ACBA1C6C8A3D004D8149 /* UILabel.swift in Sources */,
 				85D320F01C02062E001B7C7A /* AppDelegate.swift in Sources */,

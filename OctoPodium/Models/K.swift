@@ -105,7 +105,7 @@ struct K {
         }
         
         func fontWith(size: CGFloat) -> UIFont {
-            return UIFont(name: self.rawValue, size: size)!
+            return UIFont(name: rawValue, size: size)!
         }
     }
     

@@ -906,34 +906,62 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qZF-dJ-gft">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="50"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stars: 6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ua-uI-Y8S" userLabel="stars">
-                                                <rect key="frame" x="50.5" y="15" width="59.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yoP-GI-v8A" customClass="GithubButton" customModule="OctoPodium" customModuleProvider="target">
+                                                <rect key="frame" x="30" y="8.5" width="100" height="33"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="33" id="f6A-Zp-fhg"/>
+                                                    <constraint firstAttribute="width" constant="133" id="saX-P3-J7D"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="1ua-uI-Y8S" firstAttribute="centerX" secondItem="qZF-dJ-gft" secondAttribute="centerX" id="Moh-ST-0Ut"/>
-                                            <constraint firstItem="1ua-uI-Y8S" firstAttribute="centerY" secondItem="qZF-dJ-gft" secondAttribute="centerY" id="cNK-mX-ot1"/>
+                                            <constraint firstItem="yoP-GI-v8A" firstAttribute="leading" secondItem="qZF-dJ-gft" secondAttribute="leading" id="XsB-14-33B"/>
+                                            <constraint firstItem="yoP-GI-v8A" firstAttribute="centerX" secondItem="qZF-dJ-gft" secondAttribute="centerX" id="agm-Qe-pfC"/>
+                                            <constraint firstAttribute="bottom" secondItem="yoP-GI-v8A" secondAttribute="bottom" id="d5I-aR-a5S"/>
+                                            <constraint firstItem="yoP-GI-v8A" firstAttribute="centerY" secondItem="qZF-dJ-gft" secondAttribute="centerY" id="eMQ-AM-cgi"/>
+                                            <constraint firstItem="yoP-GI-v8A" firstAttribute="top" secondItem="qZF-dJ-gft" secondAttribute="top" id="wNT-he-KLF"/>
+                                            <constraint firstAttribute="trailing" secondItem="yoP-GI-v8A" secondAttribute="trailing" id="wrV-73-yWq"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="XsB-14-33B"/>
+                                                <exclude reference="d5I-aR-a5S"/>
+                                                <exclude reference="wNT-he-KLF"/>
+                                                <exclude reference="wrV-73-yWq"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pC0-vw-Uej">
                                         <rect key="frame" x="160" y="0.0" width="160" height="50"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forks: 6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hA2-Cu-txz" userLabel="forks">
-                                                <rect key="frame" x="49" y="15" width="62" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fjc-lg-tUe" customClass="GithubButton" customModule="OctoPodium" customModuleProvider="target">
+                                                <rect key="frame" x="30" y="8.5" width="100" height="33"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="33" id="SzQ-om-s4q"/>
+                                                    <constraint firstAttribute="width" constant="133" id="hCK-Je-Lck"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="hA2-Cu-txz" firstAttribute="centerX" secondItem="pC0-vw-Uej" secondAttribute="centerX" id="hK0-zu-7Cb"/>
-                                            <constraint firstItem="hA2-Cu-txz" firstAttribute="centerY" secondItem="pC0-vw-Uej" secondAttribute="centerY" id="x3o-Oy-bep"/>
+                                            <constraint firstAttribute="trailing" secondItem="Fjc-lg-tUe" secondAttribute="trailing" id="2DO-hk-rpN"/>
+                                            <constraint firstItem="Fjc-lg-tUe" firstAttribute="top" secondItem="pC0-vw-Uej" secondAttribute="top" id="4RL-Aq-dTI"/>
+                                            <constraint firstItem="Fjc-lg-tUe" firstAttribute="centerY" secondItem="pC0-vw-Uej" secondAttribute="centerY" id="NUx-IU-UJo"/>
+                                            <constraint firstAttribute="bottom" secondItem="Fjc-lg-tUe" secondAttribute="bottom" id="gk0-Tb-HQX"/>
+                                            <constraint firstItem="Fjc-lg-tUe" firstAttribute="leading" secondItem="pC0-vw-Uej" secondAttribute="leading" id="hKZ-fe-Rzw"/>
+                                            <constraint firstItem="Fjc-lg-tUe" firstAttribute="centerX" secondItem="pC0-vw-Uej" secondAttribute="centerX" id="hy4-of-nYA"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="2DO-hk-rpN"/>
+                                                <exclude reference="4RL-Aq-dTI"/>
+                                                <exclude reference="gk0-Tb-HQX"/>
+                                                <exclude reference="hKZ-fe-Rzw"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -966,7 +994,7 @@
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
                             <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IJt-Zt-Hai" customClass="GithubLoadingView" customModule="OctoPodium" customModuleProvider="target">
-                                <rect key="frame" x="115" y="227.5" width="90" height="90"/>
+                                <rect key="frame" x="115" y="228" width="90" height="90"/>
                                 <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="ChZ-DZ-rA4"/>
@@ -1003,9 +1031,9 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="forksLabel" destination="hA2-Cu-txz" id="rNM-00-OHc"/>
+                        <outlet property="forksGithubButton" destination="Fjc-lg-tUe" id="bQs-kW-9c6"/>
                         <outlet property="loadingView" destination="IJt-Zt-Hai" id="LDY-5f-qe9"/>
-                        <outlet property="starsLabel" destination="1ua-uI-Y8S" id="Yl3-qT-rc9"/>
+                        <outlet property="starsGithubButton" destination="yoP-GI-v8A" id="fNo-pG-1KL"/>
                         <outlet property="webView" destination="sfu-Di-YAo" id="6sT-pG-gU4"/>
                         <segue destination="EqV-WG-Q1d" kind="show" identifier="ShowLanguagesInPopoverSegueNotUsed" id="tbi-yR-SZX"/>
                     </connections>
@@ -1397,6 +1425,6 @@
         <image name="X" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="82b-ih-YU7"/>
+        <segue reference="NYx-Fi-7mM"/>
     </inferredMetricsTieBreakers>
 </document>
