@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LanguageTitleView" customModule="GitHubAwards" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LanguageTitleView" customModule="OctoPodium" customModuleProvider="target">
             <connections>
                 <outlet property="languageImageView" destination="Oxu-1G-ErP" id="Fh6-iN-gcS"/>
                 <outlet property="name" destination="xx2-vN-9rO" id="6Sf-fI-Kbd"/>
@@ -23,7 +23,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SiF-KE-QmU">
                             <rect key="frame" x="0.0" y="0.0" width="29" height="20"/>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oxu-1G-ErP" customClass="LanguageImageView" customModule="GitHubAwards" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oxu-1G-ErP" customClass="LanguageImageView" customModule="OctoPodium" customModuleProvider="target">
                             <rect key="frame" x="34" y="-5" width="30" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="KHZ-ip-cQs"/>

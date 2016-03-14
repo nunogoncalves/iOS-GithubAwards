@@ -28,6 +28,7 @@ class GithubLoadingView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         commontInit()
+        view.frame = frame
     }
     
     required init(coder aDecoder: NSCoder) {

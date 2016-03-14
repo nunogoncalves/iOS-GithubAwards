@@ -28,12 +28,18 @@
 		851D3C381C09134600870813 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D3C371C09134600870813 /* Requester.swift */; };
 		851D3C3A1C0913E900870813 /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D3C391C0913E900870813 /* ResponseHandler.swift */; };
 		852B43C51C6A3E4000A1B63A /* LanguageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 852B43C31C6A3E4000A1B63A /* LanguageCell.xib */; };
+		852F5E0A1C7E1D1F00DEE0D1 /* RankingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F5E091C7E1D1F00DEE0D1 /* RankingTests.swift */; };
+		852F5E0D1C7E6BCA00DEE0D1 /* TestsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F5E0C1C7E6BCA00DEE0D1 /* TestsBuilder.swift */; };
 		8530ED361C60EA7F00173835 /* TrendingRepositoryDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8530ED351C60EA7F00173835 /* TrendingRepositoryDetailsController.swift */; };
 		85327EED1C74FB84003C7647 /* applescript.png in Resources */ = {isa = PBXBuildFile; fileRef = 85327EEC1C74FB84003C7647 /* applescript.png */; };
 		853C48DD1C0921AF00373A92 /* Paginator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48DC1C0921AF00373A92 /* Paginator.swift */; };
 		853C48DF1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */; };
 		853C48E11C09A28400373A92 /* GetOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48E01C09A28400373A92 /* GetOne.swift */; };
 		853C48E31C09A35F00373A92 /* CreateBasicUserFromDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48E21C09A35F00373A92 /* CreateBasicUserFromDictionary.swift */; };
+		854813A61C79059C00182C6B /* GitHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854813A51C79059C00182C6B /* GitHub.swift */; };
+		854813A81C7905D200182C6B /* StarsAndForksFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854813A71C7905D200182C6B /* StarsAndForksFetcher.swift */; };
+		85482E621C96BE0800E20FDB /* GithubStarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85482E611C96BE0800E20FDB /* GithubStarButton.swift */; };
+		85482E641C96BF9A00E20FDB /* GithubForkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85482E631C96BF9A00E20FDB /* GithubForkButton.swift */; };
 		8549ACBA1C6C8A3D004D8149 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8549ACB91C6C8A3D004D8149 /* UILabel.swift */; };
 		8549ACC71C6C8B1F004D8149 /* TitilliumWeb-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8549ACBC1C6C8B1F004D8149 /* TitilliumWeb-Black.ttf */; };
 		8549ACC81C6C8B1F004D8149 /* TitilliumWeb-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8549ACBD1C6C8B1F004D8149 /* TitilliumWeb-Bold.ttf */; };
@@ -111,6 +117,8 @@
 		85A4F0191C3F1BE4002F3405 /* CountryUsersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A4F0181C3F1BE4002F3405 /* CountryUsersController.swift */; };
 		85A4F01B1C3F1BF0002F3405 /* CityUsersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A4F01A1C3F1BF0002F3405 /* CityUsersController.swift */; };
 		85A4F01D1C3F1C4D002F3405 /* UsersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A4F01C1C3F1C4D002F3405 /* UsersController.swift */; };
+		85A731801C95F8B1002C721B /* GithubButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A7317F1C95F8B1002C721B /* GithubButton.swift */; };
+		85A731821C95F900002C721B /* GithubButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85A731811C95F900002C721B /* GithubButton.xib */; };
 		85A9E55F1C36C4870011DAA4 /* IntroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A9E55E1C36C4870011DAA4 /* IntroController.swift */; };
 		85AF8AF91C445E5F0022D97F /* LanguageImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85AF8AF81C445E5F0022D97F /* LanguageImageView.xib */; };
 		85AF8AFB1C445EAD0022D97F /* LanguageImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AF8AFA1C445EAD0022D97F /* LanguageImageView.swift */; };
@@ -197,24 +205,30 @@
 		851D3C371C09134600870813 /* Requester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
 		851D3C391C0913E900870813 /* ResponseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseHandler.swift; sourceTree = "<group>"; };
 		852B43C31C6A3E4000A1B63A /* LanguageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageCell.xib; sourceTree = "<group>"; };
+		852F5E091C7E1D1F00DEE0D1 /* RankingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTests.swift; sourceTree = "<group>"; };
+		852F5E0C1C7E6BCA00DEE0D1 /* TestsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestsBuilder.swift; sourceTree = "<group>"; };
 		8530ED351C60EA7F00173835 /* TrendingRepositoryDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingRepositoryDetailsController.swift; sourceTree = "<group>"; };
 		85327EEC1C74FB84003C7647 /* applescript.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = applescript.png; sourceTree = "<group>"; };
 		853C48DC1C0921AF00373A92 /* Paginator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paginator.swift; sourceTree = "<group>"; };
 		853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertUsersDictionaryToUsers.swift; sourceTree = "<group>"; };
 		853C48E01C09A28400373A92 /* GetOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetOne.swift; sourceTree = "<group>"; };
 		853C48E21C09A35F00373A92 /* CreateBasicUserFromDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBasicUserFromDictionary.swift; sourceTree = "<group>"; };
+		854813A51C79059C00182C6B /* GitHub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHub.swift; sourceTree = "<group>"; };
+		854813A71C7905D200182C6B /* StarsAndForksFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarsAndForksFetcher.swift; sourceTree = "<group>"; };
+		85482E611C96BE0800E20FDB /* GithubStarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubStarButton.swift; sourceTree = "<group>"; };
+		85482E631C96BF9A00E20FDB /* GithubForkButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubForkButton.swift; sourceTree = "<group>"; };
 		8549ACB91C6C8A3D004D8149 /* UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
-		8549ACBC1C6C8B1F004D8149 /* TitilliumWeb-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TitilliumWeb-Black.ttf"; path = "Fonts/TitilliumWeb-Black.ttf"; sourceTree = "<group>"; };
-		8549ACBD1C6C8B1F004D8149 /* TitilliumWeb-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TitilliumWeb-Bold.ttf"; path = "Fonts/TitilliumWeb-Bold.ttf"; sourceTree = "<group>"; };
-		8549ACBE1C6C8B1F004D8149 /* TitilliumWeb-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TitilliumWeb-BoldItalic.ttf"; path = "Fonts/TitilliumWeb-BoldItalic.ttf"; sourceTree = "<group>"; };
-		8549ACBF1C6C8B1F004D8149 /* TitilliumWeb-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TitilliumWeb-ExtraLight.ttf"; path = "Fonts/TitilliumWeb-ExtraLight.ttf"; sourceTree = "<group>"; };
-		8549ACC01C6C8B1F004D8149 /* TitilliumWeb-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TitilliumWeb-ExtraLightItalic.ttf"; path = "Fonts/TitilliumWeb-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
-		8549ACC11C6C8B1F004D8149 /* TitilliumWeb-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TitilliumWeb-Italic.ttf"; path = "Fonts/TitilliumWeb-Italic.ttf"; sourceTree = "<group>"; };
-		8549ACC21C6C8B1F004D8149 /* TitilliumWeb-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TitilliumWeb-Light.ttf"; path = "Fonts/TitilliumWeb-Light.ttf"; sourceTree = "<group>"; };
-		8549ACC31C6C8B1F004D8149 /* TitilliumWeb-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TitilliumWeb-LightItalic.ttf"; path = "Fonts/TitilliumWeb-LightItalic.ttf"; sourceTree = "<group>"; };
-		8549ACC41C6C8B1F004D8149 /* TitilliumWeb-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TitilliumWeb-Regular.ttf"; path = "Fonts/TitilliumWeb-Regular.ttf"; sourceTree = "<group>"; };
-		8549ACC51C6C8B1F004D8149 /* TitilliumWeb-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TitilliumWeb-SemiBold.ttf"; path = "Fonts/TitilliumWeb-SemiBold.ttf"; sourceTree = "<group>"; };
-		8549ACC61C6C8B1F004D8149 /* TitilliumWeb-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TitilliumWeb-SemiBoldItalic.ttf"; path = "Fonts/TitilliumWeb-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		8549ACBC1C6C8B1F004D8149 /* TitilliumWeb-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Black.ttf"; sourceTree = "<group>"; };
+		8549ACBD1C6C8B1F004D8149 /* TitilliumWeb-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Bold.ttf"; sourceTree = "<group>"; };
+		8549ACBE1C6C8B1F004D8149 /* TitilliumWeb-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-BoldItalic.ttf"; sourceTree = "<group>"; };
+		8549ACBF1C6C8B1F004D8149 /* TitilliumWeb-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-ExtraLight.ttf"; sourceTree = "<group>"; };
+		8549ACC01C6C8B1F004D8149 /* TitilliumWeb-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		8549ACC11C6C8B1F004D8149 /* TitilliumWeb-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Italic.ttf"; sourceTree = "<group>"; };
+		8549ACC21C6C8B1F004D8149 /* TitilliumWeb-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Light.ttf"; sourceTree = "<group>"; };
+		8549ACC31C6C8B1F004D8149 /* TitilliumWeb-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-LightItalic.ttf"; sourceTree = "<group>"; };
+		8549ACC41C6C8B1F004D8149 /* TitilliumWeb-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Regular.ttf"; sourceTree = "<group>"; };
+		8549ACC51C6C8B1F004D8149 /* TitilliumWeb-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-SemiBold.ttf"; sourceTree = "<group>"; };
+		8549ACC61C6C8B1F004D8149 /* TitilliumWeb-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		854A404A1C3ADCF7005E7FF1 /* NetworkStatusTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatusTests.swift; sourceTree = "<group>"; };
 		854A404C1C3B369D005E7FF1 /* VerifyRequestStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyRequestStatus.swift; sourceTree = "<group>"; };
 		854A404E1C3B3D16005E7FF1 /* VerifyRequestStatusTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyRequestStatusTests.swift; sourceTree = "<group>"; };
@@ -237,7 +251,7 @@
 		857113481C43BDD500011441 /* rust.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rust.png; sourceTree = "<group>"; };
 		857113491C43BDD500011441 /* scala.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scala.png; sourceTree = "<group>"; };
 		857858511C7618A7009195B8 /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
-		857858531C7625CD009195B8 /* RepositoryOptionsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositoryOptionsBuilder.swift; path = ../Controllers/RepositoryOptionsBuilder.swift; sourceTree = "<group>"; };
+		857858531C7625CD009195B8 /* RepositoryOptionsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryOptionsBuilder.swift; sourceTree = "<group>"; };
 		857943A31C3DCC8B00824577 /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		857943A71C3E5A8D00824577 /* UsersTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTable.swift; sourceTree = "<group>"; };
 		857943AB1C3E5D3100824577 /* UserTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTopCell.xib; sourceTree = "<group>"; };
@@ -281,6 +295,8 @@
 		85A4F0181C3F1BE4002F3405 /* CountryUsersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryUsersController.swift; sourceTree = "<group>"; };
 		85A4F01A1C3F1BF0002F3405 /* CityUsersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityUsersController.swift; sourceTree = "<group>"; };
 		85A4F01C1C3F1C4D002F3405 /* UsersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersController.swift; sourceTree = "<group>"; };
+		85A7317F1C95F8B1002C721B /* GithubButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubButton.swift; sourceTree = "<group>"; };
+		85A731811C95F900002C721B /* GithubButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GithubButton.xib; sourceTree = "<group>"; };
 		85A9E55E1C36C4870011DAA4 /* IntroController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroController.swift; sourceTree = "<group>"; };
 		85AF8AF81C445E5F0022D97F /* LanguageImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageImageView.xib; sourceTree = "<group>"; };
 		85AF8AFA1C445EAD0022D97F /* LanguageImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageImageView.swift; sourceTree = "<group>"; };
@@ -379,6 +395,14 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		852F5E0B1C7E5A6C00DEE0D1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				852F5E0C1C7E6BCA00DEE0D1 /* TestsBuilder.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		853C48DB1C09218800373A92 /* DictionaryModelMappers */ = {
 			isa = PBXGroup;
 			children = (
@@ -404,13 +428,15 @@
 				8549ACC51C6C8B1F004D8149 /* TitilliumWeb-SemiBold.ttf */,
 				8549ACC61C6C8B1F004D8149 /* TitilliumWeb-SemiBoldItalic.ttf */,
 			);
-			name = Fonts;
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		855913DC1C63878300E356FD /* GitHub */ = {
 			isa = PBXGroup;
 			children = (
+				854813A51C79059C00182C6B /* GitHub.swift */,
 				855913DD1C63879700E356FD /* RepoContentsFetcher.swift */,
+				854813A71C7905D200182C6B /* StarsAndForksFetcher.swift */,
 			);
 			path = GitHub;
 			sourceTree = "<group>";
@@ -444,7 +470,7 @@
 			children = (
 				857858531C7625CD009195B8 /* RepositoryOptionsBuilder.swift */,
 			);
-			name = AlertController;
+			path = AlertController;
 			sourceTree = "<group>";
 		};
 		857EB00A1C5951AE00C315DF /* Analytics */ = {
@@ -460,8 +486,12 @@
 			children = (
 				850485301C0FB10C004D952A /* AlertView.swift */,
 				850485321C0FB11A004D952A /* AlertView.xib */,
+				85A7317F1C95F8B1002C721B /* GithubButton.swift */,
+				85A731811C95F900002C721B /* GithubButton.xib */,
 				85820F3A1C0E2BCE0069D085 /* GithubLoadingView.swift */,
 				85820F3B1C0E2BCE0069D085 /* GithubLoadingView.xib */,
+				85482E631C96BF9A00E20FDB /* GithubForkButton.swift */,
+				85482E611C96BE0800E20FDB /* GithubStarButton.swift */,
 				85AF8AFA1C445EAD0022D97F /* LanguageImageView.swift */,
 				85AF8AF81C445E5F0022D97F /* LanguageImageView.xib */,
 				85B501841C10FD8400BBFD56 /* LanguageTitleView.swift */,
@@ -480,9 +510,9 @@
 				85A9E55D1C351CAD0011DAA4 /* GithubLoading */,
 				850485341C104AE8004D952A /* GenericLanguage.png */,
 				85327EEC1C74FB84003C7647 /* applescript.png */,
-				857AE76C1C74A372007AEE47 /* c.png */,
 				857AE76E1C74A3E7007AEE47 /* c#.png */,
 				857AE7701C74A477007AEE47 /* c++.png */,
+				857AE76C1C74A372007AEE47 /* c.png */,
 				857AE7761C74A7C5007AEE47 /* clojure.png */,
 				857113411C43BDD500011441 /* coffeescript.png */,
 				856A72DE1C122C1E008415A4 /* css.png */,
@@ -497,8 +527,8 @@
 				857AE7851C74AD82007AEE47 /* kotlin.png */,
 				857113451C43BDD500011441 /* lua.png */,
 				857113461C43BDD500011441 /* matlab.png */,
-				857AE77F1C74AAF9007AEE47 /* ocaml.png */,
 				856A72DF1C122C1E008415A4 /* objective-c.png */,
+				857AE77F1C74AAF9007AEE47 /* ocaml.png */,
 				8504853E1C104C2B004D952A /* perl.png */,
 				8504853F1C104C2B004D952A /* php.png */,
 				857AE7831C74AC4E007AEE47 /* python.png */,
@@ -600,8 +630,8 @@
 			children = (
 				859928501C0DAB23000ABE8C /* String.swift */,
 				8508B76A1C1593D40024684F /* UIColor.swift */,
-				85B2C2CF1C18D07800112D95 /* UIView.swift */,
 				8549ACB91C6C8A3D004D8149 /* UILabel.swift */,
+				85B2C2CF1C18D07800112D95 /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -733,6 +763,7 @@
 		85D321031C02062E001B7C7A /* OctoPodiumTests */ = {
 			isa = PBXGroup;
 			children = (
+				852F5E0B1C7E5A6C00DEE0D1 /* Helpers */,
 				85A1D2CE1C2EB39500774F49 /* Mocks */,
 				857E2C361C1C87370095DCC0 /* ConvertUsersDictionaryToUsersTests.swift */,
 				85D321061C02062E001B7C7A /* Info.plist */,
@@ -741,6 +772,7 @@
 				854A404A1C3ADCF7005E7FF1 /* NetworkStatusTests.swift */,
 				85D321041C02062E001B7C7A /* OctoPodiumTests.swift */,
 				85E6566C1C134C7000BB4278 /* PaginatorTests.swift */,
+				852F5E091C7E1D1F00DEE0D1 /* RankingTests.swift */,
 				8517ECBE1C2C1EDB00467985 /* RankingPresenterTests.swift */,
 				858B91141C085E6400B510B3 /* SearchOptionsTests.swift */,
 				857858511C7618A7009195B8 /* StringTests.swift */,
@@ -944,6 +976,7 @@
 				857AE7791C74A8DB007AEE47 /* swift.png in Resources */,
 				857AE7841C74AC4E007AEE47 /* python.png in Resources */,
 				85D320F51C02062E001B7C7A /* Main.storyboard in Resources */,
+				85A731821C95F900002C721B /* GithubButton.xib in Resources */,
 				856A72E31C122C1E008415A4 /* css.png in Resources */,
 				857AE76F1C74A3E7007AEE47 /* c#.png in Resources */,
 				8504853A1C104AE8004D952A /* javascript.png in Resources */,
@@ -1149,18 +1182,22 @@
 				85198B761C05CE6C007ACC73 /* LanguagesController.swift in Sources */,
 				85D320F21C02062E001B7C7A /* LanguageRankingsController.swift in Sources */,
 				8517ECBD1C2C11AB00467985 /* RankingPresenter.swift in Sources */,
+				854813A81C7905D200182C6B /* StarsAndForksFetcher.swift in Sources */,
 				85168C841C0733BA00091553 /* UsersSearchController.swift in Sources */,
 				85E8CC491C3AAE5A001B4129 /* NetworkStatus.swift in Sources */,
 				85BBD9F91C5CA61000229ED2 /* Repository.swift in Sources */,
 				85A4F01B1C3F1BF0002F3405 /* CityUsersController.swift in Sources */,
 				856D67671C3424C900A77678 /* Browser.swift in Sources */,
+				854813A61C79059C00182C6B /* GitHub.swift in Sources */,
 				85FC70661C244CAA00971081 /* UserPresenter.swift in Sources */,
 				85D321231C0222F4001B7C7A /* ImageLoader.swift in Sources */,
+				85A731801C95F8B1002C721B /* GithubButton.swift in Sources */,
 				857858541C7625CD009195B8 /* RepositoryOptionsBuilder.swift in Sources */,
 				8549ACBA1C6C8A3D004D8149 /* UILabel.swift in Sources */,
 				85D320F01C02062E001B7C7A /* AppDelegate.swift in Sources */,
 				854A404D1C3B369D005E7FF1 /* VerifyRequestStatus.swift in Sources */,
 				85BBD9FE1C5D1AA600229ED2 /* Repositories.swift in Sources */,
+				85482E621C96BE0800E20FDB /* GithubStarButton.swift in Sources */,
 				85E656761C13A23400BB4278 /* LanguageUsersTableDataSource.swift in Sources */,
 				851D3C381C09134600870813 /* Requester.swift in Sources */,
 				857EB00C1C5951BB00C315DF /* SendToGoogle.swift in Sources */,
@@ -1178,6 +1215,7 @@
 				850485311C0FB10C004D952A /* AlertView.swift in Sources */,
 				856D676A1C342C6900A77678 /* Getter.swift in Sources */,
 				85FA596B1C1739560097732B /* Get.swift in Sources */,
+				85482E641C96BF9A00E20FDB /* GithubForkButton.swift in Sources */,
 				855913DE1C63879700E356FD /* RepoContentsFetcher.swift in Sources */,
 				85B501851C10FD8400BBFD56 /* LanguageTitleView.swift in Sources */,
 				85B2C2D01C18D07800112D95 /* UIView.swift in Sources */,
@@ -1200,6 +1238,7 @@
 			files = (
 				8599284E1C0D9579000ABE8C /* LocationTypeTests.swift in Sources */,
 				859CE4BF1C2FDF3D008A7856 /* UsersListResponseTests.swift in Sources */,
+				852F5E0A1C7E1D1F00DEE0D1 /* RankingTests.swift in Sources */,
 				857858521C7618A7009195B8 /* StringTests.swift in Sources */,
 				854A404F1C3B3D16005E7FF1 /* VerifyRequestStatusTests.swift in Sources */,
 				85FC70681C2456FF00971081 /* UserPresenterTests.swift in Sources */,
@@ -1211,6 +1250,7 @@
 				85E6566D1C134C7000BB4278 /* PaginatorTests.swift in Sources */,
 				857E2C371C1C87370095DCC0 /* ConvertUsersDictionaryToUsersTests.swift in Sources */,
 				85A1D2D21C2EB53500774F49 /* NetworkRequesterTests.swift in Sources */,
+				852F5E0D1C7E6BCA00DEE0D1 /* TestsBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

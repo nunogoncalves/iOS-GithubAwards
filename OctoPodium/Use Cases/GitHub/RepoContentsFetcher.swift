@@ -6,7 +6,7 @@
 //  Copyright © 2016 Nuno Gonçalves. All rights reserved.
 //
 
-struct GitHub {
+extension GitHub {
     class RepoContentFetcher : Getter {
         
         private let repoName: String

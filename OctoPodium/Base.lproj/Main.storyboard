@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Languages-->
@@ -899,12 +900,101 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xgx-Hg-81X">
+                                <rect key="frame" x="0.0" y="64" width="320" height="50"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qZF-dJ-gft">
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="50"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yoP-GI-v8A" customClass="GithubStarButton" customModule="OctoPodium" customModuleProvider="target">
+                                                <rect key="frame" x="13.5" y="8" width="133" height="33"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="33" id="f6A-Zp-fhg"/>
+                                                    <constraint firstAttribute="width" constant="133" id="saX-P3-J7D"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="yoP-GI-v8A" firstAttribute="leading" secondItem="qZF-dJ-gft" secondAttribute="leading" id="XsB-14-33B"/>
+                                            <constraint firstItem="yoP-GI-v8A" firstAttribute="centerX" secondItem="qZF-dJ-gft" secondAttribute="centerX" id="agm-Qe-pfC"/>
+                                            <constraint firstAttribute="bottom" secondItem="yoP-GI-v8A" secondAttribute="bottom" id="d5I-aR-a5S"/>
+                                            <constraint firstItem="yoP-GI-v8A" firstAttribute="centerY" secondItem="qZF-dJ-gft" secondAttribute="centerY" id="eMQ-AM-cgi"/>
+                                            <constraint firstItem="yoP-GI-v8A" firstAttribute="top" secondItem="qZF-dJ-gft" secondAttribute="top" id="wNT-he-KLF"/>
+                                            <constraint firstAttribute="trailing" secondItem="yoP-GI-v8A" secondAttribute="trailing" id="wrV-73-yWq"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="XsB-14-33B"/>
+                                                <exclude reference="d5I-aR-a5S"/>
+                                                <exclude reference="wNT-he-KLF"/>
+                                                <exclude reference="wrV-73-yWq"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pC0-vw-Uej">
+                                        <rect key="frame" x="160" y="0.0" width="160" height="50"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fjc-lg-tUe" customClass="GithubForkButton" customModule="OctoPodium" customModuleProvider="target">
+                                                <rect key="frame" x="13" y="8" width="133" height="33"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="33" id="SzQ-om-s4q"/>
+                                                    <constraint firstAttribute="width" constant="133" id="hCK-Je-Lck"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Fjc-lg-tUe" secondAttribute="trailing" id="2DO-hk-rpN"/>
+                                            <constraint firstItem="Fjc-lg-tUe" firstAttribute="top" secondItem="pC0-vw-Uej" secondAttribute="top" id="4RL-Aq-dTI"/>
+                                            <constraint firstItem="Fjc-lg-tUe" firstAttribute="centerY" secondItem="pC0-vw-Uej" secondAttribute="centerY" id="NUx-IU-UJo"/>
+                                            <constraint firstAttribute="bottom" secondItem="Fjc-lg-tUe" secondAttribute="bottom" id="gk0-Tb-HQX"/>
+                                            <constraint firstItem="Fjc-lg-tUe" firstAttribute="leading" secondItem="pC0-vw-Uej" secondAttribute="leading" id="hKZ-fe-Rzw"/>
+                                            <constraint firstItem="Fjc-lg-tUe" firstAttribute="centerX" secondItem="pC0-vw-Uej" secondAttribute="centerX" id="hy4-of-nYA"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="2DO-hk-rpN"/>
+                                                <exclude reference="4RL-Aq-dTI"/>
+                                                <exclude reference="gk0-Tb-HQX"/>
+                                                <exclude reference="hKZ-fe-Rzw"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="qZF-dJ-gft" firstAttribute="leading" secondItem="xgx-Hg-81X" secondAttribute="leading" id="5rm-2e-faU"/>
+                                    <constraint firstItem="qZF-dJ-gft" firstAttribute="top" secondItem="xgx-Hg-81X" secondAttribute="top" id="EwE-9I-Eft"/>
+                                    <constraint firstAttribute="height" constant="50" id="Fr8-MR-I60"/>
+                                    <constraint firstItem="pC0-vw-Uej" firstAttribute="width" secondItem="qZF-dJ-gft" secondAttribute="width" id="RVX-6x-TAg"/>
+                                    <constraint firstItem="pC0-vw-Uej" firstAttribute="leading" secondItem="qZF-dJ-gft" secondAttribute="trailing" id="cKf-cq-n10"/>
+                                    <constraint firstItem="pC0-vw-Uej" firstAttribute="leading" secondItem="qZF-dJ-gft" secondAttribute="trailing" id="k7B-ct-phV"/>
+                                    <constraint firstItem="pC0-vw-Uej" firstAttribute="bottom" secondItem="qZF-dJ-gft" secondAttribute="bottom" id="lKi-RZ-pvK"/>
+                                    <constraint firstItem="pC0-vw-Uej" firstAttribute="top" secondItem="qZF-dJ-gft" secondAttribute="top" id="pVQ-vR-k3Y"/>
+                                    <constraint firstAttribute="bottom" secondItem="qZF-dJ-gft" secondAttribute="bottom" id="smL-5K-zys"/>
+                                    <constraint firstItem="qZF-dJ-gft" firstAttribute="width" secondItem="xgx-Hg-81X" secondAttribute="width" multiplier="1:2" id="uBP-la-Ykh"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="k7B-ct-phV"/>
+                                    </mask>
+                                </variation>
+                            </view>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sfu-Di-YAo">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="114" width="320" height="317"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
                             <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IJt-Zt-Hai" customClass="GithubLoadingView" customModule="OctoPodium" customModuleProvider="target">
-                                <rect key="frame" x="115" y="195" width="90" height="90"/>
+                                <rect key="frame" x="115" y="228" width="90" height="90"/>
                                 <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="ChZ-DZ-rA4"/>
@@ -921,16 +1011,29 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="sfu-Di-YAo" firstAttribute="leading" secondItem="ygh-ci-qcf" secondAttribute="leading" id="9BT-61-fdb"/>
+                            <constraint firstItem="xgx-Hg-81X" firstAttribute="leading" secondItem="ygh-ci-qcf" secondAttribute="leading" id="ByU-Gg-qox"/>
                             <constraint firstAttribute="trailing" secondItem="sfu-Di-YAo" secondAttribute="trailing" id="Gzx-QN-XKE"/>
+                            <constraint firstAttribute="trailing" secondItem="xgx-Hg-81X" secondAttribute="trailing" id="Lqb-ow-qc5"/>
+                            <constraint firstItem="9rC-H5-Wig" firstAttribute="top" secondItem="sfu-Di-YAo" secondAttribute="bottom" id="RWl-8B-hAo"/>
                             <constraint firstItem="IJt-Zt-Hai" firstAttribute="centerX" secondItem="sfu-Di-YAo" secondAttribute="centerX" id="Xi8-vk-btS"/>
                             <constraint firstItem="sfu-Di-YAo" firstAttribute="bottom" secondItem="9rC-H5-Wig" secondAttribute="top" constant="49" id="YrE-FJ-QGh"/>
+                            <constraint firstItem="sfu-Di-YAo" firstAttribute="top" secondItem="xgx-Hg-81X" secondAttribute="bottom" id="jqZ-WJ-1cJ"/>
                             <constraint firstItem="sfu-Di-YAo" firstAttribute="top" secondItem="ygh-ci-qcf" secondAttribute="top" id="nH2-fE-QpJ"/>
                             <constraint firstItem="IJt-Zt-Hai" firstAttribute="centerY" secondItem="sfu-Di-YAo" secondAttribute="centerY" id="sRO-OH-PJz"/>
+                            <constraint firstItem="xgx-Hg-81X" firstAttribute="top" secondItem="tzN-q1-uNg" secondAttribute="bottom" id="zKl-yk-rR8"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="YrE-FJ-QGh"/>
+                                <exclude reference="nH2-fE-QpJ"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="forksGithubButton" destination="Fjc-lg-tUe" id="bQs-kW-9c6"/>
                         <outlet property="loadingView" destination="IJt-Zt-Hai" id="LDY-5f-qe9"/>
+                        <outlet property="starsGithubButton" destination="yoP-GI-v8A" id="fNo-pG-1KL"/>
                         <outlet property="webView" destination="sfu-Di-YAo" id="6sT-pG-gU4"/>
                         <segue destination="EqV-WG-Q1d" kind="show" identifier="ShowLanguagesInPopoverSegueNotUsed" id="tbi-yR-SZX"/>
                     </connections>
@@ -1322,6 +1425,6 @@
         <image name="X" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="82b-ih-YU7"/>
+        <segue reference="NYx-Fi-7mM"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -10,6 +10,9 @@ import UIKit
 
 class TrendingRepositoryDetailsController: UIViewController {
 
+    @IBOutlet weak var starsGithubButton: GithubStarButton!
+    @IBOutlet weak var forksGithubButton: GithubForkButton!
+    
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var loadingView: GithubLoadingView!
     
@@ -19,8 +22,13 @@ class TrendingRepositoryDetailsController: UIViewController {
         webView.delegate = self
         navigationItem.title = repository?.name
         loadWebView()
+        fetchStarsAndForks()
         SendToGoogleAnalytics.enteredScreen(String(TrendingRepositoryDetailsController))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "showRepoOptions")
+        
+        starsGithubButton.frame = CGRectMake(0, 0, 138, 33)
+        forksGithubButton.frame = CGRectMake(0, 0, 138, 33)
+        view.layoutIfNeeded()
     }
     @objc private func showRepoOptions() {        
         let repoBuilder = RepositoryOptionsBuilder.build(repository!.url) { [weak self] in
@@ -40,6 +48,16 @@ class TrendingRepositoryDetailsController: UIViewController {
         
         GitHub.RepoContentFetcher(repositoryName: repository.completeName)
             .get(success: gotGithubApiResponse, failure: gitHubApiFailed)
+    }
+    
+    private func fetchStarsAndForks() {
+        guard let repository = repository else { return }
+        GitHub.StarsAndForksFetcher(repositoryName: repository.completeName).get(success: gotStarsAndForks, failure: gitHubApiFailed)
+    }
+    
+    private func gotStarsAndForks(starsAndForks: (stars: Int, forks: Int)) {
+        starsGithubButton.setNumberOfStars("\(starsAndForks.stars)")
+        forksGithubButton.setNumberOfForks("\(starsAndForks.forks)")
     }
     
     private func gotGithubApiResponse(readMeLocation: String) {
