@@ -22,7 +22,7 @@ class NotifyError: NSObject {
         }
         isDisplaying = true
         
-        let v = AlertView(frame: CGRectMake(0, -64, window.frame.width, 80))
+        let v = AlertView(frame: CGRect(x: 0, y: -64, width: window.frame.width, height: 80))
         if let message = message {
             v.setMessage(message)
         }
@@ -39,7 +39,7 @@ class NotifyError: NSObject {
             initialSpringVelocity: 0.5,
             options: [],
             animations: {
-                v.frame = CGRectMake(0, 0, window.frame.width, 80)
+                v.frame = CGRect(x: 0, y: 0, width: window.frame.width, height: 80)
             }, completion: { _ in
                 self.performSelector("dismiss:", withObject: v, afterDelay: 1.25)
             }

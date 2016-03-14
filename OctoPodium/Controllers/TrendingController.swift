@@ -21,7 +21,7 @@ class TrendingController : UIViewController {
     private var popoverController: ARSPopover?
     
     private var languageButton: UIButton!
-    private let languageImageView = LanguageImageView(frame: CGRectMake(0, 0, 30, 30))
+    private let languageImageView = LanguageImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
     
     private var repositories: [Repository] = []
     private var selectedRepository: Repository?
@@ -108,7 +108,7 @@ class TrendingController : UIViewController {
     private func showPopover() {
         popoverController = ARSPopover()
         popoverController!.sourceView = languageButton
-        popoverController!.sourceRect = CGRectMake(CGRectGetMidX(languageButton.bounds), CGRectGetMaxY(languageButton.bounds), 0, 0)
+        popoverController!.sourceRect = CGRect(x: CGRectGetMidX(languageButton.bounds), y: CGRectGetMaxY(languageButton.bounds), width: 0, height: 0)
         popoverController!.contentSize = CGSizeMake(view.width - 50, 300)
         popoverController!.arrowDirection = .Up;
         

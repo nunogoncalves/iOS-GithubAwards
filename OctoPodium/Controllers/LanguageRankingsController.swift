@@ -71,7 +71,7 @@ class LanguageRankingsController: UIViewController {
         }
     }
     
-//    let languageTitleView = LanguageTitleView(frame: CGRectMake(0.0, 0.0, 120.0, 40.0))
+//    let languageTitleView = LanguageTitleView(frame: CGRect(x: 0.0, y: 0.0, width: 120.0, height: 40.0))
     
     var language: String? {
         didSet {

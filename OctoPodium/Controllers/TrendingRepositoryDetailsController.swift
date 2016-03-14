@@ -26,8 +26,9 @@ class TrendingRepositoryDetailsController: UIViewController {
         SendToGoogleAnalytics.enteredScreen(String(TrendingRepositoryDetailsController))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "showRepoOptions")
         
-        starsGithubButton.frame = CGRectMake(0, 0, 138, 33)
-        forksGithubButton.frame = CGRectMake(0, 0, 138, 33)
+        let githubButtonsFrame = CGRect(x: 0, y: 0, width: 138, height: 33)
+        starsGithubButton.frame = githubButtonsFrame
+        forksGithubButton.frame = githubButtonsFrame
         view.layoutIfNeeded()
     }
     @objc private func showRepoOptions() {        

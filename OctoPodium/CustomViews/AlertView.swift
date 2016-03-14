@@ -35,7 +35,7 @@ class AlertView: UIView {
         let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .Light)) as UIVisualEffectView
         visualEffectView.frame = bounds
         visualEffectView.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
-        visualEffectView.frame = CGRectMake(0, 0, blurView.frame.width, blurView.frame.height)
+        visualEffectView.frame = CGRect(x: 0, y: 0, width: blurView.frame.width, height: blurView.frame.height)
         
         blurView.addSubview(visualEffectView)
     }
