@@ -10,8 +10,8 @@ import UIKit
 
 class TrendingRepositoryDetailsController: UIViewController {
 
-    @IBOutlet weak var starsGithubButton: GithubButton!
-    @IBOutlet weak var forksGithubButton: GithubButton!
+    @IBOutlet weak var starsGithubButton: GithubStarButton!
+    @IBOutlet weak var forksGithubButton: GithubForkButton!
     
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var loadingView: GithubLoadingView!
@@ -29,10 +29,6 @@ class TrendingRepositoryDetailsController: UIViewController {
         starsGithubButton.frame = CGRectMake(0, 0, 138, 33)
         forksGithubButton.frame = CGRectMake(0, 0, 138, 33)
         view.layoutIfNeeded()
-        
-        starsGithubButton.setName("Stars")
-        forksGithubButton.setName("Forks")
-        
     }
     @objc private func showRepoOptions() {        
         let repoBuilder = RepositoryOptionsBuilder.build(repository!.url) { [weak self] in
@@ -60,8 +56,8 @@ class TrendingRepositoryDetailsController: UIViewController {
     }
     
     private func gotStarsAndForks(starsAndForks: (stars: Int, forks: Int)) {
-        starsGithubButton.setValue("\(starsAndForks.stars)")
-        forksGithubButton.setValue("\(starsAndForks.forks)")
+        starsGithubButton.setNumberOfStars("\(starsAndForks.stars)")
+        forksGithubButton.setNumberOfForks("\(starsAndForks.forks)")
     }
     
     private func gotGithubApiResponse(readMeLocation: String) {

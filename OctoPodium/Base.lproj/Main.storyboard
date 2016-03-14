@@ -906,8 +906,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qZF-dJ-gft">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="50"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yoP-GI-v8A" customClass="GithubButton" customModule="OctoPodium" customModuleProvider="target">
-                                                <rect key="frame" x="30" y="8.5" width="100" height="33"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yoP-GI-v8A" customClass="GithubStarButton" customModule="OctoPodium" customModuleProvider="target">
+                                                <rect key="frame" x="13.5" y="8" width="133" height="33"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="33" id="f6A-Zp-fhg"/>
@@ -936,8 +936,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pC0-vw-Uej">
                                         <rect key="frame" x="160" y="0.0" width="160" height="50"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fjc-lg-tUe" customClass="GithubButton" customModule="OctoPodium" customModuleProvider="target">
-                                                <rect key="frame" x="30" y="8.5" width="100" height="33"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fjc-lg-tUe" customClass="GithubForkButton" customModule="OctoPodium" customModuleProvider="target">
+                                                <rect key="frame" x="13" y="8" width="133" height="33"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="33" id="SzQ-om-s4q"/>

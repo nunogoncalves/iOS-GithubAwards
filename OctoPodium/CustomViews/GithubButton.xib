@@ -16,6 +16,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GithubButton" customModule="OctoPodium" customModuleProvider="target">
             <connections>
+                <outlet property="imageView" destination="Gtr-Cu-4KW" id="1cC-8h-ET9"/>
                 <outlet property="leftView" destination="2Bl-o2-LIm" id="E9H-Gk-3zw"/>
                 <outlet property="loadingView" destination="k5s-rZ-6VW" id="R4E-54-TLd"/>
                 <outlet property="nameLabel" destination="SWL-FB-WuM" id="Ev3-NJ-tVT"/>
