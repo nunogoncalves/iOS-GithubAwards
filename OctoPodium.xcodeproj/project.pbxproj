@@ -36,8 +36,8 @@
 		853C48DF1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */; };
 		853C48E11C09A28400373A92 /* GetOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48E01C09A28400373A92 /* GetOne.swift */; };
 		853C48E31C09A35F00373A92 /* CreateBasicUserFromDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48E21C09A35F00373A92 /* CreateBasicUserFromDictionary.swift */; };
-		853E11591CA74834002263BD /* Github.plist in Resources */ = {isa = PBXBuildFile; fileRef = 853E11581CA74834002263BD /* Github.plist */; };
 		853E115D1CA74A06002263BD /* GithubConfigsGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853E115C1CA74A06002263BD /* GithubConfigsGetter.swift */; };
+		853E115F1CA7512A002263BD /* Github.plist in Resources */ = {isa = PBXBuildFile; fileRef = 853E115E1CA7512A002263BD /* Github.plist */; };
 		854813A61C79059C00182C6B /* GitHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854813A51C79059C00182C6B /* GitHub.swift */; };
 		854813A81C7905D200182C6B /* StarsAndForksFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854813A71C7905D200182C6B /* StarsAndForksFetcher.swift */; };
 		85482E621C96BE0800E20FDB /* GithubStarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85482E611C96BE0800E20FDB /* GithubStarButton.swift */; };
@@ -220,8 +220,8 @@
 		853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertUsersDictionaryToUsers.swift; sourceTree = "<group>"; };
 		853C48E01C09A28400373A92 /* GetOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetOne.swift; sourceTree = "<group>"; };
 		853C48E21C09A35F00373A92 /* CreateBasicUserFromDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBasicUserFromDictionary.swift; sourceTree = "<group>"; };
-		853E11581CA74834002263BD /* Github.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Github.plist; path = "../../../../../../../Dropbox/Code & Work/PersonalWork/Development/Mobile/iOS/Apps/0Configurations/Github.plist"; sourceTree = "<group>"; };
 		853E115C1CA74A06002263BD /* GithubConfigsGetter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubConfigsGetter.swift; sourceTree = "<group>"; };
+		853E115E1CA7512A002263BD /* Github.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Github.plist; path = ../../../../Secrets/Github.plist; sourceTree = "<group>"; };
 		854813A51C79059C00182C6B /* GitHub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHub.swift; sourceTree = "<group>"; };
 		854813A71C7905D200182C6B /* StarsAndForksFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarsAndForksFetcher.swift; sourceTree = "<group>"; };
 		85482E611C96BE0800E20FDB /* GithubStarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubStarButton.swift; sourceTree = "<group>"; };
@@ -430,9 +430,9 @@
 		853E11511CA746C4002263BD /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
-				853E11581CA74834002263BD /* Github.plist */,
+				853E115E1CA7512A002263BD /* Github.plist */,
 			);
-			name = Configurations;
+			path = Configurations;
 			sourceTree = "<group>";
 		};
 		853E115B1CA749D2002263BD /* AppConfigurations */ = {
@@ -440,7 +440,7 @@
 			children = (
 				853E115C1CA74A06002263BD /* GithubConfigsGetter.swift */,
 			);
-			name = AppConfigurations;
+			path = AppConfigurations;
 			sourceTree = "<group>";
 		};
 		8549ACBB1C6C8B10004D8149 /* Fonts */ = {
@@ -502,8 +502,8 @@
 		855913DC1C63878300E356FD /* GitHub */ = {
 			isa = PBXGroup;
 			children = (
-				854B5B9D1CA6F1BF0070A456 /* Login.swift */,
 				854813A51C79059C00182C6B /* GitHub.swift */,
+				854B5B9D1CA6F1BF0070A456 /* Login.swift */,
 				855913DD1C63879700E356FD /* RepoContentsFetcher.swift */,
 				854813A71C7905D200182C6B /* StarsAndForksFetcher.swift */,
 				854B5BA31CA7335E0070A456 /* UserInfoGetter.swift */,
@@ -746,7 +746,9 @@
 			isa = PBXGroup;
 			children = (
 				856E395B1C60A47C00974330 /* DataSources */,
+				854B5B9F1CA6FE200070A456 /* ApiResponse.swift */,
 				85E656731C139F5100BB4278 /* Book.swift */,
+				854B5BA11CA718F30070A456 /* GithubToken.swift */,
 				85FA59641C1645B00097732B /* K.swift */,
 				857C48941C119307000F035C /* LanguageImage.swift */,
 				85E656751C13A23400BB4278 /* LanguageUsersTableDataSource.swift */,
@@ -761,8 +763,6 @@
 				85BBDA071C5E702C00229ED2 /* TrendingScope.swift */,
 				85D321201C0219C7001B7C7A /* User.swift */,
 				85E6566A1C134B4E00BB4278 /* UsersListResponse.swift */,
-				854B5B9F1CA6FE200070A456 /* ApiResponse.swift */,
-				854B5BA11CA718F30070A456 /* GithubToken.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1021,7 +1021,7 @@
 				85D320F71C02062E001B7C7A /* Assets.xcassets in Resources */,
 				857AE7711C74A477007AEE47 /* c++.png in Resources */,
 				8549ACC71C6C8B1F004D8149 /* TitilliumWeb-Black.ttf in Resources */,
-				853E11591CA74834002263BD /* Github.plist in Resources */,
+				853E115F1CA7512A002263BD /* Github.plist in Resources */,
 				85820F4E1C0E2C1A0069D085 /* GithubLoading-7.gif in Resources */,
 				85820F481C0E2C1A0069D085 /* GithubLoading-1.gif in Resources */,
 				85820F3D1C0E2BCE0069D085 /* GithubLoadingView.xib in Resources */,
