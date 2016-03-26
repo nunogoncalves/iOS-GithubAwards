@@ -33,6 +33,10 @@ struct K {
         private static let apiBaseUrl = "http://github-awards.com"
         static let usersBaseUrl = "\(apiBaseUrl)/api/v0/users"
         static let languagesBaseUrl = "\(apiBaseUrl)/api/v0/languages"
+        
+        private static let githubApiBaseUrl = "https://api.github.com"
+        static let githubLoginUrl = "\(githubApiBaseUrl)/authorizations"
+        static let userUrl = "\(githubApiBaseUrl)/user"
     }
     
     struct Segues {
@@ -47,6 +51,8 @@ struct K {
         static let userSearchToDetail = "UsersSearchToDetailSegue"
         static let trendingToUserDetailsSegue = "TrendingToUserDetailsSegue"
         static let showTrendingRepositoryDetailsSegue = "ShowTrendingRepositoryDetailsSegue"
+        
+        static let goToLoginSegue = "GoToLoginSegue"
     }
     
     struct Timeouts {
