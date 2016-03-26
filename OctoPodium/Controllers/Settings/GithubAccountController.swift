@@ -1,0 +1,79 @@
+//
+//  GithubAccountController.swift
+//  OctoPodium
+//
+//  Created by Nuno Gonçalves on 26/03/16.
+//  Copyright © 2016 Nuno Gonçalves. All rights reserved.
+//
+
+import UIKit
+
+protocol Userable: class {
+    func readyForUser()
+}
+
+class GithubAccountController : UIViewController {
+    
+    @IBOutlet weak var userContainer: UIView!
+    @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var usernameLabel: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if !GithubToken.instance.exists() {
+            addNewAccountButton()
+        } else {
+            fetchUser()
+        }
+    }
+    
+    @IBAction func signout() {
+        if GithubToken.instance.deleteSessionToken() {
+            userContainer.hide()
+            addNewAccountButton()
+        }
+    }
+    
+    private func addNewAccountButton() {
+        let addAccountButton = UIBarButtonItem(barButtonSystemItem: .Add,
+                                               target: self,
+                                               action: "addGihubAccount")
+        navigationItem.rightBarButtonItem = addAccountButton
+    }
+
+    private func fetchUser() {
+        GitHub.UserInfoGetter().get(success: { user in
+            self.gotUser(user)
+            }, failure: { status in
+                NotifyError.display(status.message())
+        })
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == kSegues.goToLoginSegue {
+            let vc = segue.destinationViewController as! AddGithubAccountController
+            vc.userDelegate = self
+        }
+    }
+    
+    @objc private func addGihubAccount() {
+        performSegueWithIdentifier(kSegues.goToLoginSegue, sender: self)
+    }
+    
+    func gotUser(user: User) {
+        userContainer.show()
+        navigationItem.rightBarButtonItem = nil
+        self.usernameLabel.text = user.login ?? ""
+        if let avatar = user.avatarUrl {
+            ImageLoader.fetchAndLoad(avatar, imageView: self.userImageView)
+        }
+    }
+    
+}
+
+extension GithubAccountController : Userable {
+    
+    func readyForUser() {
+        fetchUser()
+    }
+}
