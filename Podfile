@@ -8,6 +8,7 @@ end
 target 'OctoPodium' do
     pod 'Google/Analytics'
     pod 'Kanna', '~> 1.0.0'
+    pod 'Locksmith', '2.0.8'
     pod 'SDWebImage', '~>3.7'
     pod 'ARSPopover', '~> 2.0'
 end
