@@ -12,14 +12,14 @@ struct Data {
     class ResponseHandler {
         
         var successCallback: (NSDictionary -> ())?
-        var failureCallback: ((NetworkStatus) -> ())?
+        var failureCallback: (ApiResponse -> ())?
         
         func success(data: NSDictionary) {
             successCallback?(data)
         }
         
-        func failure(status: NetworkStatus) {
-            failureCallback?(status)
+        func failure(apiResponse: ApiResponse) {
+            failureCallback?(apiResponse)
         }
     }
 }

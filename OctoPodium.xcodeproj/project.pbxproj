@@ -36,6 +36,8 @@
 		853C48DF1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */; };
 		853C48E11C09A28400373A92 /* GetOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48E01C09A28400373A92 /* GetOne.swift */; };
 		853C48E31C09A35F00373A92 /* CreateBasicUserFromDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48E21C09A35F00373A92 /* CreateBasicUserFromDictionary.swift */; };
+		853E11591CA74834002263BD /* Github.plist in Resources */ = {isa = PBXBuildFile; fileRef = 853E11581CA74834002263BD /* Github.plist */; };
+		853E115D1CA74A06002263BD /* GithubConfigsGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853E115C1CA74A06002263BD /* GithubConfigsGetter.swift */; };
 		854813A61C79059C00182C6B /* GitHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854813A51C79059C00182C6B /* GitHub.swift */; };
 		854813A81C7905D200182C6B /* StarsAndForksFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854813A71C7905D200182C6B /* StarsAndForksFetcher.swift */; };
 		85482E621C96BE0800E20FDB /* GithubStarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85482E611C96BE0800E20FDB /* GithubStarButton.swift */; };
@@ -56,6 +58,11 @@
 		854A404D1C3B369D005E7FF1 /* VerifyRequestStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854A404C1C3B369D005E7FF1 /* VerifyRequestStatus.swift */; };
 		854A404F1C3B3D16005E7FF1 /* VerifyRequestStatusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854A404E1C3B3D16005E7FF1 /* VerifyRequestStatusTests.swift */; };
 		854B5B9A1CA6E7B50070A456 /* GithubAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854B5B991CA6E7B50070A456 /* GithubAccountController.swift */; };
+		854B5B9C1CA6EE370070A456 /* AddGithubAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854B5B9B1CA6EE370070A456 /* AddGithubAccountController.swift */; };
+		854B5B9E1CA6F1BF0070A456 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854B5B9D1CA6F1BF0070A456 /* Login.swift */; };
+		854B5BA01CA6FE200070A456 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854B5B9F1CA6FE200070A456 /* ApiResponse.swift */; };
+		854B5BA21CA718F30070A456 /* GithubToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854B5BA11CA718F30070A456 /* GithubToken.swift */; };
+		854B5BA41CA7335E0070A456 /* UserInfoGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854B5BA31CA7335E0070A456 /* UserInfoGetter.swift */; };
 		8555A9FB1C74CB5500715F91 /* delphi.png in Resources */ = {isa = PBXBuildFile; fileRef = 8555A9FA1C74CB5500715F91 /* delphi.png */; };
 		855913DE1C63879700E356FD /* RepoContentsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855913DD1C63879700E356FD /* RepoContentsFetcher.swift */; };
 		856A72E31C122C1E008415A4 /* css.png in Resources */ = {isa = PBXBuildFile; fileRef = 856A72DE1C122C1E008415A4 /* css.png */; };
@@ -213,6 +220,8 @@
 		853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertUsersDictionaryToUsers.swift; sourceTree = "<group>"; };
 		853C48E01C09A28400373A92 /* GetOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetOne.swift; sourceTree = "<group>"; };
 		853C48E21C09A35F00373A92 /* CreateBasicUserFromDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBasicUserFromDictionary.swift; sourceTree = "<group>"; };
+		853E11581CA74834002263BD /* Github.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Github.plist; path = "../../../../../../../Dropbox/Code & Work/PersonalWork/Development/Mobile/iOS/Apps/0Configurations/Github.plist"; sourceTree = "<group>"; };
+		853E115C1CA74A06002263BD /* GithubConfigsGetter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubConfigsGetter.swift; sourceTree = "<group>"; };
 		854813A51C79059C00182C6B /* GitHub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHub.swift; sourceTree = "<group>"; };
 		854813A71C7905D200182C6B /* StarsAndForksFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarsAndForksFetcher.swift; sourceTree = "<group>"; };
 		85482E611C96BE0800E20FDB /* GithubStarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubStarButton.swift; sourceTree = "<group>"; };
@@ -233,6 +242,11 @@
 		854A404C1C3B369D005E7FF1 /* VerifyRequestStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyRequestStatus.swift; sourceTree = "<group>"; };
 		854A404E1C3B3D16005E7FF1 /* VerifyRequestStatusTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyRequestStatusTests.swift; sourceTree = "<group>"; };
 		854B5B991CA6E7B50070A456 /* GithubAccountController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubAccountController.swift; sourceTree = "<group>"; };
+		854B5B9B1CA6EE370070A456 /* AddGithubAccountController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGithubAccountController.swift; sourceTree = "<group>"; };
+		854B5B9D1CA6F1BF0070A456 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		854B5B9F1CA6FE200070A456 /* ApiResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
+		854B5BA11CA718F30070A456 /* GithubToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubToken.swift; sourceTree = "<group>"; };
+		854B5BA31CA7335E0070A456 /* UserInfoGetter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoGetter.swift; sourceTree = "<group>"; };
 		8555A9FA1C74CB5500715F91 /* delphi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delphi.png; sourceTree = "<group>"; };
 		855913DD1C63879700E356FD /* RepoContentsFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoContentsFetcher.swift; sourceTree = "<group>"; };
 		856A72DE1C122C1E008415A4 /* css.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = css.png; sourceTree = "<group>"; };
@@ -413,6 +427,22 @@
 			path = DictionaryModelMappers;
 			sourceTree = "<group>";
 		};
+		853E11511CA746C4002263BD /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				853E11581CA74834002263BD /* Github.plist */,
+			);
+			name = Configurations;
+			sourceTree = "<group>";
+		};
+		853E115B1CA749D2002263BD /* AppConfigurations */ = {
+			isa = PBXGroup;
+			children = (
+				853E115C1CA74A06002263BD /* GithubConfigsGetter.swift */,
+			);
+			name = AppConfigurations;
+			sourceTree = "<group>";
+		};
 		8549ACBB1C6C8B10004D8149 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -434,6 +464,7 @@
 		854B5B951CA6E71F0070A456 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				854B5B9B1CA6EE370070A456 /* AddGithubAccountController.swift */,
 				854B5B991CA6E7B50070A456 /* GithubAccountController.swift */,
 			);
 			path = Settings;
@@ -471,9 +502,11 @@
 		855913DC1C63878300E356FD /* GitHub */ = {
 			isa = PBXGroup;
 			children = (
+				854B5B9D1CA6F1BF0070A456 /* Login.swift */,
 				854813A51C79059C00182C6B /* GitHub.swift */,
 				855913DD1C63879700E356FD /* RepoContentsFetcher.swift */,
 				854813A71C7905D200182C6B /* StarsAndForksFetcher.swift */,
+				854B5BA31CA7335E0070A456 /* UserInfoGetter.swift */,
 			);
 			path = GitHub;
 			sourceTree = "<group>";
@@ -602,6 +635,7 @@
 		858B910A1C085A3300B510B3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				853E11511CA746C4002263BD /* Configurations */,
 				8549ACBB1C6C8B10004D8149 /* Fonts */,
 				85820F3E1C0E2BDE0069D085 /* Images */,
 				85D320F61C02062E001B7C7A /* Assets.xcassets */,
@@ -639,6 +673,7 @@
 			children = (
 				857858551C7633E1009195B8 /* AlertController */,
 				857EB00A1C5951AE00C315DF /* Analytics */,
+				853E115B1CA749D2002263BD /* AppConfigurations */,
 				856D67651C3424BA00A77678 /* Browser */,
 				856D67681C3426C200A77678 /* Data */,
 				853C48DB1C09218800373A92 /* DictionaryModelMappers */,
@@ -726,6 +761,8 @@
 				85BBDA071C5E702C00229ED2 /* TrendingScope.swift */,
 				85D321201C0219C7001B7C7A /* User.swift */,
 				85E6566A1C134B4E00BB4278 /* UsersListResponse.swift */,
+				854B5B9F1CA6FE200070A456 /* ApiResponse.swift */,
+				854B5BA11CA718F30070A456 /* GithubToken.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -984,6 +1021,7 @@
 				85D320F71C02062E001B7C7A /* Assets.xcassets in Resources */,
 				857AE7711C74A477007AEE47 /* c++.png in Resources */,
 				8549ACC71C6C8B1F004D8149 /* TitilliumWeb-Black.ttf in Resources */,
+				853E11591CA74834002263BD /* Github.plist in Resources */,
 				85820F4E1C0E2C1A0069D085 /* GithubLoading-7.gif in Resources */,
 				85820F481C0E2C1A0069D085 /* GithubLoading-1.gif in Resources */,
 				85820F3D1C0E2BCE0069D085 /* GithubLoadingView.xib in Resources */,
@@ -1188,6 +1226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85BBDA001C5D1AB800229ED2 /* GetRepositories.swift in Sources */,
+				854B5B9C1CA6EE370070A456 /* AddGithubAccountController.swift in Sources */,
 				853C48E11C09A28400373A92 /* GetOne.swift in Sources */,
 				85FA59651C1645B00097732B /* K.swift in Sources */,
 				858B91131C085B4C00B510B3 /* SearchOptions.swift in Sources */,
@@ -1202,6 +1241,7 @@
 				8501F06B1C425674004BEB50 /* SessionConfigurationBuilder.swift in Sources */,
 				85D321211C0219C7001B7C7A /* User.swift in Sources */,
 				85BBDA021C5D1BDE00229ED2 /* CreateListFromHTML.swift in Sources */,
+				854B5BA21CA718F30070A456 /* GithubToken.swift in Sources */,
 				85AF8AFB1C445EAD0022D97F /* LanguageImageView.swift in Sources */,
 				85D321251C022480001B7C7A /* UserDetailsController.swift in Sources */,
 				85E656741C139F5100BB4278 /* Book.swift in Sources */,
@@ -1212,6 +1252,7 @@
 				85820F511C0EF4FC0069D085 /* NotifyError.swift in Sources */,
 				8599284C1C0D9436000ABE8C /* LocationType.swift in Sources */,
 				85198B761C05CE6C007ACC73 /* LanguagesController.swift in Sources */,
+				853E115D1CA74A06002263BD /* GithubConfigsGetter.swift in Sources */,
 				85D320F21C02062E001B7C7A /* LanguageRankingsController.swift in Sources */,
 				8517ECBD1C2C11AB00467985 /* RankingPresenter.swift in Sources */,
 				854813A81C7905D200182C6B /* StarsAndForksFetcher.swift in Sources */,
@@ -1237,6 +1278,8 @@
 				857C48951C119307000F035C /* LanguageImage.swift in Sources */,
 				854B5B9A1CA6E7B50070A456 /* GithubAccountController.swift in Sources */,
 				85BBD9F71C5C2DCD00229ED2 /* TrendingController.swift in Sources */,
+				854B5B9E1CA6F1BF0070A456 /* Login.swift in Sources */,
+				854B5BA41CA7335E0070A456 /* UserInfoGetter.swift in Sources */,
 				851D3C3A1C0913E900870813 /* ResponseHandler.swift in Sources */,
 				85FA59671C16D6660097732B /* CreateFullUserFromDictionary.swift in Sources */,
 				857E2C331C1C37970095DCC0 /* SearchBar.swift in Sources */,
@@ -1251,6 +1294,7 @@
 				85482E641C96BF9A00E20FDB /* GithubForkButton.swift in Sources */,
 				855913DE1C63879700E356FD /* RepoContentsFetcher.swift in Sources */,
 				85B501851C10FD8400BBFD56 /* LanguageTitleView.swift in Sources */,
+				854B5BA01CA6FE200070A456 /* ApiResponse.swift in Sources */,
 				85B2C2D01C18D07800112D95 /* UIView.swift in Sources */,
 				853C48DF1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift in Sources */,
 				85BBDA0A1C5E85E500229ED2 /* Reusable.swift in Sources */,

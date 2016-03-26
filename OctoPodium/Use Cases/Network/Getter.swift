@@ -25,9 +25,9 @@ extension Getter {
         dispatch_async(dispatch_get_global_queue(qos, 0)) {
             
             let responseHandler = Data.ResponseHandler()
-            responseHandler.failureCallback = { status in
+            responseHandler.failureCallback = { apiResponse in
                 dispatch_async(dispatch_get_main_queue()) {
-                    failure(status)
+                    failure(apiResponse.status)
                 }
             }
             responseHandler.successCallback = { dictionary in
@@ -36,7 +36,7 @@ extension Getter {
                     success(data)
                 }
             }
-            Network.Requester(networkResponseHandler: responseHandler).makeGet(self.getUrl())
+            Network.Requester(networkResponseHandler: responseHandler).makeGet(self.getUrl(),headerParameters: nil)
         }
     }
 }
