@@ -15,7 +15,7 @@ Check how you rank on your location based on your number of stars of your reposi
 - iOS 8.0+
 - Xcode 7.2
 - Cocoapods 0.39.0
-
+- Have `Github.plist` (should contain `ClientId` and `ClientSecret` keys) and a `GoogleService-Info.plist` files in a Secrets folder next to OctoPodium project folder. These files are referenced in the project and since they are secrets are not included in the project.
 
 ### CocoaPods
 
