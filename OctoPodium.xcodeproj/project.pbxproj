@@ -66,6 +66,7 @@
 		8555A9FB1C74CB5500715F91 /* delphi.png in Resources */ = {isa = PBXBuildFile; fileRef = 8555A9FA1C74CB5500715F91 /* delphi.png */; };
 		8558253C1CA8526500851967 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558253B1CA8526500851967 /* AboutController.swift */; };
 		8558253E1CA85DF200851967 /* NSBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558253D1CA85DF200851967 /* NSBundle.swift */; };
+		855825411CA881D600851967 /* Follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855825401CA881D600851967 /* Follow.swift */; };
 		855913DE1C63879700E356FD /* RepoContentsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855913DD1C63879700E356FD /* RepoContentsFetcher.swift */; };
 		856A72E31C122C1E008415A4 /* css.png in Resources */ = {isa = PBXBuildFile; fileRef = 856A72DE1C122C1E008415A4 /* css.png */; };
 		856A72E41C122C1E008415A4 /* objective-c.png in Resources */ = {isa = PBXBuildFile; fileRef = 856A72DF1C122C1E008415A4 /* objective-c.png */; };
@@ -254,6 +255,7 @@
 		8555A9FA1C74CB5500715F91 /* delphi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delphi.png; sourceTree = "<group>"; };
 		8558253B1CA8526500851967 /* AboutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
 		8558253D1CA85DF200851967 /* NSBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSBundle.swift; sourceTree = "<group>"; };
+		855825401CA881D600851967 /* Follow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Follow.swift; sourceTree = "<group>"; };
 		855913DD1C63879700E356FD /* RepoContentsFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoContentsFetcher.swift; sourceTree = "<group>"; };
 		856A72DE1C122C1E008415A4 /* css.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = css.png; sourceTree = "<group>"; };
 		856A72DF1C122C1E008415A4 /* objective-c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "objective-c.png"; sourceTree = "<group>"; };
@@ -509,6 +511,14 @@
 			path = Languages;
 			sourceTree = "<group>";
 		};
+		8558253F1CA881C500851967 /* Twitter */ = {
+			isa = PBXGroup;
+			children = (
+				855825401CA881D600851967 /* Follow.swift */,
+			);
+			name = Twitter;
+			sourceTree = "<group>";
+		};
 		855913DC1C63878300E356FD /* GitHub */ = {
 			isa = PBXGroup;
 			children = (
@@ -692,6 +702,7 @@
 				851D3C361C09131D00870813 /* Network */,
 				85820F4F1C0EF4ED0069D085 /* Notifications */,
 				85BBD9FC1C5D1A9600229ED2 /* Repositories */,
+				8558253F1CA881C500851967 /* Twitter */,
 				858B910F1C085B0800B510B3 /* Users */,
 			);
 			path = "Use Cases";
@@ -1312,6 +1323,7 @@
 				85B501851C10FD8400BBFD56 /* LanguageTitleView.swift in Sources */,
 				854B5BA01CA6FE200070A456 /* ApiResponse.swift in Sources */,
 				85B2C2D01C18D07800112D95 /* UIView.swift in Sources */,
+				855825411CA881D600851967 /* Follow.swift in Sources */,
 				853C48DF1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift in Sources */,
 				85BBDA0A1C5E85E500229ED2 /* Reusable.swift in Sources */,
 				85E6566B1C134B4E00BB4278 /* UsersListResponse.swift in Sources */,

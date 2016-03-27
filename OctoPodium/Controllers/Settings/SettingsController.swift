@@ -14,6 +14,8 @@ class SettingsController : UITableViewController {
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var versionLabel: UILabel!
     
+    private let followMeOnTwitterIndexPath = NSIndexPath(forRow: 2, inSection: 2)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,11 +40,22 @@ class SettingsController : UITableViewController {
         return 30
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if isFollowMeOnTwitterIndexPath(indexPath: indexPath) {
+            let _ = Twitter.Follow(username: K.twitterHandle)
+        }
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+       
         if segue.identifier == kSegues.gotToTrendingDetailsFromSettingsSegue {
             let vc = segue.destinationViewController as! TrendingRepositoryDetailsController
             vc.repository = Repository(name: K.appGithubRepository, stars: "0", description: "", language: "Swift")
         }
+    }
+    
+    private func isFollowMeOnTwitterIndexPath(indexPath ip: NSIndexPath) -> Bool {
+        return ip == followMeOnTwitterIndexPath
     }
     
 }

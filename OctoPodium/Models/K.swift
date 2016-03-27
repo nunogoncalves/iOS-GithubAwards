@@ -14,6 +14,7 @@ struct K {
     static let appGithubRepository = "nunogoncalves/iOS-OctoPodium"
     static let appVersion = NSBundle.versionNumber()
     static let sourceCode = "https://github.com/nunogoncalves/iOS-OctoPodium"
+    static let twitterHandle = "goncalvescmnuno"
     
     struct Colors {
         static let tabBarColor: UInt = 0x03436E
