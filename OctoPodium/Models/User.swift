@@ -34,22 +34,34 @@ class User {
         return city != nil && city != ""
     }
     
-    private static let octoPodiumLoggedInUserKey = "OctoPodiumLoggedUser"
+    private static let loggedInUserLoginKey = "OctoPodiumLoggedUserLogin"
+    private static let loggedInUserAvatarUrlKey = "OctoPodiumLoggedUserAvatarUrl"
     
     func saveInUserDefaults() {
-        User.saveUserInUserDefaults(login!)
+        User.saveUserInUserDefaults(self)
     }
     
-    class func saveUserInUserDefaults(login: String) {
-        NSUserDefaults().setObject(login, forKey: User.octoPodiumLoggedInUserKey)
+    class func saveUserInUserDefaults(user: User) {
+        NSUserDefaults().setObject(user.login, forKey: User.loggedInUserLoginKey)
+        NSUserDefaults().setObject(user.avatarUrl, forKey: User.loggedInUserAvatarUrlKey)
+        
     }
 
-    class func getUserInUserDefaults() -> String? {
-        return NSUserDefaults().objectForKey(User.octoPodiumLoggedInUserKey) as? String
+    class func getUserInUserDefaults() -> User? {
+        let defs = NSUserDefaults()
+        
+        if let login = defs.objectForKey(User.loggedInUserLoginKey) as? String {
+            let avatarUrl = defs.objectForKey(User.loggedInUserAvatarUrlKey) as? String
+            let user = User(login: login, avatarUrl: avatarUrl ?? "")
+            return user
+        }
+        
+        return nil
     }
     
     class func removeUserFromDefaults() {
-        NSUserDefaults().removeObjectForKey(octoPodiumLoggedInUserKey)
+        NSUserDefaults().removeObjectForKey(loggedInUserLoginKey)
+        NSUserDefaults().removeObjectForKey(loggedInUserAvatarUrlKey)
     }
     
 }
