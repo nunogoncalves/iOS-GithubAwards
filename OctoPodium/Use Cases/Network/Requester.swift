@@ -65,8 +65,8 @@ struct Network {
         private func completionHandler(data: NSData?, response: NSURLResponse?, error: NSError?) {
             var responseData: NSDictionary?
             do {
-                if let d = data {
-                    responseData = try convertDataToDictionary(d)
+                if data != nil && data!.length > 0 {
+                    responseData = try convertDataToDictionary(data!)
                 }
             } catch _ {
                 handleFailure(.GenericError, responseDictionary: nil)
