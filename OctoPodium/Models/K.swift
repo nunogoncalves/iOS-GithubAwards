@@ -10,6 +10,11 @@ import Foundation
 
 struct K {
     
+    static let appName = "OctoPodium"
+    static let appGithubRepository = "nunogoncalves/iOS-OctoPodium"
+    static let appVersion = NSBundle.versionNumber()
+    static let sourceCode = "https://github.com/nunogoncalves/iOS-OctoPodium"
+    
     struct Colors {
         static let tabBarColor: UInt = 0x03436E
         static let navigationBarColor: UInt = 0x2F9DE6
@@ -53,6 +58,8 @@ struct K {
         static let showTrendingRepositoryDetailsSegue = "ShowTrendingRepositoryDetailsSegue"
         
         static let goToLoginSegue = "GoToLoginSegue"
+        
+        static let gotToTrendingDetailsFromSettingsSegue = "ShowOctoPodiumDetailsSegue"
     }
     
     struct Timeouts {
