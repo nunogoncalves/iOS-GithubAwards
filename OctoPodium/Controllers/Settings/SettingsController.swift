@@ -15,6 +15,7 @@ class SettingsController : UITableViewController {
     @IBOutlet weak var versionLabel: UILabel!
     
     private let followMeOnTwitterIndexPath = NSIndexPath(forRow: 2, inSection: 2)
+    private let reviewOctoPodiumIndexPath = NSIndexPath(forRow: 0, inSection: 1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +45,10 @@ class SettingsController : UITableViewController {
         if isFollowMeOnTwitterIndexPath(indexPath: indexPath) {
             let _ = Twitter.Follow(username: K.twitterHandle)
         }
+        
+        if isReviewOctoPodiumIndexPath(indexPath: indexPath) {
+            Browser.openPage("itms-apps://itunes.apple.com/app/id\(K.appId)")
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -56,6 +61,10 @@ class SettingsController : UITableViewController {
     
     private func isFollowMeOnTwitterIndexPath(indexPath ip: NSIndexPath) -> Bool {
         return ip == followMeOnTwitterIndexPath
+    }
+    
+    private func isReviewOctoPodiumIndexPath(indexPath ip: NSIndexPath) -> Bool {
+        return ip == reviewOctoPodiumIndexPath
     }
     
 }

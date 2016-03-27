@@ -12,6 +12,7 @@ struct K {
     
     static let appName = "OctoPodium"
     static let appGithubRepository = "nunogoncalves/iOS-OctoPodium"
+    static let appId = "1077519133"
     static let appVersion = NSBundle.versionNumber()
     static let sourceCode = "https://github.com/nunogoncalves/iOS-OctoPodium"
     static let twitterHandle = "goncalvescmnuno"
