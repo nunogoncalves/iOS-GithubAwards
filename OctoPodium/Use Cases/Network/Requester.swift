@@ -8,6 +8,9 @@
 
 import Foundation
 
+typealias BodyParams = [String : AnyObject]
+typealias HeadParams = [String : String]
+
 struct Network {
 
     class Requester {
@@ -16,62 +19,68 @@ struct Network {
         private let networkResponseHandler: Data.ResponseHandler
         private let sessionConfBuilder = SessionConfigurationBuilder()
         
+        private let session: NSURLSession
+        
         init(networkResponseHandler: Data.ResponseHandler) {
             self.networkResponseHandler = networkResponseHandler
+            session = URLSession.init(configuration: sessionConfBuilder.sessionConfiguration())
         }
         
-        func makeGet(urlStr: String, headerParameters: [String : String]?) {
+        func call(urlStr: String,
+                  httpMethod method: HTTPMethod,
+                  headers: HeadParams?,
+                  bodyParams: BodyParams?) {
+                    
             let task = buildRequesterTaskFor(urlStr,
-                                             httpMethod: "GET",
-                                             headerParameters: headerParameters,
-                                             bodyParameters: nil)
+                    httpMethod: method,
+                    headers: headers,
+                    bodyParameters: bodyParams)
             task.resume()
         }
         
-        func makePost(urlStr: String,
-                      headerParameters: [String : String],
-                      bodyParameters: [String : AnyObject]) {
-            let task = buildRequesterTaskFor(urlStr,
-                                             httpMethod: "POST",
-                                             headerParameters: headerParameters,
-                                             bodyParameters: bodyParameters)
-            task.resume()
-        }
-        
-        private func buildRequesterTaskFor(
-                urlStr: String,
-                httpMethod: String,
-                headerParameters: [String : String]?,
-                bodyParameters: NSDictionary?) -> NSURLSessionDataTask {
-            let url = NSURL(string: urlStr.urlEncoded())
-            let session = URLSession.init(configuration: sessionConfBuilder.sessionConfiguration())
-            let request = NSMutableURLRequest(URL: url!)
-            request.HTTPMethod = httpMethod
+        private func buildRequesterTaskFor(urlStr: String,
+                                           httpMethod: HTTPMethod,
+                                           headers: HeadParams?,
+                                           bodyParameters: BodyParams?) -> NSURLSessionDataTask {
+                                            
+            let request = buildURLRequestFor(urlStr)
+            request.HTTPMethod = httpMethod.rawValue
             
+            addIfNecessary(bodyParameters, to: request)
+            addIfNecessary(headers, to: request)
+                                
+            return session.dataTaskWithRequest(request, completionHandler: completionHandler)
+        }
+        
+        private func buildURLRequestFor(url: String) -> NSMutableURLRequest {
+            let url = NSURL(string: url.urlEncoded())
+            let request = NSMutableURLRequest(URL: url!)
+            return request
+        }
+        
+        private func addIfNecessary(bodyParameters: BodyParams?, to request: NSMutableURLRequest) {
             if let parameters = bodyParameters {
                 let postData = try! NSJSONSerialization.dataWithJSONObject(parameters, options: .PrettyPrinted)
                 request.HTTPBody = postData
             }
-            
-            if let headerParams = headerParameters {
-                for (header, value) in headerParams {
-                    request.addValue(value, forHTTPHeaderField: header)
-                }
+        }
+        
+        private func addIfNecessary(headers: HeadParams?, to request: NSMutableURLRequest) {
+            let headerParams = headers ?? ["CLIENT_OS" : "iOS"]
+            for (header, value) in headerParams {
+                request.addValue(value, forHTTPHeaderField: header)
             }
-            request.setValue("ios", forHTTPHeaderField: "client-os")
-            return session.dataTaskWithRequest(request, completionHandler: completionHandler)
         }
         
         private func completionHandler(data: NSData?, response: NSURLResponse?, error: NSError?) {
             var responseData: NSDictionary?
-            do {
+            
+            doInCatchBlock { [weak self] in
                 if data != nil && data!.length > 0 {
-                    responseData = try convertDataToDictionary(data!)
+                    responseData = try self?.convertDataToDictionary(data!)
                 }
-            } catch _ {
-                handleFailure(.GenericError, responseDictionary: nil)
             }
-                
+            
             let statusVerifier = VerifyRequestStatus(response: response, error: error, responseDictionary: responseData)
             
             if statusVerifier.success() {
@@ -83,11 +92,9 @@ struct Network {
         
         private func handleSuccess(data: NSData?) {
             guard let data = data else { return handleFailure(.GenericError, responseDictionary: nil) }
-            do {
-                let data = try convertDataToDictionary(data)
-                networkResponseHandler.success(data)
-            } catch _ {
-                handleFailure(.GenericError, responseDictionary: nil)
+            doInCatchBlock { [weak self] in
+                let data = try self?.convertDataToDictionary(data)
+                self?.networkResponseHandler.success(data!)
             }
         }
         
@@ -106,6 +113,14 @@ struct Network {
             }
             
             throw JSONParseError.NoDicNorArray
+        }
+        
+        private func doInCatchBlock(action: (() throws -> ())) {
+            do {
+                try action()
+            } catch _ {
+                handleFailure(.GenericError, responseDictionary: nil)
+            }
         }
     }
 }

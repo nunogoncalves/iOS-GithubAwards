@@ -40,6 +40,8 @@ class AddGithubAccountController : UIViewController {
                             NotifyError.display(message)
                         }
                     }
+                } else {
+                    NotifyError.display(apiResponse.status.message())
                 }
             }
         )

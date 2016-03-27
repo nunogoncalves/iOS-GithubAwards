@@ -11,6 +11,12 @@ import Foundation
 extension Users {
     class GetList: Getter {
         
+        var headers: HeadParams? = nil
+        
+        var bodyParams: BodyParams? = nil
+        
+        let httpMethod = HTTPMethod.GET
+        
         private let searchOptions: SearchOptions
         
         init(searchOptions: SearchOptions) {

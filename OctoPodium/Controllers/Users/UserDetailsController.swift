@@ -88,7 +88,7 @@ class UserDetailsController: UIViewController {
         
         rankingsTable.registerReusableCell(RankingCell)
         
-        Users.GetOne(login: userPresenter!.login()).get(success: userSuccess, failure: failure)
+        Users.GetOne(login: userPresenter!.login()).call(success: userSuccess, failure: failure)
         SendToGoogleAnalytics.enteredScreen(kAnalytics.userDetailsScreenFor(userPresenter!.user))
     }
     
@@ -208,7 +208,7 @@ extension UserDetailsController {
         }
     }
     
-    func failure(status: NetworkStatus) {
+    func failure(apiResponse: ApiResponse) {
         loadingView.hidden = true
         NotifyError.display()
     }

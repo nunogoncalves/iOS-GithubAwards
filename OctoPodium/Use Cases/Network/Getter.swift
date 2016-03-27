@@ -6,28 +6,29 @@
 //  Copyright © 2015 Nuno Gonçalves. All rights reserved.
 //
 
-import Foundation
-
 protocol Getter {
     typealias Element
     
+    var httpMethod: HTTPMethod { get }
+    var headers: HeadParams? { get }
+    var bodyParams: BodyParams? { get }
+
     func getUrl() -> String
-    
     func getDataFrom(dictionary: NSDictionary) -> Element
-    
-    func get(success success: Element -> (), failure: NetworkStatus -> ())
-    
+    func call(success success: Element -> (), failure: ApiResponse -> ())
+
 }
 
 extension Getter {
-    func get(success success: Element -> (), failure: NetworkStatus -> ()) {
+    
+    func call(success success: Element -> (), failure: ApiResponse -> ()) {
         let qos = Int(QOS_CLASS_USER_INTERACTIVE.rawValue)
         dispatch_async(dispatch_get_global_queue(qos, 0)) {
             
             let responseHandler = Data.ResponseHandler()
             responseHandler.failureCallback = { apiResponse in
                 dispatch_async(dispatch_get_main_queue()) {
-                    failure(apiResponse.status)
+                    failure(apiResponse)
                 }
             }
             responseHandler.successCallback = { dictionary in
@@ -36,7 +37,11 @@ extension Getter {
                     success(data)
                 }
             }
-            Network.Requester(networkResponseHandler: responseHandler).makeGet(self.getUrl(),headerParameters: nil)
+            Network.Requester(networkResponseHandler: responseHandler).call(
+                self.getUrl(),
+                httpMethod: self.httpMethod,
+                headers: self.headers,
+                bodyParams: self.bodyParams)
         }
     }
 }

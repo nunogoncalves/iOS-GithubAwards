@@ -48,12 +48,12 @@ class TrendingRepositoryDetailsController: UIViewController {
         guard let repository = repository else { return }
         
         GitHub.RepoContentFetcher(repositoryName: repository.completeName)
-            .get(success: gotGithubApiResponse, failure: gitHubApiFailed)
+            .call(success: gotGithubApiResponse, failure: gitHubApiFailed)
     }
     
     private func fetchStarsAndForks() {
         guard let repository = repository else { return }
-        GitHub.StarsAndForksFetcher(repositoryName: repository.completeName).get(success: gotStarsAndForks, failure: gitHubApiFailed)
+        GitHub.StarsAndForksFetcher(repositoryName: repository.completeName).call(success: gotStarsAndForks, failure: gitHubApiFailed)
     }
     
     private func gotStarsAndForks(starsAndForks: (stars: Int, forks: Int)) {
@@ -69,8 +69,8 @@ class TrendingRepositoryDetailsController: UIViewController {
         }
     }
     
-    private func gitHubApiFailed(status: NetworkStatus) {
-        hideLoadingAndDisplay(status.message())
+    private func gitHubApiFailed(apiResponse: ApiResponse) {
+        hideLoadingAndDisplay(apiResponse.status.message())
     }
 
     private func gotReadMeLocation(url: String) {

@@ -75,7 +75,7 @@ class UsersSearchController: UIViewController {
         loadingIndicator.show()
         userContainerTopConstraint.constant = -80.0
         UIView.animateWithDuration(userMovementAnimationDuration) { self.view.layoutIfNeeded() }
-        Users.GetOne(login: login).get(success: gotUser, failure: failedToSearchForUser)
+        Users.GetOne(login: login).call(success: gotUser, failure: failedToSearchForUser)
         SendToGoogleAnalytics.userSearched(login)
     }
     
@@ -123,14 +123,14 @@ class UsersSearchController: UIViewController {
         eyeRight.hide()
     }
     
-    private func failedToSearchForUser(status: NetworkStatus) {
+    private func failedToSearchForUser(apiResponse: ApiResponse) {
         loadingIndicator.hide()
         
         userNotFoundLabel.show()
         showEyeCrosses()
         
-        if status.isTechnicalError() {
-            NotifyError.display(status.message())
+        if apiResponse.status.isTechnicalError() {
+            NotifyError.display(apiResponse.status.message())
         }
     }
     

@@ -9,6 +9,12 @@
 extension GitHub {
     class RepoContentFetcher : Getter {
         
+        var headers: HeadParams? = nil
+        
+        var bodyParams: BodyParams? = nil
+        
+        let httpMethod = HTTPMethod.GET
+        
         private let repoName: String
         
         init(repositoryName: String) {

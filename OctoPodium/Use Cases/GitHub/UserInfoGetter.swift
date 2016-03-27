@@ -9,28 +9,15 @@
 extension GitHub {
     struct UserInfoGetter : Getter {
         
-        func get(success success: User -> (), failure: NetworkStatus -> ()) {
-            let qos = Int(QOS_CLASS_USER_INTERACTIVE.rawValue)
-            dispatch_async(dispatch_get_global_queue(qos, 0)) {
-                
-                let responseHandler = Data.ResponseHandler()
-                responseHandler.failureCallback = { apiResponse in
-                    dispatch_async(dispatch_get_main_queue()) {
-                        failure(apiResponse.status)
-                    }
-                }
-                responseHandler.successCallback = { dictionary in
-                    let user = self.getDataFrom(dictionary)
-                    dispatch_async(dispatch_get_main_queue()) {
-                        success(user)
-                    }
-                }
-                
-                var headerParams: [String : String] = [:]
-                if let token = GithubToken.instance.token {
-                    headerParams["Authorization"] = "token \(token)"
-                }
-                Network.Requester(networkResponseHandler: responseHandler).makeGet(self.getUrl(),headerParameters: headerParams)
+        var headers: HeadParams?
+        
+        var bodyParams: BodyParams? = nil
+
+        let httpMethod = HTTPMethod.GET
+        
+        init() {
+            if let token = GithubToken.instance.token {
+                headers = ["Authorization" : "token \(token)"]
             }
         }
         

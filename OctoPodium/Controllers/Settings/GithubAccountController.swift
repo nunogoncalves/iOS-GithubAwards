@@ -43,10 +43,10 @@ class GithubAccountController : UIViewController {
     }
 
     private func fetchUser() {
-        GitHub.UserInfoGetter().get(success: { user in
+        GitHub.UserInfoGetter().call(success: { user in
             self.gotUser(user)
-            }, failure: { status in
-                NotifyError.display(status.message())
+            }, failure: { apiResponse in
+                NotifyError.display(apiResponse.status.message())
         })
     }
     

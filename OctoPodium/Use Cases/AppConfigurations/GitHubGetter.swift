@@ -8,9 +8,9 @@
 
 struct AppConfigurations {
 
-    struct GithubConfigurations {
+    struct GitHubGetter {
         
-        static let instance = GithubConfigurations()
+        static let instance = AppConfigurations.GitHubGetter()
         
         let clientId: String
         let clientSecret: String

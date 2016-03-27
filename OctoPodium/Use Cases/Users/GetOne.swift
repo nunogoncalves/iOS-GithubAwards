@@ -11,6 +11,12 @@ import Foundation
 extension Users {
     class GetOne: Getter {
         
+        var headers: HeadParams?
+        
+        var bodyParams: BodyParams? = nil
+        
+        let httpMethod = HTTPMethod.GET
+        
         private let login: String
         
         init(login: String) {

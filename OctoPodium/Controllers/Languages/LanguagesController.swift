@@ -65,10 +65,10 @@ extension LanguagesController {
         endSearching()
     }
     
-    private func failedToLoadLanguages(status: NetworkStatus) {
+    private func failedToLoadLanguages(apiResponse: ApiResponse) {
         tryAgainButton.show()
         loadingIndicator?.hide()
-        NotifyError.display(status.message())
+        NotifyError.display(apiResponse.status.message())
     }
 }
 
