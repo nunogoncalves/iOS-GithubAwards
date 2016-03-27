@@ -51,8 +51,8 @@ class UsersSearchController: UIViewController {
     
     @objc private func selectMe() {
         if let user = User.getUserInUserDefaults() {
-            searchField.text = user
-            searchUserFor(user)
+            searchField.text = user.login!
+            searchUserFor(user.login!)
             searchField.resignFirstResponder()
         }
     }
