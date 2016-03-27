@@ -13,6 +13,11 @@ extension String {
         let charSet = NSCharacterSet.URLQueryAllowedCharacterSet()
         return self.stringByAddingPercentEncodingWithAllowedCharacters(charSet)!
     }
+    
+    func base64Encoded() -> String {
+        let data: NSData = self.dataUsingEncoding(NSASCIIStringEncoding)!
+        return data.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
+    }
 
     func withoutSpaces() -> String {
         return replace(" ", with: "")
