@@ -1561,36 +1561,6 @@
             </objects>
             <point key="canvasLocation" x="2345" y="1555"/>
         </scene>
-        <!--Feedback-->
-        <scene sceneID="slM-hc-Pxy">
-            <objects>
-                <viewController id="BVD-hz-K2g" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="CQf-xc-DnC"/>
-                        <viewControllerLayoutGuide type="bottom" id="t5M-25-4qW"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="iAo-6P-Qcc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62H-iF-c7n">
-                                <rect key="frame" x="-72" y="140" width="465" height="21"/>
-                                <string key="text">Feedback itms-apps://itunes.apple.com/app/idYOUR_APP_ID
-</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Feedback" id="GQo-6t-8Sz"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dWQ-uU-N9K" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2345" y="2104"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="qkd-uG-dPQ">
             <objects>
