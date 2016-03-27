@@ -18,7 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         setUpBarsAppearance()
         configureCache()
-        configureGoogleAnalytics()
+        
+        #if RELEASE
+            configureGoogleAnalytics()
+        #endif
        
         return true
     }
