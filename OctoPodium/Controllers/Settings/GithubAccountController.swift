@@ -20,11 +20,18 @@ class GithubAccountController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if !GithubToken.instance.exists() {
             addNewAccountButton()
         } else {
             fetchUser()
         }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        userContainer.hidden = !GithubToken.instance.exists()
     }
     
     @IBAction func signout() {
