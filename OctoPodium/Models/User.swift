@@ -33,4 +33,23 @@ class User {
     func hasCity() -> Bool {
         return city != nil && city != ""
     }
+    
+    private static let octoPodiumLoggedInUserKey = "OctoPodiumLoggedUser"
+    
+    func saveInUserDefaults() {
+        User.saveUserInUserDefaults(login!)
+    }
+    
+    class func saveUserInUserDefaults(login: String) {
+        NSUserDefaults().setObject(login, forKey: User.octoPodiumLoggedInUserKey)
+    }
+
+    class func getUserInUserDefaults() -> String? {
+        return NSUserDefaults().objectForKey(User.octoPodiumLoggedInUserKey) as? String
+    }
+    
+    class func removeUserFromDefaults() {
+        NSUserDefaults().removeObjectForKey(octoPodiumLoggedInUserKey)
+    }
+    
 }

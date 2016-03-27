@@ -29,6 +29,7 @@ class GithubAccountController : UIViewController {
     
     @IBAction func signout() {
         if GithubToken.instance.deleteSessionToken() {
+            User.removeUserFromDefaults()
             userContainer.hide()
             addNewAccountButton()
         }
@@ -62,6 +63,7 @@ class GithubAccountController : UIViewController {
     
     func gotUser(user: User) {
         userContainer.show()
+        user.saveInUserDefaults()
         navigationItem.rightBarButtonItem = nil
         self.usernameLabel.text = user.login ?? ""
         if let avatar = user.avatarUrl {

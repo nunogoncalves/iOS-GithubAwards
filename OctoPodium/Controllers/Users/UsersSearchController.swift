@@ -40,6 +40,23 @@ class UsersSearchController: UIViewController {
         SendToGoogleAnalytics.enteredScreen(kAnalytics.userSearchScreen)
     }
 
+    override func viewWillAppear(animated: Bool) {
+        if let _ = User.getUserInUserDefaults() {
+            let meButton = UIBarButtonItem(title: "Me", style: UIBarButtonItemStyle.Plain, target: self, action: "selectMe")
+            navigationItem.rightBarButtonItem = meButton
+        } else {
+            navigationItem.rightBarButtonItem = nil
+        }
+    }
+    
+    @objc private func selectMe() {
+        if let user = User.getUserInUserDefaults() {
+            searchField.text = user
+            searchUserFor(user)
+            searchField.resignFirstResponder()
+        }
+    }
+    
     @objc private func showUser() {
         performSegueWithIdentifier(kSegues.userSearchToDetail, sender: self)
     }
@@ -115,6 +132,10 @@ class UsersSearchController: UIViewController {
         if status.isTechnicalError() {
             NotifyError.display(status.message())
         }
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        searchField.resignFirstResponder()
     }
 }
 
