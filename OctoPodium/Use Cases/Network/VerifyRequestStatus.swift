@@ -24,12 +24,14 @@ class VerifyRequestStatus {
     
     private let successCodes = [
         NetworkStatus.Ok.rawValue,
-        NetworkStatus.Created.rawValue
+        NetworkStatus.Created.rawValue,
+        NetworkStatus.NoContent.rawValue
     ]
     
     private let responseCodes = [
         NetworkStatus.Ok.rawValue,
         NetworkStatus.Created.rawValue,
+        NetworkStatus.NoContent.rawValue,
         NetworkStatus.Unauthorized.rawValue,
         NetworkStatus.NotFound.rawValue,
         NetworkStatus.ServerError.rawValue,

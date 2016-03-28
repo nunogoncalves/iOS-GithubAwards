@@ -9,6 +9,7 @@
 enum NetworkStatus: Int {
     case Ok = 200
     case Created = 201
+    case NoContent = 204
     case Timeout = -1001
     case Offline = -1009
     case HostNameNotFound = -1003 //github-awardsboooo.com
@@ -19,7 +20,7 @@ enum NetworkStatus: Int {
     case GenericError = -1
     
     func success() -> Bool {
-        let codes: [NetworkStatus] = [.Ok, .Created]
+        let codes: [NetworkStatus] = [.Ok, .Created, .NoContent]
         return codes.contains(self)
     }
     
@@ -30,6 +31,8 @@ enum NetworkStatus: Int {
             return "Ok"
         case Created:
             return "Created"
+        case NoContent:
+            return "No Content"
         case Timeout:
             return "Request exceded wait time."
         case Offline:

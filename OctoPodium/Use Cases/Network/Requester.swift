@@ -84,7 +84,11 @@ struct Network {
             let statusVerifier = VerifyRequestStatus(response: response, error: error, responseDictionary: responseData)
             
             if statusVerifier.success() {
-                handleSuccess(data)
+                if statusVerifier.status() == .NoContent {
+                    handleSuccess(try! NSJSONSerialization.dataWithJSONObject([:], options: .PrettyPrinted))
+                } else {
+                    handleSuccess(data)
+                }
             } else {
                 handleFailure(statusVerifier.status(), responseDictionary: responseData)
             }
