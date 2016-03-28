@@ -43,21 +43,30 @@ class SettingsController : UITableViewController {
     }
     
     let indexPathSelectors = [
-        "section1row0" : "reviewOctoPodium",
-        "section2row1" : "showOctoPodiumReadMe",
-        "section2row2" : "followMeOnTwitter",
+        "section1row1" : "showOctoPodiumReadMe",
+        "section1row2" : "starOctoPodium",
+        "section1row3" : "reviewOctoPodium",
+        
+        "section2row0" : "developerTwitter",
+        "section2row1" : "developerGithub",
     ]
     
     func performSelectorBasedOn(indexPath: NSIndexPath) {
         let key = "section\(indexPath.section)row\(indexPath.row)"
         if let selector = indexPathSelectors[key] {
+            print(selector)
             performSelector(Selector(selector))
         }
     }
     
-    func followMeOnTwitter() {
+    func developerTwitter() {
         let _ = Twitter.Follow(username: K.twitterHandle)
-        Analytics.SendToGoogle.showOnTwitterEvent()
+        Analytics.SendToGoogle.showDeveloperOnTwitterEvent()
+    }
+    
+    func developerGithub() {
+        Browser.openPage(K.appOwnerGithub)
+        Analytics.SendToGoogle.showDeveloperOnGithubEvent()
     }
     
     func reviewOctoPodium() {
@@ -69,11 +78,21 @@ class SettingsController : UITableViewController {
         Analytics.SendToGoogle.viewOctoPodiumReadMeEvent()
     }
     
+    func starOctoPodium() {
+        Analytics.SendToGoogle.viewOctoPodiumReadMeEvent()
+        GitHub.StartRepository(repoOwner: K.appOwnerName, repoName: K.appRepositoryName)
+              .doStar({ () -> () in
+                print("Done starring")
+                }) { apiResponse -> () in
+                    print("Error starring")
+        }
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
        
         if segue.identifier == kSegues.gotToTrendingDetailsFromSettingsSegue {
             let vc = segue.destinationViewController as! TrendingRepositoryDetailsController
-            vc.repository = Repository(name: K.appGithubRepository, stars: "0", description: "", language: "Swift")
+            vc.repository = Repository(name: "\(K.appOwnerName)/\(K.appRepositoryName)", stars: "0", description: "", language: "Swift")
         }
     }
     

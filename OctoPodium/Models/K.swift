@@ -11,10 +11,14 @@ import Foundation
 struct K {
     
     static let appName = "OctoPodium"
-    static let appGithubRepository = "nunogoncalves/iOS-OctoPodium"
     static let appId = "1077519133"
     static let appVersion = NSBundle.versionNumber()
-    static let sourceCode = "https://github.com/nunogoncalves/iOS-OctoPodium"
+    
+    static let appOwnerName = "nunogoncalves"
+    static let appRepositoryName = "iOS-OctoPodium"
+    static let appOwnerGithub = "https://github.com/\(appOwnerName)"
+    static let appGithubRepository = "\(appOwnerGithub)/\(appRepositoryName)"
+    
     static let twitterHandle = "goncalvescmnuno"
     
     struct Colors {
@@ -44,6 +48,10 @@ struct K {
         private static let githubApiBaseUrl = "https://api.github.com"
         static let githubLoginUrl = "\(githubApiBaseUrl)/authorizations"
         static let userUrl = "\(githubApiBaseUrl)/user"
+
+        static var doStarRepoUrl = { (repoOwner: String, repoName: String) in
+            "\(githubApiBaseUrl)/user/starred/\(repoOwner)/\(repoName)"
+        }
     }
     
     struct Segues {

@@ -27,7 +27,7 @@ class AboutController : UIViewController {
     }
     
     private func setAboutText() {
-        aboutTextView.text = "Hi! Thank you for using \(K.appName). \n\(K.appName) is an open source application developped on my free time. It looks so nice thanks to the help of my coleague Cláudia Conceção. It is built using Swift 2.2. \nYou can check the source code at \(K.sourceCode)"
+        aboutTextView.text = "Hi! Thank you for using \(K.appName). \n\(K.appName) is an open source application developped on my free time. It looks so nice thanks to the help of my coleague Cláudia Conceção. It is built using Swift 2.2. \nYou can check the source code at \(K.appGithubRepository)"
         
     }
 }

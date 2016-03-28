@@ -74,9 +74,14 @@ extension Analytics {
             sendEvent("Show", action: "OctoPodium Read Me")
         }
         
-        static func showOnTwitterEvent() {
+        static func showDeveloperOnTwitterEvent() {
             sendEvent("GoTo", action: "Twitter Profile")
         }
+        
+        static func showDeveloperOnGithubEvent() {
+            sendEvent("GoTo", action: "GitHub Profile")
+        }
+
         
         private static func callAsync(closure: () -> ()) {
             dispatch_async(dispatch_get_global_queue(qos, 0)) {
