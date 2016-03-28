@@ -36,6 +36,6 @@ class WorldUsersController : UsersController {
     }
     
     override func sendUserPaginatedToAnalytics(page: String) {
-        SendToGoogleAnalytics.usersPaginatedInWorld(forLanguage: language, andPage: page)
+        Analytics.SendToGoogle.usersPaginatedInWorld(forLanguage: language, andPage: page)
     }
 }

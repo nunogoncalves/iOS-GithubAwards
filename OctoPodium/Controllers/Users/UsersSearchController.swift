@@ -37,7 +37,7 @@ class UsersSearchController: UIViewController {
         searchField.becomeFirstResponder()
         let tapGesture = UITapGestureRecognizer(target: self, action: "showUser")
         userSearchContainer.addGestureRecognizer(tapGesture)
-        SendToGoogleAnalytics.enteredScreen(kAnalytics.userSearchScreen)
+        Analytics.SendToGoogle.enteredScreen(kAnalytics.userSearchScreen)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -76,7 +76,7 @@ class UsersSearchController: UIViewController {
         userContainerTopConstraint.constant = -80.0
         UIView.animateWithDuration(userMovementAnimationDuration) { self.view.layoutIfNeeded() }
         Users.GetOne(login: login).call(success: gotUser, failure: failedToSearchForUser)
-        SendToGoogleAnalytics.userSearched(login)
+        Analytics.SendToGoogle.userSearched(login)
     }
     
     private func gotUser(user: User) {

@@ -67,6 +67,8 @@
 		8558253C1CA8526500851967 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558253B1CA8526500851967 /* AboutController.swift */; };
 		8558253E1CA85DF200851967 /* NSBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558253D1CA85DF200851967 /* NSBundle.swift */; };
 		855825411CA881D600851967 /* Follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855825401CA881D600851967 /* Follow.swift */; };
+		855825431CA9BD3000851967 /* CofigureGoogleAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855825421CA9BD3000851967 /* CofigureGoogleAnalytics.swift */; };
+		855825451CA9BDC700851967 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855825441CA9BDC700851967 /* Analytics.swift */; };
 		855913DE1C63879700E356FD /* RepoContentsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855913DD1C63879700E356FD /* RepoContentsFetcher.swift */; };
 		856A72E31C122C1E008415A4 /* css.png in Resources */ = {isa = PBXBuildFile; fileRef = 856A72DE1C122C1E008415A4 /* css.png */; };
 		856A72E41C122C1E008415A4 /* objective-c.png in Resources */ = {isa = PBXBuildFile; fileRef = 856A72DF1C122C1E008415A4 /* objective-c.png */; };
@@ -256,6 +258,8 @@
 		8558253B1CA8526500851967 /* AboutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
 		8558253D1CA85DF200851967 /* NSBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSBundle.swift; sourceTree = "<group>"; };
 		855825401CA881D600851967 /* Follow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Follow.swift; sourceTree = "<group>"; };
+		855825421CA9BD3000851967 /* CofigureGoogleAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CofigureGoogleAnalytics.swift; sourceTree = "<group>"; };
+		855825441CA9BDC700851967 /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		855913DD1C63879700E356FD /* RepoContentsFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoContentsFetcher.swift; sourceTree = "<group>"; };
 		856A72DE1C122C1E008415A4 /* css.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = css.png; sourceTree = "<group>"; };
 		856A72DF1C122C1E008415A4 /* objective-c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "objective-c.png"; sourceTree = "<group>"; };
@@ -566,6 +570,8 @@
 		857EB00A1C5951AE00C315DF /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
+				855825441CA9BDC700851967 /* Analytics.swift */,
+				855825421CA9BD3000851967 /* CofigureGoogleAnalytics.swift */,
 				857EB00B1C5951BB00C315DF /* SendToGoogle.swift */,
 			);
 			path = Analytics;
@@ -1281,10 +1287,12 @@
 				8517ECBD1C2C11AB00467985 /* RankingPresenter.swift in Sources */,
 				854813A81C7905D200182C6B /* StarsAndForksFetcher.swift in Sources */,
 				85168C841C0733BA00091553 /* UsersSearchController.swift in Sources */,
+				855825431CA9BD3000851967 /* CofigureGoogleAnalytics.swift in Sources */,
 				85D3B80A1CA7DF020004D276 /* HTTPMethod.swift in Sources */,
 				85E8CC491C3AAE5A001B4129 /* NetworkStatus.swift in Sources */,
 				85BBD9F91C5CA61000229ED2 /* Repository.swift in Sources */,
 				8558253E1CA85DF200851967 /* NSBundle.swift in Sources */,
+				855825451CA9BDC700851967 /* Analytics.swift in Sources */,
 				85A4F01B1C3F1BF0002F3405 /* CityUsersController.swift in Sources */,
 				856D67671C3424C900A77678 /* Browser.swift in Sources */,
 				854813A61C79059C00182C6B /* GitHub.swift in Sources */,

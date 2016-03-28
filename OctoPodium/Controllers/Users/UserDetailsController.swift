@@ -39,7 +39,7 @@ class UserDetailsController: UIViewController {
     @IBAction func viewGithubProfileClicked() {
         if let login = userPresenter?.login() {
             Browser.openPage("http://github.com/\(login)")
-            SendToGoogleAnalytics.viewUserOnGithub(login)
+            Analytics.SendToGoogle.viewUserOnGithub(login)
         }
     }
     
@@ -89,7 +89,7 @@ class UserDetailsController: UIViewController {
         rankingsTable.registerReusableCell(RankingCell)
         
         Users.GetOne(login: userPresenter!.login()).call(success: userSuccess, failure: failure)
-        SendToGoogleAnalytics.enteredScreen(kAnalytics.userDetailsScreenFor(userPresenter!.user))
+        Analytics.SendToGoogle.enteredScreen(kAnalytics.userDetailsScreenFor(userPresenter!.user))
     }
     
     @objc private func showRepoOptions() {

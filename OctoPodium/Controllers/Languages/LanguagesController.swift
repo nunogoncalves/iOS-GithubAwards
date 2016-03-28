@@ -29,7 +29,7 @@ class LanguagesController: UIViewController {
         searchBar.searchDelegate = self
         searchLanguages()
         languagesTable.registerReusableCell(LanguageCell)
-        SendToGoogleAnalytics.enteredScreen(kAnalytics.languagesScreen)
+        Analytics.SendToGoogle.enteredScreen(kAnalytics.languagesScreen)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

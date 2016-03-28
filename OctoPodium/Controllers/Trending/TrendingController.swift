@@ -33,7 +33,7 @@ class TrendingController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        SendToGoogleAnalytics.enteredScreen(String(TrendingController))
+        Analytics.SendToGoogle.enteredScreen(String(TrendingController))
         
         setUpUIComponents()
         

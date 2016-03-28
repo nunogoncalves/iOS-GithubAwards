@@ -40,10 +40,10 @@ class CityUsersController : UsersController {
     }
     
     override func sendSearchedLocationToAnalytics() {
-        SendToGoogleAnalytics.citySearched(locationName, forLanguage: language)
+        Analytics.SendToGoogle.citySearched(locationName, forLanguage: language)
     }
     
     override func sendUserPaginatedToAnalytics(page: String) {
-        SendToGoogleAnalytics.usersPaginatedInCity(locationName, forLanguage: language, andPage: page)
+        Analytics.SendToGoogle.usersPaginatedInCity(locationName, forLanguage: language, andPage: page)
     }
 }

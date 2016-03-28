@@ -88,7 +88,7 @@ class LanguageRankingsController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        SendToGoogleAnalytics.enteredScreen(kAnalytics.rankingScreenFor(language ?? "?"))
+        Analytics.SendToGoogle.enteredScreen(kAnalytics.rankingScreenFor(language ?? "?"))
 //        self.navigationItem.titleView = languageTitleView;
     }
     

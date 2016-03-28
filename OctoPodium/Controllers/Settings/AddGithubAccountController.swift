@@ -24,7 +24,7 @@ class AddGithubAccountController : UIViewController {
         GitHub.Login(user: user, password: password, twoFactorAuth: twoFactorAuth).login(
             { oAuthToken in
                 if GithubToken.instance.saveOrUpdate(oAuthToken) {
-                    SendToGoogleAnalytics.loggedInWithGitHub(self.twoFactorAuth != nil)
+                    Analytics.SendToGoogle.loggedInWithGitHub(self.twoFactorAuth != nil)
                     self.userDelegate?.readyForUser()
                     self.navigationController?.popViewControllerAnimated(true)
                 }
@@ -49,7 +49,7 @@ class AddGithubAccountController : UIViewController {
     }
     
     private func showAlertFor2FactorAuthenticationCode() {
-        SendToGoogleAnalytics.twoFactorAuthAlertShowedEvent()
+        Analytics.SendToGoogle.twoFactorAuthAlertShowedEvent()
         let alertcontroller = UIAlertController(title: "Two Factor Authentication", message: "Please enter the code you received.", preferredStyle: .Alert)
         
         alertcontroller.addTextFieldWithConfigurationHandler { textField in

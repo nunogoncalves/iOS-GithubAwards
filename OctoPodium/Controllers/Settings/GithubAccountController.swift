@@ -21,7 +21,7 @@ class GithubAccountController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        SendToGoogleAnalytics.enteredScreen(String(GithubAccountController))
+        Analytics.SendToGoogle.enteredScreen(String(GithubAccountController))
         
         if !GithubToken.instance.exists() {
             addNewAccountButton()
@@ -38,6 +38,7 @@ class GithubAccountController : UIViewController {
     
     @IBAction func signout() {
         if GithubToken.instance.deleteSessionToken() {
+            Analytics.SendToGoogle.loggedOutOfGitHub()
             User.removeUserFromDefaults()
             userContainer.hide()
             addNewAccountButton()

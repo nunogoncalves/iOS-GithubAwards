@@ -16,7 +16,7 @@ class SettingsController : UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        SendToGoogleAnalytics.enteredScreen(String(SettingsController))
+        Analytics.SendToGoogle.enteredScreen(String(SettingsController))
         versionLabel.text = "\(K.appVersion)"
 
     }
@@ -43,8 +43,9 @@ class SettingsController : UITableViewController {
     }
     
     let indexPathSelectors = [
+        "section1row0" : "reviewOctoPodium",
+        "section2row1" : "showOctoPodiumReadMe",
         "section2row2" : "followMeOnTwitter",
-        "section1row0" : "reviewOctoPodium"
     ]
     
     func performSelectorBasedOn(indexPath: NSIndexPath) {
@@ -56,11 +57,16 @@ class SettingsController : UITableViewController {
     
     func followMeOnTwitter() {
         let _ = Twitter.Follow(username: K.twitterHandle)
+        Analytics.SendToGoogle.showOnTwitterEvent()
     }
     
     func reviewOctoPodium() {
-        SendToGoogleAnalytics.reviewInAppStoreEvent()
+        Analytics.SendToGoogle.reviewInAppStoreEvent()
         Browser.openPage("itms-apps://itunes.apple.com/app/id\(K.appId)")
+    }
+    
+    func showOctoPodiumReadMe() {
+        Analytics.SendToGoogle.viewOctoPodiumReadMeEvent()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

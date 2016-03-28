@@ -23,7 +23,7 @@ class TrendingRepositoryDetailsController: UIViewController {
         navigationItem.title = repository?.name
         loadWebView()
         fetchStarsAndForks()
-        SendToGoogleAnalytics.enteredScreen(String(TrendingRepositoryDetailsController))
+        Analytics.SendToGoogle.enteredScreen(String(TrendingRepositoryDetailsController))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "showRepoOptions")
         
         let githubButtonsFrame = CGRect(x: 0, y: 0, width: 138, height: 33)
