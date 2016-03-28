@@ -14,9 +14,6 @@ class SettingsController : UITableViewController {
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var versionLabel: UILabel!
     
-    private let followMeOnTwitterIndexPath = NSIndexPath(forRow: 2, inSection: 2)
-    private let reviewOctoPodiumIndexPath = NSIndexPath(forRow: 0, inSection: 1)
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,13 +39,27 @@ class SettingsController : UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if isFollowMeOnTwitterIndexPath(indexPath: indexPath) {
-            let _ = Twitter.Follow(username: K.twitterHandle)
+        performSelectorBasedOn(indexPath)
+    }
+    
+    let indexPathSelectors = [
+        "section2row2" : "followMeOnTwitter",
+        "section1row0" : "reviewOctoPodium"
+    ]
+    
+    func performSelectorBasedOn(indexPath: NSIndexPath) {
+        let key = "section\(indexPath.section)row\(indexPath.row)"
+        if let selector = indexPathSelectors[key] {
+            performSelector(Selector(selector))
         }
-        
-        if isReviewOctoPodiumIndexPath(indexPath: indexPath) {
-            Browser.openPage("itms-apps://itunes.apple.com/app/id\(K.appId)")
-        }
+    }
+    
+    func followMeOnTwitter() {
+        let _ = Twitter.Follow(username: K.twitterHandle)
+    }
+    
+    func reviewOctoPodium() {
+        Browser.openPage("itms-apps://itunes.apple.com/app/id\(K.appId)")
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -57,14 +68,6 @@ class SettingsController : UITableViewController {
             let vc = segue.destinationViewController as! TrendingRepositoryDetailsController
             vc.repository = Repository(name: K.appGithubRepository, stars: "0", description: "", language: "Swift")
         }
-    }
-    
-    private func isFollowMeOnTwitterIndexPath(indexPath ip: NSIndexPath) -> Bool {
-        return ip == followMeOnTwitterIndexPath
-    }
-    
-    private func isReviewOctoPodiumIndexPath(indexPath ip: NSIndexPath) -> Bool {
-        return ip == reviewOctoPodiumIndexPath
     }
     
 }
