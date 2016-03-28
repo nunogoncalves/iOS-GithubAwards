@@ -21,6 +21,8 @@ class GithubAccountController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        SendToGoogleAnalytics.enteredScreen(String(GithubAccountController))
+        
         if !GithubToken.instance.exists() {
             addNewAccountButton()
         } else {

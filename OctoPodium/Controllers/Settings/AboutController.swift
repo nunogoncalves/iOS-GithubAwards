@@ -15,7 +15,7 @@ class AboutController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        SendToGoogleAnalytics.enteredScreen(String(AboutController))
         setAppNameAndYear()
         setAboutText()
     }

@@ -16,7 +16,7 @@ class SettingsController : UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        SendToGoogleAnalytics.enteredScreen(String(SettingsController))
         versionLabel.text = "\(K.appVersion)"
 
     }
@@ -59,6 +59,7 @@ class SettingsController : UITableViewController {
     }
     
     func reviewOctoPodium() {
+        SendToGoogleAnalytics.reviewInAppStoreEvent()
         Browser.openPage("itms-apps://itunes.apple.com/app/id\(K.appId)")
     }
     

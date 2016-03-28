@@ -74,6 +74,32 @@ struct SendToGoogleAnalytics {
         }
     }
     
+    static func twoFactorAuthAlertShowedEvent() {
+        callAsync {
+            sendEvent("Show", action: "2FA alert", label: "2FA alert")
+        }
+    }
+    
+    static func loggedInWithGitHub(withTwoFactorAuth: Bool) {
+        callAsync {
+            let twoFactorAuth = withTwoFactorAuth ? "out" : ""
+            let actionAndLabel = "GitHub Login with\(twoFactorAuth) 2FA"
+            sendEvent("Login", action: actionAndLabel, label: actionAndLabel)
+        }
+    }
+    
+    static func loggedOutOfGitHub() {
+        callAsync {
+            sendEvent("Logout", action: "GitHub Logout", label: "GitHub Logout")
+        }
+    }
+
+    static func reviewInAppStoreEvent() {
+        callAsync {
+            sendEvent("Review App Store", action: "Review App Store", label: "Review App Store")
+        }
+    }
+    
     private static func callAsync(closure: () -> ()) {
         dispatch_async(dispatch_get_global_queue(qos, 0)) {
             closure()
