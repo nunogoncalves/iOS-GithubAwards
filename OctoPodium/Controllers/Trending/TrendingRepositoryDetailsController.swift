@@ -8,6 +8,14 @@
 
 import UIKit
 
+private enum StarState {
+    
+    case Undefined
+    case Starred
+    case Unstarred
+    
+}
+
 class TrendingRepositoryDetailsController: UIViewController {
 
     @IBOutlet weak var starsGithubButton: GithubStarButton!
@@ -18,11 +26,18 @@ class TrendingRepositoryDetailsController: UIViewController {
     
     var repository: Repository?
     
+    private var starState = StarState.Undefined
+    
+    deinit {
+        
+    }
+    
     override func viewDidLoad() {
         webView.delegate = self
         navigationItem.title = repository?.name
         loadWebView()
         fetchStarsAndForks()
+        checkIfIsStarted()
         Analytics.SendToGoogle.enteredScreen(String(TrendingRepositoryDetailsController))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "showRepoOptions")
         
@@ -30,7 +45,11 @@ class TrendingRepositoryDetailsController: UIViewController {
         starsGithubButton.frame = githubButtonsFrame
         forksGithubButton.frame = githubButtonsFrame
         view.layoutIfNeeded()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: "starsButtonClicked")
+        starsGithubButton.addGestureRecognizer(tapGesture)
     }
+    
     @objc private func showRepoOptions() {        
         let repoBuilder = RepositoryOptionsBuilder.build(repository!.url) { [weak self] in
             guard let s = self else { return }
@@ -61,6 +80,23 @@ class TrendingRepositoryDetailsController: UIViewController {
         forksGithubButton.setNumberOfForks("\(starsAndForks.forks)")
     }
     
+    private func checkIfIsStarted() {
+        guard let repo = repository else { return }
+        if GithubToken.instance.exists() {
+            GitHub.StarChecker(repoOwner: repo.user, repoName: repo.name).checkIfIsStar(success: { [weak self] hasStar in
+                if hasStar {
+                    self?.starsGithubButton.setTitleToUnstar()
+                    self?.starState = .Starred
+                } else {
+                    self?.starsGithubButton.setTitleToStars()
+                    self?.starState = .Unstarred
+                }
+                }) { apiResponse in
+                    
+            }
+        }
+    }
+    
     private func gotGithubApiResponse(readMeLocation: String) {
         if readMeLocation != "" {
             gotReadMeLocation(readMeLocation)
@@ -81,6 +117,52 @@ class TrendingRepositoryDetailsController: UIViewController {
     private func hideLoadingAndDisplay(error: String) {
         loadingView.hide()
         NotifyError.display(error)
+    }
+    
+    @objc private func starsButtonClicked() {
+        
+        switch starState {
+        case .Starred:
+            starsGithubButton.startLoading()
+            starState = .Undefined
+            unstarRepo()
+            break
+        case .Unstarred:
+            starsGithubButton.startLoading()
+            starState = .Undefined
+            starRepo()
+            break
+        default: return
+        }
+        
+    }
+    
+    private func starRepo() {
+        guard let repo = repository else { return }
+        GitHub.StarRepository(repoOwner: repo.user, repoName: repo.name)
+            .doStar({ [weak self] in
+                self?.starState = .Starred
+                self?.starsGithubButton.setTitleToUnstar()
+                self?.starsGithubButton.stopLoading()
+                self?.starsGithubButton.increaseNumber()
+                }, failure: { apiResponse  in
+                    print(apiResponse)
+                }
+        )
+    }
+
+    private func unstarRepo() {
+        guard let repo = repository else { return }
+        GitHub.UnstarRepository(repoOwner: repo.user, repoName: repo.name)
+            .doUnstar({ [weak self] in
+                self?.starState = .Unstarred
+                self?.starsGithubButton.decreaseNumber()
+                self?.starsGithubButton.setTitleToStars()
+                self?.starsGithubButton.stopLoading()
+                }, failure: { apiResponse  in
+                    print(apiResponse)
+            }
+        )
     }
 }
 

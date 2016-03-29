@@ -1,15 +1,14 @@
 //
-//  StarRepository.swift
+//  UnstarRepository.swift
 //  OctoPodium
 //
-//  Created by Nuno Gonçalves on 28/03/16.
+//  Created by Nuno Gonçalves on 29/03/16.
 //  Copyright © 2016 Nuno Gonçalves. All rights reserved.
 //
 
 extension GitHub {
     
-    struct StarRepository : Getter {
-        
+    class UnstarRepository : Getter {
         let repoOwner: String
         let repoName: String
         
@@ -18,7 +17,7 @@ extension GitHub {
             self.repoName = repoName
         }
         
-        var httpMethod = HTTPMethod.PUT
+        var httpMethod = HTTPMethod.DELETE
         
         var headers: HeadParams? = [
             "Content-Length" : "0",
@@ -28,13 +27,14 @@ extension GitHub {
         var bodyParams: BodyParams? = nil
         
         func getUrl() -> String {
-            return kUrls.doStarRepoUrl(repoOwner, repoName)
+            return kUrls.doUnstarRepoUrl(repoOwner, repoName)
         }
-
+        
         func getDataFrom(dictionary: NSDictionary) {}
         
-        func doStar(success: () -> (), failure: ApiResponse -> ()) {
+        func doUnstar(success: () -> (), failure: ApiResponse -> ()) {
             call(success: success, failure: failure)
         }
     }
+    
 }

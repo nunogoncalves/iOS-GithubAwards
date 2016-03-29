@@ -79,7 +79,7 @@ class SettingsController : UITableViewController {
     
     func starOctoPodium() {
         Analytics.SendToGoogle.viewOctoPodiumReadMeEvent()
-        GitHub.StartRepository(repoOwner: K.appOwnerName, repoName: K.appRepositoryName)
+        GitHub.StarRepository(repoOwner: K.appOwnerName, repoName: K.appRepositoryName)
               .doStar(starSuccessfull, failure: starFailed)
     }
     

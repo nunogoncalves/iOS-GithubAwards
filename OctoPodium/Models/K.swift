@@ -54,6 +54,10 @@ struct K {
             "\(githubApiBaseUrl)/user/starred/\(repoOwner)/\(repoName)"
         }
         
+        static var doUnstarRepoUrl = { (repoOwner: String, repoName: String) in
+            doStarRepoUrl(repoOwner, repoName)
+        }
+        
         static var githubStarredRepoUrl = { (repoOwner: String, repoName: String) in
             "\(githubApiBaseUrl)/user/starred/\(repoOwner)/\(repoName)"
         }

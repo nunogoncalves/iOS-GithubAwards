@@ -29,6 +29,13 @@ class GithubStarButton : GithubButton {
         setValue(stars)
     }
 
+    func setTitleToStars() {
+        setName("Stars")
+    }
+    
+    func setTitleToUnstar() {
+        setName("Unstar")
+    }
     
 }
 

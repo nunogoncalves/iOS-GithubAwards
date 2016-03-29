@@ -74,6 +74,7 @@
 		8558254B1CAA844F00851967 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558254A1CAA844F00851967 /* Notification.swift */; };
 		8558254D1CAAB52900851967 /* NotifySuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558254C1CAAB52900851967 /* NotifySuccess.swift */; };
 		8558254F1CAAC71D00851967 /* NotifyWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558254E1CAAC71D00851967 /* NotifyWarning.swift */; };
+		855825511CAB258E00851967 /* UnstarRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855825501CAB258E00851967 /* UnstarRepository.swift */; };
 		855913DE1C63879700E356FD /* RepoContentsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855913DD1C63879700E356FD /* RepoContentsFetcher.swift */; };
 		856A72E31C122C1E008415A4 /* css.png in Resources */ = {isa = PBXBuildFile; fileRef = 856A72DE1C122C1E008415A4 /* css.png */; };
 		856A72E41C122C1E008415A4 /* objective-c.png in Resources */ = {isa = PBXBuildFile; fileRef = 856A72DF1C122C1E008415A4 /* objective-c.png */; };
@@ -270,6 +271,7 @@
 		8558254A1CAA844F00851967 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		8558254C1CAAB52900851967 /* NotifySuccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifySuccess.swift; sourceTree = "<group>"; };
 		8558254E1CAAC71D00851967 /* NotifyWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifyWarning.swift; sourceTree = "<group>"; };
+		855825501CAB258E00851967 /* UnstarRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnstarRepository.swift; sourceTree = "<group>"; };
 		855913DD1C63879700E356FD /* RepoContentsFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoContentsFetcher.swift; sourceTree = "<group>"; };
 		856A72DE1C122C1E008415A4 /* css.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = css.png; sourceTree = "<group>"; };
 		856A72DF1C122C1E008415A4 /* objective-c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "objective-c.png"; sourceTree = "<group>"; };
@@ -542,6 +544,7 @@
 				854813A71C7905D200182C6B /* StarsAndForksFetcher.swift */,
 				855825481CAA75C900851967 /* StarChecker.swift */,
 				855825461CA9E28200851967 /* StarRepository.swift */,
+				855825501CAB258E00851967 /* UnstarRepository.swift */,
 				854B5BA31CA7335E0070A456 /* UserInfoGetter.swift */,
 			);
 			path = GitHub;
@@ -1337,6 +1340,7 @@
 				854B5BA41CA7335E0070A456 /* UserInfoGetter.swift in Sources */,
 				851D3C3A1C0913E900870813 /* ResponseHandler.swift in Sources */,
 				85FA59671C16D6660097732B /* CreateFullUserFromDictionary.swift in Sources */,
+				855825511CAB258E00851967 /* UnstarRepository.swift in Sources */,
 				857E2C331C1C37970095DCC0 /* SearchBar.swift in Sources */,
 				85FA59631C15C5C00097732B /* UserTopCell.swift in Sources */,
 				85D3211E1C0211C2001B7C7A /* UserCell.swift in Sources */,
