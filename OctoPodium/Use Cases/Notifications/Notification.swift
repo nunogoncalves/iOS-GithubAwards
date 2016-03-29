@@ -6,4 +6,62 @@
 //  Copyright © 2016 Nuno Gonçalves. All rights reserved.
 //
 
-import Foundation
+class Notification : NSObject {
+    
+    let errorDuration: NSTimeInterval = 0.75
+    let window = UIApplication.sharedApplication().keyWindow!
+ 
+    static let instance = Notification()
+    
+    private override init() {}
+    
+    var isDisplaying = false
+    
+    func display(message: String? = nil, alertType: AlertType) {
+        if isDisplaying {
+            return
+        }
+        isDisplaying = true
+        
+        let alertView = AlertView(frame: CGRect(x: 0, y: -64, width: window.width, height: 80))
+        alertView.setStyle(alertType)
+        
+        if let message = message {
+            alertView.setMessage(message)
+        }
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: "onTap:")
+        alertView.addGestureRecognizer(tapGesture)
+        
+        window.addSubview(alertView)
+        let windowWidth = window.frame.width
+        
+        UIView.animateWithDuration(
+            0.75,
+            delay: 0,
+            usingSpringWithDamping: 0.5,
+            initialSpringVelocity: 0.5,
+            options: [],
+            animations: {
+                alertView.frame = CGRect(x: 0, y: 0, width: windowWidth, height: 80)
+            }, completion: { _ in
+                self.performSelector("dismiss:", withObject: alertView, afterDelay: 1.25)
+            }
+        )
+    }
+    
+    @objc private func onTap(tapGesture: UITapGestureRecognizer) {
+        dismiss(tapGesture.view!)
+    }
+    
+    func dismiss(view: UIView) {
+        UIView.animateWithDuration(0.3, animations: {
+            view.frame = CGRectOffset(view.frame, 0, -128)
+            }, completion: { [weak self] _ in
+                view.removeFromSuperview()
+                self?.isDisplaying = false
+            }
+        )
+    }
+
+}

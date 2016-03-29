@@ -8,6 +8,12 @@
 
 import UIKit
 
+enum AlertType : UInt {
+    case Error = 0xFF0000
+    case Success = 0x00C10C
+    case Warning = 0xF9E647
+}
+
 class AlertView: UIView {
 
     @IBOutlet weak var view: UIView!
@@ -43,6 +49,10 @@ class AlertView: UIView {
     private func loadViewFromNib() {
         NSBundle.mainBundle().loadNibNamed(String(AlertView), owner: self, options: nil)
         addSubview(view)
+    }
+    
+    func setStyle(style: AlertType) {
+        view.backgroundColor = UIColor(rgbValue: style.rawValue)
     }
     
     func setMessage(message: String) {
