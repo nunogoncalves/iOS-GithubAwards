@@ -54,7 +54,6 @@ class SettingsController : UITableViewController {
     func performSelectorBasedOn(indexPath: NSIndexPath) {
         let key = "section\(indexPath.section)row\(indexPath.row)"
         if let selector = indexPathSelectors[key] {
-            print(selector)
             performSelector(Selector(selector))
         }
     }
@@ -81,11 +80,15 @@ class SettingsController : UITableViewController {
     func starOctoPodium() {
         Analytics.SendToGoogle.viewOctoPodiumReadMeEvent()
         GitHub.StartRepository(repoOwner: K.appOwnerName, repoName: K.appRepositoryName)
-              .doStar({ () -> () in
-                print("Done starring")
-                }) { apiResponse -> () in
-                    print("Error starring")
-        }
+              .doStar(starSuccessfull, failure: starFailed)
+    }
+    
+    private func starSuccessfull() {
+        NotifySuccess.display("OctoPodium starred successfully")
+    }
+    
+    private func starFailed(apiResponse: ApiResponse) {
+        NotifyError.display(apiResponse.status.message())
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

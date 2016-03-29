@@ -72,6 +72,8 @@
 		855825471CA9E28200851967 /* StarRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855825461CA9E28200851967 /* StarRepository.swift */; };
 		855825491CAA75C900851967 /* StarChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855825481CAA75C900851967 /* StarChecker.swift */; };
 		8558254B1CAA844F00851967 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558254A1CAA844F00851967 /* Notification.swift */; };
+		8558254D1CAAB52900851967 /* NotifySuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558254C1CAAB52900851967 /* NotifySuccess.swift */; };
+		8558254F1CAAC71D00851967 /* NotifyWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558254E1CAAC71D00851967 /* NotifyWarning.swift */; };
 		855913DE1C63879700E356FD /* RepoContentsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855913DD1C63879700E356FD /* RepoContentsFetcher.swift */; };
 		856A72E31C122C1E008415A4 /* css.png in Resources */ = {isa = PBXBuildFile; fileRef = 856A72DE1C122C1E008415A4 /* css.png */; };
 		856A72E41C122C1E008415A4 /* objective-c.png in Resources */ = {isa = PBXBuildFile; fileRef = 856A72DF1C122C1E008415A4 /* objective-c.png */; };
@@ -266,6 +268,8 @@
 		855825461CA9E28200851967 /* StarRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRepository.swift; sourceTree = "<group>"; };
 		855825481CAA75C900851967 /* StarChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarChecker.swift; sourceTree = "<group>"; };
 		8558254A1CAA844F00851967 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		8558254C1CAAB52900851967 /* NotifySuccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifySuccess.swift; sourceTree = "<group>"; };
+		8558254E1CAAC71D00851967 /* NotifyWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifyWarning.swift; sourceTree = "<group>"; };
 		855913DD1C63879700E356FD /* RepoContentsFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoContentsFetcher.swift; sourceTree = "<group>"; };
 		856A72DE1C122C1E008415A4 /* css.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = css.png; sourceTree = "<group>"; };
 		856A72DF1C122C1E008415A4 /* objective-c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "objective-c.png"; sourceTree = "<group>"; };
@@ -650,8 +654,10 @@
 		85820F4F1C0EF4ED0069D085 /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
-				85820F501C0EF4FC0069D085 /* NotifyError.swift */,
 				8558254A1CAA844F00851967 /* Notification.swift */,
+				85820F501C0EF4FC0069D085 /* NotifyError.swift */,
+				8558254C1CAAB52900851967 /* NotifySuccess.swift */,
+				8558254E1CAAC71D00851967 /* NotifyWarning.swift */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -1304,6 +1310,7 @@
 				85BBD9F91C5CA61000229ED2 /* Repository.swift in Sources */,
 				8558253E1CA85DF200851967 /* NSBundle.swift in Sources */,
 				855825451CA9BDC700851967 /* Analytics.swift in Sources */,
+				8558254D1CAAB52900851967 /* NotifySuccess.swift in Sources */,
 				85A4F01B1C3F1BF0002F3405 /* CityUsersController.swift in Sources */,
 				856D67671C3424C900A77678 /* Browser.swift in Sources */,
 				854813A61C79059C00182C6B /* GitHub.swift in Sources */,
@@ -1319,6 +1326,7 @@
 				85482E621C96BE0800E20FDB /* GithubStarButton.swift in Sources */,
 				85E656761C13A23400BB4278 /* LanguageUsersTableDataSource.swift in Sources */,
 				851D3C381C09134600870813 /* Requester.swift in Sources */,
+				8558254F1CAAC71D00851967 /* NotifyWarning.swift in Sources */,
 				8558254B1CAA844F00851967 /* Notification.swift in Sources */,
 				857EB00C1C5951BB00C315DF /* SendToGoogle.swift in Sources */,
 				856E395D1C60A48F00974330 /* TrendingDataSource.swift in Sources */,
