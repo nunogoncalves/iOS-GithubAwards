@@ -15,7 +15,9 @@ protocol Userable: class {
 class GithubAccountController : UIViewController {
     
     @IBOutlet weak var userContainer: UIView!
+    @IBOutlet weak var userBlurView: UIView!
     @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var userBackgroundImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     
     override func viewDidLoad() {
@@ -77,7 +79,16 @@ class GithubAccountController : UIViewController {
         navigationItem.rightBarButtonItem = nil
         self.usernameLabel.text = user.login ?? ""
         if let avatar = user.avatarUrl {
-            ImageLoader.fetchAndLoad(avatar, imageView: self.userImageView)
+            ImageLoader.fetchAndLoad(avatar, imageView: userImageView)
+            ImageLoader.fetchAndLoad(avatar, imageView: userBackgroundImageView)
+
+            let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .Dark)) as UIVisualEffectView
+            visualEffectView.frame = userBlurView.bounds
+            visualEffectView.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
+            visualEffectView.frame = CGRect(x: 0, y: 0, width: userBlurView.width, height: userBlurView.height)
+            
+            userBlurView.addSubview(visualEffectView)
+
         }
     }
     
