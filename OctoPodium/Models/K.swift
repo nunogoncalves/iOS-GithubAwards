@@ -19,6 +19,7 @@ struct K {
     static let appOwnerGithub = "https://github.com/\(appOwnerName)"
     static let appGithubRepository = "\(appOwnerGithub)/\(appRepositoryName)"
     
+    
     static let twitterHandle = "goncalvescmnuno"
     
     struct Colors {
@@ -50,6 +51,10 @@ struct K {
         static let userUrl = "\(githubApiBaseUrl)/user"
 
         static var doStarRepoUrl = { (repoOwner: String, repoName: String) in
+            "\(githubApiBaseUrl)/user/starred/\(repoOwner)/\(repoName)"
+        }
+        
+        static var githubStarredRepoUrl = { (repoOwner: String, repoName: String) in
             "\(githubApiBaseUrl)/user/starred/\(repoOwner)/\(repoName)"
         }
     }

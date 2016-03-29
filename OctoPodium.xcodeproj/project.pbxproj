@@ -70,6 +70,8 @@
 		855825431CA9BD3000851967 /* CofigureGoogleAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855825421CA9BD3000851967 /* CofigureGoogleAnalytics.swift */; };
 		855825451CA9BDC700851967 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855825441CA9BDC700851967 /* Analytics.swift */; };
 		855825471CA9E28200851967 /* StarRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855825461CA9E28200851967 /* StarRepository.swift */; };
+		855825491CAA75C900851967 /* StarChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855825481CAA75C900851967 /* StarChecker.swift */; };
+		8558254B1CAA844F00851967 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558254A1CAA844F00851967 /* Notification.swift */; };
 		855913DE1C63879700E356FD /* RepoContentsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855913DD1C63879700E356FD /* RepoContentsFetcher.swift */; };
 		856A72E31C122C1E008415A4 /* css.png in Resources */ = {isa = PBXBuildFile; fileRef = 856A72DE1C122C1E008415A4 /* css.png */; };
 		856A72E41C122C1E008415A4 /* objective-c.png in Resources */ = {isa = PBXBuildFile; fileRef = 856A72DF1C122C1E008415A4 /* objective-c.png */; };
@@ -262,6 +264,8 @@
 		855825421CA9BD3000851967 /* CofigureGoogleAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CofigureGoogleAnalytics.swift; sourceTree = "<group>"; };
 		855825441CA9BDC700851967 /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		855825461CA9E28200851967 /* StarRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRepository.swift; sourceTree = "<group>"; };
+		855825481CAA75C900851967 /* StarChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarChecker.swift; sourceTree = "<group>"; };
+		8558254A1CAA844F00851967 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		855913DD1C63879700E356FD /* RepoContentsFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoContentsFetcher.swift; sourceTree = "<group>"; };
 		856A72DE1C122C1E008415A4 /* css.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = css.png; sourceTree = "<group>"; };
 		856A72DF1C122C1E008415A4 /* objective-c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "objective-c.png"; sourceTree = "<group>"; };
@@ -532,6 +536,7 @@
 				854B5B9D1CA6F1BF0070A456 /* Login.swift */,
 				855913DD1C63879700E356FD /* RepoContentsFetcher.swift */,
 				854813A71C7905D200182C6B /* StarsAndForksFetcher.swift */,
+				855825481CAA75C900851967 /* StarChecker.swift */,
 				855825461CA9E28200851967 /* StarRepository.swift */,
 				854B5BA31CA7335E0070A456 /* UserInfoGetter.swift */,
 			);
@@ -646,6 +651,7 @@
 			isa = PBXGroup;
 			children = (
 				85820F501C0EF4FC0069D085 /* NotifyError.swift */,
+				8558254A1CAA844F00851967 /* Notification.swift */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -1276,6 +1282,7 @@
 				854B5BA21CA718F30070A456 /* GithubToken.swift in Sources */,
 				85AF8AFB1C445EAD0022D97F /* LanguageImageView.swift in Sources */,
 				85D321251C022480001B7C7A /* UserDetailsController.swift in Sources */,
+				855825491CAA75C900851967 /* StarChecker.swift in Sources */,
 				85E656741C139F5100BB4278 /* Book.swift in Sources */,
 				85E389D21C6A307900C68813 /* LanguagesPopoverController.swift in Sources */,
 				856A72E71C12509F008415A4 /* LanguageCell.swift in Sources */,
@@ -1312,6 +1319,7 @@
 				85482E621C96BE0800E20FDB /* GithubStarButton.swift in Sources */,
 				85E656761C13A23400BB4278 /* LanguageUsersTableDataSource.swift in Sources */,
 				851D3C381C09134600870813 /* Requester.swift in Sources */,
+				8558254B1CAA844F00851967 /* Notification.swift in Sources */,
 				857EB00C1C5951BB00C315DF /* SendToGoogle.swift in Sources */,
 				856E395D1C60A48F00974330 /* TrendingDataSource.swift in Sources */,
 				857C48951C119307000F035C /* LanguageImage.swift in Sources */,

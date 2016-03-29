@@ -1593,7 +1593,7 @@
                         <sections>
                             <tableViewSection headerTitle="Account" id="Fue-lw-tNQ">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Vid-eW-sOs" detailTextLabel="RfL-Q1-Deo" imageView="F84-Wo-O3S" style="IBUITableViewCellStyleSubtitle" id="sO5-PT-tBw">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Vid-eW-sOs" detailTextLabel="RfL-Q1-Deo" imageView="F84-Wo-O3S" style="IBUITableViewCellStyleSubtitle" id="sO5-PT-tBw" userLabel="Github Account">
                                         <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sO5-PT-tBw" id="JpZ-9N-FBf">
@@ -1730,7 +1730,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Developer" id="z9c-Cx-HQH">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="EAZ-gi-hGO" style="IBUITableViewCellStyleDefault" id="BcK-En-JxO">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="EAZ-gi-hGO" style="IBUITableViewCellStyleDefault" id="BcK-En-JxO" userLabel="Twitter Cell">
                                         <rect key="frame" x="0.0" y="412" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BcK-En-JxO" id="z0G-9b-Ogx">
@@ -1747,7 +1747,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="OaK-aw-e1C" style="IBUITableViewCellStyleDefault" id="kRp-dp-Aq9">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="OaK-aw-e1C" style="IBUITableViewCellStyleDefault" id="kRp-dp-Aq9" userLabel="Github Cell">
                                         <rect key="frame" x="0.0" y="456" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kRp-dp-Aq9" id="lzq-qB-cpq">
