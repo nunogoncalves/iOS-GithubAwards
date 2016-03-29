@@ -22,30 +22,36 @@ class AddGithubAccountController : UIViewController {
         let password = passwordTextView.text!
         
         GitHub.Login(user: user, password: password, twoFactorAuth: twoFactorAuth).login(
-            { oAuthToken in
-                if GithubToken.instance.saveOrUpdate(oAuthToken) {
-                    Analytics.SendToGoogle.loggedInWithGitHub(self.twoFactorAuth != nil)
-                    self.userDelegate?.readyForUser()
-                    self.navigationController?.popViewControllerAnimated(true)
-                }
-            
-            }, failure: { apiResponse in
-                if apiResponse.status == .Unauthorized {
-                    let message = apiResponse.responseDictionary?["message"] as? String ?? ""
-                    if  message == "Must specify two-factor authentication OTP code." {
-                            self.showAlertFor2FactorAuthenticationCode()
-                    } else {
-                        if message == "" {
-                            NotifyError.display(apiResponse.status.message())
-                        } else {
-                            NotifyError.display(message)
-                        }
-                    }
+            { [weak self] oAuthToken in
+                self?.userAuthenticationSuccess(oAuthToken)
+            }, failure: { [weak self] apiResponse in
+                self?.userAuthenticationFailed(apiResponse)
+            }
+        )
+    }
+    
+    private func userAuthenticationSuccess(oAuthToken: String) {
+        if GithubToken.instance.saveOrUpdate(oAuthToken) {
+            Analytics.SendToGoogle.loggedInWithGitHub(self.twoFactorAuth != nil)
+            self.userDelegate?.readyForUser()
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+    }
+    
+    private func userAuthenticationFailed(apiResponse: ApiResponse) {
+        if apiResponse.status == .Unauthorized {
+            if  apiResponse.isMissing2FactorAuthField() {
+                self.showAlertFor2FactorAuthenticationCode()
+            } else {
+                if let message = apiResponse.responseDictionary?["message"] as? String {
+                    NotifyError.display(message)
                 } else {
                     NotifyError.display(apiResponse.status.message())
                 }
             }
-        )
+        } else {
+            NotifyError.display(apiResponse.status.message())
+        }
     }
     
     private func showAlertFor2FactorAuthenticationCode() {
@@ -68,5 +74,24 @@ class AddGithubAccountController : UIViewController {
         alertcontroller.addAction(ok)
         
         presentViewController(alertcontroller, animated: true, completion: {})
+    }
+}
+
+extension AddGithubAccountController : UITextFieldDelegate {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if textField == passwordTextView {
+            textField.resignFirstResponder()
+            loginInGithub()
+        } else if textField == loginTextView {
+            passwordTextView.becomeFirstResponder()
+        }
+        return true
+    }
+}
+
+private extension ApiResponse {
+    func isMissing2FactorAuthField() -> Bool {
+        let message = responseDictionary?["message"] as? String ?? ""
+        return message == "Must specify two-factor authentication OTP code."
     }
 }
