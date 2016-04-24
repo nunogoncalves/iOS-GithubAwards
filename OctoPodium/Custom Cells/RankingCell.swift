@@ -109,7 +109,7 @@ class RankingCell: UITableViewCell, NibReusable {
     }
 
     private func fillLangReposAndStars(rankingPresenter: RankingPresenter) {
-        languageLabel.text = rankingPresenter.language
+        languageLabel.text = "\(rankingPresenter.language) >"
         reposLabel.text = rankingPresenter.repositories
         starsLabel.text = rankingPresenter.stars
     }
