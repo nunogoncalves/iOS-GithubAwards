@@ -15,6 +15,7 @@ protocol Userable: class {
 class GithubAccountController : UIViewController {
     
     @IBOutlet weak var userContainer: UIView!
+    @IBOutlet weak var usernameLabelContainer: UIView!
     @IBOutlet weak var userBlurView: UIView!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userBackgroundImageView: UIImageView!
@@ -43,6 +44,9 @@ class GithubAccountController : UIViewController {
             Analytics.SendToGoogle.loggedOutOfGitHub()
             User.removeUserFromDefaults()
             userContainer.hide()
+            usernameLabelContainer.hide()
+            userBlurView.removeAllSubviews()
+            userBackgroundImageView.image = nil
             addNewAccountButton()
         }
     }
@@ -76,7 +80,9 @@ class GithubAccountController : UIViewController {
     func gotUser(user: User) {
         userContainer.show()
         user.saveInUserDefaults()
+        usernameLabelContainer.show()
         navigationItem.rightBarButtonItem = nil
+        self.usernameLabel.show()
         self.usernameLabel.text = "   \(user.login ?? "")   "
         if let avatar = user.avatarUrl {
             ImageLoader.fetchAndLoad(avatar, imageView: userImageView)

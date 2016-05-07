@@ -1522,13 +1522,18 @@
                                                     <constraint firstAttribute="width" constant="80" id="v1Z-OF-ln4"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="40"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="40"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
-                                            <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GyL-k8-m5h">
+                                            <view hidden="YES" alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GyL-k8-m5h">
                                                 <rect key="frame" x="143.5" y="90" width="33.5" height="20.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="user" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGF-uO-2Ah">
@@ -1549,7 +1554,7 @@
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="3"/>
@@ -1646,6 +1651,7 @@
                         <outlet property="userContainer" destination="5ED-lO-kep" id="V2A-7r-D0X"/>
                         <outlet property="userImageView" destination="iAj-Eu-jRH" id="rwn-bA-gwS"/>
                         <outlet property="usernameLabel" destination="wGF-uO-2Ah" id="nPt-h7-ZIw"/>
+                        <outlet property="usernameLabelContainer" destination="GyL-k8-m5h" id="81V-M5-KsM"/>
                         <segue destination="z0s-sk-xcJ" kind="show" identifier="GoToLoginSegue" id="GXs-Pv-yTx"/>
                     </connections>
                 </viewController>

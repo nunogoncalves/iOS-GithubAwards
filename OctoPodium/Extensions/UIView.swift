@@ -53,4 +53,10 @@ extension UIView {
             layer.cornerRadius = newValue
         }
     }
+    
+    func removeAllSubviews() {
+        for v in subviews  {
+            v.removeFromSuperview()
+        }
+    }
 }
