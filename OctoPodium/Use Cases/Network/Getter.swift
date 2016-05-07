@@ -7,7 +7,7 @@
 //
 
 protocol Getter {
-    typealias Element
+    associatedtype Element
     
     var httpMethod: HTTPMethod { get }
     var headers: HeadParams? { get }

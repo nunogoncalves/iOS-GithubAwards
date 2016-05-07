@@ -35,14 +35,14 @@ class UsersSearchController: UIViewController {
         super.viewDidLoad()
         searchField.searchDelegate = self
         searchField.becomeFirstResponder()
-        let tapGesture = UITapGestureRecognizer(target: self, action: "showUser")
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showUser))
         userSearchContainer.addGestureRecognizer(tapGesture)
         Analytics.SendToGoogle.enteredScreen(kAnalytics.userSearchScreen)
     }
 
     override func viewWillAppear(animated: Bool) {
         if let _ = User.getUserInUserDefaults() {
-            let meButton = UIBarButtonItem(title: "Me", style: UIBarButtonItemStyle.Plain, target: self, action: "selectMe")
+            let meButton = UIBarButtonItem(title: "Me", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(selectMe))
             navigationItem.rightBarButtonItem = meButton
         } else {
             navigationItem.rightBarButtonItem = nil

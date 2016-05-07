@@ -50,7 +50,7 @@ class GithubAccountController : UIViewController {
     private func addNewAccountButton() {
         let addAccountButton = UIBarButtonItem(barButtonSystemItem: .Add,
                                                target: self,
-                                               action: "addGihubAccount")
+                                               action: #selector(addGihubAccount))
         navigationItem.rightBarButtonItem = addAccountButton
     }
 
@@ -77,7 +77,7 @@ class GithubAccountController : UIViewController {
         userContainer.show()
         user.saveInUserDefaults()
         navigationItem.rightBarButtonItem = nil
-        self.usernameLabel.text = user.login ?? ""
+        self.usernameLabel.text = "   \(user.login ?? "")   "
         if let avatar = user.avatarUrl {
             ImageLoader.fetchAndLoad(avatar, imageView: userImageView)
             ImageLoader.fetchAndLoad(avatar, imageView: userBackgroundImageView)

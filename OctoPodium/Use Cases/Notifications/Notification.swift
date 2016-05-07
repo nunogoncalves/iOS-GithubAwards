@@ -30,7 +30,7 @@ class Notification : NSObject {
             alertView.setMessage(message)
         }
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: "onTap:")
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onTap(_:)))
         alertView.addGestureRecognizer(tapGesture)
         
         window.addSubview(alertView)
@@ -45,7 +45,7 @@ class Notification : NSObject {
             animations: {
                 alertView.frame = CGRect(x: 0, y: 0, width: windowWidth, height: 80)
             }, completion: { _ in
-                self.performSelector("dismiss:", withObject: alertView, afterDelay: 1.25)
+                self.performSelector(#selector(self.dismiss(_:)), withObject: alertView, afterDelay: 1.25)
             }
         )
     }

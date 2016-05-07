@@ -21,7 +21,7 @@ class GithubButton : UIView {
     
     @IBOutlet weak var loadingView: GithubLoadingView!
     
-    private let borderColor = UIColor(rgbValue: 0xD5D5D5).CGColor
+    internal let buttonBorderColor = UIColor(rgbValue: 0xD5D5D5).CGColor
     private let gradientColors = [
         UIColor(rgbValue: 0xFCFCFC).CGColor,
         UIColor(rgbValue: 0xEEEEEE).CGColor
@@ -52,7 +52,7 @@ class GithubButton : UIView {
     }
     
     private func setBorder() {
-        for v in [leftView, rightView, rightViewLeft] { v.layer.borderColor = borderColor }
+        for v in [leftView, rightView, rightViewLeft] { v.layer.borderColor = buttonBorderColor }
     }
     
     private func applyGradient() {

@@ -39,14 +39,14 @@ class TrendingRepositoryDetailsController: UIViewController {
         fetchStarsAndForks()
         checkIfIsStarted()
         Analytics.SendToGoogle.enteredScreen(String(TrendingRepositoryDetailsController))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "showRepoOptions")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: #selector(showRepoOptions))
         
         let githubButtonsFrame = CGRect(x: 0, y: 0, width: 138, height: 33)
         starsGithubButton.frame = githubButtonsFrame
         forksGithubButton.frame = githubButtonsFrame
         view.layoutIfNeeded()
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: "starsButtonClicked")
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(starsButtonClicked))
         starsGithubButton.addGestureRecognizer(tapGesture)
     }
     

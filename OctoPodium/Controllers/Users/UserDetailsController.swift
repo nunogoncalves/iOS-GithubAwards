@@ -84,7 +84,7 @@ class UserDetailsController: UIViewController {
         applyGradient()
         navigationItem.title = userPresenter!.login()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "showRepoOptions")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: #selector(showRepoOptions))
         
         rankingsTable.registerReusableCell(RankingCell)
         
@@ -188,7 +188,7 @@ extension UserDetailsController {
     
     func addItemsToTable() {
         addAnotherCell()
-        timer = NSTimer.scheduledTimerWithTimeInterval(cellInsertionInterval, target: self, selector: "addAnotherCell", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(cellInsertionInterval, target: self, selector: #selector(addAnotherCell), userInfo: nil, repeats: true)
     }
  
     @objc private func addAnotherCell() {

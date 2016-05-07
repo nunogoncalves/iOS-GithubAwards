@@ -57,7 +57,7 @@ class RankingCell: UITableViewCell, NibReusable {
             return
         }
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: "showUserLanguageReposInBrowser")
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showUserLanguageReposInBrowser))
         header.addGestureRecognizer(tapGesture)
         
         if rankingPresenter.country == "" {
