@@ -11,31 +11,47 @@ import Foundation
 class VerifyRequestStatus {
     
     let response: NSURLResponse?
+    var responseDictionary: NSDictionary?
     let error: NSError?
     
     private let errorCodes = [
         NetworkStatus.Offline.rawValue,
+        NetworkStatus.Unauthorized.rawValue,
         NetworkStatus.Timeout.rawValue,
         NetworkStatus.HostNameNotFound.rawValue,
         NetworkStatus.CouldNotConnectToServer.rawValue,
     ]
     
+    private let successCodes = [
+        NetworkStatus.Ok.rawValue,
+        NetworkStatus.Created.rawValue,
+        NetworkStatus.NoContent.rawValue
+    ]
+    
     private let responseCodes = [
         NetworkStatus.Ok.rawValue,
+        NetworkStatus.Created.rawValue,
+        NetworkStatus.NoContent.rawValue,
+        NetworkStatus.Unauthorized.rawValue,
         NetworkStatus.NotFound.rawValue,
         NetworkStatus.ServerError.rawValue,
     ]
     
-    init(response: NSURLResponse?, error: NSError?) {
+    init(response: NSURLResponse?, error: NSError?, responseDictionary: NSDictionary?) {
         self.response = response
+        self.responseDictionary = responseDictionary
         self.error = error
     }
     
     func success() -> Bool {
         if let response = response as? NSHTTPURLResponse {
-            return response.statusCode == 200
+            return successCodes.contains(response.statusCode)
         }
         return false
+    }
+    
+    func apiResponse() -> ApiResponse {
+        return ApiResponse(status: status(), responseDictionary: responseDictionary)
     }
     
     func status() -> NetworkStatus {

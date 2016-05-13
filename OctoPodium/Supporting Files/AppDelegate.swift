@@ -18,8 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         setUpBarsAppearance()
         configureCache()
-        configureGoogleAnalytics()
-       
+        
+        let _ = Analytics.ConfigureGoogle()
+    
         return true
     }
 
@@ -35,19 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             diskPath: nil)
         
         NSURLCache.setSharedURLCache(URLCache)
-    }
-    
-    private func configureGoogleAnalytics() {
-        let gai = GAI.sharedInstance()
-        
-        
-        // Configure tracker from GoogleService-Info.plist.
-        var configureError: NSError?
-        GGLContext.sharedInstance().configureWithError(&configureError)
-        assert(configureError == nil, "Error configuring Google services: \(configureError)")
-        
-        gai.trackUncaughtExceptions = true  // report uncaught exceptions
-        gai.logger.logLevel = .None
     }
     
     private func setUpTabsAppearance() {

@@ -8,6 +8,14 @@
 
 import UIKit
 
+private enum StarState {
+    
+    case Undefined
+    case Starred
+    case Unstarred
+    
+}
+
 class TrendingRepositoryDetailsController: UIViewController {
 
     @IBOutlet weak var starsGithubButton: GithubStarButton!
@@ -18,19 +26,30 @@ class TrendingRepositoryDetailsController: UIViewController {
     
     var repository: Repository?
     
+    private var starState = StarState.Undefined
+    
+    deinit {
+        
+    }
+    
     override func viewDidLoad() {
         webView.delegate = self
         navigationItem.title = repository?.name
         loadWebView()
         fetchStarsAndForks()
-        SendToGoogleAnalytics.enteredScreen(String(TrendingRepositoryDetailsController))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "showRepoOptions")
+        checkIfIsStarted()
+        Analytics.SendToGoogle.enteredScreen(String(TrendingRepositoryDetailsController))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: #selector(showRepoOptions))
         
         let githubButtonsFrame = CGRect(x: 0, y: 0, width: 138, height: 33)
         starsGithubButton.frame = githubButtonsFrame
         forksGithubButton.frame = githubButtonsFrame
         view.layoutIfNeeded()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(starsButtonClicked))
+        starsGithubButton.addGestureRecognizer(tapGesture)
     }
+    
     @objc private func showRepoOptions() {        
         let repoBuilder = RepositoryOptionsBuilder.build(repository!.url) { [weak self] in
             guard let s = self else { return }
@@ -48,17 +67,34 @@ class TrendingRepositoryDetailsController: UIViewController {
         guard let repository = repository else { return }
         
         GitHub.RepoContentFetcher(repositoryName: repository.completeName)
-            .get(success: gotGithubApiResponse, failure: gitHubApiFailed)
+            .call(success: gotGithubApiResponse, failure: gitHubApiFailed)
     }
     
     private func fetchStarsAndForks() {
         guard let repository = repository else { return }
-        GitHub.StarsAndForksFetcher(repositoryName: repository.completeName).get(success: gotStarsAndForks, failure: gitHubApiFailed)
+        GitHub.StarsAndForksFetcher(repositoryName: repository.completeName).call(success: gotStarsAndForks, failure: gitHubApiFailed)
     }
     
     private func gotStarsAndForks(starsAndForks: (stars: Int, forks: Int)) {
         starsGithubButton.setNumberOfStars("\(starsAndForks.stars)")
         forksGithubButton.setNumberOfForks("\(starsAndForks.forks)")
+    }
+    
+    private func checkIfIsStarted() {
+        guard let repo = repository else { return }
+        if GithubToken.instance.exists() {
+            GitHub.StarChecker(repoOwner: repo.user, repoName: repo.name).checkIfIsStar(success: { [weak self] hasStar in
+                if hasStar {
+                    self?.starsGithubButton.setTitleToUnstar()
+                    self?.starState = .Starred
+                } else {
+                    self?.starsGithubButton.setTitleToStars()
+                    self?.starState = .Unstarred
+                }
+                }) { apiResponse in
+                    
+            }
+        }
     }
     
     private func gotGithubApiResponse(readMeLocation: String) {
@@ -69,8 +105,8 @@ class TrendingRepositoryDetailsController: UIViewController {
         }
     }
     
-    private func gitHubApiFailed(status: NetworkStatus) {
-        hideLoadingAndDisplay(status.message())
+    private func gitHubApiFailed(apiResponse: ApiResponse) {
+        hideLoadingAndDisplay(apiResponse.status.message())
     }
 
     private func gotReadMeLocation(url: String) {
@@ -81,6 +117,52 @@ class TrendingRepositoryDetailsController: UIViewController {
     private func hideLoadingAndDisplay(error: String) {
         loadingView.hide()
         NotifyError.display(error)
+    }
+    
+    @objc private func starsButtonClicked() {
+        
+        switch starState {
+        case .Starred:
+            starsGithubButton.startLoading()
+            starState = .Undefined
+            unstarRepo()
+            break
+        case .Unstarred:
+            starsGithubButton.startLoading()
+            starState = .Undefined
+            starRepo()
+            break
+        default: return
+        }
+        
+    }
+    
+    private func starRepo() {
+        guard let repo = repository else { return }
+        GitHub.StarRepository(repoOwner: repo.user, repoName: repo.name)
+            .doStar({ [weak self] in
+                self?.starState = .Starred
+                self?.starsGithubButton.setTitleToUnstar()
+                self?.starsGithubButton.stopLoading()
+                self?.starsGithubButton.increaseNumber()
+                }, failure: { apiResponse  in
+                    print(apiResponse)
+                }
+        )
+    }
+
+    private func unstarRepo() {
+        guard let repo = repository else { return }
+        GitHub.UnstarRepository(repoOwner: repo.user, repoName: repo.name)
+            .doUnstar({ [weak self] in
+                self?.starState = .Unstarred
+                self?.starsGithubButton.decreaseNumber()
+                self?.starsGithubButton.setTitleToStars()
+                self?.starsGithubButton.stopLoading()
+                }, failure: { apiResponse  in
+                    print(apiResponse)
+            }
+        )
     }
 }
 

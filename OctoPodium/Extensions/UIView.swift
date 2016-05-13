@@ -22,4 +22,41 @@ extension UIView {
    
     var halfWidth: CGFloat { get { return width / 2 } }
     var halfHeight: CGFloat { get { return height / 2 } }
+    
+    @IBInspectable var borderWidth: CGFloat {
+        get {
+            return layer.borderWidth
+        }
+        set(newValue) {
+            layer.borderWidth = newValue
+        }
+    }
+    
+    @IBInspectable var borderColor: UIColor? {
+        get {
+            if let color = layer.borderColor {
+                return UIColor(CGColor: color)
+            }
+            return nil
+        }
+        set(newValue) {
+            layer.borderColor = newValue?.CGColor
+        }
+    }
+    
+    @IBInspectable var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set(newValue) {
+            layer.masksToBounds = true
+            layer.cornerRadius = newValue
+        }
+    }
+    
+    func removeAllSubviews() {
+        for v in subviews  {
+            v.removeFromSuperview()
+        }
+    }
 }

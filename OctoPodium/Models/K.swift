@@ -10,6 +10,18 @@ import Foundation
 
 struct K {
     
+    static let appName = "OctoPodium"
+    static let appId = "1077519133"
+    static let appVersion = NSBundle.versionNumber()
+    
+    static let appOwnerName = "nunogoncalves"
+    static let appRepositoryName = "iOS-OctoPodium"
+    static let appOwnerGithub = "https://github.com/\(appOwnerName)"
+    static let appGithubRepository = "\(appOwnerGithub)/\(appRepositoryName)"
+    
+    
+    static let twitterHandle = "goncalvescmnuno"
+    
     struct Colors {
         static let tabBarColor: UInt = 0x03436E
         static let navigationBarColor: UInt = 0x2F9DE6
@@ -33,6 +45,22 @@ struct K {
         private static let apiBaseUrl = "http://github-awards.com"
         static let usersBaseUrl = "\(apiBaseUrl)/api/v0/users"
         static let languagesBaseUrl = "\(apiBaseUrl)/api/v0/languages"
+        
+        private static let githubApiBaseUrl = "https://api.github.com"
+        static let githubLoginUrl = "\(githubApiBaseUrl)/authorizations"
+        static let userUrl = "\(githubApiBaseUrl)/user"
+
+        static var doStarRepoUrl = { (repoOwner: String, repoName: String) in
+            "\(githubApiBaseUrl)/user/starred/\(repoOwner)/\(repoName)"
+        }
+        
+        static var doUnstarRepoUrl = { (repoOwner: String, repoName: String) in
+            doStarRepoUrl(repoOwner, repoName)
+        }
+        
+        static var githubStarredRepoUrl = { (repoOwner: String, repoName: String) in
+            "\(githubApiBaseUrl)/user/starred/\(repoOwner)/\(repoName)"
+        }
     }
     
     struct Segues {
@@ -47,6 +75,10 @@ struct K {
         static let userSearchToDetail = "UsersSearchToDetailSegue"
         static let trendingToUserDetailsSegue = "TrendingToUserDetailsSegue"
         static let showTrendingRepositoryDetailsSegue = "ShowTrendingRepositoryDetailsSegue"
+        
+        static let goToLoginSegue = "GoToLoginSegue"
+        
+        static let gotToTrendingDetailsFromSettingsSegue = "ShowOctoPodiumDetailsSegue"
     }
     
     struct Timeouts {

@@ -12,14 +12,20 @@ struct Languages {
     
     class Get: Getter {
         
+        var headers: HeadParams? = nil
+        
+        var bodyParams: BodyParams? = nil
+        
+        let httpMethod = HTTPMethod.GET
+        
         private static var languages = [Language]()
         
         private var successLangs: ([Language] -> ())?
         
-        func getAll(success success: [Language] -> (), failure: NetworkStatus -> ()) {
+        func getAll(success success: [Language] -> (), failure: ApiResponse -> ()) {
             successLangs = success
             if Languages.Get.languages.count == 0 {
-                get(success: gotLanguages, failure: failure)
+                call(success: gotLanguages, failure: failure)
             } else {
                 success(Languages.Get.languages)
             }

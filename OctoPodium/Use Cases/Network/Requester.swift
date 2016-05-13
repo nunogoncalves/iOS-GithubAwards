@@ -8,6 +8,9 @@
 
 import Foundation
 
+typealias BodyParams = [String : AnyObject]
+typealias HeadParams = [String : String]
+
 struct Network {
 
     class Requester {
@@ -16,45 +19,91 @@ struct Network {
         private let networkResponseHandler: Data.ResponseHandler
         private let sessionConfBuilder = SessionConfigurationBuilder()
         
+        private let session: NSURLSession
+        
         init(networkResponseHandler: Data.ResponseHandler) {
             self.networkResponseHandler = networkResponseHandler
+            session = URLSession.init(configuration: sessionConfBuilder.sessionConfiguration())
         }
         
-        func makeGet(urlStr: String) {
-            let task = buildRequesterTaskFor(urlStr)
+        func call(urlStr: String,
+                  httpMethod method: HTTPMethod,
+                  headers: HeadParams?,
+                  bodyParams: BodyParams?) {
+                    
+            let task = buildRequesterTaskFor(urlStr,
+                    httpMethod: method,
+                    headers: headers,
+                    bodyParameters: bodyParams)
             task.resume()
         }
         
-        private func buildRequesterTaskFor(urlStr: String) -> NSURLSessionDataTask {
-            let url = NSURL(string: urlStr.urlEncoded())
-            let session = URLSession.init(configuration: sessionConfBuilder.sessionConfiguration())
-            let request = NSMutableURLRequest(URL: url!)
-            request.setValue("ios", forHTTPHeaderField: "client-os")
+        private func buildRequesterTaskFor(urlStr: String,
+                                           httpMethod: HTTPMethod,
+                                           headers: HeadParams?,
+                                           bodyParameters: BodyParams?) -> NSURLSessionDataTask {
+                                            
+            let request = buildURLRequestFor(urlStr)
+            request.HTTPMethod = httpMethod.rawValue
+            
+            addIfNecessary(bodyParameters, to: request)
+            addIfNecessary(headers, to: request)
+                                
             return session.dataTaskWithRequest(request, completionHandler: completionHandler)
         }
         
+        private func buildURLRequestFor(url: String) -> NSMutableURLRequest {
+            let url = NSURL(string: url.urlEncoded())
+            let request = NSMutableURLRequest(URL: url!)
+            return request
+        }
+        
+        private func addIfNecessary(bodyParameters: BodyParams?, to request: NSMutableURLRequest) {
+            if let parameters = bodyParameters {
+                let postData = try! NSJSONSerialization.dataWithJSONObject(parameters, options: .PrettyPrinted)
+                request.HTTPBody = postData
+            }
+        }
+        
+        private func addIfNecessary(headers: HeadParams?, to request: NSMutableURLRequest) {
+            let headerParams = headers ?? ["CLIENT_OS" : "iOS"]
+            for (header, value) in headerParams {
+                request.addValue(value, forHTTPHeaderField: header)
+            }
+        }
+        
         private func completionHandler(data: NSData?, response: NSURLResponse?, error: NSError?) {
-            let statusVerifier = VerifyRequestStatus(response: response, error: error)
+            var responseData: NSDictionary?
+            
+            doInCatchBlock { [weak self] in
+                if data != nil && data!.length > 0 {
+                    responseData = try self?.convertDataToDictionary(data!)
+                }
+            }
+            
+            let statusVerifier = VerifyRequestStatus(response: response, error: error, responseDictionary: responseData)
             
             if statusVerifier.success() {
-                handleSuccess(data)
+                if statusVerifier.status() == .NoContent {
+                    handleSuccess(try! NSJSONSerialization.dataWithJSONObject([:], options: .PrettyPrinted))
+                } else {
+                    handleSuccess(data)
+                }
             } else {
-                handleFailure(statusVerifier.status())
+                handleFailure(statusVerifier.status(), responseDictionary: responseData)
             }
         }
         
         private func handleSuccess(data: NSData?) {
-            guard let data = data else { return handleFailure(.GenericError) }
-            do {
-                let data = try convertDataToDictionary(data)
-                networkResponseHandler.success(data)
-            } catch _ {
-                handleFailure(.GenericError)
+            guard let data = data else { return handleFailure(.GenericError, responseDictionary: nil) }
+            doInCatchBlock { [weak self] in
+                let data = try self?.convertDataToDictionary(data)
+                self?.networkResponseHandler.success(data!)
             }
         }
         
-        private func handleFailure(status: NetworkStatus) {
-            networkResponseHandler.failure(status)
+        private func handleFailure(status: NetworkStatus, responseDictionary: NSDictionary?) {
+            networkResponseHandler.failure(ApiResponse(status: status, responseDictionary: responseDictionary))
         }
         
         private func convertDataToDictionary(data: NSData) throws -> NSDictionary {
@@ -68,6 +117,14 @@ struct Network {
             }
             
             throw JSONParseError.NoDicNorArray
+        }
+        
+        private func doInCatchBlock(action: (() throws -> ())) {
+            do {
+                try action()
+            } catch _ {
+                handleFailure(.GenericError, responseDictionary: nil)
+            }
         }
     }
 }

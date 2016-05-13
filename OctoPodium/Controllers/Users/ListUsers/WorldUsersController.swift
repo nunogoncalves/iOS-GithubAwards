@@ -1,5 +1,5 @@
 //
-//  CountryUsersController.swift
+//  WorldUsersController.swift
 //  OctoPodium
 //
 //  Created by Nuno Gonçalves on 07/01/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CountryUsersController : UsersController {
+class WorldUsersController : UsersController {
     
     @IBOutlet weak var pageContainer: UIView! {
         didSet { paginationContainer = pageContainer }
@@ -25,25 +25,17 @@ class CountryUsersController : UsersController {
     @IBOutlet weak var githubLoadingIndicator: GithubLoadingView! {
         didSet { loadingView = githubLoadingIndicator }
     }
-
-    @IBOutlet weak var emptyMessageLabel: UILabel! {
-        didSet { emptyMessageLabl = emptyMessageLabel }
-    }
     
     @IBOutlet weak var noResultsLabel: UILabel! {
         didSet { noResultsLabl = noResultsLabel }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        selectedLocationType = .Country
-    }
-    
-    override func sendSearchedLocationToAnalytics() {
-        SendToGoogleAnalytics.countrySearched(locationName, forLanguage: language)
+        freshSearchUsers()
     }
     
     override func sendUserPaginatedToAnalytics(page: String) {
-        SendToGoogleAnalytics.usersPaginatedInCountry(locationName, forLanguage: language, andPage: page)
+        Analytics.SendToGoogle.usersPaginatedInWorld(forLanguage: language, andPage: page)
     }
 }

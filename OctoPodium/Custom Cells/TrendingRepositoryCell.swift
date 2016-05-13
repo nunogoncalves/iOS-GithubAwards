@@ -24,7 +24,7 @@ class TrendingRepositoryCell: UITableViewCell, NibReusable {
             
             nameLabel.text = "\(repository.user)/\(repository.name)"
 
-            let tapGesture = UITapGestureRecognizer(target: self, action: "clickedUser")
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(clickedUser))
             nameLabel.userInteractionEnabled = true
             nameLabel.addGestureRecognizer(tapGesture)
 

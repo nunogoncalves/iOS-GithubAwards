@@ -33,7 +33,7 @@ class TrendingController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        SendToGoogleAnalytics.enteredScreen(String(TrendingController))
+        Analytics.SendToGoogle.enteredScreen(String(TrendingController))
         
         setUpUIComponents()
         
@@ -54,7 +54,7 @@ class TrendingController : UIViewController {
         let segmentedControl = UISegmentedControl(items: trendingScopes.map { $0.rawValue })
         segmentedControl.selectedSegmentIndex = 0
         
-        segmentedControl.addTarget(self, action: "updateTrendingScope:", forControlEvents: .ValueChanged)
+        segmentedControl.addTarget(self, action: #selector(updateTrendingScope(_:)), forControlEvents: .ValueChanged)
         self.navigationItem.titleView = segmentedControl
     }
     
@@ -81,7 +81,7 @@ class TrendingController : UIViewController {
     
     private func buildLanguageButton() {
         languageButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
-        languageButton.addTarget(self, action: "clickedLanguage", forControlEvents: .TouchUpInside)
+        languageButton.addTarget(self, action: #selector(clickedLanguage), forControlEvents: .TouchUpInside)
     }
     
     @objc private func clickedLanguage() {

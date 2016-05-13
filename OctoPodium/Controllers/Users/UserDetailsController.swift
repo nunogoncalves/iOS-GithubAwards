@@ -39,7 +39,7 @@ class UserDetailsController: UIViewController {
     @IBAction func viewGithubProfileClicked() {
         if let login = userPresenter?.login() {
             Browser.openPage("http://github.com/\(login)")
-            SendToGoogleAnalytics.viewUserOnGithub(login)
+            Analytics.SendToGoogle.viewUserOnGithub(login)
         }
     }
     
@@ -84,12 +84,12 @@ class UserDetailsController: UIViewController {
         applyGradient()
         navigationItem.title = userPresenter!.login()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "showRepoOptions")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: #selector(showRepoOptions))
         
         rankingsTable.registerReusableCell(RankingCell)
         
-        Users.GetOne(login: userPresenter!.login()).get(success: userSuccess, failure: failure)
-        SendToGoogleAnalytics.enteredScreen(kAnalytics.userDetailsScreenFor(userPresenter!.user))
+        Users.GetOne(login: userPresenter!.login()).call(success: userSuccess, failure: failure)
+        Analytics.SendToGoogle.enteredScreen(kAnalytics.userDetailsScreenFor(userPresenter!.user))
     }
     
     @objc private func showRepoOptions() {
@@ -119,7 +119,7 @@ class UserDetailsController: UIViewController {
     private func loadAvatar() {
         if let avatarUrl = userPresenter!.avatarUrl() {
             guard avatarUrl != "" else { return }
-            ImageLoader.fetchAndLoad(avatarUrl, imageView: avatarImageView) {
+            avatarImageView.fetchAndLoad(avatarUrl) {
                 self.loading.stopAnimating()
             }
         }
@@ -188,7 +188,7 @@ extension UserDetailsController {
     
     func addItemsToTable() {
         addAnotherCell()
-        timer = NSTimer.scheduledTimerWithTimeInterval(cellInsertionInterval, target: self, selector: "addAnotherCell", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(cellInsertionInterval, target: self, selector: #selector(addAnotherCell), userInfo: nil, repeats: true)
     }
  
     @objc private func addAnotherCell() {
@@ -208,7 +208,7 @@ extension UserDetailsController {
         }
     }
     
-    func failure(status: NetworkStatus) {
+    func failure(apiResponse: ApiResponse) {
         loadingView.hidden = true
         NotifyError.display()
     }

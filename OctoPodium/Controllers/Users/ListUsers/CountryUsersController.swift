@@ -1,5 +1,5 @@
 //
-//  CityUsersController.swift
+//  CountryUsersController.swift
 //  OctoPodium
 //
 //  Created by Nuno Gonçalves on 07/01/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CityUsersController : UsersController {
+class CountryUsersController : UsersController {
     
     @IBOutlet weak var pageContainer: UIView! {
         didSet { paginationContainer = pageContainer }
@@ -33,17 +33,17 @@ class CityUsersController : UsersController {
     @IBOutlet weak var noResultsLabel: UILabel! {
         didSet { noResultsLabl = noResultsLabel }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        selectedLocationType = .City
+        selectedLocationType = .Country
     }
     
     override func sendSearchedLocationToAnalytics() {
-        SendToGoogleAnalytics.citySearched(locationName, forLanguage: language)
+        Analytics.SendToGoogle.countrySearched(locationName, forLanguage: language)
     }
     
     override func sendUserPaginatedToAnalytics(page: String) {
-        SendToGoogleAnalytics.usersPaginatedInCity(locationName, forLanguage: language, andPage: page)
+        Analytics.SendToGoogle.usersPaginatedInCountry(locationName, forLanguage: language, andPage: page)
     }
 }

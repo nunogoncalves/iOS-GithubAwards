@@ -32,7 +32,7 @@ class UserCell: UITableViewCell, NibReusable {
     var user: User! {
         didSet {
             if let avatarUrl = user.avatarUrl {
-                ImageLoader.fetchAndLoad(avatarUrl, imageView: avatar)
+                avatar.fetchAndLoad(avatarUrl)
             }
             login.text = user.login
             starsLabel.text = "\(user.starsCount ?? 0)"

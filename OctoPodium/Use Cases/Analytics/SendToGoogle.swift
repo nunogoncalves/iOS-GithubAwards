@@ -6,98 +6,113 @@
 //  Copyright © 2016 Nuno Gonçalves. All rights reserved.
 //
 
-struct SendToGoogleAnalytics {
+extension Analytics {
     
-    private static let tracker = GAI.sharedInstance().defaultTracker
-    private static let qos = Int(QOS_CLASS_USER_INTERACTIVE.rawValue)
-    
-    static func enteredScreen(screenName: String) {
-        callAsync {
+    struct SendToGoogle {
+        
+        private static let tracker = GAI.sharedInstance().defaultTracker
+        private static let qos = Int(QOS_CLASS_USER_INTERACTIVE.rawValue)
+        
+        static func enteredScreen(screenName: String) {
             sendScreenView(screenName)
         }
-    }
+        
+        static func countrySearched(country: String, forLanguage language: String) {
+            sendEvent("Search", action: "Country<\(country)|\(language)>")
+        }
+        
+        static func citySearched(city: String, forLanguage language: String) {
+            sendEvent("Search", action: "City<\(city)|\(language)>")
+        }
+        
+        static func usersPaginatedInCity(city: String, forLanguage language: String, andPage page: String) {
+            sendEvent("Scroll", action: "Pagination<City:\(city)|Language:\(language)|Page:\(page)")
+        }
+        
+        static func usersPaginatedInCountry(country: String, forLanguage language: String, andPage page: String) {
+            sendEvent("Scroll", action: "Pagination<Country:\(country)|Language:\(language)|Page:\(page)")
+        }
+        
+        static func usersPaginatedInWorld(forLanguage language: String, andPage page: String) {
+            sendEvent("Scroll", action: "Pagination<World|Language:\(language)|Page:\(page)")
+        }
+        
+        static func userSearched(login: String) {
+            sendEvent("Search", action: "User<\(login)>")
+        }
+        
+        static func viewUserOnGithub(login: String) {
+            sendEvent("Show", action: "UserGithub<\(login)>")
+        }
+        
+        static func viewUserLanguagesOnGithub(login: String, language: String) {
+            sendEvent("Show", action: "User<\(login)>Repositories<\(language)>")
+        }
+        
+        static func searchedTrending(trendingScope: String, language: String) {
+            sendEvent("Search", action: "Trending<\(trendingScope)>Language<\(language)>")
+        }
+        
+        static func twoFactorAuthAlertShowedEvent() {
+            sendEvent("Show", action: "2FA alert")
+        }
+        
+        static func loggedInWithGitHub(withTwoFactorAuth: Bool) {
+            let twoFactorAuth = withTwoFactorAuth ? "" : "out"
+            sendEvent("Login", action: "GitHub Login with\(twoFactorAuth) 2FA")
+        }
+        
+        static func loggedOutOfGitHub() {
+            sendEvent("Logout", action: "GitHub Logout")
+        }
+        
+        static func reviewInAppStoreEvent() {
+            sendEvent("GoTo", action: "App Store")
+        }
+        
+        static func viewOctoPodiumReadMeEvent() {
+            sendEvent("Show", action: "OctoPodium Read Me")
+        }
+        
+        static func showDeveloperOnTwitterEvent() {
+            sendEvent("GoTo", action: "Twitter Profile")
+        }
+        
+        static func showDeveloperOnGithubEvent() {
+            sendEvent("GoTo", action: "GitHub Profile")
+        }
 
-    static func countrySearched(country: String, forLanguage language: String) {
-        callAsync {
-            sendEvent("Search", action: "Country<\(country)|\(language)>", label: "\(country)|\(language)")
+        
+        private static func callAsync(closure: () -> ()) {
+            dispatch_async(dispatch_get_global_queue(qos, 0)) {
+                closure()
+            }
         }
-    }
-    
-    static func citySearched(city: String, forLanguage language: String) {
-        callAsync {
-            sendEvent("Search", action: "City<\(city)|\(language)>", label: "\(city)|\(language)")
+        
+        private static func sendScreenView(screenName: String) {
+            callAsync {
+                executeIfRelease {
+                    tracker.set(kGAIScreenName, value: screenName)
+                    let builder = GAIDictionaryBuilder.createScreenView()
+                    tracker.send(builder.build() as [NSObject : AnyObject])
+                }
+            }
         }
-    }
-    
-    static func usersPaginatedInCity(city: String, forLanguage language: String, andPage page: String) {
-        callAsync {
-            let label = "Pagination<City:\(city)|Language:\(language)|Page:\(page)"
-            sendEvent("Scroll", action: label, label: label)
+        
+        private static func sendEvent(category: String, action: String, label: String? = nil) {
+            callAsync {
+                executeIfRelease {
+                    let l = label == nil ? action : label
+                    let builder = GAIDictionaryBuilder.createEventWithCategory(category, action: action, label: l, value: nil)
+                    tracker.send(builder.build() as [NSObject : AnyObject])
+                }
+            }
         }
-    }
-
-    static func usersPaginatedInCountry(country: String, forLanguage language: String, andPage page: String) {
-        callAsync {
-            let label = "Pagination<Country:\(country)|Language:\(language)|Page:\(page)"
-            sendEvent("Scroll", action: label, label: label)
+        
+        private static func executeIfRelease(action: () -> () = {}) {
+            if Analytics.shouldUse() {
+                action()
+            }
         }
-    }
-    
-    static func usersPaginatedInWorld(forLanguage language: String, andPage page: String) {
-        callAsync {
-            let label = "Pagination<World|Language:\(language)|Page:\(page)"
-            sendEvent("Scroll", action: label, label: label)
-        }
-    }
-
-    static func userSearched(login: String) {
-        callAsync {
-            sendEvent("Search", action: "User<\(login)>", label: login)
-        }
-    }
-    
-    static func viewUserOnGithub(login: String) {
-        callAsync {
-            sendEvent("Show", action: "UserGithub<\(login)>", label: login)
-        }
-    }
-    
-    static func viewUserLanguagesOnGithub(login: String, language: String) {
-        callAsync {
-            sendEvent("Show", action: "User<\(login)>Repositories<\(language)>", label: "\(login)-\(language)")
-        }
-    }
-    
-    static func searchedTrending(trendingScope: String, language: String) {
-        callAsync {
-            sendEvent("Search", action: "Trending<\(trendingScope)>Language<\(language)>", label: "Trending<\(trendingScope)>Language<\(language)>")
-        }
-    }
-    
-    private static func callAsync(closure: () -> ()) {
-        dispatch_async(dispatch_get_global_queue(qos, 0)) {
-            closure()
-        }
-    }
-    
-    private static func sendScreenView(screenName: String) {
-        executeIfRelease {
-            tracker.set(kGAIScreenName, value: screenName)
-            let builder = GAIDictionaryBuilder.createScreenView()
-            tracker.send(builder.build() as [NSObject : AnyObject])
-        }
-    }
-    
-    private static func sendEvent(category: String, action: String, label: String) {
-        executeIfRelease {
-            let builder = GAIDictionaryBuilder.createEventWithCategory(category, action: action, label: label, value: nil)
-            tracker.send(builder.build() as [NSObject : AnyObject])
-        }
-    }
-    
-    private static func executeIfRelease(action: Void -> Void = {}) {
-        #if RELEASE
-            action()
-        #endif
     }
 }

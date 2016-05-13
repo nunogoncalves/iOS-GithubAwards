@@ -73,7 +73,7 @@ class LanguageUsersTableDataSource : NSObject, TableViewDataSource {
     
     private func reallyFetchUsers() {
         isSearching = true
-        userSearcher.get(success: usersSuccess, failure: failure)
+        userSearcher.call(success: usersSuccess, failure: failure)
     }
     
     func usersSuccess(usersResponse: UsersListResponse) {
@@ -88,8 +88,8 @@ class LanguageUsersTableDataSource : NSObject, TableViewDataSource {
         tableStateListener?.newDataArrived(usersResponse.paginator)
     }
     
-    func failure(status: NetworkStatus) {
-        tableStateListener?.failedToGetData(status)
+    func failure(apiResponse: ApiResponse) {
+        tableStateListener?.failedToGetData(apiResponse.status)
     }
     
     func hasMoreDataAvailable() -> Bool {

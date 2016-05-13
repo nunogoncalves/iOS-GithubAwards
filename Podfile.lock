@@ -17,6 +17,7 @@ PODS:
   - GoogleUtilities (1.1.0):
     - GoogleSymbolUtilities (~> 1.0.0)
   - Kanna (1.0.4)
+  - Locksmith (2.0.8)
   - Nimble (3.0.0)
   - Quick (0.8.0)
   - SDWebImage (3.7.4):
@@ -27,6 +28,7 @@ DEPENDENCIES:
   - ARSPopover (~> 2.0)
   - Google/Analytics
   - Kanna (~> 1.0.0)
+  - Locksmith (= 2.0.8)
   - Nimble (= 3.0.0)
   - Quick (~> 0.8.0)
   - SDWebImage (~> 3.7)
@@ -40,8 +42,11 @@ SPEC CHECKSUMS:
   GoogleSymbolUtilities: 82ad9f93d3615244b3f4ce440f5ab2515e8b4f56
   GoogleUtilities: 8ed9134debe11719097881711464752900668f10
   Kanna: 537762df5e2203714769f8351340b3c724adb2bd
+  Locksmith: a8ed41ac4c06506ea8cb199d8ec8a8d3d108eb2a
   Nimble: 4c353d43735b38b545cbb4cb91504588eb5de926
   Quick: 563d0f6ec5f72e394645adb377708639b7dd38ab
   SDWebImage: 247edd7dd80dd6124197b0d6a17846fe9d1df968
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: eb00e549fe835720ea6ac7422d8963b1d3779810
+
+COCOAPODS: 1.0.0.rc.2

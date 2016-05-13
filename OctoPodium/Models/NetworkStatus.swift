@@ -8,16 +8,20 @@
 
 enum NetworkStatus: Int {
     case Ok = 200
+    case Created = 201
+    case NoContent = 204
     case Timeout = -1001
     case Offline = -1009
     case HostNameNotFound = -1003 //github-awardsboooo.com
     case CouldNotConnectToServer = -1004 //ex: localhost turned off
+    case Unauthorized = 401
     case NotFound = 404
     case ServerError = 500
     case GenericError = -1
     
     func success() -> Bool {
-        return self == .Ok
+        let codes: [NetworkStatus] = [.Ok, .Created, .NoContent]
+        return codes.contains(self)
     }
     
     func message() -> String {
@@ -25,12 +29,18 @@ enum NetworkStatus: Int {
         switch self {
         case Ok:
             return "Ok"
+        case Created:
+            return "Created"
+        case NoContent:
+            return "No Content"
         case Timeout:
             return "Request exceded wait time."
         case Offline:
             return "Connection appears to be offline."
         case NotFound:
             return "The resource you are looking for doesn't exist."
+        case Unauthorized:
+            return "Unauthorized request."
         case HostNameNotFound, CouldNotConnectToServer, ServerError:
             return technicalErrorMessage
         default:
@@ -39,6 +49,7 @@ enum NetworkStatus: Int {
     }
     
     func isTechnicalError() -> Bool {
-        return self == .NotFound ? false : true
+        let nonTechErrors: [NetworkStatus] = [.Unauthorized, .NotFound]
+        return !nonTechErrors.contains(self)
     }
 }

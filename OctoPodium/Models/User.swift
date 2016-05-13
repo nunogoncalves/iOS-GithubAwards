@@ -33,4 +33,35 @@ class User {
     func hasCity() -> Bool {
         return city != nil && city != ""
     }
+    
+    private static let loggedInUserLoginKey = "OctoPodiumLoggedUserLogin"
+    private static let loggedInUserAvatarUrlKey = "OctoPodiumLoggedUserAvatarUrl"
+    
+    func saveInUserDefaults() {
+        User.saveUserInUserDefaults(self)
+    }
+    
+    class func saveUserInUserDefaults(user: User) {
+        NSUserDefaults().setObject(user.login, forKey: User.loggedInUserLoginKey)
+        NSUserDefaults().setObject(user.avatarUrl, forKey: User.loggedInUserAvatarUrlKey)
+        
+    }
+
+    class func getUserInUserDefaults() -> User? {
+        let defs = NSUserDefaults()
+        
+        if let login = defs.objectForKey(User.loggedInUserLoginKey) as? String {
+            let avatarUrl = defs.objectForKey(User.loggedInUserAvatarUrlKey) as? String
+            let user = User(login: login, avatarUrl: avatarUrl ?? "")
+            return user
+        }
+        
+        return nil
+    }
+    
+    class func removeUserFromDefaults() {
+        NSUserDefaults().removeObjectForKey(loggedInUserLoginKey)
+        NSUserDefaults().removeObjectForKey(loggedInUserAvatarUrlKey)
+    }
+    
 }

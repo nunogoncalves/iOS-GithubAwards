@@ -57,7 +57,7 @@ class RankingCell: UITableViewCell, NibReusable {
             return
         }
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: "showUserLanguageReposInBrowser")
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showUserLanguageReposInBrowser))
         header.addGestureRecognizer(tapGesture)
         
         if rankingPresenter.country == "" {
@@ -148,6 +148,6 @@ class RankingCell: UITableViewCell, NibReusable {
     @objc private func showUserLanguageReposInBrowser() {
         guard let rankingPresenter = rankingPresenter else { return }
         Browser.openPage("https://github.com/search?q=user:\(rankingPresenter.userLogin)+language:\(rankingPresenter.language)")
-        SendToGoogleAnalytics.viewUserLanguagesOnGithub(rankingPresenter.userLogin, language: rankingPresenter.language)
+        Analytics.SendToGoogle.viewUserLanguagesOnGithub(rankingPresenter.userLogin, language: rankingPresenter.language)
     }
 }

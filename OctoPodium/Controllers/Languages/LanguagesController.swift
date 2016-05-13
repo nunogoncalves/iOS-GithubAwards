@@ -29,7 +29,7 @@ class LanguagesController: UIViewController {
         searchBar.searchDelegate = self
         searchLanguages()
         languagesTable.registerReusableCell(LanguageCell)
-        SendToGoogleAnalytics.enteredScreen(kAnalytics.languagesScreen)
+        Analytics.SendToGoogle.enteredScreen(kAnalytics.languagesScreen)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -65,10 +65,10 @@ extension LanguagesController {
         endSearching()
     }
     
-    private func failedToLoadLanguages(status: NetworkStatus) {
+    private func failedToLoadLanguages(apiResponse: ApiResponse) {
         tryAgainButton.show()
         loadingIndicator?.hide()
-        NotifyError.display(status.message())
+        NotifyError.display(apiResponse.status.message())
     }
 }
 

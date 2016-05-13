@@ -21,7 +21,7 @@ class GithubButton : UIView {
     
     @IBOutlet weak var loadingView: GithubLoadingView!
     
-    private let borderColor = UIColor(rgbValue: 0xD5D5D5).CGColor
+    internal let buttonBorderColor = UIColor(rgbValue: 0xD5D5D5).CGColor
     private let gradientColors = [
         UIColor(rgbValue: 0xFCFCFC).CGColor,
         UIColor(rgbValue: 0xEEEEEE).CGColor
@@ -52,7 +52,7 @@ class GithubButton : UIView {
     }
     
     private func setBorder() {
-        for v in [leftView, rightView, rightViewLeft] { v.layer.borderColor = borderColor }
+        for v in [leftView, rightView, rightViewLeft] { v.layer.borderColor = buttonBorderColor }
     }
     
     private func applyGradient() {
@@ -61,6 +61,18 @@ class GithubButton : UIView {
         gradient.colors = gradientColors
         leftView.layer.insertSublayer(gradient, atIndex: 0)
     }
+
+    func startLoading() {
+        loadingView.show()
+        loadingView.setLoading()
+        valueLabel.hide()
+    }
+    
+    func stopLoading() {
+        loadingView.hide()
+        loadingView.stop()
+        valueLabel.show()
+    }
     
     func setName(name: String) {
         nameLabel.text = name
@@ -68,11 +80,24 @@ class GithubButton : UIView {
 
     func setValue(value: String) {
         valueLabel.text = value
-        loadingView.hide()
-        loadingView.stop()
+        stopLoading()
     }
     
     func setImage(image: UIImage) {
         imageView.image = image
+    }
+    
+    func increaseNumber() {
+        guard let text = valueLabel.text else { return }
+        if let value = Int(text) {
+            valueLabel.text = "\(value + 1)"
+        }
+    }
+    
+    func decreaseNumber() {
+        guard let text = valueLabel.text else { return }
+        if let value = Int(text) {
+            valueLabel.text = "\(value - 1)"
+        }
     }
 }

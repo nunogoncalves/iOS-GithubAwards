@@ -35,11 +35,28 @@ class UsersSearchController: UIViewController {
         super.viewDidLoad()
         searchField.searchDelegate = self
         searchField.becomeFirstResponder()
-        let tapGesture = UITapGestureRecognizer(target: self, action: "showUser")
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showUser))
         userSearchContainer.addGestureRecognizer(tapGesture)
-        SendToGoogleAnalytics.enteredScreen(kAnalytics.userSearchScreen)
+        Analytics.SendToGoogle.enteredScreen(kAnalytics.userSearchScreen)
     }
 
+    override func viewWillAppear(animated: Bool) {
+        if let _ = User.getUserInUserDefaults() {
+            let meButton = UIBarButtonItem(title: "Me", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(selectMe))
+            navigationItem.rightBarButtonItem = meButton
+        } else {
+            navigationItem.rightBarButtonItem = nil
+        }
+    }
+    
+    @objc private func selectMe() {
+        if let user = User.getUserInUserDefaults() {
+            searchField.text = user.login!
+            searchUserFor(user.login!)
+            searchField.resignFirstResponder()
+        }
+    }
+    
     @objc private func showUser() {
         performSegueWithIdentifier(kSegues.userSearchToDetail, sender: self)
     }
@@ -58,8 +75,8 @@ class UsersSearchController: UIViewController {
         loadingIndicator.show()
         userContainerTopConstraint.constant = -80.0
         UIView.animateWithDuration(userMovementAnimationDuration) { self.view.layoutIfNeeded() }
-        Users.GetOne(login: login).get(success: gotUser, failure: failedToSearchForUser)
-        SendToGoogleAnalytics.userSearched(login)
+        Users.GetOne(login: login).call(success: gotUser, failure: failedToSearchForUser)
+        Analytics.SendToGoogle.userSearched(login)
     }
     
     private func gotUser(user: User) {
@@ -82,7 +99,7 @@ class UsersSearchController: UIViewController {
         loadingIndicator.hide()
         userSearchContainer.show()
         self.user = user
-        ImageLoader.fetchAndLoad(user.avatarUrl!, imageView: avatarImageView)
+        avatarImageView.fetchAndLoad(user.avatarUrl!)
         
         userContainerTopConstraint.constant = 6.0
         UIView.animateWithDuration(userMovementAnimationDuration) {
@@ -106,15 +123,19 @@ class UsersSearchController: UIViewController {
         eyeRight.hide()
     }
     
-    private func failedToSearchForUser(status: NetworkStatus) {
+    private func failedToSearchForUser(apiResponse: ApiResponse) {
         loadingIndicator.hide()
         
         userNotFoundLabel.show()
         showEyeCrosses()
         
-        if status.isTechnicalError() {
-            NotifyError.display(status.message())
+        if apiResponse.status.isTechnicalError() {
+            NotifyError.display(apiResponse.status.message())
         }
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        searchField.resignFirstResponder()
     }
 }
 
