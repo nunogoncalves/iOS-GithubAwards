@@ -65,6 +65,13 @@ class GithubAccountController : UIViewController {
                                                action: #selector(addGihubAccount))
         navigationItem.rightBarButtonItem = addAccountButton
     }
+    
+    @objc private func addRemoveAccountButton() {
+        let addAccountButton = UIBarButtonItem(barButtonSystemItem: .Trash,
+                                               target: self,
+                                               action: #selector(signout))
+        navigationItem.rightBarButtonItem = addAccountButton
+    }
 
     private func fetchUser() {
         GitHub.UserInfoGetter().call(success: { user in
@@ -89,7 +96,7 @@ class GithubAccountController : UIViewController {
         userContainer.show()
         user.saveInUserDefaults()
         usernameLabelContainer.show()
-        navigationItem.rightBarButtonItem = nil
+        addRemoveAccountButton()
         usernameLabel.show()
         usernameLabel.text = "   \(user.login ?? "")   "
         if let avatar = user.avatarUrl {
