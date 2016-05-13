@@ -40,6 +40,14 @@ class GithubAccountController : UIViewController {
     }
     
     @IBAction func signout() {
+        let alert = UIAlertController(title: "Confirm", message: "Are you sure you want to logout?", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { _  in self.confirmLogout() } ))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        
+        presentViewController(alert, animated: true, completion: {})
+    }
+
+    @objc private func confirmLogout() {
         if GithubToken.instance.deleteSessionToken() {
             Analytics.SendToGoogle.loggedOutOfGitHub()
             User.removeUserFromDefaults()
@@ -82,11 +90,11 @@ class GithubAccountController : UIViewController {
         user.saveInUserDefaults()
         usernameLabelContainer.show()
         navigationItem.rightBarButtonItem = nil
-        self.usernameLabel.show()
-        self.usernameLabel.text = "   \(user.login ?? "")   "
+        usernameLabel.show()
+        usernameLabel.text = "   \(user.login ?? "")   "
         if let avatar = user.avatarUrl {
-            ImageLoader.fetchAndLoad(avatar, imageView: userImageView)
-            ImageLoader.fetchAndLoad(avatar, imageView: userBackgroundImageView)
+            userImageView.fetchAndLoad(avatar)
+            userBackgroundImageView.fetchAndLoad(avatar)
 
             let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .Dark)) as UIVisualEffectView
             visualEffectView.frame = userBlurView.bounds

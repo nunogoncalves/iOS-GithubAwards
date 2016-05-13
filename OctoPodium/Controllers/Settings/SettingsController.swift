@@ -25,7 +25,7 @@ class SettingsController : UITableViewController {
         super.viewWillAppear(animated)
         if let user = User.getUserInUserDefaults() {
             userLabel.text = user.login!
-            ImageLoader.fetchAndLoad(user.avatarUrl!, imageView: userImage) {
+            userImage.fetchAndLoad(user.avatarUrl!) {
                 self.tableView.reloadData()
             }
         } else {

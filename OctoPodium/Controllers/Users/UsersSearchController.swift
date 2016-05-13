@@ -99,7 +99,7 @@ class UsersSearchController: UIViewController {
         loadingIndicator.hide()
         userSearchContainer.show()
         self.user = user
-        ImageLoader.fetchAndLoad(user.avatarUrl!, imageView: avatarImageView)
+        avatarImageView.fetchAndLoad(user.avatarUrl!)
         
         userContainerTopConstraint.constant = 6.0
         UIView.animateWithDuration(userMovementAnimationDuration) {

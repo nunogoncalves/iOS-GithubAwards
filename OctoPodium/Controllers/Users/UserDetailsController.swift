@@ -119,7 +119,7 @@ class UserDetailsController: UIViewController {
     private func loadAvatar() {
         if let avatarUrl = userPresenter!.avatarUrl() {
             guard avatarUrl != "" else { return }
-            ImageLoader.fetchAndLoad(avatarUrl, imageView: avatarImageView) {
+            avatarImageView.fetchAndLoad(avatarUrl) {
                 self.loading.stopAnimating()
             }
         }

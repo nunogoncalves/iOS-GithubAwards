@@ -35,7 +35,7 @@ class UserTopCell : UITableViewCell, NibReusable {
     
     private func fillAvatar() {
         if let avatarUrl = userPresenter!.avatarUrl() {
-            ImageLoader.fetchAndLoad(avatarUrl, imageView: avatar)
+            avatar.fetchAndLoad(avatarUrl)
         }
     }
 }
