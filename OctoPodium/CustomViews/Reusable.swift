@@ -24,7 +24,7 @@ public extension Reusable {
 public extension NibReusable {
     
     static var nib: UINib {
-        return UINib(nibName: String(Self), bundle: nil)
+        return UINib(nibName: String(Self))
     }
 
 }

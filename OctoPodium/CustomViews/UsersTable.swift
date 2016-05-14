@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UsersTable : PaginaTable {
+class UsersTable : PaginaTable, NibReusable {
     
     override init(frame: CGRect, style: UITableViewStyle) {
         super.init(frame: frame, style: style)
@@ -28,8 +28,7 @@ class UsersTable : PaginaTable {
     }
     
     private func registerCells() {
-        registerNib(UINib(nibName: userCellReuseId, bundle: nil), forCellReuseIdentifier:
-            userCellReuseId)
-        registerNib(UINib(nibName: userTopCellReuseId, bundle: nil), forCellReuseIdentifier:             userTopCellReuseId)
+        registerReusableCell(UserCell)
+        registerReusableCell(UserTopCell)
     }
 }

@@ -8,36 +8,22 @@
 
 import UIKit
 
-class LanguageImageView : UIView {
+class LanguageImageView : UIView, NibView {
     
-    @IBOutlet weak var container: UIView!
+    @IBOutlet weak var view: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var label: UILabel!
     
     var language: Language? {
         didSet {
-            if var lang = language {
-                if lang == "" { lang = "Language" }
-                if let image = UIImage(named: lang.lowercaseString) {
-                    imageView.image = image
-                    imageView.show()
-                    label.hide()
-                } else {
-                    imageView.hide()
-                    label.show()
-                    label.text = "\(lang.characters.first!)"
-                }
-            } else {
-                label.text = " "
-                label.show()
-            }
+            setLanguageIconOrLetter()
         }
     }
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
-        container.frame = frame
+        view.frame = frame
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -45,8 +31,23 @@ class LanguageImageView : UIView {
         commonInit()
     }
     
-    private func commonInit() {
-        NSBundle.mainBundle().loadNibNamed(String(LanguageImageView), owner: self, options: nil)
-        addSubview(container)
+    func afterCommonInit() {}
+    
+    private func setLanguageIconOrLetter() {
+        if var lang = language {
+            if lang == "" { lang = "Language" }
+            if let image = UIImage(named: lang.lowercaseString) {
+                imageView.image = image
+                imageView.show()
+                label.hide()
+            } else {
+                imageView.hide()
+                label.show()
+                label.text = "\(lang.characters.first!)"
+            }
+        } else {
+            label.text = " "
+            label.show()
+        }
     }
 }

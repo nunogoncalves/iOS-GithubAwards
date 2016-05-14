@@ -178,6 +178,8 @@
 		85E656761C13A23400BB4278 /* LanguageUsersTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E656751C13A23400BB4278 /* LanguageUsersTableDataSource.swift */; };
 		85E656781C13AB8A00BB4278 /* TableStateListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E656771C13AB8A00BB4278 /* TableStateListener.swift */; };
 		85E8CC491C3AAE5A001B4129 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E8CC481C3AAE5A001B4129 /* NetworkStatus.swift */; };
+		85EF2E3C1CE71CD100745A68 /* UINib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EF2E3B1CE71CD100745A68 /* UINib.swift */; };
+		85EF2E3E1CE71D7B00745A68 /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EF2E3D1CE71D7B00745A68 /* NibView.swift */; };
 		85FA59631C15C5C00097732B /* UserTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59621C15C5C00097732B /* UserTopCell.swift */; };
 		85FA59651C1645B00097732B /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59641C1645B00097732B /* K.swift */; };
 		85FA59671C16D6660097732B /* CreateFullUserFromDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59661C16D6660097732B /* CreateFullUserFromDictionary.swift */; };
@@ -386,6 +388,8 @@
 		85E656751C13A23400BB4278 /* LanguageUsersTableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageUsersTableDataSource.swift; sourceTree = "<group>"; };
 		85E656771C13AB8A00BB4278 /* TableStateListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableStateListener.swift; sourceTree = "<group>"; };
 		85E8CC481C3AAE5A001B4129 /* NetworkStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
+		85EF2E3B1CE71CD100745A68 /* UINib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINib.swift; sourceTree = "<group>"; };
+		85EF2E3D1CE71D7B00745A68 /* NibView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
 		85FA59621C15C5C00097732B /* UserTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTopCell.swift; sourceTree = "<group>"; };
 		85FA59641C1645B00097732B /* K.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		85FA59661C16D6660097732B /* CreateFullUserFromDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFullUserFromDictionary.swift; sourceTree = "<group>"; };
@@ -620,6 +624,7 @@
 				85AF8AF81C445E5F0022D97F /* LanguageImageView.xib */,
 				85B501841C10FD8400BBFD56 /* LanguageTitleView.swift */,
 				85B501821C10FCC300BBFD56 /* LanguageTitleView.xib */,
+				85EF2E3D1CE71D7B00745A68 /* NibView.swift */,
 				85E6566E1C1352C600BB4278 /* PaginaTable.swift */,
 				85BBDA091C5E85E500229ED2 /* Reusable.swift */,
 				857E2C321C1C37970095DCC0 /* SearchBar.swift */,
@@ -755,6 +760,7 @@
 				8508B76A1C1593D40024684F /* UIColor.swift */,
 				85DB86351CE5C6FA00324A99 /* UIImageView.swift */,
 				8549ACB91C6C8A3D004D8149 /* UILabel.swift */,
+				85EF2E3B1CE71CD100745A68 /* UINib.swift */,
 				85B2C2CF1C18D07800112D95 /* UIView.swift */,
 			);
 			path = Extensions;
@@ -1289,6 +1295,7 @@
 				85E389D21C6A307900C68813 /* LanguagesPopoverController.swift in Sources */,
 				856A72E71C12509F008415A4 /* LanguageCell.swift in Sources */,
 				8530ED361C60EA7F00173835 /* TrendingRepositoryDetailsController.swift in Sources */,
+				85EF2E3E1CE71D7B00745A68 /* NibView.swift in Sources */,
 				85E6566F1C1352C600BB4278 /* PaginaTable.swift in Sources */,
 				85820F511C0EF4FC0069D085 /* NotifyError.swift in Sources */,
 				8599284C1C0D9436000ABE8C /* LocationType.swift in Sources */,
@@ -1318,6 +1325,7 @@
 				85D320F01C02062E001B7C7A /* AppDelegate.swift in Sources */,
 				854A404D1C3B369D005E7FF1 /* VerifyRequestStatus.swift in Sources */,
 				85BBD9FE1C5D1AA600229ED2 /* Repositories.swift in Sources */,
+				85EF2E3C1CE71CD100745A68 /* UINib.swift in Sources */,
 				85482E621C96BE0800E20FDB /* GithubStarButton.swift in Sources */,
 				85E656761C13A23400BB4278 /* LanguageUsersTableDataSource.swift in Sources */,
 				851D3C381C09134600870813 /* Requester.swift in Sources */,

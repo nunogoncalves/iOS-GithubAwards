@@ -8,9 +8,9 @@
 
 import UIKit
 
-class GithubButton : UIView {
+class GithubButton : UIView, NibView {
     
-    @IBOutlet weak var topLevelSubView: UIView!
+    @IBOutlet weak var view: UIView!
     @IBOutlet weak var leftView: UIView!
     @IBOutlet weak var rightView: UIView!
     @IBOutlet weak var rightViewLeft: UIView!
@@ -31,18 +31,16 @@ class GithubButton : UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
-        topLevelSubView.frame = frame
+        view.frame = frame
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
-        topLevelSubView.frame = bounds
+        view.frame = bounds
     }
     
-    private func commonInit() {
-        NSBundle.mainBundle().loadNibNamed("GithubButton", owner: self, options: nil)
-        addSubview(topLevelSubView)
+    func afterCommonInit() {
         setLayoutColors()
     }
     
@@ -57,7 +55,7 @@ class GithubButton : UIView {
     
     private func applyGradient() {
         let gradient: CAGradientLayer = CAGradientLayer()
-        gradient.frame = topLevelSubView.bounds
+        gradient.frame = view.bounds
         gradient.colors = gradientColors
         leftView.layer.insertSublayer(gradient, atIndex: 0)
     }

@@ -14,7 +14,7 @@ enum AlertType : UInt {
     case Warning = 0xF2BF00
 }
 
-class AlertView: UIView {
+class AlertView: UIView, NibView {
 
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var blurView: UIView!
@@ -22,17 +22,15 @@ class AlertView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        commontInit()
+        commonInit()
     }
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
-        commontInit()
+        commonInit()
     }
     
-    func commontInit() {
-        loadViewFromNib()
-        
+    func afterCommonInit() {
         view.layoutIfNeeded()
         blurView.layoutIfNeeded()
         view.frame = bounds
@@ -44,11 +42,6 @@ class AlertView: UIView {
         visualEffectView.frame = CGRect(x: 0, y: 0, width: blurView.frame.width, height: blurView.frame.height)
         
         blurView.addSubview(visualEffectView)
-    }
-    
-    private func loadViewFromNib() {
-        NSBundle.mainBundle().loadNibNamed(String(AlertView), owner: self, options: nil)
-        addSubview(view)
     }
     
     func setStyle(style: AlertType) {

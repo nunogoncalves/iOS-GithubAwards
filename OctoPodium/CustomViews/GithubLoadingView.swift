@@ -8,9 +8,9 @@
 
 import UIKit
 
-class GithubLoadingView: UIView {
+class GithubLoadingView: UIView, NibView {
 
-    var view: UIView!
+    @IBOutlet weak var view: UIView!
     @IBOutlet weak var loadingIndicatorImageView: UIImageView!
     @IBOutlet weak var staticImage: UIImageView!
     
@@ -27,27 +27,29 @@ class GithubLoadingView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        commontInit()
+        commonInit()
         view.frame = frame
     }
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
-        commontInit()
+        commonInit()
+        view.frame = bounds
     }
     
-    func commontInit() {
-        view = loadViewFromNib()
-        view.frame = bounds
+    func afterCommonInit() {
         view.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
         
-        loadingIndicatorImageView.image = UIImage(named: "GithubLoading-0.gif")!
+        staticImage.hidden = true
+        
+        setAnimation()
+    }
+    
+    private func setAnimation() {
+        loadingIndicatorImageView.image = images[0]
         loadingIndicatorImageView.animationImages = images
         loadingIndicatorImageView.animationDuration = 0.75
         loadingIndicatorImageView.startAnimating()
-
-        staticImage.hidden = true
-        addSubview(view)
     }
 
     func setStaticWith(percentage: Int, offset: CGFloat) {
@@ -70,16 +72,4 @@ class GithubLoadingView: UIView {
         staticImage.hide()
     }
     
-    private func loadViewFromNib() -> UIView {
-        let bundle = NSBundle(forClass: self.dynamicType)
-        let nib = UINib(nibName: "GithubLoadingView", bundle: bundle)
-        
-        let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
-        return view
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
 }
