@@ -26,6 +26,23 @@
                                     <constraint firstAttribute="height" constant="90" id="xLb-MG-6wG"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jDn-g3-b3A">
+                                <rect key="frame" x="0.0" y="8" width="320" height="472"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="J83-5a-idI">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </view>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="ajV-FI-5bZ">
+                                    <rect key="frame" x="0.0" y="100" width="320" height="49"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="dataSource" destination="gza-o9-9bA" id="dPt-5m-5c0"/>
+                                    <outlet property="delegate" destination="gza-o9-9bA" id="RDA-g7-TRx"/>
+                                </connections>
+                            </tableView>
                             <searchBar contentMode="redraw" placeholder="Filter" translatesAutoresizingMaskIntoConstraints="NO" id="AAR-44-pJD" customClass="SearchBar" customModule="OctoPodium" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                 <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -36,16 +53,8 @@
                                 <color key="barTintColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jDn-g3-b3A">
-                                <rect key="frame" x="0.0" y="108" width="320" height="323"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="gza-o9-9bA" id="dPt-5m-5c0"/>
-                                    <outlet property="delegate" destination="gza-o9-9bA" id="RDA-g7-TRx"/>
-                                </connections>
-                            </tableView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Le-Wb-FvH">
-                                <rect key="frame" x="129" y="269" width="63" height="30"/>
+                                <rect key="frame" x="129" y="169" width="63" height="30"/>
                                 <state key="normal" title="Try again"/>
                                 <connections>
                                     <action selector="tryAgainClicked" destination="gza-o9-9bA" eventType="touchUpInside" id="Hsu-7u-RTc"/>
@@ -55,6 +64,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="jDn-g3-b3A" firstAttribute="top" secondItem="AAR-44-pJD" secondAttribute="bottom" id="7bb-pD-b6r"/>
+                            <constraint firstItem="jDn-g3-b3A" firstAttribute="top" secondItem="Bnq-0K-UDK" secondAttribute="bottom" constant="-56" id="HQe-7t-0MQ"/>
                             <constraint firstItem="AAR-44-pJD" firstAttribute="top" secondItem="Bnq-0K-UDK" secondAttribute="bottom" id="HVo-qV-JcL"/>
                             <constraint firstAttribute="trailing" secondItem="jDn-g3-b3A" secondAttribute="trailing" id="PZQ-v4-4D3"/>
                             <constraint firstItem="AAR-44-pJD" firstAttribute="leading" secondItem="Jq3-3W-WTg" secondAttribute="leading" id="Thi-B6-yK3"/>
@@ -67,12 +77,13 @@
                             <constraint firstItem="7Le-Wb-FvH" firstAttribute="centerX" secondItem="jDn-g3-b3A" secondAttribute="centerX" id="imm-Gr-cb9"/>
                             <constraint firstItem="jDn-g3-b3A" firstAttribute="top" secondItem="Bnq-0K-UDK" secondAttribute="bottom" id="kw3-99-xnl"/>
                             <constraint firstItem="jDn-g3-b3A" firstAttribute="bottom" secondItem="2XL-SE-Yyp" secondAttribute="top" constant="49" id="trk-SR-X8u"/>
-                            <constraint firstItem="2XL-SE-Yyp" firstAttribute="top" secondItem="jDn-g3-b3A" secondAttribute="bottom" id="vMY-fe-EPC"/>
+                            <constraint firstItem="2XL-SE-Yyp" firstAttribute="top" secondItem="jDn-g3-b3A" secondAttribute="bottom" constant="-49" id="vMY-fe-EPC"/>
                             <constraint firstItem="IOW-bw-wLx" firstAttribute="centerY" secondItem="Jq3-3W-WTg" secondAttribute="centerY" id="z34-sg-opQ"/>
                             <constraint firstItem="jDn-g3-b3A" firstAttribute="top" secondItem="7Le-Wb-FvH" secondAttribute="bottom" constant="-191" id="z36-6C-DCI"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="7bb-pD-b6r"/>
                                 <exclude reference="dIY-Gj-9Jk"/>
                                 <exclude reference="kw3-99-xnl"/>
                                 <exclude reference="trk-SR-X8u"/>
@@ -213,8 +224,8 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="158" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="AYy-DI-0AL">
-                                <rect key="frame" x="0.0" y="66" width="320" height="348"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="158" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="AYy-DI-0AL">
+                                <rect key="frame" x="0.0" y="66" width="320" height="461"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="OMd-ur-YDH" userLabel="Header">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="117"/>
@@ -455,8 +466,8 @@
                                     <action selector="viewGithubProfileClicked" destination="U5u-hS-YPV" eventType="touchUpInside" id="Emw-jn-AIp"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nlg-ki-E6p" customClass="GithubLoadingView" customModule="OctoPodium" customModuleProvider="target">
-                                <rect key="frame" x="115" y="195" width="90" height="90"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nlg-ki-E6p" customClass="GithubLoadingView" customModule="OctoPodium" customModuleProvider="target">
+                                <rect key="frame" x="115" y="251.5" width="90" height="90"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="PII-bG-QUV"/>
@@ -1185,13 +1196,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No results found " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVu-Px-zCy">
-                                <rect key="frame" x="96" y="174" width="131" height="21"/>
+                                <rect key="frame" x="96" y="152" width="131" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DWx-sX-GX2" customClass="GithubLoadingView" customModule="OctoPodium" customModuleProvider="target">
-                                <rect key="frame" x="115" y="139" width="90" height="90"/>
+                                <rect key="frame" x="115" y="117" width="90" height="90"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="BA0-pf-KEu"/>
@@ -1199,12 +1210,8 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Dr-wr-ECC" customClass="UsersTable" customModule="OctoPodium" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="368"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="324"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <containerView key="tableFooterView" opaque="NO" contentMode="scaleToFill" id="Ywe-Dp-DC4">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                </containerView>
                             </tableView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fsz-pM-Mev" userLabel="Paginator Container">
                                 <rect key="frame" x="290" y="289" width="20" height="40"/>
@@ -1240,7 +1247,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Fsz-pM-Mev" secondAttribute="bottom" constant="39" id="2L0-jY-jHc"/>
-                            <constraint firstAttribute="bottom" secondItem="4Dr-wr-ECC" secondAttribute="bottom" id="7FT-gy-K9m"/>
+                            <constraint firstAttribute="bottom" secondItem="4Dr-wr-ECC" secondAttribute="bottom" constant="44" id="7FT-gy-K9m"/>
                             <constraint firstItem="4Dr-wr-ECC" firstAttribute="leading" secondItem="Rsx-bP-3H2" secondAttribute="leading" id="AWt-Kh-wQt"/>
                             <constraint firstItem="DWx-sX-GX2" firstAttribute="centerY" secondItem="4Dr-wr-ECC" secondAttribute="centerY" id="Ceo-f0-K6d"/>
                             <constraint firstItem="DWx-sX-GX2" firstAttribute="centerX" secondItem="4Dr-wr-ECC" secondAttribute="centerX" id="cOK-17-FAy"/>
@@ -1277,19 +1284,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for a Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lv5-pn-acz">
-                                <rect key="frame" x="81" y="105" width="158" height="21"/>
+                                <rect key="frame" x="81" y="83" width="158" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No results found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMT-if-UHE">
-                                <rect key="frame" x="97" y="105" width="127" height="21"/>
+                                <rect key="frame" x="97" y="83" width="127" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4gb-Zm-6jp" customClass="GithubLoadingView" customModule="OctoPodium" customModuleProvider="target">
-                                <rect key="frame" x="115" y="70" width="90" height="90"/>
+                                <rect key="frame" x="115" y="48" width="90" height="90"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="0oV-CU-osc"/>
@@ -1297,12 +1304,8 @@
                                 </constraints>
                             </view>
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VFA-0R-hLv" customClass="UsersTable" customModule="OctoPodium" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="328"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <containerView key="tableFooterView" opaque="NO" contentMode="scaleToFill" id="Fs8-ka-Fi1">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                </containerView>
                             </tableView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXI-V9-acO" userLabel="Paginator Container">
                                 <rect key="frame" x="241" y="298" width="69" height="40"/>
@@ -1338,7 +1341,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="4gb-Zm-6jp" firstAttribute="centerX" secondItem="VFA-0R-hLv" secondAttribute="centerX" id="3dg-15-lZr"/>
-                            <constraint firstAttribute="bottom" secondItem="VFA-0R-hLv" secondAttribute="bottom" id="4XQ-gY-3q8"/>
+                            <constraint firstAttribute="bottom" secondItem="VFA-0R-hLv" secondAttribute="bottom" constant="44" id="4XQ-gY-3q8"/>
                             <constraint firstItem="PMT-if-UHE" firstAttribute="centerX" secondItem="VFA-0R-hLv" secondAttribute="centerX" id="GyC-1b-eUi"/>
                             <constraint firstItem="PMT-if-UHE" firstAttribute="centerY" secondItem="VFA-0R-hLv" secondAttribute="centerY" constant="-49" id="JZj-J2-nDc"/>
                             <constraint firstItem="4gb-Zm-6jp" firstAttribute="centerY" secondItem="VFA-0R-hLv" secondAttribute="centerY" constant="-49" id="Ml9-UA-8pQ"/>
@@ -1378,19 +1381,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for a City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xtc-VF-1hI">
-                                <rect key="frame" x="97" y="105" width="127" height="21"/>
+                                <rect key="frame" x="97" y="83" width="127" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No results found " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JG4-Ut-4fV">
-                                <rect key="frame" x="95" y="105" width="131" height="21"/>
+                                <rect key="frame" x="95" y="83" width="131" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XgP-qq-qyn" customClass="GithubLoadingView" customModule="OctoPodium" customModuleProvider="target">
-                                <rect key="frame" x="115" y="70" width="90" height="90"/>
+                                <rect key="frame" x="115" y="48" width="90" height="90"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="Xkv-GR-c0c"/>
@@ -1398,12 +1401,8 @@
                                 </constraints>
                             </view>
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aNd-06-c9I" customClass="UsersTable" customModule="OctoPodium" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="328"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <containerView key="tableFooterView" opaque="NO" contentMode="scaleToFill" id="FQu-iU-jNL">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                </containerView>
                             </tableView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pbi-y5-fOy" userLabel="Paginator Container">
                                 <rect key="frame" x="290" y="298" width="20" height="40"/>
@@ -1448,7 +1447,7 @@
                             <constraint firstItem="Xtc-VF-1hI" firstAttribute="centerY" secondItem="aNd-06-c9I" secondAttribute="centerY" constant="-49" id="ktj-i4-Pp5"/>
                             <constraint firstItem="kad-kQ-E3M" firstAttribute="top" secondItem="Pbi-y5-fOy" secondAttribute="bottom" constant="-10" id="lXO-jI-ZV0"/>
                             <constraint firstItem="Xtc-VF-1hI" firstAttribute="centerX" secondItem="aNd-06-c9I" secondAttribute="centerX" id="rCJ-OI-jnV"/>
-                            <constraint firstAttribute="bottom" secondItem="aNd-06-c9I" secondAttribute="bottom" id="uIy-H7-Wlp"/>
+                            <constraint firstAttribute="bottom" secondItem="aNd-06-c9I" secondAttribute="bottom" constant="44" id="uIy-H7-Wlp"/>
                             <constraint firstAttribute="trailing" secondItem="aNd-06-c9I" secondAttribute="trailing" id="vPd-q4-Cze"/>
                         </constraints>
                     </view>
