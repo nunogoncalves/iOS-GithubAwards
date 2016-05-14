@@ -38,6 +38,14 @@ class SettingsController : UITableViewController {
         return 30
     }
     
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        if indexPath.section == 1 && indexPath.row == 4 {
+            tableView.deselectRowAtIndexPath(indexPath, animated: false)
+            return nil
+        }
+        return indexPath
+    }
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         performSelectorBasedOn(indexPath)
     }

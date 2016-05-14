@@ -75,6 +75,7 @@ class UserDetailsController: UIViewController {
     var avatarTransformRelation: CGFloat!
     
     override func viewDidLoad() {
+        Analytics.SendToGoogle.enteredScreen(kAnalytics.userDetailsScreenFor(userPresenter!.user))
         countryAndCityLabel.text = userPresenter!.fullLocation
         countryAndCityLabel.layoutIfNeeded()
         
@@ -84,15 +85,14 @@ class UserDetailsController: UIViewController {
         applyGradient()
         navigationItem.title = userPresenter!.login()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: #selector(showRepoOptions))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: #selector(showUserOptions))
         
         rankingsTable.registerReusableCell(RankingCell)
         
         Users.GetOne(login: userPresenter!.login()).call(success: userSuccess, failure: failure)
-        Analytics.SendToGoogle.enteredScreen(kAnalytics.userDetailsScreenFor(userPresenter!.user))
     }
     
-    @objc private func showRepoOptions() {
+    @objc private func showUserOptions() {
         let userUrl = userPresenter!.gitHubUrl
         let actionsBuilder = RepositoryOptionsBuilder.build(userUrl) { [weak self] in
             guard let s = self else { return }
@@ -165,7 +165,7 @@ class UserDetailsController: UIViewController {
         let avatarSmallWidth = avatarBackground.width * avatarTransformMin
         let totalWidth = labelWidth + viewOnGithubButton.width + avatarSmallWidth
         let totalSpacingBetweenViews: CGFloat = 40
-        if totalWidth + totalSpacingBetweenViews > view.width { //40 -> spacing between views
+        if totalWidth + totalSpacingBetweenViews > view.width {
             return false
         }
         return true
@@ -175,7 +175,7 @@ class UserDetailsController: UIViewController {
 // Mark - Fetch callbacks
 extension UserDetailsController {
     func userSuccess(user: User) {
-        self.userPresenter = UserPresenter(user: user)
+        userPresenter = UserPresenter(user: user)
         loadAvatar()
         applyReposStarsAndTrophiesLabelsFor(user)
         countryAndCityLabel.text = userPresenter!.fullLocation
