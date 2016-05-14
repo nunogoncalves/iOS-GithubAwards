@@ -59,4 +59,13 @@ extension UIView {
             v.removeFromSuperview()
         }
     }
+    
+    func applyGradient(colors: [UIColor]) {
+        let gradient: CAGradientLayer = CAGradientLayer()
+        setNeedsLayout()
+        layoutIfNeeded()
+        gradient.frame = frame
+        gradient.colors = colors.map { $0.CGColor }
+        layer.addSublayer(gradient)
+    }
 }

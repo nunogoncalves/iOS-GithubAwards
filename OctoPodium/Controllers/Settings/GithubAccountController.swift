@@ -14,6 +14,7 @@ protocol Userable: class {
 
 class GithubAccountController : UIViewController {
     
+    @IBOutlet weak var gradientView: UIView!
     @IBOutlet weak var userContainer: UIView!
     @IBOutlet weak var usernameLabelContainer: UIView!
     @IBOutlet weak var userBlurView: UIView!
@@ -25,12 +26,20 @@ class GithubAccountController : UIViewController {
         super.viewDidLoad()
         
         Analytics.SendToGoogle.enteredScreen(String(GithubAccountController))
+        applyGradient()
         
         if !GithubToken.instance.exists() {
             addNewAccountButton()
         } else {
             fetchUser()
         }
+    }
+    
+    private func applyGradient() {
+        gradientView.applyGradient([
+            UIColor(rgbValue: kColors.navigationBarColor),
+            UIColor(rgbValue: kColors.tabBarColor)
+        ])
     }
     
     override func viewWillAppear(animated: Bool) {
