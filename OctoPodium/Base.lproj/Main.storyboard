@@ -118,51 +118,66 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="DQs-jf-pvS">
-                                <rect key="frame" x="20" y="74" width="280" height="29"/>
-                                <segments>
-                                    <segment title="World"/>
-                                    <segment title="Country"/>
-                                    <segment title="City"/>
-                                </segments>
-                                <color key="tintColor" red="0.18431372549019609" green="0.61568627450980395" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="locationTypeChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="PEa-Oy-ZsP"/>
-                                </connections>
-                            </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r7H-7I-bTT" userLabel="World Users">
-                                <rect key="frame" x="0.0" y="112" width="320" height="368"/>
+                                <rect key="frame" x="0.0" y="-2" width="320" height="482"/>
                                 <connections>
                                     <segue destination="1Yf-b7-hNk" kind="embed" identifier="WorldUsersSegue" id="w6J-ng-HKK"/>
                                 </connections>
                             </containerView>
                             <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xi2-qO-Lbe" userLabel="Country Users">
-                                <rect key="frame" x="0.0" y="152" width="320" height="328"/>
+                                <rect key="frame" x="0.0" y="38" width="320" height="442"/>
                                 <connections>
                                     <segue destination="GyM-O4-Cie" kind="embed" identifier="CountryUsersSegue" id="Rd3-AP-WlY"/>
                                 </connections>
                             </containerView>
                             <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JCN-Wf-1su" userLabel="City Users">
-                                <rect key="frame" x="0.0" y="152" width="320" height="328"/>
+                                <rect key="frame" x="0.0" y="38" width="320" height="442"/>
                                 <connections>
                                     <segue destination="ZRI-IU-Vn0" kind="embed" identifier="CityUsersSegue" id="5LI-kr-J1s"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="52e-tf-ZLW">
+                                <rect key="frame" x="0.0" y="64" width="320" height="39"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="DQs-jf-pvS">
+                                        <rect key="frame" x="20" y="5" width="280" height="29"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <segments>
+                                            <segment title="World"/>
+                                            <segment title="Country"/>
+                                            <segment title="City"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.18431372549019609" green="0.61568627450980395" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="locationTypeChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="PEa-Oy-ZsP"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="DQs-jf-pvS" firstAttribute="leading" secondItem="52e-tf-ZLW" secondAttribute="leading" constant="20" id="UVw-hY-6nX"/>
+                                    <constraint firstAttribute="trailing" secondItem="DQs-jf-pvS" secondAttribute="trailing" constant="20" id="cLA-oZ-fB2"/>
+                                    <constraint firstItem="DQs-jf-pvS" firstAttribute="centerY" secondItem="52e-tf-ZLW" secondAttribute="centerY" id="dEQ-3D-asE"/>
+                                    <constraint firstItem="DQs-jf-pvS" firstAttribute="centerX" secondItem="52e-tf-ZLW" secondAttribute="centerX" id="vuE-Ji-h7V"/>
+                                    <constraint firstAttribute="height" constant="39" id="zCJ-lz-oSR"/>
+                                </constraints>
+                            </view>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k0M-uu-b2X" userLabel="Search Container">
-                                <rect key="frame" x="0.0" y="110" width="320" height="36"/>
+                                <rect key="frame" x="0.0" y="103" width="320" height="46"/>
                                 <subviews>
                                     <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="djR-vH-fIB" customClass="SearchBar" customModule="OctoPodium" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="46"/>
                                         <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" red="0.56470588239999997" green="0.56470588239999997" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="barTintColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
                                 </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="djR-vH-fIB" firstAttribute="top" secondItem="k0M-uu-b2X" secondAttribute="top" id="20L-AO-mvh"/>
                                     <constraint firstItem="djR-vH-fIB" firstAttribute="leading" secondItem="k0M-uu-b2X" secondAttribute="leading" id="A2b-WV-O36"/>
-                                    <constraint firstAttribute="height" constant="36" id="WfC-9f-yBk"/>
+                                    <constraint firstAttribute="height" constant="46" id="WfC-9f-yBk"/>
                                     <constraint firstAttribute="trailing" secondItem="djR-vH-fIB" secondAttribute="trailing" id="Xvz-aS-w9e"/>
                                     <constraint firstAttribute="bottom" secondItem="djR-vH-fIB" secondAttribute="bottom" id="sDQ-4f-XQs"/>
                                 </constraints>
@@ -171,25 +186,24 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="k0M-uu-b2X" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="1yz-0V-nyt"/>
-                            <constraint firstAttribute="trailing" secondItem="DQs-jf-pvS" secondAttribute="trailing" constant="20" id="4hv-Zs-Viz"/>
-                            <constraint firstItem="DQs-jf-pvS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5WH-C2-F6o"/>
+                            <constraint firstItem="r7H-7I-bTT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-66" id="3sj-yH-Vfs"/>
                             <constraint firstItem="JCN-Wf-1su" firstAttribute="bottom" secondItem="xi2-qO-Lbe" secondAttribute="bottom" id="6Bz-Or-MWL"/>
-                            <constraint firstItem="r7H-7I-bTT" firstAttribute="top" secondItem="DQs-jf-pvS" secondAttribute="bottom" constant="10" id="BYM-J2-szG"/>
+                            <constraint firstItem="52e-tf-ZLW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="9eu-IC-bd1"/>
                             <constraint firstAttribute="trailing" secondItem="r7H-7I-bTT" secondAttribute="trailing" id="Ch8-fk-CYH"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="r7H-7I-bTT" secondAttribute="bottom" constant="-49" id="Eqv-w9-ZuJ"/>
                             <constraint firstItem="JCN-Wf-1su" firstAttribute="trailing" secondItem="xi2-qO-Lbe" secondAttribute="trailing" id="KLq-zm-yrq"/>
                             <constraint firstItem="r7H-7I-bTT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MaB-xk-MhU"/>
-                            <constraint firstItem="DQs-jf-pvS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="PzQ-mh-Ffn"/>
+                            <constraint firstAttribute="trailing" secondItem="52e-tf-ZLW" secondAttribute="trailing" id="RGl-Ue-1s3"/>
                             <constraint firstItem="xi2-qO-Lbe" firstAttribute="bottom" secondItem="r7H-7I-bTT" secondAttribute="bottom" id="T7N-mA-GyK"/>
                             <constraint firstAttribute="trailing" secondItem="k0M-uu-b2X" secondAttribute="trailing" id="Vj9-XK-xGD"/>
                             <constraint firstItem="JCN-Wf-1su" firstAttribute="top" secondItem="xi2-qO-Lbe" secondAttribute="top" id="WrL-su-GxV"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="r7H-7I-bTT" secondAttribute="bottom" id="a3j-Cb-trx"/>
-                            <constraint firstItem="DQs-jf-pvS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="l7F-rc-XqL"/>
                             <constraint firstItem="xi2-qO-Lbe" firstAttribute="top" secondItem="r7H-7I-bTT" secondAttribute="top" constant="40" id="lG8-Yz-btQ"/>
+                            <constraint firstItem="k0M-uu-b2X" firstAttribute="top" secondItem="52e-tf-ZLW" secondAttribute="bottom" id="m1I-gf-0MJ"/>
                             <constraint firstItem="JCN-Wf-1su" firstAttribute="leading" secondItem="xi2-qO-Lbe" secondAttribute="leading" id="rjS-1X-mrm"/>
-                            <constraint firstItem="k0M-uu-b2X" firstAttribute="top" secondItem="DQs-jf-pvS" secondAttribute="bottom" constant="8" id="s0s-B2-kFX"/>
                             <constraint firstItem="xi2-qO-Lbe" firstAttribute="trailing" secondItem="r7H-7I-bTT" secondAttribute="trailing" id="xJK-WU-0zU"/>
                             <constraint firstItem="xi2-qO-Lbe" firstAttribute="leading" secondItem="r7H-7I-bTT" secondAttribute="leading" id="z0X-yH-EHV"/>
+                            <constraint firstItem="52e-tf-ZLW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zns-SJ-KtL"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -221,10 +235,10 @@
                         <viewControllerLayoutGuide type="bottom" id="bTg-G4-14n"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lTW-Fe-AUg">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="158" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="AYy-DI-0AL">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="158" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="AYy-DI-0AL">
                                 <rect key="frame" x="0.0" y="66" width="320" height="461"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="OMd-ur-YDH" userLabel="Header">
@@ -466,7 +480,7 @@
                                     <action selector="viewGithubProfileClicked" destination="U5u-hS-YPV" eventType="touchUpInside" id="Emw-jn-AIp"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nlg-ki-E6p" customClass="GithubLoadingView" customModule="OctoPodium" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nlg-ki-E6p" customClass="GithubLoadingView" customModule="OctoPodium" customModuleProvider="target">
                                 <rect key="frame" x="115" y="251.5" width="90" height="90"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1192,29 +1206,33 @@
                         <viewControllerLayoutGuide type="bottom" id="znd-Bx-hGG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Rsx-bP-3H2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="368"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="482"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No results found " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVu-Px-zCy">
-                                <rect key="frame" x="96" y="152" width="131" height="21"/>
+                                <rect key="frame" x="96" y="209" width="131" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DWx-sX-GX2" customClass="GithubLoadingView" customModule="OctoPodium" customModuleProvider="target">
-                                <rect key="frame" x="115" y="117" width="90" height="90"/>
+                                <rect key="frame" x="115" y="174" width="90" height="90"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="BA0-pf-KEu"/>
                                     <constraint firstAttribute="height" constant="90" id="KbF-3l-qhe"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Dr-wr-ECC" customClass="UsersTable" customModule="OctoPodium" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="324"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Dr-wr-ECC" customClass="UsersTable" customModule="OctoPodium" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="438"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="itf-3X-8Mq">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="105"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </view>
                             </tableView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fsz-pM-Mev" userLabel="Paginator Container">
-                                <rect key="frame" x="290" y="289" width="20" height="40"/>
+                                <rect key="frame" x="290" y="403" width="20" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Et7-J8-E82">
                                         <rect key="frame" x="10" y="15" width="0.0" height="0.0"/>
@@ -1269,7 +1287,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J21-Qa-3YC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2734" y="-666"/>
+            <point key="canvasLocation" x="2734" y="-746"/>
         </scene>
         <!--Country Users Controller-->
         <scene sceneID="ow8-eg-dOK">
@@ -1280,35 +1298,39 @@
                         <viewControllerLayoutGuide type="bottom" id="HhN-pQ-2Ik"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pP8-uH-4u7">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="328"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="442"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for a Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lv5-pn-acz">
-                                <rect key="frame" x="81" y="83" width="158" height="21"/>
+                                <rect key="frame" x="81" y="140" width="158" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No results found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMT-if-UHE">
-                                <rect key="frame" x="97" y="83" width="127" height="21"/>
+                                <rect key="frame" x="97" y="140" width="127" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4gb-Zm-6jp" customClass="GithubLoadingView" customModule="OctoPodium" customModuleProvider="target">
-                                <rect key="frame" x="115" y="48" width="90" height="90"/>
+                                <rect key="frame" x="115" y="105" width="90" height="90"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="0oV-CU-osc"/>
                                     <constraint firstAttribute="height" constant="90" id="20A-u0-Zd4"/>
                                 </constraints>
                             </view>
-                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VFA-0R-hLv" customClass="UsersTable" customModule="OctoPodium" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VFA-0R-hLv" customClass="UsersTable" customModule="OctoPodium" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="398"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="HsB-PK-W2G">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="111"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </view>
                             </tableView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXI-V9-acO" userLabel="Paginator Container">
-                                <rect key="frame" x="241" y="298" width="69" height="40"/>
+                                <rect key="frame" x="241" y="412" width="69" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/1231" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qr-3q-rhl">
                                         <rect key="frame" x="10" y="5" width="49" height="21"/>
@@ -1377,35 +1399,39 @@
                         <viewControllerLayoutGuide type="bottom" id="kad-kQ-E3M"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="IFu-Ag-Frp">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="328"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="442"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for a City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xtc-VF-1hI">
-                                <rect key="frame" x="97" y="83" width="127" height="21"/>
+                                <rect key="frame" x="97" y="140" width="127" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No results found " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JG4-Ut-4fV">
-                                <rect key="frame" x="95" y="83" width="131" height="21"/>
+                                <rect key="frame" x="95" y="140" width="131" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XgP-qq-qyn" customClass="GithubLoadingView" customModule="OctoPodium" customModuleProvider="target">
-                                <rect key="frame" x="115" y="48" width="90" height="90"/>
+                                <rect key="frame" x="115" y="105" width="90" height="90"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="Xkv-GR-c0c"/>
                                     <constraint firstAttribute="height" constant="90" id="oib-rR-NQJ"/>
                                 </constraints>
                             </view>
-                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aNd-06-c9I" customClass="UsersTable" customModule="OctoPodium" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aNd-06-c9I" customClass="UsersTable" customModule="OctoPodium" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="398"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="9g3-00-u7o">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="111"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </view>
                             </tableView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pbi-y5-fOy" userLabel="Paginator Container">
-                                <rect key="frame" x="290" y="298" width="20" height="40"/>
+                                <rect key="frame" x="290" y="412" width="20" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETV-07-9p2">
                                         <rect key="frame" x="10" y="15" width="0.0" height="0.0"/>
@@ -1463,7 +1489,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c4C-3H-ScX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2734" y="193"/>
+            <point key="canvasLocation" x="2734" y="279"/>
         </scene>
         <!--Trending-->
         <scene sceneID="QP4-O6-IAg">
@@ -1941,6 +1967,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="x88-mY-rld"/>
-        <segue reference="82b-ih-YU7"/>
+        <segue reference="fYe-Ak-nVm"/>
     </inferredMetricsTieBreakers>
 </document>
