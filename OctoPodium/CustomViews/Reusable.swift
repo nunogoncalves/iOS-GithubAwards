@@ -32,10 +32,10 @@ public extension NibReusable {
 public extension UITableView {
     
     func registerReusableCell<T: UITableViewCell where T: NibReusable>(cellType: T.Type) {
-        self.registerNib(T.nib, forCellReuseIdentifier: T.reuseIdentifier)
+        registerNib(T.nib, forCellReuseIdentifier: T.reuseIdentifier)
     }
     
     func dequeueReusableCellFor<T: UITableViewCell where T: Reusable>(indexPath: NSIndexPath) -> T {
-        return self.dequeueReusableCellWithIdentifier(T.reuseIdentifier, forIndexPath: indexPath) as! T
+        return dequeueReusableCellWithIdentifier(T.reuseIdentifier, forIndexPath: indexPath) as! T
     }
 }

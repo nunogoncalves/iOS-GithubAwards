@@ -11,7 +11,7 @@ import UIKit
 enum AlertType : UInt {
     case Error = 0xFF0000
     case Success = 0x00C10C
-    case Warning = 0xF9E647
+    case Warning = 0xF2BF00
 }
 
 class AlertView: UIView {
