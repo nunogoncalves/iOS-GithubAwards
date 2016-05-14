@@ -31,7 +31,11 @@ class GithubAccountController : UIViewController {
         if !GithubToken.instance.exists() {
             addNewAccountButton()
         } else {
-            fetchUser()
+            if let user = User.getUserInUserDefaults() {
+                gotUser(user)
+            } else {
+                fetchUser()
+            }
         }
     }
     
