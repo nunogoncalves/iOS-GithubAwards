@@ -13,11 +13,35 @@ class AddGithubAccountController : UIViewController {
     @IBOutlet weak var loginTextView: UITextField!
     @IBOutlet weak var passwordTextView: UITextField!
     
+    @IBOutlet weak var onePasswordButton: UIButton!
+    
     private var twoFactorAuth: String?
     
     weak var userDelegate: Userable?
     
-    @IBAction func loginInGithub() {
+    override func viewDidLoad() {
+        if OnePasswordExtension.sharedExtension().isAppExtensionAvailable() {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "onepassword-button"), style: .Plain, target: self, action: #selector(onePasswordClicked))
+        }
+    }
+    
+    @objc private func onePasswordClicked() {
+        OnePasswordExtension.sharedExtension().findLoginForURLString(
+            "http://www.github.com",
+            forViewController: self,
+            sender: self) { [weak self] loginData, error in
+            if let error = error {
+                if error.code == Int(AppExtensionErrorCodeCancelledByUser) {
+                    NotifyWarning.display("There was a problem loading 1Password credentials")
+                }
+            } else {
+                self?.loginTextView.text = loginData![AppExtensionUsernameKey] as? String
+                self?.passwordTextView.text = loginData![AppExtensionPasswordKey] as? String
+            }
+        }
+    }
+    
+    func loginInGithub() {
         let user = loginTextView.text!
         let password = passwordTextView.text!
         
@@ -28,6 +52,7 @@ class AddGithubAccountController : UIViewController {
                 self?.userAuthenticationFailed(apiResponse)
             }
         )
+        
     }
     
     private func userAuthenticationSuccess(oAuthToken: String) {

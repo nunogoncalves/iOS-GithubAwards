@@ -49,10 +49,13 @@ class GithubButton : UIView, NibView {
     }
     
     private func applyGradient() {
-        leftView.applyGradient([
-            UIColor(rgbValue: 0xFCFCFC),
-            UIColor(rgbValue: 0xEEEEEE)
-        ])
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.frame = view.bounds
+        gradient.colors = [
+            UIColor(rgbValue: 0xFCFCFC).CGColor,
+            UIColor(rgbValue: 0xEEEEEE).CGColor
+        ]
+        leftView.layer.insertSublayer(gradient, atIndex: 0)
     }
 
     func startLoading() {

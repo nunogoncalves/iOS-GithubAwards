@@ -28,10 +28,6 @@ class TrendingRepositoryDetailsController: UIViewController {
     
     private var starState = StarState.Undefined
     
-    deinit {
-        
-    }
-    
     override func viewDidLoad() {
         webView.delegate = self
         navigationItem.title = repository?.name
@@ -39,7 +35,7 @@ class TrendingRepositoryDetailsController: UIViewController {
         fetchStarsAndForks()
         checkIfIsStarted()
         Analytics.SendToGoogle.enteredScreen(String(TrendingRepositoryDetailsController))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: #selector(showRepoOptions))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: #selector(showRepoOptions))
         
         let githubButtonsFrame = CGRect(x: 0, y: 0, width: 138, height: 33)
         starsGithubButton.frame = githubButtonsFrame
@@ -92,7 +88,6 @@ class TrendingRepositoryDetailsController: UIViewController {
                     self?.starState = .Unstarred
                 }
                 }) { apiResponse in
-                    
             }
         }
     }

@@ -24,6 +24,7 @@
 	<string></string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+        <string>org-appextension-feature-password-management</string>
 		<string>twitter</string>
 		<string>tweetbot</string>
 		<string>twit</string>

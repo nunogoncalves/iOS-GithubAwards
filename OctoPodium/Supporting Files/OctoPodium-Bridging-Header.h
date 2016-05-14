@@ -4,3 +4,4 @@
 
 #import <Google/Analytics.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "OnePasswordExtension.h"

@@ -180,6 +180,8 @@
 		85E8CC491C3AAE5A001B4129 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E8CC481C3AAE5A001B4129 /* NetworkStatus.swift */; };
 		85EF2E3C1CE71CD100745A68 /* UINib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EF2E3B1CE71CD100745A68 /* UINib.swift */; };
 		85EF2E3E1CE71D7B00745A68 /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EF2E3D1CE71D7B00745A68 /* NibView.swift */; };
+		85EF2E451CE79B8F00745A68 /* OnePasswordExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EF2E441CE79B8F00745A68 /* OnePasswordExtension.m */; };
+		85EF2E4A1CE79CBE00745A68 /* 1Password.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85EF2E491CE79CBE00745A68 /* 1Password.xcassets */; };
 		85FA59631C15C5C00097732B /* UserTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59621C15C5C00097732B /* UserTopCell.swift */; };
 		85FA59651C1645B00097732B /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59641C1645B00097732B /* K.swift */; };
 		85FA59671C16D6660097732B /* CreateFullUserFromDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59661C16D6660097732B /* CreateFullUserFromDictionary.swift */; };
@@ -390,6 +392,9 @@
 		85E8CC481C3AAE5A001B4129 /* NetworkStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
 		85EF2E3B1CE71CD100745A68 /* UINib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINib.swift; sourceTree = "<group>"; };
 		85EF2E3D1CE71D7B00745A68 /* NibView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
+		85EF2E431CE79B8B00745A68 /* OnePasswordExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnePasswordExtension.h; sourceTree = "<group>"; };
+		85EF2E441CE79B8F00745A68 /* OnePasswordExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnePasswordExtension.m; sourceTree = "<group>"; };
+		85EF2E491CE79CBE00745A68 /* 1Password.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = 1Password.xcassets; path = "OctoPodium/Supporting Files/1Password/1Password.xcassets"; sourceTree = SOURCE_ROOT; };
 		85FA59621C15C5C00097732B /* UserTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTopCell.swift; sourceTree = "<group>"; };
 		85FA59641C1645B00097732B /* K.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		85FA59661C16D6660097732B /* CreateFullUserFromDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFullUserFromDictionary.swift; sourceTree = "<group>"; };
@@ -686,6 +691,7 @@
 		858B91091C0859F900B510B3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				85EF2E421CE79B8000745A68 /* 1Password */,
 				85D320EF1C02062E001B7C7A /* AppDelegate.swift */,
 				857F76301CDD75B8002A75C4 /* GoogleService-Info.plist */,
 				85D320FB1C02062E001B7C7A /* Info.plist */,
@@ -919,6 +925,25 @@
 			path = OctoPodiumUITests;
 			sourceTree = "<group>";
 		};
+		85EF2E421CE79B8000745A68 /* 1Password */ = {
+			isa = PBXGroup;
+			children = (
+				85EF2E431CE79B8B00745A68 /* OnePasswordExtension.h */,
+				85EF2E441CE79B8F00745A68 /* OnePasswordExtension.m */,
+				85EF2E471CE79B9600745A68 /* Resources */,
+			);
+			name = 1Password;
+			sourceTree = "<group>";
+		};
+		85EF2E471CE79B9600745A68 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				85EF2E491CE79CBE00745A68 /* 1Password.xcassets */,
+			);
+			name = Resources;
+			path = ../../Pods/1PasswordExtension;
+			sourceTree = "<group>";
+		};
 		85FA596C1C17395C0097732B /* Languages */ = {
 			isa = PBXGroup;
 			children = (
@@ -1087,6 +1112,7 @@
 				85820F4C1C0E2C1A0069D085 /* GithubLoading-5.gif in Resources */,
 				850485471C104C2B004D952A /* ruby.png in Resources */,
 				850485441C104C2B004D952A /* perl.png in Resources */,
+				85EF2E4A1CE79CBE00745A68 /* 1Password.xcassets in Resources */,
 				8571134D1C43BDD500011441 /* haskell.png in Resources */,
 				8549ACD01C6C8B1F004D8149 /* TitilliumWeb-SemiBold.ttf in Resources */,
 				857AE7791C74A8DB007AEE47 /* swift.png in Resources */,
@@ -1274,6 +1300,7 @@
 				85BBDA001C5D1AB800229ED2 /* GetRepositories.swift in Sources */,
 				854B5B9C1CA6EE370070A456 /* AddGithubAccountController.swift in Sources */,
 				853C48E11C09A28400373A92 /* GetOne.swift in Sources */,
+				85EF2E451CE79B8F00745A68 /* OnePasswordExtension.m in Sources */,
 				85FA59651C1645B00097732B /* K.swift in Sources */,
 				858B91131C085B4C00B510B3 /* SearchOptions.swift in Sources */,
 				85BBDA051C5E0BB300229ED2 /* TrendingRepositoryCell.swift in Sources */,
