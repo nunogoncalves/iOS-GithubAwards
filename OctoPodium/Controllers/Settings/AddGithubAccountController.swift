@@ -29,7 +29,7 @@ class AddGithubAccountController : UIViewController {
         OnePasswordExtension.sharedExtension().findLoginForURLString(
             "http://www.github.com",
             forViewController: self,
-            sender: self) { [weak self] loginData, error in
+            sender: nil) { [weak self] loginData, error in
             if let error = error {
                 if error.code == Int(AppExtensionErrorCodeCancelledByUser) {
                     NotifyWarning.display("There was a problem loading 1Password credentials")
