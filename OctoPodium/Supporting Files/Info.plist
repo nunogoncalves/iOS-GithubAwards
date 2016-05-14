@@ -15,7 +15,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.2</string>
+	<string>1.3</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
@@ -24,7 +24,7 @@
 	<string></string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-        <string>org-appextension-feature-password-management</string>
+		<string>org-appextension-feature-password-management</string>
 		<string>twitter</string>
 		<string>tweetbot</string>
 		<string>twit</string>
