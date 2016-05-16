@@ -24,7 +24,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="340" height="48"/>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An error occurred. Please try again" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kh2-V6-I8E">
-                    <rect key="frame" x="8" y="15" width="324" height="18"/>
+                    <rect key="frame" x="8" y="10" width="324" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -36,6 +36,7 @@
                 <constraint firstItem="Kh2-V6-I8E" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="LC3-Gl-xaz"/>
                 <constraint firstItem="oz9-rd-A8b" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="NhH-pJ-Ryy"/>
                 <constraint firstItem="Kh2-V6-I8E" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="W5b-Ci-c9M"/>
+                <constraint firstAttribute="bottom" secondItem="Kh2-V6-I8E" secondAttribute="bottom" constant="20" id="cPu-P6-hn7"/>
                 <constraint firstAttribute="bottom" secondItem="dCp-kM-cxC" secondAttribute="bottom" id="dPE-jP-nvd"/>
                 <constraint firstItem="oz9-rd-A8b" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="fs1-zG-RZq"/>
                 <constraint firstAttribute="trailing" secondItem="dCp-kM-cxC" secondAttribute="trailing" id="lee-SW-B1a"/>
@@ -46,6 +47,11 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="W5b-Ci-c9M"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="239" y="20"/>
         </view>
     </objects>

@@ -13,13 +13,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         setUpBarsAppearance()
         configureCache()
         
-        let _ = Analytics.ConfigureGoogle()
+        _ = Analytics.ConfigureGoogle()
     
         return true
     }

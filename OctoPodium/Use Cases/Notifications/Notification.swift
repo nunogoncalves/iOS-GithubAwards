@@ -23,7 +23,7 @@ class Notification : NSObject {
         }
         isDisplaying = true
         
-        let alertView = AlertView(frame: CGRect(x: 0, y: -64, width: window.width, height: 80))
+        let alertView = AlertView(frame: CGRect(x: 0, y: -80, width: window.width, height: 84))
         alertView.setStyle(alertType)
         
         if let message = message {
@@ -36,17 +36,16 @@ class Notification : NSObject {
         window.addSubview(alertView)
         let windowWidth = window.frame.width
         
-        UIView.animateWithDuration(
-            0.75,
-            delay: 0,
-            usingSpringWithDamping: 0.5,
-            initialSpringVelocity: 0.5,
-            options: [],
-            animations: {
-                alertView.frame = CGRect(x: 0, y: 0, width: windowWidth, height: 80)
-            }, completion: { _ in
-                self.performSelector(#selector(self.dismiss(_:)), withObject: alertView, afterDelay: 1.25)
-            }
+        UIView.animateWithDuration(0.5,
+                                   delay: 0,
+                                   usingSpringWithDamping: 0.4,
+                                   initialSpringVelocity: 1,
+                                   options: [],
+                                   animations: {
+                                    alertView.frame = CGRect(x: 0, y: -20, width: windowWidth, height: 84)
+                                   }, completion: { _ in
+                                     self.performSelector(#selector(self.dismiss(_:)), withObject: alertView, afterDelay: 1.25)
+                                   }
         )
     }
     
