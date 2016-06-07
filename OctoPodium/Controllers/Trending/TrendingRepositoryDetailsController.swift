@@ -96,12 +96,12 @@ class TrendingRepositoryDetailsController: UIViewController {
         if readMeLocation != "" {
             gotReadMeLocation(readMeLocation)
         } else {
-            hideLoadingAndDisplay("Coudn't find a read me.")
+            hideLoadingAndDisplay(error: "Coudn't find a read me.")
         }
     }
     
     private func gitHubApiFailed(apiResponse: ApiResponse) {
-        hideLoadingAndDisplay(apiResponse.status.message())
+        hideLoadingAndDisplay(error: apiResponse.status.message())
     }
 
     private func gotReadMeLocation(url: String) {
@@ -109,7 +109,7 @@ class TrendingRepositoryDetailsController: UIViewController {
         webView.loadRequest(NSURLRequest(URL: url!))
     }
     
-    private func hideLoadingAndDisplay(error: String) {
+    private func hideLoadingAndDisplay(error error: String) {
         loadingView.hide()
         NotifyError.display(error)
     }
@@ -135,29 +135,37 @@ class TrendingRepositoryDetailsController: UIViewController {
     private func starRepo() {
         guard let repo = repository else { return }
         GitHub.StarRepository(repoOwner: repo.user, repoName: repo.name)
-            .doStar({ [weak self] in
-                self?.starState = .Starred
-                self?.starsGithubButton.setTitleToUnstar()
-                self?.starsGithubButton.stopLoading()
-                self?.starsGithubButton.increaseNumber()
+            .doStar({ [weak self] in self?.starSuccess()
                 }, failure: { apiResponse  in
-                    print(apiResponse)
+                    NotifyError.display("It was not possible to star the repository")
                 }
         )
+    }
+    
+    private func starSuccess() {
+        starState = .Starred
+        starsGithubButton.setTitleToUnstar()
+        starsGithubButton.stopLoading()
+        starsGithubButton.increaseNumber()
+        Analytics.SendToGoogle.starRepoEvent(repository!.completeName)
     }
 
     private func unstarRepo() {
         guard let repo = repository else { return }
         GitHub.UnstarRepository(repoOwner: repo.user, repoName: repo.name)
-            .doUnstar({ [weak self] in
-                self?.starState = .Unstarred
-                self?.starsGithubButton.decreaseNumber()
-                self?.starsGithubButton.setTitleToStars()
-                self?.starsGithubButton.stopLoading()
+            .doUnstar({ [weak self] in self?.unstarSuccess()
                 }, failure: { apiResponse  in
-                    print(apiResponse)
+                    NotifyError.display("It was not possible to star the repository")
             }
         )
+    }
+    
+    private func unstarSuccess() {
+        starState = .Unstarred
+        starsGithubButton.decreaseNumber()
+        starsGithubButton.setTitleToStars()
+        starsGithubButton.stopLoading()
+        Analytics.SendToGoogle.unstarRepoEvent(repository!.completeName)
     }
 }
 
@@ -210,7 +218,7 @@ extension TrendingRepositoryDetailsController : UIWebViewDelegate {
     }
     
     func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
-        hideLoadingAndDisplay("Error loading README contents")
+        hideLoadingAndDisplay(error: "Error loading README contents")
         loadingView.hide()
     }
 }

@@ -53,6 +53,14 @@ extension Analytics {
             sendEvent("Search", action: "Trending<\(trendingScope)>Language<\(language)>")
         }
         
+        static func starRepoEvent(name: String) {
+            sendEvent("Star", action: "Star Repo<\(name)>")
+        }
+        
+        static func unstarRepoEvent(name: String) {
+            sendEvent("Unstar", action: "Unstar Repo<\(name)>")
+        }
+        
         static func twoFactorAuthAlertShowedEvent() {
             sendEvent("Show", action: "2FA alert")
         }
@@ -72,6 +80,10 @@ extension Analytics {
         
         static func viewOctoPodiumReadMeEvent() {
             sendEvent("Show", action: "OctoPodium Read Me")
+        }
+        
+        static func starOctopodiumEvent() {
+            sendEvent("Star", action: "OctoPodium Starred")
         }
         
         static func showDeveloperOnTwitterEvent() {
