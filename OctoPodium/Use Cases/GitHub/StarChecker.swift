@@ -8,7 +8,7 @@
 
 extension GitHub {
     
-    struct StarChecker : Getter {
+    struct StarChecker : Requestable, EmptyBody, HTTPGetter {
         
         let repoOwner: String
         let repoName: String
@@ -18,13 +18,9 @@ extension GitHub {
             self.repoName = repoName
         }
         
-        var httpMethod = HTTPMethod.GET
-        
         var headers: HeadParams? = [
             "Authorization" : "token \(GithubToken.instance.token ?? "")"
         ]
-        
-        var bodyParams: BodyParams? = nil
         
         func getUrl() -> String {
             return kUrls.githubStarredRepoUrl(repoOwner, repoName)
@@ -35,10 +31,10 @@ extension GitHub {
         }
         
         func checkIfIsStar(success success: Bool -> (), failure: ApiResponse -> ()) {
-            call(
-                success: { starred -> () in
+            call(success: { starred -> () in
                     success(starred)
-                }, failure: { apiResponse in
+                 },
+                 failure: { apiResponse in
                     if apiResponse.status == .NotFound {
                         success(false)
                     } else {

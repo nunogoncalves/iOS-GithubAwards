@@ -9,13 +9,7 @@
 import Foundation
 
 extension Users {
-    class GetOne: Getter {
-        
-        var headers: HeadParams?
-        
-        var bodyParams: BodyParams? = nil
-        
-        let httpMethod = HTTPMethod.GET
+    class GetOne: Requestable, Parameterless, HTTPGetter {
         
         private let login: String
         

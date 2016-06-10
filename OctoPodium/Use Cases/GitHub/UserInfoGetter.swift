@@ -7,13 +7,9 @@
 //
 
 extension GitHub {
-    struct UserInfoGetter : Getter {
+    struct UserInfoGetter : Requestable, EmptyBody, HTTPGetter {
         
         var headers: HeadParams?
-        
-        var bodyParams: BodyParams? = nil
-
-        let httpMethod = HTTPMethod.GET
         
         init() {
             if let token = GithubToken.instance.token {

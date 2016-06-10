@@ -10,13 +10,7 @@ import Foundation
 
 struct Languages {
     
-    class Get: Getter {
-        
-        var headers: HeadParams? = nil
-        
-        var bodyParams: BodyParams? = nil
-        
-        let httpMethod = HTTPMethod.GET
+    class Get: Requestable, Parameterless, HTTPGetter {
         
         private static var languages = [Language]()
         

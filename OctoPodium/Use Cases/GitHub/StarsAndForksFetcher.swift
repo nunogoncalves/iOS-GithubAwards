@@ -7,13 +7,7 @@
 //
 
 extension GitHub {
-    class StarsAndForksFetcher : Getter {
-        
-        var headers: HeadParams? = nil
-        
-        var bodyParams: BodyParams? = nil
-        
-        let httpMethod = HTTPMethod.GET
+    class StarsAndForksFetcher : Requestable, Parameterless, HTTPGetter {
         
         private let repoName: String
         

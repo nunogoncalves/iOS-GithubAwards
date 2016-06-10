@@ -7,7 +7,7 @@
 //
 
 extension GitHub {
-    struct Login: Getter {
+    struct Login: Requestable, HTTPPoster {
         
         var headers: HeadParams? = nil
         
@@ -18,14 +18,9 @@ extension GitHub {
             "scopes" : ["user:follow", "public_repo"]
         ]
         
-        let httpMethod = HTTPMethod.POST
-        
         private let user: String
         private let password: String
         private let twoFactorAuth: String?
-        
-        private let githubClientId = AppConfigurations.GitHubGetter.instance.clientId
-        private let githubClientSecret = AppConfigurations.GitHubGetter.instance.clientSecret
         
         init(user: String, password: String, twoFactorAuth: String?) {
             self.user = user

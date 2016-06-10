@@ -8,7 +8,7 @@
 
 extension GitHub {
     
-    class UnstarRepository : Getter {
+    class UnstarRepository : Requestable, EmptyBody, HTTPDeleter {
         let repoOwner: String
         let repoName: String
         
@@ -17,14 +17,10 @@ extension GitHub {
             self.repoName = repoName
         }
         
-        var httpMethod = HTTPMethod.DELETE
-        
         var headers: HeadParams? = [
             "Content-Length" : "0",
             "Authorization" : "token \(GithubToken.instance.token ?? "")"
         ]
-        
-        var bodyParams: BodyParams? = nil
         
         func getUrl() -> String {
             return kUrls.doUnstarRepoUrl(repoOwner, repoName)

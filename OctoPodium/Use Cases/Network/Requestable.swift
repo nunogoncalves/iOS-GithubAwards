@@ -6,7 +6,7 @@
 //  Copyright © 2015 Nuno Gonçalves. All rights reserved.
 //
 
-protocol Getter {
+protocol Requestable {
     associatedtype Element
     
     var httpMethod: HTTPMethod { get }
@@ -19,7 +19,7 @@ protocol Getter {
 
 }
 
-extension Getter {
+extension Requestable {
     
     func call(success success: Element -> (), failure: ApiResponse -> ()) {
         let qos = Int(QOS_CLASS_USER_INTERACTIVE.rawValue)

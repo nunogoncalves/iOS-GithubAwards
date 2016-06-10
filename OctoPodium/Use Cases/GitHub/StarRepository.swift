@@ -8,7 +8,7 @@
 
 extension GitHub {
     
-    struct StarRepository : Getter {
+    struct StarRepository : Requestable, EmptyBody, HTTPPutter {
         
         let repoOwner: String
         let repoName: String
@@ -18,14 +18,10 @@ extension GitHub {
             self.repoName = repoName
         }
         
-        var httpMethod = HTTPMethod.PUT
-        
         var headers: HeadParams? = [
             "Content-Length" : "0",
             "Authorization" : "token \(GithubToken.instance.token ?? "")"
         ]
-        
-        var bodyParams: BodyParams? = nil
         
         func getUrl() -> String {
             return kUrls.doStarRepoUrl(repoOwner, repoName)
