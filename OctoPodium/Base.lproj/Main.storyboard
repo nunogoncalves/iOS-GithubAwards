@@ -417,42 +417,41 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NBD-AS-QNT" userLabel="Avatar Background">
-                                <rect key="frame" x="124" y="10" width="72" height="72"/>
+                                <rect key="frame" x="123" y="10" width="74" height="74"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UEm-tJ-0v8">
-                                        <rect key="frame" x="1" y="1" width="70" height="70"/>
+                                        <rect key="frame" x="2" y="2" width="70" height="70"/>
                                         <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="70" id="5aE-oF-SRW"/>
                                             <constraint firstAttribute="height" constant="70" id="eT2-2E-IOh"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="35"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="35"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Ea6-mI-gDv">
-                                        <rect key="frame" x="11" y="11" width="50" height="50"/>
+                                        <rect key="frame" x="12" y="12" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="K93-KJ-GXM"/>
                                             <constraint firstAttribute="width" constant="50" id="WQv-0t-eBI"/>
                                         </constraints>
                                     </activityIndicatorView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.2627450980392157" green="0.6470588235294118" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Ea6-mI-gDv" firstAttribute="centerY" secondItem="UEm-tJ-0v8" secondAttribute="centerY" id="2Ls-mj-Wba"/>
                                     <constraint firstItem="Ea6-mI-gDv" firstAttribute="centerX" secondItem="UEm-tJ-0v8" secondAttribute="centerX" id="HiF-88-I0a"/>
                                     <constraint firstItem="UEm-tJ-0v8" firstAttribute="centerX" secondItem="NBD-AS-QNT" secondAttribute="centerX" id="K7F-bI-dzF"/>
                                     <constraint firstItem="UEm-tJ-0v8" firstAttribute="centerY" secondItem="NBD-AS-QNT" secondAttribute="centerY" id="MyF-kc-3LH"/>
-                                    <constraint firstAttribute="height" constant="72" id="n2J-7J-ZGY"/>
-                                    <constraint firstAttribute="width" constant="72" id="y9e-5y-Umx"/>
+                                    <constraint firstAttribute="height" constant="74" id="n2J-7J-ZGY"/>
+                                    <constraint firstAttribute="width" constant="74" id="y9e-5y-Umx"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="36"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="37"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -1989,9 +1988,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="ad0-zx-zFg">
-                                <rect key="frame" x="16" y="182" width="288" height="249"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="ad0-zx-zFg">
+                                <rect key="frame" x="16" y="182" width="288" height="224"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES" address="YES"/>
@@ -2009,15 +2007,15 @@
                                     <constraint firstAttribute="width" constant="100" id="cAl-Z6-iNS"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="20"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="DW8-pP-dgl" firstAttribute="top" secondItem="ad0-zx-zFg" secondAttribute="bottom" constant="1" id="Gz9-qg-dvG"/>
                             <constraint firstAttribute="trailing" secondItem="DW8-pP-dgl" secondAttribute="trailing" constant="8" id="PWf-kC-N0j"/>
                             <constraint firstItem="IjU-Rp-XMP" firstAttribute="centerX" secondItem="9fM-kM-dN4" secondAttribute="centerX" id="XDo-iz-Ujj"/>
                             <constraint firstItem="aQF-2H-cPn" firstAttribute="top" secondItem="DW8-pP-dgl" secondAttribute="bottom" constant="8" id="YLI-0Z-F86"/>
@@ -2027,6 +2025,11 @@
                             <constraint firstItem="aQF-2H-cPn" firstAttribute="top" secondItem="ad0-zx-zFg" secondAttribute="bottom" id="pyG-Lu-eC8"/>
                             <constraint firstItem="ad0-zx-zFg" firstAttribute="top" secondItem="IjU-Rp-XMP" secondAttribute="bottom" constant="10" id="xWD-Go-u22"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="pyG-Lu-eC8"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="About" id="yRm-jK-dzh"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
