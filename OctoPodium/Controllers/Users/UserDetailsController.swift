@@ -132,7 +132,7 @@ class UserDetailsController: UIViewController {
     }
     
     private func buidGradientOfColors() -> [CGColor] {
-        return kColors.userGradientColors.map { UIColor(rgbValue: $0).CGColor }
+        return kColors.userGradientColors.map { UIColor(hex: $0).CGColor }
     }
     
     private func calculateScrollerConstants() {
