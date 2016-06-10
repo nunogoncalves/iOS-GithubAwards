@@ -164,13 +164,13 @@ class RankingCell: UITableViewCell, NibReusable {
     }
 
     private func paintHeader(rankingPresenter: RankingPresenter) {
-        header.backgroundColor = UIColor(rgbValue: rankingPresenter.headerColorHex())
+        header.backgroundColor = UIColor(hex: rankingPresenter.headerColorHex())
         let textColor = rankingPresenter.textColor()
         starsImageView.image = UIImage(named: rankingPresenter.starImage())
         reposImageView.image = UIImage(named: rankingPresenter.repoImage())
-        languageLabel.textColor = UIColor(rgbValue: textColor)
-        reposLabel.textColor = UIColor(rgbValue: textColor)
-        starsLabel.textColor = UIColor(rgbValue: textColor)
+        languageLabel.textColor = UIColor(hex: textColor)
+        reposLabel.textColor = UIColor(hex: textColor)
+        starsLabel.textColor = UIColor(hex: textColor)
     }
     
     @objc private func showUserLanguageReposInBrowser() {

@@ -45,7 +45,7 @@ class AlertView: UIView, NibView {
     }
     
     func setStyle(style: AlertType) {
-        view.backgroundColor = UIColor(rgbValue: style.rawValue)
+        view.backgroundColor = UIColor(hex: style.rawValue)
     }
     
     func setMessage(message: String) {

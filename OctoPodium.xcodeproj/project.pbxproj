@@ -176,6 +176,9 @@
 		85E09ED01D0AA36400752BB0 /* Parameterless.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E09ECF1D0AA36400752BB0 /* Parameterless.swift */; };
 		85E09ED21D0AA56600752BB0 /* EmptyHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E09ED11D0AA56600752BB0 /* EmptyHeaders.swift */; };
 		85E09ED41D0AA57800752BB0 /* EmptyBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E09ED31D0AA57800752BB0 /* EmptyBody.swift */; };
+		85E09ED81D0AB33A00752BB0 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E09ED71D0AB33A00752BB0 /* UIStoryboard.swift */; };
+		85E09EDB1D0AC49100752BB0 /* ConfigureImagesCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E09EDA1D0AC49100752BB0 /* ConfigureImagesCache.swift */; };
+		85E09EDE1D0AC52D00752BB0 /* Decorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E09EDD1D0AC52D00752BB0 /* Decorator.swift */; };
 		85E389D21C6A307900C68813 /* LanguagesPopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E389D01C6A307900C68813 /* LanguagesPopoverController.swift */; };
 		85E6566B1C134B4E00BB4278 /* UsersListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E6566A1C134B4E00BB4278 /* UsersListResponse.swift */; };
 		85E6566D1C134C7000BB4278 /* PaginatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E6566C1C134C7000BB4278 /* PaginatorTests.swift */; };
@@ -395,6 +398,9 @@
 		85E09ECF1D0AA36400752BB0 /* Parameterless.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parameterless.swift; sourceTree = "<group>"; };
 		85E09ED11D0AA56600752BB0 /* EmptyHeaders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyHeaders.swift; sourceTree = "<group>"; };
 		85E09ED31D0AA57800752BB0 /* EmptyBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyBody.swift; sourceTree = "<group>"; };
+		85E09ED71D0AB33A00752BB0 /* UIStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
+		85E09EDA1D0AC49100752BB0 /* ConfigureImagesCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigureImagesCache.swift; path = Cache/ConfigureImagesCache.swift; sourceTree = "<group>"; };
+		85E09EDD1D0AC52D00752BB0 /* Decorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Decorator.swift; path = Style/Decorator.swift; sourceTree = "<group>"; };
 		85E389D01C6A307900C68813 /* LanguagesPopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguagesPopoverController.swift; sourceTree = "<group>"; };
 		85E6566A1C134B4E00BB4278 /* UsersListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersListResponse.swift; sourceTree = "<group>"; };
 		85E6566C1C134C7000BB4278 /* PaginatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginatorTests.swift; sourceTree = "<group>"; };
@@ -753,6 +759,7 @@
 				857EB00A1C5951AE00C315DF /* Analytics */,
 				853E115B1CA749D2002263BD /* AppConfigurations */,
 				856D67651C3424BA00A77678 /* Browser */,
+				85E09ED91D0AC47600752BB0 /* Cache */,
 				856D67681C3426C200A77678 /* Data */,
 				853C48DB1C09218800373A92 /* DictionaryModelMappers */,
 				855913DC1C63878300E356FD /* GitHub */,
@@ -760,6 +767,7 @@
 				851D3C361C09131D00870813 /* Network */,
 				85820F4F1C0EF4ED0069D085 /* Notifications */,
 				85BBD9FC1C5D1A9600229ED2 /* Repositories */,
+				85E09EDC1D0AC4FF00752BB0 /* Style */,
 				8558253F1CA881C500851967 /* Twitter */,
 				858B910F1C085B0800B510B3 /* Users */,
 			);
@@ -785,6 +793,7 @@
 				85DB86351CE5C6FA00324A99 /* UIImageView.swift */,
 				8549ACB91C6C8A3D004D8149 /* UILabel.swift */,
 				85EF2E3B1CE71CD100745A68 /* UINib.swift */,
+				85E09ED71D0AB33A00752BB0 /* UIStoryboard.swift */,
 				85B2C2CF1C18D07800112D95 /* UIView.swift */,
 			);
 			path = Extensions;
@@ -952,6 +961,22 @@
 				85E09ECD1D0A9D0500752BB0 /* HTTPDeleter.swift */,
 			);
 			name = HTTPMethods;
+			sourceTree = "<group>";
+		};
+		85E09ED91D0AC47600752BB0 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				85E09EDA1D0AC49100752BB0 /* ConfigureImagesCache.swift */,
+			);
+			name = Cache;
+			sourceTree = "<group>";
+		};
+		85E09EDC1D0AC4FF00752BB0 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				85E09EDD1D0AC52D00752BB0 /* Decorator.swift */,
+			);
+			name = Style;
 			sourceTree = "<group>";
 		};
 		85EF2E421CE79B8000745A68 /* 1Password */ = {
@@ -1337,6 +1362,7 @@
 				85E656721C139ED100BB4278 /* TableViewDataSource.swift in Sources */,
 				857943A81C3E5A8D00824577 /* UsersTable.swift in Sources */,
 				85820F3C1C0E2BCE0069D085 /* GithubLoadingView.swift in Sources */,
+				85E09ED81D0AB33A00752BB0 /* UIStoryboard.swift in Sources */,
 				859928511C0DAB23000ABE8C /* String.swift in Sources */,
 				853C48E31C09A35F00373A92 /* CreateBasicUserFromDictionary.swift in Sources */,
 				8508B76B1C1593D40024684F /* UIColor.swift in Sources */,
@@ -1351,6 +1377,7 @@
 				85E389D21C6A307900C68813 /* LanguagesPopoverController.swift in Sources */,
 				856A72E71C12509F008415A4 /* LanguageCell.swift in Sources */,
 				8530ED361C60EA7F00173835 /* TrendingRepositoryDetailsController.swift in Sources */,
+				85E09EDB1D0AC49100752BB0 /* ConfigureImagesCache.swift in Sources */,
 				85EF2E3E1CE71D7B00745A68 /* NibView.swift in Sources */,
 				85E6566F1C1352C600BB4278 /* PaginaTable.swift in Sources */,
 				85820F511C0EF4FC0069D085 /* NotifyError.swift in Sources */,
@@ -1378,6 +1405,7 @@
 				85FC70661C244CAA00971081 /* UserPresenter.swift in Sources */,
 				85E09ED41D0AA57800752BB0 /* EmptyBody.swift in Sources */,
 				8558253C1CA8526500851967 /* AboutController.swift in Sources */,
+				85E09EDE1D0AC52D00752BB0 /* Decorator.swift in Sources */,
 				85A731801C95F8B1002C721B /* GithubButton.swift in Sources */,
 				85E09EC81D0A9B5200752BB0 /* HTTPGetter.swift in Sources */,
 				857858541C7625CD009195B8 /* RepositoryOptionsBuilder.swift in Sources */,

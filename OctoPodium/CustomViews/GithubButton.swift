@@ -21,7 +21,7 @@ class GithubButton : UIView, NibView {
     
     @IBOutlet weak var loadingView: GithubLoadingView!
     
-    internal let buttonBorderColor = UIColor(rgbValue: 0xD5D5D5).CGColor
+    internal let buttonBorderColor = UIColor(hex: 0xD5D5D5).CGColor
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -52,8 +52,8 @@ class GithubButton : UIView, NibView {
         let gradient: CAGradientLayer = CAGradientLayer()
         gradient.frame = view.bounds
         gradient.colors = [
-            UIColor(rgbValue: 0xFCFCFC).CGColor,
-            UIColor(rgbValue: 0xEEEEEE).CGColor
+            UIColor(hex: 0xFCFCFC).CGColor,
+            UIColor(hex: 0xEEEEEE).CGColor
         ]
         leftView.layer.insertSublayer(gradient, atIndex: 0)
     }

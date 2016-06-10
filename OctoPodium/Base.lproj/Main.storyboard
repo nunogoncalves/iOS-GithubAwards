@@ -110,7 +110,7 @@
         <!--Swift - Lisbon-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LanguageRankingsController" customModule="OctoPodium" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LanguageRankingsController" id="BYZ-38-t0r" customClass="LanguageRankingsController" customModule="OctoPodium" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -217,6 +217,7 @@
                     <connections>
                         <outlet property="cityContainer" destination="JCN-Wf-1su" id="Skn-nt-vEM"/>
                         <outlet property="countryContainer" destination="xi2-qO-Lbe" id="yrN-EB-WWG"/>
+                        <outlet property="locationSegment" destination="DQs-jf-pvS" id="WJb-IY-9JV"/>
                         <outlet property="searchBar" destination="djR-vH-fIB" id="6tZ-7K-FDP"/>
                         <outlet property="searchContainer" destination="k0M-uu-b2X" id="4Js-Mu-45M"/>
                         <outlet property="worldContainer" destination="r7H-7I-bTT" id="zMj-iu-8Mk"/>
@@ -236,11 +237,11 @@
                         <viewControllerLayoutGuide type="bottom" id="bTg-G4-14n"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lTW-Fe-AUg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="158" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="AYy-DI-0AL">
-                                <rect key="frame" x="0.0" y="66" width="320" height="461"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="348"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="OMd-ur-YDH" userLabel="Header">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="117"/>
@@ -482,7 +483,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nlg-ki-E6p" customClass="GithubLoadingView" customModule="OctoPodium" customModuleProvider="target">
-                                <rect key="frame" x="115" y="251.5" width="90" height="90"/>
+                                <rect key="frame" x="115" y="195" width="90" height="90"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="PII-bG-QUV"/>
@@ -2054,6 +2055,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="x88-mY-rld"/>
-        <segue reference="fYe-Ak-nVm"/>
+        <segue reference="82b-ih-YU7"/>
     </inferredMetricsTieBreakers>
 </document>

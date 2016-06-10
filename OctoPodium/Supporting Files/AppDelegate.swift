@@ -15,44 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        setUpBarsAppearance()
-        configureCache()
+        Style.Decorator().decorateApp()
         
+        _ = Cache.Configure()
         _ = Analytics.ConfigureGoogle()
-    
+        
         return true
-    }
-
-    private func setUpBarsAppearance() {
-        setUpTabsAppearance()
-        setUpNavigationAppearance()
-    }
-
-    private func configureCache() {
-        let URLCache = NSURLCache(
-            memoryCapacity: 4 * 1024 * 1024,
-            diskCapacity: 20 * 1024 * 1024,
-            diskPath: nil)
-        
-        NSURLCache.setSharedURLCache(URLCache)
-    }
-    
-    private func setUpTabsAppearance() {
-        
-        let tabBarAppearance = UITabBar.appearance()
-        tabBarAppearance.tintColor = .whiteColor()
-        tabBarAppearance.barTintColor = UIColor(rgbValue: kColors.tabBarColor)
-    }
-    
-    private func setUpNavigationAppearance() {
-        let appearance = UINavigationBar.appearance()
-        appearance.barStyle = .Black
-        appearance.barTintColor = UIColor(rgbValue: kColors.navigationBarColor)
-        appearance.tintColor = .whiteColor()
-        
-        appearance.titleTextAttributes = [
-            NSForegroundColorAttributeName : UIColor.whiteColor(),
-        ]
     }
 
     func applicationWillResignActive(application: UIApplication) {}
