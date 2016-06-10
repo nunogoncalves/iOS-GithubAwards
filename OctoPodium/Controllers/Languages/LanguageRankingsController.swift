@@ -12,6 +12,8 @@ class LanguageRankingsController: UIViewController {
 
     @IBOutlet weak var searchContainer: UIView!
     
+    @IBOutlet weak var locationSegment: UISegmentedControl!
+    
     @IBOutlet weak var worldContainer: UIView!
     @IBOutlet weak var countryContainer: UIView!
     @IBOutlet weak var cityContainer: UIView!
@@ -71,25 +73,25 @@ class LanguageRankingsController: UIViewController {
         }
     }
     
-//    let languageTitleView = LanguageTitleView(frame: CGRect(x: 0.0, y: 0.0, width: 120.0, height: 40.0))
+    let languageTitleView = LanguageTitleView(frame: CGRect(x: 0.0, y: 0.0, width: 120.0, height: 40.0))
     
     var language: String? {
         didSet {
             let lang = language ?? ""
             navigationItem.title = lang
-//            languageTitleView.language = lang
+            languageTitleView.language = lang
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.searchDelegate = self
+        Analytics.SendToGoogle.enteredScreen(kAnalytics.rankingScreenFor(language ?? "?"))
    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        Analytics.SendToGoogle.enteredScreen(kAnalytics.rankingScreenFor(language ?? "?"))
-//        self.navigationItem.titleView = languageTitleView;
+        self.navigationItem.titleView = languageTitleView;
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
