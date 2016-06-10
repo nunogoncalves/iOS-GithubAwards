@@ -85,14 +85,12 @@ class UserDetailsController: UIViewController {
         applyGradient()
         navigationItem.title = userPresenter!.login()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: #selector(showUserOptions))
-        
         rankingsTable.registerReusableCell(RankingCell)
         
         Users.GetOne(login: userPresenter!.login()).call(success: userSuccess, failure: failure)
     }
     
-    @objc private func showUserOptions() {
+    @IBAction private func showUserOptions() {
         let userUrl = userPresenter!.gitHubUrl
         let actionsBuilder = RepositoryOptionsBuilder.build(userUrl) { [weak self] in
             guard let s = self else { return }
