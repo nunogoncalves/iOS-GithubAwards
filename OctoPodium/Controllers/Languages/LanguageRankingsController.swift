@@ -87,11 +87,11 @@ class LanguageRankingsController: UIViewController {
         super.viewDidLoad()
         searchBar.searchDelegate = self
         Analytics.SendToGoogle.enteredScreen(kAnalytics.rankingScreenFor(language ?? "?"))
+        navigationItem.titleView = languageTitleView;
    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.titleView = languageTitleView;
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
