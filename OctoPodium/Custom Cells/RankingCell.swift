@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol LocationDelegate: class {
+    func clickedCity(city: String, forLanguage language: String)
+    func clickedCountry(country: String, forLanguage language: String)
+    func clickedWorld(forLanguage language: String)
+}
+
 class RankingCell: UITableViewCell, NibReusable {
 
     @IBOutlet weak var header: UIView!
@@ -36,6 +42,28 @@ class RankingCell: UITableViewCell, NibReusable {
     @IBOutlet weak var starsNameLabel: UILabel!
     @IBOutlet weak var starsLabel: UILabel!
     @IBOutlet weak var starsImageView: UIImageView!
+    
+    weak var locationDelegate: LocationDelegate?
+    
+    @IBAction func cityClicked() {
+        if let city = rankingPresenter?.city where city.characters.count != 0,
+            let language = rankingPresenter?.language where language.characters.count != 0 {
+            locationDelegate?.clickedCity(city, forLanguage: language)
+        }
+    }
+    
+    @IBAction func countryClicked() {
+        if let country = rankingPresenter?.country where country.characters.count != 0,
+            let language = rankingPresenter?.language where language.characters.count != 0 {
+            locationDelegate?.clickedCountry(country, forLanguage: language)
+        }
+    }
+    
+    @IBAction func worldClicked() {
+        if let language = rankingPresenter?.language where language.characters.count != 0 {
+            locationDelegate?.clickedWorld(forLanguage: language)
+        }
+    }
     
     var rankingPresenter: RankingPresenter? {
         didSet {
