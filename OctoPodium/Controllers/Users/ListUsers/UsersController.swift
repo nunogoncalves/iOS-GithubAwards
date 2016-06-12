@@ -22,6 +22,14 @@ class UsersController : UIViewController {
     
     var selectedLocationType = LocationType.World
     
+    var navigationControl: UINavigationController?
+    
+    var selectedIndexPath: NSIndexPath?
+    
+    var swipeInteractionController = SwipeInteractionController()
+    
+    var imageViewForSelectedIndexPath: UIImageView!
+    
     var language: String = "" {
         didSet {
             userSearchOptions.language = language
@@ -45,6 +53,10 @@ class UsersController : UIViewController {
 //        usersTable.addRefreshController(self, action: "freshSearchUsers")
     }
     
+    func selectedCell() -> UITableViewCell {
+        return usersTable.cellForRowAtIndexPath(selectedIndexPath!)!
+    }
+    
     func search(locationName: String? = "") {
         setNewSearchingState()
         self.locationName = locationName!
@@ -59,6 +71,8 @@ class UsersController : UIViewController {
             let destVC = segue.destinationViewController as! UserDetailsController
             let user = usersTableDataSource.dataForIndexPath(selectedIndex!) as? User
             destVC.userPresenter = UserPresenter(user: user!)
+            swipeInteractionController.wireToViewController(destVC)
+            navigationController?.delegate = self
         }
     }
     
@@ -127,6 +141,11 @@ extension UsersController : UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        selectedIndexPath = indexPath
+
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as! CellWithAvatar
+        imageViewForSelectedIndexPath = cell.avatar
+        
         performSegueWithIdentifier(kSegues.userDetailsSegue, sender: self)
     }
     
@@ -188,3 +207,23 @@ extension UsersController {
     }
 }
 
+
+extension UsersController : UINavigationControllerDelegate {
+
+    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if operation == .Push {
+            return UserDetailsPresentAnimator()
+        } else {
+            return UserDetailsDismissAnimator()
+        }
+    }
+    
+    func navigationController(navigationController: UINavigationController, didShowViewController viewController: UIViewController, animated: Bool) {
+        (viewController as? LanguageRankingsController)?.navigationController?.delegate = nil
+    }
+    
+    func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return swipeInteractionController.interactionInProgress ? swipeInteractionController : nil
+    }
+
+}

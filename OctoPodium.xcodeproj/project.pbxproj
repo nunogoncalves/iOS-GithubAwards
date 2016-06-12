@@ -20,6 +20,8 @@
 		850485441C104C2B004D952A /* perl.png in Resources */ = {isa = PBXBuildFile; fileRef = 8504853E1C104C2B004D952A /* perl.png */; };
 		850485451C104C2B004D952A /* php.png in Resources */ = {isa = PBXBuildFile; fileRef = 8504853F1C104C2B004D952A /* php.png */; };
 		850485471C104C2B004D952A /* ruby.png in Resources */ = {isa = PBXBuildFile; fileRef = 850485411C104C2B004D952A /* ruby.png */; };
+		850585811D0D52860024C6BC /* CellWithAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850585801D0D52860024C6BC /* CellWithAvatar.swift */; };
+		850585851D0D57170024C6BC /* SwipeInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850585841D0D57170024C6BC /* SwipeInteractionController.swift */; };
 		8508B76B1C1593D40024684F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8508B76A1C1593D40024684F /* UIColor.swift */; };
 		85118F201C47A802002B452F /* RankingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85118F1F1C47A802002B452F /* RankingCell.xib */; };
 		85168C841C0733BA00091553 /* UsersSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85168C831C0733BA00091553 /* UsersSearchController.swift */; };
@@ -63,6 +65,8 @@
 		854B5BA01CA6FE200070A456 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854B5B9F1CA6FE200070A456 /* ApiResponse.swift */; };
 		854B5BA21CA718F30070A456 /* GithubToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854B5BA11CA718F30070A456 /* GithubToken.swift */; };
 		854B5BA41CA7335E0070A456 /* UserInfoGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854B5BA31CA7335E0070A456 /* UserInfoGetter.swift */; };
+		855075881D0B63DB004FA634 /* UserDetailsDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855075871D0B63DB004FA634 /* UserDetailsDismissAnimator.swift */; };
+		8550758A1D0BF186004FA634 /* UserDetailsPresentAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855075891D0BF186004FA634 /* UserDetailsPresentAnimation.swift */; };
 		8555A9FB1C74CB5500715F91 /* delphi.png in Resources */ = {isa = PBXBuildFile; fileRef = 8555A9FA1C74CB5500715F91 /* delphi.png */; };
 		8558253C1CA8526500851967 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558253B1CA8526500851967 /* AboutController.swift */; };
 		8558253E1CA85DF200851967 /* NSBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558253D1CA85DF200851967 /* NSBundle.swift */; };
@@ -235,6 +239,8 @@
 		8504853E1C104C2B004D952A /* perl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = perl.png; sourceTree = "<group>"; };
 		8504853F1C104C2B004D952A /* php.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = php.png; sourceTree = "<group>"; };
 		850485411C104C2B004D952A /* ruby.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ruby.png; sourceTree = "<group>"; };
+		850585801D0D52860024C6BC /* CellWithAvatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellWithAvatar.swift; sourceTree = "<group>"; };
+		850585841D0D57170024C6BC /* SwipeInteractionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwipeInteractionController.swift; path = TransitionAnimators/SwipeInteractionController.swift; sourceTree = "<group>"; };
 		8508B76A1C1593D40024684F /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		85118F1F1C47A802002B452F /* RankingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingCell.xib; sourceTree = "<group>"; };
 		85168C831C0733BA00091553 /* UsersSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersSearchController.swift; sourceTree = "<group>"; };
@@ -278,6 +284,8 @@
 		854B5B9F1CA6FE200070A456 /* ApiResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
 		854B5BA11CA718F30070A456 /* GithubToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubToken.swift; sourceTree = "<group>"; };
 		854B5BA31CA7335E0070A456 /* UserInfoGetter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoGetter.swift; sourceTree = "<group>"; };
+		855075871D0B63DB004FA634 /* UserDetailsDismissAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDetailsDismissAnimator.swift; path = TransitionAnimators/UserDetailsDismissAnimator.swift; sourceTree = "<group>"; };
+		855075891D0BF186004FA634 /* UserDetailsPresentAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailsPresentAnimation.swift; sourceTree = "<group>"; };
 		8555A9FA1C74CB5500715F91 /* delphi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delphi.png; sourceTree = "<group>"; };
 		8558253B1CA8526500851967 /* AboutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
 		8558253D1CA85DF200851967 /* NSBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSBundle.swift; sourceTree = "<group>"; };
@@ -573,6 +581,16 @@
 			path = Languages;
 			sourceTree = "<group>";
 		};
+		855075861D0B63A4004FA634 /* TransitionAnimators */ = {
+			isa = PBXGroup;
+			children = (
+				855075871D0B63DB004FA634 /* UserDetailsDismissAnimator.swift */,
+				855075891D0BF186004FA634 /* UserDetailsPresentAnimation.swift */,
+				850585841D0D57170024C6BC /* SwipeInteractionController.swift */,
+			);
+			name = TransitionAnimators;
+			sourceTree = "<group>";
+		};
 		8558253F1CA881C500851967 /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
@@ -748,6 +766,7 @@
 				857943A31C3DCC8B00824577 /* UserCell.xib */,
 				85FA59621C15C5C00097732B /* UserTopCell.swift */,
 				857943AB1C3E5D3100824577 /* UserTopCell.xib */,
+				850585801D0D52860024C6BC /* CellWithAvatar.swift */,
 			);
 			path = "Custom Cells";
 			sourceTree = "<group>";
@@ -837,6 +856,7 @@
 			isa = PBXGroup;
 			children = (
 				856E395B1C60A47C00974330 /* DataSources */,
+				855075861D0B63A4004FA634 /* TransitionAnimators */,
 				854B5B9F1CA6FE200070A456 /* ApiResponse.swift */,
 				85E656731C139F5100BB4278 /* Book.swift */,
 				854B5BA11CA718F30070A456 /* GithubToken.swift */,
@@ -1352,6 +1372,7 @@
 			files = (
 				85BBDA001C5D1AB800229ED2 /* GetRepositories.swift in Sources */,
 				854B5B9C1CA6EE370070A456 /* AddGithubAccountController.swift in Sources */,
+				8550758A1D0BF186004FA634 /* UserDetailsPresentAnimation.swift in Sources */,
 				853C48E11C09A28400373A92 /* GetOne.swift in Sources */,
 				85EF2E451CE79B8F00745A68 /* OnePasswordExtension.m in Sources */,
 				85FA59651C1645B00097732B /* K.swift in Sources */,
@@ -1401,6 +1422,7 @@
 				85A4F01B1C3F1BF0002F3405 /* CityUsersController.swift in Sources */,
 				856D67671C3424C900A77678 /* Browser.swift in Sources */,
 				85E09ECA1D0A9BD200752BB0 /* HTTPPoster.swift in Sources */,
+				855075881D0B63DB004FA634 /* UserDetailsDismissAnimator.swift in Sources */,
 				854813A61C79059C00182C6B /* GitHub.swift in Sources */,
 				85FC70661C244CAA00971081 /* UserPresenter.swift in Sources */,
 				85E09ED41D0AA57800752BB0 /* EmptyBody.swift in Sources */,
@@ -1434,6 +1456,7 @@
 				85FA59631C15C5C00097732B /* UserTopCell.swift in Sources */,
 				85E09ED21D0AA56600752BB0 /* EmptyHeaders.swift in Sources */,
 				85D3211E1C0211C2001B7C7A /* UserCell.swift in Sources */,
+				850585851D0D57170024C6BC /* SwipeInteractionController.swift in Sources */,
 				856D676C1C34385F00A77678 /* Users.swift in Sources */,
 				85BBDA081C5E702C00229ED2 /* TrendingScope.swift in Sources */,
 				85AFEC1F1C0468CB006FC129 /* Ranking.swift in Sources */,
@@ -1441,6 +1464,7 @@
 				856D676A1C342C6900A77678 /* Requestable.swift in Sources */,
 				85DB86361CE5C6FA00324A99 /* UIImageView.swift in Sources */,
 				85FA596B1C1739560097732B /* Get.swift in Sources */,
+				850585811D0D52860024C6BC /* CellWithAvatar.swift in Sources */,
 				85482E641C96BF9A00E20FDB /* GithubForkButton.swift in Sources */,
 				855913DE1C63879700E356FD /* RepoContentsFetcher.swift in Sources */,
 				85B501851C10FD8400BBFD56 /* LanguageTitleView.swift in Sources */,

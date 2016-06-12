@@ -99,11 +99,22 @@ class LanguageRankingsController: UIViewController {
         case kSegues.worldUsersSegue:
             worldController = segue.worldController()
             worldController.language = language!
+            worldController.navigationControl = navigationController
         case kSegues.countryUsersSegue:
             countryController = segue.countryController()
+            countryController.navigationControl = navigationController
         case kSegues.cityUsersSegue:
             cityController = segue.cityController()
+            cityController.navigationControl = navigationController
         default: break
+        }
+    }
+    
+    func selectedCell() -> UITableViewCell {
+        switch selectedLocationType {
+        case .World: return worldController.selectedCell()
+        case .Country: return countryController.selectedCell()
+        case .City: return cityController.selectedCell()
         }
     }
 }
