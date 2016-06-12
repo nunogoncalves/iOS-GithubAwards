@@ -71,8 +71,11 @@ class UsersController : UIViewController {
             let destVC = segue.destinationViewController as! UserDetailsController
             let user = usersTableDataSource.dataForIndexPath(selectedIndex!) as? User
             destVC.userPresenter = UserPresenter(user: user!)
-            swipeInteractionController.wireToViewController(destVC)
-            navigationController?.delegate = self
+            
+            if CurrentUser.hasAnimationsEnabled {
+                swipeInteractionController.wireToViewController(destVC)
+                navigationController?.delegate = self
+            }
         }
     }
     
@@ -227,6 +230,9 @@ extension UsersController : UINavigationControllerDelegate {
     }
     
     func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        if !CurrentUser.hasAnimationsEnabled {
+            return nil
+        }
         return swipeInteractionController.interactionInProgress ? swipeInteractionController : nil
     }
 
