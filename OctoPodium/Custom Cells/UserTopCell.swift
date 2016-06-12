@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserTopCell : UITableViewCell, NibReusable {
+class UserTopCell : UITableViewCell, CellWithAvatar, NibReusable {
     
     @IBOutlet weak var rankingImageView: UIImageView!
     @IBOutlet weak var login: UILabel!

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserCell: UITableViewCell, NibReusable {
+class UserCell: UITableViewCell, CellWithAvatar, NibReusable {
 
     @IBOutlet weak var login: UILabel!
     @IBOutlet weak var avatar: UIImageView!
