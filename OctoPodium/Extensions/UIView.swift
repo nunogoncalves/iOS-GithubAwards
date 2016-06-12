@@ -68,4 +68,20 @@ extension UIView {
         gradient.colors = colors.map { $0.CGColor }
         layer.addSublayer(gradient)
     }
+    
+    func animateInPath(path: UIBezierPath, withDuration duration: NSTimeInterval, onFinished: (() -> ())? = {}) {
+        let anim = CAKeyframeAnimation(keyPath: "position")
+        anim.rotationMode = kCAAnimationPaced
+        anim.fillMode = kCAFillModeForwards
+        anim.removedOnCompletion = false
+        anim.duration = duration
+        
+        anim.path = path.CGPath
+        
+        CATransaction.begin()
+        CATransaction.setCompletionBlock {
+            onFinished?()
+        }
+        layer.addAnimation(anim, forKey: "pathAnim")
+    }
 }
