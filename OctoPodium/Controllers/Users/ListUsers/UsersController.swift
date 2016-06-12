@@ -211,6 +211,10 @@ extension UsersController {
 extension UsersController : UINavigationControllerDelegate {
 
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if !CurrentUser.hasAnimationsEnabled {
+            return nil
+        }
+        
         if operation == .Push {
             return UserDetailsPresentAnimator()
         } else {

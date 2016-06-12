@@ -52,6 +52,7 @@ class UserDetailsPresentAnimator : NSObject, UIViewControllerAnimatedTransitioni
             completion: { _ in
                 self.movingImageView.hide()
                 self.toVC.avatarImageView.show()
+                (self.fromVC.selectedCell() as! CellWithAvatar).avatar.show()
                 self.fromVC.view.transform = CGAffineTransformIdentity
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
         })

@@ -22,6 +22,7 @@
 		850485471C104C2B004D952A /* ruby.png in Resources */ = {isa = PBXBuildFile; fileRef = 850485411C104C2B004D952A /* ruby.png */; };
 		850585811D0D52860024C6BC /* CellWithAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850585801D0D52860024C6BC /* CellWithAvatar.swift */; };
 		850585851D0D57170024C6BC /* SwipeInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850585841D0D57170024C6BC /* SwipeInteractionController.swift */; };
+		850585891D0DE2330024C6BC /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850585881D0DE2330024C6BC /* CurrentUser.swift */; };
 		8508B76B1C1593D40024684F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8508B76A1C1593D40024684F /* UIColor.swift */; };
 		85118F201C47A802002B452F /* RankingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85118F1F1C47A802002B452F /* RankingCell.xib */; };
 		85168C841C0733BA00091553 /* UsersSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85168C831C0733BA00091553 /* UsersSearchController.swift */; };
@@ -241,6 +242,7 @@
 		850485411C104C2B004D952A /* ruby.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ruby.png; sourceTree = "<group>"; };
 		850585801D0D52860024C6BC /* CellWithAvatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellWithAvatar.swift; sourceTree = "<group>"; };
 		850585841D0D57170024C6BC /* SwipeInteractionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwipeInteractionController.swift; path = TransitionAnimators/SwipeInteractionController.swift; sourceTree = "<group>"; };
+		850585881D0DE2330024C6BC /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		8508B76A1C1593D40024684F /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		85118F1F1C47A802002B452F /* RankingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingCell.xib; sourceTree = "<group>"; };
 		85168C831C0733BA00091553 /* UsersSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersSearchController.swift; sourceTree = "<group>"; };
@@ -859,6 +861,7 @@
 				855075861D0B63A4004FA634 /* TransitionAnimators */,
 				854B5B9F1CA6FE200070A456 /* ApiResponse.swift */,
 				85E656731C139F5100BB4278 /* Book.swift */,
+				850585881D0DE2330024C6BC /* CurrentUser.swift */,
 				854B5BA11CA718F30070A456 /* GithubToken.swift */,
 				85D3B8091CA7DF020004D276 /* HTTPMethod.swift */,
 				85FA59641C1645B00097732B /* K.swift */,
@@ -1377,6 +1380,7 @@
 				85EF2E451CE79B8F00745A68 /* OnePasswordExtension.m in Sources */,
 				85FA59651C1645B00097732B /* K.swift in Sources */,
 				85E09ED01D0AA36400752BB0 /* Parameterless.swift in Sources */,
+				850585891D0DE2330024C6BC /* CurrentUser.swift in Sources */,
 				858B91131C085B4C00B510B3 /* SearchOptions.swift in Sources */,
 				85BBDA051C5E0BB300229ED2 /* TrendingRepositoryCell.swift in Sources */,
 				85E656781C13AB8A00BB4278 /* TableStateListener.swift in Sources */,

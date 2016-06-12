@@ -14,11 +14,24 @@ class SettingsController : UITableViewController {
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var versionLabel: UILabel!
     
+    @IBOutlet weak var animationsSwitch: UISwitch!
+    
+    @IBAction func animationsSwitchToggled(animationsSwitch: UISwitch) {
+        if animationsSwitch.on {
+            Analytics.SendToGoogle.enabledAnimations()
+            CurrentUser.enableAnimations()
+        } else {
+            Analytics.SendToGoogle.disabledAnimations()
+            CurrentUser.disableAnimations()
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         Analytics.SendToGoogle.enteredScreen(String(SettingsController))
         versionLabel.text = "\(K.appVersion)"
-
+        animationsSwitch.setOn(CurrentUser.hasAnimationsEnabled, animated: false)
     }
     
     override func viewWillAppear(animated: Bool) {

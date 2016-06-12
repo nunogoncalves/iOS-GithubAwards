@@ -93,8 +93,15 @@ extension Analytics {
         static func showDeveloperOnGithubEvent() {
             sendEvent("GoTo", action: "GitHub Profile")
         }
-
         
+        static func enabledAnimations() {
+            sendEvent("Settings", action: "Enabled Animations")
+        }
+        
+        static func disabledAnimations() {
+            sendEvent("Settings", action: "Disabled Animations")
+        }
+    
         private static func callAsync(closure: () -> ()) {
             dispatch_async(dispatch_get_global_queue(qos, 0)) {
                 closure()
