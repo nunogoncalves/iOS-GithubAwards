@@ -22,7 +22,7 @@ class PaginaTable: UITableView {
     }()
     
     func isFooterVisible() -> Bool {
-        return contentOffset.y >= (contentSize.height - frameHeight)
+        return contentOffset.y >= (contentSize.height - frameHeight) - 150
     }
     
     func showFooter() {
