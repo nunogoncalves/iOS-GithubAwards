@@ -1,8 +1,8 @@
 use_frameworks!
 
 def testing_pods
-    pod 'Quick', '~> 0.8.0'
-    pod 'Nimble', '3.0.0'
+    pod 'Quick', '~> 0.9.2'
+    pod 'Nimble', '4.0.1'
 end
 
 target 'OctoPodium' do

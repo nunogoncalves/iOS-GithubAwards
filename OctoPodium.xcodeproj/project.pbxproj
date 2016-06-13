@@ -769,7 +769,6 @@
 				857943A31C3DCC8B00824577 /* UserCell.xib */,
 				85FA59621C15C5C00097732B /* UserTopCell.swift */,
 				857943AB1C3E5D3100824577 /* UserTopCell.xib */,
-				850585801D0D52860024C6BC /* CellWithAvatar.swift */,
 			);
 			path = "Custom Cells";
 			sourceTree = "<group>";
@@ -1469,7 +1468,6 @@
 				856D676A1C342C6900A77678 /* Requestable.swift in Sources */,
 				85DB86361CE5C6FA00324A99 /* UIImageView.swift in Sources */,
 				85FA596B1C1739560097732B /* Get.swift in Sources */,
-				850585811D0D52860024C6BC /* CellWithAvatar.swift in Sources */,
 				85482E641C96BF9A00E20FDB /* GithubForkButton.swift in Sources */,
 				855913DE1C63879700E356FD /* RepoContentsFetcher.swift in Sources */,
 				85B501851C10FD8400BBFD56 /* LanguageTitleView.swift in Sources */,

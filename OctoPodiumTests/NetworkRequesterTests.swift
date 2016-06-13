@@ -27,7 +27,7 @@ class NetworkRequesterTests : QuickSpec {
                 responseStr = "success"
             }
             
-            responseHandler.failureCallback = { _ in
+            responseHandler.failureCallback = { apiResponse in
                 responseStr = "failure"
             }
             
@@ -36,9 +36,9 @@ class NetworkRequesterTests : QuickSpec {
             
             MockNSURLSession.mockResponse = (jsonData, urlResponse: urlResponse, error: nil)
             
-            XCTAssertEqual(responseStr, "", "")
-            requester.makeGet("")
-//            XCTAssertEqual(responseStr, "success", "")
+            requester.call("", httpMethod: HTTPMethod.GET, headers: nil, bodyParams: nil)
+            
+            expect(responseStr).toEventually(equal("success"))
         }
         
         it("calls response failure method") {
@@ -56,9 +56,8 @@ class NetworkRequesterTests : QuickSpec {
             
             MockNSURLSession.mockResponse = (jsonData, urlResponse: urlResponse, error: nil)
             
-            XCTAssertEqual(responseStr, "", "")
-            requester.makeGet("")
-//            XCTAssertEqual(responseStr, "failure", "")
+            requester.call("", httpMethod: HTTPMethod.GET, headers: nil, bodyParams: nil)
+            expect(responseStr).toEventually(equal("failure"))
         }
     }
 }
