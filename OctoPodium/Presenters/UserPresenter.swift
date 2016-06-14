@@ -99,6 +99,12 @@ class UserPresenter {
         return user.hasLocation()
     }
     
+    var cityOrCountryOrWorld: String {
+        if let city = user.city { return city }
+        if let country = user.country { return country }
+        return "the world"
+    }
+    
     var fullLocation: String {
         let city = user.city?.capitalizedString
         let country = user.country?.capitalizedString

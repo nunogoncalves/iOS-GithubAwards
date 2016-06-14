@@ -20,8 +20,8 @@
 		850485441C104C2B004D952A /* perl.png in Resources */ = {isa = PBXBuildFile; fileRef = 8504853E1C104C2B004D952A /* perl.png */; };
 		850485451C104C2B004D952A /* php.png in Resources */ = {isa = PBXBuildFile; fileRef = 8504853F1C104C2B004D952A /* php.png */; };
 		850485471C104C2B004D952A /* ruby.png in Resources */ = {isa = PBXBuildFile; fileRef = 850485411C104C2B004D952A /* ruby.png */; };
-		850585871D0DB2870024C6BC /* CellWithAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850585861D0DB2870024C6BC /* CellWithAvatar.swift */; };
 		850585851D0D57170024C6BC /* SwipeInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850585841D0D57170024C6BC /* SwipeInteractionController.swift */; };
+		850585871D0DB2870024C6BC /* CellWithAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850585861D0DB2870024C6BC /* CellWithAvatar.swift */; };
 		850585891D0DE2330024C6BC /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850585881D0DE2330024C6BC /* CurrentUser.swift */; };
 		8508B76B1C1593D40024684F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8508B76A1C1593D40024684F /* UIColor.swift */; };
 		85118F201C47A802002B452F /* RankingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85118F1F1C47A802002B452F /* RankingCell.xib */; };
@@ -31,6 +31,7 @@
 		85198B761C05CE6C007ACC73 /* LanguagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85198B751C05CE6C007ACC73 /* LanguagesController.swift */; };
 		851D3C381C09134600870813 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D3C371C09134600870813 /* Requester.swift */; };
 		851D3C3A1C0913E900870813 /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D3C391C0913E900870813 /* ResponseHandler.swift */; };
+		8527DBB91D0F671600D388A4 /* ShareRanking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8527DBB81D0F671600D388A4 /* ShareRanking.swift */; };
 		852B43C51C6A3E4000A1B63A /* LanguageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 852B43C31C6A3E4000A1B63A /* LanguageCell.xib */; };
 		852F5E0A1C7E1D1F00DEE0D1 /* RankingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F5E091C7E1D1F00DEE0D1 /* RankingTests.swift */; };
 		852F5E0D1C7E6BCA00DEE0D1 /* TestsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F5E0C1C7E6BCA00DEE0D1 /* TestsBuilder.swift */; };
@@ -240,8 +241,8 @@
 		8504853E1C104C2B004D952A /* perl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = perl.png; sourceTree = "<group>"; };
 		8504853F1C104C2B004D952A /* php.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = php.png; sourceTree = "<group>"; };
 		850485411C104C2B004D952A /* ruby.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ruby.png; sourceTree = "<group>"; };
-		850585861D0DB2870024C6BC /* CellWithAvatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellWithAvatar.swift; sourceTree = "<group>"; };
 		850585841D0D57170024C6BC /* SwipeInteractionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwipeInteractionController.swift; path = TransitionAnimators/SwipeInteractionController.swift; sourceTree = "<group>"; };
+		850585861D0DB2870024C6BC /* CellWithAvatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellWithAvatar.swift; sourceTree = "<group>"; };
 		850585881D0DE2330024C6BC /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		8508B76A1C1593D40024684F /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		85118F1F1C47A802002B452F /* RankingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingCell.xib; sourceTree = "<group>"; };
@@ -251,6 +252,7 @@
 		85198B751C05CE6C007ACC73 /* LanguagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguagesController.swift; sourceTree = "<group>"; };
 		851D3C371C09134600870813 /* Requester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
 		851D3C391C0913E900870813 /* ResponseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseHandler.swift; sourceTree = "<group>"; };
+		8527DBB81D0F671600D388A4 /* ShareRanking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareRanking.swift; sourceTree = "<group>"; };
 		852B43C31C6A3E4000A1B63A /* LanguageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageCell.xib; sourceTree = "<group>"; };
 		852F5E091C7E1D1F00DEE0D1 /* RankingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTests.swift; sourceTree = "<group>"; };
 		852F5E0C1C7E6BCA00DEE0D1 /* TestsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestsBuilder.swift; sourceTree = "<group>"; };
@@ -597,6 +599,7 @@
 			isa = PBXGroup;
 			children = (
 				855825401CA881D600851967 /* Follow.swift */,
+				8527DBB81D0F671600D388A4 /* ShareRanking.swift */,
 			);
 			path = Twitter;
 			sourceTree = "<group>";
@@ -1463,6 +1466,7 @@
 				850585851D0D57170024C6BC /* SwipeInteractionController.swift in Sources */,
 				856D676C1C34385F00A77678 /* Users.swift in Sources */,
 				85BBDA081C5E702C00229ED2 /* TrendingScope.swift in Sources */,
+				8527DBB91D0F671600D388A4 /* ShareRanking.swift in Sources */,
 				85AFEC1F1C0468CB006FC129 /* Ranking.swift in Sources */,
 				850485311C0FB10C004D952A /* AlertView.swift in Sources */,
 				856D676A1C342C6900A77678 /* Requestable.swift in Sources */,

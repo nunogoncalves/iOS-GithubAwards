@@ -6,6 +6,7 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Languages-->
@@ -529,11 +530,18 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Details" id="6Z6-6I-9OB">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="3aY-oa-NhH">
-                            <connections>
-                                <action selector="showUserOptions" destination="U5u-hS-YPV" id="T92-HO-BA5"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="action" id="3aY-oa-NhH">
+                                <connections>
+                                    <action selector="showUserOptions" destination="U5u-hS-YPV" id="T92-HO-BA5"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="TwitterIcon" id="hMk-hE-wQb">
+                                <connections>
+                                    <action selector="tweetButtonTapped:" destination="U5u-hS-YPV" id="BT2-A7-rLF"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
@@ -556,6 +564,7 @@
                         <outlet property="totalReposLabel" destination="7vq-eD-zJK" id="e6l-LR-IVq"/>
                         <outlet property="totalStarsLabel" destination="vQQ-MW-zW4" id="9K4-r5-iQt"/>
                         <outlet property="totalTrophiesLabel" destination="H5N-l0-8HL" id="hkI-Mn-MU7"/>
+                        <outlet property="twitterButton" destination="hMk-hE-wQb" id="4p2-dE-z0a"/>
                         <outlet property="viewOnGithubButton" destination="5mA-3O-FLp" id="EOI-Hi-F34"/>
                     </connections>
                 </viewController>
@@ -2082,6 +2091,7 @@
         <image name="OctoPodium" width="60" height="60"/>
         <image name="Repository" width="24" height="24"/>
         <image name="Star" width="24" height="24"/>
+        <image name="TwitterIcon" width="25" height="25"/>
         <image name="UserActive" width="24" height="24"/>
         <image name="X" width="50" height="50"/>
     </resources>

@@ -86,8 +86,12 @@ extension Analytics {
             sendEvent("Star", action: "OctoPodium Starred")
         }
         
-        static func showDeveloperOnTwitterEvent() {
-            sendEvent("GoTo", action: "Twitter Profile")
+        static func showDeveloperOnTwitterEvent(app: String) {
+            sendEvent("GoTo", action: "Twitter Profile \(app)")
+        }
+        
+        static func shareRankingOnTwitterEvent(app: String) {
+            sendEvent("Share", action: "Twitter Profile \(app)")
         }
         
         static func showDeveloperOnGithubEvent() {

@@ -34,4 +34,7 @@ class CurrentUser : User {
         userDefaults.setBool(state, forKey: animationsEnabledKey)
     }
     
+    private func isLoggedIn() -> Bool {
+        return GithubToken.instance.exists()
+    }
 }

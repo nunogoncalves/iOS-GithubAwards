@@ -36,12 +36,14 @@ struct Twitter {
                 let twitterUrl = "\(twitterClient.rawValue)\(username)"
                 if let url = NSURL(string: twitterUrl) where application.canOpenURL(url) && !applicationOpened {
                     application.openURL(url)
+                    Analytics.SendToGoogle.showDeveloperOnTwitterEvent(String(twitterClient))
                     applicationOpened = true
                     break
                 }
             }
             
             if !applicationOpened {
+                Analytics.SendToGoogle.showDeveloperOnTwitterEvent("Browser")
                 Browser.openPage("http://twitter.com/\(username)")
             }
         }

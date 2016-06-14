@@ -81,7 +81,6 @@ class SettingsController : UITableViewController {
     
     func developerTwitter() {
         let _ = Twitter.Follow(username: K.twitterHandle)
-        Analytics.SendToGoogle.showDeveloperOnTwitterEvent()
     }
     
     func developerGithub() {

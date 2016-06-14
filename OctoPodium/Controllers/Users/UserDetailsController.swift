@@ -36,6 +36,17 @@ class UserDetailsController: UIViewController {
     @IBOutlet weak var totalLanguagesLabel: UILabel!
     @IBOutlet weak var totalTrophiesLabel: UILabel!
     
+    @IBOutlet weak var twitterButton: UIBarButtonItem!
+    
+    
+    @IBAction func tweetButtonTapped(sender: UIBarButtonItem) {
+        guard let userPresenter = userPresenter else { return }
+        guard rankings.count > 0 else { return }
+        
+        _ = Twitter.Share(ranking: "\(userPresenter.ranking)",
+                      language: rankings[0].language!,
+                      location: userPresenter.cityOrCountryOrWorld)
+    }
     @IBAction func viewGithubProfileClicked() {
         if let login = userPresenter?.login() {
             Browser.openPage("http://github.com/\(login)")
@@ -50,32 +61,38 @@ class UserDetailsController: UIViewController {
     var rankings = [Ranking]()
     
     weak var timer: NSTimer!
-    var tempRankings = [Ranking]()
+    private var tempRankings = [Ranking]()
     
 //    var user: User?
     var userPresenter: UserPresenter?
     
-    var animateCells = true
+    private var animateCells = true
     
-    let cellInsertionInterval: NSTimeInterval = 0.2
-    let cellAnimationDuration: NSTimeInterval = 0.1
+    private let cellInsertionInterval: NSTimeInterval = 0.2
+    private let cellAnimationDuration: NSTimeInterval = 0.1
     
-    var halfWidth: CGFloat!
+    private var halfWidth: CGFloat!
     
-    var originalAvatarTransform: CGAffineTransform!
-    var originalAvatarBackgroundWidth: CGFloat!
+    private var originalAvatarTransform: CGAffineTransform!
+    private var originalAvatarBackgroundWidth: CGFloat!
 
-    var originalLocationTransform: CGAffineTransform!
-    var locationTransformRelation: CGFloat!
+    private var originalLocationTransform: CGAffineTransform!
+    private var locationTransformRelation: CGFloat!
     
-    let profileExtendedBGHeight: CGFloat = 182
-    let profileMinBGHeight: CGFloat = 117
+    private let profileExtendedBGHeight: CGFloat = 182
+    private let profileMinBGHeight: CGFloat = 117
     
-    let avatarTransformMin: CGFloat = 0.5
-    var avatarTransformRelation: CGFloat!
+    private let avatarTransformMin: CGFloat = 0.5
+    private var avatarTransformRelation: CGFloat!
     
     override func viewDidLoad() {
         Analytics.SendToGoogle.enteredScreen(kAnalytics.userDetailsScreenFor(userPresenter!.user))
+        
+        if !(userPresenter?.user.isSelf() ?? false) {
+            navigationItem.rightBarButtonItems = [navigationItem.rightBarButtonItems![0]]
+            twitterButton = nil
+        }
+        
         countryAndCityLabel.text = userPresenter!.fullLocation
         countryAndCityLabel.layoutIfNeeded()
         
