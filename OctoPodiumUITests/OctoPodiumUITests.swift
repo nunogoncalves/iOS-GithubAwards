@@ -14,6 +14,7 @@ class OctoPodiumUITests: XCTestCase {
     
     override func setUp() {
         super.setUp()
+        setupSnapshot(app)
         continueAfterFailure = false
         app.launch()
     }
@@ -23,22 +24,42 @@ class OctoPodiumUITests: XCTestCase {
     }
     
     func testLanguagesScreen() {
-        let languagesTitle = app.navigationBars.staticTexts["Languages"]
-        XCTAssertTrue(languagesTitle.exists, "Should be the title of the first screen")
-    }
 
-    func testListOfLanguages() {
-//        let app = XCUIApplication()
-//        let tabBarsQuery = app.tabBars
-//        tabBarsQuery.buttons["Contacts"].tap()
-//        
-//        let searchForAUserSearchField = app.searchFields["Search for a user"]
-//        searchForAUserSearchField.tap()
-//        searchForAUserSearchField.typeText("nun")
-//        app.buttons["Search"].tap()
-//        app.typeText("\n")
-//        tabBarsQuery.buttons["Featured"].tap()
-//        app.buttons["Try again"].tap()
+        let app = XCUIApplication()
+        
+        let expectation = expectationWithDescription("High expectations")
+        expectation.fulfill()
+        
+        waitForExpectationsWithTimeout(3, handler: nil)
+        
+        snapshot("01LanguagesScreen")
+        
+        let tablesQuery = app.tables
+        tablesQuery.cells.staticTexts["JavaScript"].tap()
+        
+        snapshot("02LanguageRankingScreen")
+        
+        tablesQuery.cells.staticTexts["facebook"].tap()
+        
+        snapshot("03FacebookScreen")
+
+        let tabBarsQuery = app.tabBars
+        tabBarsQuery.buttons["Trending"].tap()
+        
+        let expectation1 = expectationWithDescription("High expectations")
+        expectation1.fulfill()
+    
+        waitForExpectationsWithTimeout(8, handler: { _ in
+            snapshot("04TrendingScreen")
+        })
+
+        tabBarsQuery.buttons["More"].tap()
+        
+        let cells = app.tables.cells
+        cells.elementBoundByIndex(0).tap()
+        
+        app.navigationBars["Github Account"].buttons["Add"].tap()
+        snapshot("05AddGitHubAccountScreen")
         
     }
 }

@@ -82,6 +82,7 @@
 		8558254F1CAAC71D00851967 /* NotifyWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558254E1CAAC71D00851967 /* NotifyWarning.swift */; };
 		855825511CAB258E00851967 /* UnstarRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855825501CAB258E00851967 /* UnstarRepository.swift */; };
 		855913DE1C63879700E356FD /* RepoContentsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855913DD1C63879700E356FD /* RepoContentsFetcher.swift */; };
+		85679BAC1D135B4100FC20DF /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85679BAB1D135B4100FC20DF /* SnapshotHelper.swift */; };
 		856A72E31C122C1E008415A4 /* css.png in Resources */ = {isa = PBXBuildFile; fileRef = 856A72DE1C122C1E008415A4 /* css.png */; };
 		856A72E41C122C1E008415A4 /* objective-c.png in Resources */ = {isa = PBXBuildFile; fileRef = 856A72DF1C122C1E008415A4 /* objective-c.png */; };
 		856A72E51C122C1E008415A4 /* shell.png in Resources */ = {isa = PBXBuildFile; fileRef = 856A72E01C122C1E008415A4 /* shell.png */; };
@@ -303,6 +304,7 @@
 		8558254E1CAAC71D00851967 /* NotifyWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifyWarning.swift; sourceTree = "<group>"; };
 		855825501CAB258E00851967 /* UnstarRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnstarRepository.swift; sourceTree = "<group>"; };
 		855913DD1C63879700E356FD /* RepoContentsFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoContentsFetcher.swift; sourceTree = "<group>"; };
+		85679BAB1D135B4100FC20DF /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		856A72DE1C122C1E008415A4 /* css.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = css.png; sourceTree = "<group>"; };
 		856A72DF1C122C1E008415A4 /* objective-c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "objective-c.png"; sourceTree = "<group>"; };
 		856A72E01C122C1E008415A4 /* shell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shell.png; sourceTree = "<group>"; };
@@ -972,6 +974,7 @@
 		85D3210E1C02062E001B7C7A /* OctoPodiumUITests */ = {
 			isa = PBXGroup;
 			children = (
+				85679BAB1D135B4100FC20DF /* SnapshotHelper.swift */,
 				85D321111C02062E001B7C7A /* Info.plist */,
 				85D3210F1C02062E001B7C7A /* OctoPodiumUITests.swift */,
 			);
@@ -1103,6 +1106,7 @@
 				85D321081C02062E001B7C7A /* Frameworks */,
 				85D321091C02062E001B7C7A /* Resources */,
 				52AF291AD01D64556B37DFC7 /* 📦 Copy Pods Resources */,
+				85679BAA1D13587A00FC20DF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1339,6 +1343,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OctoPodiumTests/Pods-OctoPodiumTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		85679BAA1D13587A00FC20DF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OctoPodiumUITests/Pods-OctoPodiumUITests-frameworks.sh\"";
+		};
 		DC33AF0CEBCD4340ACE56D8C /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1518,6 +1535,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85D321101C02062E001B7C7A /* OctoPodiumUITests.swift in Sources */,
+				85679BAC1D135B4100FC20DF /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
