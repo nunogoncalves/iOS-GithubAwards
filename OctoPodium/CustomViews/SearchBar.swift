@@ -25,14 +25,14 @@ class SearchBar : UISearchBar {
 
 extension SearchBar : UISearchBarDelegate {
     
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         if (searchDelegate?.searchBarTextDidBeginEditing != nil) {
             searchDelegate?.searchBarTextDidBeginEditing!(searchBar)
         }
         searchBar.setShowsCancelButton(true, animated: true)
     }
     
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         if (searchDelegate?.searchBarCancelButtonClicked != nil) {
             searchDelegate?.searchBarCancelButtonClicked!(searchBar)
         }
@@ -40,7 +40,7 @@ extension SearchBar : UISearchBarDelegate {
         searchBar.resignFirstResponder()
     }
     
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if (searchDelegate?.searchBarSearchButtonClicked != nil) {
             searchDelegate?.searchBarSearchButtonClicked!(searchBar)
         }
@@ -48,7 +48,7 @@ extension SearchBar : UISearchBarDelegate {
         searchBar.resignFirstResponder()
     }
     
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if let textDidChange: (UISearchBar, String) -> Void = searchDelegate?.searchBar {
             textDidChange(searchBar, searchText)
         }

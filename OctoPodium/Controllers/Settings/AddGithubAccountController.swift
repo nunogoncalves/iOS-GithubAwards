@@ -21,7 +21,7 @@ class AddGithubAccountController : UIViewController {
     
     override func viewDidLoad() {
         if OnePasswordExtension.sharedExtension().isAppExtensionAvailable() {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "onepassword-button"), style: .Plain, target: self, action: #selector(onePasswordClicked))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "onepassword-button"), style: .plain, target: self, action: #selector(onePasswordClicked))
         }
     }
     
@@ -55,16 +55,16 @@ class AddGithubAccountController : UIViewController {
         
     }
     
-    private func userAuthenticationSuccess(oAuthToken: String) {
+    private func userAuthenticationSuccess(_ oAuthToken: String) {
         if GithubToken.instance.saveOrUpdate(oAuthToken) {
             Analytics.SendToGoogle.loggedInWithGitHub(self.twoFactorAuth != nil)
             self.userDelegate?.readyForUser()
-            self.navigationController?.popViewControllerAnimated(true)
+            self.navigationController?.popViewController(animated: true)
         }
     }
     
-    private func userAuthenticationFailed(apiResponse: ApiResponse) {
-        if apiResponse.status == .Unauthorized {
+    private func userAuthenticationFailed(_ apiResponse: ApiResponse) {
+        if apiResponse.status == .unauthorized {
             if  apiResponse.isMissing2FactorAuthField() {
                 self.showAlertFor2FactorAuthenticationCode()
             } else {
@@ -81,29 +81,29 @@ class AddGithubAccountController : UIViewController {
     
     private func showAlertFor2FactorAuthenticationCode() {
         Analytics.SendToGoogle.twoFactorAuthAlertShowedEvent()
-        let alertcontroller = UIAlertController(title: "Two Factor Authentication", message: "Please enter the code you received.", preferredStyle: .Alert)
+        let alertcontroller = UIAlertController(title: "Two Factor Authentication", message: "Please enter the code you received.", preferredStyle: .alert)
         
-        alertcontroller.addTextFieldWithConfigurationHandler { textField in
+        alertcontroller.addTextField { textField in
             textField.placeholder = "2 Factor Authenticator code"
-            textField.keyboardType = .NumberPad
+            textField.keyboardType = .numberPad
         }
         
-        let ok = UIAlertAction(title: "Authenticate", style: .Default) { action in
+        let ok = UIAlertAction(title: "Authenticate", style: .default) { action in
             self.twoFactorAuth = alertcontroller.textFields!.first!.text
             self.loginInGithub()
         }
         
-        let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         alertcontroller.addAction(cancel)
         alertcontroller.addAction(ok)
         
-        presentViewController(alertcontroller, animated: true, completion: {})
+        present(alertcontroller, animated: true, completion: {})
     }
 }
 
 extension AddGithubAccountController : UITextFieldDelegate {
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == passwordTextView {
             textField.resignFirstResponder()
             loginInGithub()

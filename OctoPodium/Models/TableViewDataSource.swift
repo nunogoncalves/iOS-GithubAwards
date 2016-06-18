@@ -12,8 +12,8 @@ protocol TableViewDataSource: UITableViewDataSource {
     
     var book: Book { get }
     
-    func cellIdentifierForIndex(indexPath: NSIndexPath) -> String
+    func cellIdentifierForIndex(_ indexPath: IndexPath) -> String
     
-    func dataForIndexPath(indexPath: NSIndexPath) -> AnyObject
+    func dataForIndexPath(_ indexPath: IndexPath) -> AnyObject
     
 }

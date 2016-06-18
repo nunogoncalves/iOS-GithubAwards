@@ -31,11 +31,11 @@ public extension NibReusable {
 
 public extension UITableView {
     
-    func registerReusableCell<T: UITableViewCell where T: NibReusable>(cellType: T.Type) {
+    func registerReusableCell<T: UITableViewCell where T: NibReusable>(_ cellType: T.Type) {
         registerNib(T.nib, forCellReuseIdentifier: T.reuseIdentifier)
     }
     
-    func dequeueReusableCellFor<T: UITableViewCell where T: Reusable>(indexPath: NSIndexPath) -> T {
+    func dequeueReusableCellFor<T: UITableViewCell where T: Reusable>(_ indexPath: NSIndexPath) -> T {
         return dequeueReusableCellWithIdentifier(T.reuseIdentifier, forIndexPath: indexPath) as! T
     }
 }

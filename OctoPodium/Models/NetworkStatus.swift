@@ -7,41 +7,41 @@
 //
 
 enum NetworkStatus: Int {
-    case Ok = 200
-    case Created = 201
-    case NoContent = 204
-    case Timeout = -1001
-    case Offline = -1009
-    case HostNameNotFound = -1003 //github-awardsboooo.com
-    case CouldNotConnectToServer = -1004 //ex: localhost turned off
-    case Unauthorized = 401
-    case NotFound = 404
-    case ServerError = 500
-    case GenericError = -1
+    case ok = 200
+    case created = 201
+    case noContent = 204
+    case timeout = -1001
+    case offline = -1009
+    case hostNameNotFound = -1003 //github-awardsboooo.com
+    case couldNotConnectToServer = -1004 //ex: localhost turned off
+    case unauthorized = 401
+    case notFound = 404
+    case serverError = 500
+    case genericError = -1
     
     func success() -> Bool {
-        let codes: [NetworkStatus] = [.Ok, .Created, .NoContent]
+        let codes: [NetworkStatus] = [.ok, .created, .noContent]
         return codes.contains(self)
     }
     
     func message() -> String {
         let technicalErrorMessage = "There was a technical problem."
         switch self {
-        case Ok:
+        case ok:
             return "Ok"
-        case Created:
+        case created:
             return "Created"
-        case NoContent:
+        case noContent:
             return "No Content"
-        case Timeout:
+        case timeout:
             return "Request exceded wait time."
-        case Offline:
+        case offline:
             return "Connection appears to be offline."
-        case NotFound:
+        case notFound:
             return "The resource you are looking for doesn't exist."
-        case Unauthorized:
+        case unauthorized:
             return "Unauthorized request."
-        case HostNameNotFound, CouldNotConnectToServer, ServerError:
+        case hostNameNotFound, couldNotConnectToServer, serverError:
             return technicalErrorMessage
         default:
             return technicalErrorMessage
@@ -49,7 +49,7 @@ enum NetworkStatus: Int {
     }
     
     func isTechnicalError() -> Bool {
-        let nonTechErrors: [NetworkStatus] = [.Unauthorized, .NotFound]
+        let nonTechErrors: [NetworkStatus] = [.unauthorized, .notFound]
         return !nonTechErrors.contains(self)
     }
 }

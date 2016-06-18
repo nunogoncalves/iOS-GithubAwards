@@ -47,7 +47,7 @@ class User {
         User.saveUserInUserDefaults(self)
     }
     
-    class func saveUserInUserDefaults(user: User) {
+    class func saveUserInUserDefaults(_ user: User) {
         NSUserDefaults().setObject(user.login, forKey: User.loggedInUserLoginKey)
         NSUserDefaults().setObject(user.avatarUrl, forKey: User.loggedInUserAvatarUrlKey)
     }

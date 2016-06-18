@@ -38,9 +38,9 @@ class GithubLoadingView: UIView, NibView {
     }
     
     func afterCommonInit() {
-        view.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
+        view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         
-        staticImage.hidden = true
+        staticImage.isHidden = true
         
         setAnimation()
     }
@@ -52,12 +52,12 @@ class GithubLoadingView: UIView, NibView {
         loadingIndicatorImageView.startAnimating()
     }
 
-    func setStaticWith(percentage: Int, offset: CGFloat) {
+    func setStaticWith(_ percentage: Int, offset: CGFloat) {
         
         staticImage.show()
         
-        staticImage.hidden = abs(offset) < 30
-        loadingIndicatorImageView.hidden = abs(offset) < 30
+        staticImage.isHidden = abs(offset) < 30
+        loadingIndicatorImageView.isHidden = abs(offset) < 30
         
         var x = (100 / images.count) * percentage / 100
         if x > 7 { x = 7 }

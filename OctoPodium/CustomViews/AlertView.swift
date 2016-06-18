@@ -9,9 +9,9 @@
 import UIKit
 
 enum AlertType : UInt {
-    case Error = 0xFF0000
-    case Success = 0x00C10C
-    case Warning = 0xF2BF00
+    case error = 0xFF0000
+    case success = 0x00C10C
+    case warning = 0xF2BF00
 }
 
 class AlertView: UIView, NibView {
@@ -34,21 +34,21 @@ class AlertView: UIView, NibView {
         view.layoutIfNeeded()
         blurView.layoutIfNeeded()
         view.frame = bounds
-        view.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
+        view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         
-        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .Light)) as UIVisualEffectView
+        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .light)) as UIVisualEffectView
         visualEffectView.frame = bounds
-        visualEffectView.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
+        visualEffectView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         visualEffectView.frame = CGRect(x: 0, y: 0, width: blurView.frame.width, height: blurView.frame.height)
         
         blurView.addSubview(visualEffectView)
     }
     
-    func setStyle(style: AlertType) {
+    func setStyle(_ style: AlertType) {
         view.backgroundColor = UIColor(hex: style.rawValue)
     }
     
-    func setMessage(message: String) {
+    func setMessage(_ message: String) {
         messageLabel.text = message
     }
     

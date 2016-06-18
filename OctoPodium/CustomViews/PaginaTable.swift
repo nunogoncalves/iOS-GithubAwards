@@ -26,19 +26,19 @@ class PaginaTable: UITableView {
     }
     
     func showFooter() {
-        tableFooterView?.hidden = false
+        tableFooterView?.isHidden = false
     }
     
     func hideFooter() {
-        tableFooterView?.hidden = true
+        tableFooterView?.isHidden = true
     }
     
-    func addRefreshController(refreshActionTarget: AnyObject, action: Selector) {
+    func addRefreshController(_ refreshActionTarget: AnyObject, action: Selector) {
         refreshControl = UIRefreshControl()
-        refreshControl!.backgroundColor = UIColor.clearColor()
-        refreshControl!.tintColor = UIColor.clearColor()
+        refreshControl!.backgroundColor = UIColor.clear()
+        refreshControl!.tintColor = UIColor.clear()
         
-        refreshControl!.addTarget(refreshActionTarget, action: action, forControlEvents:.ValueChanged)
+        refreshControl!.addTarget(refreshActionTarget, action: action, for:.valueChanged)
         
         addLoadingViewToRefreshControl()
         addRefreshControl()
@@ -55,7 +55,7 @@ class PaginaTable: UITableView {
     }
     
     func updateRefreshControl() {
-        if refreshControl.refreshing {
+        if refreshControl.isRefreshing {
             loadingView.setLoading()
         } else {
             let y = contentOffset.y
@@ -65,7 +65,7 @@ class PaginaTable: UITableView {
     }
     
     func isRefreshing() -> Bool {
-        return refreshControl.refreshing
+        return refreshControl.isRefreshing
     }
     
     func stopLoadingIndicator() {

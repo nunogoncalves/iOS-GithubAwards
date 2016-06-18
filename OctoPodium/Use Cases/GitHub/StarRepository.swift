@@ -27,9 +27,9 @@ extension GitHub {
             return kUrls.doStarRepoUrl(repoOwner, repoName)
         }
 
-        func getDataFrom(dictionary: NSDictionary) {}
+        func getDataFrom(_ dictionary: NSDictionary) {}
         
-        func doStar(success: () -> (), failure: ApiResponse -> ()) {
+        func doStar(_ success: () -> (), failure: (ApiResponse) -> ()) {
             call(success: success, failure: failure)
         }
     }

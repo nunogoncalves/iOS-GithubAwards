@@ -26,18 +26,18 @@ class TrendingDataSource : NSObject, UITableViewDataSource {
         self.tableView.delegate = self
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return repositories.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellFor(indexPath) as TrendingRepositoryCell
         cell.repositorySince = (repository: repositories[indexPath.row], since: trendingScope.message)
         cell.userClicked = userClicked
         return cell
     }
     
-    private func setupCell(tableView: UITableView, indexPath: NSIndexPath) -> TrendingRepositoryCell {
+    private func setupCell(_ tableView: UITableView, indexPath: IndexPath) -> TrendingRepositoryCell {
         
         let cell = tableView.dequeueReusableCellFor(indexPath) as TrendingRepositoryCell
         cell.repositorySince = (repository: repositories[indexPath.row], since: trendingScope.message)
@@ -47,10 +47,10 @@ class TrendingDataSource : NSObject, UITableViewDataSource {
     
     func search() {
         Analytics.SendToGoogle.searchedTrending(trendingScope.rawValue, language: language)
-        let qos = Int(QOS_CLASS_USER_INTERACTIVE.rawValue)
-        dispatch_async(dispatch_get_global_queue(qos, 0)) {
+        let qos = Int(DispatchQueueAttributes.qosUserInteractive.rawValue)
+        DispatchQueue.global(attributes: DispatchQueue.GlobalAttributes(rawValue: UInt64(qos))).async {
             self.repositories = Repositories.GetRepositories().get(self.trendingScope.rawValue, language: self.language)
-            dispatch_sync(dispatch_get_main_queue()) {
+            DispatchQueue.main.sync {
                 self.gotRepositories?()
                 self.tableView.reloadData()
             }
@@ -60,20 +60,20 @@ class TrendingDataSource : NSObject, UITableViewDataSource {
 
 extension TrendingDataSource : UITableViewDelegate {
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        repositoryCellClicked?(repository: repositories[indexPath.row])
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        repositoryCellClicked?(repository: repositories[(indexPath as NSIndexPath).row])
     }
     
-    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         let cell = setupCell(tableView, indexPath: indexPath)
         return calculateHeightForConfiguredSizingCell(cell)
     }
     
-    private func calculateHeightForConfiguredSizingCell(cell: TrendingRepositoryCell) -> CGFloat {
+    private func calculateHeightForConfiguredSizingCell(_ cell: TrendingRepositoryCell) -> CGFloat {
         cell.setNeedsLayout()
         cell.layoutIfNeeded()
         
-        let size = cell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+        let size = cell.contentView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
         return size.height
     }
     

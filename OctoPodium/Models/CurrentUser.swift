@@ -30,7 +30,7 @@ class CurrentUser : User {
         setAnimationsState(false)
     }
     
-    private static func setAnimationsState(state: Bool) {
+    private static func setAnimationsState(_ state: Bool) {
         userDefaults.setBool(state, forKey: animationsEnabledKey)
     }
     

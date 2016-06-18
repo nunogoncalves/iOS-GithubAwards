@@ -25,7 +25,7 @@ class GithubForkButton : GithubButton {
         setImage(UIImage(named: "ForkDark")!)
     }
     
-    func setNumberOfForks(forks: String) {
+    func setNumberOfForks(_ forks: String) {
         setValue(forks)
     }
 }

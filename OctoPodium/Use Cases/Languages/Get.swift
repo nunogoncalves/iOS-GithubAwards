@@ -14,9 +14,9 @@ struct Languages {
         
         private static var languages = [Language]()
         
-        private var successLangs: ([Language] -> ())?
+        private var successLangs: (([Language]) -> ())?
         
-        func getAll(success success: [Language] -> (), failure: ApiResponse -> ()) {
+        func getAll(success: ([Language]) -> (), failure: (ApiResponse) -> ()) {
             successLangs = success
             if Languages.Get.languages.count == 0 {
                 call(success: gotLanguages, failure: failure)
@@ -25,7 +25,7 @@ struct Languages {
             }
         }
         
-        private func gotLanguages(languages: [Language]) {
+        private func gotLanguages(_ languages: [Language]) {
             Languages.Get.languages = languages
             successLangs?(languages)
         }
@@ -34,7 +34,7 @@ struct Languages {
             return "\(kUrls.languagesBaseUrl)?sort=popularity"
         }
         
-        func getDataFrom(dictionary: NSDictionary) -> [Language] {
+        func getDataFrom(_ dictionary: NSDictionary) -> [Language] {
             return dictionary["languages"] as! [Language]
         }
     }

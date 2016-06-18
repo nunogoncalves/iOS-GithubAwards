@@ -10,41 +10,41 @@ import Foundation
 
 class VerifyRequestStatus {
     
-    let response: NSURLResponse?
+    let response: URLResponse?
     var responseDictionary: NSDictionary?
     let error: NSError?
     
     private let errorCodes = [
-        NetworkStatus.Offline.rawValue,
-        NetworkStatus.Unauthorized.rawValue,
-        NetworkStatus.Timeout.rawValue,
-        NetworkStatus.HostNameNotFound.rawValue,
-        NetworkStatus.CouldNotConnectToServer.rawValue,
+        NetworkStatus.offline.rawValue,
+        NetworkStatus.unauthorized.rawValue,
+        NetworkStatus.timeout.rawValue,
+        NetworkStatus.hostNameNotFound.rawValue,
+        NetworkStatus.couldNotConnectToServer.rawValue,
     ]
     
     private let successCodes = [
-        NetworkStatus.Ok.rawValue,
-        NetworkStatus.Created.rawValue,
-        NetworkStatus.NoContent.rawValue
+        NetworkStatus.ok.rawValue,
+        NetworkStatus.created.rawValue,
+        NetworkStatus.noContent.rawValue
     ]
     
     private let responseCodes = [
-        NetworkStatus.Ok.rawValue,
-        NetworkStatus.Created.rawValue,
-        NetworkStatus.NoContent.rawValue,
-        NetworkStatus.Unauthorized.rawValue,
-        NetworkStatus.NotFound.rawValue,
-        NetworkStatus.ServerError.rawValue,
+        NetworkStatus.ok.rawValue,
+        NetworkStatus.created.rawValue,
+        NetworkStatus.noContent.rawValue,
+        NetworkStatus.unauthorized.rawValue,
+        NetworkStatus.notFound.rawValue,
+        NetworkStatus.serverError.rawValue,
     ]
     
-    init(response: NSURLResponse?, error: NSError?, responseDictionary: NSDictionary?) {
+    init(response: URLResponse?, error: NSError?, responseDictionary: NSDictionary?) {
         self.response = response
         self.responseDictionary = responseDictionary
         self.error = error
     }
     
     func success() -> Bool {
-        if let response = response as? NSHTTPURLResponse {
+        if let response = response as? HTTPURLResponse {
             return successCodes.contains(response.statusCode)
         }
         return false
@@ -59,26 +59,26 @@ class VerifyRequestStatus {
             return checkStatusFrom(error!)
         }
         
-        if ((response as? NSHTTPURLResponse) != nil) {
-            return checkStatusFrom(response as! NSHTTPURLResponse)
+        if ((response as? HTTPURLResponse) != nil) {
+            return checkStatusFrom(response as! HTTPURLResponse)
         }
         
-        return .GenericError
+        return .genericError
     }
     
-    private func checkStatusFrom(error: NSError) -> NetworkStatus {
+    private func checkStatusFrom(_ error: NSError) -> NetworkStatus {
         return checkStatusIn(errorCodes, code: error.code)
     }
 
-    private func checkStatusFrom(response: NSHTTPURLResponse) -> NetworkStatus {
+    private func checkStatusFrom(_ response: HTTPURLResponse) -> NetworkStatus {
         return checkStatusIn(responseCodes, code: response.statusCode)
     }
     
-    private func checkStatusIn(codes: [Int], code: Int) -> NetworkStatus {
+    private func checkStatusIn(_ codes: [Int], code: Int) -> NetworkStatus {
         if codes.contains(code) {
             return NetworkStatus(rawValue: code)!
         }
-        return .GenericError
+        return .genericError
     }
     
 }

@@ -10,8 +10,8 @@ import UIKit
 
 struct RepositoryOptionsBuilder {
     
-    static func build(url: String, shareAction: () -> () = {}) -> UIAlertController {
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+    static func build(_ url: String, shareAction: () -> () = {}) -> UIAlertController {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let browser = actionWith(title: "View on Github", andHandler: viewOnGithub(url))
         let copy = actionWith(title: "Copy URL", andHandler: copyToBoard(url))
@@ -20,24 +20,24 @@ struct RepositoryOptionsBuilder {
         alert.addAction(browser)
         alert.addAction(copy)
         alert.addAction(share)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         return alert
     }
     
-    private static func actionWith(title title: String, andHandler handler: (UIAlertAction -> Void)?) -> UIAlertAction {
-        return UIAlertAction(title: title, style: .Default, handler: handler)
+    private static func actionWith(title: String, andHandler handler: ((UIAlertAction) -> Void)?) -> UIAlertAction {
+        return UIAlertAction(title: title, style: .default, handler: handler)
     }
     
-    private static func viewOnGithub(url: String) -> ((UIAlertAction) -> Void)?{
+    private static func viewOnGithub(_ url: String) -> ((UIAlertAction) -> Void)?{
         return { _ in
             Browser.openPage(url)
         }
     }
     
-    private static func copyToBoard(url: String) -> ((UIAlertAction) -> Void)? {
+    private static func copyToBoard(_ url: String) -> ((UIAlertAction) -> Void)? {
         return { _ in
-            UIPasteboard.generalPasteboard().string = url
+            UIPasteboard.general().string = url
         }
     }
 }

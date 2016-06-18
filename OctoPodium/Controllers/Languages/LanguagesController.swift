@@ -32,7 +32,7 @@ class LanguagesController: UIViewController {
         Analytics.SendToGoogle.enteredScreen(kAnalytics.languagesScreen)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == kSegues.showLanguageRankingSegue {
             segue.rankingsController().language = selectedLanguage
         }
@@ -57,7 +57,7 @@ class LanguagesController: UIViewController {
 }
 
 extension LanguagesController {
-    private func gotLanguages(languages: [Language]) {
+    private func gotLanguages(_ languages: [Language]) {
         self.allLanguages = languages
         self.displayingLanguages = allLanguages
         
@@ -65,7 +65,7 @@ extension LanguagesController {
         endSearching()
     }
     
-    private func failedToLoadLanguages(apiResponse: ApiResponse) {
+    private func failedToLoadLanguages(_ apiResponse: ApiResponse) {
         tryAgainButton.show()
         loadingIndicator?.hide()
         NotifyError.display(apiResponse.status.message())
@@ -73,20 +73,20 @@ extension LanguagesController {
 }
 
 extension LanguagesController : UITableViewDelegate {
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedLanguage = displayingLanguages[indexPath.row]
-        performSegueWithIdentifier(kSegues.showLanguageRankingSegue, sender: self)
-        languagesTable.deselectRowAtIndexPath(indexPath, animated: false)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedLanguage = displayingLanguages[(indexPath as NSIndexPath).row]
+        performSegue(withIdentifier: kSegues.showLanguageRankingSegue, sender: self)
+        languagesTable.deselectRow(at: indexPath, animated: false)
     }
 }
 
 extension LanguagesController : UITableViewDataSource {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return displayingLanguages.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellFor(indexPath) as LanguageCell
         cell.language = displayingLanguages[indexPath.row]
         return cell
@@ -94,12 +94,12 @@ extension LanguagesController : UITableViewDataSource {
 }
 
 extension LanguagesController : UISearchBarDelegate {
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == "" {
             displayingLanguages = allLanguages
         } else {
-            let resultPredicate = NSPredicate(format: "self contains[c] %@", searchText)
-            displayingLanguages = allLanguages.filter { resultPredicate.evaluateWithObject($0) }
+            let resultPredicate = Predicate(format: "self contains[c] %@", searchText)
+            displayingLanguages = allLanguages.filter { resultPredicate.evaluate(with: $0) }
         }
         languagesTable.reloadData()
     }

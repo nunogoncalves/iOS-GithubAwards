@@ -43,7 +43,7 @@ class UserPresenter {
         totalTrophies = reposStarsTrophies.trophies
     }
     
-    private static func getReposStarsAndTrophiesFrom(user: User) -> (repos: Int, stars: Int, trophies: Int) {
+    private static func getReposStarsAndTrophiesFrom(_ user: User) -> (repos: Int, stars: Int, trophies: Int) {
         let initialTuple = (repos: 0, stars: 0, trophies: 0)
         
         return user.rankings.reduce(initialTuple) { (tuple, ranking) -> (repos: Int, stars: Int, trophies: Int) in

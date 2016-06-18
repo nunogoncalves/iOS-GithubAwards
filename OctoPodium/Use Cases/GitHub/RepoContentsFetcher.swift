@@ -19,7 +19,7 @@ extension GitHub {
             return "https://api.github.com/repos/\(repoName)/contents"
         }
         
-        func getDataFrom(dictionary: NSDictionary) -> String {
+        func getDataFrom(_ dictionary: NSDictionary) -> String {
             var readMeLocation = ""
             for item in dictionary["response"] as! NSArray {
                 let name = (item["name"] as? String) ?? ""

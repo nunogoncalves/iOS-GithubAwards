@@ -17,7 +17,7 @@ extension GitHub {
             }
         }
         
-        func getDataFrom(dictionary: NSDictionary) -> User {
+        func getDataFrom(_ dictionary: NSDictionary) -> User {
             return User(
                 login: dictionary["login"] as? String ?? "",
                 avatarUrl: dictionary["avatar_url"] as? String ?? ""

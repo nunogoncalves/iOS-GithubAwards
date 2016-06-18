@@ -19,14 +19,14 @@ class SearchOptions {
     }
     
     private func buildLanguage() -> String {
-        let lang = language.lowercaseString
+        let lang = language.lowercased()
         return "language=\(lang)"
     }
     
     private func buildLocation() -> String {
         let type = getRealType()
         if type == "world" { return "" }
-        return "&\(type)=\(location.lowercaseString)"
+        return "&\(type)=\(location.lowercased())"
     }
     
     private func buildType() -> String {

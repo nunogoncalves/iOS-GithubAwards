@@ -46,18 +46,18 @@ class GithubAccountController : UIViewController {
         ])
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        userContainer.hidden = !GithubToken.instance.exists()
+        userContainer.isHidden = !GithubToken.instance.exists()
     }
     
     @IBAction func signout() {
-        let alert = UIAlertController(title: "Confirm", message: "Are you sure you want to logout?", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { _  in self.confirmLogout() } ))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        let alert = UIAlertController(title: "Confirm", message: "Are you sure you want to logout?", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _  in self.confirmLogout() } ))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
-        presentViewController(alert, animated: true, completion: {})
+        present(alert, animated: true, completion: {})
     }
 
     @objc private func confirmLogout() {
@@ -73,14 +73,14 @@ class GithubAccountController : UIViewController {
     }
     
     private func addNewAccountButton() {
-        let addAccountButton = UIBarButtonItem(barButtonSystemItem: .Add,
+        let addAccountButton = UIBarButtonItem(barButtonSystemItem: .add,
                                                target: self,
                                                action: #selector(addGihubAccount))
         navigationItem.rightBarButtonItem = addAccountButton
     }
     
     @objc private func addRemoveAccountButton() {
-        let addAccountButton = UIBarButtonItem(barButtonSystemItem: .Trash,
+        let addAccountButton = UIBarButtonItem(barButtonSystemItem: .trash,
                                                target: self,
                                                action: #selector(signout))
         navigationItem.rightBarButtonItem = addAccountButton
@@ -94,7 +94,7 @@ class GithubAccountController : UIViewController {
         })
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == kSegues.goToLoginSegue {
             let vc = segue.destinationViewController as! AddGithubAccountController
             vc.userDelegate = self
@@ -102,10 +102,10 @@ class GithubAccountController : UIViewController {
     }
     
     @objc private func addGihubAccount() {
-        performSegueWithIdentifier(kSegues.goToLoginSegue, sender: self)
+        performSegue(withIdentifier: kSegues.goToLoginSegue, sender: self)
     }
     
-    func gotUser(user: User) {
+    func gotUser(_ user: User) {
         userContainer.show()
         user.saveInUserDefaults()
         usernameLabelContainer.show()
@@ -116,9 +116,9 @@ class GithubAccountController : UIViewController {
             userImageView.fetchAndLoad(avatar)
             userBackgroundImageView.fetchAndLoad(avatar)
 
-            let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .Dark)) as UIVisualEffectView
+            let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark)) as UIVisualEffectView
             visualEffectView.frame = userBlurView.bounds
-            visualEffectView.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
+            visualEffectView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
             visualEffectView.frame = CGRect(x: 0, y: 0, width: userBlurView.width, height: userBlurView.height)
             
             userBlurView.addSubview(visualEffectView)

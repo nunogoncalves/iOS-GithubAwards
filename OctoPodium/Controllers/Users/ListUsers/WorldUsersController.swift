@@ -35,7 +35,7 @@ class WorldUsersController : UsersController {
         freshSearchUsers()
     }
     
-    override func sendUserPaginatedToAnalytics(page: String) {
+    override func sendUserPaginatedToAnalytics(_ page: String) {
         Analytics.SendToGoogle.usersPaginatedInWorld(forLanguage: language, andPage: page)
     }
 }

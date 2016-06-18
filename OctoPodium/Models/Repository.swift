@@ -29,7 +29,7 @@ struct Repository {
         self.user = Repository.getUserFromName(name)
     }
     
-    private static func getUserFromName(name: String) -> String {
+    private static func getUserFromName(_ name: String) -> String {
         return name.substringUntil("/") ?? ""
     }
     

@@ -52,7 +52,7 @@ class Ranking {
         return (isPodium(worldRanking) ? 1 : 0) + (isPodium(cityRanking) ? 1 : 0) + (isPodium(countryRanking) ? 1 : 0)
     }
         
-    private func isPodium(rank: Int?) -> Bool {
+    private func isPodium(_ rank: Int?) -> Bool {
         return rank?.belongsInPodium() ?? false
     }
 }

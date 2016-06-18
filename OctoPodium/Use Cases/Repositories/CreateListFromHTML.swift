@@ -11,7 +11,7 @@ import Kanna
 extension Repositories {
     class CreateListFromHTML {
         
-        static func list(html: String) -> [Repository] {
+        static func list(_ html: String) -> [Repository] {
             var repositories = [Repository]()
             
             guard let document = Kanna.HTML(html: html, encoding: NSUTF8StringEncoding) else {
@@ -36,15 +36,15 @@ extension Repositories {
             return repositories
         }
 
-        private static func getRepositoriesHTML(document: HTMLDocument) -> XMLNodeSet {
+        private static func getRepositoriesHTML(_ document: HTMLDocument) -> XMLNodeSet {
             return document.xpath("//*[contains(@class, 'repo-list-item')]")
         }
         
-        private static func getRepositoryNameFrom(document: XMLElement) -> String {
+        private static func getRepositoryNameFrom(_ document: XMLElement) -> String {
             return document.css("a")[1].text!.withoutSpaces()
         }
         
-        private static func getStarsFrom(document: XMLElement) -> String {
+        private static func getStarsFrom(_ document: XMLElement) -> String {
             let metadata = document.text!.withoutSpaces()
             var stars = metadata.substringBetween("•", and: "stars")
             if stars == nil {
@@ -55,11 +55,11 @@ extension Repositories {
             return stars!
         }
         
-        private static func getDescriptionFrom(document: XMLElement) -> String {
+        private static func getDescriptionFrom(_ document: XMLElement) -> String {
             return document.css("p.repo-list-description").text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).replace("\n", with: "").replace("      ", with: "")
         }
         
-        private static func getLanguageFrom(document: XMLElement) -> String? {
+        private static func getLanguageFrom(_ document: XMLElement) -> String? {
             let metadata = document.text!.withoutSpaces()
             
             let language = metadata.substringUntil("•")

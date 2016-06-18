@@ -39,7 +39,7 @@ class UserDetailsController: UIViewController {
     @IBOutlet weak var twitterButton: UIBarButtonItem!
     
     
-    @IBAction func tweetButtonTapped(sender: UIBarButtonItem) {
+    @IBAction func tweetButtonTapped(_ sender: UIBarButtonItem) {
         guard let userPresenter = userPresenter else { return }
         guard rankings.count > 0 else { return }
         
@@ -60,7 +60,7 @@ class UserDetailsController: UIViewController {
     
     var rankings = [Ranking]()
     
-    weak var timer: NSTimer!
+    weak var timer: Timer!
     private var tempRankings = [Ranking]()
     
 //    var user: User?
@@ -68,8 +68,8 @@ class UserDetailsController: UIViewController {
     
     private var animateCells = true
     
-    private let cellInsertionInterval: NSTimeInterval = 0.2
-    private let cellAnimationDuration: NSTimeInterval = 0.1
+    private let cellInsertionInterval: TimeInterval = 0.2
+    private let cellAnimationDuration: TimeInterval = 0.1
     
     private var halfWidth: CGFloat!
     
@@ -112,19 +112,19 @@ class UserDetailsController: UIViewController {
         let actionsBuilder = RepositoryOptionsBuilder.build(userUrl) { [weak self] in
             guard let s = self else { return }
             let activityViewController = UIActivityViewController(activityItems: [userUrl as NSString], applicationActivities: nil)
-            s.presentViewController(activityViewController, animated: true, completion: {})
+            s.present(activityViewController, animated: true, completion: {})
         }
-        presentViewController(actionsBuilder, animated: true, completion: nil)
+        present(actionsBuilder, animated: true, completion: nil)
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if timer != nil {
             invalidateTimer()
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
        
         let locationTransformMin = calculateLocationTransformMin()
@@ -145,11 +145,11 @@ class UserDetailsController: UIViewController {
         let gradient: CAGradientLayer = CAGradientLayer()
         gradient.frame = profileBackgroundView.bounds
         gradient.colors = buidGradientOfColors()
-        profileBackgroundView.layer.insertSublayer(gradient, atIndex: 0)
+        profileBackgroundView.layer.insertSublayer(gradient, at: 0)
     }
     
     private func buidGradientOfColors() -> [CGColor] {
-        return kColors.userGradientColors.map { UIColor(hex: $0).CGColor }
+        return kColors.userGradientColors.map { UIColor(hex: $0).cgColor }
     }
     
     private func calculateScrollerConstants() {
@@ -189,13 +189,13 @@ class UserDetailsController: UIViewController {
 
 // Mark - Fetch callbacks
 extension UserDetailsController {
-    func userSuccess(user: User) {
+    func userSuccess(_ user: User) {
         userPresenter = UserPresenter(user: user)
         loadAvatar()
         applyReposStarsAndTrophiesLabelsFor(user)
         countryAndCityLabel.text = userPresenter!.fullLocation
         rankings = user.rankings
-        loadingView.hidden = true
+        loadingView.isHidden = true
         addItemsToTable()
         rankingsTable.reloadData()
         
@@ -203,7 +203,7 @@ extension UserDetailsController {
     
     func addItemsToTable() {
         addAnotherCell()
-        timer = NSTimer.scheduledTimerWithTimeInterval(cellInsertionInterval, target: self, selector: #selector(addAnotherCell), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: cellInsertionInterval, target: self, selector: #selector(addAnotherCell), userInfo: nil, repeats: true)
     }
  
     @objc private func addAnotherCell() {
@@ -213,7 +213,7 @@ extension UserDetailsController {
         }
         
         tempRankings.append(rankings[tempRankings.count])
-        rankingsTable.insertRowsAtIndexPaths([NSIndexPath(forRow: (tempRankings.count - 1), inSection: 0)], withRowAnimation: UITableViewRowAnimation.Automatic)
+        rankingsTable.insertRows(at: [IndexPath(row: (tempRankings.count - 1), section: 0)], with: UITableViewRowAnimation.automatic)
     }
     
     private func invalidateTimer() {
@@ -223,12 +223,12 @@ extension UserDetailsController {
         }
     }
     
-    func failure(apiResponse: ApiResponse) {
-        loadingView.hidden = true
+    func failure(_ apiResponse: ApiResponse) {
+        loadingView.isHidden = true
         NotifyError.display()
     }
     
-    private func applyReposStarsAndTrophiesLabelsFor(user: User) {
+    private func applyReposStarsAndTrophiesLabelsFor(_ user: User) {
         totalReposLabel.text = "\(userPresenter!.totalRepositories)"
         totalStarsLabel.text = "\(userPresenter!.totalStars)"
         totalLanguagesLabel.text = "\(user.rankings.count)"
@@ -237,13 +237,13 @@ extension UserDetailsController {
 }
 
 extension UserDetailsController: UITableViewDelegate {
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if !animateCells {
             return
         }
 
         let center = cell.center
-        cell.center = CGPointMake(center.x - (view.frame.width), center.y)
+        cell.center = CGPoint(x: center.x - (view.frame.width), y: center.y)
         
         UIView.beginAnimations("position", context: nil)
         UIView.setAnimationDuration(cellAnimationDuration)
@@ -251,7 +251,7 @@ extension UserDetailsController: UITableViewDelegate {
         UIView.commitAnimations()
     }
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         animateCells = false
         
         let contentHeight = scrollView.contentSize.height
@@ -274,7 +274,7 @@ extension UserDetailsController: UITableViewDelegate {
         }
     }
     
-    private func moveFor(offset: CGFloat) {
+    private func moveFor(_ offset: CGFloat) {
         // Plenty of y = mx + b now.
         
         let profileBgHeight = (profileMinBGHeight / profileExtendedBGHeight) * offset + profileExtendedBGHeight
@@ -286,42 +286,42 @@ extension UserDetailsController: UITableViewDelegate {
         moveButton(offset)
     }
     
-    private func moveLocationLabel(y: CGFloat) {
+    private func moveLocationLabel(_ y: CGFloat) {
         if locationTransformRelation == nil {
             locationTransformRelation = avatarTransformRelation
         }
         let transformSize = locationTransformRelation * y + 1
-        countryAndCityLabel.transform = CGAffineTransformScale(originalLocationTransform, transformSize, transformSize)
+        countryAndCityLabel.transform = originalLocationTransform.scaleBy(x: transformSize, y: transformSize)
         
         locationTopConstraint.constant = -(70 / profileExtendedBGHeight) * y + 90
         locationCenterConstraint.constant = -((halfWidth - countryAndCityLabel.halfWidth - avatarBackground.frame.width - 20) / profileExtendedBGHeight) * y
     }
     
-    private func moveAvatar(y: CGFloat) {
+    private func moveAvatar(_ y: CGFloat) {
         let transformSize = avatarTransformRelation * y + 1
-        avatarBackground.transform = CGAffineTransformScale(originalAvatarTransform, transformSize, transformSize)
+        avatarBackground.transform = originalAvatarTransform.scaleBy(x: transformSize, y: transformSize)
         
         avatarTopConstraint.constant = -(15 / profileExtendedBGHeight) * y + 10
         avatarCenterXConstraint.constant = -((halfWidth - avatarBackground.halfWidth - 10) / profileExtendedBGHeight) * y
     }
     
-    private func moveButton(y: CGFloat) {
+    private func moveButton(_ y: CGFloat) {
         buttonCenterConstraint.constant = (((halfWidth - viewOnGithubButton.halfWidth - 10) / profileExtendedBGHeight) * y)
         buttonTopConstraint.constant = 118 - ((102 / profileExtendedBGHeight) * y)
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return userPresenter!.hasLocation() ? 158 : 78
     }
 }
 
 extension UserDetailsController: UITableViewDataSource {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tempRankings.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellFor(indexPath) as RankingCell
         cell.rankingPresenter = RankingPresenter(ranking: rankings[indexPath.row])
         return cell

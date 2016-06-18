@@ -29,7 +29,7 @@ class UsersSearchController: UIViewController {
     
     var user: User?
     
-    let userMovementAnimationDuration: NSTimeInterval = 0.3
+    let userMovementAnimationDuration: TimeInterval = 0.3
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,9 +40,9 @@ class UsersSearchController: UIViewController {
         Analytics.SendToGoogle.enteredScreen(kAnalytics.userSearchScreen)
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         if let _ = User.getUserInUserDefaults() {
-            let meButton = UIBarButtonItem(title: "Me", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(selectMe))
+            let meButton = UIBarButtonItem(title: "Me", style: UIBarButtonItemStyle.plain, target: self, action: #selector(selectMe))
             navigationItem.rightBarButtonItem = meButton
         } else {
             navigationItem.rightBarButtonItem = nil
@@ -58,10 +58,10 @@ class UsersSearchController: UIViewController {
     }
     
     @objc private func showUser() {
-        performSegueWithIdentifier(kSegues.userSearchToDetail, sender: self)
+        performSegue(withIdentifier: kSegues.userSearchToDetail, sender: self)
     }
    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == kSegues.userSearchToDetail {
             let vc = segue.destinationViewController as! UserDetailsController
             if let user = user {
@@ -70,16 +70,16 @@ class UsersSearchController: UIViewController {
         }
     }
     
-    private func searchUserFor(login: String) {
+    private func searchUserFor(_ login: String) {
         userSearchContainer.hide()
         loadingIndicator.show()
         userContainerTopConstraint.constant = -80.0
-        UIView.animateWithDuration(userMovementAnimationDuration) { self.view.layoutIfNeeded() }
+        UIView.animate(withDuration: userMovementAnimationDuration) { self.view.layoutIfNeeded() }
         Users.GetOne(login: login).call(success: gotUser, failure: failedToSearchForUser)
         Analytics.SendToGoogle.userSearched(login)
     }
     
-    private func gotUser(user: User) {
+    private func gotUser(_ user: User) {
         userNotFoundLabel.hide()
         showEyeBalls()
         
@@ -102,7 +102,7 @@ class UsersSearchController: UIViewController {
         avatarImageView.fetchAndLoad(user.avatarUrl!)
         
         userContainerTopConstraint.constant = 6.0
-        UIView.animateWithDuration(userMovementAnimationDuration) {
+        UIView.animate(withDuration: userMovementAnimationDuration) {
             self.view.layoutIfNeeded()
         }
     }
@@ -123,7 +123,7 @@ class UsersSearchController: UIViewController {
         eyeRight.hide()
     }
     
-    private func failedToSearchForUser(apiResponse: ApiResponse) {
+    private func failedToSearchForUser(_ apiResponse: ApiResponse) {
         loadingIndicator.hide()
         
         userNotFoundLabel.show()
@@ -134,14 +134,14 @@ class UsersSearchController: UIViewController {
         }
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         searchField.resignFirstResponder()
     }
 }
 
 extension UsersSearchController : UISearchBarDelegate {
     
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text else {
             return
         }
@@ -153,7 +153,7 @@ extension UsersSearchController : UISearchBarDelegate {
         }
     }
     
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
 }

@@ -21,7 +21,7 @@ extension Users {
             return "\(kUrls.usersBaseUrl)/\(self.login)"
         }
         
-        func getDataFrom(dictionary: NSDictionary) -> User {
+        func getDataFrom(_ dictionary: NSDictionary) -> User {
             return CreateFullUserFromDictionary(userDic: dictionary["user"]! as! NSDictionary).user
         }
     }

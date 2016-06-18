@@ -24,7 +24,7 @@ class CreateFullUserFromDictionary: CreateBasicUserFromDictionary {
         user.rankings = buildRankings(userDic["rankings"] as! RanksType)
     }
     
-    private func buildRankings(rankings: RanksType) -> [Ranking] {
+    private func buildRankings(_ rankings: RanksType) -> [Ranking] {
         var ranks = [Ranking]()
         for rank in rankings {
             

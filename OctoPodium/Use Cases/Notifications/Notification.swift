@@ -17,7 +17,7 @@ class Notification : NSObject {
     
     var isDisplaying = false
     
-    func display(message: String? = nil, alertType: AlertType) {
+    func display(_ message: String? = nil, alertType: AlertType) {
         if isDisplaying {
             return
         }
@@ -49,11 +49,11 @@ class Notification : NSObject {
         )
     }
     
-    @objc private func onTap(tapGesture: UITapGestureRecognizer) {
+    @objc private func onTap(_ tapGesture: UITapGestureRecognizer) {
         dismiss(tapGesture.view!)
     }
     
-    func dismiss(view: UIView) {
+    func dismiss(_ view: UIView) {
         UIView.animateWithDuration(0.3, animations: {
             view.frame = CGRectOffset(view.frame, 0, -128)
             }, completion: { [weak self] _ in

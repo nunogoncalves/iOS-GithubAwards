@@ -25,13 +25,13 @@ class TrendingRepositoryCell: UITableViewCell, NibReusable {
             nameLabel.text = "\(repository.user)/\(repository.name)"
 
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(clickedUser))
-            nameLabel.userInteractionEnabled = true
+            nameLabel.isUserInteractionEnabled = true
             nameLabel.addGestureRecognizer(tapGesture)
 
             descriptionLabel.text = repository.description
             if let language = repository.language {
                 languageStarsSinceLabel.text = "• \(language ?? "") • \(repository.stars) ★ \(since)"
-                if let image = UIImage(named: language.lowercaseString) {
+                if let image = UIImage(named: language.lowercased()) {
                     languageImageView.image = image
                 } else {
                     languageImageView.image = UIImage(named: "Language")

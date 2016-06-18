@@ -50,7 +50,7 @@ class RankingPresenter {
         4: "Trophy"
     ]
     
-    private func rankingOverviewFor(rank: Int, locationTotal: Int) -> String {
+    private func rankingOverviewFor(_ rank: Int, locationTotal: Int) -> String {
         if rank > 0 && locationTotal > 0 {
             return "\(rank)/\(locationTotal)"
         } else {
@@ -62,7 +62,7 @@ class RankingPresenter {
     var countryRankingImage: String { get { return getThrofyFor(countryRanking) } }
     var worldRankingImage: String { get { return getThrofyFor(worldRanking) } }
     
-    private func getThrofyFor(ranking: Int) -> String {
+    private func getThrofyFor(_ ranking: Int) -> String {
         var rank = ranking
         if (rank < 1 || rank > 3) { rank = 4 }
         return throphies[rank]!

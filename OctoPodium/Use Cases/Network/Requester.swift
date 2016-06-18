@@ -15,18 +15,18 @@ struct Network {
 
     class Requester {
         
-        var URLSession = NSURLSession.self
+        var URLSession = Foundation.URLSession.self
         private let networkResponseHandler: Data.ResponseHandler
         private let sessionConfBuilder = SessionConfigurationBuilder()
         
-        private let session: NSURLSession
+        private let session: Foundation.URLSession
         
         init(networkResponseHandler: Data.ResponseHandler) {
             self.networkResponseHandler = networkResponseHandler
             session = URLSession.init(configuration: sessionConfBuilder.sessionConfiguration())
         }
         
-        func call(urlStr: String,
+        func call(_ urlStr: String,
                   httpMethod method: HTTPMethod,
                   headers: HeadParams?,
                   bodyParams: BodyParams?) {
@@ -38,45 +38,45 @@ struct Network {
             task.resume()
         }
         
-        private func buildRequesterTaskFor(urlStr: String,
+        private func buildRequesterTaskFor(_ urlStr: String,
                                            httpMethod: HTTPMethod,
                                            headers: HeadParams?,
-                                           bodyParameters: BodyParams?) -> NSURLSessionDataTask {
+                                           bodyParameters: BodyParams?) -> URLSessionDataTask {
                                             
             let request = buildURLRequestFor(urlStr)
-            request.HTTPMethod = httpMethod.rawValue
+            request.httpMethod = httpMethod.rawValue
             
             addIfNecessary(bodyParameters, to: request)
             addIfNecessary(headers, to: request)
                                 
-            return session.dataTaskWithRequest(request, completionHandler: completionHandler)
+            return session.dataTask(with: request, completionHandler: completionHandler)
         }
         
-        private func buildURLRequestFor(url: String) -> NSMutableURLRequest {
-            let url = NSURL(string: url.urlEncoded())
-            let request = NSMutableURLRequest(URL: url!)
+        private func buildURLRequestFor(_ url: String) -> NSMutableURLRequest {
+            let url = URL(string: url.urlEncoded())
+            let request = NSMutableURLRequest(url: url!)
             return request
         }
         
-        private func addIfNecessary(bodyParameters: BodyParams?, to request: NSMutableURLRequest) {
+        private func addIfNecessary(_ bodyParameters: BodyParams?, to request: NSMutableURLRequest) {
             if let parameters = bodyParameters {
-                let postData = try! NSJSONSerialization.dataWithJSONObject(parameters, options: .PrettyPrinted)
-                request.HTTPBody = postData
+                let postData = try! JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+                request.httpBody = postData
             }
         }
         
-        private func addIfNecessary(headers: HeadParams?, to request: NSMutableURLRequest) {
+        private func addIfNecessary(_ headers: HeadParams?, to request: NSMutableURLRequest) {
             let headerParams = headers ?? ["CLIENT_OS" : "iOS"]
             for (header, value) in headerParams {
                 request.addValue(value, forHTTPHeaderField: header)
             }
         }
         
-        private func completionHandler(data: NSData?, response: NSURLResponse?, error: NSError?) {
+        private func completionHandler(_ data: Foundation.Data?, response: URLResponse?, error: NSError?) {
             var responseData: NSDictionary?
             
             doInCatchBlock { [weak self] in
-                if data != nil && data!.length > 0 {
+                if data != nil && data!.count > 0 {
                     responseData = try self?.convertDataToDictionary(data!)
                 }
             }
@@ -84,8 +84,8 @@ struct Network {
             let statusVerifier = VerifyRequestStatus(response: response, error: error, responseDictionary: responseData)
             
             if statusVerifier.success() {
-                if statusVerifier.status() == .NoContent {
-                    handleSuccess(try! NSJSONSerialization.dataWithJSONObject([:], options: .PrettyPrinted))
+                if statusVerifier.status() == .noContent {
+                    handleSuccess(try! JSONSerialization.data(withJSONObject: [:], options: .prettyPrinted))
                 } else {
                     handleSuccess(data)
                 }
@@ -94,21 +94,21 @@ struct Network {
             }
         }
         
-        private func handleSuccess(data: NSData?) {
-            guard let data = data else { return handleFailure(.GenericError, responseDictionary: nil) }
+        private func handleSuccess(_ data: Foundation.Data?) {
+            guard let data = data else { return handleFailure(.genericError, responseDictionary: nil) }
             doInCatchBlock { [weak self] in
                 let data = try self?.convertDataToDictionary(data)
                 self?.networkResponseHandler.success(data!)
             }
         }
         
-        private func handleFailure(status: NetworkStatus, responseDictionary: NSDictionary?) {
+        private func handleFailure(_ status: NetworkStatus, responseDictionary: NSDictionary?) {
             networkResponseHandler.failure(ApiResponse(status: status, responseDictionary: responseDictionary))
         }
         
-        private func convertDataToDictionary(data: NSData) throws -> NSDictionary {
-            let dictionary = try NSJSONSerialization
-                    .JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers)
+        private func convertDataToDictionary(_ data: Foundation.Data) throws -> NSDictionary {
+            let dictionary = try JSONSerialization
+                    .jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers)
             
             if dictionary is NSDictionary {
                 return dictionary as! NSDictionary
@@ -116,19 +116,19 @@ struct Network {
                 return ["response" : (dictionary as! NSArray)]
             }
             
-            throw JSONParseError.NoDicNorArray
+            throw JSONParseError.noDicNorArray
         }
         
-        private func doInCatchBlock(action: (() throws -> ())) {
+        private func doInCatchBlock(_ action: (() throws -> ())) {
             do {
                 try action()
             } catch _ {
-                handleFailure(.GenericError, responseDictionary: nil)
+                handleFailure(.genericError, responseDictionary: nil)
             }
         }
     }
 }
 
-enum JSONParseError : ErrorType {
-    case NoDicNorArray
+enum JSONParseError : ErrorProtocol {
+    case noDicNorArray
 }

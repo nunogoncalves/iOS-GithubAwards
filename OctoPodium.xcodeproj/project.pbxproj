@@ -1131,13 +1131,16 @@
 					85D320EB1C02062E001B7C7A = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = 9D23XSN84S;
+						LastSwiftMigration = 0800;
 					};
 					85D320FF1C02062E001B7C7A = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 85D320EB1C02062E001B7C7A;
 					};
 					85D3210A1C02062E001B7C7A = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 85D320EB1C02062E001B7C7A;
 					};
 				};
@@ -1690,6 +1693,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "OctoPodium/Supporting Files/OctoPodium-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1711,6 +1715,7 @@
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=*]" = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "OctoPodium/Supporting Files/OctoPodium-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1737,6 +1742,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.ios.OctoPodiumTests;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = OctoPodiumTests;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OctoPodium.app/OctoPodium";
 			};
 			name = Debug;
@@ -1751,6 +1757,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.ios.OctoPodiumTests;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = OctoPodiumTests;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OctoPodium.app/OctoPodium";
 			};
 			name = Release;
@@ -1763,6 +1770,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.ios.OctoPodiumUITests;
 				PRODUCT_NAME = OctoPodiumUITests;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = OctoPodium;
 				USES_XCTRUNNER = YES;
 			};
@@ -1776,6 +1784,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.ios.OctoPodiumUITests;
 				PRODUCT_NAME = OctoPodiumUITests;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = OctoPodium;
 				USES_XCTRUNNER = YES;
 			};

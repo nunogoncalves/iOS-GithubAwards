@@ -14,14 +14,14 @@ protocol Requestable {
     var bodyParams: BodyParams? { get }
 
     func getUrl() -> String
-    func getDataFrom(dictionary: NSDictionary) -> Element
-    func call(success success: Element -> (), failure: ApiResponse -> ())
+    func getDataFrom(_ dictionary: NSDictionary) -> Element
+    func call(success: (Element) -> (), failure: (ApiResponse) -> ())
 
 }
 
 extension Requestable {
     
-    func call(success success: Element -> (), failure: ApiResponse -> ()) {
+    func call(success: (Element) -> (), failure: (ApiResponse) -> ()) {
         let qos = Int(QOS_CLASS_USER_INTERACTIVE.rawValue)
         dispatch_async(dispatch_get_global_queue(qos, 0)) {
             

@@ -19,7 +19,7 @@ extension GitHub {
             return "https://api.github.com/repos/\(repoName)"
         }
         
-        func getDataFrom(dictionary: NSDictionary) -> (Int, Int) {
+        func getDataFrom(_ dictionary: NSDictionary) -> (Int, Int) {
             let stars = dictionary["stargazers_count"] as? Int ?? 0
             let forks = dictionary["forks_count"] as? Int ?? 0
             

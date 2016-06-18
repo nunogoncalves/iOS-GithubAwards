@@ -10,19 +10,19 @@ import UIKit
 
 class UserDetailsDismissAnimator : NSObject, UIViewControllerAnimatedTransitioning {
     
-    private let duration: NSTimeInterval = 0.5
+    private let duration: TimeInterval = 0.5
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    func transitionDuration(_ transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration
     }
 
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    func animateTransition(_ transitionContext: UIViewControllerContextTransitioning) {
 
         guard let languagesC = transitionContext.languageRankingC, let userDetailsC = transitionContext.userDetailsC else {
             return
         }
         
-        let containerView = transitionContext.containerView()!
+        let containerView = transitionContext.containerView()
         
         containerView.insertSubview(languagesC.view, belowSubview: userDetailsC.view)
         
@@ -37,17 +37,17 @@ class UserDetailsDismissAnimator : NSObject, UIViewControllerAnimatedTransitioni
         
         let originalMovingView = userDetailsC.avatarImageView
         
-        let movingImageView = userDetailsC.avatarImageView.snapshotViewAfterScreenUpdates(false)
-        movingImageView.frame = originalMovingView.convertRect(originalMovingView.frame, toView: userDetailsC.view)
-        movingImageView.frame = CGRectOffset(movingImageView.frame, -2, 62)
-        containerView.addSubview(movingImageView)
+        let movingImageView = userDetailsC.avatarImageView.snapshotView(afterScreenUpdates: false)
+        movingImageView?.frame = (originalMovingView?.convert((originalMovingView?.frame)!, to: userDetailsC.view))!
+        movingImageView?.frame = ((movingImageView?.frame)?.offsetBy(dx: -2, dy: 62))!
+        containerView.addSubview(movingImageView!)
         
         userDetailsC.avatarImageView.hide()
         let width = languagesC.view.bounds.size.width
         
-        languagesC.view.transform = CGAffineTransformMakeTranslation(-width, 0.0)
+        languagesC.view.transform = CGAffineTransform(translationX: -width, y: 0.0)
         
-        UIApplication.sharedApplication().windows.first!.backgroundColor = UIColor.whiteColor()
+        UIApplication.shared().windows.first!.backgroundColor = UIColor.white()
         
         let duration = transitionDuration(transitionContext)
         
@@ -55,29 +55,29 @@ class UserDetailsDismissAnimator : NSObject, UIViewControllerAnimatedTransitioni
         let imageScaleY = destinationAvatar.frame.height / movingImageView.frame.height
         
         let path = UIBezierPath()
-        path.moveToPoint(movingImageView.center)
+        path.move(to: (movingImageView?.center)!)
         
-        let destinationCenter = CGPoint(x: CGRectGetMidX(destinationFrame) - 2, y: CGRectGetMidY(destinationFrame) - 2)
-        let controlPoint = CGPoint(x: movingImageView.center.x, y: movingImageView.center.y)
+        let destinationCenter = CGPoint(x: destinationFrame.midX - 2, y: destinationFrame.midY - 2)
+        let controlPoint = CGPoint(x: (movingImageView?.center.x)!, y: (movingImageView?.center.y)!)
         path.addQuadCurveToPoint(destinationCenter, controlPoint: controlPoint)
         movingImageView.animateInPath(path, withDuration: duration)
         
-        UIView.animateKeyframesWithDuration(
-            duration,
+        UIView.animateKeyframes(
+            withDuration: duration,
             delay: 0,
-            options: .CalculationModeCubic,
+            options: .calculationModeCubic,
             animations: {
-                UIView.addKeyframeWithRelativeStartTime(0.0, relativeDuration: duration + 1.0, animations: {
-                    languagesC.view.transform = CGAffineTransformIdentity
-                    userDetailsC.view.transform = CGAffineTransformMakeTranslation(width, 0.0)
-                    movingImageView.transform = CGAffineTransformMakeScale(imageScaleX, imageScaleY)
+                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: duration + 1.0, animations: {
+                    languagesC.view.transform = CGAffineTransform.identity
+                    userDetailsC.view.transform = CGAffineTransform(translationX: width, y: 0.0)
+                    movingImageView.transform = CGAffineTransform(scaleX: imageScaleX, y: imageScaleY)
                 })
             },
             completion: { _ in
                 userDetailsC.avatarImageView.show()
-                movingImageView.hide()
+                movingImageView?.hide()
                 destinationAvatar.show()
-                languagesC.view.transform = CGAffineTransformIdentity
+                languagesC.view.transform = CGAffineTransform.identity
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
         })
 
@@ -86,10 +86,10 @@ class UserDetailsDismissAnimator : NSObject, UIViewControllerAnimatedTransitioni
 
 private extension UIViewControllerContextTransitioning {
     var userDetailsC : UserDetailsController? {
-        return viewControllerForKey(UITransitionContextFromViewControllerKey) as? UserDetailsController
+        return viewController(forKey: UITransitionContextFromViewControllerKey) as? UserDetailsController
     }
     
     var languageRankingC : LanguageRankingsController? {
-        return viewControllerForKey(UITransitionContextToViewControllerKey) as? LanguageRankingsController
+        return viewController(forKey: UITransitionContextToViewControllerKey) as? LanguageRankingsController
     }
 }

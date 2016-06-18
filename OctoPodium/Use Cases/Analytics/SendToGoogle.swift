@@ -13,23 +13,23 @@ extension Analytics {
         private static let tracker = GAI.sharedInstance().defaultTracker
         private static let qos = Int(QOS_CLASS_USER_INTERACTIVE.rawValue)
         
-        static func enteredScreen(screenName: String) {
+        static func enteredScreen(_ screenName: String) {
             sendScreenView(screenName)
         }
         
-        static func countrySearched(country: String, forLanguage language: String) {
+        static func countrySearched(_ country: String, forLanguage language: String) {
             sendEvent("Search", action: "Country<\(country)|\(language)>")
         }
         
-        static func citySearched(city: String, forLanguage language: String) {
+        static func citySearched(_ city: String, forLanguage language: String) {
             sendEvent("Search", action: "City<\(city)|\(language)>")
         }
         
-        static func usersPaginatedInCity(city: String, forLanguage language: String, andPage page: String) {
+        static func usersPaginatedInCity(_ city: String, forLanguage language: String, andPage page: String) {
             sendEvent("Scroll", action: "Pagination<City:\(city)|Language:\(language)|Page:\(page)")
         }
         
-        static func usersPaginatedInCountry(country: String, forLanguage language: String, andPage page: String) {
+        static func usersPaginatedInCountry(_ country: String, forLanguage language: String, andPage page: String) {
             sendEvent("Scroll", action: "Pagination<Country:\(country)|Language:\(language)|Page:\(page)")
         }
         
@@ -37,27 +37,27 @@ extension Analytics {
             sendEvent("Scroll", action: "Pagination<World|Language:\(language)|Page:\(page)")
         }
         
-        static func userSearched(login: String) {
+        static func userSearched(_ login: String) {
             sendEvent("Search", action: "User<\(login)>")
         }
         
-        static func viewUserOnGithub(login: String) {
+        static func viewUserOnGithub(_ login: String) {
             sendEvent("Show", action: "UserGithub<\(login)>")
         }
         
-        static func viewUserLanguagesOnGithub(login: String, language: String) {
+        static func viewUserLanguagesOnGithub(_ login: String, language: String) {
             sendEvent("Show", action: "User<\(login)>Repositories<\(language)>")
         }
         
-        static func searchedTrending(trendingScope: String, language: String) {
+        static func searchedTrending(_ trendingScope: String, language: String) {
             sendEvent("Search", action: "Trending<\(trendingScope)>Language<\(language)>")
         }
         
-        static func starRepoEvent(name: String) {
+        static func starRepoEvent(_ name: String) {
             sendEvent("Star", action: "Star Repo<\(name)>")
         }
         
-        static func unstarRepoEvent(name: String) {
+        static func unstarRepoEvent(_ name: String) {
             sendEvent("Unstar", action: "Unstar Repo<\(name)>")
         }
         
@@ -65,7 +65,7 @@ extension Analytics {
             sendEvent("Show", action: "2FA alert")
         }
         
-        static func loggedInWithGitHub(withTwoFactorAuth: Bool) {
+        static func loggedInWithGitHub(_ withTwoFactorAuth: Bool) {
             let twoFactorAuth = withTwoFactorAuth ? "" : "out"
             sendEvent("Login", action: "GitHub Login with\(twoFactorAuth) 2FA")
         }
@@ -86,11 +86,11 @@ extension Analytics {
             sendEvent("Star", action: "OctoPodium Starred")
         }
         
-        static func showDeveloperOnTwitterEvent(app: String) {
+        static func showDeveloperOnTwitterEvent(_ app: String) {
             sendEvent("GoTo", action: "Twitter Profile \(app)")
         }
         
-        static func shareRankingOnTwitterEvent(app: String) {
+        static func shareRankingOnTwitterEvent(_ app: String) {
             sendEvent("Share", action: "Twitter Profile \(app)")
         }
         
@@ -106,13 +106,13 @@ extension Analytics {
             sendEvent("Settings", action: "Disabled Animations")
         }
     
-        private static func callAsync(closure: () -> ()) {
+        private static func callAsync(_ closure: () -> ()) {
             dispatch_async(dispatch_get_global_queue(qos, 0)) {
                 closure()
             }
         }
         
-        private static func sendScreenView(screenName: String) {
+        private static func sendScreenView(_ screenName: String) {
             callAsync {
                 executeIfRelease {
                     tracker.set(kGAIScreenName, value: screenName)
@@ -122,7 +122,7 @@ extension Analytics {
             }
         }
         
-        private static func sendEvent(category: String, action: String, label: String? = nil) {
+        private static func sendEvent(_ category: String, action: String, label: String? = nil) {
             callAsync {
                 executeIfRelease {
                     let l = label == nil ? action : label
@@ -132,7 +132,7 @@ extension Analytics {
             }
         }
         
-        private static func executeIfRelease(action: () -> () = {}) {
+        private static func executeIfRelease(_ action: () -> () = {}) {
             if Analytics.shouldUse() {
                 action()
             }

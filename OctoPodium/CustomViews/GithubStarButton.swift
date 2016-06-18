@@ -25,7 +25,7 @@ class GithubStarButton : GithubButton {
         setImage(UIImage(named: "StarDark")!)
     }
     
-    func setNumberOfStars(stars: String) {
+    func setNumberOfStars(_ stars: String) {
         setValue(stars)
     }
 

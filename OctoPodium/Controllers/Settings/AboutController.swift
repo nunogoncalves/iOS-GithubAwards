@@ -22,9 +22,9 @@ class AboutController : UIViewController {
     }
     
     private func setAppNameAndYear() {
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy"
-        appInfoAndYearLabel.text = "\(K.appName) @ \(formatter.stringFromDate(NSDate()))"
+        appInfoAndYearLabel.text = "\(K.appName) @ \(formatter.string(from: Date()))"
     }
     
     private func setAboutText() {

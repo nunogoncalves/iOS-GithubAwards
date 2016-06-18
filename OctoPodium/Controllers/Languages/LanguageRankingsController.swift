@@ -41,7 +41,7 @@ class LanguageRankingsController: UIViewController {
     let locationTypes: [Int : LocationType] = [0 : .World, 1 : .Country, 2 : .City]
     var selectedLocationType = LocationType.World
 
-    @IBAction func locationTypeChanged(locationTypeControl: UISegmentedControl) {
+    @IBAction func locationTypeChanged(_ locationTypeControl: UISegmentedControl) {
         let selectedIndex = locationTypeControl.selectedSegmentIndex
         selectedLocationType = locationTypes[selectedIndex]!
         
@@ -52,7 +52,7 @@ class LanguageRankingsController: UIViewController {
         animateLocationTypeChanged(selectedLocationType.hasName())
     }
 
-    private func setSearchBarTextBasedOn(locationType: LocationType) {
+    private func setSearchBarTextBasedOn(_ locationType: LocationType) {
         switch locationType {
         case .Country:
             searchBar.text = country
@@ -66,8 +66,8 @@ class LanguageRankingsController: UIViewController {
         }
     }
     
-    private func animateLocationTypeChanged(showSearchBar: Bool) {
-        UIView.animateWithDuration(0.5) { [weak self] in
+    private func animateLocationTypeChanged(_ showSearchBar: Bool) {
+        UIView.animate(withDuration: 0.5) { [weak self] in
             self?.view.layoutIfNeeded()
             self?.searchContainer.alpha = showSearchBar ? 1.0 : 0.0
         }
@@ -90,11 +90,11 @@ class LanguageRankingsController: UIViewController {
         navigationItem.titleView = languageTitleView;
    }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         switch segue.identifier ?? "" {
         case kSegues.worldUsersSegue:
             worldController = segue.worldController()
@@ -120,7 +120,7 @@ class LanguageRankingsController: UIViewController {
 }
 
 extension LanguageRankingsController : UISearchBarDelegate {
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         for controller in listControllers { controller.language = language! }
         
         switch selectedLocationType {
@@ -136,7 +136,7 @@ extension LanguageRankingsController : UISearchBarDelegate {
         }
     }
     
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         switch selectedLocationType {
         case .Country:
             country = searchBar.text!

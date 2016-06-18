@@ -12,7 +12,7 @@ extension NSBundle {
         return stringFor("CFBundleShortVersionString") ?? ""
     }
  
-    class func stringFor(key: String) -> String? {
+    class func stringFor(_ key: String) -> String? {
         return NSBundle.mainBundle().objectForInfoDictionaryKey(key) as? String
     }
 }
