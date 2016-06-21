@@ -55,7 +55,12 @@ class UserPresenter {
     }
     
     convenience init(user: User) {
-        self.init(user: user, ranking: 0)
+        var ranking = 0
+        if user.rankings.count > 0 {
+            let topRanking = user.rankings[0]
+            ranking = topRanking.cityRanking ?? (topRanking.countryRanking ?? (topRanking.worldRanking ?? 0))
+        }
+        self.init(user: user, ranking: ranking)
     }
     
     func isPodiumRanking() -> Bool {
