@@ -38,7 +38,7 @@ class NetworkRequesterTests : QuickSpec {
             
             requester.call("", httpMethod: HTTPMethod.GET, headers: nil, bodyParams: nil)
             
-            expect(responseStr).toEventually(equal("success"))
+            expect(responseStr).toEventually(equal("success")) 
         }
         
         it("calls response failure method") {
