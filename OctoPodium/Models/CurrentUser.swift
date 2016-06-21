@@ -7,33 +7,6 @@
 //
 
 class CurrentUser : User {
-    
-    private static let userDefaults = NSUserDefaults.standardUserDefaults()
-    
-    private static let animationsEnabledKey = "Octopodium-AnimationsEnabled"
-    
-    static func setUpInitialConfigurations() {
-        if userDefaults.objectForKey(animationsEnabledKey) == nil {
-            enableAnimations()
-        }
-    }
-    
-    static var hasAnimationsEnabled: Bool {
-        return userDefaults.boolForKey(animationsEnabledKey) ?? true
-    }
-    
-    static func enableAnimations() {
-        setAnimationsState(true)
-    }
-    
-    static func disableAnimations() {
-        setAnimationsState(false)
-    }
-    
-    private static func setAnimationsState(state: Bool) {
-        userDefaults.setBool(state, forKey: animationsEnabledKey)
-    }
-    
     private func isLoggedIn() -> Bool {
         return GithubToken.instance.exists()
     }

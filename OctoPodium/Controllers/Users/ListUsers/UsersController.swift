@@ -71,11 +71,6 @@ class UsersController : UIViewController {
             let destVC = segue.destinationViewController as! UserDetailsController
             let user = usersTableDataSource.dataForIndexPath(selectedIndex!) as? User
             destVC.userPresenter = UserPresenter(user: user!)
-            
-            if CurrentUser.hasAnimationsEnabled {
-                swipeInteractionController.wireToViewController(destVC)
-                navigationController?.delegate = self
-            }
         }
     }
     
@@ -208,32 +203,4 @@ extension UsersController {
         usersTable.hide()
         emptyMessageLabl?.hide()
     }
-}
-
-
-extension UsersController : UINavigationControllerDelegate {
-
-    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if !CurrentUser.hasAnimationsEnabled {
-            return nil
-        }
-        
-        if operation == .Push {
-            return UserDetailsPresentAnimator()
-        } else {
-            return UserDetailsDismissAnimator()
-        }
-    }
-    
-    func navigationController(navigationController: UINavigationController, didShowViewController viewController: UIViewController, animated: Bool) {
-        (viewController as? LanguageRankingsController)?.navigationController?.delegate = nil
-    }
-    
-    func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        if !CurrentUser.hasAnimationsEnabled {
-            return nil
-        }
-        return swipeInteractionController.interactionInProgress ? swipeInteractionController : nil
-    }
-
 }
