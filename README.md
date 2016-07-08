@@ -10,8 +10,9 @@
 
 Check how you rank on your location based on your number of stars of your repositories on github. 
 
-### Requirements
+[![codebeat badge](https://codebeat.co/badges/38fdc289-fb25-4596-a2f7-05feafde381b)](https://codebeat.co/projects/github-com-nunogoncalves-ios-octopodium)
 
+### Requirements
 - iOS 8.0+
 - Xcode 7.3
 - Cocoapods 0.39.0
