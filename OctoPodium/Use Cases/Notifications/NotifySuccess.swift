@@ -9,7 +9,7 @@
 class NotifySuccess: Notification {
     
     static func display(_ message: String? = nil) {
-        Notification.instance.display(message, alertType: .Success)
+        Notification.instance.display(message, alertType: .success)
     }
     
 }

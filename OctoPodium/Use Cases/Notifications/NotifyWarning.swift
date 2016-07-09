@@ -9,7 +9,7 @@
 class NotifyWarning: Notification {
     
     static func display(_ message: String? = nil) {
-        Notification.instance.display(message, alertType: .Warning)
+        Notification.instance.display(message, alertType: .warning)
     }
     
 }

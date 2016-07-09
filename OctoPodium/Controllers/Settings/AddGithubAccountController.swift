@@ -20,15 +20,15 @@ class AddGithubAccountController : UIViewController {
     weak var userDelegate: Userable?
     
     override func viewDidLoad() {
-        if OnePasswordExtension.sharedExtension().isAppExtensionAvailable() {
+        if OnePasswordExtension.shared().isAppExtensionAvailable() {
             navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "onepassword-button"), style: .plain, target: self, action: #selector(onePasswordClicked))
         }
     }
     
     @objc private func onePasswordClicked() {
-        OnePasswordExtension.sharedExtension().findLoginForURLString(
-            "http://www.github.com",
-            forViewController: self,
+        OnePasswordExtension.shared().findLogin(
+            forURLString: "http://www.github.com",
+            for: self,
             sender: nil) { [weak self] loginData, error in
             if let error = error {
                 if error.code == Int(AppExtensionErrorCodeCancelledByUser) {
@@ -57,9 +57,9 @@ class AddGithubAccountController : UIViewController {
     
     private func userAuthenticationSuccess(_ oAuthToken: String) {
         if GithubToken.instance.saveOrUpdate(oAuthToken) {
-            Analytics.SendToGoogle.loggedInWithGitHub(self.twoFactorAuth != nil)
-            self.userDelegate?.readyForUser()
-            self.navigationController?.popViewController(animated: true)
+            Analytics.SendToGoogle.loggedInWithGitHub(twoFactorAuth != nil)
+            userDelegate?.readyForUser()
+            _ = navigationController?.popViewController(animated: true)
         }
     }
     

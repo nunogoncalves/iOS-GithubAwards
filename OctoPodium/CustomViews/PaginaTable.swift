@@ -11,7 +11,7 @@ import UIKit
 class PaginaTable: UITableView {
 
     var loadingView: GithubLoadingView!
-    var refreshControl: UIRefreshControl!
+    var refreshController: UIRefreshControl!
    
     lazy var frameHeight: CGFloat! = {
         return self.frame.size.height
@@ -34,28 +34,28 @@ class PaginaTable: UITableView {
     }
     
     func addRefreshController(_ refreshActionTarget: AnyObject, action: Selector) {
-        refreshControl = UIRefreshControl()
-        refreshControl!.backgroundColor = UIColor.clear()
-        refreshControl!.tintColor = UIColor.clear()
+        refreshController = UIRefreshControl()
+        refreshController!.backgroundColor = UIColor.clear()
+        refreshController!.tintColor = UIColor.clear()
         
-        refreshControl!.addTarget(refreshActionTarget, action: action, for:.valueChanged)
+        refreshController!.addTarget(refreshActionTarget, action: action, for:.valueChanged)
         
         addLoadingViewToRefreshControl()
         addRefreshControl()
     }
     
     private func addLoadingViewToRefreshControl() {
-        loadingView = GithubLoadingView(frame: refreshControl.bounds)
-        refreshControl.addSubview(loadingView.view)
+        loadingView = GithubLoadingView(frame: refreshController.bounds)
+        refreshController.addSubview(loadingView.view)
     }
     
     private func addRefreshControl() {
-        addSubview(refreshControl)
+        addSubview(refreshController)
         layoutIfNeeded()
     }
     
     func updateRefreshControl() {
-        if refreshControl.isRefreshing {
+        if refreshController.isRefreshing {
             loadingView.setLoading()
         } else {
             let y = contentOffset.y
@@ -65,11 +65,11 @@ class PaginaTable: UITableView {
     }
     
     func isRefreshing() -> Bool {
-        return refreshControl.isRefreshing
+        return refreshController.isRefreshing
     }
     
     func stopLoadingIndicator() {
-        refreshControl.endRefreshing()
+        refreshController.endRefreshing()
     }
     
 }

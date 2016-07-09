@@ -23,7 +23,7 @@ extension GitHub {
             var readMeLocation = ""
             for item in dictionary["response"] as! NSArray {
                 let name = (item["name"] as? String) ?? ""
-                if name.lowercaseString.containsString("readme") {
+                if name.lowercased().contains("readme") {
                     if let url = item["html_url"] as? String {
                         readMeLocation = url
                         break

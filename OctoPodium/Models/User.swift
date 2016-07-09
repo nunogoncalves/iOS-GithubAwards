@@ -48,15 +48,15 @@ class User {
     }
     
     class func saveUserInUserDefaults(_ user: User) {
-        NSUserDefaults().setObject(user.login, forKey: User.loggedInUserLoginKey)
-        NSUserDefaults().setObject(user.avatarUrl, forKey: User.loggedInUserAvatarUrlKey)
+        UserDefaults().set(user.login, forKey: User.loggedInUserLoginKey)
+        UserDefaults().set(user.avatarUrl, forKey: User.loggedInUserAvatarUrlKey)
     }
 
     class func getUserInUserDefaults() -> User? {
-        let defs = NSUserDefaults()
+        let defs = UserDefaults()
         
-        if let login = defs.objectForKey(User.loggedInUserLoginKey) as? String {
-            let avatarUrl = defs.objectForKey(User.loggedInUserAvatarUrlKey) as? String
+        if let login = defs.object(forKey: User.loggedInUserLoginKey) as? String {
+            let avatarUrl = defs.object(forKey: User.loggedInUserAvatarUrlKey) as? String
             let user = User(login: login, avatarUrl: avatarUrl ?? "")
             return user
         }
@@ -65,8 +65,8 @@ class User {
     }
     
     class func removeUserFromDefaults() {
-        NSUserDefaults().removeObjectForKey(loggedInUserLoginKey)
-        NSUserDefaults().removeObjectForKey(loggedInUserAvatarUrlKey)
+        UserDefaults().removeObject(forKey: loggedInUserLoginKey)
+        UserDefaults().removeObject(forKey: loggedInUserAvatarUrlKey)
     }
     
 }

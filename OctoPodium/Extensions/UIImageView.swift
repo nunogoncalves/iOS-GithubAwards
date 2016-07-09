@@ -13,7 +13,7 @@ extension UIImageView {
     
     func fetchAndLoad(_ url: String, onFinished: () -> () = {}) {
         let url = URL(string: url)!
-        sd_setImageWithURL(url) { (_, _, _, _) in
+        sd_setImage(with: url) { (_, _, _, _) in
             onFinished()
         }
     }

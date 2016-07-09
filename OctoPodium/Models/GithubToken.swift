@@ -42,7 +42,7 @@ struct GithubToken {
     
     mutating func deleteSessionToken() -> Bool {
         do {
-            try Locksmith.deleteDataForUserAccount(accountKey)
+            try Locksmith.deleteDataForUserAccount(userAccount: accountKey)
             token = nil
             return true
         } catch _ {
@@ -51,7 +51,7 @@ struct GithubToken {
     }
 
     private func getValueFor(_ key: String) -> String? {
-        let dictionary = Locksmith.loadDataForUserAccount(key)
+        let dictionary = Locksmith.loadDataForUserAccount(userAccount: key)
         
         return dictionary?[key] as? String
     }
@@ -66,7 +66,7 @@ struct GithubToken {
     
     private mutating func saveValueFor(_ key: String, value: String) -> Bool {
         do {
-            try Locksmith.saveData([key: value], forUserAccount: accountKey)
+            try Locksmith.saveData(data: [key: value], forUserAccount: accountKey)
             token = value
             return true
         } catch _ {
@@ -76,7 +76,7 @@ struct GithubToken {
     
     private mutating func updateValueFor(_ key: String, value: String) -> Bool {
         do {
-            try Locksmith.updateData([key: value], forUserAccount: accountKey)
+            try Locksmith.updateData(data: [key: value], forUserAccount: accountKey)
             token = value
             return true
         } catch _ {

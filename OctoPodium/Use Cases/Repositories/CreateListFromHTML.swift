@@ -14,13 +14,13 @@ extension Repositories {
         static func list(_ html: String) -> [Repository] {
             var repositories = [Repository]()
             
-            guard let document = Kanna.HTML(html: html, encoding: NSUTF8StringEncoding) else {
+            guard let document = Kanna.HTML(html: html, encoding: String.Encoding.utf8) else {
                 return repositories
             }
             
             let metadataDocs = document.xpath("//*[contains(@class, 'repo-list-meta')]")
             
-            for (i, repoHTML) in getRepositoriesHTML(document).enumerate() {
+            for (i, repoHTML) in getRepositoriesHTML(document).enumerated() {
                 
                 let metadataDoc = metadataDocs[i]
                 
@@ -36,7 +36,7 @@ extension Repositories {
             return repositories
         }
 
-        private static func getRepositoriesHTML(_ document: HTMLDocument) -> XMLNodeSet {
+        private static func getRepositoriesHTML(_ document: HTMLDocument) -> XPathObject {
             return document.xpath("//*[contains(@class, 'repo-list-item')]")
         }
         
@@ -56,14 +56,16 @@ extension Repositories {
         }
         
         private static func getDescriptionFrom(_ document: XMLElement) -> String {
-            return document.css("p.repo-list-description").text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).replace("\n", with: "").replace("      ", with: "")
+            guard let txt = document.css("p.repo-list-description").makeIterator().next()?.text else { return "" }
+            
+            return txt.trimmingCharacters(in: NSCharacterSet.whitespaces()).replace("\n", with: "").replace("      ", with: "")
         }
         
         private static func getLanguageFrom(_ document: XMLElement) -> String? {
             let metadata = document.text!.withoutSpaces()
             
             let language = metadata.substringUntil("•")
-            if language == nil || language! == "" || language!.containsString("stars") {
+            if language == nil || language! == "" || language!.contains("stars") {
                 return nil
             }
             

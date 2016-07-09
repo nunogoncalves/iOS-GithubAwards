@@ -110,12 +110,12 @@ class TrendingController : UIViewController {
         popoverController!.sourceView = languageButton
         popoverController!.sourceRect = CGRect(x: (languageButton.bounds).midX, y: (languageButton.bounds).maxY, width: 0, height: 0)
         popoverController!.contentSize = CGSize(width: view.width - 50, height: 300)
-        popoverController!.arrowDirection = .Up;
+        popoverController!.arrowDirection = .up;
         
-        presentViewController(popoverController!, animated: true) { [weak self] in
-            self?.popoverController!.insertContentIntoPopover({ [weak self] (popover, _, _) in
+        present(popoverController!, animated: true) { [weak self] in
+            self?.popoverController!.insertContent(intoPopover: { [weak self] (popover, _, _) in
                 guard let s = self else { return }
-                popover.view.addSubview(s.languagesPopoverController.view)
+                popover?.view.addSubview(s.languagesPopoverController.view)
             })
         }
     }
@@ -162,7 +162,7 @@ class TrendingController : UIViewController {
 
 extension TrendingController : LanguageSelectedProtocol {
     func didSelectLanguage(_ language: Language) {
-        popoverController?.dismissViewControllerAnimated(true, completion: nil)
+        popoverController?.dismiss(animated: true, completion: nil)
         
         if self.language == language { return }
         
@@ -173,7 +173,7 @@ extension TrendingController : LanguageSelectedProtocol {
     }
     
     func noLanguagesAvailable() {
-        popoverController?.dismissViewControllerAnimated(true, completion: nil)
+        popoverController?.dismiss(animated: true, completion: nil)
         NotifyError.display("No Languages to select. Check your internet connection")
     }
 }

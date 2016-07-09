@@ -96,12 +96,12 @@ class TrendingRepositoryDetailsController: UIViewController {
         if readMeLocation != "" {
             gotReadMeLocation(readMeLocation)
         } else {
-            hideLoadingAndDisplay(error: "Coudn't find a read me.")
+            hideLoadingAndDisplay("Coudn't find a read me.")
         }
     }
     
     private func gitHubApiFailed(_ apiResponse: ApiResponse) {
-        hideLoadingAndDisplay(error: apiResponse.status.message())
+        hideLoadingAndDisplay(apiResponse.status.message())
     }
 
     private func gotReadMeLocation(_ url: String) {
@@ -109,7 +109,7 @@ class TrendingRepositoryDetailsController: UIViewController {
         webView.loadRequest(URLRequest(url: url!))
     }
     
-    private func hideLoadingAndDisplay(error: String) {
+    private func hideLoadingAndDisplay(_ error: String) {
         loadingView.hide()
         NotifyError.display(error)
     }
@@ -218,7 +218,7 @@ extension TrendingRepositoryDetailsController : UIWebViewDelegate {
     }
     
     func webView(_ webView: UIWebView, didFailLoadWithError error: NSError?) {
-        hideLoadingAndDisplay(error: "Error loading README contents")
+        hideLoadingAndDisplay("Error loading README contents")
         loadingView.hide()
     }
 }

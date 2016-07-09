@@ -31,10 +31,10 @@ struct Twitter {
         init(username: String) {
         
             var applicationOpened: Bool = false
-            let application = UIApplication.sharedApplication()
+            let application = UIApplication.shared()
             for twitterClient in TwitterClient.all() {
                 let twitterUrl = "\(twitterClient.rawValue)\(username)"
-                if let url = NSURL(string: twitterUrl) where application.canOpenURL(url) && !applicationOpened {
+                if let url = URL(string: twitterUrl) where application.canOpenURL(url) && !applicationOpened {
                     application.openURL(url)
                     Analytics.SendToGoogle.showDeveloperOnTwitterEvent(String(twitterClient))
                     applicationOpened = true

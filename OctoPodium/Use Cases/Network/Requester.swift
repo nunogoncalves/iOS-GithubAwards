@@ -48,8 +48,8 @@ struct Network {
             
             addIfNecessary(bodyParameters, to: request)
             addIfNecessary(headers, to: request)
-                                
-            return session.dataTask(with: request, completionHandler: completionHandler)
+
+            return session.dataTask(with: request as URLRequest, completionHandler: completionHandler)
         }
         
         private func buildURLRequestFor(_ url: String) -> NSMutableURLRequest {

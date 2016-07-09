@@ -86,7 +86,7 @@ class UsersSearchController: UIViewController {
         userLoginLabel.text = user.login!
         
         if let city = user.city {
-            userLocationLabel.text = "\(user.country!.capitalizedString), \(city.capitalizedString)"
+            userLocationLabel.text = "\(user.country!.capitalized), \(city.capitalized)"
         } else {
             userLocationLabel.text = "\(user.country ?? "")"
         }

@@ -13,9 +13,9 @@ struct RepositoryOptionsBuilder {
     static func build(_ url: String, shareAction: () -> () = {}) -> UIAlertController {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let browser = actionWith(title: "View on Github", andHandler: viewOnGithub(url))
-        let copy = actionWith(title: "Copy URL", andHandler: copyToBoard(url))
-        let share = actionWith(title: "Share", andHandler: { _ in shareAction() })
+        let browser = actionWith("View on Github", andHandler: viewOnGithub(url))
+        let copy = actionWith("Copy URL", andHandler: copyToBoard(url))
+        let share = actionWith("Share", andHandler: { _ in shareAction() })
         
         alert.addAction(browser)
         alert.addAction(copy)
@@ -25,7 +25,7 @@ struct RepositoryOptionsBuilder {
         return alert
     }
     
-    private static func actionWith(title: String, andHandler handler: ((UIAlertAction) -> Void)?) -> UIAlertAction {
+    private static func actionWith(_ title: String, andHandler handler: ((UIAlertAction) -> Void)?) -> UIAlertAction {
         return UIAlertAction(title: title, style: .default, handler: handler)
     }
     

@@ -26,7 +26,7 @@ extension NibView where Self : UIView {
     
     
     private func loadViewFromNib() {
-        NSBundle.mainBundle().loadNibNamed(String(Self), owner: self, options: nil)
+        Bundle.main().loadNibNamed(String(Self), owner: self, options: nil)
         addSubview(view)
     }
     

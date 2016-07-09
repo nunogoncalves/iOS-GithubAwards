@@ -107,7 +107,7 @@ extension Analytics {
         }
     
         private static func callAsync(_ closure: () -> ()) {
-            dispatch_async(dispatch_get_global_queue(qos, 0)) {
+            DispatchQueue.global(attributes: .qosUserInteractive).async {
                 closure()
             }
         }
@@ -115,9 +115,11 @@ extension Analytics {
         private static func sendScreenView(_ screenName: String) {
             callAsync {
                 executeIfRelease {
-                    tracker.set(kGAIScreenName, value: screenName)
+                    tracker?.set(kGAIScreenName, value: screenName)
                     let builder = GAIDictionaryBuilder.createScreenView()
-                    tracker.send(builder.build() as [NSObject : AnyObject])
+                    if let builder = builder {
+                        tracker?.send(builder.build() as [NSObject : AnyObject])
+                    }
                 }
             }
         }
@@ -126,8 +128,9 @@ extension Analytics {
             callAsync {
                 executeIfRelease {
                     let l = label == nil ? action : label
-                    let builder = GAIDictionaryBuilder.createEventWithCategory(category, action: action, label: l, value: nil)
-                    tracker.send(builder.build() as [NSObject : AnyObject])
+                    if let builder = GAIDictionaryBuilder.createEvent(withCategory: category, action: action, label: l, value: nil) {
+                        tracker?.send(builder.build() as [NSObject : AnyObject])
+                    }
                 }
             }
         }

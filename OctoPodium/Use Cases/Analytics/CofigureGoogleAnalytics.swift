@@ -23,8 +23,8 @@ extension Analytics {
             GGLContext.sharedInstance().configureWithError(&configureError)
             assert(configureError == nil, "Error configuring Google services: \(configureError)")
             
-            gai.trackUncaughtExceptions = true  // report uncaught exceptions
-            gai.logger.logLevel = .None
+            gai?.trackUncaughtExceptions = true  // report uncaught exceptions
+            gai?.logger.logLevel = .none
         }
     }
 }

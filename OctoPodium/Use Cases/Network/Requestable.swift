@@ -22,18 +22,17 @@ protocol Requestable {
 extension Requestable {
     
     func call(success: (Element) -> (), failure: (ApiResponse) -> ()) {
-        let qos = Int(QOS_CLASS_USER_INTERACTIVE.rawValue)
-        dispatch_async(dispatch_get_global_queue(qos, 0)) {
-            
+        
+        DispatchQueue.global(attributes: .qosUserInteractive).async {
             let responseHandler = Data.ResponseHandler()
             responseHandler.failureCallback = { apiResponse in
-                dispatch_async(dispatch_get_main_queue()) {
+                DispatchQueue.main.async {
                     failure(apiResponse)
                 }
             }
             responseHandler.successCallback = { dictionary in
                 let data = self.getDataFrom(dictionary)
-                dispatch_async(dispatch_get_main_queue()) {
+                DispatchQueue.main.async {
                     success(data)
                 }
             }

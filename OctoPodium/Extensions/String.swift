@@ -40,10 +40,9 @@ extension String {
         return self.substring(to: range!.lowerBound)
     }
     
-    func substringAfter(_ after: String) -> String? {
-        let range = self.range(of: after)?.index(self.range(of: after)?.startIndex, offsetBy: 1)
-        guard range != nil else { return nil }
-        return self.substring(from: range!)
+    func substring(after: String) -> String? {
+        guard let r = range(of: after) else { return nil }
+        return substring(with: r.upperBound..<endIndex)
     }
 
     /** Joins two strings with a separator charecter. If at least one of them is nil, the seperator character is not added. */

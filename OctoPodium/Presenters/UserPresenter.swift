@@ -106,8 +106,8 @@ class UserPresenter {
     }
     
     var fullLocation: String {
-        let city = user.city?.capitalizedString
-        let country = user.country?.capitalizedString
+        let city = user.city?.capitalized
+        let country = user.country?.capitalized
         return String.join(", ", country, city)
     }
     

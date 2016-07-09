@@ -8,18 +8,18 @@
 
 class CurrentUser : User {
     
-    private static let userDefaults = NSUserDefaults.standardUserDefaults()
+    private static let userDefaults = UserDefaults.standard()
     
     private static let animationsEnabledKey = "Octopodium-AnimationsEnabled"
     
     static func setUpInitialConfigurations() {
-        if userDefaults.objectForKey(animationsEnabledKey) == nil {
+        if userDefaults.object(forKey: animationsEnabledKey) == nil {
             enableAnimations()
         }
     }
     
     static var hasAnimationsEnabled: Bool {
-        return userDefaults.boolForKey(animationsEnabledKey) ?? true
+        return userDefaults.bool(forKey: animationsEnabledKey) ?? true
     }
     
     static func enableAnimations() {
@@ -31,7 +31,7 @@ class CurrentUser : User {
     }
     
     private static func setAnimationsState(_ state: Bool) {
-        userDefaults.setBool(state, forKey: animationsEnabledKey)
+        userDefaults.set(state, forKey: animationsEnabledKey)
     }
     
     private func isLoggedIn() -> Bool {

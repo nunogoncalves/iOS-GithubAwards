@@ -8,8 +8,8 @@
 
 class Notification : NSObject {
     
-    let errorDuration: NSTimeInterval = 0.75
-    let window = UIApplication.sharedApplication().keyWindow!
+    let errorDuration: TimeInterval = 0.75
+    let window = UIApplication.shared().keyWindow!
  
     static let instance = Notification()
     
@@ -36,16 +36,16 @@ class Notification : NSObject {
         window.addSubview(alertView)
         let windowWidth = window.frame.width
         
-        UIView.animateWithDuration(0.5,
-                                   delay: 0,
-                                   usingSpringWithDamping: 0.4,
-                                   initialSpringVelocity: 1,
-                                   options: [],
-                                   animations: {
-                                    alertView.frame = CGRect(x: 0, y: -20, width: windowWidth, height: 84)
-                                   }, completion: { _ in
-                                     self.performSelector(#selector(self.dismiss(_:)), withObject: alertView, afterDelay: 1.25)
-                                   }
+        UIView.animate(withDuration: 0.5,
+                           delay: 0,
+                           usingSpringWithDamping: 0.4,
+                           initialSpringVelocity: 1,
+                           options: [],
+                           animations: {
+                             alertView.frame = CGRect(x: 0, y: -20, width: windowWidth, height: 84)
+                           }, completion: { _ in
+                                self.perform(#selector(self.dismiss(_:)), with: alertView, afterDelay: 1.25)
+                           }
         )
     }
     
@@ -54,8 +54,8 @@ class Notification : NSObject {
     }
     
     func dismiss(_ view: UIView) {
-        UIView.animateWithDuration(0.3, animations: {
-            view.frame = CGRectOffset(view.frame, 0, -128)
+        UIView.animate(withDuration: 0.3, animations: {
+            view.frame = view.frame.offsetBy(dx: 0, dy: -128)
             }, completion: { [weak self] _ in
                 view.removeFromSuperview()
                 self?.isDisplaying = false

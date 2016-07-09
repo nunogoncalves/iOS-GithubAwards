@@ -63,8 +63,8 @@ class UserDetailsPresentAnimator : NSObject, UIViewControllerAnimatedTransitioni
         var movingImageView: UIView!
         let cell = fromVC.selectedCell() as! CellWithAvatar
         cell.avatar.hide()
-        movingImageView = cell.avatar.snapshotViewAfterScreenUpdates(false)
-        movingImageView.frame = cell.avatar.convertRect(cell.avatar.bounds, toView: fromVC.view)
+        movingImageView = cell.avatar.snapshotView(afterScreenUpdates: false)
+        movingImageView.frame = cell.avatar.convert(cell.avatar.bounds, to: fromVC.view)
         
         movingImageView.cornerRadius = cell.avatar.cornerRadius
         

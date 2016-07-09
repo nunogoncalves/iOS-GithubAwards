@@ -21,7 +21,7 @@ struct Repository {
     }
     
     init(name: String, stars: String, description: String, language: String?) {
-        self.name = name.substringAfter("/")!
+        self.name = name.substring(after: "/")!
         self.stars = stars
         self.description = description
         self.language = language

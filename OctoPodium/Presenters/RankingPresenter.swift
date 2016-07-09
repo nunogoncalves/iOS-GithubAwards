@@ -17,7 +17,7 @@ class RankingPresenter {
     var userLogin: String { get { return ranking.user!.login! } }
     var language: String { get { return ranking.language ?? "" } }
 
-    var city: String { get { return ranking.city?.capitalizedString ?? "" } }
+    var city: String { get { return ranking.city?.capitalized ?? "" } }
     var cityRanking: Int { get { return ranking.cityRanking ?? 0 } }
     var cityTotal: Int { get { return ranking.cityTotal ?? 0 } }
     var rankingOverViewForCity: String {
@@ -26,7 +26,7 @@ class RankingPresenter {
         }
     }
 
-    var country: String { get { return ranking.country?.capitalizedString ?? "" } }
+    var country: String { get { return ranking.country?.capitalized ?? "" } }
     var countryRanking: Int { get { return ranking.countryRanking ?? 0 } }
     var countryTotal: Int { get { return ranking.countryTotal ?? 0 } }
     var rankingOverViewForCountry: String {
