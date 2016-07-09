@@ -32,7 +32,7 @@ class SwipeInteractionController : UIPercentDrivenInteractiveTransition {
             
         case .began:
             interactionInProgress = true
-            viewController.navigationController?.popViewController(animated: true)
+            _ = viewController.navigationController?.popViewController(animated: true)
             
         case .changed:
             shouldCompleteTransition = progress > 0.5

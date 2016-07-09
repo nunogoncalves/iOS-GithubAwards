@@ -30,7 +30,7 @@ extension GitHub {
             return true
         }
         
-        func checkIfIsStar(success success: (Bool) -> (), failure: (ApiResponse) -> ()) {
+        func checkIfIsStar(success: (Bool) -> (), failure: (ApiResponse) -> ()) {
             call(success: { starred -> () in
                     success(starred)
                  },
