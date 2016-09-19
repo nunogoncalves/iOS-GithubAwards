@@ -29,7 +29,7 @@ class SettingsController : UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Analytics.SendToGoogle.enteredScreen(String(SettingsController))
+        Analytics.SendToGoogle.enteredScreen(String(describing: SettingsController.self))
         versionLabel.text = "\(K.appVersion)"
         animationsSwitch.setOn(CurrentUser.hasAnimationsEnabled, animated: false)
     }
@@ -111,10 +111,10 @@ class SettingsController : UITableViewController {
         NotifyError.display(apiResponse.status.message())
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
         if segue.identifier == kSegues.gotToTrendingDetailsFromSettingsSegue {
-            let vc = segue.destinationViewController as! TrendingRepositoryDetailsController
+            let vc = segue.destination as! TrendingRepositoryDetailsController
             vc.repository = Repository(name: "\(K.appOwnerName)/\(K.appRepositoryName)", stars: "0", description: "", language: "Swift")
         }
     }

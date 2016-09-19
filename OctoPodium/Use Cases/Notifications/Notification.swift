@@ -9,7 +9,7 @@
 class Notification : NSObject {
     
     let errorDuration: TimeInterval = 0.75
-    let window = UIApplication.shared().keyWindow!
+    let window = UIApplication.shared.keyWindow!
  
     static let instance = Notification()
     

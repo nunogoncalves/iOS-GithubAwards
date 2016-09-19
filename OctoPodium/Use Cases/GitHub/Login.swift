@@ -30,7 +30,7 @@ extension GitHub {
             buildHeaders()
         }
         
-        func login(_ success: (String) -> (), failure: (ApiResponse) -> ()) {
+        func login(_ success: @escaping (String) -> (), failure: @escaping (ApiResponse) -> ()) {
             call(success: success, failure: failure)
         }
         

@@ -27,21 +27,21 @@ enum NetworkStatus: Int {
     func message() -> String {
         let technicalErrorMessage = "There was a technical problem."
         switch self {
-        case ok:
+        case .ok:
             return "Ok"
-        case created:
+        case .created:
             return "Created"
-        case noContent:
+        case .noContent:
             return "No Content"
-        case timeout:
+        case .timeout:
             return "Request exceded wait time."
-        case offline:
+        case .offline:
             return "Connection appears to be offline."
-        case notFound:
+        case .notFound:
             return "The resource you are looking for doesn't exist."
-        case unauthorized:
+        case .unauthorized:
             return "Unauthorized request."
-        case hostNameNotFound, couldNotConnectToServer, serverError:
+        case .hostNameNotFound, .couldNotConnectToServer, .serverError:
             return technicalErrorMessage
         default:
             return technicalErrorMessage

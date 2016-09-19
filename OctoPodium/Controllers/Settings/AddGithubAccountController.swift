@@ -31,7 +31,7 @@ class AddGithubAccountController : UIViewController {
             for: self,
             sender: nil) { [weak self] loginData, error in
             if let error = error {
-                if error.code == Int(AppExtensionErrorCodeCancelledByUser) {
+                if error._code == Int(AppExtensionErrorCodeCancelledByUser) {
                     NotifyWarning.display("There was a problem loading 1Password credentials")
                 }
             } else {

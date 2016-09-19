@@ -61,29 +61,29 @@ class UserDetailsController: UIViewController {
     var rankings = [Ranking]()
     
     weak var timer: Timer!
-    private var tempRankings = [Ranking]()
+    fileprivate var tempRankings = [Ranking]()
     
 //    var user: User?
     var userPresenter: UserPresenter?
     
-    private var animateCells = true
+    fileprivate var animateCells = true
     
-    private let cellInsertionInterval: TimeInterval = 0.2
-    private let cellAnimationDuration: TimeInterval = 0.1
+    fileprivate let cellInsertionInterval: TimeInterval = 0.2
+    fileprivate let cellAnimationDuration: TimeInterval = 0.1
     
-    private var halfWidth: CGFloat!
+    fileprivate var halfWidth: CGFloat!
     
-    private var originalAvatarTransform: CGAffineTransform!
-    private var originalAvatarBackgroundWidth: CGFloat!
+    fileprivate var originalAvatarTransform: CGAffineTransform!
+    fileprivate var originalAvatarBackgroundWidth: CGFloat!
 
-    private var originalLocationTransform: CGAffineTransform!
-    private var locationTransformRelation: CGFloat!
+    fileprivate var originalLocationTransform: CGAffineTransform!
+    fileprivate var locationTransformRelation: CGFloat!
     
-    private let profileExtendedBGHeight: CGFloat = 182
-    private let profileMinBGHeight: CGFloat = 117
+    fileprivate let profileExtendedBGHeight: CGFloat = 182
+    fileprivate let profileMinBGHeight: CGFloat = 117
     
-    private let avatarTransformMin: CGFloat = 0.5
-    private var avatarTransformRelation: CGFloat!
+    fileprivate let avatarTransformMin: CGFloat = 0.5
+    fileprivate var avatarTransformRelation: CGFloat!
     
     override func viewDidLoad() {
         Analytics.SendToGoogle.enteredScreen(kAnalytics.userDetailsScreenFor(userPresenter!.user))
@@ -102,7 +102,7 @@ class UserDetailsController: UIViewController {
         applyGradient()
         navigationItem.title = userPresenter!.login()
         
-        rankingsTable.registerReusableCell(RankingCell)
+        rankingsTable.registerReusableCell(RankingCell.self)
         
         Users.GetOne(login: userPresenter!.login()).call(success: userSuccess, failure: failure)
     }
@@ -131,7 +131,7 @@ class UserDetailsController: UIViewController {
         locationTransformRelation = (locationTransformMin - 1) / profileExtendedBGHeight
     }
     
-    private func loadAvatar() {
+    fileprivate func loadAvatar() {
         if let avatarUrl = userPresenter!.avatarUrl() {
             guard avatarUrl != "" else { return }
             avatarImageView.fetchAndLoad(avatarUrl) {
@@ -216,7 +216,7 @@ extension UserDetailsController {
         rankingsTable.insertRows(at: [IndexPath(row: (tempRankings.count - 1), section: 0)], with: UITableViewRowAnimation.automatic)
     }
     
-    private func invalidateTimer() {
+    fileprivate func invalidateTimer() {
         if timer != nil {
             timer.invalidate()
             timer = nil
@@ -274,7 +274,7 @@ extension UserDetailsController: UITableViewDelegate {
         }
     }
     
-    private func moveFor(_ offset: CGFloat) {
+    fileprivate func moveFor(_ offset: CGFloat) {
         // Plenty of y = mx + b now.
         
         let profileBgHeight = (profileMinBGHeight / profileExtendedBGHeight) * offset + profileExtendedBGHeight
@@ -286,26 +286,26 @@ extension UserDetailsController: UITableViewDelegate {
         moveButton(offset)
     }
     
-    private func moveLocationLabel(_ y: CGFloat) {
+    fileprivate func moveLocationLabel(_ y: CGFloat) {
         if locationTransformRelation == nil {
             locationTransformRelation = avatarTransformRelation
         }
         let transformSize = locationTransformRelation * y + 1
-        countryAndCityLabel.transform = originalLocationTransform.scaleBy(x: transformSize, y: transformSize)
+        countryAndCityLabel.transform = originalLocationTransform.scaledBy(x: transformSize, y: transformSize)
         
         locationTopConstraint.constant = -(70 / profileExtendedBGHeight) * y + 90
         locationCenterConstraint.constant = -((halfWidth - countryAndCityLabel.halfWidth - avatarBackground.frame.width - 20) / profileExtendedBGHeight) * y
     }
     
-    private func moveAvatar(_ y: CGFloat) {
+    fileprivate func moveAvatar(_ y: CGFloat) {
         let transformSize = avatarTransformRelation * y + 1
-        avatarBackground.transform = originalAvatarTransform.scaleBy(x: transformSize, y: transformSize)
+        avatarBackground.transform = originalAvatarTransform.scaledBy(x: transformSize, y: transformSize)
         
         avatarTopConstraint.constant = -(15 / profileExtendedBGHeight) * y + 10
         avatarCenterXConstraint.constant = -((halfWidth - avatarBackground.halfWidth - 10) / profileExtendedBGHeight) * y
     }
     
-    private func moveButton(_ y: CGFloat) {
+    fileprivate func moveButton(_ y: CGFloat) {
         buttonCenterConstraint.constant = (((halfWidth - viewOnGithubButton.halfWidth - 10) / profileExtendedBGHeight) * y)
         buttonTopConstraint.constant = 118 - ((102 / profileExtendedBGHeight) * y)
     }

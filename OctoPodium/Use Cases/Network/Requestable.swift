@@ -15,15 +15,14 @@ protocol Requestable {
 
     func getUrl() -> String
     func getDataFrom(_ dictionary: NSDictionary) -> Element
-    func call(success: (Element) -> (), failure: (ApiResponse) -> ())
+    func call(success: @escaping (Element) -> (), failure: @escaping (ApiResponse) -> ())
 
 }
 
 extension Requestable {
     
-    func call(success: (Element) -> (), failure: (ApiResponse) -> ()) {
-        
-        DispatchQueue.global(attributes: .qosUserInteractive).async {
+    public func call(success: @escaping (Element) -> (), failure: @escaping (ApiResponse) -> ()) {
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.userInteractive).async {
             let responseHandler = Data.ResponseHandler()
             responseHandler.failureCallback = { apiResponse in
                 DispatchQueue.main.async {

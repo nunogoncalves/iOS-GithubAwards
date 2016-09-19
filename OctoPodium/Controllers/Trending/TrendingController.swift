@@ -18,7 +18,7 @@ class TrendingController : UIViewController {
     private var selectedTrendingScope = TrendingScope.Day
     
     private var languagesPopoverController: LanguagesPopoverController!
-    private var popoverController: ARSPopover?
+    fileprivate var popoverController: ARSPopover?
     
     private var languageButton: UIButton!
     private let languageImageView = LanguageImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
@@ -28,12 +28,12 @@ class TrendingController : UIViewController {
     
     private var trendingDataSource: TrendingDataSource!
     
-    private var language = ""
+    fileprivate var language = ""
     private var isSearching = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Analytics.SendToGoogle.enteredScreen(String(TrendingController))
+        Analytics.SendToGoogle.enteredScreen(String(describing: TrendingController.self))
         
         setUpUIComponents()
         
@@ -64,10 +64,10 @@ class TrendingController : UIViewController {
         searchTrendingRepos()
     }
     
-    private func setupRepositoriesTable() {
+    fileprivate func setupRepositoriesTable() {
         setupDataSource()
 
-        repositoriesTable.registerReusableCell(TrendingRepositoryCell)
+        repositoriesTable.registerReusableCell(TrendingRepositoryCell.self)
         repositoriesTable.estimatedRowHeight = 95.0
         repositoriesTable.rowHeight = UITableViewAutomaticDimension
     }
@@ -90,7 +90,7 @@ class TrendingController : UIViewController {
         }
     }
     
-    private func updateLanguageIcon() {
+    fileprivate func updateLanguageIcon() {
         languageImageView.language = language
         let image = LanguageImage.loadForOr(language, orLanguageImageView: languageImageView).withRenderingMode(.alwaysOriginal)
         languageButton.setBackgroundImage(image, for: UIControlState())
@@ -120,7 +120,7 @@ class TrendingController : UIViewController {
         }
     }
     
-    private func searchTrendingRepos() {
+    fileprivate func searchTrendingRepos() {
         repositoriesTable.hide()
         loadingView.show()
         loadingView.setLoading()
@@ -146,15 +146,15 @@ class TrendingController : UIViewController {
         performSegue(withIdentifier: kSegues.showTrendingRepositoryDetailsSegue, sender: self)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == kSegues.trendingToUserDetailsSegue {
-            let vc = segue.destinationViewController as! UserDetailsController
+            let vc = segue.destination as! UserDetailsController
             let user = User(login: sender as! String, avatarUrl: "")
             vc.userPresenter = UserPresenter(user: user)
         }
         
         if segue.identifier == kSegues.showTrendingRepositoryDetailsSegue {
-            let vc = segue.destinationViewController as! TrendingRepositoryDetailsController
+            let vc = segue.destination as! TrendingRepositoryDetailsController
             vc.repository = selectedRepository
         }
     }
@@ -185,6 +185,6 @@ private extension UIStoryboard {
     }
     
     func languagesPopoverController() -> LanguagesPopoverController {
-        return instantiateViewController(withIdentifier: String(LanguagesPopoverController)) as! LanguagesPopoverController
+        return instantiateViewController(withIdentifier: String(describing: LanguagesPopoverController.self)) as! LanguagesPopoverController
     }
 }

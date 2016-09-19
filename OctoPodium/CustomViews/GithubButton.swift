@@ -10,6 +10,8 @@ import UIKit
 
 class GithubButton : UIView, NibView {
     
+    var type: String? = "GithubButton"
+    
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var leftView: UIView!
     @IBOutlet weak var rightView: UIView!

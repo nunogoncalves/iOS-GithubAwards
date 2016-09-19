@@ -34,7 +34,7 @@ class TrendingRepositoryDetailsController: UIViewController {
         loadWebView()
         fetchStarsAndForks()
         checkIfIsStarted()
-        Analytics.SendToGoogle.enteredScreen(String(TrendingRepositoryDetailsController))
+        Analytics.SendToGoogle.enteredScreen(String(describing: type(of: TrendingRepositoryDetailsController.self)))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(showRepoOptions))
         
         let githubButtonsFrame = CGRect(x: 0, y: 0, width: 138, height: 33)
@@ -109,7 +109,7 @@ class TrendingRepositoryDetailsController: UIViewController {
         webView.loadRequest(URLRequest(url: url!))
     }
     
-    private func hideLoadingAndDisplay(_ error: String) {
+    fileprivate func hideLoadingAndDisplay(_ error: String) {
         loadingView.hide()
         NotifyError.display(error)
     }
@@ -177,7 +177,7 @@ extension TrendingRepositoryDetailsController : UIWebViewDelegate {
     private func animateLoadingToCorner() {
         let duration: TimeInterval = 1.0
         UIView.animate(withDuration: duration) {
-            self.loadingView.transform = self.loadingView.transform.scaleBy(x: 0.5, y: 0.5)
+            self.loadingView.transform = self.loadingView.transform.scaledBy(x: 0.5, y: 0.5)
         }
         
         let path = buildCurveToCorner()
@@ -217,10 +217,9 @@ extension TrendingRepositoryDetailsController : UIWebViewDelegate {
         loadingView.hide()
     }
     
-    func webView(_ webView: UIWebView, didFailLoadWithError error: NSError?) {
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
         hideLoadingAndDisplay("Error loading README contents")
         loadingView.hide()
     }
 }
-
 

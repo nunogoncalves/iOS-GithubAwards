@@ -21,7 +21,7 @@ extension GitHub {
         
         func getDataFrom(_ dictionary: NSDictionary) -> String {
             var readMeLocation = ""
-            for item in dictionary["response"] as! NSArray {
+            for item in dictionary["response"] as! [NSDictionary] {
                 let name = (item["name"] as? String) ?? ""
                 if name.lowercased().contains("readme") {
                     if let url = item["html_url"] as? String {

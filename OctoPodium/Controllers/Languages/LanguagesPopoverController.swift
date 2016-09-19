@@ -19,7 +19,7 @@ class LanguagesPopoverController: UIViewController {
     
     weak var languageSelectorDelegate: LanguageSelectedProtocol?
 
-    private var languages = [Language]()
+    fileprivate var languages = [Language]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class LanguagesPopoverController: UIViewController {
         languagesTable.dataSource = self
         languagesTable.delegate = self
         
-        languagesTable.registerReusableCell(LanguageCell)
+        languagesTable.registerReusableCell(LanguageCell.self)
         
         getLanguages()
     }

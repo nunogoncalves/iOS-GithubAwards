@@ -13,11 +13,10 @@ extension Repositories {
         
         static func list(_ html: String) -> [Repository] {
             var repositories = [Repository]()
-            
             guard let document = Kanna.HTML(html: html, encoding: String.Encoding.utf8) else {
                 return repositories
             }
-            
+
             let metadataDocs = document.xpath("//*[contains(@class, 'repo-list-meta')]")
             
             for (i, repoHTML) in getRepositoriesHTML(document).enumerated() {
@@ -58,7 +57,7 @@ extension Repositories {
         private static func getDescriptionFrom(_ document: XMLElement) -> String {
             guard let txt = document.css("p.repo-list-description").makeIterator().next()?.text else { return "" }
             
-            return txt.trimmingCharacters(in: NSCharacterSet.whitespaces()).replace("\n", with: "").replace("      ", with: "")
+            return txt.trimmingCharacters(in: NSCharacterSet.whitespaces).replace("\n", with: "").replace("      ", with: "")
         }
         
         private static func getLanguageFrom(_ document: XMLElement) -> String? {

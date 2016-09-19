@@ -21,18 +21,18 @@ class LanguagesController: UIViewController {
         searchLanguages()
     }
     
-    private var allLanguages: [Language] = []
-    private var displayingLanguages = [String]()
-    private var selectedLanguage: Language!
+    fileprivate var allLanguages: [Language] = []
+    fileprivate var displayingLanguages = [String]()
+    fileprivate var selectedLanguage: Language!
     
     override func viewDidLoad() {
         searchBar.searchDelegate = self
         searchLanguages()
-        languagesTable.registerReusableCell(LanguageCell)
+        languagesTable.registerReusableCell(LanguageCell.self)
         Analytics.SendToGoogle.enteredScreen(kAnalytics.languagesScreen)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == kSegues.showLanguageRankingSegue {
             segue.rankingsController().language = selectedLanguage
         }
@@ -49,7 +49,7 @@ class LanguagesController: UIViewController {
         loadingIndicator?.show()
     }
     
-    private func endSearching() {
+    fileprivate func endSearching() {
         languagesTable.show()
         tryAgainButton.hide()
         loadingIndicator?.hide()
@@ -57,7 +57,7 @@ class LanguagesController: UIViewController {
 }
 
 extension LanguagesController {
-    private func gotLanguages(_ languages: [Language]) {
+    fileprivate func gotLanguages(_ languages: [Language]) {
         self.allLanguages = languages
         self.displayingLanguages = allLanguages
         
@@ -65,7 +65,7 @@ extension LanguagesController {
         endSearching()
     }
     
-    private func failedToLoadLanguages(_ apiResponse: ApiResponse) {
+    fileprivate func failedToLoadLanguages(_ apiResponse: ApiResponse) {
         tryAgainButton.show()
         loadingIndicator?.hide()
         NotifyError.display(apiResponse.status.message())
@@ -98,7 +98,7 @@ extension LanguagesController : UISearchBarDelegate {
         if searchText == "" {
             displayingLanguages = allLanguages
         } else {
-            let resultPredicate = Predicate(format: "self contains[c] %@", searchText)
+            let resultPredicate = NSPredicate(format: "self contains[c] %@", searchText)
             displayingLanguages = allLanguages.filter { resultPredicate.evaluate(with: $0) }
         }
         languagesTable.reloadData()
@@ -107,6 +107,6 @@ extension LanguagesController : UISearchBarDelegate {
 
 private extension UIStoryboardSegue {
     func rankingsController() -> LanguageRankingsController {
-        return destinationViewController as! LanguageRankingsController
+        return destination as! LanguageRankingsController
     }
 }

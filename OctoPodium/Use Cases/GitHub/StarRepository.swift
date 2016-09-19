@@ -29,7 +29,7 @@ extension GitHub {
 
         func getDataFrom(_ dictionary: NSDictionary) {}
         
-        func doStar(_ success: () -> (), failure: (ApiResponse) -> ()) {
+        func doStar(_ success: @escaping () -> (), failure: @escaping (ApiResponse) -> ()) {
             call(success: success, failure: failure)
         }
     }

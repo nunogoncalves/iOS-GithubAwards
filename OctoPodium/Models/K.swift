@@ -118,17 +118,17 @@ struct K {
         
         var all : [Fonts] {
             return [
-                TitilliumWebBlack,
-                TitilliumWebBold,
-                TitilliumWebBoldItalic,
-                TitilliumWebExtraLight,
-                TitilliumWebExtraLightItalic,
-                TitilliumWebItalic,
-                TitilliumWebLight,
-                TitilliumWebLightItalic,
-                TitilliumWebRegular,
-                TitilliumWebSemibold,
-                TitilliumWebSemiBoldItalic,
+                .TitilliumWebBlack,
+                .TitilliumWebBold,
+                .TitilliumWebBoldItalic,
+                .TitilliumWebExtraLight,
+                .TitilliumWebExtraLightItalic,
+                .TitilliumWebItalic,
+                .TitilliumWebLight,
+                .TitilliumWebLightItalic,
+                .TitilliumWebRegular,
+                .TitilliumWebSemibold,
+                .TitilliumWebSemiBoldItalic,
             ]
         }
         

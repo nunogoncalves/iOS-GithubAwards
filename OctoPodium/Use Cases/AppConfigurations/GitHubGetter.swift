@@ -16,7 +16,7 @@ struct AppConfigurations {
         let clientSecret: String
         
         private init() {
-            let pListPath = Bundle.main().pathForResource("Github", ofType: "plist")
+            let pListPath = Bundle.main.path(forResource: "Github", ofType: "plist")
             let content = NSDictionary(contentsOfFile: pListPath!)
             clientId = content!["ClientId"] as! String
             clientSecret = content!["ClientSecret"] as! String

@@ -71,7 +71,7 @@ class RankingPresenter {
     var repositories: String { get { return "\(repos)" } }
     private var repos: Int { get { return ranking.repositories ?? 0 } }
     var stars: String { get { return "\(starsInt)" } }
-    private var starsInt: Int { get { return ranking.stars ?? 0 } }
+    private var starsInt: Int { get { return ranking.stars } }
     
     func hasMedals() -> Bool {
         let rankings = [worldRanking, countryRanking, cityRanking]

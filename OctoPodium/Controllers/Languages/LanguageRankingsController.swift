@@ -25,18 +25,18 @@ class LanguageRankingsController: UIViewController {
     @IBOutlet weak var searchBar: SearchBar!
     @IBOutlet weak var loadingIndicator: GithubLoadingView!
     
-    private var worldController: WorldUsersController!
-    private var countryController: CountryUsersController!
-    private var cityController: CityUsersController!
+    fileprivate var worldController: WorldUsersController!
+    fileprivate var countryController: CountryUsersController!
+    fileprivate var cityController: CityUsersController!
     
     lazy var listControllers: [UsersController] = { [unowned self] in
         return [self.worldController, self.countryController, self.cityController]
     }()
     
-    private var city = ""
-    private var lastCitySearched = ""
-    private var country = ""
-    private var lastCountrySearched = ""
+    fileprivate var city = ""
+    fileprivate var lastCitySearched = ""
+    fileprivate var country = ""
+    fileprivate var lastCountrySearched = ""
     
     let locationTypes: [Int : LocationType] = [0 : .World, 1 : .Country, 2 : .City]
     var selectedLocationType = LocationType.World
@@ -94,7 +94,7 @@ class LanguageRankingsController: UIViewController {
         super.viewWillAppear(animated)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier ?? "" {
         case kSegues.worldUsersSegue:
             worldController = segue.worldController()
@@ -149,15 +149,15 @@ extension LanguageRankingsController : UISearchBarDelegate {
 
 private extension UIStoryboardSegue {
     func countryController() -> CountryUsersController {
-        return destinationViewController as! CountryUsersController
+        return destination as! CountryUsersController
     }
     
     func cityController() -> CityUsersController {
-        return destinationViewController as! CityUsersController
+        return destination as! CityUsersController
     }
     
     func worldController() -> WorldUsersController {
-        return destinationViewController as! WorldUsersController
+        return destination as! WorldUsersController
     }
     
 }

@@ -10,6 +10,7 @@ import UIKit
 
 class LanguageImageView : UIView, NibView {
     
+    var type: String? = nil
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var label: UILabel!

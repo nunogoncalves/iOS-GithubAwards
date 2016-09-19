@@ -15,7 +15,7 @@ class TrendingRepositoryCell: UITableViewCell, NibReusable {
     @IBOutlet weak var languageImageView: UIImageView!
     @IBOutlet weak var languageStarsSinceLabel: UILabel!
     
-    var userClicked: ((userName: String) -> ())?
+    var userClicked: ((_ userName: String) -> ())?
     
     var repositorySince: (repository: Repository, since: String)! {
         didSet {
@@ -30,7 +30,7 @@ class TrendingRepositoryCell: UITableViewCell, NibReusable {
 
             descriptionLabel.text = repository.description
             if let language = repository.language {
-                languageStarsSinceLabel.text = "• \(language ?? "") • \(repository.stars) ★ \(since)"
+                languageStarsSinceLabel.text = "• \(language) • \(repository.stars) ★ \(since)"
                 if let image = UIImage(named: language.lowercased()) {
                     languageImageView.image = image
                 } else {
@@ -44,6 +44,6 @@ class TrendingRepositoryCell: UITableViewCell, NibReusable {
     }
     
     @objc private func clickedUser() {
-        userClicked?(userName: repositorySince.repository.user)
+        userClicked?(repositorySince.repository.user)
     }
 }

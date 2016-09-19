@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias BodyParams = [String : AnyObject]
+typealias BodyParams = [String : Any]
 typealias HeadParams = [String : String]
 
 struct Network {
@@ -50,6 +50,7 @@ struct Network {
             addIfNecessary(headers, to: request)
 
             return session.dataTask(with: request as URLRequest, completionHandler: completionHandler)
+//            return session.dataTask(with: request as URLRequest, completionHandler: completionHandler)
         }
         
         private func buildURLRequestFor(_ url: String) -> NSMutableURLRequest {
@@ -72,7 +73,7 @@ struct Network {
             }
         }
         
-        private func completionHandler(_ data: Foundation.Data?, response: URLResponse?, error: NSError?) {
+        private func completionHandler(_ data: Foundation.Data?, response: URLResponse?, error: Error?) {
             var responseData: NSDictionary?
             
             doInCatchBlock { [weak self] in
@@ -129,6 +130,6 @@ struct Network {
     }
 }
 
-enum JSONParseError : ErrorProtocol {
+enum JSONParseError : Error {
     case noDicNorArray
 }

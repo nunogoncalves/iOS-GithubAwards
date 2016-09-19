@@ -12,7 +12,7 @@ class UserDetailsPresentAnimator : NSObject, UIViewControllerAnimatedTransitioni
     
     private let duration: TimeInterval = 0.5
     
-    func transitionDuration(_ transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration
     }
     
@@ -20,8 +20,8 @@ class UserDetailsPresentAnimator : NSObject, UIViewControllerAnimatedTransitioni
     private var toVC: UserDetailsController!
     private var movingImageView: UIView!
     
-    func animateTransition(_ transitionContext: UIViewControllerContextTransitioning) {
-        let containerView = transitionContext.containerView()
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        let containerView = transitionContext.containerView
         fromVC = transitionContext.fromC
         toVC = transitionContext.toC
         toVC.view.frame = toVC.view.frame.offsetBy(dx: 0, dy: 64)
@@ -54,7 +54,7 @@ class UserDetailsPresentAnimator : NSObject, UIViewControllerAnimatedTransitioni
                 self.toVC.avatarImageView.show()
                 (self.fromVC.selectedCell() as! CellWithAvatar).avatar.show()
                 self.fromVC.view.transform = CGAffineTransform.identity
-                transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
+                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
     }
     
@@ -91,11 +91,11 @@ class UserDetailsPresentAnimator : NSObject, UIViewControllerAnimatedTransitioni
 
 private extension UIViewControllerContextTransitioning {
     var fromC : LanguageRankingsController {
-        return viewController(forKey: UITransitionContextFromViewControllerKey) as! LanguageRankingsController
+        return viewController(forKey: UITransitionContextViewControllerKey.from) as! LanguageRankingsController
     }
 
     var toC : UserDetailsController {
-        return viewController(forKey: UITransitionContextToViewControllerKey) as! UserDetailsController
+        return viewController(forKey: UITransitionContextViewControllerKey.to) as! UserDetailsController
     }
 
 }

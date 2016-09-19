@@ -22,21 +22,21 @@ class CreateBasicUserFromDictionary {
 }
 
 extension CreateBasicUserFromDictionary {
-    private static func buildUserFrom(_ userDic: NSDictionary) -> User {
+    fileprivate static func buildUserFrom(_ userDic: NSDictionary) -> User {
         let user = User(login: loginFrom(userDic), avatarUrl: avatarUrlFrom(userDic))
         user.starsCount = (userDic["stars_count"] ?? 0) as? Int
         return user
     }
     
-    private static func loginFrom(_ userDic: NSDictionary) -> String {
+    fileprivate static func loginFrom(_ userDic: NSDictionary) -> String {
         return extractStringValueFor("login", fromDic: userDic)
     }
     
-    private static func avatarUrlFrom(_ userDic: NSDictionary) -> String {
+    fileprivate static func avatarUrlFrom(_ userDic: NSDictionary) -> String {
         return extractStringValueFor("gravatar_url", fromDic: userDic)
     }
     
-    private static func extractStringValueFor(_ key: String, fromDic: NSDictionary) -> String {
+    fileprivate static func extractStringValueFor(_ key: String, fromDic: NSDictionary) -> String {
         return (fromDic[key] ?? "" ) as! String
     }
 }

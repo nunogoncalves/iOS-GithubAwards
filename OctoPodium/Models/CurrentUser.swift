@@ -8,7 +8,7 @@
 
 class CurrentUser : User {
     
-    private static let userDefaults = UserDefaults.standard()
+    private static let userDefaults = UserDefaults.standard
     
     private static let animationsEnabledKey = "Octopodium-AnimationsEnabled"
     
@@ -19,7 +19,7 @@ class CurrentUser : User {
     }
     
     static var hasAnimationsEnabled: Bool {
-        return userDefaults.bool(forKey: animationsEnabledKey) ?? true
+        return userDefaults.bool(forKey: animationsEnabledKey) 
     }
     
     static func enableAnimations() {

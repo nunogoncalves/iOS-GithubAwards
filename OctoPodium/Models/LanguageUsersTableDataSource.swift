@@ -35,7 +35,7 @@ class LanguageUsersTableDataSource : NSObject, TableViewDataSource {
     }
     
     func cellIdentifierForIndex(_ indexPath: IndexPath) -> String {
-        return (indexPath as NSIndexPath).row < 3 ? String(UserTopCell) : String(UserCell)
+        return (indexPath as NSIndexPath).row < 3 ? String(describing: type(of: UserTopCell.self)) : String(describing: type(of: UserCell.self))
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

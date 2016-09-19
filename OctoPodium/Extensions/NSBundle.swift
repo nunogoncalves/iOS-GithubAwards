@@ -13,6 +13,6 @@ extension Bundle {
     }
  
     class func stringFor(_ key: String) -> String? {
-        return Bundle.main().objectForInfoDictionaryKey(key) as? String
+        return Bundle.main.object(forInfoDictionaryKey: key) as? String
     }
 }

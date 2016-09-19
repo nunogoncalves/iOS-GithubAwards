@@ -12,17 +12,17 @@ class UserDetailsDismissAnimator : NSObject, UIViewControllerAnimatedTransitioni
     
     private let duration: TimeInterval = 0.5
     
-    func transitionDuration(_ transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration
     }
 
-    func animateTransition(_ transitionContext: UIViewControllerContextTransitioning) {
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
 
         guard let languagesC = transitionContext.languageRankingC, let userDetailsC = transitionContext.userDetailsC else {
             return
         }
         
-        let containerView = transitionContext.containerView()
+        let containerView = transitionContext.containerView
         
         containerView.insertSubview(languagesC.view, belowSubview: userDetailsC.view)
         
@@ -47,9 +47,9 @@ class UserDetailsDismissAnimator : NSObject, UIViewControllerAnimatedTransitioni
         
         languagesC.view.transform = CGAffineTransform(translationX: -width, y: 0.0)
         
-        UIApplication.shared().windows.first!.backgroundColor = UIColor.white()
+        UIApplication.shared.windows.first!.backgroundColor = UIColor.white
         
-        let duration = transitionDuration(transitionContext)
+        let duration = transitionDuration(using: transitionContext)
         
         let imageScaleX = destinationAvatar!.frame.width / movingImageView!.frame.width
         let imageScaleY = destinationAvatar!.frame.height / movingImageView!.frame.height
@@ -78,7 +78,7 @@ class UserDetailsDismissAnimator : NSObject, UIViewControllerAnimatedTransitioni
                 movingImageView?.hide()
                 destinationAvatar?.show()
                 languagesC.view.transform = CGAffineTransform.identity
-                transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
+                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
 
     }
@@ -86,10 +86,10 @@ class UserDetailsDismissAnimator : NSObject, UIViewControllerAnimatedTransitioni
 
 private extension UIViewControllerContextTransitioning {
     var userDetailsC : UserDetailsController? {
-        return viewController(forKey: UITransitionContextFromViewControllerKey) as? UserDetailsController
+        return viewController(forKey: UITransitionContextViewControllerKey.from) as? UserDetailsController
     }
     
     var languageRankingC : LanguageRankingsController? {
-        return viewController(forKey: UITransitionContextToViewControllerKey) as? LanguageRankingsController
+        return viewController(forKey: UITransitionContextViewControllerKey.to) as? LanguageRankingsController
     }
 }

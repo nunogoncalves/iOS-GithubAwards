@@ -10,6 +10,8 @@ protocol NibView {
     
     var view: UIView! { get }
     
+    var type: String? { get }
+    
     func commonInit()
     func afterCommonInit()
 
@@ -26,7 +28,11 @@ extension NibView where Self : UIView {
     
     
     private func loadViewFromNib() {
-        Bundle.main().loadNibNamed(String(Self), owner: self, options: nil)
+        if let type = type {
+            Bundle.main.loadNibNamed(type, owner: self, options: nil)
+        } else {
+            Bundle.main.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
+        }
         addSubview(view)
     }
     

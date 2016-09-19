@@ -15,7 +15,7 @@ class AboutController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Analytics.SendToGoogle.enteredScreen(String(AboutController))
+        Analytics.SendToGoogle.enteredScreen(String(describing: type(of: AboutController.self)))
         setAppNameAndYear()
         setAboutText()
         automaticallyAdjustsScrollViewInsets = false

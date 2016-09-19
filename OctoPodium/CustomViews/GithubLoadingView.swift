@@ -10,6 +10,7 @@ import UIKit
 
 class GithubLoadingView: UIView, NibView {
 
+    var type: String? = nil
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var loadingIndicatorImageView: UIImageView!
     @IBOutlet weak var staticImage: UIImageView!

@@ -62,16 +62,16 @@ class UsersController : UIViewController {
         self.locationName = locationName!
         searchUsers(true)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let selectedIndex = usersTable.indexPathForSelectedRow
-        
+
         if (segue.identifier == kSegues.userDetailsSegue && selectedIndex != nil) {
             usersTable.deselectRow(at: selectedIndex!, animated: true)
-            let destVC = segue.destinationViewController as! UserDetailsController
+            let destVC = segue.destination as! UserDetailsController
             let user = usersTableDataSource.dataForIndexPath(selectedIndex!) as? User
             destVC.userPresenter = UserPresenter(user: user!)
-            
+
             if CurrentUser.hasAnimationsEnabled {
                 swipeInteractionController.wireToViewController(destVC)
                 navigationController?.delegate = self

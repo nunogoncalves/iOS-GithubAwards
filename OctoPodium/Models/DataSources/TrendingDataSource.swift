@@ -16,8 +16,8 @@ class TrendingDataSource : NSObject, UITableViewDataSource {
     var language = ""
     
     var gotRepositories: (() -> ())?
-    var userClicked: ((login: String) -> ())?
-    var repositoryCellClicked: ((repository: Repository) -> ())?
+    var userClicked: ((_ login: String) -> ())?
+    var repositoryCellClicked: ((_ repository: Repository) -> ())?
     
     init(tableView: UITableView) {
         self.tableView = tableView
@@ -37,7 +37,7 @@ class TrendingDataSource : NSObject, UITableViewDataSource {
         return cell
     }
     
-    private func setupCell(_ tableView: UITableView, indexPath: IndexPath) -> TrendingRepositoryCell {
+    fileprivate func setupCell(_ tableView: UITableView, indexPath: IndexPath) -> TrendingRepositoryCell {
         
         let cell = tableView.dequeueReusableCellFor(indexPath) as TrendingRepositoryCell
         cell.repositorySince = (repository: repositories[indexPath.row], since: trendingScope.message)
@@ -47,8 +47,7 @@ class TrendingDataSource : NSObject, UITableViewDataSource {
     
     func search() {
         Analytics.SendToGoogle.searchedTrending(trendingScope.rawValue, language: language)
-        let qos = Int(DispatchQueueAttributes.qosUserInteractive.rawValue)
-        DispatchQueue.global(attributes: DispatchQueue.GlobalAttributes(rawValue: UInt64(qos))).async {
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.userInteractive).async {
             self.repositories = Repositories.GetRepositories().get(self.trendingScope.rawValue, language: self.language)
             DispatchQueue.main.sync {
                 self.gotRepositories?()
@@ -61,7 +60,7 @@ class TrendingDataSource : NSObject, UITableViewDataSource {
 extension TrendingDataSource : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        repositoryCellClicked?(repository: repositories[(indexPath as NSIndexPath).row])
+        repositoryCellClicked?(repositories[(indexPath as NSIndexPath).row])
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {

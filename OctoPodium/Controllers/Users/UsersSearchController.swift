@@ -61,16 +61,16 @@ class UsersSearchController: UIViewController {
         performSegue(withIdentifier: kSegues.userSearchToDetail, sender: self)
     }
    
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == kSegues.userSearchToDetail {
-            let vc = segue.destinationViewController as! UserDetailsController
+            let vc = segue.destination as! UserDetailsController
             if let user = user {
                 vc.userPresenter = UserPresenter(user: user)
             }
         }
     }
     
-    private func searchUserFor(_ login: String) {
+    fileprivate func searchUserFor(_ login: String) {
         userSearchContainer.hide()
         loadingIndicator.show()
         userContainerTopConstraint.constant = -80.0
@@ -94,7 +94,7 @@ class UsersSearchController: UIViewController {
             return value + ranking.stars
         }
         
-        userStarsLabel.text = "\(a ?? 0)"
+        userStarsLabel.text = "\(a)"
         
         loadingIndicator.hide()
         userSearchContainer.show()

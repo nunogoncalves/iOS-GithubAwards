@@ -15,6 +15,8 @@ enum AlertType : UInt {
 }
 
 class AlertView: UIView, NibView {
+    
+    var type: String? = nil
 
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var blurView: UIView!

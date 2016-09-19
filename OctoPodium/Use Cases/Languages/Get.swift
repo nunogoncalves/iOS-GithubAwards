@@ -16,7 +16,7 @@ struct Languages {
         
         private var successLangs: (([Language]) -> ())?
         
-        func getAll(success: ([Language]) -> (), failure: (ApiResponse) -> ()) {
+        func getAll(success: @escaping ([Language]) -> (), failure: @escaping (ApiResponse) -> ()) {
             successLangs = success
             if Languages.Get.languages.count == 0 {
                 call(success: gotLanguages, failure: failure)

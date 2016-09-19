@@ -106,8 +106,8 @@ extension Analytics {
             sendEvent("Settings", action: "Disabled Animations")
         }
     
-        private static func callAsync(_ closure: () -> ()) {
-            DispatchQueue.global(attributes: .qosUserInteractive).async {
+        private static func callAsync(_ closure: @escaping () -> ()) {
+            DispatchQueue.global().async {
                 closure()
             }
         }

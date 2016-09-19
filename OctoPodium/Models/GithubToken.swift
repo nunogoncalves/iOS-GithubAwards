@@ -25,6 +25,7 @@ struct GithubToken {
     }
     
     func get() -> String? {
+        if token != nil { return token }
         return getValueFor(accountKey)
     }
     
@@ -33,7 +34,7 @@ struct GithubToken {
     }
     
    mutating private func save(_ authToken: String) -> Bool {
-        return saveValueFor(accountKey, value: authToken)
+    return save(authToken, for: accountKey)
     }
     
     private mutating func update(_ authToken: String) -> Bool {
@@ -60,11 +61,11 @@ struct GithubToken {
         if let _ = get() {
             return updateValueFor(key, value: newValue)
         } else {
-            return saveValueFor(key, value: newValue)
+            return save(newValue, for: key)
         }
     }
     
-    private mutating func saveValueFor(_ key: String, value: String) -> Bool {
+    private mutating func save(_ value: String, for key: String) -> Bool {
         do {
             try Locksmith.saveData(data: [key: value], forUserAccount: accountKey)
             token = value

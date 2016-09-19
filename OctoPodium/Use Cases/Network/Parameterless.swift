@@ -6,4 +6,4 @@
 //  Copyright © 2016 Nuno Gonçalves. All rights reserved.
 //
 
-typealias Parameterless = protocol<EmptyHeaders, EmptyBody>
+typealias Parameterless = EmptyHeaders & EmptyBody

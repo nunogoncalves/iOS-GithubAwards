@@ -16,7 +16,8 @@ extension String {
     
     func base64Encoded() -> String {
         let data: Foundation.Data = self.data(using: String.Encoding.ascii)!
-        return data.base64EncodedString(.encoding64CharacterLineLength)
+        return data.base64EncodedString(options: Foundation.Data.Base64EncodingOptions.lineLength64Characters)
+//        return data.base64EncodedString(options: .encoding64CharacterLineLength)
     }
 
     func withoutSpaces() -> String {
@@ -29,7 +30,7 @@ extension String {
     }
     
     func substringBetween(_ from: String, and to: String) -> String? {
-        let range = self.range(of: "(?<=\(from))(.*?)(?=\(to))", options: .regularExpressionSearch)
+        let range = self.range(of: "(?<=\(from))(.*?)(?=\(to))", options: .regularExpression)
         guard range != nil else { return nil }
         return self.substring(with: range!)
     }

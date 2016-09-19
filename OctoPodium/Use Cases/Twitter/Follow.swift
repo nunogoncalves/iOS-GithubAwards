@@ -31,12 +31,12 @@ struct Twitter {
         init(username: String) {
         
             var applicationOpened: Bool = false
-            let application = UIApplication.shared()
+            let application = UIApplication.shared
             for twitterClient in TwitterClient.all() {
                 let twitterUrl = "\(twitterClient.rawValue)\(username)"
-                if let url = URL(string: twitterUrl) where application.canOpenURL(url) && !applicationOpened {
+                if let url = URL(string: twitterUrl) , application.canOpenURL(url) && !applicationOpened {
                     application.openURL(url)
-                    Analytics.SendToGoogle.showDeveloperOnTwitterEvent(String(twitterClient))
+                    Analytics.SendToGoogle.showDeveloperOnTwitterEvent(String(describing: twitterClient))
                     applicationOpened = true
                     break
                 }

@@ -25,7 +25,7 @@ extension UIStoryboard {
     }
     
     func controller(controller: UIViewController.Type) -> UIViewController {
-        return viewControllerWith(id: String(controller))
+        return viewControllerWith(id: String(describing: controller))
     }
     
     func viewControllerWith(id: String) -> UIViewController {

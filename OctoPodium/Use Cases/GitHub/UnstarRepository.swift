@@ -28,7 +28,7 @@ extension GitHub {
         
         func getDataFrom(_ dictionary: NSDictionary) {}
         
-        func doUnstar(_ success: () -> (), failure: (ApiResponse) -> ()) {
+        func doUnstar(_ success: @escaping () -> (), failure: @escaping (ApiResponse) -> ()) {
             call(success: success, failure: failure)
         }
     }

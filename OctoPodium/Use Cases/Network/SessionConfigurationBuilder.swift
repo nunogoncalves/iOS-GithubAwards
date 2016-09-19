@@ -19,7 +19,7 @@ extension Network {
             if SessionConfigurationBuilder.conf != nil {
                 return SessionConfigurationBuilder.conf!
             }
-            conf = URLSessionConfiguration.default()
+            conf = URLSessionConfiguration.default
             setupTimeouts(conf!)
             return conf!
         }

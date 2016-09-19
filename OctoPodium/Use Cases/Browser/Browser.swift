@@ -12,7 +12,7 @@ class Browser {
     
     static func openPage(_ url: String) {
         let url = URL(string: url)
-        UIApplication.shared().openURL(url!)
+        UIApplication.shared.openURL(url!)
     }
     
 }
