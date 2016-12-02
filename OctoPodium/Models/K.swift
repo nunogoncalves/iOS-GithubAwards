@@ -42,7 +42,7 @@ struct K {
     }
     
     struct Urls {
-        private static let apiBaseUrl = "http://github-awards.com"
+        private static let apiBaseUrl = "http://git-awards.com"
         static let usersBaseUrl = "\(apiBaseUrl)/api/v0/users"
         static let languagesBaseUrl = "\(apiBaseUrl)/api/v0/languages"
         

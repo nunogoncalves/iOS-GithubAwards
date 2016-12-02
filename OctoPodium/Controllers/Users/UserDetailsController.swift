@@ -43,9 +43,17 @@ class UserDetailsController: UIViewController {
         guard let userPresenter = userPresenter else { return }
         guard rankings.count > 0 else { return }
         
-        _ = Twitter.Share(ranking: "\(userPresenter.ranking)",
+        let cityRanking = rankings[0].cityRanking ?? 0
+        let countryRanking = rankings[0].countryRanking ?? 0
+        
+        var ranking = cityRanking
+        if countryRanking >= cityRanking {
+            ranking = countryRanking
+        }
+        
+        _ = Twitter.Share(ranking: "\(ranking)",
                       language: rankings[0].language!,
-                      location: userPresenter.cityOrCountryOrWorld)
+                      location: userPresenter.cityOrCountryOrWorld.capitalized)
     }
     @IBAction func viewGithubProfileClicked() {
         if let login = userPresenter?.login() {
@@ -213,7 +221,7 @@ extension UserDetailsController {
         }
         
         tempRankings.append(rankings[tempRankings.count])
-        rankingsTable.insertRows(at: [IndexPath(row: (tempRankings.count - 1), section: 0)], with: UITableViewRowAnimation.automatic)
+        rankingsTable.insertRows(at: [IndexPath(row: (tempRankings.count - 1), section: 0)], with: .automatic)
     }
     
     fileprivate func invalidateTimer() {

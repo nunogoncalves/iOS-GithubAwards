@@ -14,7 +14,7 @@ class OctoPodiumUITests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        setupSnapshot(app)
+        setupSnapshot(app: app)
         continueAfterFailure = false
         app.launch()
     }
@@ -27,39 +27,39 @@ class OctoPodiumUITests: XCTestCase {
 
         let app = XCUIApplication()
         
-        let expectation = expectationWithDescription("High expectations")
-        expectation.fulfill()
+        let expectation0 = expectation(description: "High expectations")
+        expectation0.fulfill()
         
-        waitForExpectationsWithTimeout(3, handler: nil)
+        waitForExpectations(timeout: 3, handler: nil)
         
-        snapshot("01LanguagesScreen")
+        snapshot(name: "01LanguagesScreen")
         
         let tablesQuery = app.tables
         tablesQuery.cells.staticTexts["JavaScript"].tap()
         
-        snapshot("02LanguageRankingScreen")
+        snapshot(name: "02LanguageRankingScreen")
         
         tablesQuery.cells.staticTexts["facebook"].tap()
         
-        snapshot("03FacebookScreen")
+        snapshot(name: "03FacebookScreen")
 
         let tabBarsQuery = app.tabBars
         tabBarsQuery.buttons["Trending"].tap()
         
-        let expectation1 = expectationWithDescription("High expectations")
+        let expectation1 = expectation(description: "High expectations")
         expectation1.fulfill()
     
-        waitForExpectationsWithTimeout(8, handler: { _ in
-            snapshot("04TrendingScreen")
+        waitForExpectations(timeout: 8, handler: { _ in
+            snapshot(name: "04TrendingScreen")
         })
 
         tabBarsQuery.buttons["More"].tap()
         
         let cells = app.tables.cells
-        cells.elementBoundByIndex(0).tap()
+        cells.element(boundBy: 0).tap()
         
         app.navigationBars["Github Account"].buttons["Add"].tap()
-        snapshot("05AddGitHubAccountScreen")
+        snapshot(name: "05AddGitHubAccountScreen")
         
     }
 }

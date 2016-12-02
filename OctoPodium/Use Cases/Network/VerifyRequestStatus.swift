@@ -12,7 +12,7 @@ class VerifyRequestStatus {
     
     let response: URLResponse?
     var responseDictionary: NSDictionary?
-    let error: NSError?
+    let error: Error?
     
     private let errorCodes = [
         NetworkStatus.offline.rawValue,
@@ -37,7 +37,7 @@ class VerifyRequestStatus {
         NetworkStatus.serverError.rawValue,
     ]
     
-    init(response: URLResponse?, error: NSError?, responseDictionary: NSDictionary?) {
+    init(response: URLResponse?, error: Error?, responseDictionary: NSDictionary?) {
         self.response = response
         self.responseDictionary = responseDictionary
         self.error = error
@@ -66,8 +66,8 @@ class VerifyRequestStatus {
         return .genericError
     }
     
-    private func checkStatusFrom(_ error: NSError) -> NetworkStatus {
-        return checkStatusIn(errorCodes, code: error.code)
+    private func checkStatusFrom(_ error: Error) -> NetworkStatus {
+        return checkStatusIn(errorCodes, code: (error as! NSError).code)
     }
 
     private func checkStatusFrom(_ response: HTTPURLResponse) -> NetworkStatus {

@@ -13,9 +13,9 @@ class CurrentUser : User {
     private static let animationsEnabledKey = "Octopodium-AnimationsEnabled"
     
     static func setUpInitialConfigurations() {
-        if userDefaults.object(forKey: animationsEnabledKey) == nil {
-            enableAnimations()
-        }
+//        if userDefaults.object(forKey: animationsEnabledKey) == nil {
+//            enableAnimations()
+//        }
     }
     
     static var hasAnimationsEnabled: Bool {

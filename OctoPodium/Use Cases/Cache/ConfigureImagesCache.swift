@@ -18,7 +18,7 @@ struct Cache {
                 diskCapacity: 20 * 1024 * 1024,
                 diskPath: nil)
             
-            URLCache.setShared(urlCache)
+            URLCache.shared = urlCache
         }
         
     }

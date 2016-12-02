@@ -25,9 +25,8 @@ class GithubAccountController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Analytics.SendToGoogle.enteredScreen(String(GithubAccountController))
+        Analytics.SendToGoogle.enteredScreen(String(describing: type(of: GithubAccountController.self)))
         applyGradient()
-        
         if !GithubToken.instance.exists() {
             addNewAccountButton()
         } else {
@@ -86,7 +85,7 @@ class GithubAccountController : UIViewController {
         navigationItem.rightBarButtonItem = addAccountButton
     }
 
-    private func fetchUser() {
+    fileprivate func fetchUser() {
         GitHub.UserInfoGetter().call(success: { user in
             self.gotUser(user)
             }, failure: { apiResponse in
@@ -94,9 +93,9 @@ class GithubAccountController : UIViewController {
         })
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == kSegues.goToLoginSegue {
-            let vc = segue.destinationViewController as! AddGithubAccountController
+            let vc = segue.destination as! AddGithubAccountController
             vc.userDelegate = self
         }
     }

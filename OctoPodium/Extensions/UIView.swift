@@ -64,7 +64,7 @@ extension UIView {
         let gradient: CAGradientLayer = CAGradientLayer()
         setNeedsLayout()
         layoutIfNeeded()
-        gradient.frame = frame
+        gradient.frame = bounds
         gradient.colors = colors.map { $0.cgColor }
         layer.addSublayer(gradient)
     }

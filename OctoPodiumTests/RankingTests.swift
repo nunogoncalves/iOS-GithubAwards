@@ -34,14 +34,14 @@ class RankingTests : QuickSpec {
                     for alternative in alteranatives {
                         let expectedTotal = alternative[0] + alternative[1] + alternative[2]
                         
-                        let ranking = TestsBuilder.buildRankingWith(alternative[0], countryRanking: alternative[1], worldRanking: alternative[2])
+                        let ranking = TestsBuilder.buildRankingWith(cityRanking: alternative[0], countryRanking: alternative[1], worldRanking: alternative[2])
                         
                         expect(ranking.trophies).to(equal(expectedTotal))
                     }
                 }
                 
                 it("returns proper trophies count when rankings are nil") {
-                    let ranking = TestsBuilder.buildRankingWith(nil, countryRanking: nil, worldRanking: nil)
+                    let ranking = TestsBuilder.buildRankingWith(cityRanking: nil, countryRanking: nil, worldRanking: nil)
                     
                     expect(ranking.trophies).to(equal(0))
                 }

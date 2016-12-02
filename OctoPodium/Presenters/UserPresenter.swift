@@ -48,7 +48,7 @@ class UserPresenter {
         
         return user.rankings.reduce(initialTuple) { (tuple, ranking) -> (repos: Int, stars: Int, trophies: Int) in
             let repos = tuple.repos + (ranking.repositories ?? 0)
-            let stars = tuple.stars + (ranking.stars ?? 0)
+            let stars = tuple.stars + (ranking.stars)
             let trophies = tuple.trophies + ranking.trophies
             return (repos: repos, stars: stars, trophies: trophies)
         }

@@ -12,64 +12,55 @@ extension Repositories {
     class CreateListFromHTML {
         
         static func list(_ html: String) -> [Repository] {
-            var repositories = [Repository]()
-            guard let document = Kanna.HTML(html: html, encoding: String.Encoding.utf8) else {
-                return repositories
-            }
-
-            let metadataDocs = document.xpath("//*[contains(@class, 'repo-list-meta')]")
             
-            for (i, repoHTML) in getRepositoriesHTML(document).enumerated() {
-                
-                let metadataDoc = metadataDocs[i]
-                
-                let repoName = getRepositoryNameFrom(repoHTML)
-                let stars = getStarsFrom(metadataDoc)
-                let description = getDescriptionFrom(repoHTML)
-                let language = getLanguageFrom(metadataDoc)
-                
-                let repository = Repository(name: repoName, stars: stars, description: description, language: language)
-                
-                repositories.append(repository)                
+            guard let document = Kanna.HTML(html: html, encoding: .utf8) else { return [] }
+           
+            var repositories: [Repository] = []
+            
+            for repoHTML in getRepositoriesHTML(document) {
+              repositories.append(repository(from: repoHTML))
             }
             return repositories
         }
+        
+        private static func repository(from repoHTML: XMLElement) -> Repository {
+            let repoName = getRepositoryNameFrom(repoHTML)
+            let stars = getStarsFrom(repoHTML)
+            let description = getDescriptionFrom(repoHTML)
+            let language = getLanguageFrom(repoHTML)
+
+            return Repository(name: repoName, stars: stars, description: description, language: language)
+        }
 
         private static func getRepositoriesHTML(_ document: HTMLDocument) -> XPathObject {
-            return document.xpath("//*[contains(@class, 'repo-list-item')]")
+            return document.xpath("//*[contains(@class, 'py-4')]")
         }
         
         private static func getRepositoryNameFrom(_ document: XMLElement) -> String {
-            return document.css("a")[1].text!.withoutSpaces()
+            return document.css("a").makeIterator().next()?.text?.withoutSpaces() ?? ""
         }
         
         private static func getStarsFrom(_ document: XMLElement) -> String {
-            let metadata = document.text!.withoutSpaces()
-            var stars = metadata.substringBetween("•", and: "stars")
-            if stars == nil {
-                stars = metadata.substringUntil("stars")
-            }
-            if stars == nil { stars = "0" }
+            let total = document.css("a.mr-3").makeIterator().next()?.text?.withoutSpaces() ?? ""
             
-            return stars!
+            let stars = document.css("span.float-right")
+                                   .makeIterator().next()?.text?
+                                   .withoutSpaces().substringUntil("stars") ?? ""
+            
+            return "\(total) (\(stars))"
         }
         
         private static func getDescriptionFrom(_ document: XMLElement) -> String {
-            guard let txt = document.css("p.repo-list-description").makeIterator().next()?.text else { return "" }
+            guard let txt =  document.css("div.py-1").makeIterator().next()?.text else { return "" }
             
-            return txt.trimmingCharacters(in: NSCharacterSet.whitespaces).replace("\n", with: "").replace("      ", with: "")
+            return txt.trimmingCharacters(in: .whitespaces).replace("\n", with: "").replace("      ", with: "")
         }
         
         private static func getLanguageFrom(_ document: XMLElement) -> String? {
-            let metadata = document.text!.withoutSpaces()
-            
-            let language = metadata.substringUntil("•")
-            if language == nil || language! == "" || language!.contains("stars") {
-                return nil
+            if let element = document.css("span.mr-3").makeIterator().next() {
+                return element.text?.withoutSpaces()
             }
-            
-            return language
-
+            return nil
         }
     }
 }
