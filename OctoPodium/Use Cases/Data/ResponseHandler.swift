@@ -11,14 +11,14 @@ import Foundation
 struct Data {
     class ResponseHandler {
         
-        var successCallback: (NSDictionary -> ())?
-        var failureCallback: (ApiResponse -> ())?
+        var successCallback: ((NSDictionary) -> ())?
+        var failureCallback: ((ApiResponse) -> ())?
         
-        func success(data: NSDictionary) {
+        func success(_ data: NSDictionary) {
             successCallback?(data)
         }
         
-        func failure(apiResponse: ApiResponse) {
+        func failure(_ apiResponse: ApiResponse) {
             failureCallback?(apiResponse)
         }
     }

@@ -10,6 +10,7 @@ import UIKit
 
 class LanguageImageView : UIView, NibView {
     
+    var type: String? = nil
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var label: UILabel!
@@ -36,7 +37,7 @@ class LanguageImageView : UIView, NibView {
     private func setLanguageIconOrLetter() {
         if var lang = language {
             if lang == "" { lang = "Language" }
-            if let image = UIImage(named: lang.lowercaseString) {
+            if let image = UIImage(named: lang.lowercased()) {
                 imageView.image = image
                 imageView.show()
                 label.hide()

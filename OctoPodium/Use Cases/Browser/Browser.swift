@@ -10,9 +10,9 @@ import UIKit
 
 class Browser {
     
-    static func openPage(url: String) {
-        let url = NSURL(string: url)
-        UIApplication.sharedApplication().openURL(url!)
+    static func openPage(_ url: String) {
+        let url = URL(string: url)
+        UIApplication.shared.openURL(url!)
     }
     
 }

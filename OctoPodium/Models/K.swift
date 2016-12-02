@@ -12,7 +12,7 @@ struct K {
     
     static let appName = "OctoPodium"
     static let appId = "1077519133"
-    static let appVersion = NSBundle.versionNumber()
+    static let appVersion = Bundle.versionNumber()
     
     static let appOwnerName = "nunogoncalves"
     static let appRepositoryName = "iOS-OctoPodium"
@@ -42,7 +42,7 @@ struct K {
     }
     
     struct Urls {
-        private static let apiBaseUrl = "http://github-awards.com"
+        private static let apiBaseUrl = "http://git-awards.com"
         static let usersBaseUrl = "\(apiBaseUrl)/api/v0/users"
         static let languagesBaseUrl = "\(apiBaseUrl)/api/v0/languages"
         
@@ -82,19 +82,19 @@ struct K {
     }
     
     struct Timeouts {
-        static let request: NSTimeInterval = 5
-        static let resource: NSTimeInterval = 5
+        static let request: TimeInterval = 5
+        static let resource: TimeInterval = 5
     }
     
     struct Analytics {
         static let languagesScreen = "Languages Screen"
         
-        static func rankingScreenFor(language: String?) -> String {
+        static func rankingScreenFor(_ language: String?) -> String {
             return "Ranking Screen for \(language ?? "")"
         }
         
         static let userSearchScreen = "User Search Screen"
-        static func userDetailsScreenFor(user: User?) -> String {
+        static func userDetailsScreenFor(_ user: User?) -> String {
             if let login = user?.login {
                 return "User Details Screen <\(login)>"
             } else {
@@ -118,17 +118,17 @@ struct K {
         
         var all : [Fonts] {
             return [
-                TitilliumWebBlack,
-                TitilliumWebBold,
-                TitilliumWebBoldItalic,
-                TitilliumWebExtraLight,
-                TitilliumWebExtraLightItalic,
-                TitilliumWebItalic,
-                TitilliumWebLight,
-                TitilliumWebLightItalic,
-                TitilliumWebRegular,
-                TitilliumWebSemibold,
-                TitilliumWebSemiBoldItalic,
+                .TitilliumWebBlack,
+                .TitilliumWebBold,
+                .TitilliumWebBoldItalic,
+                .TitilliumWebExtraLight,
+                .TitilliumWebExtraLightItalic,
+                .TitilliumWebItalic,
+                .TitilliumWebLight,
+                .TitilliumWebLightItalic,
+                .TitilliumWebRegular,
+                .TitilliumWebSemibold,
+                .TitilliumWebSemiBoldItalic,
             ]
         }
         
@@ -136,7 +136,7 @@ struct K {
             return all.map { $0.rawValue }
         }
         
-        func fontWith(size: CGFloat) -> UIFont {
+        func fontWith(_ size: CGFloat) -> UIFont {
             return UIFont(name: rawValue, size: size)!
         }
     }

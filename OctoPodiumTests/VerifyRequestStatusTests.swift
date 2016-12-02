@@ -14,7 +14,7 @@ import XCTest
 
 class VerifyRequestStatusTests : QuickSpec {
     
-    class NSURLResponseMock : NSHTTPURLResponse {
+    class NSURLResponseMock : HTTPURLResponse {
         
     }
     
@@ -33,19 +33,19 @@ class VerifyRequestStatusTests : QuickSpec {
                 }
 
                 it("offline expects false") {
-                    let error = NSErrorMock(domain: "", code: NetworkStatus.Offline.rawValue, userInfo: nil)
+                    let error = NSErrorMock(domain: "", code: NetworkStatus.offline.rawValue, userInfo: nil)
                     let verifier = VerifyRequestStatus(response: nil, error: error, responseDictionary: nil)
                     expect(verifier.success()).to(equal(false))
                 }
                 
                 it("Host name not found expects false") {
-                    let error = NSErrorMock(domain: "", code: NetworkStatus.HostNameNotFound.rawValue, userInfo: nil)
+                    let error = NSErrorMock(domain: "", code: NetworkStatus.hostNameNotFound.rawValue, userInfo: nil)
                     let verifier = VerifyRequestStatus(response: nil, error: error, responseDictionary: nil)
                     expect(verifier.success()).to(equal(false))
                 }
                 
                 it("could not connect to server expects false") {
-                    let error = NSErrorMock(domain: "", code: NetworkStatus.CouldNotConnectToServer.rawValue, userInfo: nil)
+                    let error = NSErrorMock(domain: "", code: NetworkStatus.couldNotConnectToServer.rawValue, userInfo: nil)
                     let verifier = VerifyRequestStatus(response: nil, error: error, responseDictionary: nil)
                     expect(verifier.success()).to(equal(false))
                 }
@@ -65,19 +65,19 @@ class VerifyRequestStatusTests : QuickSpec {
             
             context("error statuses") {
                 it("expects an offline status") {
-                    let error = NSErrorMock(domain: "", code: NetworkStatus.Offline.rawValue, userInfo: nil)
+                    let error = NSErrorMock(domain: "", code: NetworkStatus.offline.rawValue, userInfo: nil)
                     let verifier = VerifyRequestStatus(response: nil, error: error, responseDictionary: nil)
                     expect(verifier.status()).to(equal(NetworkStatus.Offline))
                 }
                 
                 it("expects a host name not found status") {
-                    let error = NSErrorMock(domain: "", code: NetworkStatus.HostNameNotFound.rawValue, userInfo: nil)
+                    let error = NSErrorMock(domain: "", code: NetworkStatus.hostNameNotFound.rawValue, userInfo: nil)
                     let verifier = VerifyRequestStatus(response: nil, error: error, responseDictionary: nil)
                     expect(verifier.status()).to(equal(NetworkStatus.HostNameNotFound))
                 }
                 
                 it("expects a could not connect to server status") {
-                    let error = NSErrorMock(domain: "", code: NetworkStatus.CouldNotConnectToServer.rawValue, userInfo: nil)
+                    let error = NSErrorMock(domain: "", code: NetworkStatus.couldNotConnectToServer.rawValue, userInfo: nil)
                     let verifier = VerifyRequestStatus(response: nil, error: error, responseDictionary: nil)
                     expect(verifier.status()).to(equal(NetworkStatus.CouldNotConnectToServer))
                 }

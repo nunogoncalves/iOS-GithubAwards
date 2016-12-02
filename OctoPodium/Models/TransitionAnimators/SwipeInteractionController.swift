@@ -13,41 +13,41 @@ class SwipeInteractionController : UIPercentDrivenInteractiveTransition {
     private var shouldCompleteTransition = false
     private weak var viewController: UIViewController!
     
-    func wireToViewController(viewController: UIViewController!) {
+    func wireToViewController(_ viewController: UIViewController!) {
         self.viewController = viewController
         prepareGestureRecognizerInView(viewController.view)
     }
     
-    private func prepareGestureRecognizerInView(view: UIView) {
+    private func prepareGestureRecognizerInView(_ view: UIView) {
         let gesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handleGesture(_:)))
-        gesture.edges = UIRectEdge.Left
+        gesture.edges = UIRectEdge.left
         view.addGestureRecognizer(gesture)
     }
     
-    func handleGesture(gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
-        let translation = gestureRecognizer.translationInView(gestureRecognizer.view!.superview!)
+    func handleGesture(_ gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
+        let translation = gestureRecognizer.translation(in: gestureRecognizer.view!.superview!)
         var progress = (translation.x / viewController.view.width)
         progress = CGFloat(fminf(fmaxf(Float(progress), 0.0), 1.0))
         switch gestureRecognizer.state {
             
-        case .Began:
+        case .began:
             interactionInProgress = true
-            viewController.navigationController?.popViewControllerAnimated(true)
+            _ = viewController.navigationController?.popViewController(animated: true)
             
-        case .Changed:
+        case .changed:
             shouldCompleteTransition = progress > 0.5
-            updateInteractiveTransition(progress)
+            update(progress)
             
-        case .Cancelled:
+        case .cancelled:
             interactionInProgress = false
-            cancelInteractiveTransition()
+            cancel()
             
-        case .Ended:
+        case .ended:
             interactionInProgress = false
             if !shouldCompleteTransition {
-                cancelInteractiveTransition()
+                cancel()
             } else {
-                finishInteractiveTransition()
+                finish()
             }
             
         default:

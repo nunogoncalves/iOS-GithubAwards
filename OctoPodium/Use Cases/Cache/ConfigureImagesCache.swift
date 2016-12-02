@@ -12,13 +12,13 @@ struct Cache {
     struct Configure {
     
         init() {
-            SDWebImageManager.sharedManager().imageCache.maxCacheAge = 60 * 60 * 24 * 31
-            let URLCache = NSURLCache(
+            SDWebImageManager.shared().imageCache.maxCacheAge = 60 * 60 * 24 * 31
+            let urlCache = URLCache(
                 memoryCapacity: 4 * 1024 * 1024,
                 diskCapacity: 20 * 1024 * 1024,
                 diskPath: nil)
             
-            NSURLCache.setSharedURLCache(URLCache)
+            URLCache.shared = urlCache
         }
         
     }

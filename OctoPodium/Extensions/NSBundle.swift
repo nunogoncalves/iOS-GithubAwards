@@ -6,13 +6,13 @@
 //  Copyright © 2016 Nuno Gonçalves. All rights reserved.
 //
 
-extension NSBundle {
+extension Bundle {
     
     class func versionNumber() -> String {
         return stringFor("CFBundleShortVersionString") ?? ""
     }
  
-    class func stringFor(key: String) -> String? {
-        return NSBundle.mainBundle().objectForInfoDictionaryKey(key) as? String
+    class func stringFor(_ key: String) -> String? {
+        return Bundle.main.object(forInfoDictionaryKey: key) as? String
     }
 }

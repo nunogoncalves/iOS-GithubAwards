@@ -12,7 +12,7 @@ extension UIStoryboard {
         case Main
     }
     
-    convenience init(storyboard: Storyboard, bundle: NSBundle? = nil) {
+    convenience init(storyboard: Storyboard, bundle: Bundle? = nil) {
         self.init(name: storyboard.rawValue)
     }
     
@@ -20,16 +20,16 @@ extension UIStoryboard {
         self.init(name: name, bundle: nil)
     }
     
-    class func storyboard(storyboard: Storyboard, bundle: NSBundle? = nil) -> UIStoryboard {
+    class func storyboard(storyboard: Storyboard, bundle: Bundle? = nil) -> UIStoryboard {
         return UIStoryboard(name: storyboard.rawValue, bundle: bundle)
     }
     
     func controller(controller: UIViewController.Type) -> UIViewController {
-        return viewControllerWith(id: String(controller))
+        return viewControllerWith(id: String(describing: controller))
     }
     
-    func viewControllerWith(id id: String) -> UIViewController {
-        return instantiateViewControllerWithIdentifier(id) as UIViewController
+    func viewControllerWith(id: String) -> UIViewController {
+        return instantiateViewController(withIdentifier: id) as UIViewController
     }
     
 }

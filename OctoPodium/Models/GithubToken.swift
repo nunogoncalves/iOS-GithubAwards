@@ -25,24 +25,25 @@ struct GithubToken {
     }
     
     func get() -> String? {
+        if token != nil { return token }
         return getValueFor(accountKey)
     }
     
-    mutating func saveOrUpdate(authToken: String) -> Bool {
+    mutating func saveOrUpdate(_ authToken: String) -> Bool {
         return saveOrUpdateValueFor(accountKey, value: authToken)
     }
     
-   mutating private func save(authToken: String) -> Bool {
-        return saveValueFor(accountKey, value: authToken)
+   mutating private func save(_ authToken: String) -> Bool {
+    return save(authToken, for: accountKey)
     }
     
-    private mutating func update(authToken: String) -> Bool {
+    private mutating func update(_ authToken: String) -> Bool {
         return updateValueFor(accountKey, value: authToken)
     }
     
     mutating func deleteSessionToken() -> Bool {
         do {
-            try Locksmith.deleteDataForUserAccount(accountKey)
+            try Locksmith.deleteDataForUserAccount(userAccount: accountKey)
             token = nil
             return true
         } catch _ {
@@ -50,23 +51,23 @@ struct GithubToken {
         }
     }
 
-    private func getValueFor(key: String) -> String? {
-        let dictionary = Locksmith.loadDataForUserAccount(key)
+    private func getValueFor(_ key: String) -> String? {
+        let dictionary = Locksmith.loadDataForUserAccount(userAccount: key)
         
         return dictionary?[key] as? String
     }
     
-    private mutating func saveOrUpdateValueFor(key: String, value newValue: String) -> Bool {
+    private mutating func saveOrUpdateValueFor(_ key: String, value newValue: String) -> Bool {
         if let _ = get() {
             return updateValueFor(key, value: newValue)
         } else {
-            return saveValueFor(key, value: newValue)
+            return save(newValue, for: key)
         }
     }
     
-    private mutating func saveValueFor(key: String, value: String) -> Bool {
+    private mutating func save(_ value: String, for key: String) -> Bool {
         do {
-            try Locksmith.saveData([key: value], forUserAccount: accountKey)
+            try Locksmith.saveData(data: [key: value], forUserAccount: accountKey)
             token = value
             return true
         } catch _ {
@@ -74,9 +75,9 @@ struct GithubToken {
         }
     }
     
-    private mutating func updateValueFor(key: String, value: String) -> Bool {
+    private mutating func updateValueFor(_ key: String, value: String) -> Bool {
         do {
-            try Locksmith.updateData([key: value], forUserAccount: accountKey)
+            try Locksmith.updateData(data: [key: value], forUserAccount: accountKey)
             token = value
             return true
         } catch _ {

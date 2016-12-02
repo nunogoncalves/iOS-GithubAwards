@@ -10,13 +10,14 @@ import Foundation
 
 extension String {
     func urlEncoded() -> String {
-        let charSet = NSCharacterSet.URLQueryAllowedCharacterSet()
-        return self.stringByAddingPercentEncodingWithAllowedCharacters(charSet)!
+        let charSet = CharacterSet.urlQueryAllowed
+        return self.addingPercentEncoding(withAllowedCharacters: charSet)!
     }
     
     func base64Encoded() -> String {
-        let data: NSData = self.dataUsingEncoding(NSASCIIStringEncoding)!
-        return data.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
+        let data: Foundation.Data = self.data(using: String.Encoding.ascii)!
+        return data.base64EncodedString(options: Foundation.Data.Base64EncodingOptions.lineLength64Characters)
+//        return data.base64EncodedString(options: .encoding64CharacterLineLength)
     }
 
     func withoutSpaces() -> String {
@@ -24,26 +25,25 @@ extension String {
             .replace("\n", with: "")
     }
     
-    func replace(str: String, with w: String) -> String {
-        return stringByReplacingOccurrencesOfString(str, withString: w)
+    func replace(_ str: String, with w: String) -> String {
+        return replacingOccurrences(of: str, with: w)
     }
     
-    func substringBetween(from: String, and to: String) -> String? {
-        let range = rangeOfString("(?<=\(from))(.*?)(?=\(to))", options: .RegularExpressionSearch)
+    func substringBetween(_ from: String, and to: String) -> String? {
+        let range = self.range(of: "(?<=\(from))(.*?)(?=\(to))", options: .regularExpression)
         guard range != nil else { return nil }
-        return self.substringWithRange(range!)
+        return self.substring(with: range!)
     }
     
-    func substringUntil(until: String) -> String? {
-        let range = rangeOfString(until)
+    func substringUntil(_ until: String) -> String? {
+        let range = self.range(of: until)
         guard range != nil else { return nil }
-        return self.substringToIndex(range!.startIndex)
+        return self.substring(to: range!.lowerBound)
     }
     
-    func substringAfter(after: String) -> String? {
-        let range = rangeOfString(after)?.startIndex.advancedBy(1)
-        guard range != nil else { return nil }
-        return self.substringFromIndex(range!)
+    func substring(after: String) -> String? {
+        guard let r = range(of: after) else { return nil }
+        return substring(with: r.upperBound..<endIndex)
     }
 
     /** Joins two strings with a separator charecter. If at least one of them is nil, the seperator character is not added. */
@@ -51,7 +51,7 @@ extension String {
      /// * join(" | ", "hello", nil) produces "hello"
      /// * join(" | ", nil, "world") produces "world"
      /// * join(" | ", nil, nil) produces ""
-    static func join(separator: String, _ str1: String?, _ str2: String?) -> String {
+    static func join(_ separator: String, _ str1: String?, _ str2: String?) -> String {
         if (str1 != nil && !str1!.isEmpty && str2 != nil && !str2!.isEmpty) {
             return "\(str1!)\(separator)\(str2!)"
         }

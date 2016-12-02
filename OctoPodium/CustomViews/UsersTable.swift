@@ -28,7 +28,7 @@ class UsersTable : PaginaTable, NibReusable {
     }
     
     private func registerCells() {
-        registerReusableCell(UserCell)
-        registerReusableCell(UserTopCell)
+        registerReusableCell(UserCell.self)
+        registerReusableCell(UserTopCell.self)
     }
 }

@@ -14,26 +14,24 @@ protocol Requestable {
     var bodyParams: BodyParams? { get }
 
     func getUrl() -> String
-    func getDataFrom(dictionary: NSDictionary) -> Element
-    func call(success success: Element -> (), failure: ApiResponse -> ())
+    func getDataFrom(_ dictionary: NSDictionary) -> Element
+    func call(success: @escaping (Element) -> (), failure: @escaping (ApiResponse) -> ())
 
 }
 
 extension Requestable {
     
-    func call(success success: Element -> (), failure: ApiResponse -> ()) {
-        let qos = Int(QOS_CLASS_USER_INTERACTIVE.rawValue)
-        dispatch_async(dispatch_get_global_queue(qos, 0)) {
-            
+    public func call(success: @escaping (Element) -> (), failure: @escaping (ApiResponse) -> ()) {
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.userInteractive).async {
             let responseHandler = Data.ResponseHandler()
             responseHandler.failureCallback = { apiResponse in
-                dispatch_async(dispatch_get_main_queue()) {
+                DispatchQueue.main.async {
                     failure(apiResponse)
                 }
             }
             responseHandler.successCallback = { dictionary in
                 let data = self.getDataFrom(dictionary)
-                dispatch_async(dispatch_get_main_queue()) {
+                DispatchQueue.main.async {
                     success(data)
                 }
             }

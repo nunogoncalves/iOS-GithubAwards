@@ -8,8 +8,8 @@
 
 class NotifyError: Notification {
     
-    static func display(message: String? = nil) {
-        Notification.instance.display(message, alertType: .Error)
+    static func display(_ message: String? = nil) {
+        Notification.instance.display(message, alertType: .error)
     }
     
 }

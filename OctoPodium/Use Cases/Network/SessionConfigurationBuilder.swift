@@ -12,19 +12,19 @@ extension Network {
     
     class SessionConfigurationBuilder {
         
-        static private var conf: NSURLSessionConfiguration?
+        static private var conf: URLSessionConfiguration?
         
-        func sessionConfiguration() -> NSURLSessionConfiguration {
+        func sessionConfiguration() -> URLSessionConfiguration {
             var conf = SessionConfigurationBuilder.conf
             if SessionConfigurationBuilder.conf != nil {
                 return SessionConfigurationBuilder.conf!
             }
-            conf = NSURLSessionConfiguration.defaultSessionConfiguration()
+            conf = URLSessionConfiguration.default
             setupTimeouts(conf!)
             return conf!
         }
         
-        private func setupTimeouts(configuration: NSURLSessionConfiguration) {
+        private func setupTimeouts(_ configuration: URLSessionConfiguration) {
             configuration.timeoutIntervalForRequest = kTimeout.request
             configuration.timeoutIntervalForResource = kTimeout.resource
         }

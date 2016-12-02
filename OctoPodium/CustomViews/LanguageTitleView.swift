@@ -34,7 +34,7 @@ class LanguageTitleView: UIView {
     }
     
     private func commonInit() {
-        NSBundle.mainBundle().loadNibNamed("LanguageTitleView", owner: self, options: nil)
+        Bundle.main.loadNibNamed("LanguageTitleView", owner: self, options: nil)
         addSubview(topLevelSubView)
     }
     

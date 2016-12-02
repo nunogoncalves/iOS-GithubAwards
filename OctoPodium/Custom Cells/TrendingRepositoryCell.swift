@@ -15,7 +15,7 @@ class TrendingRepositoryCell: UITableViewCell, NibReusable {
     @IBOutlet weak var languageImageView: UIImageView!
     @IBOutlet weak var languageStarsSinceLabel: UILabel!
     
-    var userClicked: ((userName: String) -> ())?
+    var userClicked: ((_ userName: String) -> ())?
     
     var repositorySince: (repository: Repository, since: String)! {
         didSet {
@@ -25,13 +25,13 @@ class TrendingRepositoryCell: UITableViewCell, NibReusable {
             nameLabel.text = "\(repository.user)/\(repository.name)"
 
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(clickedUser))
-            nameLabel.userInteractionEnabled = true
+            nameLabel.isUserInteractionEnabled = true
             nameLabel.addGestureRecognizer(tapGesture)
 
             descriptionLabel.text = repository.description
             if let language = repository.language {
-                languageStarsSinceLabel.text = "• \(language ?? "") • \(repository.stars) ★ \(since)"
-                if let image = UIImage(named: language.lowercaseString) {
+                languageStarsSinceLabel.text = "• \(language) • \(repository.stars) ★ \(since)"
+                if let image = UIImage(named: language.lowercased()) {
                     languageImageView.image = image
                 } else {
                     languageImageView.image = UIImage(named: "Language")
@@ -44,6 +44,6 @@ class TrendingRepositoryCell: UITableViewCell, NibReusable {
     }
     
     @objc private func clickedUser() {
-        userClicked?(userName: repositorySince.repository.user)
+        userClicked?(repositorySince.repository.user)
     }
 }

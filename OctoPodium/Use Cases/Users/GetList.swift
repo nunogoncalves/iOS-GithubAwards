@@ -19,11 +19,11 @@ extension Users {
         
         func getUrl() -> String {
             var str = "\(kUrls.usersBaseUrl)/?\(searchOptions.urlParams())"
-            str = str.stringByReplacingOccurrencesOfString("+", withString: "%2B")
+            str = str.replacingOccurrences(of: "+", with: "%2B")
             return str
         }
         
-        func getDataFrom(dictionary: NSDictionary) -> UsersListResponse {
+        func getDataFrom(_ dictionary: NSDictionary) -> UsersListResponse {
             let paginator = Paginator(dictionary: dictionary)
             let users = ConvertUsersDictionaryToUsers(data: dictionary).users
             let usersResponse = UsersListResponse(users: users, paginator: paginator)

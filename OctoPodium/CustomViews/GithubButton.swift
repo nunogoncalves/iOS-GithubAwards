@@ -10,6 +10,8 @@ import UIKit
 
 class GithubButton : UIView, NibView {
     
+    var type: String? = "GithubButton"
+    
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var leftView: UIView!
     @IBOutlet weak var rightView: UIView!
@@ -21,7 +23,7 @@ class GithubButton : UIView, NibView {
     
     @IBOutlet weak var loadingView: GithubLoadingView!
     
-    internal let buttonBorderColor = UIColor(hex: 0xD5D5D5).CGColor
+    internal let buttonBorderColor = UIColor(hex: 0xD5D5D5).cgColor
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -45,17 +47,17 @@ class GithubButton : UIView, NibView {
     }
     
     private func setBorder() {
-        for v in [leftView, rightView, rightViewLeft] { v.layer.borderColor = buttonBorderColor }
+        for v in [leftView, rightView, rightViewLeft] { v?.layer.borderColor = buttonBorderColor }
     }
     
     private func applyGradient() {
         let gradient: CAGradientLayer = CAGradientLayer()
         gradient.frame = view.bounds
         gradient.colors = [
-            UIColor(hex: 0xFCFCFC).CGColor,
-            UIColor(hex: 0xEEEEEE).CGColor
+            UIColor(hex: 0xFCFCFC).cgColor,
+            UIColor(hex: 0xEEEEEE).cgColor
         ]
-        leftView.layer.insertSublayer(gradient, atIndex: 0)
+        leftView.layer.insertSublayer(gradient, at: 0)
     }
 
     func startLoading() {
@@ -70,16 +72,16 @@ class GithubButton : UIView, NibView {
         valueLabel.show()
     }
     
-    func setName(name: String) {
+    func setName(_ name: String) {
         nameLabel.text = name
     }
 
-    func setValue(value: String) {
+    func setValue(_ value: String) {
         valueLabel.text = value
         stopLoading()
     }
     
-    func setImage(image: UIImage) {
+    func setImage(_ image: UIImage) {
         imageView.image = image
     }
     

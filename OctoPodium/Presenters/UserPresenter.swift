@@ -43,12 +43,12 @@ class UserPresenter {
         totalTrophies = reposStarsTrophies.trophies
     }
     
-    private static func getReposStarsAndTrophiesFrom(user: User) -> (repos: Int, stars: Int, trophies: Int) {
+    private static func getReposStarsAndTrophiesFrom(_ user: User) -> (repos: Int, stars: Int, trophies: Int) {
         let initialTuple = (repos: 0, stars: 0, trophies: 0)
         
         return user.rankings.reduce(initialTuple) { (tuple, ranking) -> (repos: Int, stars: Int, trophies: Int) in
             let repos = tuple.repos + (ranking.repositories ?? 0)
-            let stars = tuple.stars + (ranking.stars ?? 0)
+            let stars = tuple.stars + (ranking.stars)
             let trophies = tuple.trophies + ranking.trophies
             return (repos: repos, stars: stars, trophies: trophies)
         }
@@ -111,8 +111,8 @@ class UserPresenter {
     }
     
     var fullLocation: String {
-        let city = user.city?.capitalizedString
-        let country = user.country?.capitalizedString
+        let city = user.city?.capitalized
+        let country = user.country?.capitalized
         return String.join(", ", country, city)
     }
     

@@ -16,13 +16,23 @@ class SettingsController : UITableViewController {
     
     @IBOutlet weak var animationsSwitch: UISwitch!
     
+    @IBAction func animationsSwitchToggled(_ animationsSwitch: UISwitch) {
+        if animationsSwitch.isOn {
+            Analytics.SendToGoogle.enabledAnimations()
+            CurrentUser.enableAnimations()
+        } else {
+            Analytics.SendToGoogle.disabledAnimations()
+            CurrentUser.disableAnimations()
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        Analytics.SendToGoogle.enteredScreen(String(SettingsController))
+        Analytics.SendToGoogle.enteredScreen(String(describing: SettingsController.self))
         versionLabel.text = "\(K.appVersion)"
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let user = User.getUserInUserDefaults() {
             userLabel.text = user.login!
@@ -35,19 +45,19 @@ class SettingsController : UITableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
     }
     
-    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-        if indexPath.section == 1 && indexPath.row == 4 {
-            tableView.deselectRowAtIndexPath(indexPath, animated: false)
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if (indexPath as NSIndexPath).section == 1 && (indexPath as NSIndexPath).row == 4 {
+            tableView.deselectRow(at: indexPath, animated: false)
             return nil
         }
         return indexPath
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSelectorBasedOn(indexPath)
     }
     
@@ -60,10 +70,10 @@ class SettingsController : UITableViewController {
         "section2row1" : "developerGithub",
     ]
     
-    func performSelectorBasedOn(indexPath: NSIndexPath) {
-        let key = "section\(indexPath.section)row\(indexPath.row)"
+    func performSelectorBasedOn(_ indexPath: IndexPath) {
+        let key = "section\((indexPath as NSIndexPath).section)row\((indexPath as NSIndexPath).row)"
         if let selector = indexPathSelectors[key] {
-            performSelector(Selector(selector))
+            perform(Selector(selector))
         }
     }
     
@@ -95,14 +105,14 @@ class SettingsController : UITableViewController {
         NotifySuccess.display("OctoPodium starred successfully")
     }
     
-    private func starFailed(apiResponse: ApiResponse) {
+    private func starFailed(_ apiResponse: ApiResponse) {
         NotifyError.display(apiResponse.status.message())
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
         if segue.identifier == kSegues.gotToTrendingDetailsFromSettingsSegue {
-            let vc = segue.destinationViewController as! TrendingRepositoryDetailsController
+            let vc = segue.destination as! TrendingRepositoryDetailsController
             vc.repository = Repository(name: "\(K.appOwnerName)/\(K.appRepositoryName)", stars: "0", description: "", language: "Swift")
         }
     }

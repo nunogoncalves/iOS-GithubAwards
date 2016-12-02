@@ -15,16 +15,16 @@ class AboutController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Analytics.SendToGoogle.enteredScreen(String(AboutController))
+        Analytics.SendToGoogle.enteredScreen(String(describing: type(of: AboutController.self)))
         setAppNameAndYear()
         setAboutText()
         automaticallyAdjustsScrollViewInsets = false
     }
     
     private func setAppNameAndYear() {
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy"
-        appInfoAndYearLabel.text = "\(K.appName) @ \(formatter.stringFromDate(NSDate()))"
+        appInfoAndYearLabel.text = "\(K.appName) @ \(formatter.string(from: Date()))"
     }
     
     private func setAboutText() {

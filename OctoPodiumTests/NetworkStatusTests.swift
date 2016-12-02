@@ -18,31 +18,31 @@ class NetworkStatusTests : QuickSpec {
             context("Raw values") {
                 it("expects propper Network Status") {
                     let ok = NetworkStatus(rawValue: 200)
-                    expect(ok).to(equal(NetworkStatus.Ok))
+                    expect(ok).to(equal(NetworkStatus.ok))
                     
                     let offline = NetworkStatus(rawValue: -1009)
-                    expect(offline).to(equal(NetworkStatus.Offline))
+                    expect(offline).to(equal(NetworkStatus.offline))
                     
                     let hostNameNotFound = NetworkStatus(rawValue: -1003)
-                    expect(hostNameNotFound).to(equal(NetworkStatus.HostNameNotFound))
+                    expect(hostNameNotFound).to(equal(NetworkStatus.hostNameNotFound))
                     
                     let couldNotConnectToServer = NetworkStatus(rawValue: -1004)
-                    expect(couldNotConnectToServer).to(equal(NetworkStatus.CouldNotConnectToServer))
+                    expect(couldNotConnectToServer).to(equal(NetworkStatus.couldNotConnectToServer))
                     
                     let notFound = NetworkStatus(rawValue: 404)
-                    expect(notFound).to(equal(NetworkStatus.NotFound))
+                    expect(notFound).to(equal(NetworkStatus.notFound))
                     
                     let serverErrork = NetworkStatus(rawValue: 500)
-                    expect(serverErrork).to(equal(NetworkStatus.ServerError))
+                    expect(serverErrork).to(equal(NetworkStatus.serverError))
                     
                     let genericError = NetworkStatus(rawValue: -1)
-                    expect(genericError).to(equal(NetworkStatus.GenericError))
+                    expect(genericError).to(equal(NetworkStatus.genericError))
                 }
             }
             
             context("No technical status") {
                 it("GenericError") {
-                    let notFound = NetworkStatus.NotFound
+                    let notFound = NetworkStatus.notFound
                     expect(notFound.isTechnicalError()).to(equal(false))
                 }
            }

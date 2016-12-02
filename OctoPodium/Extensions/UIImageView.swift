@@ -11,9 +11,9 @@ import SDWebImage
 
 extension UIImageView {
     
-    func fetchAndLoad(url: String, onFinished: () -> () = {}) {
-        let url = NSURL(string: url)!
-        sd_setImageWithURL(url) { (_, _, _, _) in
+    func fetchAndLoad(_ url: String, onFinished: @escaping () -> () = {}) {
+        let url = URL(string: url)!
+        sd_setImage(with: url) { (_, _, _, _) in
             onFinished()
         }
     }

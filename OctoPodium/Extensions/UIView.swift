@@ -10,11 +10,11 @@ import UIKit
 
 extension UIView {
     func show() {
-        hidden = false
+        isHidden = false
     }
     
     func hide() {
-        hidden = true
+        isHidden = true
     }
 
     var width: CGFloat { get { return frame.width } }
@@ -35,12 +35,12 @@ extension UIView {
     @IBInspectable var borderColor: UIColor? {
         get {
             if let color = layer.borderColor {
-                return UIColor(CGColor: color)
+                return UIColor(cgColor: color)
             }
             return nil
         }
         set(newValue) {
-            layer.borderColor = newValue?.CGColor
+            layer.borderColor = newValue?.cgColor
         }
     }
     
@@ -60,28 +60,28 @@ extension UIView {
         }
     }
     
-    func applyGradient(colors: [UIColor]) {
+    func applyGradient(_ colors: [UIColor]) {
         let gradient: CAGradientLayer = CAGradientLayer()
         setNeedsLayout()
         layoutIfNeeded()
-        gradient.frame = frame
-        gradient.colors = colors.map { $0.CGColor }
+        gradient.frame = bounds
+        gradient.colors = colors.map { $0.cgColor }
         layer.addSublayer(gradient)
     }
     
-    func animateInPath(path: UIBezierPath, withDuration duration: NSTimeInterval, onFinished: (() -> ())? = {}) {
+    func animateInPath(_ path: UIBezierPath, withDuration duration: TimeInterval, onFinished: (() -> ())? = {}) {
         let anim = CAKeyframeAnimation(keyPath: "position")
         anim.rotationMode = kCAAnimationPaced
         anim.fillMode = kCAFillModeForwards
-        anim.removedOnCompletion = false
+        anim.isRemovedOnCompletion = false
         anim.duration = duration
         
-        anim.path = path.CGPath
+        anim.path = path.cgPath
         
         CATransaction.begin()
         CATransaction.setCompletionBlock {
             onFinished?()
         }
-        layer.addAnimation(anim, forKey: "pathAnim")
+        layer.add(anim, forKey: "pathAnim")
     }
 }

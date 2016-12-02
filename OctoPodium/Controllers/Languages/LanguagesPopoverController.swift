@@ -9,7 +9,7 @@
 import UIKit
 
 protocol LanguageSelectedProtocol: class {
-    func didSelectLanguage(language: Language)
+    func didSelectLanguage(_ language: Language)
     func noLanguagesAvailable()
 }
 
@@ -19,7 +19,7 @@ class LanguagesPopoverController: UIViewController {
     
     weak var languageSelectorDelegate: LanguageSelectedProtocol?
 
-    private var languages = [Language]()
+    fileprivate var languages = [Language]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +27,12 @@ class LanguagesPopoverController: UIViewController {
         languagesTable.dataSource = self
         languagesTable.delegate = self
         
-        languagesTable.registerReusableCell(LanguageCell)
+        languagesTable.registerReusableCell(LanguageCell.self)
         
         getLanguages()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if languages.count == 0 {
             getLanguages()
@@ -43,7 +43,7 @@ class LanguagesPopoverController: UIViewController {
         Languages.Get().getAll(
             success: { [weak self] languages in
                 self?.languages = languages
-                self?.languages.insert("All Languages", atIndex: 0)
+                self?.languages.insert("All Languages", at: 0)
                 self?.languagesTable.reloadData()
             },
             failure: { [weak self] _ in
@@ -58,11 +58,11 @@ class LanguagesPopoverController: UIViewController {
 
 extension LanguagesPopoverController : UITableViewDataSource {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return languages.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCellFor(indexPath) as LanguageCell
         
@@ -73,7 +73,7 @@ extension LanguagesPopoverController : UITableViewDataSource {
 }
 
 extension LanguagesPopoverController : UITableViewDelegate {
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        languageSelectorDelegate?.didSelectLanguage(languages[indexPath.row])
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        languageSelectorDelegate?.didSelectLanguage(languages[(indexPath as NSIndexPath).row])
     }
 }

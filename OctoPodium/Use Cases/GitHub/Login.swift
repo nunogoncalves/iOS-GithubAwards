@@ -30,7 +30,7 @@ extension GitHub {
             buildHeaders()
         }
         
-        func login(success: String -> (), failure: ApiResponse -> ()) {
+        func login(_ success: @escaping (String) -> (), failure: @escaping (ApiResponse) -> ()) {
             call(success: success, failure: failure)
         }
         
@@ -48,7 +48,7 @@ extension GitHub {
         func getUrl() -> String {
             return kUrls.githubLoginUrl
         }
-        func getDataFrom(dictionary: NSDictionary) -> String {
+        func getDataFrom(_ dictionary: NSDictionary) -> String {
             return dictionary["token"] as! String
         }
 

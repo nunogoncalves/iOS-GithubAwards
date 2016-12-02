@@ -12,8 +12,8 @@ enum LocationType: String {
     case City = "city"
     case Country = "country"
     
-    static func getTypeFor(rawValue: String) -> LocationType {
-        switch rawValue.lowercaseString {
+    static func getTypeFor(_ rawValue: String) -> LocationType {
+        switch rawValue.lowercased() {
         case "city": return .City
         case "country": return .Country
         default: return .World

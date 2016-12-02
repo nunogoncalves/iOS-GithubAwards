@@ -10,9 +10,9 @@ import UIKit
 
 class UserDetailsPresentAnimator : NSObject, UIViewControllerAnimatedTransitioning {
     
-    private let duration: NSTimeInterval = 0.5
+    private let duration: TimeInterval = 0.5
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration
     }
     
@@ -20,15 +20,15 @@ class UserDetailsPresentAnimator : NSObject, UIViewControllerAnimatedTransitioni
     private var toVC: UserDetailsController!
     private var movingImageView: UIView!
     
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        let containerView = transitionContext.containerView()!
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        let containerView = transitionContext.containerView
         fromVC = transitionContext.fromC
         toVC = transitionContext.toC
-        toVC.view.frame = CGRectOffset(toVC.view.frame, 0, 64)
+        toVC.view.frame = toVC.view.frame.offsetBy(dx: 0, dy: 64)
         let width = fromVC.view.bounds.size.width
-        toVC.view.transform = CGAffineTransformMakeTranslation(width, 0.0)
+        toVC.view.transform = CGAffineTransform(translationX: width, y: 0.0)
 
-        let bigAvatarFrame = toVC.avatarImageView.convertRect(toVC.avatarImageView.bounds, toView: toVC.view)
+        let bigAvatarFrame = toVC.avatarImageView.convert(toVC.avatarImageView.bounds, to: toVC.view)
         toVC.avatarImageView.hide()
         
         containerView.insertSubview(toVC.view, belowSubview: fromVC.view)
@@ -38,14 +38,14 @@ class UserDetailsPresentAnimator : NSObject, UIViewControllerAnimatedTransitioni
         
         animatePathUntil(bigAvatarFrame)
         
-        UIView.animateKeyframesWithDuration(
-            duration,
+        UIView.animateKeyframes(
+            withDuration: duration,
             delay: 0,
-            options: .CalculationModeCubic,
+            options: .calculationModeCubic,
             animations: {
-                UIView.addKeyframeWithRelativeStartTime(0.0, relativeDuration: self.duration, animations: {
-                    self.fromVC.view.transform = CGAffineTransformMakeTranslation(-width, 0.0)
-                    self.toVC.view.transform = CGAffineTransformIdentity
+                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: self.duration, animations: {
+                    self.fromVC.view.transform = CGAffineTransform(translationX: -width, y: 0.0)
+                    self.toVC.view.transform = CGAffineTransform.identity
                     self.movingImageView.transform = self.getUserImageScale()
                 })
             },
@@ -53,8 +53,8 @@ class UserDetailsPresentAnimator : NSObject, UIViewControllerAnimatedTransitioni
                 self.movingImageView.hide()
                 self.toVC.avatarImageView.show()
                 (self.fromVC.selectedCell() as! CellWithAvatar).avatar.show()
-                self.fromVC.view.transform = CGAffineTransformIdentity
-                transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
+                self.fromVC.view.transform = CGAffineTransform.identity
+                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
     }
     
@@ -63,8 +63,8 @@ class UserDetailsPresentAnimator : NSObject, UIViewControllerAnimatedTransitioni
         var movingImageView: UIView!
         let cell = fromVC.selectedCell() as! CellWithAvatar
         cell.avatar.hide()
-        movingImageView = cell.avatar.snapshotViewAfterScreenUpdates(false)
-        movingImageView.frame = cell.avatar.convertRect(cell.avatar.bounds, toView: fromVC.view)
+        movingImageView = cell.avatar.snapshotView(afterScreenUpdates: false)
+        movingImageView.frame = cell.avatar.convert(cell.avatar.bounds, to: fromVC.view)
         
         movingImageView.cornerRadius = cell.avatar.cornerRadius
         
@@ -72,30 +72,30 @@ class UserDetailsPresentAnimator : NSObject, UIViewControllerAnimatedTransitioni
         return movingImageView
     }
     
-    private func animatePathUntil(destinationFrame: CGRect) {
+    private func animatePathUntil(_ destinationFrame: CGRect) {
         let path = UIBezierPath()
-        path.moveToPoint(movingImageView.center)
-        let controlPoint = CGPoint(x: CGRectGetMidX(destinationFrame), y: movingImageView.center.y)
-        let cellDestinationPoint = CGPoint(x: CGRectGetMidX(destinationFrame), y: CGRectGetMidY(destinationFrame) + 64)
-        path.addQuadCurveToPoint(cellDestinationPoint, controlPoint: controlPoint)
+        path.move(to: movingImageView.center)
+        let controlPoint = CGPoint(x: destinationFrame.midX, y: movingImageView.center.y)
+        let cellDestinationPoint = CGPoint(x: destinationFrame.midX, y: destinationFrame.midY + 64)
+        path.addQuadCurve(to: cellDestinationPoint, controlPoint: controlPoint)
         movingImageView.animateInPath(path, withDuration: duration)
     }
     
     private func getUserImageScale() -> CGAffineTransform {
         let imageScaleX = toVC.avatarImageView.width / movingImageView.width
         let imageScaleY = toVC.avatarImageView.height / movingImageView.height
-        return CGAffineTransformMakeScale(imageScaleX, imageScaleY)
+        return CGAffineTransform(scaleX: imageScaleX, y: imageScaleY)
     }
     
 }
 
 private extension UIViewControllerContextTransitioning {
     var fromC : LanguageRankingsController {
-        return viewControllerForKey(UITransitionContextFromViewControllerKey) as! LanguageRankingsController
+        return viewController(forKey: UITransitionContextViewControllerKey.from) as! LanguageRankingsController
     }
 
     var toC : UserDetailsController {
-        return viewControllerForKey(UITransitionContextToViewControllerKey) as! UserDetailsController
+        return viewController(forKey: UITransitionContextViewControllerKey.to) as! UserDetailsController
     }
 
 }

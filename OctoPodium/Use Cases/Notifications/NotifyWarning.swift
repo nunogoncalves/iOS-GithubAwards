@@ -8,8 +8,8 @@
 
 class NotifyWarning: Notification {
     
-    static func display(message: String? = nil) {
-        Notification.instance.display(message, alertType: .Warning)
+    static func display(_ message: String? = nil) {
+        Notification.instance.display(message, alertType: .warning)
     }
     
 }

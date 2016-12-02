@@ -10,25 +10,25 @@ import UIKit
 
 class LanguageImage : UIImage {
 
-    class func loadFor(language: String) -> UIImage {
-        if let image = UIImage(named: language.lowercaseString) {
+    class func loadFor(_ language: String) -> UIImage {
+        if let image = UIImage(named: language.lowercased()) {
             return image
         } else {
             return UIImage(named: "Language")!
         }
     }
     
-    class func loadForOr(language: String, orLanguageImageView languageImageView: LanguageImageView) -> UIImage {
+    class func loadForOr(_ language: String, orLanguageImageView languageImageView: LanguageImageView) -> UIImage {
         if language == "" { return UIImage(named: "Language")! }
         
-        if let image = UIImage(named: language.lowercaseString) {
+        if let image = UIImage(named: language.lowercased()) {
             return image
         } else {
             UIGraphicsBeginImageContextWithOptions(languageImageView.bounds.size, false, 0.0)
-            languageImageView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+            languageImageView.layer.render(in: UIGraphicsGetCurrentContext()!)
             let image = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
-            return image
+            return image!
         }
     }
     

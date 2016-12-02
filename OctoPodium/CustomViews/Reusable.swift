@@ -17,25 +17,25 @@ public protocol NibReusable: Reusable {
 public extension Reusable {
     
     static var reuseIdentifier: String {
-        return String(Self)
+        return String(describing: self)
     }
     
 }
 public extension NibReusable {
     
     static var nib: UINib {
-        return UINib(nibName: String(Self))
+        return UINib(nibName: String(describing: self))
     }
 
 }
 
 public extension UITableView {
     
-    func registerReusableCell<T: UITableViewCell where T: NibReusable>(cellType: T.Type) {
-        registerNib(T.nib, forCellReuseIdentifier: T.reuseIdentifier)
+    func registerReusableCell<T: UITableViewCell>(_ cellType: T.Type) where T: NibReusable {
+        register(T.nib, forCellReuseIdentifier: T.reuseIdentifier)
     }
     
-    func dequeueReusableCellFor<T: UITableViewCell where T: Reusable>(indexPath: NSIndexPath) -> T {
-        return dequeueReusableCellWithIdentifier(T.reuseIdentifier, forIndexPath: indexPath) as! T
+    func dequeueReusableCellFor<T: UITableViewCell>(_ indexPath: IndexPath) -> T where T: Reusable {
+        return dequeueReusableCell(withIdentifier: T.reuseIdentifier, for: indexPath) as! T
     }
 }

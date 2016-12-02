@@ -9,8 +9,8 @@
 import UIKit
 
 protocol LocationDelegate: class {
-    func clickedCity(city: String, forLanguage language: String)
-    func clickedCountry(country: String, forLanguage language: String)
+    func clickedCity(_ city: String, forLanguage language: String)
+    func clickedCountry(_ country: String, forLanguage language: String)
     func clickedWorld(forLanguage language: String)
 }
 
@@ -46,21 +46,21 @@ class RankingCell: UITableViewCell, NibReusable {
     weak var locationDelegate: LocationDelegate?
     
     @IBAction func cityClicked() {
-        if let city = rankingPresenter?.city where city.characters.count != 0,
-            let language = rankingPresenter?.language where language.characters.count != 0 {
+        if let city = rankingPresenter?.city , city.characters.count != 0,
+            let language = rankingPresenter?.language , language.characters.count != 0 {
             locationDelegate?.clickedCity(city, forLanguage: language)
         }
     }
     
     @IBAction func countryClicked() {
-        if let country = rankingPresenter?.country where country.characters.count != 0,
-            let language = rankingPresenter?.language where language.characters.count != 0 {
+        if let country = rankingPresenter?.country , country.characters.count != 0,
+            let language = rankingPresenter?.language , language.characters.count != 0 {
             locationDelegate?.clickedCountry(country, forLanguage: language)
         }
     }
     
     @IBAction func worldClicked() {
-        if let language = rankingPresenter?.language where language.characters.count != 0 {
+        if let language = rankingPresenter?.language , language.characters.count != 0 {
             locationDelegate?.clickedWorld(forLanguage: language)
         }
     }
@@ -105,19 +105,19 @@ class RankingCell: UITableViewCell, NibReusable {
             for i in (0...howMany - 1) {
                 if rankingPresenter.hasGoldMedal() && !goldAlready {
                     goldAlready = true
-                    medals[i].image = UIImage(named: "GoldMedal")
-                    medals[i].show()
+                    medals[i]?.image = UIImage(named: "GoldMedal")
+                    medals[i]?.show()
                     continue
                 }
                 if rankingPresenter.hasSilverMedal() && !siverAlready {
                     siverAlready = true
-                    medals[i].image = UIImage(named: "SilverMedal")
-                    medals[i].show()
+                    medals[i]?.image = UIImage(named: "SilverMedal")
+                    medals[i]?.show()
                     continue
                 }
                 if rankingPresenter.hasBronzeMedal() {
-                    medals[i].image = UIImage(named: "BronzeMedal")
-                    medals[i].show()
+                    medals[i]?.image = UIImage(named: "BronzeMedal")
+                    medals[i]?.show()
                     continue
                 }
             }
@@ -136,13 +136,13 @@ class RankingCell: UITableViewCell, NibReusable {
         paintHeader(rankingPresenter)
     }
 
-    private func fillLangReposAndStars(rankingPresenter: RankingPresenter) {
+    private func fillLangReposAndStars(_ rankingPresenter: RankingPresenter) {
         languageLabel.text = "\(rankingPresenter.language) >"
         reposLabel.text = rankingPresenter.repositories
         starsLabel.text = rankingPresenter.stars
     }
     
-    private func fillCityLabels(rankingPresenter: RankingPresenter) {
+    private func fillCityLabels(_ rankingPresenter: RankingPresenter) {
         cityNameLabel.text = rankingPresenter.city
         if rankingPresenter.city == "" {
             cityNameLabel.text =  "city"
@@ -152,18 +152,18 @@ class RankingCell: UITableViewCell, NibReusable {
         cityTotalLabel.text = "/\(rankingPresenter.cityTotal)"
     }
     
-    private func fillCountryLabels(rankingPresenter: RankingPresenter) {
+    private func fillCountryLabels(_ rankingPresenter: RankingPresenter) {
         countryNameLabel.text = rankingPresenter.country
         countryRankingLabel.text = "\(rankingPresenter.countryRanking)"
         countryTotalLabel.text = "/\(rankingPresenter.countryTotal)"
     }
     
-    private func fillWorldLabels(rankingPresenter: RankingPresenter) {
+    private func fillWorldLabels(_ rankingPresenter: RankingPresenter) {
         worldRankingLabel.text = "\(rankingPresenter.worldRanking)"
         worldTotalLabel.text = "/\(rankingPresenter.worldTotal)"
     }
 
-    private func paintHeader(rankingPresenter: RankingPresenter) {
+    private func paintHeader(_ rankingPresenter: RankingPresenter) {
         header.backgroundColor = UIColor(hex: rankingPresenter.headerColorHex())
         let textColor = rankingPresenter.textColor()
         starsImageView.image = UIImage(named: rankingPresenter.starImage())

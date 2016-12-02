@@ -26,16 +26,16 @@ extension GitHub {
             return kUrls.githubStarredRepoUrl(repoOwner, repoName)
         }
         
-        func getDataFrom(dictionary: NSDictionary) -> Bool {
+        func getDataFrom(_ dictionary: NSDictionary) -> Bool {
             return true
         }
         
-        func checkIfIsStar(success success: Bool -> (), failure: ApiResponse -> ()) {
+        func checkIfIsStar(success: @escaping (Bool) -> (), failure: @escaping (ApiResponse) -> ()) {
             call(success: { starred -> () in
                     success(starred)
                  },
                  failure: { apiResponse in
-                    if apiResponse.status == .NotFound {
+                    if apiResponse.status == .notFound {
                         success(false)
                     } else {
                         failure(apiResponse)

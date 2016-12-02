@@ -26,20 +26,20 @@ class LanguageUsersTableDataSource : NSObject, TableViewDataSource {
         userSearcher = Users.GetList(searchOptions: searchOptions)
     }
     
-    func dataForIndexPath(indexPath: NSIndexPath) -> AnyObject {
-        return book.data[indexPath.row]
+    func dataForIndexPath(_ indexPath: IndexPath) -> AnyObject {
+        return book.data[(indexPath as NSIndexPath).row]
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return book.data.count
     }
     
-    func cellIdentifierForIndex(indexPath: NSIndexPath) -> String {
-        return indexPath.row < 3 ? String(UserTopCell) : String(UserCell)
+    func cellIdentifierForIndex(_ indexPath: IndexPath) -> String {
+        return (indexPath as NSIndexPath).row < 3 ? String(describing: type(of: UserTopCell.self)) : String(describing: type(of: UserCell.self))
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if indexPath.row < 3 {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if (indexPath as NSIndexPath).row < 3 {
             let cell = tableView.dequeueReusableCellFor(indexPath) as UserTopCell
             let user = dataForIndexPath(indexPath) as! User
             cell.userPresenter = UserPresenter(user: user, ranking: indexPath.row + 1)
@@ -52,7 +52,7 @@ class LanguageUsersTableDataSource : NSObject, TableViewDataSource {
         }
     }
     
-    func searchUsers(reset: Bool = false) {
+    func searchUsers(_ reset: Bool = false) {
         if isSearching { return }
 
         if reset {
@@ -76,7 +76,7 @@ class LanguageUsersTableDataSource : NSObject, TableViewDataSource {
         userSearcher.call(success: usersSuccess, failure: failure)
     }
     
-    func usersSuccess(usersResponse: UsersListResponse) {
+    func usersSuccess(_ usersResponse: UsersListResponse) {
         book.paginator = usersResponse.paginator
         isSearching = false
         latestUserResponse = usersResponse
@@ -88,7 +88,7 @@ class LanguageUsersTableDataSource : NSObject, TableViewDataSource {
         tableStateListener?.newDataArrived(usersResponse.paginator)
     }
     
-    func failure(apiResponse: ApiResponse) {
+    func failure(_ apiResponse: ApiResponse) {
         tableStateListener?.failedToGetData(apiResponse.status)
     }
     

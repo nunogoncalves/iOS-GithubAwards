@@ -11,7 +11,7 @@ import UIKit
 class PaginaTable: UITableView {
 
     var loadingView: GithubLoadingView!
-    var refreshControl: UIRefreshControl!
+    var refreshController: UIRefreshControl!
    
     lazy var frameHeight: CGFloat! = {
         return self.frame.size.height
@@ -26,36 +26,36 @@ class PaginaTable: UITableView {
     }
     
     func showFooter() {
-        tableFooterView?.hidden = false
+        tableFooterView?.isHidden = false
     }
     
     func hideFooter() {
-        tableFooterView?.hidden = true
+        tableFooterView?.isHidden = true
     }
     
-    func addRefreshController(refreshActionTarget: AnyObject, action: Selector) {
-        refreshControl = UIRefreshControl()
-        refreshControl!.backgroundColor = UIColor.clearColor()
-        refreshControl!.tintColor = UIColor.clearColor()
+    func addRefreshController(_ refreshActionTarget: AnyObject, action: Selector) {
+        refreshController = UIRefreshControl()
+        refreshController!.backgroundColor = UIColor.clear
+        refreshController!.tintColor = UIColor.clear
         
-        refreshControl!.addTarget(refreshActionTarget, action: action, forControlEvents:.ValueChanged)
+        refreshController!.addTarget(refreshActionTarget, action: action, for:.valueChanged)
         
         addLoadingViewToRefreshControl()
         addRefreshControl()
     }
     
     private func addLoadingViewToRefreshControl() {
-        loadingView = GithubLoadingView(frame: refreshControl.bounds)
-        refreshControl.addSubview(loadingView.view)
+        loadingView = GithubLoadingView(frame: refreshController.bounds)
+        refreshController.addSubview(loadingView.view)
     }
     
     private func addRefreshControl() {
-        addSubview(refreshControl)
+        addSubview(refreshController)
         layoutIfNeeded()
     }
     
     func updateRefreshControl() {
-        if refreshControl.refreshing {
+        if refreshController.isRefreshing {
             loadingView.setLoading()
         } else {
             let y = contentOffset.y
@@ -65,11 +65,11 @@ class PaginaTable: UITableView {
     }
     
     func isRefreshing() -> Bool {
-        return refreshControl.refreshing
+        return refreshController.isRefreshing
     }
     
     func stopLoadingIndicator() {
-        refreshControl.endRefreshing()
+        refreshController.endRefreshing()
     }
     
 }

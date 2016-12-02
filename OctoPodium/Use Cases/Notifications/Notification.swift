@@ -8,8 +8,8 @@
 
 class Notification : NSObject {
     
-    let errorDuration: NSTimeInterval = 0.75
-    let window = UIApplication.sharedApplication().keyWindow!
+    let errorDuration: TimeInterval = 0.75
+    let window = UIApplication.shared.keyWindow!
  
     static let instance = Notification()
     
@@ -17,7 +17,7 @@ class Notification : NSObject {
     
     var isDisplaying = false
     
-    func display(message: String? = nil, alertType: AlertType) {
+    func display(_ message: String? = nil, alertType: AlertType) {
         if isDisplaying {
             return
         }
@@ -36,26 +36,26 @@ class Notification : NSObject {
         window.addSubview(alertView)
         let windowWidth = window.frame.width
         
-        UIView.animateWithDuration(0.5,
-                                   delay: 0,
-                                   usingSpringWithDamping: 0.4,
-                                   initialSpringVelocity: 1,
-                                   options: [],
-                                   animations: {
-                                    alertView.frame = CGRect(x: 0, y: -20, width: windowWidth, height: 84)
-                                   }, completion: { _ in
-                                     self.performSelector(#selector(self.dismiss(_:)), withObject: alertView, afterDelay: 1.25)
-                                   }
+        UIView.animate(withDuration: 0.5,
+                           delay: 0,
+                           usingSpringWithDamping: 0.4,
+                           initialSpringVelocity: 1,
+                           options: [],
+                           animations: {
+                             alertView.frame = CGRect(x: 0, y: -20, width: windowWidth, height: 84)
+                           }, completion: { _ in
+                                self.perform(#selector(self.dismiss(_:)), with: alertView, afterDelay: 1.25)
+                           }
         )
     }
     
-    @objc private func onTap(tapGesture: UITapGestureRecognizer) {
+    @objc private func onTap(_ tapGesture: UITapGestureRecognizer) {
         dismiss(tapGesture.view!)
     }
     
-    func dismiss(view: UIView) {
-        UIView.animateWithDuration(0.3, animations: {
-            view.frame = CGRectOffset(view.frame, 0, -128)
+    func dismiss(_ view: UIView) {
+        UIView.animate(withDuration: 0.3, animations: {
+            view.frame = view.frame.offsetBy(dx: 0, dy: -128)
             }, completion: { [weak self] _ in
                 view.removeFromSuperview()
                 self?.isDisplaying = false

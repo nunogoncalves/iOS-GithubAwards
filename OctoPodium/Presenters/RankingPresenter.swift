@@ -17,7 +17,7 @@ class RankingPresenter {
     var userLogin: String { get { return ranking.user!.login! } }
     var language: String { get { return ranking.language ?? "" } }
 
-    var city: String { get { return ranking.city?.capitalizedString ?? "" } }
+    var city: String { get { return ranking.city?.capitalized ?? "" } }
     var cityRanking: Int { get { return ranking.cityRanking ?? 0 } }
     var cityTotal: Int { get { return ranking.cityTotal ?? 0 } }
     var rankingOverViewForCity: String {
@@ -26,7 +26,7 @@ class RankingPresenter {
         }
     }
 
-    var country: String { get { return ranking.country?.capitalizedString ?? "" } }
+    var country: String { get { return ranking.country?.capitalized ?? "" } }
     var countryRanking: Int { get { return ranking.countryRanking ?? 0 } }
     var countryTotal: Int { get { return ranking.countryTotal ?? 0 } }
     var rankingOverViewForCountry: String {
@@ -50,7 +50,7 @@ class RankingPresenter {
         4: "Trophy"
     ]
     
-    private func rankingOverviewFor(rank: Int, locationTotal: Int) -> String {
+    private func rankingOverviewFor(_ rank: Int, locationTotal: Int) -> String {
         if rank > 0 && locationTotal > 0 {
             return "\(rank)/\(locationTotal)"
         } else {
@@ -62,7 +62,7 @@ class RankingPresenter {
     var countryRankingImage: String { get { return getThrofyFor(countryRanking) } }
     var worldRankingImage: String { get { return getThrofyFor(worldRanking) } }
     
-    private func getThrofyFor(ranking: Int) -> String {
+    private func getThrofyFor(_ ranking: Int) -> String {
         var rank = ranking
         if (rank < 1 || rank > 3) { rank = 4 }
         return throphies[rank]!
@@ -71,7 +71,7 @@ class RankingPresenter {
     var repositories: String { get { return "\(repos)" } }
     private var repos: Int { get { return ranking.repositories ?? 0 } }
     var stars: String { get { return "\(starsInt)" } }
-    private var starsInt: Int { get { return ranking.stars ?? 0 } }
+    private var starsInt: Int { get { return ranking.stars } }
     
     func hasMedals() -> Bool {
         let rankings = [worldRanking, countryRanking, cityRanking]

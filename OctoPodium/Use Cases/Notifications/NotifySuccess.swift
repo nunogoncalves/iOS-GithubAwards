@@ -8,8 +8,8 @@
 
 class NotifySuccess: Notification {
     
-    static func display(message: String? = nil) {
-        Notification.instance.display(message, alertType: .Success)
+    static func display(_ message: String? = nil) {
+        Notification.instance.display(message, alertType: .success)
     }
     
 }

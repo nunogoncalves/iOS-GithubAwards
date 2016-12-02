@@ -24,7 +24,7 @@ class UsersController : UIViewController {
     
     var navigationControl: UINavigationController?
     
-    var selectedIndexPath: NSIndexPath?
+    var selectedIndexPath: IndexPath?
     
     var swipeInteractionController = SwipeInteractionController()
     
@@ -54,23 +54,28 @@ class UsersController : UIViewController {
     }
     
     func selectedCell() -> UITableViewCell {
-        return usersTable.cellForRowAtIndexPath(selectedIndexPath!)!
+        return usersTable.cellForRow(at: selectedIndexPath!)!
     }
     
-    func search(locationName: String? = "") {
+    func search(_ locationName: String? = "") {
         setNewSearchingState()
         self.locationName = locationName!
         searchUsers(true)
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let selectedIndex = usersTable.indexPathForSelectedRow
-        
+
         if (segue.identifier == kSegues.userDetailsSegue && selectedIndex != nil) {
-            usersTable.deselectRowAtIndexPath(selectedIndex!, animated: true)
-            let destVC = segue.destinationViewController as! UserDetailsController
+            usersTable.deselectRow(at: selectedIndex!, animated: true)
+            let destVC = segue.destination as! UserDetailsController
             let user = usersTableDataSource.dataForIndexPath(selectedIndex!) as? User
             destVC.userPresenter = UserPresenter(user: user!)
+
+            if CurrentUser.hasAnimationsEnabled {
+                swipeInteractionController.wireToViewController(destVC)
+                navigationController?.delegate = self
+            }
         }
     }
     
@@ -78,7 +83,7 @@ class UsersController : UIViewController {
         searchUsers(true)
     }
     
-    func searchUsers(reset: Bool = false) {
+    func searchUsers(_ reset: Bool = false) {
         if reset {
             usersTable.hide()
         }
@@ -102,18 +107,18 @@ class UsersController : UIViewController {
         usersTable.updateRefreshControl()
     }
     
-    func sendUserPaginatedToAnalytics(page: String) {
+    func sendUserPaginatedToAnalytics(_ page: String) {
         //To be overriden
     }
 }
 
 extension UsersController : UITableViewDelegate {
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return indexPath.row < 3 ? 60 : 44
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return (indexPath as NSIndexPath).row < 3 ? 60 : 44
     }
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        if let lastItemRow = usersTable.indexPathsForVisibleRows?.last?.row {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if let lastItemRow = (usersTable.indexPathsForVisibleRows?.last as NSIndexPath?)?.row {
             let total = usersTableDataSource.getTotalCount()
             paginationLabel.text = "\(lastItemRow + 1)/\(total)"
         }
@@ -138,19 +143,19 @@ extension UsersController : UITableViewDelegate {
         searchUsers(false)
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndexPath = indexPath
 
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! CellWithAvatar
+        let cell = tableView.cellForRow(at: indexPath) as! CellWithAvatar
         imageViewForSelectedIndexPath = cell.avatar
         
-        performSegueWithIdentifier(kSegues.userDetailsSegue, sender: self)
+        performSegue(withIdentifier: kSegues.userDetailsSegue, sender: self)
     }
     
 }
 
 extension UsersController : TableStateListener {
-    func newDataArrived(paginator: Paginator) {
+    func newDataArrived(_ paginator: Paginator) {
         paginator.isLastPage() ? usersTable.hideFooter() : usersTable.showFooter()
         if paginator.isFirstPage() {
             paginationLabel.text = "1/\(paginator.totalCount)"
@@ -172,7 +177,7 @@ extension UsersController : TableStateListener {
 //        stopLoadingIndicator()
     }
     
-    func failedToGetData(status: NetworkStatus) {
+    func failedToGetData(_ status: NetworkStatus) {
 //        stopLoadingIndicator()
         usersTable.show()
         NotifyError.display(status.message())
@@ -203,4 +208,31 @@ extension UsersController {
         usersTable.hide()
         emptyMessageLabl?.hide()
     }
+}
+
+extension UsersController : UINavigationControllerDelegate {
+
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if !CurrentUser.hasAnimationsEnabled {
+            return nil
+        }
+        
+        if operation == .push {
+            return UserDetailsPresentAnimator()
+        } else {
+            return UserDetailsDismissAnimator()
+        }
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        (viewController as? LanguageRankingsController)?.navigationController?.delegate = nil
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        if !CurrentUser.hasAnimationsEnabled {
+            return nil
+        }
+        return swipeInteractionController.interactionInProgress ? swipeInteractionController : nil
+    }
+
 }
