@@ -13,9 +13,9 @@ Check how you rank on your location based on your number of stars of your reposi
 [![codebeat badge](https://codebeat.co/badges/38fdc289-fb25-4596-a2f7-05feafde381b)](https://codebeat.co/projects/github-com-nunogoncalves-ios-octopodium)
 
 ### Requirements
-- iOS 8.0+
-- Xcode 7.3
-- Cocoapods 0.39.0
+- iOS 9.0+
+- Xcode 8.1
+- Cocoapods 1.0
 - Have `Github.plist` (should contain `ClientId` and `ClientSecret` keys) and a `GoogleService-Info.plist` files in a Secrets folder next to OctoPodium project folder. These files are referenced in the project and since they are secrets are not included in the project.
 
 ### CocoaPods
