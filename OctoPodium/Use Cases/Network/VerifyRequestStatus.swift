@@ -67,7 +67,7 @@ class VerifyRequestStatus {
     }
     
     private func checkStatusFrom(_ error: Error) -> NetworkStatus {
-        return checkStatusIn(errorCodes, code: (error as! NSError).code)
+        return checkStatusIn(errorCodes, code: (error as NSError).code)
     }
 
     private func checkStatusFrom(_ response: HTTPURLResponse) -> NetworkStatus {
