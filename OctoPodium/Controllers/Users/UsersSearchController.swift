@@ -146,7 +146,7 @@ extension UsersSearchController : UISearchBarDelegate {
             return
         }
         
-        if text.characters.count > 0 {
+        if text.count > 0 {
             searchUserFor(text)
             searchBar.resignFirstResponder()
             navigationController?.setNavigationBarHidden(false, animated: true)

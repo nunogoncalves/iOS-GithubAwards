@@ -12,19 +12,15 @@ extension Repositories {
     class CreateListFromHTML {
         
         static func list(_ html: String) -> [Repository] {
+
+            guard let document = try? Kanna.HTML(html: html, encoding: .utf8) else { return [] }
             
-            guard let document = Kanna.HTML(html: html, encoding: .utf8) else { return [] }
-           
-            var repositories: [Repository] = []
-            
-            for repoHTML in getRepositoriesHTML(document) {
-              repositories.append(repository(from: repoHTML))
-            }
-            return repositories
+            return getRepositoriesHTML(document).flatMap { repository(from: $0) }
         }
         
-        private static func repository(from repoHTML: XMLElement) -> Repository {
-            let repoName = getRepositoryNameFrom(repoHTML)
+        private static func repository(from repoHTML: XMLElement) -> Repository? {
+
+            guard let repoName = repositoryName(from: repoHTML) else { return nil }
             let stars = getStarsFrom(repoHTML)
             let description = getDescriptionFrom(repoHTML)
             let language = getLanguageFrom(repoHTML)
@@ -36,8 +32,8 @@ extension Repositories {
             return document.xpath("//*[contains(@class, 'py-4')]")
         }
         
-        private static func getRepositoryNameFrom(_ document: XMLElement) -> String {
-            return document.css("a").makeIterator().next()?.text?.withoutSpaces() ?? ""
+        private static func repositoryName(from document: XMLElement) -> String? {
+            return document.css("a").makeIterator().next()?.text?.withoutSpaces()
         }
         
         private static func getStarsFrom(_ document: XMLElement) -> String {

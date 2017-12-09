@@ -10,7 +10,7 @@ class SearchOptions {
     
     var language = "JavaScript"
     var location = "San Francisco"
-    var locationType = LocationType.World
+    var locationType = LocationType.world
     
     var page = 1
     

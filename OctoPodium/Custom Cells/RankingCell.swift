@@ -46,21 +46,21 @@ class RankingCell: UITableViewCell, NibReusable {
     weak var locationDelegate: LocationDelegate?
     
     @IBAction func cityClicked() {
-        if let city = rankingPresenter?.city , city.characters.count != 0,
-            let language = rankingPresenter?.language , language.characters.count != 0 {
+        if let city = rankingPresenter?.city, city.count != 0,
+            let language = rankingPresenter?.language , language.count != 0 {
             locationDelegate?.clickedCity(city, forLanguage: language)
         }
     }
     
     @IBAction func countryClicked() {
-        if let country = rankingPresenter?.country , country.characters.count != 0,
-            let language = rankingPresenter?.language , language.characters.count != 0 {
+        if let country = rankingPresenter?.country , country.count != 0,
+            let language = rankingPresenter?.language , language.count != 0 {
             locationDelegate?.clickedCountry(country, forLanguage: language)
         }
     }
     
     @IBAction func worldClicked() {
-        if let language = rankingPresenter?.language , language.characters.count != 0 {
+        if let language = rankingPresenter?.language , language.count != 0 {
             locationDelegate?.clickedWorld(forLanguage: language)
         }
     }

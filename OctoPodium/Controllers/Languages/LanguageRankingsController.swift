@@ -38,8 +38,8 @@ class LanguageRankingsController: UIViewController {
     fileprivate var country = ""
     fileprivate var lastCountrySearched = ""
     
-    let locationTypes: [Int : LocationType] = [0 : .World, 1 : .Country, 2 : .City]
-    var selectedLocationType = LocationType.World
+    let locationTypes: [Int : LocationType] = [0 : .world, 1 : .country, 2 : .city]
+    var selectedLocationType = LocationType.world
 
     @IBAction func locationTypeChanged(_ locationTypeControl: UISegmentedControl) {
         let selectedIndex = locationTypeControl.selectedSegmentIndex
@@ -48,20 +48,20 @@ class LanguageRankingsController: UIViewController {
         for listView in listContainers { listView.hide() }
         listContainers[selectedIndex].show()
         
-        setSearchBarTextBasedOn(selectedLocationType)
-        animateLocationTypeChanged(selectedLocationType.hasName())
+        setSearchBarText(basedOn: selectedLocationType)
+        animateLocationTypeChanged(selectedLocationType.hasName)
     }
 
-    private func setSearchBarTextBasedOn(_ locationType: LocationType) {
+    private func setSearchBarText(basedOn locationType: LocationType) {
         switch locationType {
-        case .Country:
+        case .country:
             searchBar.text = country
-        case .City:
+        case .city:
             searchBar.text = city
-        default: break;
+        case .world: break
         }
         
-        if locationType.hasName() {
+        if locationType.hasName {
             searchBar.placeholder = "Insert a \(locationType.rawValue)"
         }
     }
@@ -112,9 +112,9 @@ class LanguageRankingsController: UIViewController {
     
     func selectedCell() -> UITableViewCell {
         switch selectedLocationType {
-        case .World: return worldController.selectedCell()
-        case .Country: return countryController.selectedCell()
-        case .City: return cityController.selectedCell()
+        case .world: return worldController.selectedCell()
+        case .country: return countryController.selectedCell()
+        case .city: return cityController.selectedCell()
         }
     }
 }
@@ -124,25 +124,25 @@ extension LanguageRankingsController : UISearchBarDelegate {
         for controller in listControllers { controller.language = language! }
         
         switch selectedLocationType {
-        case .Country:
+        case .country:
             if country == lastCountrySearched { break }
             lastCountrySearched = country
             countryController.search(searchBar.text!)
-        case .City:
+        case .city:
             if city == lastCitySearched { break }
             lastCitySearched = city
             cityController.search(searchBar.text!)
-        default: return
+        case .world: break
         }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         switch selectedLocationType {
-        case .Country:
+        case .country:
             country = searchBar.text!
-        case .City:
+        case .city:
             city = searchBar.text!
-        default: return
+        case .world: break
         }
     }
 }

@@ -44,7 +44,7 @@ class LanguageImageView : UIView, NibView {
             } else {
                 imageView.hide()
                 label.show()
-                label.text = "\(lang.characters.first!)"
+                label.text = "\(lang.first!)"
             }
         } else {
             label.text = " "

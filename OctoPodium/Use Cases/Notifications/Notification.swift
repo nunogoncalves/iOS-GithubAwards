@@ -53,7 +53,7 @@ class Notification : NSObject {
         dismiss(tapGesture.view!)
     }
     
-    func dismiss(_ view: UIView) {
+    @objc func dismiss(_ view: UIView) {
         UIView.animate(withDuration: 0.3, animations: {
             view.frame = view.frame.offsetBy(dx: 0, dy: -128)
             }, completion: { [weak self] _ in

@@ -20,7 +20,7 @@ class UsersController : UIViewController {
     var usersTableDataSource: LanguageUsersTableDataSource!
     let userSearchOptions = SearchOptions()
     
-    var selectedLocationType = LocationType.World
+    var selectedLocationType = LocationType.world
     
     var navigationControl: UINavigationController?
     
