@@ -82,6 +82,7 @@ class TrendingController : UIViewController {
     private func buildLanguageButton() {
         languageButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         languageButton.addTarget(self, action: #selector(clickedLanguage), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: languageButton)
     }
     
     @objc private func clickedLanguage() {
@@ -93,8 +94,8 @@ class TrendingController : UIViewController {
     fileprivate func updateLanguageIcon() {
         languageImageView.language = language
         let image = LanguageImage.load(for: language, orLanguageImageView: languageImageView).withRenderingMode(.alwaysOriginal)
-        languageButton.setBackgroundImage(image, for: UIControlState())
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: languageButton)
+        languageButton.setBackgroundImage(#imageLiteral(resourceName: "Language").withRenderingMode(.alwaysOriginal), for: UIControlState())
+
     }
     
     private func buildPopoverElements() {

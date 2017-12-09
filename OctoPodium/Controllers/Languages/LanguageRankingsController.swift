@@ -18,7 +18,7 @@ class LanguageRankingsController: UIViewController {
     @IBOutlet weak var countryContainer: UIView!
     @IBOutlet weak var cityContainer: UIView!
     
-    lazy var listContainers: [UIView] = { [unowned self] in
+    lazy var listContainers: [UIView] = {
         return [self.worldContainer, self.countryContainer, self.cityContainer]
     }()
     
@@ -53,6 +53,7 @@ class LanguageRankingsController: UIViewController {
     }
 
     private func setSearchBarText(basedOn locationType: LocationType) {
+
         switch locationType {
         case .country:
             searchBar.text = country
@@ -86,25 +87,21 @@ class LanguageRankingsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.searchDelegate = self
-        Analytics.SendToGoogle.enteredScreen(kAnalytics.rankingScreenFor(language ?? "?"))
+        Analytics.SendToGoogle.enteredScreen(kAnalytics.rankingScreen(for: language ?? "?"))
         navigationItem.titleView = languageTitleView;
-   }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier ?? "" {
         case kSegues.worldUsersSegue:
-            worldController = segue.worldController()
+            worldController = segue.worldController
             worldController.language = language!
             worldController.navigationControl = navigationController
         case kSegues.countryUsersSegue:
-            countryController = segue.countryController()
+            countryController = segue.countryController
             countryController.navigationControl = navigationController
         case kSegues.cityUsersSegue:
-            cityController = segue.cityController()
+            cityController = segue.cityController
             cityController.navigationControl = navigationController
         default: break
         }
@@ -148,15 +145,16 @@ extension LanguageRankingsController : UISearchBarDelegate {
 }
 
 private extension UIStoryboardSegue {
-    func countryController() -> CountryUsersController {
+
+    var countryController: CountryUsersController {
         return destination as! CountryUsersController
     }
     
-    func cityController() -> CityUsersController {
+    var cityController: CityUsersController {
         return destination as! CityUsersController
     }
     
-    func worldController() -> WorldUsersController {
+    var worldController: WorldUsersController {
         return destination as! WorldUsersController
     }
     
