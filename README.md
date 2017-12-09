@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://dl.dropboxusercontent.com/u/2001692/imagesshelf/OctoPodium/Banner.png">
+  <img src="https://user-images.githubusercontent.com/3007012/33797011-e1a04d0e-dcf7-11e7-973f-8ec3e4b826ed.png">
 </p>
 
 <h1> OctoPodium
@@ -42,15 +42,15 @@ It uses the API provided by [GithubAwards](http://github-awards.com/) ([docs](ht
 
 ##Screenshots
 <p align="center">
-  <img src="https://dl.dropboxusercontent.com/u/2001692/imagesshelf/OctoPodium/Languages.png" width="150px">
-  <img src="https://dl.dropboxusercontent.com/u/2001692/imagesshelf/OctoPodium/Javascript.png" width="150px">
-  <img src="https://dl.dropboxusercontent.com/u/2001692/imagesshelf/OctoPodium/octopodium20160218.gif" width="150px"> 
-  <img src="https://dl.dropboxusercontent.com/u/2001692/imagesshelf/OctoPodium/Trending Swift.png" width="150px">
-  <img src="https://dl.dropboxusercontent.com/u/2001692/imagesshelf/OctoPodium/User Details.png" width="150px">
+  <img src="https://user-images.githubusercontent.com/3007012/33797018-2584b078-dcf8-11e7-8442-76782753dc80.png" width="150px">
+  <img src="https://user-images.githubusercontent.com/3007012/33797017-256bb1d6-dcf8-11e7-9ce4-0f04bb6ada7b.png" width="150px">
+  <img src="https://user-images.githubusercontent.com/3007012/33797019-259ce242-dcf8-11e7-9509-705f3e070f80.gif" width="150px"> 
+  <img src="https://user-images.githubusercontent.com/3007012/33797019-259ce242-dcf8-11e7-9509-705f3e070f80.gif" width="150px">
+  <img src="https://user-images.githubusercontent.com/3007012/33797020-25b66280-dcf8-11e7-9395-5f4059a62be8.png" width="150px">
 </p>
 
 <p align="center">
-  <img src="https://dl.dropboxusercontent.com/u/2001692/imagesshelf/OctoPodium/twitter.png" width="20px"></br>
+  <img src="https://user-images.githubusercontent.com/3007012/33797028-5a4b25b2-dcf8-11e7-8516-47dcdde83c03.png" width="20px"></br>
   Developed by: <a target="_blank" href="https://twitter.com/goncalvescmnuno">@goncalvescmnuno<a/>
   </br>
   Designed by: <a target="_blank" href="https://twitter.com/claudiaconceic">@claudiaconceic<a/>
