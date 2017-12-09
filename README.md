@@ -35,12 +35,12 @@ It is not affiliated with the GitHub company in any way.
 App written in Swift, it was my first personal App published to the App Store.
 It uses the API provided by [GithubAwards](http://github-awards.com/) ([docs](http://github-awards.com/docs)) made by Vincent Daubry ([Github](https://github.com/vdaubry), [Twitter](https://twitter.com/vdaubry)).
 
-##What you can do:
+## What you can do:
 - View rankings for a given language. Select either World, a city or a country.
 - Search for users
 - View Github trending repositories, for all languages or a specific language.
 
-##Screenshots
+## Screenshots
 <p align="center">
   <img src="https://user-images.githubusercontent.com/3007012/33797018-2584b078-dcf8-11e7-8442-76782753dc80.png" width="150px">
   <img src="https://user-images.githubusercontent.com/3007012/33797017-256bb1d6-dcf8-11e7-9ce4-0f04bb6ada7b.png" width="150px">
