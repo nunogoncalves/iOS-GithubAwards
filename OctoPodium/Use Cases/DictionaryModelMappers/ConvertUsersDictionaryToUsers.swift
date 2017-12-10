@@ -10,21 +10,20 @@ import Foundation
 
 class ConvertUsersDictionaryToUsers {
     
-    private let data: NSDictionary
+    private let data: JSON
     
-    var users = [User]()
+    var users: [User] = []
     
-    init(data: NSDictionary) {
+    init(data: JSON) {
         self.data = data
         buildUsers()
     }
     
     private func buildUsers() {
-        guard let dataUsers = data["users"] as? Array<NSDictionary> else {
+        guard let dataUsers = data["users"] as? [JSON] else {
             return
         }
-        for u in dataUsers {
-            users.append(CreateBasicUserFromDictionary(userDic: u).user)
-        }
+
+        users = dataUsers.flatMap { User(from: $0) }
     }
 }

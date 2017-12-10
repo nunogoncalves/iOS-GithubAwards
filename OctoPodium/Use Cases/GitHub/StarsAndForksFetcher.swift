@@ -15,13 +15,13 @@ extension GitHub {
             self.repoName = repositoryName
         }
         
-        func getUrl() -> String {
+        var url: String {
             return "https://api.github.com/repos/\(repoName)"
         }
         
-        func getDataFrom(_ dictionary: NSDictionary) -> (Int, Int) {
-            let stars = dictionary["stargazers_count"] as? Int ?? 0
-            let forks = dictionary["forks_count"] as? Int ?? 0
+        func parse(_ json: JSON) -> (Int, Int) {
+            let stars = json["stargazers_count"] as? Int ?? 0
+            let forks = json["forks_count"] as? Int ?? 0
             
             return (stars: stars, forks: forks)
         }

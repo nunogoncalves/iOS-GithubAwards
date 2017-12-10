@@ -56,7 +56,7 @@ class UserDetailsController: UIViewController {
                       location: userPresenter.cityOrCountryOrWorld.capitalized)
     }
     @IBAction func viewGithubProfileClicked() {
-        if let login = userPresenter?.login() {
+        if let login = userPresenter?.login {
             Browser.openPage("http://github.com/\(login)")
             Analytics.SendToGoogle.viewUserOnGithub(login)
         }
@@ -96,7 +96,7 @@ class UserDetailsController: UIViewController {
     override func viewDidLoad() {
         Analytics.SendToGoogle.enteredScreen(kAnalytics.userDetailsScreenFor(userPresenter!.user))
         
-        if !(userPresenter?.user.isSelf() ?? false) {
+        if !(userPresenter?.user.isSelf ?? false) {
             navigationItem.rightBarButtonItems = [navigationItem.rightBarButtonItems![0]]
             twitterButton = nil
         }
@@ -108,11 +108,11 @@ class UserDetailsController: UIViewController {
         
         loadAvatar()
         applyGradient()
-        navigationItem.title = userPresenter!.login()
+        navigationItem.title = userPresenter!.login
         
         rankingsTable.registerReusableCell(RankingCell.self)
         
-        Users.GetOne(login: userPresenter!.login()).call(success: userSuccess, failure: failure)
+        Users.GetOne(login: userPresenter!.login).call(success: userSuccess, failure: failure)
     }
     
     @IBAction private func showUserOptions() {
@@ -140,7 +140,7 @@ class UserDetailsController: UIViewController {
     }
     
     fileprivate func loadAvatar() {
-        if let avatarUrl = userPresenter!.avatarUrl() {
+        if let avatarUrl = userPresenter!.avatarUrl {
             guard avatarUrl != "" else { return }
             avatarImageView.fetchAndLoad(avatarUrl) {
                 self.loading.stopAnimating()
@@ -289,7 +289,7 @@ extension UserDetailsController: UITableViewDelegate {
         profileTopConstraint.constant = profileExtendedBGHeight - profileBgHeight
         statsContainer.alpha = 1 - (offset / profileExtendedBGHeight)
         
-        if userPresenter!.hasLocation() { moveLocationLabel(offset) }
+        if userPresenter!.hasLocation { moveLocationLabel(offset) }
         moveAvatar(offset)
         moveButton(offset)
     }
@@ -319,7 +319,7 @@ extension UserDetailsController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return userPresenter!.hasLocation() ? 158 : 78
+        return userPresenter!.hasLocation ? 158 : 78
     }
 }
 

@@ -10,7 +10,6 @@ import UIKit
 
 protocol TableStateListener : class {
     
-    func newDataArrived(_ paginator: Paginator)
+    func newDataArrived<T>(_ page: Page<T>)
     func failedToGetData(_ status: NetworkStatus)
-    
 }

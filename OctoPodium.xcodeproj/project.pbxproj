@@ -39,7 +39,6 @@
 		8530ED361C60EA7F00173835 /* TrendingRepositoryDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8530ED351C60EA7F00173835 /* TrendingRepositoryDetailsController.swift */; };
 		85327EED1C74FB84003C7647 /* applescript.png in Resources */ = {isa = PBXBuildFile; fileRef = 85327EEC1C74FB84003C7647 /* applescript.png */; };
 		853B31B21E27F4E90028345D /* UsersController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 853B31B01E27F4E90028345D /* UsersController.xib */; };
-		853C48DD1C0921AF00373A92 /* Paginator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48DC1C0921AF00373A92 /* Paginator.swift */; };
 		853C48DF1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */; };
 		853C48E11C09A28400373A92 /* GetOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48E01C09A28400373A92 /* GetOne.swift */; };
 		853C48E31C09A35F00373A92 /* CreateBasicUserFromDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48E21C09A35F00373A92 /* CreateBasicUserFromDictionary.swift */; };
@@ -193,7 +192,7 @@
 		85E6566D1C134C7000BB4278 /* PaginatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E6566C1C134C7000BB4278 /* PaginatorTests.swift */; };
 		85E6566F1C1352C600BB4278 /* PaginaTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E6566E1C1352C600BB4278 /* PaginaTable.swift */; };
 		85E656721C139ED100BB4278 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E656711C139ED100BB4278 /* TableViewDataSource.swift */; };
-		85E656741C139F5100BB4278 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E656731C139F5100BB4278 /* Book.swift */; };
+		85E656741C139F5100BB4278 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E656731C139F5100BB4278 /* Page.swift */; };
 		85E656761C13A23400BB4278 /* LanguageUsersTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E656751C13A23400BB4278 /* LanguageUsersTableDataSource.swift */; };
 		85E656781C13AB8A00BB4278 /* TableStateListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E656771C13AB8A00BB4278 /* TableStateListener.swift */; };
 		85E8CC491C3AAE5A001B4129 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E8CC481C3AAE5A001B4129 /* NetworkStatus.swift */; };
@@ -264,7 +263,6 @@
 		8530ED351C60EA7F00173835 /* TrendingRepositoryDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingRepositoryDetailsController.swift; sourceTree = "<group>"; };
 		85327EEC1C74FB84003C7647 /* applescript.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = applescript.png; sourceTree = "<group>"; };
 		853B31B01E27F4E90028345D /* UsersController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UsersController.xib; sourceTree = "<group>"; };
-		853C48DC1C0921AF00373A92 /* Paginator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paginator.swift; sourceTree = "<group>"; };
 		853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertUsersDictionaryToUsers.swift; sourceTree = "<group>"; };
 		853C48E01C09A28400373A92 /* GetOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetOne.swift; sourceTree = "<group>"; };
 		853C48E21C09A35F00373A92 /* CreateBasicUserFromDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBasicUserFromDictionary.swift; sourceTree = "<group>"; };
@@ -425,7 +423,7 @@
 		85E6566C1C134C7000BB4278 /* PaginatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginatorTests.swift; sourceTree = "<group>"; };
 		85E6566E1C1352C600BB4278 /* PaginaTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginaTable.swift; sourceTree = "<group>"; };
 		85E656711C139ED100BB4278 /* TableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
-		85E656731C139F5100BB4278 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		85E656731C139F5100BB4278 /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		85E656751C13A23400BB4278 /* LanguageUsersTableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageUsersTableDataSource.swift; sourceTree = "<group>"; };
 		85E656771C13AB8A00BB4278 /* TableStateListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableStateListener.swift; sourceTree = "<group>"; };
 		85E8CC481C3AAE5A001B4129 /* NetworkStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
@@ -872,7 +870,7 @@
 				856E395B1C60A47C00974330 /* DataSources */,
 				855075861D0B63A4004FA634 /* TransitionAnimators */,
 				854B5B9F1CA6FE200070A456 /* ApiResponse.swift */,
-				85E656731C139F5100BB4278 /* Book.swift */,
+				85E656731C139F5100BB4278 /* Page.swift */,
 				850585881D0DE2330024C6BC /* CurrentUser.swift */,
 				854B5BA11CA718F30070A456 /* GithubToken.swift */,
 				85D3B8091CA7DF020004D276 /* HTTPMethod.swift */,
@@ -881,7 +879,6 @@
 				85E656751C13A23400BB4278 /* LanguageUsersTableDataSource.swift */,
 				8599284B1C0D9436000ABE8C /* LocationType.swift */,
 				85E8CC481C3AAE5A001B4129 /* NetworkStatus.swift */,
-				853C48DC1C0921AF00373A92 /* Paginator.swift */,
 				85AFEC1E1C0468CB006FC129 /* Ranking.swift */,
 				85BBD9F81C5CA61000229ED2 /* Repository.swift */,
 				858B91121C085B4C00B510B3 /* SearchOptions.swift */,
@@ -1451,7 +1448,7 @@
 				85AF8AFB1C445EAD0022D97F /* LanguageImageView.swift in Sources */,
 				85D321251C022480001B7C7A /* UserDetailsController.swift in Sources */,
 				855825491CAA75C900851967 /* StarChecker.swift in Sources */,
-				85E656741C139F5100BB4278 /* Book.swift in Sources */,
+				85E656741C139F5100BB4278 /* Page.swift in Sources */,
 				85E389D21C6A307900C68813 /* LanguagesPopoverController.swift in Sources */,
 				856A72E71C12509F008415A4 /* LanguageCell.swift in Sources */,
 				8530ED361C60EA7F00173835 /* TrendingRepositoryDetailsController.swift in Sources */,
@@ -1537,7 +1534,6 @@
 				85A4F0171C3F1BBB002F3405 /* WorldUsersController.swift in Sources */,
 				85D321271C022D86001B7C7A /* RankingCell.swift in Sources */,
 				858B91111C085B1600B510B3 /* GetList.swift in Sources */,
-				853C48DD1C0921AF00373A92 /* Paginator.swift in Sources */,
 				85A4F0191C3F1BE4002F3405 /* CountryUsersController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

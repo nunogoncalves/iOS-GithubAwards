@@ -10,18 +10,18 @@ import Foundation
 
 class CreateFullUserFromDictionary: CreateBasicUserFromDictionary {
     
-    typealias RanksType = Array<Dictionary<String, AnyObject>>
+    typealias RanksType = [JSON]
     
-    override init(userDic: NSDictionary) {
-        super.init(userDic: userDic)
+    override init(from json: JSON) {
+        super.init(from: json)
         buildUserFullInfo()
     }
     
     private func buildUserFullInfo() {
-        user.city = (userDic["city"] ?? "") as? String
-        user.country = (userDic["country"] ?? "") as? String
+        user.city = (json["city"] ?? "") as? String
+        user.country = (json["country"] ?? "") as? String
         
-        user.rankings = buildRankings(userDic["rankings"] as! RanksType)
+        user.rankings = buildRankings(json["rankings"] as! RanksType)
     }
     
     private func buildRankings(_ rankings: RanksType) -> [Ranking] {

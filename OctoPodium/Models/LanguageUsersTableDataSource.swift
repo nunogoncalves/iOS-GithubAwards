@@ -9,45 +9,46 @@
 import UIKit
 
 class LanguageUsersTableDataSource : NSObject, TableViewDataSource {
-    
-    var book: Book
+
     var searchOptions: SearchOptions
     
     var userSearcher: Users.GetList
-    var latestUserResponse: UsersListResponse!
+    var latestPage: Page<User>!
     
     var isSearching = false
+    var page: Page<User>
     
     weak var tableStateListener: TableStateListener?
     
     init(searchOptions: SearchOptions) {
         self.searchOptions = searchOptions
-        book = UsersListResponse(users: [], paginator: Paginator())
+        self.page = Page<User>(items: [], currentPage: 1, totalPages: 1, totalCount: 0)
         userSearcher = Users.GetList(searchOptions: searchOptions)
     }
     
-    func dataForIndexPath(_ indexPath: IndexPath) -> AnyObject {
-        return book.data[(indexPath as NSIndexPath).row]
+    func item(at indexPath: IndexPath) -> User {
+        return page[indexPath.row]
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return book.data.count
+        return page.localCount
     }
     
-    func cellIdentifierForIndex(_ indexPath: IndexPath) -> String {
-        return (indexPath as NSIndexPath).row < 3 ? String(describing: type(of: UserTopCell.self)) : String(describing: type(of: UserCell.self))
+    func cellIdentifier(for indexPath: IndexPath) -> String {
+        let cellType = indexPath.row < 3 ? UserTopCell.self : UserCell.self
+        return String(describing: cellType)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if (indexPath as NSIndexPath).row < 3 {
-            let cell = tableView.dequeueReusableCellFor(indexPath) as UserTopCell
-            let user = dataForIndexPath(indexPath) as! User
+        if indexPath.row < 3 {
+            let cell: UserTopCell = tableView.dequeueReusableCellFor(indexPath)
+            let user = item(at: indexPath)
             cell.userPresenter = UserPresenter(user: user, ranking: indexPath.row + 1)
             return cell
         } else {
             let cell = tableView.dequeueReusableCellFor(indexPath) as UserCell
             cell.position = indexPath.row + 1
-            cell.user = dataForIndexPath(indexPath) as! User
+            cell.user = item(at: indexPath)
             return cell
         }
     }
@@ -61,8 +62,8 @@ class LanguageUsersTableDataSource : NSObject, TableViewDataSource {
             return
         }
         
-        if latestUserResponse != nil {
-            if latestUserResponse!.hasMoreUsers() {
+        if let latestPage = self.latestPage {
+            if latestPage.hasMorePages {
                 searchOptions.page += 1
                 reallyFetchUsers()
             }
@@ -76,27 +77,26 @@ class LanguageUsersTableDataSource : NSObject, TableViewDataSource {
         userSearcher.call(success: usersSuccess, failure: failure)
     }
     
-    func usersSuccess(_ usersResponse: UsersListResponse) {
-        book.paginator = usersResponse.paginator
+    func usersSuccess(_ usersPage: Page<User>) {
         isSearching = false
-        latestUserResponse = usersResponse
-        if usersResponse.isFirstPage() {
-            book.data = usersResponse.users
+        latestPage = usersPage
+        if usersPage.isFirstPage {
+            self.page = usersPage
         } else {
-            book.data += (usersResponse.users as [AnyObject])
+            page.next(from: usersPage)
         }
-        tableStateListener?.newDataArrived(usersResponse.paginator)
+        tableStateListener?.newDataArrived(page)
     }
     
     func failure(_ apiResponse: ApiResponse) {
         tableStateListener?.failedToGetData(apiResponse.status)
     }
     
-    func hasMoreDataAvailable() -> Bool {
-        return book.hasMorePages()
+    var hasMorePages: Bool {
+        return page.hasMorePages
     }
-    
-    func getTotalCount() -> Int {
-        return book.paginator.totalCount
+
+    var totalCount: Int {
+        return page.totalCount
     }
 }

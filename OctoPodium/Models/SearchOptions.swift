@@ -15,32 +15,30 @@ class SearchOptions {
     var page = 1
     
     func urlParams() -> String {
-        return "\(buildLanguage())\(buildLocation())\(buildType())\(buildPage())"
+
+        return "\(languageParam)\(locationParam)\(typeParam)\(pageParam)"
     }
     
-    private func buildLanguage() -> String {
+    private var languageParam: String {
+
         let lang = language.lowercased()
         return "language=\(lang)"
     }
     
-    private func buildLocation() -> String {
-        let type = getRealType()
+    private var locationParam: String {
+
+        let type = locationType.rawValue
         if type == "world" { return "" }
         return "&\(type)=\(location.lowercased())"
     }
     
-    private func buildType() -> String {
-        return "&type=\(getRealType())"
+    private var typeParam: String {
+
+        return "&type=\(locationType.rawValue)"
     }
     
-    private func buildPage() -> String {
-        if page > 0 {
-            return "&page=\(page)"
-        }
-        return ""
-    }
-    
-    private func getRealType() -> String {
-        return locationType.rawValue
+    private var pageParam: String {
+
+        return page > 0 ? "&page=\(page)" : ""
     }
 }

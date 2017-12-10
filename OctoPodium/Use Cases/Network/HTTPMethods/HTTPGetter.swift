@@ -7,10 +7,12 @@
 //
 
 protocol HTTPGetter {
+    
     var httpMethod: HTTPMethod { get }
 }
 
 extension HTTPGetter {
+
     var httpMethod: HTTPMethod {
         return .GET
     }

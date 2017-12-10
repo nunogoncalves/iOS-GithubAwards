@@ -51,8 +51,8 @@ class UsersSearchController: UIViewController {
     
     @objc private func selectMe() {
         if let user = User.getUserInUserDefaults() {
-            searchField.text = user.login!
-            searchUserFor(user.login!)
+            searchField.text = user.login
+            searchUserFor(user.login)
             searchField.resignFirstResponder()
         }
     }
@@ -83,7 +83,7 @@ class UsersSearchController: UIViewController {
         userNotFoundLabel.hide()
         showEyeBalls()
         
-        userLoginLabel.text = user.login!
+        userLoginLabel.text = user.login
         
         if let city = user.city {
             userLocationLabel.text = "\(user.country!.capitalized), \(city.capitalized)"
@@ -99,7 +99,7 @@ class UsersSearchController: UIViewController {
         loadingIndicator.hide()
         userSearchContainer.show()
         self.user = user
-        avatarImageView.fetchAndLoad(user.avatarUrl!)
+        avatarImageView.fetchAndLoad(user.avatarUrl)
         
         userContainerTopConstraint.constant = 6.0
         UIView.animate(withDuration: userMovementAnimationDuration) {

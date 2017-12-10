@@ -110,19 +110,18 @@ class GithubAccountController : UIViewController {
         usernameLabelContainer.show()
         addRemoveAccountButton()
         usernameLabel.show()
-        usernameLabel.text = "   \(user.login ?? "")   "
-        if let avatar = user.avatarUrl {
-            userImageView.fetchAndLoad(avatar)
-            userBackgroundImageView.fetchAndLoad(avatar)
+        usernameLabel.text = "   \(user.login)   "
 
-            let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark)) as UIVisualEffectView
-            visualEffectView.frame = userBlurView.bounds
-            visualEffectView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-            visualEffectView.frame = CGRect(x: 0, y: 0, width: userBlurView.width, height: userBlurView.height)
-            
-            userBlurView.addSubview(visualEffectView)
+        let avatar = user.avatarUrl
+        userImageView.fetchAndLoad(avatar)
+        userBackgroundImageView.fetchAndLoad(avatar)
 
-        }
+        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark)) as UIVisualEffectView
+        visualEffectView.frame = userBlurView.bounds
+        visualEffectView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        visualEffectView.frame = CGRect(x: 0, y: 0, width: userBlurView.width, height: userBlurView.height)
+
+        userBlurView.addSubview(visualEffectView)
     }
     
 }

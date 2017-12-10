@@ -5,16 +5,17 @@
 //  Created by Nuno Gonçalves on 30/12/15.
 //  Copyright © 2015 Nuno Gonçalves. All rights reserved.
 //
+typealias JSON = [String: Any]
 
 protocol Requestable {
     associatedtype Element
     
+    var url: String { get }
     var httpMethod: HTTPMethod { get }
     var headers: HeadParams? { get }
     var bodyParams: BodyParams? { get }
 
-    func getUrl() -> String
-    func getDataFrom(_ dictionary: NSDictionary) -> Element
+    func parse(_ json: JSON) -> Element
     func call(success: @escaping (Element) -> (), failure: @escaping (ApiResponse) -> ())
 
 }
@@ -30,13 +31,13 @@ extension Requestable {
                 }
             }
             responseHandler.successCallback = { dictionary in
-                let data = self.getDataFrom(dictionary)
+                let data = self.parse(dictionary)
                 DispatchQueue.main.async {
                     success(data)
                 }
             }
             Network.Requester(networkResponseHandler: responseHandler).call(
-                self.getUrl(),
+                self.url,
                 httpMethod: self.httpMethod,
                 headers: self.headers,
                 bodyParams: self.bodyParams)

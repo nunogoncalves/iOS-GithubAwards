@@ -30,12 +30,12 @@ struct Languages {
             successLangs?(languages)
         }
 
-        func getUrl() -> String {
+        var url: String {
             return "\(kUrls.languagesBaseUrl)?sort=popularity"
         }
         
-        func getDataFrom(_ dictionary: NSDictionary) -> [Language] {
-            return dictionary["languages"] as! [Language]
+        func parse(_ json: JSON) -> [Language] {
+            return json["languages"] as! [Language]
         }
     }
 }

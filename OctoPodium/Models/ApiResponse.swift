@@ -9,10 +9,5 @@
 struct ApiResponse {
     
     let status: NetworkStatus
-    let responseDictionary: NSDictionary?
-    
-    init(status: NetworkStatus, responseDictionary: NSDictionary?) {
-        self.status = status
-        self.responseDictionary = responseDictionary
-    }
+    let json: JSON?
 }

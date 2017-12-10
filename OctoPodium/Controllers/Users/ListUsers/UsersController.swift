@@ -69,8 +69,8 @@ class UsersController : UIViewController {
         if (segue.identifier == kSegues.userDetailsSegue && selectedIndex != nil) {
             usersTable.deselectRow(at: selectedIndex!, animated: true)
             let destVC = segue.destination as! UserDetailsController
-            let user = usersTableDataSource.dataForIndexPath(selectedIndex!) as? User
-            destVC.userPresenter = UserPresenter(user: user!)
+            let user = usersTableDataSource.item(at: selectedIndex!)
+            destVC.userPresenter = UserPresenter(user: user)
 
             if CurrentUser.hasAnimationsEnabled {
                 swipeInteractionController.wireToViewController(destVC)
@@ -119,7 +119,7 @@ extension UsersController : UITableViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if let lastItemRow = (usersTable.indexPathsForVisibleRows?.last as NSIndexPath?)?.row {
-            let total = usersTableDataSource.getTotalCount()
+            let total = usersTableDataSource.totalCount
             paginationLabel.text = "\(lastItemRow + 1)/\(total)"
         }
         
@@ -130,7 +130,7 @@ extension UsersController : UITableViewDelegate {
 //            return
 //        }
         
-        if usersTableDataSource.hasMoreDataAvailable() {
+        if usersTableDataSource.hasMorePages {
             searchUsersIfTableReady()
         }
     }
@@ -155,16 +155,19 @@ extension UsersController : UITableViewDelegate {
 }
 
 extension UsersController : TableStateListener {
-    func newDataArrived(_ paginator: Paginator) {
-        paginator.isLastPage() ? usersTable.hideFooter() : usersTable.showFooter()
-        if paginator.isFirstPage() {
-            paginationLabel.text = "1/\(paginator.totalCount)"
+
+    func newDataArrived<User>(_ page: Page<User>) {
+
+        page.isLastPage ? usersTable.hideFooter() : usersTable.showFooter()
+
+        if page.isFirstPage {
+            paginationLabel.text = "1/\(page.totalCount)"
         } else {
-            sendUserPaginatedToAnalytics("\(paginator.currentPage)")
+            sendUserPaginatedToAnalytics("\(page.currentPage)")
         }
         
         usersTable.reloadData()
-        if paginator.totalCount == 0 {
+        if page.totalCount == 0 {
             paginationContainer.hide()
             noResultsLabl.show()
             usersTable.hide()
