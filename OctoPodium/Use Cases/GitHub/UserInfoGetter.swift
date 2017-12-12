@@ -20,7 +20,7 @@ extension GitHub {
         }
 
         func parse(_ json: JSON) -> User {
-            return User(from: json)
+            return User(from: json, avatarKey: "avatar_url")
         }
     }
 }

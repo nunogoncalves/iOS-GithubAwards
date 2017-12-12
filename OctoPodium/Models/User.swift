@@ -73,10 +73,11 @@ class User {
 extension User {
 
     //TODO use codable
-    convenience init(from json: [String: Any]) {
+    //This is shamefull... 🙈
+    convenience init(from json: [String: Any], avatarKey: String = "gravatar_url") {
 
         self.init(login: (json["login"] as? String) ?? "",
-                  avatarUrl: (json["gravatar_url"] as? String) ?? "")
+                  avatarUrl: (json[avatarKey] as? String) ?? "")
 
         self.starsCount = (json["stars_count"] as? Int) ?? 0
     }
