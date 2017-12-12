@@ -13,13 +13,6 @@
 		8501F06B1C425674004BEB50 /* SessionConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8501F06A1C425674004BEB50 /* SessionConfigurationBuilder.swift */; };
 		850485311C0FB10C004D952A /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850485301C0FB10C004D952A /* AlertView.swift */; };
 		850485331C0FB11A004D952A /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 850485321C0FB11A004D952A /* AlertView.xib */; };
-		850485381C104AE8004D952A /* GenericLanguage.png in Resources */ = {isa = PBXBuildFile; fileRef = 850485341C104AE8004D952A /* GenericLanguage.png */; };
-		850485391C104AE8004D952A /* java.png in Resources */ = {isa = PBXBuildFile; fileRef = 850485351C104AE8004D952A /* java.png */; };
-		8504853A1C104AE8004D952A /* javascript.png in Resources */ = {isa = PBXBuildFile; fileRef = 850485361C104AE8004D952A /* javascript.png */; };
-		850485431C104C2B004D952A /* go.png in Resources */ = {isa = PBXBuildFile; fileRef = 8504853D1C104C2B004D952A /* go.png */; };
-		850485441C104C2B004D952A /* perl.png in Resources */ = {isa = PBXBuildFile; fileRef = 8504853E1C104C2B004D952A /* perl.png */; };
-		850485451C104C2B004D952A /* php.png in Resources */ = {isa = PBXBuildFile; fileRef = 8504853F1C104C2B004D952A /* php.png */; };
-		850485471C104C2B004D952A /* ruby.png in Resources */ = {isa = PBXBuildFile; fileRef = 850485411C104C2B004D952A /* ruby.png */; };
 		850495F81FDC39E4006FF726 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850495F71FDC39E4006FF726 /* UIFont.swift */; };
 		850585851D0D57170024C6BC /* SwipeInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850585841D0D57170024C6BC /* SwipeInteractionController.swift */; };
 		850585871D0DB2870024C6BC /* CellWithAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850585861D0DB2870024C6BC /* CellWithAvatar.swift */; };
@@ -37,7 +30,6 @@
 		852F5E0A1C7E1D1F00DEE0D1 /* RankingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F5E091C7E1D1F00DEE0D1 /* RankingTests.swift */; };
 		852F5E0D1C7E6BCA00DEE0D1 /* TestsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F5E0C1C7E6BCA00DEE0D1 /* TestsBuilder.swift */; };
 		8530ED361C60EA7F00173835 /* TrendingRepositoryDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8530ED351C60EA7F00173835 /* TrendingRepositoryDetailsController.swift */; };
-		85327EED1C74FB84003C7647 /* applescript.png in Resources */ = {isa = PBXBuildFile; fileRef = 85327EEC1C74FB84003C7647 /* applescript.png */; };
 		853B31B21E27F4E90028345D /* UsersController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 853B31B01E27F4E90028345D /* UsersController.xib */; };
 		853C48DF1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */; };
 		853C48E11C09A28400373A92 /* GetOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48E01C09A28400373A92 /* GetOne.swift */; };
@@ -70,7 +62,6 @@
 		854B5BA41CA7335E0070A456 /* UserInfoGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854B5BA31CA7335E0070A456 /* UserInfoGetter.swift */; };
 		855075881D0B63DB004FA634 /* UserDetailsDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855075871D0B63DB004FA634 /* UserDetailsDismissAnimator.swift */; };
 		8550758A1D0BF186004FA634 /* UserDetailsPresentAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855075891D0BF186004FA634 /* UserDetailsPresentAnimation.swift */; };
-		8555A9FB1C74CB5500715F91 /* delphi.png in Resources */ = {isa = PBXBuildFile; fileRef = 8555A9FA1C74CB5500715F91 /* delphi.png */; };
 		8558253C1CA8526500851967 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558253B1CA8526500851967 /* AboutController.swift */; };
 		8558253E1CA85DF200851967 /* NSBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558253D1CA85DF200851967 /* NSBundle.swift */; };
 		855825411CA881D600851967 /* Follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855825401CA881D600851967 /* Follow.swift */; };
@@ -84,38 +75,16 @@
 		855825511CAB258E00851967 /* UnstarRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855825501CAB258E00851967 /* UnstarRepository.swift */; };
 		855913DE1C63879700E356FD /* RepoContentsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855913DD1C63879700E356FD /* RepoContentsFetcher.swift */; };
 		85679BAC1D135B4100FC20DF /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85679BAB1D135B4100FC20DF /* SnapshotHelper.swift */; };
-		856A72E31C122C1E008415A4 /* css.png in Resources */ = {isa = PBXBuildFile; fileRef = 856A72DE1C122C1E008415A4 /* css.png */; };
-		856A72E41C122C1E008415A4 /* objective-c.png in Resources */ = {isa = PBXBuildFile; fileRef = 856A72DF1C122C1E008415A4 /* objective-c.png */; };
-		856A72E51C122C1E008415A4 /* shell.png in Resources */ = {isa = PBXBuildFile; fileRef = 856A72E01C122C1E008415A4 /* shell.png */; };
 		856A72E71C12509F008415A4 /* LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856A72E61C12509F008415A4 /* LanguageCell.swift */; };
 		856D67671C3424C900A77678 /* Browser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856D67661C3424C900A77678 /* Browser.swift */; };
 		856D676A1C342C6900A77678 /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856D67691C342C6900A77678 /* Requestable.swift */; };
 		856D676C1C34385F00A77678 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856D676B1C34385F00A77678 /* Users.swift */; };
 		856E395D1C60A48F00974330 /* TrendingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856E395C1C60A48F00974330 /* TrendingDataSource.swift */; };
-		8571134A1C43BDD500011441 /* coffeescript.png in Resources */ = {isa = PBXBuildFile; fileRef = 857113411C43BDD500011441 /* coffeescript.png */; };
-		8571134B1C43BDD500011441 /* erlang.png in Resources */ = {isa = PBXBuildFile; fileRef = 857113421C43BDD500011441 /* erlang.png */; };
-		8571134D1C43BDD500011441 /* haskell.png in Resources */ = {isa = PBXBuildFile; fileRef = 857113441C43BDD500011441 /* haskell.png */; };
-		8571134E1C43BDD500011441 /* lua.png in Resources */ = {isa = PBXBuildFile; fileRef = 857113451C43BDD500011441 /* lua.png */; };
-		8571134F1C43BDD500011441 /* matlab.png in Resources */ = {isa = PBXBuildFile; fileRef = 857113461C43BDD500011441 /* matlab.png */; };
-		857113501C43BDD500011441 /* r.png in Resources */ = {isa = PBXBuildFile; fileRef = 857113471C43BDD500011441 /* r.png */; };
-		857113511C43BDD500011441 /* rust.png in Resources */ = {isa = PBXBuildFile; fileRef = 857113481C43BDD500011441 /* rust.png */; };
-		857113521C43BDD500011441 /* scala.png in Resources */ = {isa = PBXBuildFile; fileRef = 857113491C43BDD500011441 /* scala.png */; };
 		857858521C7618A7009195B8 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857858511C7618A7009195B8 /* StringTests.swift */; };
 		857858541C7625CD009195B8 /* RepositoryOptionsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857858531C7625CD009195B8 /* RepositoryOptionsBuilder.swift */; };
 		857943A41C3DCC8B00824577 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 857943A31C3DCC8B00824577 /* UserCell.xib */; };
 		857943A81C3E5A8D00824577 /* UsersTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857943A71C3E5A8D00824577 /* UsersTable.swift */; };
 		857943AC1C3E5D3100824577 /* UserTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 857943AB1C3E5D3100824577 /* UserTopCell.xib */; };
-		857AE76D1C74A372007AEE47 /* c.png in Resources */ = {isa = PBXBuildFile; fileRef = 857AE76C1C74A372007AEE47 /* c.png */; };
-		857AE76F1C74A3E7007AEE47 /* c#.png in Resources */ = {isa = PBXBuildFile; fileRef = 857AE76E1C74A3E7007AEE47 /* c#.png */; };
-		857AE7711C74A477007AEE47 /* c++.png in Resources */ = {isa = PBXBuildFile; fileRef = 857AE7701C74A477007AEE47 /* c++.png */; };
-		857AE7731C74A691007AEE47 /* viml.png in Resources */ = {isa = PBXBuildFile; fileRef = 857AE7721C74A691007AEE47 /* viml.png */; };
-		857AE7771C74A7C5007AEE47 /* clojure.png in Resources */ = {isa = PBXBuildFile; fileRef = 857AE7761C74A7C5007AEE47 /* clojure.png */; };
-		857AE7791C74A8DB007AEE47 /* swift.png in Resources */ = {isa = PBXBuildFile; fileRef = 857AE7781C74A8DB007AEE47 /* swift.png */; };
-		857AE77B1C74A972007AEE47 /* dart.png in Resources */ = {isa = PBXBuildFile; fileRef = 857AE77A1C74A972007AEE47 /* dart.png */; };
-		857AE7801C74AAF9007AEE47 /* ocaml.png in Resources */ = {isa = PBXBuildFile; fileRef = 857AE77F1C74AAF9007AEE47 /* ocaml.png */; };
-		857AE7821C74AB54007AEE47 /* elixir.png in Resources */ = {isa = PBXBuildFile; fileRef = 857AE7811C74AB54007AEE47 /* elixir.png */; };
-		857AE7841C74AC4E007AEE47 /* python.png in Resources */ = {isa = PBXBuildFile; fileRef = 857AE7831C74AC4E007AEE47 /* python.png */; };
-		857AE7861C74AD82007AEE47 /* kotlin.png in Resources */ = {isa = PBXBuildFile; fileRef = 857AE7851C74AD82007AEE47 /* kotlin.png */; };
 		857C48951C119307000F035C /* LanguageImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C48941C119307000F035C /* LanguageImage.swift */; };
 		857E2C331C1C37970095DCC0 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857E2C321C1C37970095DCC0 /* SearchBar.swift */; };
 		857E2C371C1C87370095DCC0 /* ConvertUsersDictionaryToUsersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857E2C361C1C87370095DCC0 /* ConvertUsersDictionaryToUsersTests.swift */; };
@@ -236,13 +205,6 @@
 		8501F06A1C425674004BEB50 /* SessionConfigurationBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionConfigurationBuilder.swift; sourceTree = "<group>"; };
 		850485301C0FB10C004D952A /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		850485321C0FB11A004D952A /* AlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
-		850485341C104AE8004D952A /* GenericLanguage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GenericLanguage.png; sourceTree = "<group>"; };
-		850485351C104AE8004D952A /* java.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = java.png; sourceTree = "<group>"; };
-		850485361C104AE8004D952A /* javascript.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = javascript.png; sourceTree = "<group>"; };
-		8504853D1C104C2B004D952A /* go.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = go.png; sourceTree = "<group>"; };
-		8504853E1C104C2B004D952A /* perl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = perl.png; sourceTree = "<group>"; };
-		8504853F1C104C2B004D952A /* php.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = php.png; sourceTree = "<group>"; };
-		850485411C104C2B004D952A /* ruby.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ruby.png; sourceTree = "<group>"; };
 		850495F71FDC39E4006FF726 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		850585841D0D57170024C6BC /* SwipeInteractionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwipeInteractionController.swift; path = TransitionAnimators/SwipeInteractionController.swift; sourceTree = "<group>"; };
 		850585861D0DB2870024C6BC /* CellWithAvatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellWithAvatar.swift; sourceTree = "<group>"; };
@@ -260,7 +222,6 @@
 		852F5E091C7E1D1F00DEE0D1 /* RankingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTests.swift; sourceTree = "<group>"; };
 		852F5E0C1C7E6BCA00DEE0D1 /* TestsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestsBuilder.swift; sourceTree = "<group>"; };
 		8530ED351C60EA7F00173835 /* TrendingRepositoryDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingRepositoryDetailsController.swift; sourceTree = "<group>"; };
-		85327EEC1C74FB84003C7647 /* applescript.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = applescript.png; sourceTree = "<group>"; };
 		853B31B01E27F4E90028345D /* UsersController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UsersController.xib; sourceTree = "<group>"; };
 		853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertUsersDictionaryToUsers.swift; sourceTree = "<group>"; };
 		853C48E01C09A28400373A92 /* GetOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetOne.swift; sourceTree = "<group>"; };
@@ -293,7 +254,6 @@
 		854B5BA31CA7335E0070A456 /* UserInfoGetter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoGetter.swift; sourceTree = "<group>"; };
 		855075871D0B63DB004FA634 /* UserDetailsDismissAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDetailsDismissAnimator.swift; path = TransitionAnimators/UserDetailsDismissAnimator.swift; sourceTree = "<group>"; };
 		855075891D0BF186004FA634 /* UserDetailsPresentAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailsPresentAnimation.swift; sourceTree = "<group>"; };
-		8555A9FA1C74CB5500715F91 /* delphi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delphi.png; sourceTree = "<group>"; };
 		8558253B1CA8526500851967 /* AboutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
 		8558253D1CA85DF200851967 /* NSBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSBundle.swift; sourceTree = "<group>"; };
 		855825401CA881D600851967 /* Follow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Follow.swift; sourceTree = "<group>"; };
@@ -307,38 +267,16 @@
 		855825501CAB258E00851967 /* UnstarRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnstarRepository.swift; sourceTree = "<group>"; };
 		855913DD1C63879700E356FD /* RepoContentsFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoContentsFetcher.swift; sourceTree = "<group>"; };
 		85679BAB1D135B4100FC20DF /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
-		856A72DE1C122C1E008415A4 /* css.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = css.png; sourceTree = "<group>"; };
-		856A72DF1C122C1E008415A4 /* objective-c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "objective-c.png"; sourceTree = "<group>"; };
-		856A72E01C122C1E008415A4 /* shell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shell.png; sourceTree = "<group>"; };
 		856A72E61C12509F008415A4 /* LanguageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageCell.swift; sourceTree = "<group>"; };
 		856D67661C3424C900A77678 /* Browser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Browser.swift; sourceTree = "<group>"; };
 		856D67691C342C6900A77678 /* Requestable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requestable.swift; sourceTree = "<group>"; };
 		856D676B1C34385F00A77678 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		856E395C1C60A48F00974330 /* TrendingDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingDataSource.swift; sourceTree = "<group>"; };
-		857113411C43BDD500011441 /* coffeescript.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coffeescript.png; sourceTree = "<group>"; };
-		857113421C43BDD500011441 /* erlang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = erlang.png; sourceTree = "<group>"; };
-		857113441C43BDD500011441 /* haskell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = haskell.png; sourceTree = "<group>"; };
-		857113451C43BDD500011441 /* lua.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lua.png; sourceTree = "<group>"; };
-		857113461C43BDD500011441 /* matlab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = matlab.png; sourceTree = "<group>"; };
-		857113471C43BDD500011441 /* r.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = r.png; sourceTree = "<group>"; };
-		857113481C43BDD500011441 /* rust.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rust.png; sourceTree = "<group>"; };
-		857113491C43BDD500011441 /* scala.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scala.png; sourceTree = "<group>"; };
 		857858511C7618A7009195B8 /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
 		857858531C7625CD009195B8 /* RepositoryOptionsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryOptionsBuilder.swift; sourceTree = "<group>"; };
 		857943A31C3DCC8B00824577 /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		857943A71C3E5A8D00824577 /* UsersTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTable.swift; sourceTree = "<group>"; };
 		857943AB1C3E5D3100824577 /* UserTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTopCell.xib; sourceTree = "<group>"; };
-		857AE76C1C74A372007AEE47 /* c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = c.png; sourceTree = "<group>"; };
-		857AE76E1C74A3E7007AEE47 /* c#.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "c#.png"; sourceTree = "<group>"; };
-		857AE7701C74A477007AEE47 /* c++.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "c++.png"; sourceTree = "<group>"; };
-		857AE7721C74A691007AEE47 /* viml.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = viml.png; sourceTree = "<group>"; };
-		857AE7761C74A7C5007AEE47 /* clojure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clojure.png; sourceTree = "<group>"; };
-		857AE7781C74A8DB007AEE47 /* swift.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swift.png; sourceTree = "<group>"; };
-		857AE77A1C74A972007AEE47 /* dart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dart.png; sourceTree = "<group>"; };
-		857AE77F1C74AAF9007AEE47 /* ocaml.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ocaml.png; sourceTree = "<group>"; };
-		857AE7811C74AB54007AEE47 /* elixir.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = elixir.png; sourceTree = "<group>"; };
-		857AE7831C74AC4E007AEE47 /* python.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = python.png; sourceTree = "<group>"; };
-		857AE7851C74AD82007AEE47 /* kotlin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kotlin.png; sourceTree = "<group>"; };
 		857C48941C119307000F035C /* LanguageImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageImage.swift; sourceTree = "<group>"; };
 		857E2C321C1C37970095DCC0 /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		857E2C361C1C87370095DCC0 /* ConvertUsersDictionaryToUsersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertUsersDictionaryToUsersTests.swift; sourceTree = "<group>"; };
@@ -692,37 +630,6 @@
 			isa = PBXGroup;
 			children = (
 				85A9E55D1C351CAD0011DAA4 /* GithubLoading */,
-				850485341C104AE8004D952A /* GenericLanguage.png */,
-				85327EEC1C74FB84003C7647 /* applescript.png */,
-				857AE76E1C74A3E7007AEE47 /* c#.png */,
-				857AE7701C74A477007AEE47 /* c++.png */,
-				857AE76C1C74A372007AEE47 /* c.png */,
-				857AE7761C74A7C5007AEE47 /* clojure.png */,
-				857113411C43BDD500011441 /* coffeescript.png */,
-				856A72DE1C122C1E008415A4 /* css.png */,
-				857AE77A1C74A972007AEE47 /* dart.png */,
-				8555A9FA1C74CB5500715F91 /* delphi.png */,
-				857AE7811C74AB54007AEE47 /* elixir.png */,
-				857113421C43BDD500011441 /* erlang.png */,
-				8504853D1C104C2B004D952A /* go.png */,
-				857113441C43BDD500011441 /* haskell.png */,
-				850485351C104AE8004D952A /* java.png */,
-				850485361C104AE8004D952A /* javascript.png */,
-				857AE7851C74AD82007AEE47 /* kotlin.png */,
-				857113451C43BDD500011441 /* lua.png */,
-				857113461C43BDD500011441 /* matlab.png */,
-				856A72DF1C122C1E008415A4 /* objective-c.png */,
-				857AE77F1C74AAF9007AEE47 /* ocaml.png */,
-				8504853E1C104C2B004D952A /* perl.png */,
-				8504853F1C104C2B004D952A /* php.png */,
-				857AE7831C74AC4E007AEE47 /* python.png */,
-				857113471C43BDD500011441 /* r.png */,
-				850485411C104C2B004D952A /* ruby.png */,
-				857113481C43BDD500011441 /* rust.png */,
-				857113491C43BDD500011441 /* scala.png */,
-				856A72E01C122C1E008415A4 /* shell.png */,
-				857AE7781C74A8DB007AEE47 /* swift.png */,
-				857AE7721C74A691007AEE47 /* viml.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -1178,73 +1085,42 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8571134E1C43BDD500011441 /* lua.png in Resources */,
 				8549ACCF1C6C8B1F004D8149 /* TitilliumWeb-Regular.ttf in Resources */,
 				857943AC1C3E5D3100824577 /* UserTopCell.xib in Resources */,
 				85D320FA1C02062E001B7C7A /* LaunchScreen.storyboard in Resources */,
-				8571134A1C43BDD500011441 /* coffeescript.png in Resources */,
 				85D320F71C02062E001B7C7A /* Assets.xcassets in Resources */,
-				857AE7711C74A477007AEE47 /* c++.png in Resources */,
 				8549ACC71C6C8B1F004D8149 /* TitilliumWeb-Black.ttf in Resources */,
 				857F76351CDD75D1002A75C4 /* Github.plist in Resources */,
 				85820F4E1C0E2C1A0069D085 /* GithubLoading-7.gif in Resources */,
 				85820F481C0E2C1A0069D085 /* GithubLoading-1.gif in Resources */,
 				85820F3D1C0E2BCE0069D085 /* GithubLoadingView.xib in Resources */,
-				857AE7731C74A691007AEE47 /* viml.png in Resources */,
-				857AE7861C74AD82007AEE47 /* kotlin.png in Resources */,
-				850485431C104C2B004D952A /* go.png in Resources */,
 				8549ACC81C6C8B1F004D8149 /* TitilliumWeb-Bold.ttf in Resources */,
-				850485451C104C2B004D952A /* php.png in Resources */,
 				8549ACCD1C6C8B1F004D8149 /* TitilliumWeb-Light.ttf in Resources */,
-				8555A9FB1C74CB5500715F91 /* delphi.png in Resources */,
 				85B501831C10FCC300BBFD56 /* LanguageTitleView.xib in Resources */,
 				8549ACCE1C6C8B1F004D8149 /* TitilliumWeb-LightItalic.ttf in Resources */,
-				857AE7821C74AB54007AEE47 /* elixir.png in Resources */,
 				85118F201C47A802002B452F /* RankingCell.xib in Resources */,
 				85820F4D1C0E2C1A0069D085 /* GithubLoading-6.gif in Resources */,
-				85327EED1C74FB84003C7647 /* applescript.png in Resources */,
 				85820F4C1C0E2C1A0069D085 /* GithubLoading-5.gif in Resources */,
-				850485471C104C2B004D952A /* ruby.png in Resources */,
-				850485441C104C2B004D952A /* perl.png in Resources */,
 				85EF2E4A1CE79CBE00745A68 /* 1Password.xcassets in Resources */,
-				8571134D1C43BDD500011441 /* haskell.png in Resources */,
 				8549ACD01C6C8B1F004D8149 /* TitilliumWeb-SemiBold.ttf in Resources */,
-				857AE7791C74A8DB007AEE47 /* swift.png in Resources */,
-				857AE7841C74AC4E007AEE47 /* python.png in Resources */,
 				85D320F51C02062E001B7C7A /* Main.storyboard in Resources */,
 				85A731821C95F900002C721B /* GithubButton.xib in Resources */,
-				856A72E31C122C1E008415A4 /* css.png in Resources */,
-				857AE76F1C74A3E7007AEE47 /* c#.png in Resources */,
-				8504853A1C104AE8004D952A /* javascript.png in Resources */,
 				85820F471C0E2C1A0069D085 /* GithubLoading-0.gif in Resources */,
-				8571134F1C43BDD500011441 /* matlab.png in Resources */,
 				8549ACC91C6C8B1F004D8149 /* TitilliumWeb-BoldItalic.ttf in Resources */,
 				8549ACD11C6C8B1F004D8149 /* TitilliumWeb-SemiBoldItalic.ttf in Resources */,
 				853B31B21E27F4E90028345D /* UsersController.xib in Resources */,
 				857F76311CDD75B8002A75C4 /* GoogleService-Info.plist in Resources */,
 				852B43C51C6A3E4000A1B63A /* LanguageCell.xib in Resources */,
-				856A72E41C122C1E008415A4 /* objective-c.png in Resources */,
 				8549ACCB1C6C8B1F004D8149 /* TitilliumWeb-ExtraLightItalic.ttf in Resources */,
-				857AE7771C74A7C5007AEE47 /* clojure.png in Resources */,
 				857943A41C3DCC8B00824577 /* UserCell.xib in Resources */,
 				850485331C0FB11A004D952A /* AlertView.xib in Resources */,
-				856A72E51C122C1E008415A4 /* shell.png in Resources */,
 				85AF8AF91C445E5F0022D97F /* LanguageImageView.xib in Resources */,
 				85820F4A1C0E2C1A0069D085 /* GithubLoading-3.gif in Resources */,
-				857113521C43BDD500011441 /* scala.png in Resources */,
 				85BBDA061C5E0BB300229ED2 /* TrendingRepositoryCell.xib in Resources */,
-				8571134B1C43BDD500011441 /* erlang.png in Resources */,
-				850485391C104AE8004D952A /* java.png in Resources */,
-				857AE76D1C74A372007AEE47 /* c.png in Resources */,
 				85820F491C0E2C1A0069D085 /* GithubLoading-2.gif in Resources */,
-				857AE7801C74AAF9007AEE47 /* ocaml.png in Resources */,
-				857113501C43BDD500011441 /* r.png in Resources */,
 				8549ACCC1C6C8B1F004D8149 /* TitilliumWeb-Italic.ttf in Resources */,
-				857AE77B1C74A972007AEE47 /* dart.png in Resources */,
 				8549ACCA1C6C8B1F004D8149 /* TitilliumWeb-ExtraLight.ttf in Resources */,
-				857113511C43BDD500011441 /* rust.png in Resources */,
 				85820F4B1C0E2C1A0069D085 /* GithubLoading-4.gif in Resources */,
-				850485381C104AE8004D952A /* GenericLanguage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

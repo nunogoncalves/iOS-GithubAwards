@@ -93,9 +93,12 @@ class TrendingController : UIViewController {
     
     fileprivate func updateLanguageIcon() {
         languageImageView.language = language
-        let image = LanguageImage.load(for: language, orLanguageImageView: languageImageView).withRenderingMode(.alwaysOriginal)
-        languageButton.setBackgroundImage(#imageLiteral(resourceName: "Language").withRenderingMode(.alwaysOriginal), for: UIControlState())
+        let image = LanguageImage.load(for: language, orLanguageImageView: languageImageView)
+        languageButton.setBackgroundImage(image, for: UIControlState())
 
+        print(image)
+        print(#imageLiteral(resourceName: "Language"))
+        print("!!!!")
     }
     
     private func buildPopoverElements() {
