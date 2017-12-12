@@ -38,8 +38,7 @@ extension Repositories {
         
         private static func getStarsFrom(_ document: XMLElement) -> String {
             let total = document.css("a.mr-3").makeIterator().next()?.text?.withoutSpaces() ?? ""
-            
-            let stars = document.css("span.float-right")
+            let stars = document.css("span.float-sm-right")
                                    .makeIterator().next()?.text?
                                    .withoutSpaces().substringUntil("stars") ?? ""
             
