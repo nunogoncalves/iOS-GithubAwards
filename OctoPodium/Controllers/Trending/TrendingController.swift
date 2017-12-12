@@ -95,10 +95,6 @@ class TrendingController : UIViewController {
         languageImageView.language = language
         let image = LanguageImage.load(for: language, orLanguageImageView: languageImageView)
         languageButton.setBackgroundImage(image, for: UIControlState())
-
-        print(image)
-        print(#imageLiteral(resourceName: "Language"))
-        print("!!!!")
     }
     
     private func buildPopoverElements() {
