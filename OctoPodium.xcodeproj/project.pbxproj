@@ -139,7 +139,7 @@
 		8599284C1C0D9436000ABE8C /* LocationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8599284B1C0D9436000ABE8C /* LocationType.swift */; };
 		8599284E1C0D9579000ABE8C /* LocationTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8599284D1C0D9579000ABE8C /* LocationTypeTests.swift */; };
 		859928511C0DAB23000ABE8C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859928501C0DAB23000ABE8C /* String.swift */; };
-		859CE4BF1C2FDF3D008A7856 /* UsersListResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859CE4BE1C2FDF3D008A7856 /* UsersListResponseTests.swift */; };
+		859CE4BF1C2FDF3D008A7856 /* PageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859CE4BE1C2FDF3D008A7856 /* PageTests.swift */; };
 		85A1D2D01C2EB3A800774F49 /* MockNSURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A1D2CF1C2EB3A800774F49 /* MockNSURLSession.swift */; };
 		85A1D2D21C2EB53500774F49 /* NetworkRequesterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A1D2D11C2EB53500774F49 /* NetworkRequesterTests.swift */; };
 		85A4F0171C3F1BBB002F3405 /* WorldUsersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A4F0161C3F1BBB002F3405 /* WorldUsersController.swift */; };
@@ -189,7 +189,6 @@
 		85E09EDE1D0AC52D00752BB0 /* Decorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E09EDD1D0AC52D00752BB0 /* Decorator.swift */; };
 		85E389D21C6A307900C68813 /* LanguagesPopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E389D01C6A307900C68813 /* LanguagesPopoverController.swift */; };
 		85E6566B1C134B4E00BB4278 /* UsersListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E6566A1C134B4E00BB4278 /* UsersListResponse.swift */; };
-		85E6566D1C134C7000BB4278 /* PaginatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E6566C1C134C7000BB4278 /* PaginatorTests.swift */; };
 		85E6566F1C1352C600BB4278 /* PaginaTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E6566E1C1352C600BB4278 /* PaginaTable.swift */; };
 		85E656721C139ED100BB4278 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E656711C139ED100BB4278 /* TableViewDataSource.swift */; };
 		85E656741C139F5100BB4278 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E656731C139F5100BB4278 /* Page.swift */; };
@@ -364,7 +363,7 @@
 		8599284B1C0D9436000ABE8C /* LocationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationType.swift; sourceTree = "<group>"; };
 		8599284D1C0D9579000ABE8C /* LocationTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTypeTests.swift; sourceTree = "<group>"; };
 		859928501C0DAB23000ABE8C /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		859CE4BE1C2FDF3D008A7856 /* UsersListResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersListResponseTests.swift; sourceTree = "<group>"; };
+		859CE4BE1C2FDF3D008A7856 /* PageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageTests.swift; sourceTree = "<group>"; };
 		85A1D2CF1C2EB3A800774F49 /* MockNSURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNSURLSession.swift; sourceTree = "<group>"; };
 		85A1D2D11C2EB53500774F49 /* NetworkRequesterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequesterTests.swift; sourceTree = "<group>"; };
 		85A4F0161C3F1BBB002F3405 /* WorldUsersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldUsersController.swift; sourceTree = "<group>"; };
@@ -420,7 +419,6 @@
 		85E09EDD1D0AC52D00752BB0 /* Decorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Decorator.swift; path = Style/Decorator.swift; sourceTree = "<group>"; };
 		85E389D01C6A307900C68813 /* LanguagesPopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguagesPopoverController.swift; sourceTree = "<group>"; };
 		85E6566A1C134B4E00BB4278 /* UsersListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersListResponse.swift; sourceTree = "<group>"; };
-		85E6566C1C134C7000BB4278 /* PaginatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginatorTests.swift; sourceTree = "<group>"; };
 		85E6566E1C1352C600BB4278 /* PaginaTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginaTable.swift; sourceTree = "<group>"; };
 		85E656711C139ED100BB4278 /* TableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		85E656731C139F5100BB4278 /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
@@ -964,13 +962,12 @@
 				85A1D2D11C2EB53500774F49 /* NetworkRequesterTests.swift */,
 				854A404A1C3ADCF7005E7FF1 /* NetworkStatusTests.swift */,
 				85D321041C02062E001B7C7A /* OctoPodiumTests.swift */,
-				85E6566C1C134C7000BB4278 /* PaginatorTests.swift */,
 				8517ECBE1C2C1EDB00467985 /* RankingPresenterTests.swift */,
 				852F5E091C7E1D1F00DEE0D1 /* RankingTests.swift */,
 				858B91141C085E6400B510B3 /* SearchOptionsTests.swift */,
 				857858511C7618A7009195B8 /* StringTests.swift */,
 				85FC70671C2456FF00971081 /* UserPresenterTests.swift */,
-				859CE4BE1C2FDF3D008A7856 /* UsersListResponseTests.swift */,
+				859CE4BE1C2FDF3D008A7856 /* PageTests.swift */,
 				854A404E1C3B3D16005E7FF1 /* VerifyRequestStatusTests.swift */,
 			);
 			path = OctoPodiumTests;
@@ -1543,7 +1540,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8599284E1C0D9579000ABE8C /* LocationTypeTests.swift in Sources */,
-				859CE4BF1C2FDF3D008A7856 /* UsersListResponseTests.swift in Sources */,
+				859CE4BF1C2FDF3D008A7856 /* PageTests.swift in Sources */,
 				852F5E0A1C7E1D1F00DEE0D1 /* RankingTests.swift in Sources */,
 				857858521C7618A7009195B8 /* StringTests.swift in Sources */,
 				854A404F1C3B3D16005E7FF1 /* VerifyRequestStatusTests.swift in Sources */,
@@ -1553,7 +1550,6 @@
 				85D321051C02062E001B7C7A /* OctoPodiumTests.swift in Sources */,
 				85A1D2D01C2EB3A800774F49 /* MockNSURLSession.swift in Sources */,
 				854A404B1C3ADCF7005E7FF1 /* NetworkStatusTests.swift in Sources */,
-				85E6566D1C134C7000BB4278 /* PaginatorTests.swift in Sources */,
 				857E2C371C1C87370095DCC0 /* ConvertUsersDictionaryToUsersTests.swift in Sources */,
 				85A1D2D21C2EB53500774F49 /* NetworkRequesterTests.swift in Sources */,
 				852F5E0D1C7E6BCA00DEE0D1 /* TestsBuilder.swift in Sources */,
@@ -1732,7 +1728,7 @@
 					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
 				);
 				INFOPLIST_FILE = "OctoPodium/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				"OTHER_SWIFT_FLAGS[arch=*]" = "\"-D\" \"DEVELOPMENT\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.ios.octopodium;
@@ -1757,7 +1753,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "OctoPodium/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				"OTHER_SWIFT_FLAGS[arch=*]" = "\"-D\" \"RELEASE\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.ios.octopodium;

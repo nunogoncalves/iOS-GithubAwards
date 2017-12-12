@@ -42,15 +42,14 @@ class ConvertUsersDictionaryToUsersTests: XCTestCase {
         let users = converter.users
         let nuno = users[0]
         let ironMan = users[1]
-        XCTAssertEqual(nuno.login!, "nunogoncalves")
-        XCTAssertEqual(nuno.avatarUrl!, "avatar_url")
-        XCTAssertEqual(ironMan.login!, "ironman")
-        XCTAssertEqual(ironMan.avatarUrl!, "http://p1.pichost.me/i/72/1967552.jpg")
+        XCTAssertEqual(nuno.login, "nunogoncalves")
+        XCTAssertEqual(nuno.avatarUrl, "avatar_url")
+        XCTAssertEqual(ironMan.login, "ironman")
+        XCTAssertEqual(ironMan.avatarUrl, "http://p1.pichost.me/i/72/1967552.jpg")
     }
     
     func testPerformanceExample() {
-        self.measureBlock {
-        }
+        self.measure {}
     }
     
 }

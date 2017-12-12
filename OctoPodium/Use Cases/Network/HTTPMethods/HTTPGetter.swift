@@ -14,6 +14,6 @@ protocol HTTPGetter {
 extension HTTPGetter {
 
     var httpMethod: HTTPMethod {
-        return .GET
+        return .get
     }
 }

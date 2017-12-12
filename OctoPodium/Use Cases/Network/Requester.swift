@@ -15,15 +15,16 @@ struct Network {
 
     class Requester {
         
-        var URLSession = Foundation.URLSession.self
+        let URLSession: Foundation.URLSession.Type
         private let networkResponseHandler: Data.ResponseHandler
         private let sessionConfBuilder = SessionConfigurationBuilder()
         
         private let session: Foundation.URLSession
         
-        init(networkResponseHandler: Data.ResponseHandler) {
+        init(networkResponseHandler: Data.ResponseHandler, urlSession: Foundation.URLSession.Type = Foundation.URLSession.self) {
             self.networkResponseHandler = networkResponseHandler
-            session = URLSession.init(configuration: sessionConfBuilder.sessionConfiguration())
+            self.URLSession = urlSession
+            session = urlSession.init(configuration: sessionConfBuilder.sessionConfiguration())
         }
         
         func call(_ urlStr: String,
@@ -50,7 +51,6 @@ struct Network {
             addIfNecessary(headers, to: request)
 
             return session.dataTask(with: request as URLRequest, completionHandler: completionHandler)
-//            return session.dataTask(with: request as URLRequest, completionHandler: completionHandler)
         }
         
         private func buildURLRequestFor(_ url: String) -> NSMutableURLRequest {

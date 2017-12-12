@@ -42,13 +42,13 @@ class StringTests: QuickSpec {
                 }
 
                 it("returns substring until when exists") {
-                    let result = "hello,world".substringAfter(",")
+                    let result = "hello,world".substring(after: ",")
                     let expected = "world"
                     expect(result).to(equal(Optional(expected)))
                 }
                 
                 it("returns empty when substring doesnt exist") {
-                    let result = "hello,world".substringAfter(", ")
+                    let result = "hello,world".substring(after: ", ")
                     expect(result).to(beNil())
                 }
             }

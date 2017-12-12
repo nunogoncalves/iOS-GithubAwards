@@ -12,10 +12,11 @@ import XCTest
 
 @testable import OctoPodium
 
-class UsersListResponseTests: QuickSpec {
+class PageTests: QuickSpec {
     
     override func spec() {
-        var usersListResponse: UsersListResponse!
+        var page: Page<User>!
+
         let nuno = User(login: "Nuno", avatarUrl: "avatar")
         let katrina = User(login: "Katrina", avatarUrl: "avatar")
         let bianca = User(login: "Bianca", avatarUrl: "avatar")
@@ -25,15 +26,22 @@ class UsersListResponseTests: QuickSpec {
             
             context("list of users") {
                 beforeEach {
-                    usersListResponse = UsersListResponse(users: [nuno, katrina, bianca, xana], paginator: Paginator())
+                    page = Page(items: [nuno, katrina, bianca, xana],
+                                currentPage: 1,
+                                totalPages: 3,
+                                totalCount: 10)
                 }
                 
                 it("should contain 4 users") {
-                    expect(usersListResponse.users.count).to(equal(4))
+                    expect(page.items.count).to(equal(4))
                 }
                 
                 it("has Bianca as the third user") {
-                    expect(usersListResponse.users[2].login).to(equal("Bianca"))
+                    expect(page.items[2].login).to(equal("Bianca"))
+                }
+
+                it("has more pages") {
+                    expect(page.hasMorePages).to(beTrue())
                 }
             }
             

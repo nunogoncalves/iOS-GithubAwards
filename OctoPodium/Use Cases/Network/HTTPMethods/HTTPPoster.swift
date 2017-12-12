@@ -12,6 +12,6 @@ protocol HTTPPoster {
 
 extension HTTPPoster {
     var httpMethod: HTTPMethod {
-        return .POST
+        return .post
     }
 }

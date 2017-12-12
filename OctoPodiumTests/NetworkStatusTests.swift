@@ -49,38 +49,38 @@ class NetworkStatusTests : QuickSpec {
             
             context("technical status") {
                 it("generic error") {
-                    let notFound = NetworkStatus.GenericError
+                    let notFound = NetworkStatus.genericError
                     expect(notFound.isTechnicalError()).to(equal(true))
                 }
                 
                 
                 it("generic error") {
-                    let notFound = NetworkStatus.GenericError
+                    let notFound = NetworkStatus.genericError
                     expect(notFound.isTechnicalError()).to(equal(true))
                 }
 
                 it("ok") {
-                    let notFound = NetworkStatus.Ok
+                    let notFound = NetworkStatus.ok
                     expect(notFound.isTechnicalError()).to(equal(true))
                 }
 
                 it("offline error") {
-                    let notFound = NetworkStatus.Offline
+                    let notFound = NetworkStatus.offline
                     expect(notFound.isTechnicalError()).to(equal(true))
                 }
 
                 it("host name not found error") {
-                    let notFound = NetworkStatus.HostNameNotFound
+                    let notFound = NetworkStatus.hostNameNotFound
                     expect(notFound.isTechnicalError()).to(equal(true))
                 }
 
                 it("could not connect error") {
-                    let notFound = NetworkStatus.CouldNotConnectToServer
+                    let notFound = NetworkStatus.couldNotConnectToServer
                     expect(notFound.isTechnicalError()).to(equal(true))
                 }
 
                 it("server error") {
-                    let notFound = NetworkStatus.ServerError
+                    let notFound = NetworkStatus.serverError
                     expect(notFound.isTechnicalError()).to(equal(true))
                 }
                
@@ -88,31 +88,31 @@ class NetworkStatusTests : QuickSpec {
             
             context("error messages") {
                 it("ok") {
-                    let ok = NetworkStatus.Ok
+                    let ok = NetworkStatus.ok
                     expect(ok.message()).to(equal("Ok"))
                 }
                 
                 it("offline") {
-                    let offline = NetworkStatus.Offline
+                    let offline = NetworkStatus.offline
                     expect(offline.message()).to(equal("Connection appears to be offline."))
                 }
                 it("HostNameNotFound") {
-                    let hostNotFound = NetworkStatus.HostNameNotFound
+                    let hostNotFound = NetworkStatus.hostNameNotFound
                     expect(hostNotFound.message()).to(equal("There was a technical problem."))
                 }
                 
                 it("Timeout") {
-                    let coundlNotConnect = NetworkStatus.CouldNotConnectToServer
+                    let coundlNotConnect = NetworkStatus.couldNotConnectToServer
                     expect(coundlNotConnect.message()).to(equal("There was a technical problem."))
                 }
                 
                 it("NotFound") {
-                    let notFound = NetworkStatus.NotFound
+                    let notFound = NetworkStatus.notFound
                     expect(notFound.message()).to(equal("The resource you are looking for doesn't exist."))
                 }
                 
                 it("ServerError") {
-                    let serverError = NetworkStatus.ServerError
+                    let serverError = NetworkStatus.serverError
                     expect(serverError.message()).to(equal("There was a technical problem."))
                 }
             }

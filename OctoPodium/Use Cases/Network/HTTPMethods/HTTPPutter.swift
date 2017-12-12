@@ -12,7 +12,7 @@ protocol HTTPPutter {
 
 extension HTTPPutter {
     var httpMethod: HTTPMethod {
-        return .PUT
+        return .put
     }
 }
 
