@@ -22,8 +22,8 @@ class UserTopCell : UITableViewCell, CellWithAvatar, NibReusable {
     
     private func fillDataFromPresenter() {
         fillRankingInformation()
-        login.text = userPresenter!.login()
-        starsLabel.text = userPresenter!.stars()
+        login.text = userPresenter!.login
+        starsLabel.text = userPresenter!.stars
         fillAvatar()
     }
     
@@ -34,7 +34,7 @@ class UserTopCell : UITableViewCell, CellWithAvatar, NibReusable {
     }
     
     private func fillAvatar() {
-        if let avatarUrl = userPresenter!.avatarUrl() {
+        if let avatarUrl = userPresenter!.avatarUrl {
             avatar.fetchAndLoad(avatarUrl)
         }
     }

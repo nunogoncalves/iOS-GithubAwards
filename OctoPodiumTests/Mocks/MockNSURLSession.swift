@@ -13,29 +13,31 @@ class MockNSURLSession: URLSession {
     typealias Response = (data: Foundation.Data?, urlResponse: URLResponse?, error: Error?)
     typealias CompletionHandler = ((Foundation.Data?, URLResponse?, Error?) -> Void)
     
-    var completionHandler: CompletionHandler?
-    
-    static var mockResponse: (data: Foundation.Data?, urlResponse: URLResponse?, error: Error?) = (data: nil, urlResponse: nil, error: nil)
-    
-    override var shared: MockNSURLSession {
-        return MockNSURLSession()
+    var completionHandler: CompletionHandler = { _, _, _ in }
+
+    init(configuration: URLSessionConfiguration) {
+        super.init()
     }
-    
-    override func dataTaskWithURL(url: URL, completionHandler: @escaping @escaping CompletionHandler) -> URLSessionDataTask {
+
+    static var mockResponse: (data: Foundation.Data?, urlResponse: URLResponse?, error: Error?) = (data: nil, urlResponse: nil, error: nil)
+
+    //THe failing test fails because this is not being called... something's wrong with this implementation...
+    override func dataTask(with request: URLRequest, completionHandler: @escaping (Foundation.Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
+
         self.completionHandler = completionHandler
         return MockTask(response: MockNSURLSession.mockResponse, completionHandler: completionHandler)
     }
-    
+
     class MockTask: URLSessionDataTask {
         var mockResponse: Response
-        let completionHandler: CompletionHandler?
+        let completionHandler: CompletionHandler
         
-        init(response: Response, completionHandler: ((Foundation.Data!, URLResponse!, Error!) -> Void)?) {
+        init(response: Response, completionHandler: @escaping ((Foundation.Data?, URLResponse?, Error?) -> Void) = { _, _, _ in }) {
             mockResponse = response
             self.completionHandler = completionHandler
         }
         override func resume() {
-            completionHandler!(mockResponse.data, mockResponse.urlResponse, mockResponse.error)
+            completionHandler(mockResponse.data, mockResponse.urlResponse, mockResponse.error)
         }
     }
 }

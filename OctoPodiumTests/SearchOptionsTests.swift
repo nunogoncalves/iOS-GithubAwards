@@ -42,7 +42,7 @@ class SearchOptionsTests: XCTestCase {
     }
     
     func testCity() {
-        searchOptions.locationType = .City
+        searchOptions.locationType = .city
         searchOptions.location = "Lisbon"
         let expected = "language=javascript&city=lisbon&type=city&page=1"
         let got = searchOptions.urlParams()
@@ -50,7 +50,7 @@ class SearchOptionsTests: XCTestCase {
     }
     
     func testNoCountry() {
-        searchOptions.locationType = .Country
+        searchOptions.locationType = .country
         let expected = "language=javascript&country=san francisco&type=country&page=1"
         let got = searchOptions.urlParams()
         XCTAssertEqual(expected, got, "Expected \(expected), got \(got)")
@@ -58,7 +58,7 @@ class SearchOptionsTests: XCTestCase {
     
     func testCountry() {
         searchOptions.language = "Swift"
-        searchOptions.locationType = .Country
+        searchOptions.locationType = .country
         searchOptions.location = "Portugal"
         
         let expected = "language=swift&country=portugal&type=country&page=1"
@@ -76,7 +76,7 @@ class SearchOptionsTests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }

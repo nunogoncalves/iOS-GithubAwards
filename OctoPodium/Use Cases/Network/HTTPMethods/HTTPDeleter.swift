@@ -12,6 +12,6 @@ protocol HTTPDeleter {
 
 extension HTTPDeleter {
     var httpMethod: HTTPMethod {
-        return .DELETE
+        return .delete
     }
 }

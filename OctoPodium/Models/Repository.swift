@@ -15,21 +15,20 @@ struct Repository {
     let description: String
     let user: String
     
-    
     var completeName: String {
         return "\(user)/\(name)"
     }
     
     init(name: String, stars: String, description: String, language: String?) {
-        self.name = name.substring(after: "/")!
+        self.name = name.substring(after: "/") ?? ""
         self.stars = stars
         self.description = description
         self.language = language
         self.url = "https://github.com/\(name)"
-        self.user = Repository.getUserFromName(name)
+        self.user = Repository.user(from: name)
     }
     
-    private static func getUserFromName(_ name: String) -> String {
+    private static func user(from name: String) -> String {
         return name.substringUntil("/") ?? ""
     }
     

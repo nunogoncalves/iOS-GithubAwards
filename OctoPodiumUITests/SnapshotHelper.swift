@@ -81,7 +81,7 @@ public class Snapshot: NSObject {
         do {
             let launchArguments = try NSString(contentsOfFile: path, encoding: String.Encoding.utf8.rawValue) as String
             let regex = try NSRegularExpression(pattern: "(\\\".+?\\\"|\\S+)", options: [])
-            let matches = regex.matches(in: launchArguments, options: [], range: NSRange(location:0, length:launchArguments.characters.count))
+            let matches = regex.matches(in: launchArguments, options: [], range: NSRange(location:0, length:launchArguments.count))
             let results = matches.map { result -> String in
                 (launchArguments as NSString).substring(with: result.range)
             }
@@ -99,7 +99,7 @@ public class Snapshot: NSObject {
         print("snapshot: \(name)") // more information about this, check out https://github.com/fastlane/snapshot
 
         sleep(1) // Waiting for the animation to be finished (kind of)
-        XCUIDevice.shared().orientation = .unknown
+        XCUIDevice.shared.orientation = .unknown
     }
 
     class func waitForLoadingIndicatorToDisappear() {

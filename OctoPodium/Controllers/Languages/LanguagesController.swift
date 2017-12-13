@@ -22,11 +22,12 @@ class LanguagesController: UIViewController {
     }
     
     fileprivate var allLanguages: [Language] = []
-    fileprivate var displayingLanguages = [String]()
+    fileprivate var displayingLanguages: [String] = []
     fileprivate var selectedLanguage: Language!
     
     override func viewDidLoad() {
         searchBar.searchDelegate = self
+        languagesTable.contentInset.top = 44
         searchLanguages()
         languagesTable.registerReusableCell(LanguageCell.self)
         Analytics.SendToGoogle.enteredScreen(kAnalytics.languagesScreen)
@@ -34,13 +35,13 @@ class LanguagesController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == kSegues.showLanguageRankingSegue {
-            segue.rankingsController().language = selectedLanguage
+            segue.rankingsController.language = selectedLanguage
         }
     }
     
     private func searchLanguages() {
         setSearching()
-        Languages.Get().getAll(success: gotLanguages, failure: failedToLoadLanguages)
+        Languages.Get().getAll(success: got, failure: failedToLoadLanguages)
     }
     
     private func setSearching() {
@@ -57,7 +58,8 @@ class LanguagesController: UIViewController {
 }
 
 extension LanguagesController {
-    fileprivate func gotLanguages(_ languages: [Language]) {
+
+    fileprivate func got(languages: [Language]) {
         self.allLanguages = languages
         self.displayingLanguages = allLanguages
         
@@ -73,8 +75,9 @@ extension LanguagesController {
 }
 
 extension LanguagesController : UITableViewDelegate {
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedLanguage = displayingLanguages[(indexPath as NSIndexPath).row]
+        selectedLanguage = displayingLanguages[indexPath.row]
         performSegue(withIdentifier: kSegues.showLanguageRankingSegue, sender: self)
         languagesTable.deselectRow(at: indexPath, animated: false)
     }
@@ -87,7 +90,7 @@ extension LanguagesController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellFor(indexPath) as LanguageCell
+        let cell: LanguageCell = tableView.dequeueReusableCellFor(indexPath)
         cell.language = displayingLanguages[indexPath.row]
         return cell
     }
@@ -105,8 +108,9 @@ extension LanguagesController : UISearchBarDelegate {
     }
 }
 
-private extension UIStoryboardSegue {
-    func rankingsController() -> LanguageRankingsController {
+extension UIStoryboardSegue {
+    
+    fileprivate var rankingsController: LanguageRankingsController {
         return destination as! LanguageRankingsController
     }
 }

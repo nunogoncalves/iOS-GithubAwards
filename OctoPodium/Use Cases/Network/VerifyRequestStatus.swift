@@ -11,7 +11,7 @@ import Foundation
 class VerifyRequestStatus {
     
     let response: URLResponse?
-    var responseDictionary: NSDictionary?
+    var responseJSON: JSON?
     let error: Error?
     
     private let errorCodes = [
@@ -37,9 +37,9 @@ class VerifyRequestStatus {
         NetworkStatus.serverError.rawValue,
     ]
     
-    init(response: URLResponse?, error: Error?, responseDictionary: NSDictionary?) {
+    init(response: URLResponse?, error: Error?, responseDictionary: JSON?) {
         self.response = response
-        self.responseDictionary = responseDictionary
+        self.responseJSON = responseDictionary
         self.error = error
     }
     
@@ -51,10 +51,10 @@ class VerifyRequestStatus {
     }
     
     func apiResponse() -> ApiResponse {
-        return ApiResponse(status: status(), responseDictionary: responseDictionary)
+        return ApiResponse(status: status, json: responseJSON)
     }
     
-    func status() -> NetworkStatus {
+    var status: NetworkStatus {
         if error != nil {
             return checkStatusFrom(error!)
         }

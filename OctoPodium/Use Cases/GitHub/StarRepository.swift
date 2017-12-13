@@ -23,11 +23,11 @@ extension GitHub {
             "Authorization" : "token \(GithubToken.instance.token ?? "")"
         ]
         
-        func getUrl() -> String {
+        var url: String {
             return kUrls.doStarRepoUrl(repoOwner, repoName)
         }
 
-        func getDataFrom(_ dictionary: NSDictionary) {}
+        func parse(_ json: JSON) -> Void {}
         
         func doStar(_ success: @escaping () -> (), failure: @escaping (ApiResponse) -> ()) {
             call(success: success, failure: failure)

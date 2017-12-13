@@ -24,8 +24,8 @@ class UserPresenterTests: QuickSpec {
             context("Stars Repos and Trophies") {
                 beforeEach {
                     user = User(login: "Walter White", avatarUrl: "WalterWhiteAvatarUrl")
-                    let ranking1 = TestsBuilder.buildRankingWith(1, countryRanking: 1, worldRanking: 0)
-                    let ranking2 = TestsBuilder.buildRankingWith(2, countryRanking: 0, worldRanking: 2)
+                    let ranking1 = TestsBuilder.buildRankingWith(cityRanking: 1, countryRanking: 1, worldRanking: 0)
+                    let ranking2 = TestsBuilder.buildRankingWith(cityRanking: 2, countryRanking: 0, worldRanking: 2)
                     
                     user.rankings = [ranking1, ranking2]
                     userPresenter = UserPresenter(user: user, ranking: 1000)
@@ -69,11 +69,11 @@ class UserPresenterTests: QuickSpec {
                 }
                 
                 it("returns login") {
-                    XCTAssertEqual(userPresenter.login(), "nuno", "Expected login to be Nuno")
+                    XCTAssertEqual(userPresenter.login, "nuno", "Expected login to be Nuno")
                 }
                 
                 it("returns avatar url") {
-                    XCTAssertEqual(userPresenter.avatarUrl(), "AvatarUrl", "Expected avatar to be AvatarUrl")
+                    XCTAssertEqual(userPresenter.avatarUrl, "AvatarUrl", "Expected avatar to be AvatarUrl")
                 }
             }
             
@@ -108,11 +108,11 @@ class UserPresenterTests: QuickSpec {
                 }
                 
                 it("returns login") {
-                    XCTAssertEqual(userPresenter.login(), "Katrina", "Expected login to be Katrina")
+                    XCTAssertEqual(userPresenter.login, "Katrina", "Expected login to be Katrina")
                 }
                 
                 it("returns avatar url") {
-                    XCTAssertEqual(userPresenter.avatarUrl(), "KatrinaAvatarUrl", "Expected avatar to be KatrinaAvatarUrl")
+                    XCTAssertEqual(userPresenter.avatarUrl, "KatrinaAvatarUrl", "Expected avatar to be KatrinaAvatarUrl")
                 }
             }
             
@@ -152,7 +152,7 @@ class UserPresenterTests: QuickSpec {
                 
                 it("returns login") {
                     XCTAssertEqual(
-                        userPresenter.login(),
+                        userPresenter.login,
                         "Bianca",
                         "Expected login to be Bianca"
                     )
@@ -160,7 +160,7 @@ class UserPresenterTests: QuickSpec {
                 
                 it("returns avatar url") {
                     XCTAssertEqual(
-                        userPresenter.avatarUrl(),
+                        userPresenter.avatarUrl,
                         "BiancaAvatarUrl",
                         "Expected avatar to be BiancaAvatarUrl"
                     )
@@ -201,11 +201,11 @@ class UserPresenterTests: QuickSpec {
                 }
                 
                 it("returns login") {
-                    XCTAssertEqual(userPresenter.login(), "HarrisonFord", "Expected login to be HarrisonFord")
+                    XCTAssertEqual(userPresenter.login, "HarrisonFord", "Expected login to be HarrisonFord")
                 }
                 
                 it("returns avatar url") {
-                    XCTAssertEqual(userPresenter.avatarUrl(), "HarrisonAvatarUrl", "Expected avatar to be HarrisonAvatarUrl")
+                    XCTAssertEqual(userPresenter.avatarUrl, "HarrisonAvatarUrl", "Expected avatar to be HarrisonAvatarUrl")
                 }
             }
             
@@ -243,11 +243,11 @@ class UserPresenterTests: QuickSpec {
                 }
                 
                 it("returns login") {
-                    XCTAssertEqual(userPresenter.login(), "Walter White", "Expected login to be HarrisonFord")
+                    XCTAssertEqual(userPresenter.login, "Walter White", "Expected login to be HarrisonFord")
                 }
                 
                 it("returns avatar url") {
-                    XCTAssertEqual(userPresenter.avatarUrl(), "WalterWhiteAvatarUrl", "Expected avatar to be HarrisonAvatarUrl")
+                    XCTAssertEqual(userPresenter.avatarUrl, "WalterWhiteAvatarUrl", "Expected avatar to be HarrisonAvatarUrl")
                 }
             }
 

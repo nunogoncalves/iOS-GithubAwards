@@ -9,11 +9,12 @@
 import UIKit
 
 protocol TableViewDataSource: UITableViewDataSource {
+
+    associatedtype PaginatedItem
+
+    var page: Page<PaginatedItem> { get }
     
-    var book: Book { get }
+    func cellIdentifier(for indexPath: IndexPath) -> String
     
-    func cellIdentifierForIndex(_ indexPath: IndexPath) -> String
-    
-    func dataForIndexPath(_ indexPath: IndexPath) -> AnyObject
-    
+    func item(at indexPath: IndexPath) -> PaginatedItem
 }

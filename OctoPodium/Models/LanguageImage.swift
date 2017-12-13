@@ -18,8 +18,8 @@ class LanguageImage : UIImage {
         }
     }
     
-    class func loadForOr(_ language: String, orLanguageImageView languageImageView: LanguageImageView) -> UIImage {
-        if language == "" { return UIImage(named: "Language")! }
+    class func load(for language: String, orLanguageImageView languageImageView: LanguageImageView) -> UIImage {
+        if language == "" { return #imageLiteral(resourceName: "Language") }
         
         if let image = UIImage(named: language.lowercased()) {
             return image

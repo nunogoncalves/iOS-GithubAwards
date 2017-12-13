@@ -36,7 +36,7 @@ class CountryUsersController : UsersController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        selectedLocationType = .Country
+        selectedLocationType = .country
     }
     
     override func sendSearchedLocationToAnalytics() {

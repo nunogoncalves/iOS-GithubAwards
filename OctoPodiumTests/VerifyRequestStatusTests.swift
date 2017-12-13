@@ -24,10 +24,12 @@ class VerifyRequestStatusTests : QuickSpec {
     override func spec() {
         describe("VerifyRequestStatus") {
             
+            let url = URL(string: "https://google.com")!
+
             context("check for success") {
-                
+
                 it("Ok expects true") {
-                    let response = NSURLResponseMock(URL: NSURL(), statusCode: NetworkStatus.Ok.rawValue, HTTPVersion: nil, headerFields: nil)
+                    let response = NSURLResponseMock(url: url, statusCode: NetworkStatus.ok.rawValue, httpVersion: nil, headerFields: nil)
                     let verifier = VerifyRequestStatus(response: response, error: nil, responseDictionary: nil)
                     expect(verifier.success()).to(equal(true))
                 }
@@ -51,13 +53,14 @@ class VerifyRequestStatusTests : QuickSpec {
                 }
             
                 it("not found expects false") {
-                    let response = NSURLResponseMock(URL: NSURL(), statusCode: NetworkStatus.NotFound.rawValue, HTTPVersion: nil, headerFields: nil)
+
+                    let response = NSURLResponseMock(url: url, statusCode: NetworkStatus.notFound.rawValue, httpVersion: nil, headerFields: nil)
                     let verifier = VerifyRequestStatus(response: response, error: nil, responseDictionary: nil)
                     expect(verifier.success()).to(equal(false))
                 }
             
                 it("Server Error status expects false") {
-                    let response = NSURLResponseMock(URL: NSURL(), statusCode: NetworkStatus.ServerError.rawValue, HTTPVersion: nil, headerFields: nil)
+                    let response = NSURLResponseMock(url: url, statusCode: NetworkStatus.serverError.rawValue, httpVersion: nil, headerFields: nil)
                     let verifier = VerifyRequestStatus(response: response, error: nil, responseDictionary: nil)
                     expect(verifier.success()).to(equal(false))
                 }
@@ -67,39 +70,39 @@ class VerifyRequestStatusTests : QuickSpec {
                 it("expects an offline status") {
                     let error = NSErrorMock(domain: "", code: NetworkStatus.offline.rawValue, userInfo: nil)
                     let verifier = VerifyRequestStatus(response: nil, error: error, responseDictionary: nil)
-                    expect(verifier.status()).to(equal(NetworkStatus.Offline))
+                    expect(verifier.status).to(equal(NetworkStatus.offline))
                 }
                 
                 it("expects a host name not found status") {
                     let error = NSErrorMock(domain: "", code: NetworkStatus.hostNameNotFound.rawValue, userInfo: nil)
                     let verifier = VerifyRequestStatus(response: nil, error: error, responseDictionary: nil)
-                    expect(verifier.status()).to(equal(NetworkStatus.HostNameNotFound))
+                    expect(verifier.status).to(equal(NetworkStatus.hostNameNotFound))
                 }
                 
                 it("expects a could not connect to server status") {
                     let error = NSErrorMock(domain: "", code: NetworkStatus.couldNotConnectToServer.rawValue, userInfo: nil)
                     let verifier = VerifyRequestStatus(response: nil, error: error, responseDictionary: nil)
-                    expect(verifier.status()).to(equal(NetworkStatus.CouldNotConnectToServer))
+                    expect(verifier.status).to(equal(NetworkStatus.couldNotConnectToServer))
                 }
             }
             
             context("response error statuses") {
                 it("expects Ok status") {
-                    let response = NSURLResponseMock(URL: NSURL(), statusCode: NetworkStatus.Ok.rawValue, HTTPVersion: nil, headerFields: nil)
+                    let response = NSURLResponseMock(url: url, statusCode: NetworkStatus.ok.rawValue, httpVersion: nil, headerFields: nil)
                     let verifier = VerifyRequestStatus(response: response, error: nil, responseDictionary: nil)
-                    expect(verifier.status()).to(equal(NetworkStatus.Ok))
+                    expect(verifier.status).to(equal(NetworkStatus.ok))
                 }
                 
                 it("expects Not Found status") {
-                    let response = NSURLResponseMock(URL: NSURL(), statusCode: NetworkStatus.NotFound.rawValue, HTTPVersion: nil, headerFields: nil)
+                    let response = NSURLResponseMock(url: url, statusCode: NetworkStatus.notFound.rawValue, httpVersion: nil, headerFields: nil)
                     let verifier = VerifyRequestStatus(response: response, error: nil, responseDictionary: nil)
-                    expect(verifier.status()).to(equal(NetworkStatus.NotFound))
+                    expect(verifier.status).to(equal(NetworkStatus.notFound))
                 }
                 
                 it("expects Server Error status") {
-                    let response = NSURLResponseMock(URL: NSURL(), statusCode: NetworkStatus.ServerError.rawValue, HTTPVersion: nil, headerFields: nil)
+                    let response = NSURLResponseMock(url: url, statusCode: NetworkStatus.serverError.rawValue, httpVersion: nil, headerFields: nil)
                     let verifier = VerifyRequestStatus(response: response, error: nil, responseDictionary: nil)
-                    expect(verifier.status()).to(equal(NetworkStatus.ServerError))
+                    expect(verifier.status).to(equal(NetworkStatus.serverError))
                 }
             }
         }

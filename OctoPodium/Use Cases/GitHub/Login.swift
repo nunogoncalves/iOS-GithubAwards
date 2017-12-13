@@ -45,11 +45,11 @@ extension GitHub {
             }
         }
         
-        func getUrl() -> String {
+        var url: String {
             return kUrls.githubLoginUrl
         }
-        func getDataFrom(_ dictionary: NSDictionary) -> String {
-            return dictionary["token"] as! String
+        func parse(_ json: JSON) -> String {
+            return json["token"] as! String
         }
 
     }

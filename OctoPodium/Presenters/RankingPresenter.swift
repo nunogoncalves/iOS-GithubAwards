@@ -14,7 +14,7 @@ class RankingPresenter {
         self.ranking = ranking
     }
 
-    var userLogin: String { get { return ranking.user!.login! } }
+    var userLogin: String { get { return ranking.user!.login } }
     var language: String { get { return ranking.language ?? "" } }
 
     var city: String { get { return ranking.city?.capitalized ?? "" } }

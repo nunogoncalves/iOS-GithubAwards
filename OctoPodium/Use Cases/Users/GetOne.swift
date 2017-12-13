@@ -17,12 +17,13 @@ extension Users {
             self.login = login
         }
         
-        func getUrl() -> String {
+        var url: String {
             return "\(kUrls.usersBaseUrl)/\(self.login)"
         }
         
-        func getDataFrom(_ dictionary: NSDictionary) -> User {
-            return CreateFullUserFromDictionary(userDic: dictionary["user"]! as! NSDictionary).user
+        func parse(_ json: JSON) -> User {
+            
+            return CreateFullUserFromDictionary(from: json["user"] as! JSON).user
         }
     }
 }

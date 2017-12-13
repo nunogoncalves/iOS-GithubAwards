@@ -8,20 +8,20 @@
 
 enum LocationType: String {
     
-    case World = "world"
-    case City = "city"
-    case Country = "country"
-    
-    static func getTypeFor(_ rawValue: String) -> LocationType {
+    case world
+    case city
+    case country
+
+    init(rawValue: String) {
+
         switch rawValue.lowercased() {
-        case "city": return .City
-        case "country": return .Country
-        default: return .World
+        case "city": self = .city
+        case "country": self = .country
+        default: self = .world
         }
     }
     
-    func hasName() -> Bool {
-        return !(self == .World)
+    var hasName: Bool {
+        return self != .world
     }
-    
 }

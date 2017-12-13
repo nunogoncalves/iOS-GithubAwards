@@ -68,7 +68,7 @@ class AddGithubAccountController : UIViewController {
             if  apiResponse.isMissing2FactorAuthField() {
                 self.showAlertFor2FactorAuthenticationCode()
             } else {
-                if let message = apiResponse.responseDictionary?["message"] as? String {
+                if let message = apiResponse.json?["message"] as? String {
                     NotifyError.display(message)
                 } else {
                     NotifyError.display(apiResponse.status.message())
@@ -116,7 +116,7 @@ extension AddGithubAccountController : UITextFieldDelegate {
 
 private extension ApiResponse {
     func isMissing2FactorAuthField() -> Bool {
-        let message = responseDictionary?["message"] as? String ?? ""
+        let message = json?["message"] as? String ?? ""
         return message == "Must specify two-factor authentication OTP code."
     }
 }

@@ -27,7 +27,7 @@ struct Style {
             appearance.tintColor = .white
             
             appearance.titleTextAttributes = [
-                NSForegroundColorAttributeName : UIColor.white,
+                NSAttributedStringKey.foregroundColor : UIColor.white,
             ]
         }
 

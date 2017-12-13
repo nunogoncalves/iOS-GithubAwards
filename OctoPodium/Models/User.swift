@@ -7,8 +7,8 @@
 //
 
 class User {
-    var login: String?
-    var avatarUrl: String?
+    var login: String
+    var avatarUrl: String
     
     var city: String?
     var country: String?
@@ -22,20 +22,19 @@ class User {
         self.avatarUrl = avatarUrl
     }
     
-    func hasLocation() -> Bool {
-        return  hasCountry() || hasCity()
+    var hasLocation: Bool {
+        return  hasCountry || hasCity
     }
     
-    func hasCountry() -> Bool {
+    var hasCountry: Bool {
         return country != nil && country != ""
     }
     
-    func hasCity() -> Bool {
+    var hasCity: Bool {
         return city != nil && city != ""
     }
     
-    func isSelf() -> Bool {
-        guard let login = login else { return false }
+    var isSelf: Bool {
         guard let user = User.getUserInUserDefaults() else { return false }
         return login == user.login
     }
@@ -69,4 +68,17 @@ class User {
         UserDefaults().removeObject(forKey: loggedInUserAvatarUrlKey)
     }
     
+}
+
+extension User {
+
+    //TODO use codable
+    //This is shamefull... 🙈
+    convenience init(from json: [String: Any], avatarKey: String = "gravatar_url") {
+
+        self.init(login: (json["login"] as? String) ?? "",
+                  avatarUrl: (json[avatarKey] as? String) ?? "")
+
+        self.starsCount = (json["stars_count"] as? Int) ?? 0
+    }
 }

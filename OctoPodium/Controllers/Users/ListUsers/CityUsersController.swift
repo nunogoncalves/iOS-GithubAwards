@@ -36,7 +36,7 @@ class CityUsersController : UsersController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        selectedLocationType = .City
+        selectedLocationType = .city
     }
     
     override func sendSearchedLocationToAnalytics() {

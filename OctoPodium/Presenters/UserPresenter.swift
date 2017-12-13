@@ -88,20 +88,20 @@ class UserPresenter {
         return nil
     }
     
-    func login() -> String {
-        return user.login!
+    var login: String {
+        return user.login
     }
     
-    func avatarUrl() -> String? {
+    var avatarUrl: String? {
         return user.avatarUrl
     }
     
-    func stars() -> String {
+    var stars: String {
         return "\(user.starsCount ?? 0)"
     }
     
-    func hasLocation() -> Bool {
-        return user.hasLocation()
+    var hasLocation: Bool {
+        return user.hasLocation
     }
     
     var cityOrCountryOrWorld: String {
@@ -117,7 +117,7 @@ class UserPresenter {
     }
     
     var gitHubUrl: String {
-        return "https://www.github.com/\(user.login!)"
+        return "https://www.github.com/\(user.login)"
     }
     
 }

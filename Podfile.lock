@@ -1,5 +1,5 @@
 PODS:
-  - ARSPopover (2.1.0)
+  - ARSPopover (2.2.1)
   - Google/Analytics (1.3.2):
     - Google/Core
     - GoogleAnalytics (~> 3.12)
@@ -16,58 +16,47 @@ PODS:
   - GoogleSymbolUtilities (1.0.3)
   - GoogleUtilities (1.1.0):
     - GoogleSymbolUtilities (~> 1.0.0)
-  - Kanna (2.0.0)
-  - Locksmith (3.0.0)
-  - Nimble (5.0.0-alpha.30p1)
-  - Quick (0.9.3)
-  - SDWebImage (3.8.1):
-    - SDWebImage/Core (= 3.8.1)
-  - SDWebImage/Core (3.8.1)
+  - Kanna (4.0.0)
+  - Locksmith (4.0.0)
+  - Nimble (7.0.2)
+  - Quick (1.2.0)
+  - SDWebImage (4.2.2):
+    - SDWebImage/Core (= 4.2.2)
+  - SDWebImage/Core (4.2.2)
 
 DEPENDENCIES:
-  - ARSPopover (~> 2.0)
+  - ARSPopover (~> 2.2.1)
   - Google/Analytics
-  - Kanna (from `https://github.com/tid-kijyun/Kanna.git`, branch `swift3.0`)
-  - Locksmith
-  - Nimble (from `https://github.com/Quick/Nimble`)
-  - Quick (from `https://github.com/Quick/Quick`, branch `swift-3.0`)
-  - SDWebImage (~> 3.8)
+  - Kanna (from `https://github.com/tid-kijyun/Kanna.git`, branch `feature/v4.0.0`)
+  - Locksmith (= 4.0.0)
+  - Nimble
+  - Quick (= 1.2.0)
+  - SDWebImage (~> 4.2.2)
 
 EXTERNAL SOURCES:
   Kanna:
-    :branch: swift3.0
+    :branch: feature/v4.0.0
     :git: https://github.com/tid-kijyun/Kanna.git
-  Nimble:
-    :git: https://github.com/Quick/Nimble
-  Quick:
-    :branch: swift-3.0
-    :git: https://github.com/Quick/Quick
 
 CHECKOUT OPTIONS:
   Kanna:
-    :commit: 109249451c32e14dac541bfbfeaa91b4dcb47a87
+    :commit: 58e3513d20cd16fe8b9ff16b5a2b481fcd643499
     :git: https://github.com/tid-kijyun/Kanna.git
-  Nimble:
-    :commit: db706fc1d7130f6ac96c56aaf0e635fa3217fe57
-    :git: https://github.com/Quick/Nimble
-  Quick:
-    :commit: 1503fb019d72417d5d6e4fbebdbaa03c9e4a125f
-    :git: https://github.com/Quick/Quick
 
 SPEC CHECKSUMS:
-  ARSPopover: d3d4cd4a7766aadc3f0c47d03eee1ebae7a0ea83
-  Google: 97618e118111b998cce1d8dd1bd98b82301d72db
+  ARSPopover: ec2531fe8f498da1181e00f9ffeaa586a3d16d82
+  Google: 55ccf2acbe6f6ade86f872c1cd29a0c44039c349
   GoogleAnalytics: 9be1afdb8deeac4bb5f13ca7f7d3b9db2a1f43dc
   GoogleInterchangeUtilities: d7f7174176fbcf9710f696f1acebad4dbd98ac03
   GoogleNetworkingUtilities: 292992ab31b7b4ba32809a0e8b40e324cdfb2c0c
   GoogleSymbolUtilities: 82ad9f93d3615244b3f4ce440f5ab2515e8b4f56
   GoogleUtilities: 8ed9134debe11719097881711464752900668f10
-  Kanna: 8d60d86a3580f7dee732811e5163a5e3e41a32a7
-  Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
-  Nimble: c5b995b4cd57789ec44b0cfb79640fc00e61a8c7
-  Quick: 31fb576b6cbb6b028cc5e0016e4366accbb346f5
-  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+  Kanna: d5ae2a26472f7e7a474e7f36a9cd8aa2c8c63ad3
+  Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
+  Nimble: bfe1f814edabba69ff145cb1283e04ed636a67f2
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+  SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
 
-PODFILE CHECKSUM: cd798cb69f9478cd40bced992bc0771e804145b3
+PODFILE CHECKSUM: 2d3d59c42325d5a5cc0c76d5d4a3b4f662714827
 
-COCOAPODS: 1.0.0.rc.2
+COCOAPODS: 1.2.1

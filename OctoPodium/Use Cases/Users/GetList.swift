@@ -17,17 +17,27 @@ extension Users {
             self.searchOptions = searchOptions
         }
         
-        func getUrl() -> String {
+        var url: String {
+            
             var str = "\(kUrls.usersBaseUrl)/?\(searchOptions.urlParams())"
             str = str.replacingOccurrences(of: "+", with: "%2B")
             return str
         }
         
-        func getDataFrom(_ dictionary: NSDictionary) -> UsersListResponse {
-            let paginator = Paginator(dictionary: dictionary)
-            let users = ConvertUsersDictionaryToUsers(data: dictionary).users
-            let usersResponse = UsersListResponse(users: users, paginator: paginator)
-            return usersResponse
+        func parse(_ json: JSON) -> Page<User> {
+
+            let currentPage = json["page"] as! Int
+            let totalPages = json["total_pages"] as! Int
+            let totalCount = json["total_count"] as! Int
+
+            guard let usersDics = json["users"] as? [[String: Any]] else {
+
+                return Page<User>(items: [], currentPage: currentPage, totalPages: totalPages, totalCount: totalCount)
+            }
+
+            let users = usersDics.flatMap { User(from: $0) }
+
+            return Page(items: users, currentPage: currentPage, totalPages: totalPages, totalCount: totalCount)
         }
     }
 }

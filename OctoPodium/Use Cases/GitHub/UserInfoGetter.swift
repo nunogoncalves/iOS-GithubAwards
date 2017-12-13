@@ -10,23 +10,17 @@ extension GitHub {
     struct UserInfoGetter : Requestable, EmptyBody, HTTPGetter {
         
         var headers: HeadParams?
-        
+
+        let url = kUrls.userUrl
+
         init() {
             if let token = GithubToken.instance.token {
                 headers = ["Authorization" : "token \(token)"]
             }
         }
-        
-        func getDataFrom(_ dictionary: NSDictionary) -> User {
-            return User(
-                login: dictionary["login"] as? String ?? "",
-                avatarUrl: dictionary["avatar_url"] as? String ?? ""
-            )
+
+        func parse(_ json: JSON) -> User {
+            return User(from: json, avatarKey: "avatar_url")
         }
-        
-        func getUrl() -> String {
-            return kUrls.userUrl
-        }
-        
     }
 }
