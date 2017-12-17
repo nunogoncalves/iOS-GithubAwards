@@ -4,7 +4,7 @@
 
 <h1> OctoPodium
   <a target="_blank" href="https://itunes.apple.com/pt/app/octopodium/id1077519133">
-  <img src="http://www.busride.org/portals/83/Images/MobileApp/Apple%20App%20Rectangle.jpg" width="100px">
+  <img src="https://user-images.githubusercontent.com/3007012/34075523-2523a6b0-e2c1-11e7-8652-13447ab1690e.jpg" width="100px">
   </a>
 </h1>
 
