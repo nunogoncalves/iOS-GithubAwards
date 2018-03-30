@@ -11,7 +11,7 @@ import FBSnapshotTestCase
 
 final class GithubButtonSnapshotTests: FBSnapshotTestCase {
 
-    let githubButton = GithubButton(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+    let githubButton = NewGithubButton(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
 
     override func getFolderName() -> String {
 
@@ -26,35 +26,38 @@ final class GithubButtonSnapshotTests: FBSnapshotTestCase {
 
     func testLoading() {
 
+        githubButton.render(with: .full(image: #imageLiteral(resourceName: "StarDark"), title: "Stars", value: "--"))
+        githubButton.render(with: .startLoading)
         FBSnapshotVerifyView(githubButton)
     }
 
     func testSmallAmountOfStars() {
 
-        githubButton.setName("Stars")
-        githubButton.setValue("10")
+        githubButton.render(with: .full(image: #imageLiteral(resourceName: "StarDark"), title: "Stars", value: "10"))
+        githubButton.render(with: .stopLoading)
         FBSnapshotVerifyView(githubButton)
     }
 
     func testBigAmoutOfStars() {
 
-        githubButton.setName("Stars")
-        githubButton.setValue("1000000")
+        let githubButton = NewGithubButton(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+        githubButton.render(with: .full(image: #imageLiteral(resourceName: "StarDark"), title: "Stars", value: "1000000"))
+        githubButton.render(with: .stopLoading)
         FBSnapshotVerifyView(githubButton)
     }
 
     func testSmallAmountOfFork() {
 
-        githubButton.setImage(#imageLiteral(resourceName: "ForkDark"))
-        githubButton.setName("Fork")
-        githubButton.setValue("10")
+        githubButton.render(with: .full(image: #imageLiteral(resourceName: "ForkDark"), title: "Forks", value: "10"))
+        githubButton.render(with: .stopLoading)
+
         FBSnapshotVerifyView(githubButton)
     }
 
     func testTinyText() {
 
-        githubButton.setName("Hi")
-        githubButton.setValue("10")
+        githubButton.render(with: .full(image: #imageLiteral(resourceName: "StarDark"), title: "Hi", value: "10"))
+        githubButton.render(with: .stopLoading)
         FBSnapshotVerifyView(githubButton)
     }
 }

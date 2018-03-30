@@ -333,6 +333,7 @@
 		85BBDA041C5E0BB300229ED2 /* TrendingRepositoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrendingRepositoryCell.xib; sourceTree = "<group>"; };
 		85BBDA071C5E702C00229ED2 /* TrendingScope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingScope.swift; sourceTree = "<group>"; };
 		85BBDA091C5E85E500229ED2 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		85D17565206E251100A4E5E0 /* NewGithubButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGithubButton.swift; sourceTree = "<group>"; };
 		85D320EC1C02062E001B7C7A /* OctoPodium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OctoPodium.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85D320EF1C02062E001B7C7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85D320F11C02062E001B7C7A /* LanguageRankingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageRankingsController.swift; sourceTree = "<group>"; };
@@ -619,6 +620,7 @@
 				850485301C0FB10C004D952A /* AlertView.swift */,
 				850485321C0FB11A004D952A /* AlertView.xib */,
 				85A7317F1C95F8B1002C721B /* GithubButton.swift */,
+				85D17565206E251100A4E5E0 /* NewGithubButton.swift */,
 				85A731811C95F900002C721B /* GithubButton.xib */,
 				85482E631C96BF9A00E20FDB /* GithubForkButton.swift */,
 				85820F3A1C0E2BCE0069D085 /* GithubLoadingView.swift */,
@@ -1421,6 +1423,7 @@
 				85BBD9F91C5CA61000229ED2 /* Repository.swift in Sources */,
 				85E09ECC1D0A9CA600752BB0 /* HTTPPutter.swift in Sources */,
 				8558253E1CA85DF200851967 /* NSBundle.swift in Sources */,
+				85D17566206E251100A4E5E0 /* NewGithubButton.swift in Sources */,
 				855825451CA9BDC700851967 /* Analytics.swift in Sources */,
 				8558254D1CAAB52900851967 /* NotifySuccess.swift in Sources */,
 				85A4F01B1C3F1BF0002F3405 /* CityUsersController.swift in Sources */,

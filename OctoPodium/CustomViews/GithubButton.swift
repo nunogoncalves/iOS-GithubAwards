@@ -47,7 +47,7 @@ class GithubButton : UIView, NibView {
     }
     
     private func setBorder() {
-        for v in [leftView, rightView, rightViewLeft] { v?.layer.borderColor = buttonBorderColor }
+        [leftView, rightView, rightViewLeft].forEach { $0.layer.borderColor = buttonBorderColor }
     }
     
     private func applyGradient() {

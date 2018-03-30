@@ -104,7 +104,7 @@
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "IMAGE_DIFF_DIR"
-            value = "$(SOURCE_ROOT)/$(PROJECT_NAME)Tests/Snapshots/Diffs"
+            value = "$(SOURCE_ROOT)/$(PROJECT_NAME)Tests/SnapshotTesting/Snapshots/Diffs"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
