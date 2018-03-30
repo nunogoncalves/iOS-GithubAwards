@@ -13,10 +13,11 @@ target 'OctoPodium' do
     pod 'Locksmith', '4.0.0'
     pod 'SDWebImage', '~>4.2.2'
     pod 'ARSPopover', '~> 2.2.1'
-end
 
 target 'OctoPodiumTests' do
   testing_pods
+  pod 'iOSSnapshotTestCase', git: 'https://github.com/nunogoncalves/ios-snapshot-test-case.git', branch: 'flexible-names'
+end
 end
 
 target 'OctoPodiumUITests' do

@@ -1,17 +1,21 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="TitilliumWeb-Regular.ttf">
+        <array key="TitilliumWeb-Regular.ttf">
             <string>TitilliumWeb-Regular</string>
-        </mutableArray>
-        <mutableArray key="TitilliumWeb-SemiBold.ttf">
+        </array>
+        <array key="TitilliumWeb-SemiBold.ttf">
             <string>TitilliumWeb-SemiBold</string>
-        </mutableArray>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GithubButton" customModule="OctoPodium" customModuleProvider="target">
@@ -50,7 +54,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stars" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SWL-FB-WuM">
                                             <rect key="frame" x="20" y="-1" width="31" height="21.5"/>
                                             <fontDescription key="fontDescription" name="TitilliumWeb-Regular" family="Titillium Web" pointSize="14"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -95,7 +99,7 @@
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EJw-3l-Ox4">
                                     <rect key="frame" x="0.0" y="0.0" width="41.5" height="33"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                             <integer key="value" value="5"/>
@@ -108,7 +112,7 @@
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QuO-qf-bEE">
                                     <rect key="frame" x="0.0" y="0.0" width="10" height="33"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="10" id="QN1-yD-1QU"/>
                                     </constraints>
@@ -120,20 +124,20 @@
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPC-TC-gk8">
                                     <rect key="frame" x="8" y="2" width="10" height="29"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="10" id="9QA-m4-1iR"/>
                                     </constraints>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7T-Ot-71a" userLabel="Value Label">
-                                    <rect key="frame" x="21" y="17" width="0.0" height="0.0"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="F7T-Ot-71a" userLabel="Value Label">
+                                    <rect key="frame" x="2" y="17" width="37.5" height="0.0"/>
                                     <fontDescription key="fontDescription" name="TitilliumWeb-SemiBold" family="Titillium Web" pointSize="14"/>
-                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k5s-rZ-6VW" customClass="GithubLoadingView" customModule="OctoPodium" customModuleProvider="target">
                                     <rect key="frame" x="11.5" y="7" width="20" height="20"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="20" id="QBl-eP-6ef"/>
                                         <constraint firstAttribute="height" constant="20" id="bdk-g6-Cbc"/>
@@ -144,17 +148,18 @@
                                 <constraint firstItem="VPC-TC-gk8" firstAttribute="leading" secondItem="QuO-qf-bEE" secondAttribute="trailing" constant="-2" id="14a-Xl-b6g"/>
                                 <constraint firstItem="EJw-3l-Ox4" firstAttribute="height" secondItem="5Lc-X2-CfJ" secondAttribute="height" id="1fe-Od-ogg"/>
                                 <constraint firstItem="EJw-3l-Ox4" firstAttribute="centerY" secondItem="5Lc-X2-CfJ" secondAttribute="centerY" id="5d2-in-erQ"/>
+                                <constraint firstItem="F7T-Ot-71a" firstAttribute="leading" secondItem="5Lc-X2-CfJ" secondAttribute="leading" constant="2" id="6Nm-Rw-g4d"/>
+                                <constraint firstAttribute="trailing" secondItem="F7T-Ot-71a" secondAttribute="trailing" constant="2" id="80u-V0-1ZY"/>
                                 <constraint firstItem="EJw-3l-Ox4" firstAttribute="centerX" secondItem="5Lc-X2-CfJ" secondAttribute="centerX" id="CnV-M6-Abk"/>
+                                <constraint firstItem="k5s-rZ-6VW" firstAttribute="centerX" secondItem="5Lc-X2-CfJ" secondAttribute="centerX" id="HTx-L8-0rm"/>
                                 <constraint firstItem="F7T-Ot-71a" firstAttribute="centerY" secondItem="5Lc-X2-CfJ" secondAttribute="centerY" id="OZ1-c0-Nr5"/>
-                                <constraint firstItem="k5s-rZ-6VW" firstAttribute="centerY" secondItem="F7T-Ot-71a" secondAttribute="centerY" id="Oss-7w-B3S"/>
                                 <constraint firstItem="VPC-TC-gk8" firstAttribute="top" secondItem="QuO-qf-bEE" secondAttribute="bottom" id="SJd-AX-IT8"/>
-                                <constraint firstItem="k5s-rZ-6VW" firstAttribute="centerX" secondItem="F7T-Ot-71a" secondAttribute="centerX" id="Whq-TL-p9E"/>
                                 <constraint firstAttribute="bottom" secondItem="QuO-qf-bEE" secondAttribute="bottom" id="cYQ-d4-nzG"/>
                                 <constraint firstItem="VPC-TC-gk8" firstAttribute="bottom" secondItem="QuO-qf-bEE" secondAttribute="bottom" constant="-2" id="fED-JE-2xa"/>
                                 <constraint firstItem="QuO-qf-bEE" firstAttribute="top" secondItem="5Lc-X2-CfJ" secondAttribute="top" id="fd3-hj-1hV"/>
+                                <constraint firstItem="k5s-rZ-6VW" firstAttribute="centerY" secondItem="5Lc-X2-CfJ" secondAttribute="centerY" id="h5M-aE-Ufn"/>
                                 <constraint firstItem="EJw-3l-Ox4" firstAttribute="width" secondItem="5Lc-X2-CfJ" secondAttribute="width" id="r9p-Nd-VqC"/>
                                 <constraint firstItem="VPC-TC-gk8" firstAttribute="top" secondItem="QuO-qf-bEE" secondAttribute="top" constant="2" id="s7V-eM-ylE"/>
-                                <constraint firstItem="F7T-Ot-71a" firstAttribute="centerX" secondItem="5Lc-X2-CfJ" secondAttribute="centerX" id="swX-Tr-whP"/>
                                 <constraint firstItem="QuO-qf-bEE" firstAttribute="leading" secondItem="5Lc-X2-CfJ" secondAttribute="leading" id="tkg-1W-D2Z"/>
                             </constraints>
                             <variation key="default">
@@ -176,7 +181,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="pSC-ZN-XAS" secondAttribute="trailing" id="Ws5-aj-M5y"/>
                 <constraint firstItem="pSC-ZN-XAS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="pdf-rE-4pq"/>
