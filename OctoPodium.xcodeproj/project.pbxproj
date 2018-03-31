@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B95D28BA0FA45D2DD57C984 /* Pods_OctoPodiumUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B540547DE1B7F758025FDBCD /* Pods_OctoPodiumUITests.framework */; };
-		520E228AAAB765EAE23CC552 /* Pods_OctoPodium_OctoPodiumTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A05750136ABBE35390E6F1D /* Pods_OctoPodium_OctoPodiumTests.framework */; };
-		5D75BBBC62019C9469141189 /* Pods_OctoPodium.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3E63EBE1AD30DCDAFB6D849 /* Pods_OctoPodium.framework */; };
-		84D32C97494D74EDAE651EC1 /* Pods_OctoPodiumTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C86EC3D791679C4520EC019 /* Pods_OctoPodiumTests.framework */; };
 		8501F06B1C425674004BEB50 /* SessionConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8501F06A1C425674004BEB50 /* SessionConfigurationBuilder.swift */; };
 		850485311C0FB10C004D952A /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850485301C0FB10C004D952A /* AlertView.swift */; };
 		850485331C0FB11A004D952A /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 850485321C0FB11A004D952A /* AlertView.xib */; };
@@ -180,6 +176,9 @@
 		85FA596B1C1739560097732B /* Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA596A1C1739560097732B /* Get.swift */; };
 		85FC70661C244CAA00971081 /* UserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC70651C244CAA00971081 /* UserPresenter.swift */; };
 		85FC70681C2456FF00971081 /* UserPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC70671C2456FF00971081 /* UserPresenterTests.swift */; };
+		92C755086812E9E10DDE8D5A /* Pods_OctoPodium.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C823A9D3811303944E6F1A39 /* Pods_OctoPodium.framework */; };
+		B70CEECCFCDE6A0FD9473B26 /* Pods_OctoPodiumUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4755415318A2F88E53292ADA /* Pods_OctoPodiumUITests.framework */; };
+		BF82AC34CD11883CCE94A5F5 /* Pods_OctoPodium_OctoPodiumTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B36B4627E8FF825443BE876 /* Pods_OctoPodium_OctoPodiumTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -200,16 +199,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		06C39A773D97549565F5B139 /* Pods-OctoPodium-OctoPodiumTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OctoPodium-OctoPodiumTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OctoPodium-OctoPodiumTests/Pods-OctoPodium-OctoPodiumTests.release.xcconfig"; sourceTree = "<group>"; };
-		0B405967A95964371494B397 /* Pods-OctoPodiumUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OctoPodiumUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OctoPodiumUITests/Pods-OctoPodiumUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		1854DF07A6F2EEADD4AB87F9 /* Pods-OctoPodiumTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OctoPodiumTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OctoPodiumTests/Pods-OctoPodiumTests.debug.xcconfig"; sourceTree = "<group>"; };
-		1FCDCEC0CBB21A6F97796CB4 /* Pods-OctoPodium.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OctoPodium.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OctoPodium/Pods-OctoPodium.debug.xcconfig"; sourceTree = "<group>"; };
-		21DA7652B61F1E7F2201E8F6 /* Pods-OctoPodium.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OctoPodium.release.xcconfig"; path = "Pods/Target Support Files/Pods-OctoPodium/Pods-OctoPodium.release.xcconfig"; sourceTree = "<group>"; };
-		28C2856083AEF2C07F372258 /* Pods-OctoPodiumTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OctoPodiumTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OctoPodiumTests/Pods-OctoPodiumTests.release.xcconfig"; sourceTree = "<group>"; };
-		3A05750136ABBE35390E6F1D /* Pods_OctoPodium_OctoPodiumTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OctoPodium_OctoPodiumTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C86EC3D791679C4520EC019 /* Pods_OctoPodiumTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OctoPodiumTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		696D2B9BB7E047B728F3CEE7 /* Pods-OctoPodium-OctoPodiumTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OctoPodium-OctoPodiumTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OctoPodium-OctoPodiumTests/Pods-OctoPodium-OctoPodiumTests.debug.xcconfig"; sourceTree = "<group>"; };
-		6EDEF7109079EE967F1B9351 /* Pods-OctoPodiumUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OctoPodiumUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OctoPodiumUITests/Pods-OctoPodiumUITests.release.xcconfig"; sourceTree = "<group>"; };
+		112E72C776C123C297F8444C /* Pods-OctoPodiumUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OctoPodiumUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OctoPodiumUITests/Pods-OctoPodiumUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		1D3ADA13FD104BF381089E4E /* Pods-OctoPodiumUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OctoPodiumUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OctoPodiumUITests/Pods-OctoPodiumUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3B36B4627E8FF825443BE876 /* Pods_OctoPodium_OctoPodiumTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OctoPodium_OctoPodiumTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4755415318A2F88E53292ADA /* Pods_OctoPodiumUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OctoPodiumUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6882FF44BA3256C6D7B70E4D /* Pods-OctoPodium-OctoPodiumTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OctoPodium-OctoPodiumTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OctoPodium-OctoPodiumTests/Pods-OctoPodium-OctoPodiumTests.debug.xcconfig"; sourceTree = "<group>"; };
 		85016F1E1D8FD7E400F4293A /* OctoPodium.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OctoPodium.entitlements; sourceTree = "<group>"; };
 		8501F06A1C425674004BEB50 /* SessionConfigurationBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionConfigurationBuilder.swift; sourceTree = "<group>"; };
 		850485301C0FB10C004D952A /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
@@ -388,8 +382,10 @@
 		85FA596A1C1739560097732B /* Get.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Get.swift; sourceTree = "<group>"; };
 		85FC70651C244CAA00971081 /* UserPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPresenter.swift; sourceTree = "<group>"; };
 		85FC70671C2456FF00971081 /* UserPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPresenterTests.swift; sourceTree = "<group>"; };
-		B540547DE1B7F758025FDBCD /* Pods_OctoPodiumUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OctoPodiumUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F3E63EBE1AD30DCDAFB6D849 /* Pods_OctoPodium.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OctoPodium.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F1E07CB34B615F7C6060B67 /* Pods-OctoPodium.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OctoPodium.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OctoPodium/Pods-OctoPodium.debug.xcconfig"; sourceTree = "<group>"; };
+		C0F45FC22C20871A4E2E2B14 /* Pods-OctoPodium-OctoPodiumTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OctoPodium-OctoPodiumTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OctoPodium-OctoPodiumTests/Pods-OctoPodium-OctoPodiumTests.release.xcconfig"; sourceTree = "<group>"; };
+		C823A9D3811303944E6F1A39 /* Pods_OctoPodium.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OctoPodium.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5DB2E3C455CEC71AF9FA668 /* Pods-OctoPodium.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OctoPodium.release.xcconfig"; path = "Pods/Target Support Files/Pods-OctoPodium/Pods-OctoPodium.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -397,7 +393,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D75BBBC62019C9469141189 /* Pods_OctoPodium.framework in Frameworks */,
+				92C755086812E9E10DDE8D5A /* Pods_OctoPodium.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,8 +401,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84D32C97494D74EDAE651EC1 /* Pods_OctoPodiumTests.framework in Frameworks */,
-				520E228AAAB765EAE23CC552 /* Pods_OctoPodium_OctoPodiumTests.framework in Frameworks */,
+				BF82AC34CD11883CCE94A5F5 /* Pods_OctoPodium_OctoPodiumTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,26 +409,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B95D28BA0FA45D2DD57C984 /* Pods_OctoPodiumUITests.framework in Frameworks */,
+				B70CEECCFCDE6A0FD9473B26 /* Pods_OctoPodiumUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6E14197BA9706B67E2BAC7D7 /* Pods */ = {
+		6A02BE0B4FDD51B7B3643593 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1FCDCEC0CBB21A6F97796CB4 /* Pods-OctoPodium.debug.xcconfig */,
-				21DA7652B61F1E7F2201E8F6 /* Pods-OctoPodium.release.xcconfig */,
-				1854DF07A6F2EEADD4AB87F9 /* Pods-OctoPodiumTests.debug.xcconfig */,
-				28C2856083AEF2C07F372258 /* Pods-OctoPodiumTests.release.xcconfig */,
-				0B405967A95964371494B397 /* Pods-OctoPodiumUITests.debug.xcconfig */,
-				6EDEF7109079EE967F1B9351 /* Pods-OctoPodiumUITests.release.xcconfig */,
-				696D2B9BB7E047B728F3CEE7 /* Pods-OctoPodium-OctoPodiumTests.debug.xcconfig */,
-				06C39A773D97549565F5B139 /* Pods-OctoPodium-OctoPodiumTests.release.xcconfig */,
+				C823A9D3811303944E6F1A39 /* Pods_OctoPodium.framework */,
+				3B36B4627E8FF825443BE876 /* Pods_OctoPodium_OctoPodiumTests.framework */,
+				4755415318A2F88E53292ADA /* Pods_OctoPodiumUITests.framework */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		851D3C361C09131D00870813 /* Network */ = {
@@ -879,12 +869,12 @@
 		85D320E31C02062E001B7C7A = {
 			isa = PBXGroup;
 			children = (
-				D66C1A777B53785E31B151E7 /* Frameworks */,
 				85D320EE1C02062E001B7C7A /* OctoPodium */,
 				85D321031C02062E001B7C7A /* OctoPodiumTests */,
 				85D3210E1C02062E001B7C7A /* OctoPodiumUITests */,
-				6E14197BA9706B67E2BAC7D7 /* Pods */,
 				85D320ED1C02062E001B7C7A /* Products */,
+				EFB98E3A6DA86EAC60A60B49 /* Pods */,
+				6A02BE0B4FDD51B7B3643593 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -998,15 +988,17 @@
 			path = Presenters;
 			sourceTree = "<group>";
 		};
-		D66C1A777B53785E31B151E7 /* Frameworks */ = {
+		EFB98E3A6DA86EAC60A60B49 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F3E63EBE1AD30DCDAFB6D849 /* Pods_OctoPodium.framework */,
-				5C86EC3D791679C4520EC019 /* Pods_OctoPodiumTests.framework */,
-				B540547DE1B7F758025FDBCD /* Pods_OctoPodiumUITests.framework */,
-				3A05750136ABBE35390E6F1D /* Pods_OctoPodium_OctoPodiumTests.framework */,
+				8F1E07CB34B615F7C6060B67 /* Pods-OctoPodium.debug.xcconfig */,
+				F5DB2E3C455CEC71AF9FA668 /* Pods-OctoPodium.release.xcconfig */,
+				6882FF44BA3256C6D7B70E4D /* Pods-OctoPodium-OctoPodiumTests.debug.xcconfig */,
+				C0F45FC22C20871A4E2E2B14 /* Pods-OctoPodium-OctoPodiumTests.release.xcconfig */,
+				112E72C776C123C297F8444C /* Pods-OctoPodiumUITests.debug.xcconfig */,
+				1D3ADA13FD104BF381089E4E /* Pods-OctoPodiumUITests.release.xcconfig */,
 			);
-			name = Frameworks;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1016,12 +1008,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 85D321141C02062E001B7C7A /* Build configuration list for PBXNativeTarget "OctoPodium" */;
 			buildPhases = (
-				02B131E8E5CF800D18537DC0 /* [CP] Check Pods Manifest.lock */,
+				6EBC091E7EAE165BD35DEB27 /* [CP] Check Pods Manifest.lock */,
 				85D320E81C02062E001B7C7A /* Sources */,
 				85D320E91C02062E001B7C7A /* Frameworks */,
 				85D320EA1C02062E001B7C7A /* Resources */,
-				DC33AF0CEBCD4340ACE56D8C /* [CP] Embed Pods Frameworks */,
-				DD272DEAA7C0A3B88D2F01BB /* [CP] Copy Pods Resources */,
+				CDA18B0D159456443E9FE2BE /* [CP] Embed Pods Frameworks */,
+				69E46D3C2C5B083D67D94DD3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1036,13 +1028,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 85D321171C02062E001B7C7A /* Build configuration list for PBXNativeTarget "OctoPodiumTests" */;
 			buildPhases = (
-				5DE4EBB67450CED7DB71A77F /* [CP] Check Pods Manifest.lock */,
+				59AFC2181E00D330F46A0076 /* [CP] Check Pods Manifest.lock */,
 				85D320FC1C02062E001B7C7A /* Sources */,
 				85D320FD1C02062E001B7C7A /* Frameworks */,
 				85D320FE1C02062E001B7C7A /* Resources */,
-				51DB5AA50120AC1FEC46C7D0 /* [CP] Embed Pods Frameworks */,
-				64979932B0858D05698144C9 /* [CP] Copy Pods Resources */,
 				8562055B206ED53A0047C9D8 /* Script */,
+				AB95A14D361E82491EA85525 /* [CP] Embed Pods Frameworks */,
+				F7AE2B491C9E33D2DC3E0931 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1058,13 +1050,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 85D3211A1C02062E001B7C7A /* Build configuration list for PBXNativeTarget "OctoPodiumUITests" */;
 			buildPhases = (
-				4E951D52D4BE9D43E7A38395 /* [CP] Check Pods Manifest.lock */,
+				75887C0C2D62A1F2AB671F88 /* [CP] Check Pods Manifest.lock */,
 				85D321071C02062E001B7C7A /* Sources */,
 				85D321081C02062E001B7C7A /* Frameworks */,
 				85D321091C02062E001B7C7A /* Resources */,
-				52AF291AD01D64556B37DFC7 /* [CP] Copy Pods Resources */,
 				85679BAA1D13587A00FC20DF /* ShellScript */,
-				7042CB8FA8CCEAFDB9836733 /* [CP] Embed Pods Frameworks */,
+				A420602168B08E8C1C47737C /* [CP] Embed Pods Frameworks */,
+				A36F858D26B48CE409219395 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1190,88 +1182,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		02B131E8E5CF800D18537DC0 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-OctoPodium-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4E951D52D4BE9D43E7A38395 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-OctoPodiumUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		51DB5AA50120AC1FEC46C7D0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-OctoPodium-OctoPodiumTests/Pods-OctoPodium-OctoPodiumTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ARSPopover/ARSPopover.framework",
-				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
-				"${BUILT_PRODUCTS_DIR}/Locksmith/Locksmith.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
-				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
-				"${BUILT_PRODUCTS_DIR}/iOSSnapshotTestCase/FBSnapshotTestCase.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ARSPopover.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Locksmith.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSnapshotTestCase.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OctoPodium-OctoPodiumTests/Pods-OctoPodium-OctoPodiumTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		52AF291AD01D64556B37DFC7 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OctoPodiumUITests/Pods-OctoPodiumUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5DE4EBB67450CED7DB71A77F /* [CP] Check Pods Manifest.lock */ = {
+		59AFC2181E00D330F46A0076 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1289,7 +1200,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		64979932B0858D05698144C9 /* [CP] Copy Pods Resources */ = {
+		69E46D3C2C5B083D67D94DD3 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1301,27 +1212,43 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OctoPodium-OctoPodiumTests/Pods-OctoPodium-OctoPodiumTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OctoPodium/Pods-OctoPodium-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7042CB8FA8CCEAFDB9836733 /* [CP] Embed Pods Frameworks */ = {
+		6EBC091E7EAE165BD35DEB27 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-OctoPodiumUITests/Pods-OctoPodiumUITests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
-				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+				"$(DERIVED_FILE_DIR)/Pods-OctoPodium-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OctoPodiumUITests/Pods-OctoPodiumUITests-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		75887C0C2D62A1F2AB671F88 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OctoPodiumUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8562055B206ED53A0047C9D8 /* Script */ = {
@@ -1351,7 +1278,72 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OctoPodiumUITests/Pods-OctoPodiumUITests-frameworks.sh\"";
 		};
-		DC33AF0CEBCD4340ACE56D8C /* [CP] Embed Pods Frameworks */ = {
+		A36F858D26B48CE409219395 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OctoPodiumUITests/Pods-OctoPodiumUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A420602168B08E8C1C47737C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-OctoPodiumUITests/Pods-OctoPodiumUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OctoPodiumUITests/Pods-OctoPodiumUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB95A14D361E82491EA85525 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-OctoPodium-OctoPodiumTests/Pods-OctoPodium-OctoPodiumTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ARSPopover/ARSPopover.framework",
+				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
+				"${BUILT_PRODUCTS_DIR}/Locksmith/Locksmith.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+				"${BUILT_PRODUCTS_DIR}/iOSSnapshotTestCase/FBSnapshotTestCase.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ARSPopover.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Locksmith.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSnapshotTestCase.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OctoPodium-OctoPodiumTests/Pods-OctoPodium-OctoPodiumTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CDA18B0D159456443E9FE2BE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1375,7 +1367,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OctoPodium/Pods-OctoPodium-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DD272DEAA7C0A3B88D2F01BB /* [CP] Copy Pods Resources */ = {
+		F7AE2B491C9E33D2DC3E0931 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1387,7 +1379,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OctoPodium/Pods-OctoPodium-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OctoPodium-OctoPodiumTests/Pods-OctoPodium-OctoPodiumTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1686,7 +1678,7 @@
 		};
 		85D321151C02062E001B7C7A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1FCDCEC0CBB21A6F97796CB4 /* Pods-OctoPodium.debug.xcconfig */;
+			baseConfigurationReference = 8F1E07CB34B615F7C6060B67 /* Pods-OctoPodium.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1695,19 +1687,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
-				"HEADER_SEARCH_PATHS[arch=*]" = (
-					"$(inherited)",
-					"${PODS_ROOT}/Google/Headers",
-					"$(SDKROOT)/usr/include/libxml2",
-					"$(inherited)",
-					"\"${PODS_ROOT}/Headers/Public\"",
-					"\"${PODS_ROOT}/Headers/Public/Google\"",
-					"\"${PODS_ROOT}/Headers/Public/GoogleAnalytics\"",
-					"\"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\"",
-					"\"${PODS_ROOT}/Headers/Public/GoogleNetworkingUtilities\"",
-					"\"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\"",
-					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
-				);
+				"HEADER_SEARCH_PATHS[arch=*]" = "$(inherited) ${PODS_ROOT}/Google/Headers $(SDKROOT)/usr/include/libxml2 $(inherited) \"${PODS_ROOT}/Headers/Public\" \"${PODS_ROOT}/Headers/Public/Google\" \"${PODS_ROOT}/Headers/Public/GoogleAnalytics\" \"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\" \"${PODS_ROOT}/Headers/Public/GoogleNetworkingUtilities\" \"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\" \"${PODS_ROOT}/Headers/Public/GoogleUtilities\"";
 				INFOPLIST_FILE = "OctoPodium/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1724,7 +1704,7 @@
 		};
 		85D321161C02062E001B7C7A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21DA7652B61F1E7F2201E8F6 /* Pods-OctoPodium.release.xcconfig */;
+			baseConfigurationReference = F5DB2E3C455CEC71AF9FA668 /* Pods-OctoPodium.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1749,7 +1729,7 @@
 		};
 		85D321181C02062E001B7C7A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 696D2B9BB7E047B728F3CEE7 /* Pods-OctoPodium-OctoPodiumTests.debug.xcconfig */;
+			baseConfigurationReference = 6882FF44BA3256C6D7B70E4D /* Pods-OctoPodium-OctoPodiumTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1779,7 +1759,7 @@
 		};
 		85D321191C02062E001B7C7A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 06C39A773D97549565F5B139 /* Pods-OctoPodium-OctoPodiumTests.release.xcconfig */;
+			baseConfigurationReference = C0F45FC22C20871A4E2E2B14 /* Pods-OctoPodium-OctoPodiumTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1796,7 +1776,7 @@
 		};
 		85D3211B1C02062E001B7C7A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0B405967A95964371494B397 /* Pods-OctoPodiumUITests.debug.xcconfig */;
+			baseConfigurationReference = 112E72C776C123C297F8444C /* Pods-OctoPodiumUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				INFOPLIST_FILE = OctoPodiumUITests/Info.plist;
@@ -1812,7 +1792,7 @@
 		};
 		85D3211C1C02062E001B7C7A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6EDEF7109079EE967F1B9351 /* Pods-OctoPodiumUITests.release.xcconfig */;
+			baseConfigurationReference = 1D3ADA13FD104BF381089E4E /* Pods-OctoPodiumUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				INFOPLIST_FILE = OctoPodiumUITests/Info.plist;

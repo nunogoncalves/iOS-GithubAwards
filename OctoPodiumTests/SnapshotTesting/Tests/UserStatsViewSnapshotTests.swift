@@ -25,10 +25,11 @@ final class UserStatsViewSnapshotTests: FBSnapshotTestCase {
         super.setUp()
         userStats.backgroundColor = UIColor(hex: 0x03C8F5)
 
-        self.recordMode = true
+//        self.recordMode = true
     }
 
     func testCommon() {
+
         userStats.render(with: (repositories: 12, stars: 1002, languages: 3, medals: 5))
         FBSnapshotVerifyView(userStats)
     }

@@ -33,8 +33,6 @@ final class UserStatsView: UIView {
     private static var label: UILabel {
         let label = UILabel.usingAutoLayout()
         label.textColor = .white
-        label.text = "-"
-        label.backgroundColor = .red
         label.font = UIFont.TitilliumWeb.regular.ofSize(12)
         return label
     }
@@ -101,24 +99,10 @@ final class UserStatsView: UIView {
             $0.widthAnchor.constraint(equalTo: leftSeperator.widthAnchor).isActive = true
         }
 
-//        self |- leftSeperator
-        self.leadingAnchor.constraint(equalTo: leftSeperator.leadingAnchor).isActive = true
-        leftSeperator.trailingAnchor.constraint(equalTo: repositoriesImageView.leadingAnchor).isActive = true
-//        leftSeperator |-| repositoriesImageView
-        repositoriesImageView.trailingAnchor.constraint(equalTo: repositoriesLabel.leadingAnchor).isActive = true
-//        repositoriesImageView |-| repositoriesLabel
-        repositoriesLabel |-| reposAndStarsSeperator
-        reposAndStarsSeperator |-| starsImageView
-        starsImageView |-| starsLabel
-        starsLabel |-| starsAndLangsSeperator
-        starsAndLangsSeperator |-| languagesImageView
-        languagesImageView |-| languagesLabel
-        languagesLabel |-| langsAndMedalsSeperator
-        langsAndMedalsSeperator |-| medalsImageView
-        medalsImageView |-| medalsLabel
-        medalsLabel |-| rightSeperator
-        rightSeperator -| self
-        rightSeperator.backgroundColor = .blue
+        self |- leftSeperator |-| repositoriesImageView |-| repositoriesLabel |-| reposAndStarsSeperator
+        reposAndStarsSeperator |-| starsImageView |-| starsLabel |-| starsAndLangsSeperator
+        starsAndLangsSeperator |-| languagesImageView |-| languagesLabel |-| langsAndMedalsSeperator
+        langsAndMedalsSeperator |-| medalsImageView |-| medalsLabel |-| rightSeperator -| self
     }
 
     func render(with configuration: (repositories: Int?, stars: Int?, languages: Int?, medals: Int?)) {
