@@ -23,6 +23,7 @@ class DocGenerator
     Dir.chdir(snapshots_path)
     component_folders = all_folders_in_directory
 
+    @project_name = project_path.split('/').last
     @components = component_folders.sort.map do |component_folder|
       {
         name: component_folder,

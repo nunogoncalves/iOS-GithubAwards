@@ -27,10 +27,13 @@
 		851D3C381C09134600870813 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D3C371C09134600870813 /* Requester.swift */; };
 		851D3C3A1C0913E900870813 /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D3C391C0913E900870813 /* ResponseHandler.swift */; };
 		8527DBB91D0F671600D388A4 /* ShareRanking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8527DBB81D0F671600D388A4 /* ShareRanking.swift */; };
+		852ADE58206EDE5A00C5F56C /* UserStatsViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852ADE57206EDE5A00C5F56C /* UserStatsViewSnapshotTests.swift */; };
+		852ADE59206EDF3000C5F56C /* NewGithubButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D17565206E251100A4E5E0 /* NewGithubButton.swift */; };
 		852B43C51C6A3E4000A1B63A /* LanguageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 852B43C31C6A3E4000A1B63A /* LanguageCell.xib */; };
 		852F5E0A1C7E1D1F00DEE0D1 /* RankingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F5E091C7E1D1F00DEE0D1 /* RankingTests.swift */; };
 		852F5E0D1C7E6BCA00DEE0D1 /* TestsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F5E0C1C7E6BCA00DEE0D1 /* TestsBuilder.swift */; };
 		8530ED361C60EA7F00173835 /* TrendingRepositoryDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8530ED351C60EA7F00173835 /* TrendingRepositoryDetailsController.swift */; };
+		85379A92206ED86B00CD0A4C /* UserStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85379A91206ED86B00CD0A4C /* UserStatsView.swift */; };
 		853B31B21E27F4E90028345D /* UsersController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 853B31B01E27F4E90028345D /* UsersController.xib */; };
 		853C48DF1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */; };
 		853C48E11C09A28400373A92 /* GetOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48E01C09A28400373A92 /* GetOne.swift */; };
@@ -224,10 +227,12 @@
 		851D3C371C09134600870813 /* Requester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
 		851D3C391C0913E900870813 /* ResponseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseHandler.swift; sourceTree = "<group>"; };
 		8527DBB81D0F671600D388A4 /* ShareRanking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareRanking.swift; sourceTree = "<group>"; };
+		852ADE57206EDE5A00C5F56C /* UserStatsViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatsViewSnapshotTests.swift; sourceTree = "<group>"; };
 		852B43C31C6A3E4000A1B63A /* LanguageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageCell.xib; sourceTree = "<group>"; };
 		852F5E091C7E1D1F00DEE0D1 /* RankingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTests.swift; sourceTree = "<group>"; };
 		852F5E0C1C7E6BCA00DEE0D1 /* TestsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestsBuilder.swift; sourceTree = "<group>"; };
 		8530ED351C60EA7F00173835 /* TrendingRepositoryDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingRepositoryDetailsController.swift; sourceTree = "<group>"; };
+		85379A91206ED86B00CD0A4C /* UserStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatsView.swift; sourceTree = "<group>"; };
 		853B31B01E27F4E90028345D /* UsersController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UsersController.xib; sourceTree = "<group>"; };
 		853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertUsersDictionaryToUsers.swift; sourceTree = "<group>"; };
 		853C48E01C09A28400373A92 /* GetOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetOne.swift; sourceTree = "<group>"; };
@@ -635,6 +640,7 @@
 				85BBDA091C5E85E500229ED2 /* Reusable.swift */,
 				857E2C321C1C37970095DCC0 /* SearchBar.swift */,
 				857943A71C3E5A8D00824577 /* UsersTable.swift */,
+				85379A91206ED86B00CD0A4C /* UserStatsView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -817,6 +823,7 @@
 			isa = PBXGroup;
 			children = (
 				85AD6581206E19DA00B6E8AF /* GithubButtonSnapshotTests.swift */,
+				852ADE57206EDE5A00C5F56C /* UserStatsViewSnapshotTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1403,6 +1410,7 @@
 				85E656781C13AB8A00BB4278 /* TableStateListener.swift in Sources */,
 				85E656721C139ED100BB4278 /* TableViewDataSource.swift in Sources */,
 				857943A81C3E5A8D00824577 /* UsersTable.swift in Sources */,
+				852ADE59206EDF3000C5F56C /* NewGithubButton.swift in Sources */,
 				85820F3C1C0E2BCE0069D085 /* GithubLoadingView.swift in Sources */,
 				85E09ED81D0AB33A00752BB0 /* UIStoryboard.swift in Sources */,
 				859928511C0DAB23000ABE8C /* String.swift in Sources */,
@@ -1497,6 +1505,7 @@
 				853C48DF1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift in Sources */,
 				85BBDA0A1C5E85E500229ED2 /* Reusable.swift in Sources */,
 				85E6566B1C134B4E00BB4278 /* UsersListResponse.swift in Sources */,
+				85379A92206ED86B00CD0A4C /* UserStatsView.swift in Sources */,
 				85A4F01D1C3F1C4D002F3405 /* UsersController.swift in Sources */,
 				85A4F0171C3F1BBB002F3405 /* WorldUsersController.swift in Sources */,
 				85D321271C022D86001B7C7A /* RankingCell.swift in Sources */,
@@ -1523,6 +1532,7 @@
 				854A404B1C3ADCF7005E7FF1 /* NetworkStatusTests.swift in Sources */,
 				857E2C371C1C87370095DCC0 /* ConvertUsersDictionaryToUsersTests.swift in Sources */,
 				85A1D2D21C2EB53500774F49 /* NetworkRequesterTests.swift in Sources */,
+				852ADE58206EDE5A00C5F56C /* UserStatsViewSnapshotTests.swift in Sources */,
 				852F5E0D1C7E6BCA00DEE0D1 /* TestsBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
