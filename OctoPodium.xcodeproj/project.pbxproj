@@ -1688,7 +1688,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1FCDCEC0CBB21A6F97796CB4 /* Pods-OctoPodium.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = OctoPodium/OctoPodium.entitlements;
@@ -1726,7 +1726,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 21DA7652B61F1E7F2201E8F6 /* Pods-OctoPodium.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = OctoPodium/OctoPodium.entitlements;
@@ -1751,7 +1751,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 696D2B9BB7E047B728F3CEE7 /* Pods-OctoPodium-OctoPodiumTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1781,7 +1781,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 06C39A773D97549565F5B139 /* Pods-OctoPodium-OctoPodiumTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = OctoPodiumTests/UnitTesting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1798,7 +1798,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0B405967A95964371494B397 /* Pods-OctoPodiumUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				INFOPLIST_FILE = OctoPodiumUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.ios.OctoPodiumUITests;
@@ -1814,7 +1814,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6EDEF7109079EE967F1B9351 /* Pods-OctoPodiumUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				INFOPLIST_FILE = OctoPodiumUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.ios.OctoPodiumUITests;

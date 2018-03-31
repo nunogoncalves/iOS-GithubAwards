@@ -12,25 +12,23 @@ final class UserStatsView: UIView {
 
     typealias SELF = UserStatsView
 
-    private let repositoriesStackView = SELF.stackView
-    private let repositoriesLabel = UserStatsView.label
+    private let leftSeperator = UIView.usingAutoLayout()
+    private let repositoriesImageView = SELF.imageView(with: #imageLiteral(resourceName: "Repository"))
+    private let repositoriesLabel = SELF.label
 
-    private let starsStackView = SELF.stackView
-    private let starsLabel = UserStatsView.label
+    private let reposAndStarsSeperator = UIView.usingAutoLayout()
+    private let starsImageView = SELF.imageView(with: #imageLiteral(resourceName: "Star"))
+    private let starsLabel = SELF.label
 
-    private let languagesStackView = SELF.stackView
-    private let languagesLabel = UserStatsView.label
+    private let starsAndLangsSeperator = UIView.usingAutoLayout()
+    private let languagesImageView = SELF.imageView(with: #imageLiteral(resourceName: "Language"))
+    private let languagesLabel = SELF.label
 
-    private let medalsStackView = SELF.stackView
-    private let medalsLabel = UserStatsView.label
+    private let langsAndMedalsSeperator = UIView.usingAutoLayout()
+    private let medalsImageView = SELF.imageView(with: #imageLiteral(resourceName: "Medal"))
+    private let medalsLabel = SELF.label
 
-    private static var stackView: UIStackView {
-
-        let stackView = UIStackView.usingAutoLayout()
-        stackView.axis = .horizontal
-        stackView.alignment = .center
-        return stackView
-    }
+    private let rightSeperator = UIView.usingAutoLayout()
 
     private static var label: UILabel {
         let label = UILabel.usingAutoLayout()
@@ -39,6 +37,18 @@ final class UserStatsView: UIView {
         label.backgroundColor = .red
         label.font = UIFont.TitilliumWeb.regular.ofSize(12)
         return label
+    }
+
+    private static func imageView(with image: UIImage) -> UIImageView {
+
+        let imageView = UIImageView.usingAutoLayout()
+        imageView.image = image
+        return imageView
+    }
+
+    private static var separator: UIView {
+        let view = UIView.usingAutoLayout()
+        return view
     }
 
     override init(frame: CGRect) {
@@ -54,52 +64,61 @@ final class UserStatsView: UIView {
 
     private func addSubviews() {
 
+        addSubview(leftSeperator)
+        addSubview(repositoriesImageView)
+        addSubview(repositoriesLabel)
 
+        addSubview(reposAndStarsSeperator)
+        addSubview(starsImageView)
+        addSubview(starsLabel)
 
-        repositoriesStackView.addArrangedSubview(UIImageView(image: #imageLiteral(resourceName: "Repository")))
-        repositoriesStackView.addArrangedSubview(repositoriesLabel)
+        addSubview(starsAndLangsSeperator)
+        addSubview(languagesImageView)
+        addSubview(languagesLabel)
 
-        starsStackView.addArrangedSubview(UIImageView(image: #imageLiteral(resourceName: "Star")))
-        starsStackView.addArrangedSubview(starsLabel)
+        addSubview(langsAndMedalsSeperator)
+        addSubview(medalsImageView)
+        addSubview(medalsLabel)
 
-        languagesStackView.addArrangedSubview(UIImageView(image: #imageLiteral(resourceName: "Language")))
-        languagesStackView.addArrangedSubview(languagesLabel)
-
-        medalsStackView.addArrangedSubview(UIImageView(image: #imageLiteral(resourceName: "Medal")))
-        medalsStackView.addArrangedSubview(medalsLabel)
-
-        addSubview(repositoriesStackView)
-        addSubview(starsStackView)
-        addSubview(languagesStackView)
-        addSubview(medalsStackView)
+        addSubview(rightSeperator)
     }
 
     private func addSubviewsConstraints() {
 
-        NSLayoutConstraint.activate([
+        subviews.forEach { $0.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true }
 
-            repositoriesStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            starsStackView.leadingAnchor.constraint(equalTo: repositoriesStackView.trailingAnchor),
+        repositoriesImageView.constrain(width: 16, height: 20)
+        [starsImageView, languagesImageView, medalsImageView].forEach { $0.constrain(width: 20, height: 20) }
 
-            languagesStackView.leadingAnchor.constraint(equalTo: starsStackView.trailingAnchor),
 
-            medalsStackView.leadingAnchor.constraint(equalTo: languagesStackView.trailingAnchor),
-            medalsStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-        ])
+        [leftSeperator, reposAndStarsSeperator, starsAndLangsSeperator, langsAndMedalsSeperator, rightSeperator].forEach {
 
-        [repositoriesStackView, starsStackView, languagesStackView, medalsStackView].forEach {
-
-            NSLayoutConstraint.activate([
-                $0.topAnchor.constraint(equalTo: topAnchor),
-                $0.bottomAnchor.constraint(equalTo: bottomAnchor),
-                $0.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1 / 4),
-                $0.centerYAnchor.constraint(equalTo: self.centerYAnchor)
-            ])
-
-            let imageView = $0.arrangedSubviews.first!
-            imageView.widthAnchor.constraint(equalToConstant: 20).isActive = true
-            imageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+            $0.constrain(height: 1)
         }
+
+        [reposAndStarsSeperator, starsAndLangsSeperator, langsAndMedalsSeperator, rightSeperator].forEach {
+
+            $0.widthAnchor.constraint(equalTo: leftSeperator.widthAnchor).isActive = true
+        }
+
+//        self |- leftSeperator
+        self.leadingAnchor.constraint(equalTo: leftSeperator.leadingAnchor).isActive = true
+        leftSeperator.trailingAnchor.constraint(equalTo: repositoriesImageView.leadingAnchor).isActive = true
+//        leftSeperator |-| repositoriesImageView
+        repositoriesImageView.trailingAnchor.constraint(equalTo: repositoriesLabel.leadingAnchor).isActive = true
+//        repositoriesImageView |-| repositoriesLabel
+        repositoriesLabel |-| reposAndStarsSeperator
+        reposAndStarsSeperator |-| starsImageView
+        starsImageView |-| starsLabel
+        starsLabel |-| starsAndLangsSeperator
+        starsAndLangsSeperator |-| languagesImageView
+        languagesImageView |-| languagesLabel
+        languagesLabel |-| langsAndMedalsSeperator
+        langsAndMedalsSeperator |-| medalsImageView
+        medalsImageView |-| medalsLabel
+        medalsLabel |-| rightSeperator
+        rightSeperator -| self
+        rightSeperator.backgroundColor = .blue
     }
 
     func render(with configuration: (repositories: Int?, stars: Int?, languages: Int?, medals: Int?)) {
@@ -121,3 +140,46 @@ private extension Optional where Wrapped == Int {
         }
     }
 }
+
+private extension UIView {
+
+    func constrain(width: CGFloat, height: CGFloat) {
+
+        NSLayoutConstraint.activate([
+            widthAnchor.constraint(equalToConstant: width),
+            heightAnchor.constraint(equalToConstant: height)
+        ])
+    }
+
+    func constrain(height: CGFloat) {
+
+        heightAnchor.constraint(equalToConstant: height).isActive = true
+    }
+
+}
+
+precedencegroup EffectfulComposition {
+    associativity: left
+}
+
+infix operator |-|: EffectfulComposition
+@discardableResult
+func |-|(left: UIView, right: UIView) -> UIView {
+    left.trailingAnchor.constraint(equalTo: right.leadingAnchor).isActive = true
+    return right
+}
+
+infix operator -|: EffectfulComposition
+@discardableResult
+func -|(left: UIView, right: UIView) -> UIView {
+    left.trailingAnchor.constraint(equalTo: right.trailingAnchor).isActive = true
+    return right
+}
+
+infix operator |-: EffectfulComposition
+@discardableResult
+func |-(left: UIView, right: UIView) -> UIView {
+    left.leadingAnchor.constraint(equalTo: right.leadingAnchor).isActive = true
+    return right
+}
+
