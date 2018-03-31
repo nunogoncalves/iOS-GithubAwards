@@ -16,6 +16,11 @@ PODS:
   - GoogleSymbolUtilities (1.0.3)
   - GoogleUtilities (1.1.0):
     - GoogleSymbolUtilities (~> 1.0.0)
+  - iOSSnapshotTestCase (2.2.0):
+    - iOSSnapshotTestCase/SwiftSupport (= 2.2.0)
+  - iOSSnapshotTestCase/Core (2.2.0)
+  - iOSSnapshotTestCase/SwiftSupport (2.2.0):
+    - iOSSnapshotTestCase/Core
   - Kanna (4.0.0)
   - Locksmith (4.0.0)
   - Nimble (7.0.2)
@@ -27,20 +32,27 @@ PODS:
 DEPENDENCIES:
   - ARSPopover (~> 2.2.1)
   - Google/Analytics
-  - Kanna (from `https://github.com/tid-kijyun/Kanna.git`, branch `feature/v4.0.0`)
+  - iOSSnapshotTestCase (from `https://github.com/nunogoncalves/ios-snapshot-test-case.git`, branch `flexible-names`)
+  - Kanna (from `https://github.com/tid-kijyun/Kanna.git`, branch `master`)
   - Locksmith (= 4.0.0)
   - Nimble
   - Quick (= 1.2.0)
   - SDWebImage (~> 4.2.2)
 
 EXTERNAL SOURCES:
+  iOSSnapshotTestCase:
+    :branch: flexible-names
+    :git: https://github.com/nunogoncalves/ios-snapshot-test-case.git
   Kanna:
-    :branch: feature/v4.0.0
+    :branch: master
     :git: https://github.com/tid-kijyun/Kanna.git
 
 CHECKOUT OPTIONS:
+  iOSSnapshotTestCase:
+    :commit: 74ad4e10f51ba4dc955f86cd5159edd068d6adaf
+    :git: https://github.com/nunogoncalves/ios-snapshot-test-case.git
   Kanna:
-    :commit: 58e3513d20cd16fe8b9ff16b5a2b481fcd643499
+    :commit: 235d3347e89cbde75a52601871cf79b6bfd09f13
     :git: https://github.com/tid-kijyun/Kanna.git
 
 SPEC CHECKSUMS:
@@ -51,12 +63,13 @@ SPEC CHECKSUMS:
   GoogleNetworkingUtilities: 292992ab31b7b4ba32809a0e8b40e324cdfb2c0c
   GoogleSymbolUtilities: 82ad9f93d3615244b3f4ce440f5ab2515e8b4f56
   GoogleUtilities: 8ed9134debe11719097881711464752900668f10
+  iOSSnapshotTestCase: e5355de922ab92a3727b24a6241c3aa8f5195cc3
   Kanna: d5ae2a26472f7e7a474e7f36a9cd8aa2c8c63ad3
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
   Nimble: bfe1f814edabba69ff145cb1283e04ed636a67f2
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
   SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
 
-PODFILE CHECKSUM: 2d3d59c42325d5a5cc0c76d5d4a3b4f662714827
+PODFILE CHECKSUM: bb0d09b9e2f605052979b6f2785d88f604bf7e18
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.4.0

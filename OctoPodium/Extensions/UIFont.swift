@@ -8,7 +8,7 @@
 
 import Foundation
 
-fileprivate protocol Fontable {
+protocol Fontable {
 
     var rawValue: String { get }
     func ofSize(_ size: CGFloat) -> UIFont
@@ -20,7 +20,6 @@ extension Fontable {
         return UIFont(name: rawValue, size: size)!
     }
 }
-
 
 extension UIFont {
 

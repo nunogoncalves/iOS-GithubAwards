@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title><%= @project_name %> components</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+      <p align="center"><%= @project_name %> Components</p>
+      <ul>
+        <% @components.each do |component| %>
+          <% name = component[:name] %>
+          <li>
+            <h1 data-toggle="collapse" data-target="#demo_<%= name %>">
+              <a href="<%= component[:code_path] %>" target="blank">
+                <img src="swift.png" width="40px">
+              </a>
+              <%= name %>
+            </h1>
+
+            <div id="demo_<%= name %>" class="collapse">
+              <div style="display: flex">
+
+                <% component[:images].each do |image| %>
+                  <div style="padding-right: 20px; max-width: 250px">
+                    <div>
+                      <p align="center"><%= image[:name] %></p>
+                    </div>
+                    <img src="<%= image[:path] %>" class="component">
+                  </div>
+                <% end %>
+              </div>
+            </div>
+        </li>
+        <% end %>
+      </ul>
+    </body>
+</html>

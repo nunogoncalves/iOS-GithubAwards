@@ -84,4 +84,11 @@ extension UIView {
         }
         layer.add(anim, forKey: "pathAnim")
     }
+
+    static func usingAutoLayout() -> Self {
+
+        let view = self.init()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }
 }
