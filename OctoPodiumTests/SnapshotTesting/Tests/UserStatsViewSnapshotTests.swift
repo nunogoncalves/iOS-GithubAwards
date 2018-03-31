@@ -33,6 +33,23 @@ final class UserStatsViewSnapshotTests: FBSnapshotTestCase {
         userStats.render(with: (repositories: 12, stars: 1002, languages: 3, medals: 5))
         FBSnapshotVerifyView(userStats)
     }
+
+    func testEmpty() {
+
+        FBSnapshotVerifyView(userStats)
+    }
+
+    func testAllNil() {
+
+        userStats.render(with: (repositories: nil, stars: nil, languages: nil, medals: nil))
+        FBSnapshotVerifyView(userStats)
+    }
+
+    func testLongValues() {
+
+        userStats.render(with: (repositories: 23, stars: 120_453, languages: 3, medals: 8))
+        FBSnapshotVerifyView(userStats)
+    }
 }
 
 
