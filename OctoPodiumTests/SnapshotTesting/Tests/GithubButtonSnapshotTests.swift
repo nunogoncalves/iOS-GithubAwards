@@ -15,7 +15,8 @@ final class GithubButtonSnapshotTests: FBSnapshotTestCase {
 
     override func getFolderName() -> String {
 
-        return String(describing: type(of: githubButton))
+//        return String(describing: type(of: githubButton))
+        return "GithubButton"
     }
 
     override func setUp() {
