@@ -24,6 +24,6 @@ class ConvertUsersDictionaryToUsers {
             return
         }
 
-        users = dataUsers.flatMap { User(from: $0) }
+        users = dataUsers.compactMap { User(from: $0) }
     }
 }

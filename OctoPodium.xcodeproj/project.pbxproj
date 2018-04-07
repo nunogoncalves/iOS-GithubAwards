@@ -19,6 +19,7 @@
 		85168C841C0733BA00091553 /* UsersSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85168C831C0733BA00091553 /* UsersSearchController.swift */; };
 		8517ECBD1C2C11AB00467985 /* RankingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8517ECBC1C2C11AB00467985 /* RankingPresenter.swift */; };
 		8517ECBF1C2C1EDB00467985 /* RankingPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8517ECBE1C2C1EDB00467985 /* RankingPresenterTests.swift */; };
+		8518908120783A8000C1C4A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8518908020783A8000C1C4A7 /* GoogleService-Info.plist */; };
 		85198B761C05CE6C007ACC73 /* LanguagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85198B751C05CE6C007ACC73 /* LanguagesController.swift */; };
 		851D3C381C09134600870813 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D3C371C09134600870813 /* Requester.swift */; };
 		851D3C3A1C0913E900870813 /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D3C391C0913E900870813 /* ResponseHandler.swift */; };
@@ -34,7 +35,6 @@
 		853C48DF1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */; };
 		853C48E11C09A28400373A92 /* GetOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48E01C09A28400373A92 /* GetOne.swift */; };
 		853C48E31C09A35F00373A92 /* CreateBasicUserFromDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48E21C09A35F00373A92 /* CreateBasicUserFromDictionary.swift */; };
-		853E115D1CA74A06002263BD /* GitHubGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853E115C1CA74A06002263BD /* GitHubGetter.swift */; };
 		854813A61C79059C00182C6B /* GitHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854813A51C79059C00182C6B /* GitHub.swift */; };
 		854813A81C7905D200182C6B /* StarsAndForksFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854813A71C7905D200182C6B /* StarsAndForksFetcher.swift */; };
 		85482E621C96BE0800E20FDB /* GithubStarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85482E611C96BE0800E20FDB /* GithubStarButton.swift */; };
@@ -89,8 +89,6 @@
 		857E2C331C1C37970095DCC0 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857E2C321C1C37970095DCC0 /* SearchBar.swift */; };
 		857E2C371C1C87370095DCC0 /* ConvertUsersDictionaryToUsersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857E2C361C1C87370095DCC0 /* ConvertUsersDictionaryToUsersTests.swift */; };
 		857EB00C1C5951BB00C315DF /* SendToGoogle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857EB00B1C5951BB00C315DF /* SendToGoogle.swift */; };
-		857F76311CDD75B8002A75C4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 857F76301CDD75B8002A75C4 /* GoogleService-Info.plist */; };
-		857F76351CDD75D1002A75C4 /* Github.plist in Resources */ = {isa = PBXBuildFile; fileRef = 857F76341CDD75D1002A75C4 /* Github.plist */; };
 		85820F3C1C0E2BCE0069D085 /* GithubLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85820F3A1C0E2BCE0069D085 /* GithubLoadingView.swift */; };
 		85820F3D1C0E2BCE0069D085 /* GithubLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85820F3B1C0E2BCE0069D085 /* GithubLoadingView.xib */; };
 		85820F471C0E2C1A0069D085 /* GithubLoading-0.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85820F3F1C0E2C1A0069D085 /* GithubLoading-0.gif */; };
@@ -170,6 +168,7 @@
 		85EF2E3E1CE71D7B00745A68 /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EF2E3D1CE71D7B00745A68 /* NibView.swift */; };
 		85EF2E451CE79B8F00745A68 /* OnePasswordExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EF2E441CE79B8F00745A68 /* OnePasswordExtension.m */; };
 		85EF2E4A1CE79CBE00745A68 /* 1Password.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85EF2E491CE79CBE00745A68 /* 1Password.xcassets */; };
+		85F86EA220782AB400639F0F /* GithubCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F86EA120782AB400639F0F /* GithubCredentials.swift */; };
 		85FA59631C15C5C00097732B /* UserTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59621C15C5C00097732B /* UserTopCell.swift */; };
 		85FA59651C1645B00097732B /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59641C1645B00097732B /* K.swift */; };
 		85FA59671C16D6660097732B /* CreateFullUserFromDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59661C16D6660097732B /* CreateFullUserFromDictionary.swift */; };
@@ -217,6 +216,7 @@
 		85168C831C0733BA00091553 /* UsersSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersSearchController.swift; sourceTree = "<group>"; };
 		8517ECBC1C2C11AB00467985 /* RankingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingPresenter.swift; sourceTree = "<group>"; };
 		8517ECBE1C2C1EDB00467985 /* RankingPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingPresenterTests.swift; sourceTree = "<group>"; };
+		8518908020783A8000C1C4A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		85198B751C05CE6C007ACC73 /* LanguagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguagesController.swift; sourceTree = "<group>"; };
 		851D3C371C09134600870813 /* Requester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
 		851D3C391C0913E900870813 /* ResponseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseHandler.swift; sourceTree = "<group>"; };
@@ -231,7 +231,6 @@
 		853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertUsersDictionaryToUsers.swift; sourceTree = "<group>"; };
 		853C48E01C09A28400373A92 /* GetOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetOne.swift; sourceTree = "<group>"; };
 		853C48E21C09A35F00373A92 /* CreateBasicUserFromDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBasicUserFromDictionary.swift; sourceTree = "<group>"; };
-		853E115C1CA74A06002263BD /* GitHubGetter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubGetter.swift; sourceTree = "<group>"; };
 		854813A51C79059C00182C6B /* GitHub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHub.swift; sourceTree = "<group>"; };
 		854813A71C7905D200182C6B /* StarsAndForksFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarsAndForksFetcher.swift; sourceTree = "<group>"; };
 		85482E611C96BE0800E20FDB /* GithubStarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubStarButton.swift; sourceTree = "<group>"; };
@@ -286,8 +285,6 @@
 		857E2C321C1C37970095DCC0 /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		857E2C361C1C87370095DCC0 /* ConvertUsersDictionaryToUsersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertUsersDictionaryToUsersTests.swift; sourceTree = "<group>"; };
 		857EB00B1C5951BB00C315DF /* SendToGoogle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendToGoogle.swift; sourceTree = "<group>"; };
-		857F76301CDD75B8002A75C4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Secrets/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		857F76341CDD75D1002A75C4 /* Github.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Github.plist; path = ../../../../Secrets/Github.plist; sourceTree = "<group>"; };
 		85820F3A1C0E2BCE0069D085 /* GithubLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubLoadingView.swift; sourceTree = "<group>"; };
 		85820F3B1C0E2BCE0069D085 /* GithubLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GithubLoadingView.xib; sourceTree = "<group>"; };
 		85820F3F1C0E2C1A0069D085 /* GithubLoading-0.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "GithubLoading-0.gif"; sourceTree = "<group>"; };
@@ -376,6 +373,7 @@
 		85EF2E431CE79B8B00745A68 /* OnePasswordExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnePasswordExtension.h; sourceTree = "<group>"; };
 		85EF2E441CE79B8F00745A68 /* OnePasswordExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnePasswordExtension.m; sourceTree = "<group>"; };
 		85EF2E491CE79CBE00745A68 /* 1Password.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = 1Password.xcassets; sourceTree = "<group>"; };
+		85F86EA120782AB400639F0F /* GithubCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubCredentials.swift; sourceTree = "<group>"; };
 		85FA59621C15C5C00097732B /* UserTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTopCell.swift; sourceTree = "<group>"; };
 		85FA59641C1645B00097732B /* K.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		85FA59661C16D6660097732B /* CreateFullUserFromDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFullUserFromDictionary.swift; sourceTree = "<group>"; };
@@ -457,22 +455,6 @@
 				85FA59661C16D6660097732B /* CreateFullUserFromDictionary.swift */,
 			);
 			path = DictionaryModelMappers;
-			sourceTree = "<group>";
-		};
-		853E11511CA746C4002263BD /* Configurations */ = {
-			isa = PBXGroup;
-			children = (
-				857F76341CDD75D1002A75C4 /* Github.plist */,
-			);
-			path = Configurations;
-			sourceTree = "<group>";
-		};
-		853E115B1CA749D2002263BD /* AppConfigurations */ = {
-			isa = PBXGroup;
-			children = (
-				853E115C1CA74A06002263BD /* GitHubGetter.swift */,
-			);
-			path = AppConfigurations;
 			sourceTree = "<group>";
 		};
 		8549ACBB1C6C8B10004D8149 /* Fonts */ = {
@@ -657,9 +639,9 @@
 		858B91091C0859F900B510B3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8518908020783A8000C1C4A7 /* GoogleService-Info.plist */,
 				85EF2E421CE79B8000745A68 /* 1Password */,
 				85D320EF1C02062E001B7C7A /* AppDelegate.swift */,
-				857F76301CDD75B8002A75C4 /* GoogleService-Info.plist */,
 				85D320FB1C02062E001B7C7A /* Info.plist */,
 				858654F61C49BF3A0025B4F0 /* OctoPodium-Bridging-Header.h */,
 			);
@@ -669,7 +651,6 @@
 		858B910A1C085A3300B510B3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				853E11511CA746C4002263BD /* Configurations */,
 				8549ACBB1C6C8B10004D8149 /* Fonts */,
 				85820F3E1C0E2BDE0069D085 /* Images */,
 				85D320F61C02062E001B7C7A /* Assets.xcassets */,
@@ -700,7 +681,6 @@
 			children = (
 				857858551C7633E1009195B8 /* AlertController */,
 				857EB00A1C5951AE00C315DF /* Analytics */,
-				853E115B1CA749D2002263BD /* AppConfigurations */,
 				856D67651C3424BA00A77678 /* Browser */,
 				85E09ED91D0AC47600752BB0 /* Cache */,
 				856D67681C3426C200A77678 /* Data */,
@@ -821,6 +801,7 @@
 		85AFEC1C1C046898006FC129 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				85F86EA120782AB400639F0F /* GithubCredentials.swift */,
 				856E395B1C60A47C00974330 /* DataSources */,
 				855075861D0B63A4004FA634 /* TransitionAnimators */,
 				854B5B9F1CA6FE200070A456 /* ApiResponse.swift */,
@@ -1009,7 +990,9 @@
 			buildConfigurationList = 85D321141C02062E001B7C7A /* Build configuration list for PBXNativeTarget "OctoPodium" */;
 			buildPhases = (
 				6EBC091E7EAE165BD35DEB27 /* [CP] Check Pods Manifest.lock */,
+				85F86EA720782EB100639F0F /* Add Credentials files */,
 				85D320E81C02062E001B7C7A /* Sources */,
+				85F86EA620782E4300639F0F /* Run Script */,
 				85D320E91C02062E001B7C7A /* Frameworks */,
 				85D320EA1C02062E001B7C7A /* Resources */,
 				CDA18B0D159456443E9FE2BE /* [CP] Embed Pods Frameworks */,
@@ -1029,10 +1012,10 @@
 			buildConfigurationList = 85D321171C02062E001B7C7A /* Build configuration list for PBXNativeTarget "OctoPodiumTests" */;
 			buildPhases = (
 				59AFC2181E00D330F46A0076 /* [CP] Check Pods Manifest.lock */,
+				85F86EA320782B1B00639F0F /* Add Credentials files */,
 				85D320FC1C02062E001B7C7A /* Sources */,
 				85D320FD1C02062E001B7C7A /* Frameworks */,
 				85D320FE1C02062E001B7C7A /* Resources */,
-				8562055B206ED53A0047C9D8 /* Script */,
 				AB95A14D361E82491EA85525 /* [CP] Embed Pods Frameworks */,
 				F7AE2B491C9E33D2DC3E0931 /* [CP] Copy Pods Resources */,
 			);
@@ -1130,7 +1113,6 @@
 				85D320FA1C02062E001B7C7A /* LaunchScreen.storyboard in Resources */,
 				85D320F71C02062E001B7C7A /* Assets.xcassets in Resources */,
 				8549ACC71C6C8B1F004D8149 /* TitilliumWeb-Black.ttf in Resources */,
-				857F76351CDD75D1002A75C4 /* Github.plist in Resources */,
 				85820F4E1C0E2C1A0069D085 /* GithubLoading-7.gif in Resources */,
 				85820F481C0E2C1A0069D085 /* GithubLoading-1.gif in Resources */,
 				85820F3D1C0E2BCE0069D085 /* GithubLoadingView.xib in Resources */,
@@ -1149,11 +1131,11 @@
 				8549ACC91C6C8B1F004D8149 /* TitilliumWeb-BoldItalic.ttf in Resources */,
 				8549ACD11C6C8B1F004D8149 /* TitilliumWeb-SemiBoldItalic.ttf in Resources */,
 				853B31B21E27F4E90028345D /* UsersController.xib in Resources */,
-				857F76311CDD75B8002A75C4 /* GoogleService-Info.plist in Resources */,
 				852B43C51C6A3E4000A1B63A /* LanguageCell.xib in Resources */,
 				8549ACCB1C6C8B1F004D8149 /* TitilliumWeb-ExtraLightItalic.ttf in Resources */,
 				857943A41C3DCC8B00824577 /* UserCell.xib in Resources */,
 				850485331C0FB11A004D952A /* AlertView.xib in Resources */,
+				8518908120783A8000C1C4A7 /* GoogleService-Info.plist in Resources */,
 				85AF8AF91C445E5F0022D97F /* LanguageImageView.xib in Resources */,
 				85820F4A1C0E2C1A0069D085 /* GithubLoading-3.gif in Resources */,
 				85BBDA061C5E0BB300229ED2 /* TrendingRepositoryCell.xib in Resources */,
@@ -1251,20 +1233,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8562055B206ED53A0047C9D8 /* Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Script;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "${SRCROOT}/Scripts/ImagesDocumentation/CreateImagesDocumentation.rb -g https://github.com/nunogoncalves/iOS-OctoPodium/blob/master -p /${SRCROOT} -t Scripts/ImagesDocumentation/lib/images.html.erb -s OctoPodiumTests/SnapshotTesting/Snapshots/Reference_64/";
-		};
 		85679BAA1D13587A00FC20DF /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1277,6 +1245,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OctoPodiumUITests/Pods-OctoPodiumUITests-frameworks.sh\"";
+		};
+		85F86EA320782B1B00639F0F /* Add Credentials files */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Add Credentials files";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#check if env-vars.sh exists\nif [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n#no `else` case needed if the CI works as expected\n${SRCROOT}/CreateGithubCreds.rb";
+		};
+		85F86EA620782E4300639F0F /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${SRCROOT}/Scripts/ImagesDocumentation/CreateImagesDocumentation.rb -g https://github.com/nunogoncalves/iOS-OctoPodium/blob/master -p /${SRCROOT} -t Scripts/ImagesDocumentation/lib/images.html.erb -s OctoPodiumTests/SnapshotTesting/Snapshots/Reference_64/\n";
+		};
+		85F86EA720782EB100639F0F /* Add Credentials files */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Add Credentials files";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#check if env-vars.sh exists\nif [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n#no `else` case needed if the CI works as expected\n${SRCROOT}/CreateGithubCreds.rb";
 		};
 		A36F858D26B48CE409219395 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1425,7 +1435,6 @@
 				85820F511C0EF4FC0069D085 /* NotifyError.swift in Sources */,
 				8599284C1C0D9436000ABE8C /* LocationType.swift in Sources */,
 				85198B761C05CE6C007ACC73 /* LanguagesController.swift in Sources */,
-				853E115D1CA74A06002263BD /* GitHubGetter.swift in Sources */,
 				85D3B80C1CA80A130004D276 /* SettingsController.swift in Sources */,
 				85D320F21C02062E001B7C7A /* LanguageRankingsController.swift in Sources */,
 				8517ECBD1C2C11AB00467985 /* RankingPresenter.swift in Sources */,
@@ -1473,6 +1482,7 @@
 				854B5BA41CA7335E0070A456 /* UserInfoGetter.swift in Sources */,
 				851D3C3A1C0913E900870813 /* ResponseHandler.swift in Sources */,
 				85FA59671C16D6660097732B /* CreateFullUserFromDictionary.swift in Sources */,
+				85F86EA220782AB400639F0F /* GithubCredentials.swift in Sources */,
 				855825511CAB258E00851967 /* UnstarRepository.swift in Sources */,
 				857E2C331C1C37970095DCC0 /* SearchBar.swift in Sources */,
 				85FA59631C15C5C00097732B /* UserTopCell.swift in Sources */,
@@ -1687,7 +1697,19 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
-				"HEADER_SEARCH_PATHS[arch=*]" = "$(inherited) ${PODS_ROOT}/Google/Headers $(SDKROOT)/usr/include/libxml2 $(inherited) \"${PODS_ROOT}/Headers/Public\" \"${PODS_ROOT}/Headers/Public/Google\" \"${PODS_ROOT}/Headers/Public/GoogleAnalytics\" \"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\" \"${PODS_ROOT}/Headers/Public/GoogleNetworkingUtilities\" \"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\" \"${PODS_ROOT}/Headers/Public/GoogleUtilities\"";
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					"$(inherited)",
+					"${PODS_ROOT}/Google/Headers",
+					"$(SDKROOT)/usr/include/libxml2",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Google\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleNetworkingUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
+				);
 				INFOPLIST_FILE = "OctoPodium/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

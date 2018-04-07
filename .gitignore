@@ -11,3 +11,5 @@ OctoPodium/Supporting Files/GoogleService-Info.plist
 
 build/*
 *.xcbkptlist
+GithubCredentials.swift
+env-vars.sh

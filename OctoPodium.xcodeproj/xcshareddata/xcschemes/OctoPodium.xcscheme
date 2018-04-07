@@ -84,7 +84,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8EA78898A0EDE61257C0A11ED2BB0082"
+               BlueprintIdentifier = "ABCE5D6A1D0E5ABDA517678EBC7223F4"
                BuildableName = "Pods_OctoPodium.framework"
                BlueprintName = "Pods-OctoPodium"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -112,7 +112,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "866A4108FDD79711C7032F8E26414B1E"
+               BlueprintIdentifier = "C45579771F58D16938AC06B9596DB3FE"
                BuildableName = "Pods_OctoPodiumUITests.framework"
                BlueprintName = "Pods-OctoPodiumUITests"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -126,7 +126,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1DCE491A79CEB1F0439223D9284C90B8"
+               BlueprintIdentifier = "1FD3715B7EAF53769CC13434B9950C01"
                BuildableName = "Quick.framework"
                BlueprintName = "Quick"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">

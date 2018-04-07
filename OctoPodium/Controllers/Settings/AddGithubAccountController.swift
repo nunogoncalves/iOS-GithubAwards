@@ -41,7 +41,7 @@ class AddGithubAccountController : UIViewController {
         }
     }
     
-    func loginInGithub() {
+    @objc func loginInGithub() {
         let user = loginTextView.text!
         let password = passwordTextView.text!
         

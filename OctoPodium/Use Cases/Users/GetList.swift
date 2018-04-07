@@ -35,7 +35,7 @@ extension Users {
                 return Page<User>(items: [], currentPage: currentPage, totalPages: totalPages, totalCount: totalCount)
             }
 
-            let users = usersDics.flatMap { User(from: $0) }
+            let users = usersDics.compactMap { User(from: $0) }
 
             return Page(items: users, currentPage: currentPage, totalPages: totalPages, totalCount: totalCount)
         }

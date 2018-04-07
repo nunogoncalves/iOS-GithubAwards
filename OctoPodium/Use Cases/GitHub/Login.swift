@@ -13,8 +13,8 @@ extension GitHub {
         
         var bodyParams: BodyParams? = [
             "note" : "OctoPodium",
-            "client_id" : AppConfigurations.GitHubGetter.instance.clientId,
-            "client_secret" : AppConfigurations.GitHubGetter.instance.clientSecret,
+            "client_id" : GithubCreds.clientId,
+            "client_secret" : GithubCreds.clientSecret,
             "scopes" : ["user:follow", "public_repo"]
         ]
         

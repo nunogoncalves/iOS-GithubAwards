@@ -15,7 +15,7 @@ extension Repositories {
 
             guard let document = try? Kanna.HTML(html: html, encoding: .utf8) else { return [] }
             
-            return getRepositoriesHTML(document).flatMap { repository(from: $0) }
+            return getRepositoriesHTML(document).compactMap { repository(from: $0) }
         }
         
         private static func repository(from repoHTML: XMLElement) -> Repository? {
