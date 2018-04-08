@@ -20,6 +20,19 @@
 		8517ECBD1C2C11AB00467985 /* RankingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8517ECBC1C2C11AB00467985 /* RankingPresenter.swift */; };
 		8517ECBF1C2C1EDB00467985 /* RankingPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8517ECBE1C2C1EDB00467985 /* RankingPresenterTests.swift */; };
 		8518908120783A8000C1C4A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8518908020783A8000C1C4A7 /* GoogleService-Info.plist */; };
+		85189090207952B500C1C4A7 /* XCTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8518908E207952B500C1C4A7 /* XCTestCase.swift */; };
+		85189091207952B500C1C4A7 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8518908F207952B500C1C4A7 /* TimeInterval.swift */; };
+		8518909D207952C100C1C4A7 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85189093207952C000C1C4A7 /* SettingsScreen.swift */; };
+		8518909E207952C100C1C4A7 /* TrendingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85189094207952C000C1C4A7 /* TrendingScreen.swift */; };
+		8518909F207952C100C1C4A7 /* LanguagesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85189095207952C000C1C4A7 /* LanguagesScreen.swift */; };
+		851890A0207952C100C1C4A7 /* NavigationBarScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85189096207952C000C1C4A7 /* NavigationBarScreen.swift */; };
+		851890A1207952C100C1C4A7 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85189097207952C000C1C4A7 /* Screen.swift */; };
+		851890A2207952C100C1C4A7 /* LanguageRankingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85189098207952C000C1C4A7 /* LanguageRankingScreen.swift */; };
+		851890A3207952C100C1C4A7 /* GithubAccountScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85189099207952C000C1C4A7 /* GithubAccountScreen.swift */; };
+		851890A4207952C100C1C4A7 /* MainTabBarScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8518909A207952C000C1C4A7 /* MainTabBarScreen.swift */; };
+		851890A5207952C100C1C4A7 /* UserDetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8518909B207952C000C1C4A7 /* UserDetailsScreen.swift */; };
+		851890A6207952C100C1C4A7 /* GithubLoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8518909C207952C000C1C4A7 /* GithubLoginScreen.swift */; };
+		851890A820796B6300C1C4A7 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851890A720796B6300C1C4A7 /* UIImageView.swift */; };
 		85198B761C05CE6C007ACC73 /* LanguagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85198B751C05CE6C007ACC73 /* LanguagesController.swift */; };
 		851D3C381C09134600870813 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D3C371C09134600870813 /* Requester.swift */; };
 		851D3C3A1C0913E900870813 /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D3C391C0913E900870813 /* ResponseHandler.swift */; };
@@ -217,6 +230,19 @@
 		8517ECBC1C2C11AB00467985 /* RankingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingPresenter.swift; sourceTree = "<group>"; };
 		8517ECBE1C2C1EDB00467985 /* RankingPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingPresenterTests.swift; sourceTree = "<group>"; };
 		8518908020783A8000C1C4A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8518908E207952B500C1C4A7 /* XCTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestCase.swift; sourceTree = "<group>"; };
+		8518908F207952B500C1C4A7 /* TimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
+		85189093207952C000C1C4A7 /* SettingsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		85189094207952C000C1C4A7 /* TrendingScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingScreen.swift; sourceTree = "<group>"; };
+		85189095207952C000C1C4A7 /* LanguagesScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguagesScreen.swift; sourceTree = "<group>"; };
+		85189096207952C000C1C4A7 /* NavigationBarScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarScreen.swift; sourceTree = "<group>"; };
+		85189097207952C000C1C4A7 /* Screen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
+		85189098207952C000C1C4A7 /* LanguageRankingScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageRankingScreen.swift; sourceTree = "<group>"; };
+		85189099207952C000C1C4A7 /* GithubAccountScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubAccountScreen.swift; sourceTree = "<group>"; };
+		8518909A207952C000C1C4A7 /* MainTabBarScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarScreen.swift; sourceTree = "<group>"; };
+		8518909B207952C000C1C4A7 /* UserDetailsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailsScreen.swift; sourceTree = "<group>"; };
+		8518909C207952C000C1C4A7 /* GithubLoginScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubLoginScreen.swift; sourceTree = "<group>"; };
+		851890A720796B6300C1C4A7 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		85198B751C05CE6C007ACC73 /* LanguagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguagesController.swift; sourceTree = "<group>"; };
 		851D3C371C09134600870813 /* Requester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
 		851D3C391C0913E900870813 /* ResponseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseHandler.swift; sourceTree = "<group>"; };
@@ -422,6 +448,33 @@
 				4755415318A2F88E53292ADA /* Pods_OctoPodiumUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8518908D207952B500C1C4A7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8518908E207952B500C1C4A7 /* XCTestCase.swift */,
+				8518908F207952B500C1C4A7 /* TimeInterval.swift */,
+				851890A720796B6300C1C4A7 /* UIImageView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		85189092207952C000C1C4A7 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				85189093207952C000C1C4A7 /* SettingsScreen.swift */,
+				85189094207952C000C1C4A7 /* TrendingScreen.swift */,
+				85189095207952C000C1C4A7 /* LanguagesScreen.swift */,
+				85189096207952C000C1C4A7 /* NavigationBarScreen.swift */,
+				85189097207952C000C1C4A7 /* Screen.swift */,
+				85189098207952C000C1C4A7 /* LanguageRankingScreen.swift */,
+				85189099207952C000C1C4A7 /* GithubAccountScreen.swift */,
+				8518909A207952C000C1C4A7 /* MainTabBarScreen.swift */,
+				8518909B207952C000C1C4A7 /* UserDetailsScreen.swift */,
+				8518909C207952C000C1C4A7 /* GithubLoginScreen.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		851D3C361C09131D00870813 /* Network */ = {
@@ -900,9 +953,11 @@
 		85D3210E1C02062E001B7C7A /* OctoPodiumUITests */ = {
 			isa = PBXGroup;
 			children = (
+				8518908D207952B500C1C4A7 /* Extensions */,
 				85679BAB1D135B4100FC20DF /* SnapshotHelper.swift */,
 				85D321111C02062E001B7C7A /* Info.plist */,
 				85D3210F1C02062E001B7C7A /* OctoPodiumUITests.swift */,
+				85189092207952C000C1C4A7 /* Screens */,
 			);
 			path = OctoPodiumUITests;
 			sourceTree = "<group>";
@@ -1310,13 +1365,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-OctoPodiumUITests/Pods-OctoPodiumUITests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
-				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+				"${BUILT_PRODUCTS_DIR}/iOSSnapshotTestCase/FBSnapshotTestCase.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSnapshotTestCase.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1334,9 +1387,9 @@
 				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
 				"${BUILT_PRODUCTS_DIR}/Locksmith/Locksmith.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/iOSSnapshotTestCase/FBSnapshotTestCase.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
-				"${BUILT_PRODUCTS_DIR}/iOSSnapshotTestCase/FBSnapshotTestCase.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -1344,9 +1397,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Locksmith.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSnapshotTestCase.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSnapshotTestCase.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1543,7 +1596,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8518909E207952C100C1C4A7 /* TrendingScreen.swift in Sources */,
+				851890A820796B6300C1C4A7 /* UIImageView.swift in Sources */,
+				851890A0207952C100C1C4A7 /* NavigationBarScreen.swift in Sources */,
+				851890A4207952C100C1C4A7 /* MainTabBarScreen.swift in Sources */,
 				85D321101C02062E001B7C7A /* OctoPodiumUITests.swift in Sources */,
+				85189091207952B500C1C4A7 /* TimeInterval.swift in Sources */,
+				851890A3207952C100C1C4A7 /* GithubAccountScreen.swift in Sources */,
+				851890A5207952C100C1C4A7 /* UserDetailsScreen.swift in Sources */,
+				85189090207952B500C1C4A7 /* XCTestCase.swift in Sources */,
+				851890A1207952C100C1C4A7 /* Screen.swift in Sources */,
+				8518909F207952C100C1C4A7 /* LanguagesScreen.swift in Sources */,
+				851890A6207952C100C1C4A7 /* GithubLoginScreen.swift in Sources */,
+				8518909D207952C100C1C4A7 /* SettingsScreen.swift in Sources */,
+				851890A2207952C100C1C4A7 /* LanguageRankingScreen.swift in Sources */,
 				85679BAC1D135B4100FC20DF /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

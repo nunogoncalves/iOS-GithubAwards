@@ -112,7 +112,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C45579771F58D16938AC06B9596DB3FE"
+               BlueprintIdentifier = "86B5EA9AC4B0E3EF916B929742853EEA"
                BuildableName = "Pods_OctoPodiumUITests.framework"
                BlueprintName = "Pods-OctoPodiumUITests"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
