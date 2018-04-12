@@ -1341,7 +1341,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#check if env-vars.sh exists\nif [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n#no `else` case needed if the CI works as expected\n${SRCROOT}/CreateGithubCreds.rb";
+			shellScript = "if [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n${SRCROOT}/CreateGithubCreds.rb";
 		};
 		A36F858D26B48CE409219395 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
