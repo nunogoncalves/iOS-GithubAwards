@@ -18,7 +18,7 @@ Check how you rank on your location based on your number of stars of your reposi
 - iOS 10+
 - Xcode 9.2
 - Cocoapods 1.1
-- Have `Github.plist` (should contain `ClientId` and `ClientSecret` keys) and a `GoogleService-Info.plist` files in a Secrets folder next to OctoPodium project folder. These files are referenced in the project and since they are secrets are not included in the project.
+- Read [this post](https://medium.com/@nunogonalves/handling-secrets-in-ios-open-source-projects-b5a212f4e28c) to know how to use GithubCredentials. The names present in that post are the same used here. Start by having your env-vars.sh contain your github and google secrets.
 
 ### CocoaPods
 
@@ -50,6 +50,12 @@ It uses the API provided by [GithubAwards](http://github-awards.com/) ([docs](ht
   <img src="https://user-images.githubusercontent.com/3007012/33797036-81bbf3d8-dcf8-11e7-9e7c-0b9fc5ca69e6.png" width="150px">
   <img src="https://user-images.githubusercontent.com/3007012/33797020-25b66280-dcf8-11e7-9395-5f4059a62be8.png" width="150px">
 </p>
+
+## Technical features:
+- UITesting
+- Snapshot testing
+- CI integration using Travis
+- Code coverage report generation using CodeCov.io
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/3007012/33797028-5a4b25b2-dcf8-11e7-8516-47dcdde83c03.png" width="20px"></br>
