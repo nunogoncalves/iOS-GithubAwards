@@ -10,14 +10,12 @@
 
 Check how you rank on your location based on your number of stars of your repositories on github.
 
-[![codebeat badge](https://codebeat.co/badges/38fdc289-fb25-4596-a2f7-05feafde381b)](https://codebeat.co/projects/github-com-nunogoncalves-ios-octopodium)
-
-[![Build Status](https://travis-ci.org/nunogoncalves/iOS-OctoPodium.svg?branch=master)](https://travis-ci.org/nunogoncalves/iOS-OctoPodium)
+[![codebeat badge](https://codebeat.co/badges/38fdc289-fb25-4596-a2f7-05feafde381b)](https://codebeat.co/projects/github-com-nunogoncalves-ios-octopodium)[![Build Status](https://travis-ci.org/nunogoncalves/iOS-OctoPodium.svg?branch=master)](https://travis-ci.org/nunogoncalves/iOS-OctoPodium)
 
 ### Requirements
 - iOS 10+
-- Xcode 9.2
-- Cocoapods 1.1
+- Xcode 9.3
+- Cocoapods 1.5
 - Read [this post](https://medium.com/@nunogonalves/handling-secrets-in-ios-open-source-projects-b5a212f4e28c) to know how to use GithubCredentials. The names present in that post are the same used here. Start by having your env-vars.sh contain your github and google secrets.
 
 ### CocoaPods
