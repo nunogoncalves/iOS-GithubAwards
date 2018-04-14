@@ -6,6 +6,6 @@ before_install:
   - pod repo update
 script:
   # - xcodebuild -workspace OctoPodium.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 8,OS=11.3' -scheme OctoPodium -sdk iphonesimulator -enableCodeCoverage YES ONLY_ACTIVE_ARCH=YES VALID_ARCHS=x86_64 -derivedDataPath build GCC_GENERATE_TEST_COVERAGE_FILES=YES GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES build test | xcpretty -c
-  - xcodebuild -workspace OctoPodium.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 8,OS=11.3' -sdk iphonesimulator ONLY_ACTIVE_ARCH=YES VALID_ARCHS=x86_64 GCC_GENERATE_TEST_COVERAGE_FILES=YES GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES build test | xcpretty -c
+  - xcodebuild -workspace OctoPodium.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 8,OS=11.3' -scheme OctoPodium -sdk iphonesimulator ONLY_ACTIVE_ARCH=YES VALID_ARCHS=x86_64 GCC_GENERATE_TEST_COVERAGE_FILES=YES GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES build test | xcpretty -c
 after_success:
   - bash <(curl -s https://codecov.io/bash) -J 'OctoPodium'
