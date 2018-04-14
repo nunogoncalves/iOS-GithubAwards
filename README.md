@@ -10,7 +10,7 @@
 
 Check how you rank on your location based on your number of stars of your repositories on github.
 
-[![codebeat badge](https://codebeat.co/badges/38fdc289-fb25-4596-a2f7-05feafde381b)](https://codebeat.co/projects/github-com-nunogoncalves-ios-octopodium)[![Build Status](https://travis-ci.org/nunogoncalves/iOS-OctoPodium.svg?branch=master)](https://travis-ci.org/nunogoncalves/iOS-OctoPodium)
+[![codebeat badge](https://codebeat.co/badges/38fdc289-fb25-4596-a2f7-05feafde381b)](https://codebeat.co/projects/github-com-nunogoncalves-ios-octopodium) [![Build Status](https://travis-ci.org/nunogoncalves/iOS-OctoPodium.svg?branch=master)](https://travis-ci.org/nunogoncalves/iOS-OctoPodium)
 
 ### Requirements
 - iOS 10+
