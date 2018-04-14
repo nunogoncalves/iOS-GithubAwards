@@ -7,4 +7,5 @@ before_install:
 script:
   - xcodebuild -workspace OctoPodium.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 8,OS=11.3' -scheme OctoPodium -derivedDataPath build -sdk iphonesimulator ONLY_ACTIVE_ARCH=YES VALID_ARCHS=x86_64 -enableCodeCoverage YES GCC_GENERATE_TEST_COVERAGE_FILES=YES GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES build test | xcpretty -c
 after_success:
-  - bash <(curl -s https://codecov.io/bash) -J 'OctoPodium'
+  # - bash <(curl -s https://codecov.io/bash) -J 'OctoPodium'
+  - bash <(curl -s https://raw.githubusercontent.com/codecov/codecov-bash/04845559fe1caefe990968cc9e3851573012b756/codecov) -J 'OctoPodium'
