@@ -61,4 +61,12 @@ final class GithubButtonSnapshotTests: FBSnapshotTestCase {
         githubButton.render(with: .stopLoading)
         FBSnapshotVerifyView(githubButton)
     }
+
+    func testSmallAmountOfFork2() {
+
+        githubButton.render(with: .full(image: #imageLiteral(resourceName: "ForkDark"), title: "Forks", value: "100"))
+        githubButton.render(with: .stopLoading)
+
+        FBSnapshotVerifyView(githubButton)
+    }
 }
