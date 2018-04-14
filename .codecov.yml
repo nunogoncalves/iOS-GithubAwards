@@ -29,3 +29,6 @@ coverage:
                                  # options: success, error, failure
         if_not_found: success
         if_ci_failed: error
+
+ignore:
+  - "Pods/.*"

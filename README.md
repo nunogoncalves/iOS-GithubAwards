@@ -8,15 +8,16 @@
   </a>
 </h1>
 
-Check how you rank on your location based on your number of stars of your repositories on github. 
+Check how you rank on your location based on your number of stars of your repositories on github.
 
-[![codebeat badge](https://codebeat.co/badges/38fdc289-fb25-4596-a2f7-05feafde381b)](https://codebeat.co/projects/github-com-nunogoncalves-ios-octopodium)
+[![codebeat badge](https://codebeat.co/badges/38fdc289-fb25-4596-a2f7-05feafde381b)](https://codebeat.co/projects/github-com-nunogoncalves-ios-octopodium) [![Build Status](https://travis-ci.org/nunogoncalves/iOS-OctoPodium.svg?branch=master)](https://travis-ci.org/nunogoncalves/iOS-OctoPodium) [![codecov](https://codecov.io/gh/nunogoncalves/iOS-OctoPodium/branch/master/graph/badge.svg)](https://codecov.io/gh/nunogoncalves/iOS-OctoPodium)
+
 
 ### Requirements
 - iOS 10+
-- Xcode 9.2
-- Cocoapods 1.1
-- Have `Github.plist` (should contain `ClientId` and `ClientSecret` keys) and a `GoogleService-Info.plist` files in a Secrets folder next to OctoPodium project folder. These files are referenced in the project and since they are secrets are not included in the project.
+- Xcode 9.3
+- Cocoapods 1.5
+- Read [this post](https://medium.com/@nunogonalves/handling-secrets-in-ios-open-source-projects-b5a212f4e28c) to know how to use GithubCredentials. The names present in that post are the same used here. Start by having your env-vars.sh contain your github and google secrets.
 
 ### CocoaPods
 
@@ -44,10 +45,16 @@ It uses the API provided by [GithubAwards](http://github-awards.com/) ([docs](ht
 <p align="center">
   <img src="https://user-images.githubusercontent.com/3007012/33797018-2584b078-dcf8-11e7-8442-76782753dc80.png" width="150px">
   <img src="https://user-images.githubusercontent.com/3007012/33797017-256bb1d6-dcf8-11e7-9ce4-0f04bb6ada7b.png" width="150px">
-  <img src="https://user-images.githubusercontent.com/3007012/33797019-259ce242-dcf8-11e7-9509-705f3e070f80.gif" width="150px"> 
+  <img src="https://user-images.githubusercontent.com/3007012/33797019-259ce242-dcf8-11e7-9509-705f3e070f80.gif" width="150px">
   <img src="https://user-images.githubusercontent.com/3007012/33797036-81bbf3d8-dcf8-11e7-9e7c-0b9fc5ca69e6.png" width="150px">
   <img src="https://user-images.githubusercontent.com/3007012/33797020-25b66280-dcf8-11e7-9395-5f4059a62be8.png" width="150px">
 </p>
+
+## Technical features:
+- UITesting
+- Snapshot testing
+- CI integration using Travis
+- Code coverage report generation using CodeCov.io
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/3007012/33797028-5a4b25b2-dcf8-11e7-8516-47dcdde83c03.png" width="20px"></br>
