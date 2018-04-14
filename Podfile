@@ -8,9 +8,7 @@ end
 
 target 'OctoPodium' do
     pod 'Google/Analytics'
-#    pod 'Kanna', '~> 1.0.6'
     pod 'Kanna', :git => 'https://github.com/tid-kijyun/Kanna.git', branch: 'master'
-#    pod 'Locksmith', '2.0.8'
     pod 'Locksmith', '4.0.0'
     pod 'SDWebImage', '~>4.2.2'
     pod 'ARSPopover', '~> 2.2.1'
