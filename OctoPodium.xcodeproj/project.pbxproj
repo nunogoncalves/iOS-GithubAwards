@@ -1356,7 +1356,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n${SRCROOT}/CreateGithubCreds.rb";
+			shellScript = "if [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n${SRCROOT}/Scripts/GenerateCredentials.rb";
 		};
 		A36F858D26B48CE409219395 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
