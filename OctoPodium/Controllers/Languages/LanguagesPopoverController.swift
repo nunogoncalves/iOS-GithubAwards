@@ -51,9 +51,6 @@ class LanguagesPopoverController: UIViewController {
             }
         )
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
 }
 
 extension LanguagesPopoverController : UITableViewDataSource {
