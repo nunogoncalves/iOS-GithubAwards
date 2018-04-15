@@ -2,6 +2,14 @@
   <img src="https://user-images.githubusercontent.com/3007012/33797011-e1a04d0e-dcf7-11e7-973f-8ec3e4b826ed.png">
 </p>
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/3007012/33797018-2584b078-dcf8-11e7-8442-76782753dc80.png" width="150px">
+  <img src="https://user-images.githubusercontent.com/3007012/33797017-256bb1d6-dcf8-11e7-9ce4-0f04bb6ada7b.png" width="150px">
+  <img src="https://user-images.githubusercontent.com/3007012/33797019-259ce242-dcf8-11e7-9509-705f3e070f80.gif" width="150px">
+  <img src="https://user-images.githubusercontent.com/3007012/33797036-81bbf3d8-dcf8-11e7-9e7c-0b9fc5ca69e6.png" width="150px">
+  <img src="https://user-images.githubusercontent.com/3007012/33797020-25b66280-dcf8-11e7-9395-5f4059a62be8.png" width="150px">
+</p>
+
 <h1> OctoPodium
   <a target="_blank" href="https://itunes.apple.com/pt/app/octopodium/id1077519133">
   <img src="https://user-images.githubusercontent.com/3007012/34075523-2523a6b0-e2c1-11e7-8652-13447ab1690e.jpg" width="100px">
@@ -41,15 +49,6 @@ It uses the API provided by [GithubAwards](http://github-awards.com/) ([docs](ht
 - View rankings for a given language. Select either World, a city or a country.
 - Search for users
 - View Github trending repositories, for all languages or a specific language.
-
-## Screenshots
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/3007012/33797018-2584b078-dcf8-11e7-8442-76782753dc80.png" width="150px">
-  <img src="https://user-images.githubusercontent.com/3007012/33797017-256bb1d6-dcf8-11e7-9ce4-0f04bb6ada7b.png" width="150px">
-  <img src="https://user-images.githubusercontent.com/3007012/33797019-259ce242-dcf8-11e7-9509-705f3e070f80.gif" width="150px">
-  <img src="https://user-images.githubusercontent.com/3007012/33797036-81bbf3d8-dcf8-11e7-9e7c-0b9fc5ca69e6.png" width="150px">
-  <img src="https://user-images.githubusercontent.com/3007012/33797020-25b66280-dcf8-11e7-9395-5f4059a62be8.png" width="150px">
-</p>
 
 ## Technical features:
 - UITesting
