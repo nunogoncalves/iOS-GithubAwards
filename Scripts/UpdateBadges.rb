@@ -35,6 +35,4 @@ read_me_content = File.open(read_me_location).read
 updated_read_me = replace(read_me_content, "badge/Xcode-", "-blue.svg", xcode_version)
 updated_read_me = replace(updated_read_me, "badge/swift-", "-orange.svg", swift_version)
 
-p updated_read_me
-
 write_to_file(read_me_location, updated_read_me)
