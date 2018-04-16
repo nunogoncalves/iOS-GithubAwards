@@ -30,7 +30,7 @@ extension Screen {
     }
 
     @discardableResult
-    func takeASnapshot(named name: String = Self.screenName) -> Self {
+    func takeASnapshotForAppStore(named name: String = Self.screenName) -> Self {
 
         snapshot(name: name)
 

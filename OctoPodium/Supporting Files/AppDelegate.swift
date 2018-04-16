@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import OHHTTPStubs
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,10 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         
         Style.Decorator().decorateApp()
-        
-        _ = Cache.Configure()
-        _ = Analytics.ConfigureGoogle()
-        
+
+        Cache.configure()
+        Analytics.configureGoogle()
+        Mocks.configure()
+
         return true
     }
 }

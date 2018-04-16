@@ -9,9 +9,10 @@
 import Kanna
 
 extension Repositories {
-    class CreateListFromHTML {
+
+    struct HTMLParser {
         
-        static func list(_ html: String) -> [Repository] {
+        static func list(from html: String) -> [Repository] {
 
             guard let document = try? Kanna.HTML(html: html, encoding: .utf8) else { return [] }
             

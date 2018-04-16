@@ -37,6 +37,10 @@
 		851D3C381C09134600870813 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D3C371C09134600870813 /* Requester.swift */; };
 		851D3C3A1C0913E900870813 /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D3C391C0913E900870813 /* ResponseHandler.swift */; };
 		8527DBB91D0F671600D388A4 /* ShareRanking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8527DBB81D0F671600D388A4 /* ShareRanking.swift */; };
+		852A5F522083B44400EF2BBD /* trending_repositories.html in Resources */ = {isa = PBXBuildFile; fileRef = 852A5F512083B44400EF2BBD /* trending_repositories.html */; };
+		852A5F552084704800EF2BBD /* MocksConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852A5F5320846FE400EF2BBD /* MocksConfigurator.swift */; };
+		852A5F57208475A500EF2BBD /* UITestingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852A5F56208475A500EF2BBD /* UITestingConstants.swift */; };
+		852A5F58208475E100EF2BBD /* UITestingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852A5F56208475A500EF2BBD /* UITestingConstants.swift */; };
 		852ADE58206EDE5A00C5F56C /* UserStatsViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852ADE57206EDE5A00C5F56C /* UserStatsViewSnapshotTests.swift */; };
 		852ADE59206EDF3000C5F56C /* NewGithubButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D17565206E251100A4E5E0 /* NewGithubButton.swift */; };
 		852B43C51C6A3E4000A1B63A /* LanguageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 852B43C31C6A3E4000A1B63A /* LanguageCell.xib */; };
@@ -247,6 +251,9 @@
 		851D3C371C09134600870813 /* Requester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
 		851D3C391C0913E900870813 /* ResponseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseHandler.swift; sourceTree = "<group>"; };
 		8527DBB81D0F671600D388A4 /* ShareRanking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareRanking.swift; sourceTree = "<group>"; };
+		852A5F512083B44400EF2BBD /* trending_repositories.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = trending_repositories.html; sourceTree = "<group>"; };
+		852A5F5320846FE400EF2BBD /* MocksConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MocksConfigurator.swift; sourceTree = "<group>"; };
+		852A5F56208475A500EF2BBD /* UITestingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestingConstants.swift; sourceTree = "<group>"; };
 		852ADE57206EDE5A00C5F56C /* UserStatsViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatsViewSnapshotTests.swift; sourceTree = "<group>"; };
 		852B43C31C6A3E4000A1B63A /* LanguageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageCell.xib; sourceTree = "<group>"; };
 		852F5E091C7E1D1F00DEE0D1 /* RankingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTests.swift; sourceTree = "<group>"; };
@@ -490,6 +497,15 @@
 				854A404C1C3B369D005E7FF1 /* VerifyRequestStatus.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		852A5F502083B42400EF2BBD /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				852A5F512083B44400EF2BBD /* trending_repositories.html */,
+				852A5F5320846FE400EF2BBD /* MocksConfigurator.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		852F5E0B1C7E5A6C00DEE0D1 /* Helpers */ = {
@@ -954,10 +970,12 @@
 			isa = PBXGroup;
 			children = (
 				8518908D207952B500C1C4A7 /* Extensions */,
-				85679BAB1D135B4100FC20DF /* SnapshotHelper.swift */,
+				852A5F56208475A500EF2BBD /* UITestingConstants.swift */,
 				85D321111C02062E001B7C7A /* Info.plist */,
+				852A5F502083B42400EF2BBD /* Mocks */,
 				85D3210F1C02062E001B7C7A /* OctoPodiumUITests.swift */,
 				85189092207952C000C1C4A7 /* Screens */,
+				85679BAB1D135B4100FC20DF /* SnapshotHelper.swift */,
 			);
 			path = OctoPodiumUITests;
 			sourceTree = "<group>";
@@ -1175,6 +1193,7 @@
 				8549ACC81C6C8B1F004D8149 /* TitilliumWeb-Bold.ttf in Resources */,
 				8549ACCD1C6C8B1F004D8149 /* TitilliumWeb-Light.ttf in Resources */,
 				85B501831C10FCC300BBFD56 /* LanguageTitleView.xib in Resources */,
+				852A5F522083B44400EF2BBD /* trending_repositories.html in Resources */,
 				8549ACCE1C6C8B1F004D8149 /* TitilliumWeb-LightItalic.ttf in Resources */,
 				85118F201C47A802002B452F /* RankingCell.xib in Resources */,
 				85820F4D1C0E2C1A0069D085 /* GithubLoading-6.gif in Resources */,
@@ -1538,6 +1557,7 @@
 				854A404D1C3B369D005E7FF1 /* VerifyRequestStatus.swift in Sources */,
 				85BBD9FE1C5D1AA600229ED2 /* Repositories.swift in Sources */,
 				85EF2E3C1CE71CD100745A68 /* UINib.swift in Sources */,
+				852A5F552084704800EF2BBD /* MocksConfigurator.swift in Sources */,
 				85482E621C96BE0800E20FDB /* GithubStarButton.swift in Sources */,
 				85E656761C13A23400BB4278 /* LanguageUsersTableDataSource.swift in Sources */,
 				851D3C381C09134600870813 /* Requester.swift in Sources */,
@@ -1554,6 +1574,7 @@
 				854B5BA41CA7335E0070A456 /* UserInfoGetter.swift in Sources */,
 				851D3C3A1C0913E900870813 /* ResponseHandler.swift in Sources */,
 				85FA59671C16D6660097732B /* CreateFullUserFromDictionary.swift in Sources */,
+				852A5F58208475E100EF2BBD /* UITestingConstants.swift in Sources */,
 				85F86EA220782AB400639F0F /* GithubCredentials.swift in Sources */,
 				855825511CAB258E00851967 /* UnstarRepository.swift in Sources */,
 				857E2C331C1C37970095DCC0 /* SearchBar.swift in Sources */,
@@ -1618,6 +1639,7 @@
 				8518909E207952C100C1C4A7 /* TrendingScreen.swift in Sources */,
 				851890A820796B6300C1C4A7 /* UIImageView.swift in Sources */,
 				851890A0207952C100C1C4A7 /* NavigationBarScreen.swift in Sources */,
+				852A5F57208475A500EF2BBD /* UITestingConstants.swift in Sources */,
 				851890A4207952C100C1C4A7 /* MainTabBarScreen.swift in Sources */,
 				85D321101C02062E001B7C7A /* OctoPodiumUITests.swift in Sources */,
 				85189091207952B500C1C4A7 /* TimeInterval.swift in Sources */,
