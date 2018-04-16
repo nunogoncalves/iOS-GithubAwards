@@ -24,6 +24,19 @@ PODS:
   - Kanna (4.0.0)
   - Locksmith (4.0.0)
   - Nimble (7.0.2)
+  - OHHTTPStubs/Core (6.1.0)
+  - OHHTTPStubs/Default (6.1.0):
+    - OHHTTPStubs/Core
+    - OHHTTPStubs/JSON
+    - OHHTTPStubs/NSURLSession
+    - OHHTTPStubs/OHPathHelpers
+  - OHHTTPStubs/JSON (6.1.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/NSURLSession (6.1.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/OHPathHelpers (6.1.0)
+  - OHHTTPStubs/Swift (6.1.0):
+    - OHHTTPStubs/Default
   - Quick (1.2.0)
   - SDWebImage (4.2.2):
     - SDWebImage/Core (= 4.2.2)
@@ -36,6 +49,7 @@ DEPENDENCIES:
   - Kanna (from `https://github.com/tid-kijyun/Kanna.git`, branch `master`)
   - Locksmith (= 4.0.0)
   - Nimble
+  - OHHTTPStubs/Swift
   - Quick (= 1.2.0)
   - SDWebImage (~> 4.2.2)
 
@@ -67,9 +81,10 @@ SPEC CHECKSUMS:
   Kanna: d5ae2a26472f7e7a474e7f36a9cd8aa2c8c63ad3
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
   Nimble: bfe1f814edabba69ff145cb1283e04ed636a67f2
+  OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
   SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
 
-PODFILE CHECKSUM: 5e053953f519a6340b995b5678ff53b1fb5fb1a3
+PODFILE CHECKSUM: 6e5fc4d9cadbe4be758d1cc13e7ab52f720637da
 
 COCOAPODS: 1.4.0

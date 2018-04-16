@@ -13,7 +13,8 @@ target 'OctoPodium' do
 #    pod 'Locksmith', '2.0.8'
     pod 'Locksmith', '4.0.0'
     pod 'SDWebImage', '~>4.2.2'
-    pod 'ARSPopover', '~> 2.2.1'
+    pod 'ARSPopover', '~>2.2.1'
+    pod 'OHHTTPStubs/Swift', '~>6.1.0'
 
     target 'OctoPodiumTests' do
       testing_pods
