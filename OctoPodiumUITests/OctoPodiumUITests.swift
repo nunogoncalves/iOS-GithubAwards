@@ -15,6 +15,7 @@ class OctoPodiumUITests: FBSnapshotTestCase {
     override func setUp() {
         super.setUp()
 
+        recordMode = false
         folderName = String(describing: type(of: self))
         setupSnapshot(app: app)
         continueAfterFailure = true
@@ -30,22 +31,19 @@ class OctoPodiumUITests: FBSnapshotTestCase {
         mainTabScreen
             .goToLanguagesScreen()
             .verifyScreenView(with: "01LanguagesScreen")
-            .takeASnapshotForAppStore()
             .goToJavascriptRanking()
-            .takeASnapshotForAppStore(named: "02LanguageRankingScreen")
+            .verifyScreenView(with: "02LanguageRankingScreen", snapshotToAppStore: true)
             .goToFacebookProfile()
-            .takeASnapshotForAppStore(named: "03FacebookScreen")
+            .verifyScreenView(with: "03FacebookScreen", snapshotToAppStore: true)
 
         mainTabScreen
             .goToTrendingScreen()
-            .verifyScreenView(with: "04TrendingScreen")
-            .takeASnapshotForAppStore(named: "04TrendingScreen")
+            .verifyScreenView(with: "04TrendingScreen", snapshotToAppStore: true)
 
         mainTabScreen
             .goToSettingsScreen()
             .goToGithubAccountScreen()
             .goToAddGithubAccountScreen()
-            .verifyScreenView(with: "05AddGitHubAccountScreen")
-            .takeASnapshotForAppStore(named: "05AddGitHubAccountScreen")
+            .verifyScreenView(with: "05AddGitHubAccountScreen", snapshotToAppStore: true)
     }
 }

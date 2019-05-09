@@ -38,7 +38,11 @@ extension Screen {
     }
 
     @discardableResult
-    func verifyScreenView(with identifier: String) -> Self {
+    func verifyScreenView(with identifier: String, snapshotToAppStore: Bool = false) -> Self {
+
+        if snapshotToAppStore {
+            snapshot(name: identifier)
+        }
 
         guard let testCase = self.testCase as? FBSnapshotTestCase else { return self }
 

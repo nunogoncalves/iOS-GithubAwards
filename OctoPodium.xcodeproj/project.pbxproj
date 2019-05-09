@@ -1350,7 +1350,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#check if env-vars.sh exists\nif [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n#no `else` case needed if the CI works as expected\n${SRCROOT}/CreateGithubCreds.rb\n";
+			shellScript = "#check if env-vars.sh exists\nif [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n#no `else` case needed if the CI works as expected\n${SRCROOT}/Scripts/GenerateCredentials.rb\n";
 		};
 		85F86EA620782E4300639F0F /* Update images docs */ = {
 			isa = PBXShellScriptBuildPhase;
