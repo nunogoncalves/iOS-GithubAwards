@@ -13,16 +13,11 @@ final class GithubButtonSnapshotTests: FBSnapshotTestCase {
 
     let githubButton = NewGithubButton(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
 
-    override func getFolderName() -> String {
-
-//        return String(describing: type(of: githubButton))
-        return "GithubButton"
-    }
-
     override func setUp() {
 
         super.setUp()
-//        self.recordMode = true
+        folderName = "GithubButton"
+        self.recordMode = false
     }
 
     func testLoading() {

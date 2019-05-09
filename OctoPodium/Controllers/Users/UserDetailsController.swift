@@ -50,10 +50,50 @@ class UserDetailsController: UIViewController {
         if countryRanking >= cityRanking {
             ranking = countryRanking
         }
-        
-        _ = Twitter.Share(ranking: "\(ranking)",
-                      language: rankings[0].language!,
-                      location: userPresenter.cityOrCountryOrWorld.capitalized)
+
+        if Twitter.Share.needsUrsername {
+
+            let alert = UIAlertController(
+                title: "Enter your twitter account name",
+                message: nil,
+                preferredStyle: .alert
+            )
+            alert.addTextField { (textField) in
+                // optionally configure the text field
+                textField.keyboardType = .alphabet
+            }
+
+            let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+                
+                Twitter.Share.perform(
+                    ranking: "\(ranking)",
+                    language: self.rankings[0].language!,
+                    location: userPresenter.cityOrCountryOrWorld.capitalized,
+                    username: alert.textFields?.first?.text
+                )
+            }
+            alert.addAction(okAction)
+
+            let cancelAction = UIAlertAction(title: "Cancel", style: .default) { _ in
+
+                Twitter.Share.perform(
+                    ranking: "\(ranking)",
+                    language: self.rankings[0].language!,
+                    location: userPresenter.cityOrCountryOrWorld.capitalized
+                )
+            }
+            alert.addAction(cancelAction)
+
+            self.present(alert, animated: true, completion: nil)
+
+        } else {
+            Twitter.Share.perform(
+                ranking: "\(ranking)",
+                language: rankings[0].language!,
+                location: userPresenter.cityOrCountryOrWorld.capitalized
+            )
+        }
+
     }
     @IBAction func viewGithubProfileClicked() {
         if let login = userPresenter?.login {
@@ -302,7 +342,9 @@ extension UserDetailsController: UITableViewDelegate {
         countryAndCityLabel.transform = originalLocationTransform.scaledBy(x: transformSize, y: transformSize)
         
         locationTopConstraint.constant = -(70 / profileExtendedBGHeight) * y + 90
-        locationCenterConstraint.constant = -((halfWidth - countryAndCityLabel.halfWidth - avatarBackground.frame.width - 20) / profileExtendedBGHeight) * y
+
+        let xPos = (halfWidth - countryAndCityLabel.halfWidth - avatarBackground.frame.width - 20) / profileExtendedBGHeight
+        locationCenterConstraint.constant = -xPos * y
     }
     
     fileprivate func moveAvatar(_ y: CGFloat) {

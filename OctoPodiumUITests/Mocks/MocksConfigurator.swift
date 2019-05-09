@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import OHHTTPStubs
 
 struct Mocks {
@@ -14,20 +15,14 @@ struct Mocks {
     static func configure() {
 
         #if !DEBUG
-
             return
-
         #else
-
-            if ProcessInfo.processInfo.arguments.contains(UITestingConstants.uiTestingMode) {
-
+            if isRunningUITests {
+                UIView.setAnimationsEnabled(false)
                 stub(condition: shouldStub, response: { stubbedResponse(for: $0) })
-
                 return
             }
-
         #endif
-
     }
 
     #if DEBUG
@@ -36,12 +31,11 @@ struct Mocks {
 
             guard let url = request.url,
                 let query = url.query
-                else {
-                    return false
+            else {
+                return false
             }
 
             if url.path == "/trending" && query == "since=Daily" {
-
                 return true
             }
 
@@ -50,12 +44,15 @@ struct Mocks {
 
         private static func stubbedResponse(for request: URLRequest) -> OHHTTPStubsResponse {
 
-            let bundle = Bundle.main
-            let string = bundle.path(forResource: "trending_repositories", ofType: "html")!
+            let string = Bundle.main.path(forResource: "trending_repositories", ofType: "html")!
             let data = try! String(contentsOfFile: string, encoding: .utf8).data(using: .utf8)!
 
             return OHHTTPStubsResponse(data: data, statusCode: 200, headers: nil)
         }
 
     #endif
+}
+
+private var isRunningUITests: Bool {
+    return ProcessInfo.processInfo.arguments.contains(UITestingConstants.uiTestingMode)
 }

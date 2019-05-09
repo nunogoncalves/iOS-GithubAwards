@@ -12,13 +12,10 @@ class OctoPodiumUITests: FBSnapshotTestCase {
     
     private let app = XCUIApplication()
 
-    override func getFolderName() -> String {
-        return String(describing: type(of: self))
-    }
-
     override func setUp() {
         super.setUp()
 
+        folderName = String(describing: type(of: self))
         setupSnapshot(app: app)
         continueAfterFailure = true
 

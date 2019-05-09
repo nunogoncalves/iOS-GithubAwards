@@ -13,26 +13,14 @@ struct TrendingScreen: NavigationBarScreen {
     let app: XCUIApplication
     let testCase: XCTestCase
 
-    var navigationBarIdentifier = String.navBarId
+    var navigationBarIdentifier: String = .navBarId
 
-    private var dailyElement: XCUIElement {
-
-        return navigationBar.buttons[.daily]
-    }
-
-    private var weeklyElement: XCUIElement {
-
-        return navigationBar.buttons[.weekly]
-    }
-
-    private var monthlyElement: XCUIElement {
-
-        return navigationBar.buttons[.monthly]
-    }
+    private var dailyElement: XCUIElement { return navigationBar.buttons[.daily] }
+    private var weeklyElement: XCUIElement { return navigationBar.buttons[.weekly] }
+    private var monthlyElement: XCUIElement { return navigationBar.buttons[.monthly] }
 
     private var vueJSElement: XCUIElement {
-
-        return app.tables.staticTexts["  Minimalistic Vue-powered static site generator"]
+        return app.tables.staticTexts["  Minimalistic Vue-powered static site generator    "]
     }
 
     init(app: XCUIApplication, testCase: XCTestCase) {
@@ -44,6 +32,7 @@ struct TrendingScreen: NavigationBarScreen {
 
     func waitUntilLoaded() {
 
+        testCase.waitForAppearance(of: dailyElement)
         XCTAssert(dailyElement.exists)
         XCTAssert(weeklyElement.exists)
         XCTAssert(monthlyElement.exists)
@@ -54,8 +43,8 @@ struct TrendingScreen: NavigationBarScreen {
 
 private extension String {
 
-    static let navBarId = "vuepress"
+    static let navBarId = "Trending"
     static let daily = "Daily"
     static let weekly = "Weekly"
-    static let monthly = "Monthy"
+    static let monthly = "Monthly"
 }

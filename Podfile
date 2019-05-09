@@ -2,8 +2,8 @@ use_frameworks!
 platform :ios, '10.0'
 
 def testing_pods
-    pod 'Quick', '1.2.0'
-    pod 'Nimble'
+    pod 'Quick', '2.1'
+    pod 'Nimble', '~>8.0.1'
 end
 
 target 'OctoPodium' do
@@ -18,11 +18,11 @@ target 'OctoPodium' do
 
     target 'OctoPodiumTests' do
       testing_pods
-      pod 'iOSSnapshotTestCase', git: 'https://github.com/nunogoncalves/ios-snapshot-test-case.git', branch: 'flexible-names'
+      pod 'iOSSnapshotTestCase'
     end
 end
 
 target 'OctoPodiumUITests' do
 
-  pod 'iOSSnapshotTestCase', git: 'https://github.com/nunogoncalves/ios-snapshot-test-case.git', branch: 'flexible-names'
+  pod 'iOSSnapshotTestCase'
 end
