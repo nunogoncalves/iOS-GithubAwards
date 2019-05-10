@@ -93,29 +93,29 @@ class RankingCell: UITableViewCell, NibReusable {
             contentView.layoutIfNeeded()
         }
         
-        if rankingPresenter.hasMedals() {
+        if rankingPresenter.hasMedals {
             medalOne.hide()
             medalTwo.hide()
             medalThree.hide()
-            let howMany = rankingPresenter.howManyDifferentMedals()
+            let howMany = rankingPresenter.numberOfDifferentMedals
             languageLeadingConstraint.constant = medalsVsSpace[howMany]!
             let medals = [medalOne, medalTwo, medalThree]
             var goldAlready = false
             var siverAlready = false
             for i in (0...howMany - 1) {
-                if rankingPresenter.hasGoldMedal() && !goldAlready {
+                if rankingPresenter.hasGoldMedal && !goldAlready {
                     goldAlready = true
                     medals[i]?.image = UIImage(named: "GoldMedal")
                     medals[i]?.show()
                     continue
                 }
-                if rankingPresenter.hasSilverMedal() && !siverAlready {
+                if rankingPresenter.hasSilverMedal && !siverAlready {
                     siverAlready = true
                     medals[i]?.image = UIImage(named: "SilverMedal")
                     medals[i]?.show()
                     continue
                 }
-                if rankingPresenter.hasBronzeMedal() {
+                if rankingPresenter.hasBronzeMedal {
                     medals[i]?.image = UIImage(named: "BronzeMedal")
                     medals[i]?.show()
                     continue
@@ -164,10 +164,10 @@ class RankingCell: UITableViewCell, NibReusable {
     }
 
     private func paintHeader(_ rankingPresenter: RankingPresenter) {
-        header.backgroundColor = UIColor(hex: rankingPresenter.headerColorHex())
-        let textColor = rankingPresenter.textColor()
-        starsImageView.image = UIImage(named: rankingPresenter.starImage())
-        reposImageView.image = UIImage(named: rankingPresenter.repoImage())
+        header.backgroundColor = UIColor(hex: rankingPresenter.headerColorHex)
+        let textColor = rankingPresenter.textColor
+        starsImageView.image = rankingPresenter.starImage
+        reposImageView.image = rankingPresenter.repoImage
         languageLabel.textColor = UIColor(hex: textColor)
         reposLabel.textColor = UIColor(hex: textColor)
         starsLabel.textColor = UIColor(hex: textColor)

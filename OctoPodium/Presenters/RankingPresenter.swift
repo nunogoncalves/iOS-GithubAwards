@@ -6,120 +6,95 @@
 //  Copyright © 2015 Nuno Gonçalves. All rights reserved.
 //
 
-class RankingPresenter {
+import Foundation
+
+private typealias SELF = RankingPresenter
+
+struct RankingPresenter {
     
     private let ranking: Ranking
     
+    let userLogin: String
+    let language: String
+
+    let city: String
+    let cityRanking: Int
+    let cityTotal: Int
+    let cityRankingOverView: String
+
+    let country: String
+    let countryRanking: Int
+    let countryTotal: Int
+    let rankingOverViewForCountry: String
+
+    let worldRanking: Int
+    let worldTotal: Int
+    let rankingOverViewForWorld: String
+
+    let repositories: String
+    let stars: String
+
+    let hasMedals: Bool
+    let hasGoldMedal: Bool
+    let hasSilverMedal: Bool
+    let hasBronzeMedal: Bool
+    let numberOfDifferentMedals: Int
+
+    let headerColorHex: UInt
+    let textColor: UInt
+
+    let repoImage: UIImage
+    let starImage: UIImage
+
     init(ranking: Ranking) {
         self.ranking = ranking
+
+        userLogin = ranking.user!.login
+        language = ranking.language ?? ""
+
+        city = ranking.city?.capitalized ?? ""
+        cityRanking = ranking.cityRanking ?? 0
+        cityTotal = ranking.cityTotal ?? 0
+        cityRankingOverView = SELF.rankingOverview(for: cityRanking, locationTotal: cityTotal)
+
+        country = ranking.country?.capitalized ?? ""
+        countryRanking = ranking.countryRanking ?? 0
+        countryTotal = ranking.countryTotal ?? 0
+        rankingOverViewForCountry = SELF.rankingOverview(for: countryRanking, locationTotal: countryTotal)
+
+        worldRanking = ranking.worldRanking ?? 0
+        worldTotal = ranking.worldTotal ?? 0
+        rankingOverViewForWorld = SELF.rankingOverview(for: worldRanking, locationTotal: worldTotal)
+
+        repositories = "\(ranking.repositories ?? 0)"
+        stars = "\(ranking.stars)"
+
+        let rankings = [worldRanking, countryRanking, cityRanking]
+
+        hasGoldMedal = rankings.any { $0 == 1 }
+        hasSilverMedal = rankings.any { $0 == 2 }
+        hasBronzeMedal = rankings.any { $0 == 3 }
+        numberOfDifferentMedals = [hasGoldMedal, hasSilverMedal, hasBronzeMedal].count { $0 }
+        hasMedals = numberOfDifferentMedals > 0
+
+        headerColorHex = hasMedals ? 0x03436E : 0xE0E0E0
+        textColor = hasMedals ? 0xFFFFFF : 0x313131
+        repoImage = hasMedals ? #imageLiteral(resourceName: "Repository") : #imageLiteral(resourceName: "RepositoryDark")
+        starImage = hasMedals ? #imageLiteral(resourceName: "Star") : #imageLiteral(resourceName: "StarDark")
     }
 
-    var userLogin: String { get { return ranking.user!.login } }
-    var language: String { get { return ranking.language ?? "" } }
-
-    var city: String { get { return ranking.city?.capitalized ?? "" } }
-    var cityRanking: Int { get { return ranking.cityRanking ?? 0 } }
-    var cityTotal: Int { get { return ranking.cityTotal ?? 0 } }
-    var rankingOverViewForCity: String {
-        get {
-            return rankingOverviewFor(cityRanking, locationTotal: cityTotal)
-        }
-    }
-
-    var country: String { get { return ranking.country?.capitalized ?? "" } }
-    var countryRanking: Int { get { return ranking.countryRanking ?? 0 } }
-    var countryTotal: Int { get { return ranking.countryTotal ?? 0 } }
-    var rankingOverViewForCountry: String {
-        get {
-            return rankingOverviewFor(countryRanking, locationTotal: countryTotal)
-        }
-    }
-    
-    var worldRanking: Int { get { return ranking.worldRanking ?? 0 } }
-    var worldTotal: Int { get { return ranking.worldTotal ?? 0 } }
-    var rankingOverViewForWorld: String {
-        get {
-            return rankingOverviewFor(worldRanking, locationTotal: worldTotal)
-        }
-    }
-    
-    private let throphies = [
-        1: "GoldTrophy",
-        2: "SilverTrophy",
-        3: "BronzeTrophy",
-        4: "Trophy"
-    ]
-    
-    private func rankingOverviewFor(_ rank: Int, locationTotal: Int) -> String {
-        if rank > 0 && locationTotal > 0 {
-            return "\(rank)/\(locationTotal)"
-        } else {
-            return "-/-"
-        }
-    }
-    
-    var cityRankingImage: String { get { return getThrofyFor(cityRanking) } }
-    var countryRankingImage: String { get { return getThrofyFor(countryRanking) } }
-    var worldRankingImage: String { get { return getThrofyFor(worldRanking) } }
-    
-    private func getThrofyFor(_ ranking: Int) -> String {
-        var rank = ranking
-        if (rank < 1 || rank > 3) { rank = 4 }
-        return throphies[rank]!
-    }
-    
-    var repositories: String { get { return "\(repos)" } }
-    private var repos: Int { get { return ranking.repositories ?? 0 } }
-    var stars: String { get { return "\(starsInt)" } }
-    private var starsInt: Int { get { return ranking.stars } }
-    
-    func hasMedals() -> Bool {
-        let rankings = [worldRanking, countryRanking, cityRanking]
-        return rankings.filter { $0.isPodium() }.count > 0
-    }
-    
-    func hasGoldMedal() -> Bool {
-        let rankings = [worldRanking, countryRanking, cityRanking]
-        return rankings.filter { $0 == 1 }.count > 0
-    }
-    
-    func howManyDifferentMedals() -> Int {
-        var medals = 0
-        if hasGoldMedal() { medals += 1 }
-        if hasSilverMedal() { medals += 1 }
-        if hasBronzeMedal() { medals += 1 }
-        return medals
-    }
-    
-    func hasSilverMedal() -> Bool {
-        let rankings = [worldRanking, countryRanking, cityRanking]
-        return rankings.filter { $0 == 2 }.count > 0
-    }
-    
-    func hasBronzeMedal() -> Bool {
-        let rankings = [worldRanking, countryRanking, cityRanking]
-        return rankings.filter { $0 == 3 }.count > 0
-    }
-    
-    func headerColorHex() -> UInt {
-        return hasMedals() ? 0x03436E : 0xE0E0E0
-    }
-    
-    func textColor() -> UInt {
-        return hasMedals() ? 0xFFFFFF : 0x313131
-    }
-    
-    func repoImage() -> String {
-        return hasMedals() ? "Repository" : "RepositoryDark"
-    }
-    
-    func starImage() -> String {
-        return hasMedals() ? "Star" : "StarDark"
+    private static func rankingOverview(for rank: Int, locationTotal: Int) -> String {
+        guard rank > 0 && locationTotal > 0 else { return "-/-" }
+        return "\(rank)/\(locationTotal)"
     }
 }
 
-private extension Int {
-    func isPodium() -> Bool {
-        return self < 4 && self > 0
+private extension Array {
+    func count(where predicate: (Element) throws -> Bool) rethrows -> Int {
+        return try reduce(0) { $0 + (try predicate($1) ? 1 : 0) }
+    }
+
+    func any(where predicate: (Element) throws -> Bool) rethrows -> Bool {
+        return try first(where: predicate) != nil
     }
 }
