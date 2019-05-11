@@ -14,7 +14,7 @@ struct RankingPresenter {
     
     private let ranking: Ranking
     
-    let userLogin: String
+    var userLogin: String { return ranking.user?.login ?? "" }
     let language: String
 
     let city: String
@@ -51,7 +51,6 @@ struct RankingPresenter {
     init(ranking: Ranking) {
         self.ranking = ranking
 
-        userLogin = ranking.user!.login
         language = ranking.language ?? ""
 
         city = ranking.city?.capitalized ?? ""

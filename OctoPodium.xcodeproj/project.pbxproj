@@ -52,6 +52,9 @@
 		853C48DF1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */; };
 		853C48E11C09A28400373A92 /* GetOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48E01C09A28400373A92 /* GetOne.swift */; };
 		853C48E31C09A35F00373A92 /* CreateBasicUserFromDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48E21C09A35F00373A92 /* CreateBasicUserFromDictionary.swift */; };
+		853F6DCF2286C10D00C4F4EC /* LanguageMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F6DCB2286C08300C4F4EC /* LanguageMocks.swift */; };
+		853F6DD02286C11100C4F4EC /* UserMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F6DCD2286C0C800C4F4EC /* UserMocks.swift */; };
+		853F6DD42286CA2A00C4F4EC /* GithubCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F6DD32286CA2A00C4F4EC /* GithubCredentials.swift */; };
 		854813A61C79059C00182C6B /* GitHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854813A51C79059C00182C6B /* GitHub.swift */; };
 		854813A81C7905D200182C6B /* StarsAndForksFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854813A71C7905D200182C6B /* StarsAndForksFetcher.swift */; };
 		85482E621C96BE0800E20FDB /* GithubStarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85482E611C96BE0800E20FDB /* GithubStarButton.swift */; };
@@ -190,7 +193,6 @@
 		85EF2E3E1CE71D7B00745A68 /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EF2E3D1CE71D7B00745A68 /* NibView.swift */; };
 		85EF2E451CE79B8F00745A68 /* OnePasswordExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EF2E441CE79B8F00745A68 /* OnePasswordExtension.m */; };
 		85EF2E4A1CE79CBE00745A68 /* 1Password.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85EF2E491CE79CBE00745A68 /* 1Password.xcassets */; };
-		85F86EA220782AB400639F0F /* GithubCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F86EA120782AB400639F0F /* GithubCredentials.swift */; };
 		85FA59631C15C5C00097732B /* UserTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59621C15C5C00097732B /* UserTopCell.swift */; };
 		85FA59651C1645B00097732B /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59641C1645B00097732B /* K.swift */; };
 		85FA59671C16D6660097732B /* CreateFullUserFromDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59661C16D6660097732B /* CreateFullUserFromDictionary.swift */; };
@@ -273,6 +275,9 @@
 		853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertUsersDictionaryToUsers.swift; sourceTree = "<group>"; };
 		853C48E01C09A28400373A92 /* GetOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetOne.swift; sourceTree = "<group>"; };
 		853C48E21C09A35F00373A92 /* CreateBasicUserFromDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBasicUserFromDictionary.swift; sourceTree = "<group>"; };
+		853F6DCB2286C08300C4F4EC /* LanguageMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageMocks.swift; sourceTree = "<group>"; };
+		853F6DCD2286C0C800C4F4EC /* UserMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMocks.swift; sourceTree = "<group>"; };
+		853F6DD32286CA2A00C4F4EC /* GithubCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubCredentials.swift; sourceTree = "<group>"; };
 		854813A51C79059C00182C6B /* GitHub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHub.swift; sourceTree = "<group>"; };
 		854813A71C7905D200182C6B /* StarsAndForksFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarsAndForksFetcher.swift; sourceTree = "<group>"; };
 		85482E611C96BE0800E20FDB /* GithubStarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubStarButton.swift; sourceTree = "<group>"; };
@@ -420,7 +425,6 @@
 		85EF2E431CE79B8B00745A68 /* OnePasswordExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnePasswordExtension.h; sourceTree = "<group>"; };
 		85EF2E441CE79B8F00745A68 /* OnePasswordExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnePasswordExtension.m; sourceTree = "<group>"; };
 		85EF2E491CE79CBE00745A68 /* 1Password.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = 1Password.xcassets; sourceTree = "<group>"; };
-		85F86EA120782AB400639F0F /* GithubCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubCredentials.swift; sourceTree = "<group>"; };
 		85FA59621C15C5C00097732B /* UserTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTopCell.swift; sourceTree = "<group>"; };
 		85FA59641C1645B00097732B /* K.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		85FA59661C16D6660097732B /* CreateFullUserFromDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFullUserFromDictionary.swift; sourceTree = "<group>"; };
@@ -522,6 +526,8 @@
 			children = (
 				852A5F512083B44400EF2BBD /* trending_repositories.html */,
 				852A5F5320846FE400EF2BBD /* MocksConfigurator.swift */,
+				853F6DCB2286C08300C4F4EC /* LanguageMocks.swift */,
+				853F6DCD2286C0C800C4F4EC /* UserMocks.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -900,8 +906,8 @@
 		85AFEC1C1C046898006FC129 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				853F6DD32286CA2A00C4F4EC /* GithubCredentials.swift */,
 				85FF11512284077400D8B0D1 /* TwitterApps */,
-				85F86EA120782AB400639F0F /* GithubCredentials.swift */,
 				856E395B1C60A47C00974330 /* DataSources */,
 				855075861D0B63A4004FA634 /* TransitionAnimators */,
 				854B5B9F1CA6FE200070A456 /* ApiResponse.swift */,
@@ -1149,6 +1155,7 @@
 			buildConfigurationList = 85D3211A1C02062E001B7C7A /* Build configuration list for PBXNativeTarget "OctoPodiumUITests" */;
 			buildPhases = (
 				75887C0C2D62A1F2AB671F88 /* [CP] Check Pods Manifest.lock */,
+				853F6DD52286CC5100C4F4EC /* Add Credentials files */,
 				85D321071C02062E001B7C7A /* Sources */,
 				85D321081C02062E001B7C7A /* Frameworks */,
 				85D321091C02062E001B7C7A /* Resources */,
@@ -1348,6 +1355,27 @@
 			shellPath = /bin/sh;
 			shellScript = "${SRCROOT}/Scripts/UpdateBadges.rb\n";
 		};
+		853F6DD52286CC5100C4F4EC /* Add Credentials files */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Scripts/GenerateCredentials.rb",
+			);
+			name = "Add Credentials files";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${SRCROOT}/OctoPodium/Models/GithubCredentials.swift",
+				"${SRCROOT}/OctoPodium/Supporting Files/GoogleService-Info.plist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n${SRCROOT}/Scripts/GenerateCredentials.rb\n";
+		};
 		85679BAA1D13587A00FC20DF /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1367,9 +1395,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Scripts/GenerateCredentials.rb",
 			);
 			name = "Add Credentials files";
 			outputPaths = (
+				"${SRCROOT}/OctoPodium/Models/GithubCredentials.swift",
+				"${SRCROOT}/OctoPodium/Supporting Files/GoogleService-Info.plist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1395,9 +1426,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Scripts/GenerateCredentials.rb",
 			);
 			name = "Add Credentials files";
 			outputPaths = (
+				"${SRCROOT}/OctoPodium/Models/GithubCredentials.swift",
+				"${SRCROOT}/OctoPodium/Supporting Files/GoogleService-Info.plist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1517,6 +1551,7 @@
 				85E656741C139F5100BB4278 /* Page.swift in Sources */,
 				85E389D21C6A307900C68813 /* LanguagesPopoverController.swift in Sources */,
 				856A72E71C12509F008415A4 /* LanguageCell.swift in Sources */,
+				853F6DCF2286C10D00C4F4EC /* LanguageMocks.swift in Sources */,
 				8530ED361C60EA7F00173835 /* TrendingRepositoryDetailsController.swift in Sources */,
 				8597FBDF2285847F00F635A0 /* Medals.swift in Sources */,
 				85E09EDB1D0AC49100752BB0 /* ConfigureImagesCache.swift in Sources */,
@@ -1575,9 +1610,9 @@
 				851D3C3A1C0913E900870813 /* ResponseHandler.swift in Sources */,
 				85FA59671C16D6660097732B /* CreateFullUserFromDictionary.swift in Sources */,
 				852A5F58208475E100EF2BBD /* UITestingConstants.swift in Sources */,
-				85F86EA220782AB400639F0F /* GithubCredentials.swift in Sources */,
 				855825511CAB258E00851967 /* UnstarRepository.swift in Sources */,
 				857E2C331C1C37970095DCC0 /* SearchBar.swift in Sources */,
+				853F6DD02286C11100C4F4EC /* UserMocks.swift in Sources */,
 				85FA59631C15C5C00097732B /* UserTopCell.swift in Sources */,
 				85E09ED21D0AA56600752BB0 /* EmptyHeaders.swift in Sources */,
 				85D3211E1C0211C2001B7C7A /* UserCell.swift in Sources */,
@@ -1589,6 +1624,7 @@
 				85AFEC1F1C0468CB006FC129 /* Ranking.swift in Sources */,
 				850485311C0FB10C004D952A /* AlertView.swift in Sources */,
 				856D676A1C342C6900A77678 /* Requestable.swift in Sources */,
+				853F6DD42286CA2A00C4F4EC /* GithubCredentials.swift in Sources */,
 				85DB86361CE5C6FA00324A99 /* UIImageView.swift in Sources */,
 				85FA596B1C1739560097732B /* Get.swift in Sources */,
 				85482E641C96BF9A00E20FDB /* GithubForkButton.swift in Sources */,
