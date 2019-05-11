@@ -18,7 +18,7 @@ class RankingCell2: UITableViewCell, Reusable {
 
     private let header = RankingCellHeader.usingAutoLayout()
 
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         contentView.addSubview(header)
@@ -216,7 +216,7 @@ class RankingCell: UITableViewCell, NibReusable {
 
     @objc private func showUserLanguageReposInBrowser() {
         guard let rankingPresenter = rankingPresenter else { return }
-        Browser.openPage("https://github.com/search?q=user:\(rankingPresenter.userLogin)+language:\(rankingPresenter.language)")
+        Browser.openPage(URL(string: "https://github.com/search?q=user:\(rankingPresenter.userLogin)+language:\(rankingPresenter.language)")!)
         Analytics.SendToGoogle.viewUserLanguagesOnGithub(rankingPresenter.userLogin, language: rankingPresenter.language)
     }
 }

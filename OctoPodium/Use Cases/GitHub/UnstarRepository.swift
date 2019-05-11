@@ -28,7 +28,7 @@ extension GitHub {
         
         func parse(_ json: JSON) -> Void {}
         
-        func doUnstar(_ success: @escaping () -> (), failure: @escaping (ApiResponse) -> ()) {
+        func doUnstar(success: @escaping () -> (), failure: @escaping (ApiResponse) -> ()) {
             call(success: success, failure: failure)
         }
     }

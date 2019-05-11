@@ -18,7 +18,8 @@ class AboutController : UIViewController {
         Analytics.SendToGoogle.enteredScreen(String(describing: type(of: AboutController.self)))
         setAppNameAndYear()
         setAboutText()
-        automaticallyAdjustsScrollViewInsets = false
+
+        aboutTextView.contentInsetAdjustmentBehavior = .automatic
     }
     
     private func setAppNameAndYear() {

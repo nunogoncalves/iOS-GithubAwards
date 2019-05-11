@@ -35,7 +35,7 @@ extension Twitter {
             for twitterClient in TwitterClient.all() {
                 let twitterUrl = "\(twitterClient.rawValue)\(username)"
                 if let url = URL(string: twitterUrl) , application.canOpenURL(url) && !applicationOpened {
-                    application.openURL(url)
+                    application.open(url, options: [:], completionHandler: nil)
                     Analytics.SendToGoogle.showDeveloperOnTwitterEvent(String(describing: twitterClient))
                     applicationOpened = true
                     break
@@ -44,7 +44,7 @@ extension Twitter {
             
             if !applicationOpened {
                 Analytics.SendToGoogle.showDeveloperOnTwitterEvent("Browser")
-                Browser.openPage("http://twitter.com/\(username)")
+                Browser.openPage(URL(string: "http://twitter.com/\(username)")!)
             }
         }
     }

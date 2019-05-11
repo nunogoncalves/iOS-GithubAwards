@@ -79,8 +79,9 @@ extension UIView {
     
     func animateInPath(_ path: UIBezierPath, withDuration duration: TimeInterval, onFinished: (() -> ())? = {}) {
         let anim = CAKeyframeAnimation(keyPath: "position")
-        anim.rotationMode = kCAAnimationPaced
-        anim.fillMode = kCAFillModeForwards
+        anim.rotationMode = .none
+        anim.calculationMode = .paced
+        anim.fillMode = CAMediaTimingFillMode.forwards
         anim.isRemovedOnCompletion = false
         anim.duration = duration
         

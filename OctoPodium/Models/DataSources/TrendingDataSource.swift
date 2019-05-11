@@ -72,7 +72,7 @@ extension TrendingDataSource : UITableViewDelegate {
         cell.setNeedsLayout()
         cell.layoutIfNeeded()
         
-        let size = cell.contentView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
+        let size = cell.contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
         return size.height
     }
     

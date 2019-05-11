@@ -16,7 +16,7 @@ struct K {
     
     static let appOwnerName = "nunogoncalves"
     static let appRepositoryName = "iOS-OctoPodium"
-    static let appOwnerGithub = "https://github.com/\(appOwnerName)"
+    static let appOwnerGithub = URL(string: "https://github.com/\(appOwnerName)")!
     static let appGithubRepository = "\(appOwnerGithub)/\(appRepositoryName)"
     
     

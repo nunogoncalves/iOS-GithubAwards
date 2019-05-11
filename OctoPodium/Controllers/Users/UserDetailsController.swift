@@ -38,7 +38,6 @@ class UserDetailsController: UIViewController {
     
     @IBOutlet weak var twitterButton: UIBarButtonItem!
     
-    
     @IBAction func tweetButtonTapped(_ sender: UIBarButtonItem) {
         guard let userPresenter = userPresenter else { return }
         guard rankings.count > 0 else { return }
@@ -97,7 +96,7 @@ class UserDetailsController: UIViewController {
     }
     @IBAction func viewGithubProfileClicked() {
         if let login = userPresenter?.login {
-            Browser.openPage("http://github.com/\(login)")
+            Browser.openPage(URL(string: "http://github.com/\(login)")!)
             Analytics.SendToGoogle.viewUserOnGithub(login)
         }
     }
@@ -157,7 +156,7 @@ class UserDetailsController: UIViewController {
     
     @IBAction private func showUserOptions() {
         let userUrl = userPresenter!.gitHubUrl
-        let actionsBuilder = RepositoryOptionsBuilder.build(userUrl) { [weak self] in
+        let actionsBuilder = RepositoryOptionsBuilder.build(URL(string: userUrl)!) { [weak self] in
             guard let s = self else { return }
             let activityViewController = UIActivityViewController(activityItems: [userUrl as NSString], applicationActivities: nil)
             s.present(activityViewController, animated: true, completion: {})
