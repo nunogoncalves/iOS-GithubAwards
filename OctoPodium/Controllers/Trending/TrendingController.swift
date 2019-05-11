@@ -69,7 +69,7 @@ class TrendingController : UIViewController {
 
         repositoriesTable.registerReusableCell(TrendingRepositoryCell.self)
         repositoriesTable.estimatedRowHeight = 95.0
-        repositoriesTable.rowHeight = UITableViewAutomaticDimension
+        repositoriesTable.rowHeight = UITableView.automaticDimension
     }
     
     private func setupDataSource() {
@@ -94,7 +94,7 @@ class TrendingController : UIViewController {
     fileprivate func updateLanguageIcon() {
         languageImageView.language = language
         let image = LanguageImage.load(for: language, orLanguageImageView: languageImageView)
-        languageButton.setBackgroundImage(image, for: UIControlState())
+        languageButton.setBackgroundImage(image, for: UIControl.State())
     }
     
     private func buildPopoverElements() {

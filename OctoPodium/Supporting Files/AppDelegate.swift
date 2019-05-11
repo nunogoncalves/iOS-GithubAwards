@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import netfox
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,16 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(
         _ application: UIApplication,
-        didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
     ) -> Bool {
 
         Style.Decorator().decorateApp()
 
         Cache.configure()
         Analytics.configureGoogle()
+        NFX.sharedInstance().start()
         Mocks.configure()
 
         return true
     }
 }
-

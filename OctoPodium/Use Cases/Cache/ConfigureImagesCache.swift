@@ -6,18 +6,19 @@
 //  Copyright © 2016 Nuno Gonçalves. All rights reserved.
 //
 
-import SDWebImage
+import Nuke
 
 struct Cache {
 
     static func configure() {
-        
-        SDWebImageManager.shared().imageCache?.config.maxCacheAge = 60 * 60 * 24 * 31
-        let urlCache = URLCache(
-            memoryCapacity: 4 * 1024 * 1024,
-            diskCapacity: 20 * 1024 * 1024,
-            diskPath: nil)
 
-        URLCache.shared = urlCache
+        // Configure cache
+        ImageCache.shared.costLimit = 1024 * 1024 * 10 // 10 MB
+        ImageCache.shared.countLimit = 1000
+        ImageCache.shared.ttl = 1.month // Invalidate image after 1 month
     }
+}
+
+private extension TimeInterval {
+    var month: TimeInterval { return 60 * 60 * 24 * 30 }
 }

@@ -10,7 +10,7 @@ import UIKit
 
 struct RepositoryOptionsBuilder {
     
-    static func build(_ url: String, shareAction: @escaping () -> () = {}) -> UIAlertController {
+    static func build(_ url: URL, shareAction: @escaping () -> () = {}) -> UIAlertController {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let browser = actionWith("View on Github", andHandler: viewOnGithub(url))
@@ -29,15 +29,15 @@ struct RepositoryOptionsBuilder {
         return UIAlertAction(title: title, style: .default, handler: handler)
     }
     
-    private static func viewOnGithub(_ url: String) -> ((UIAlertAction) -> Void)?{
+    private static func viewOnGithub(_ url: URL) -> ((UIAlertAction) -> Void)?{
         return { _ in
             Browser.openPage(url)
         }
     }
     
-    private static func copyToBoard(_ url: String) -> ((UIAlertAction) -> Void)? {
+    private static func copyToBoard(_ url: URL) -> ((UIAlertAction) -> Void)? {
         return { _ in
-            UIPasteboard.general.string = url
+            UIPasteboard.general.string = url.absoluteString
         }
     }
 }

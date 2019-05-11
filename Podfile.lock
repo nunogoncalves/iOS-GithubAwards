@@ -1,4 +1,5 @@
 PODS:
+  - 1PasswordExtension (1.8.5)
   - ARSPopover (2.2.1)
   - Google/Analytics (1.3.2):
     - Google/Core
@@ -23,7 +24,9 @@ PODS:
     - iOSSnapshotTestCase/Core
   - Kanna (4.0.0)
   - Locksmith (4.0.0)
+  - netfox (1.15.0)
   - Nimble (8.0.1)
+  - Nuke (7.6.3)
   - OHHTTPStubs/Core (6.1.0)
   - OHHTTPStubs/Default (6.1.0):
     - OHHTTPStubs/Core
@@ -38,23 +41,23 @@ PODS:
   - OHHTTPStubs/Swift (6.1.0):
     - OHHTTPStubs/Default
   - Quick (2.1.0)
-  - SDWebImage (4.2.2):
-    - SDWebImage/Core (= 4.2.2)
-  - SDWebImage/Core (4.2.2)
 
 DEPENDENCIES:
+  - 1PasswordExtension (~> 1.8.5)
   - ARSPopover (~> 2.2.1)
   - Google/Analytics
   - iOSSnapshotTestCase
   - Kanna (from `https://github.com/tid-kijyun/Kanna.git`, branch `master`)
   - Locksmith (= 4.0.0)
+  - netfox (~> 1.15.0)
   - Nimble (~> 8.0.1)
+  - Nuke (~> 7.6)
   - OHHTTPStubs/Swift (~> 6.1.0)
   - Quick (= 2.1)
-  - SDWebImage (~> 4.2.2)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - 1PasswordExtension
     - ARSPopover
     - Google
     - GoogleAnalytics
@@ -64,10 +67,11 @@ SPEC REPOS:
     - GoogleUtilities
     - iOSSnapshotTestCase
     - Locksmith
+    - netfox
     - Nimble
+    - Nuke
     - OHHTTPStubs
     - Quick
-    - SDWebImage
 
 EXTERNAL SOURCES:
   Kanna:
@@ -80,6 +84,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/tid-kijyun/Kanna.git
 
 SPEC CHECKSUMS:
+  1PasswordExtension: 0e95bdea64ec8ff2f4f693be5467a09fac42a83d
   ARSPopover: ec2531fe8f498da1181e00f9ffeaa586a3d16d82
   Google: 55ccf2acbe6f6ade86f872c1cd29a0c44039c349
   GoogleAnalytics: 9be1afdb8deeac4bb5f13ca7f7d3b9db2a1f43dc
@@ -90,11 +95,12 @@ SPEC CHECKSUMS:
   iOSSnapshotTestCase: f592adfdedffe6113a55528ce698ccc457a550f1
   Kanna: d5ae2a26472f7e7a474e7f36a9cd8aa2c8c63ad3
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
+  netfox: 6ddcca687ad0a58550054fea481cb487461b5e0c
   Nimble: 45f786ae66faa9a709624227fae502db55a8bdd0
+  Nuke: 44130e95e09463f8773ae4b96b90de1eba6b3350
   OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
   Quick: 4be43f6634acfa727dd106bdf3929ce125ffa79d
-  SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
 
-PODFILE CHECKSUM: 6419c550cf2bf19fd3fd437a9fa1f0d6155296f8
+PODFILE CHECKSUM: 6f8aff835d7831beae39e36b67df0e5a47b5fcac
 
 COCOAPODS: 1.6.1

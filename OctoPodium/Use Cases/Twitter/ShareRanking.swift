@@ -44,7 +44,7 @@ extension Twitter {
             }
 
             Analytics.SendToGoogle.shareRankingOnTwitterEvent(twitterApp.name)
-            UIApplication.shared.open(twitterApp.postURL(message: text), options: [:], completionHandler: nil)
+            UIApplication.shared.open(twitterApp.postURL(message: text), options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
         }
 
         private static func appToShareContent(_ username: String?) -> TwitterAppProtocol? {
@@ -58,7 +58,7 @@ extension Twitter {
 
         private static func postInTwitterBrowser(_ text: String) {
             Analytics.SendToGoogle.shareRankingOnTwitterEvent("Browser")
-            Browser.openPage("https://twitter.com/intent/tweet?text=\(text)")
+            Browser.openPage(URL(string: "https://twitter.com/intent/tweet?text=\(text)")!)
         }
 
         private static func message(ranking: String, language: String, location: String) -> String {
@@ -72,3 +72,8 @@ extension Twitter {
 }
 
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
+}

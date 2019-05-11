@@ -42,7 +42,7 @@ class UsersSearchController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         if let _ = User.getUserInUserDefaults() {
-            let meButton = UIBarButtonItem(title: "Me", style: UIBarButtonItemStyle.plain, target: self, action: #selector(selectMe))
+            let meButton = UIBarButtonItem(title: "Me", style: UIBarButtonItem.Style.plain, target: self, action: #selector(selectMe))
             navigationItem.rightBarButtonItem = meButton
         } else {
             navigationItem.rightBarButtonItem = nil

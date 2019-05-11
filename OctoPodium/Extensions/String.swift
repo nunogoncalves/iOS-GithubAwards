@@ -30,20 +30,18 @@ extension String {
     }
     
     func substringBetween(_ from: String, and to: String) -> String? {
-        let range = self.range(of: "(?<=\(from))(.*?)(?=\(to))", options: .regularExpression)
-        guard range != nil else { return nil }
-        return self.substring(with: range!)
+        guard let range = self.range(of: "(?<=\(from))(.*?)(?=\(to))", options: .regularExpression) else { return nil }
+        return String(self[range])
     }
-    
+
     func substringUntil(_ until: String) -> String? {
-        let range = self.range(of: until)
-        guard range != nil else { return nil }
-        return self.substring(to: range!.lowerBound)
+        guard let range = self.range(of: until) else { return nil }
+        return String(self[..<range.lowerBound])
     }
-    
+
     func substring(after: String) -> String? {
-        guard let r = range(of: after) else { return nil }
-        return substring(with: r.upperBound..<endIndex)
+        guard let range = self.range(of: after) else { return nil }
+        return String(self[range.upperBound...])
     }
 
     /** Joins two strings with a separator charecter. If at least one of them is nil, the seperator character is not added. */

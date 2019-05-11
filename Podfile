@@ -12,9 +12,11 @@ target 'OctoPodium' do
     pod 'Kanna', :git => 'https://github.com/tid-kijyun/Kanna.git', branch: 'master'
 #    pod 'Locksmith', '2.0.8'
     pod 'Locksmith', '4.0.0'
-    pod 'SDWebImage', '~>4.2.2'
+    pod 'Nuke', '~> 7.6'
     pod 'ARSPopover', '~>2.2.1'
     pod 'OHHTTPStubs/Swift', '~>6.1.0'
+    pod '1PasswordExtension', '~> 1.8.5'
+    pod 'netfox', '~>1.15.0', configurations: ['debug']
 
     target 'OctoPodiumTests' do
       testing_pods

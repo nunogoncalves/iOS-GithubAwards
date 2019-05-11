@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0920"
+   LastUpgradeVersion = "1020"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -70,7 +70,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1FB3581F4855FB816F0C4899ED1A6026"
+               BlueprintIdentifier = "A6293B46682B3506C97B73C333967DDB"
                BuildableName = "Nuke.framework"
                BlueprintName = "Nuke"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -84,7 +84,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2A7ADB5AAAA026BFB2AF2C61E88D6B2E"
+               BlueprintIdentifier = "7C38DD7D4BD884084EBDCAB3BD274EF4"
                BuildableName = "Pods_OctoPodium.framework"
                BlueprintName = "Pods-OctoPodium"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -126,7 +126,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7D5CA6B05DE6E0F1C4A099AF341056E8"
+               BlueprintIdentifier = "01D30D99F9BD0A382D5310F8A159F237"
                BuildableName = "Quick.framework"
                BlueprintName = "Quick"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -276,7 +276,7 @@
          <EnvironmentVariable
             key = "OS_ACTIVITY_MODE"
             value = "disable"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "IMAGE_DIFF_DIR"

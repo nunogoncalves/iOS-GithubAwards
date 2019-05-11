@@ -21,7 +21,7 @@ class AddGithubAccountController : UIViewController {
     
     override func viewDidLoad() {
         if OnePasswordExtension.shared().isAppExtensionAvailable() {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "onepassword-button"), style: .plain, target: self, action: #selector(onePasswordClicked))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "onepassword-button"), style: .plain, target: self, action: #selector(onePasswordClicked))
         }
     }
     
@@ -29,7 +29,8 @@ class AddGithubAccountController : UIViewController {
         OnePasswordExtension.shared().findLogin(
             forURLString: "http://www.github.com",
             for: self,
-            sender: nil) { [weak self] loginData, error in
+            sender: nil
+        ) { [weak self] loginData, error in
             if let error = error {
                 if error._code == Int(AppExtensionErrorCodeCancelledByUser) {
                     NotifyWarning.display("There was a problem loading 1Password credentials")

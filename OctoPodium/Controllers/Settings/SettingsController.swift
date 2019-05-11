@@ -88,7 +88,7 @@ class SettingsController : UITableViewController {
     
     func reviewOctoPodium() {
         Analytics.SendToGoogle.reviewInAppStoreEvent()
-        Browser.openPage("itms-apps://itunes.apple.com/app/id\(K.appId)")
+        Browser.openPage(URL(string: "itms-apps://itunes.apple.com/app/id\(K.appId)")!)
     }
     
     func showOctoPodiumReadMe() {
@@ -98,7 +98,7 @@ class SettingsController : UITableViewController {
     func starOctoPodium() {
         Analytics.SendToGoogle.starOctopodiumEvent()
         GitHub.StarRepository(repoOwner: K.appOwnerName, repoName: K.appRepositoryName)
-              .doStar(starSuccessfull, failure: starFailed)
+            .doStar(success: starSuccessfull, failure: starFailed)
     }
     
     private func starSuccessfull() {

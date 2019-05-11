@@ -38,7 +38,6 @@ class UserDetailsController: UIViewController {
     
     @IBOutlet weak var twitterButton: UIBarButtonItem!
     
-    
     @IBAction func tweetButtonTapped(_ sender: UIBarButtonItem) {
         guard let userPresenter = userPresenter else { return }
         guard rankings.count > 0 else { return }
@@ -97,7 +96,7 @@ class UserDetailsController: UIViewController {
     }
     @IBAction func viewGithubProfileClicked() {
         if let login = userPresenter?.login {
-            Browser.openPage("http://github.com/\(login)")
+            Browser.openPage(URL(string: "http://github.com/\(login)")!)
             Analytics.SendToGoogle.viewUserOnGithub(login)
         }
     }
@@ -151,13 +150,14 @@ class UserDetailsController: UIViewController {
         navigationItem.title = userPresenter!.login
         
         rankingsTable.registerReusableCell(RankingCell.self)
-        
+        rankingsTable.register(RankingCell2.self, forCellReuseIdentifier: "RankingCell2")
+
         Users.GetOne(login: userPresenter!.login).call(success: userSuccess, failure: failure)
     }
     
     @IBAction private func showUserOptions() {
         let userUrl = userPresenter!.gitHubUrl
-        let actionsBuilder = RepositoryOptionsBuilder.build(userUrl) { [weak self] in
+        let actionsBuilder = RepositoryOptionsBuilder.build(URL(string: userUrl)!) { [weak self] in
             guard let s = self else { return }
             let activityViewController = UIActivityViewController(activityItems: [userUrl as NSString], applicationActivities: nil)
             s.present(activityViewController, animated: true, completion: {})
@@ -373,6 +373,8 @@ extension UserDetailsController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellFor(indexPath) as RankingCell
+//        let cell = tableView.dequeueReusableCellFor(indexPath) as RankingCell2
+//        cell.render(with: RankingPresenter(ranking: rankings[indexPath.row]))
         cell.rankingPresenter = RankingPresenter(ranking: rankings[indexPath.row])
         return cell
     }

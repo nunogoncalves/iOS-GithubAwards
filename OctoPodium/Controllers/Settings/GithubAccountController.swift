@@ -52,7 +52,7 @@ class GithubAccountController : UIViewController {
     }
     
     @IBAction func signout() {
-        let alert = UIAlertController(title: "Confirm", message: "Are you sure you want to logout?", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Confirm", message: "Are you sure you want to logout?", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _  in self.confirmLogout() } ))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         

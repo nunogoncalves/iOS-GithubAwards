@@ -21,7 +21,7 @@ class TrendingRepositoryDetailsController: UIViewController {
     @IBOutlet weak var starsGithubButton: GithubStarButton!
     @IBOutlet weak var forksGithubButton: GithubForkButton!
     
-    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var loadingView: GithubLoadingView!
     
     var repository: Repository?
@@ -29,7 +29,7 @@ class TrendingRepositoryDetailsController: UIViewController {
     private var starState = StarState.undefined
     
     override func viewDidLoad() {
-        webView.delegate = self
+        webView.navigationDelegate = self
         navigationItem.title = repository?.name
         loadWebView()
         fetchStarsAndForks()
@@ -47,7 +47,7 @@ class TrendingRepositoryDetailsController: UIViewController {
     }
     
     @objc private func showRepoOptions() {        
-        let repoBuilder = RepositoryOptionsBuilder.build(repository!.url) { [weak self] in
+        let repoBuilder = RepositoryOptionsBuilder.build(URL(string: repository!.url)!) { [weak self] in
             guard let s = self else { return }
             let activityViewController = UIActivityViewController(activityItems: [s.repository!.url as NSString], applicationActivities: nil)
             s.present(activityViewController, animated: true, completion: {})
@@ -105,8 +105,8 @@ class TrendingRepositoryDetailsController: UIViewController {
     }
 
     private func gotReadMeLocation(_ url: String) {
-        let url =  URL(string: url)
-        webView.loadRequest(URLRequest(url: url!))
+        let url = URL(string: url)!
+        webView.load(URLRequest(url: url))
     }
     
     fileprivate func hideLoadingAndDisplay(_ error: String) {
@@ -135,11 +135,14 @@ class TrendingRepositoryDetailsController: UIViewController {
     private func starRepo() {
         guard let repo = repository else { return }
         GitHub.StarRepository(repoOwner: repo.user, repoName: repo.name)
-            .doStar({ [weak self] in self?.starSuccess()
-                }, failure: { apiResponse  in
+            .doStar(
+                success: { [weak self] in
+                    self?.starSuccess()
+                },
+                failure: { apiResponse  in
                     NotifyError.display("It was not possible to star the repository")
                 }
-        )
+            )
     }
     
     private func starSuccess() {
@@ -153,11 +156,14 @@ class TrendingRepositoryDetailsController: UIViewController {
     private func unstarRepo() {
         guard let repo = repository else { return }
         GitHub.UnstarRepository(repoOwner: repo.user, repoName: repo.name)
-            .doUnstar({ [weak self] in self?.unstarSuccess()
-                }, failure: { apiResponse  in
+            .doUnstar(
+                success: { [weak self] in
+                    self?.unstarSuccess()
+                },
+                failure: { apiResponse  in
                     NotifyError.display("It was not possible to star the repository")
-            }
-        )
+                }
+            )
     }
     
     private func unstarSuccess() {
@@ -169,8 +175,9 @@ class TrendingRepositoryDetailsController: UIViewController {
     }
 }
 
-extension TrendingRepositoryDetailsController : UIWebViewDelegate {
-    func webViewDidStartLoad(_ webView: UIWebView) {
+extension TrendingRepositoryDetailsController : WKNavigationDelegate {
+
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         animateLoadingToCorner()
     }
     
@@ -180,44 +187,44 @@ extension TrendingRepositoryDetailsController : UIWebViewDelegate {
             self.loadingView.transform = self.loadingView.transform.scaledBy(x: 0.5, y: 0.5)
         }
         
-        let path = buildCurveToCorner()
-        let anim = buildAnimationIn(path, withDuration: duration)
+        let animation = self.animation(in: curveToLowerRightCorner, withDuration: duration)
         
         CATransaction.begin()
-        loadingView.layer.add(anim, forKey: "curve")
+        loadingView.layer.add(animation, forKey: "curve")
         CATransaction.commit()
     }
     
-    private func buildAnimationIn(_ path: UIBezierPath, withDuration duration: TimeInterval) -> CAKeyframeAnimation {
+    private func animation(in path: UIBezierPath, withDuration duration: TimeInterval) -> CAKeyframeAnimation {
         let anim = CAKeyframeAnimation(keyPath: "position")
-        anim.rotationMode = kCAAnimationPaced
-        anim.fillMode = kCAFillModeForwards
+        anim.rotationMode = .none
+        anim.calculationMode = .paced
+        anim.fillMode = .forwards
         anim.isRemovedOnCompletion = false
         anim.duration = duration
         anim.path = path.cgPath
         return anim
     }
     
-    private func buildCurveToCorner() -> UIBezierPath {
+    private var curveToLowerRightCorner: UIBezierPath {
         let path = UIBezierPath()
         path.move(to: view.center)
-        let destinationPoint = getCornerPoint()
+        let destinationPoint = lowerRightCornerPoint
         path.addQuadCurve(to: destinationPoint, controlPoint: CGPoint(x: view.center.x, y: view.center.y + 150))
         return path
     }
     
-    private func getCornerPoint() -> CGPoint {
-        let p = CGPoint(
+    private var lowerRightCornerPoint: CGPoint {
+        return CGPoint(
             x: view.frame.width - loadingView.halfWidth,
-            y: view.frame.height - 49 - loadingView.halfHeight)
-        return p
+            y: view.frame.height - 49 - loadingView.halfHeight
+        )
     }
-    
-    func webViewDidFinishLoad(_ webView: UIWebView) {
+
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         loadingView.hide()
     }
-    
-    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         hideLoadingAndDisplay("Error loading README contents")
         loadingView.hide()
     }
