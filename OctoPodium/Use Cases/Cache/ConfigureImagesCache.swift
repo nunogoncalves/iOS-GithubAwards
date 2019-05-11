@@ -14,7 +14,7 @@ struct Cache {
 
         // Configure cache
         ImageCache.shared.costLimit = 1024 * 1024 * 10 // 10 MB
-        ImageCache.shared.countLimit = 100
+        ImageCache.shared.countLimit = 1000
         ImageCache.shared.ttl = 1.month // Invalidate image after 1 month
     }
 }

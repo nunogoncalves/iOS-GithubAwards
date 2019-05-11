@@ -21,7 +21,7 @@ extension Repositories {
         
         private static func repository(from repoHTML: XMLElement) -> Repository? {
 
-            guard let repoName = repositoryName(from: repoHTML) else { return nil }
+            guard let repoName = repositoryName(from: repoHTML), !repoName.isEmpty else { return nil }
             let stars = getStarsFrom(repoHTML)
             let description = getDescriptionFrom(repoHTML)
             let language = getLanguageFrom(repoHTML)

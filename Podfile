@@ -16,6 +16,7 @@ target 'OctoPodium' do
     pod 'ARSPopover', '~>2.2.1'
     pod 'OHHTTPStubs/Swift', '~>6.1.0'
     pod '1PasswordExtension', '~> 1.8.5'
+    pod 'netfox', '~>1.15.0', configurations: ['debug']
 
     target 'OctoPodiumTests' do
       testing_pods

@@ -150,7 +150,8 @@ class UserDetailsController: UIViewController {
         navigationItem.title = userPresenter!.login
         
         rankingsTable.registerReusableCell(RankingCell.self)
-        
+        rankingsTable.register(RankingCell2.self, forCellReuseIdentifier: "RankingCell2")
+
         Users.GetOne(login: userPresenter!.login).call(success: userSuccess, failure: failure)
     }
     
@@ -372,6 +373,8 @@ extension UserDetailsController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellFor(indexPath) as RankingCell
+//        let cell = tableView.dequeueReusableCellFor(indexPath) as RankingCell2
+//        cell.render(with: RankingPresenter(ranking: rankings[indexPath.row]))
         cell.rankingPresenter = RankingPresenter(ranking: rankings[indexPath.row])
         return cell
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import netfox
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,9 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         Cache.configure()
         Analytics.configureGoogle()
+        NFX.sharedInstance().start()
         Mocks.configure()
 
         return true
     }
 }
-
