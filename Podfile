@@ -15,6 +15,7 @@ target 'OctoPodium' do
     pod 'Nuke', '~> 7.6'
     pod 'ARSPopover', '~>2.2.1'
     pod 'OHHTTPStubs/Swift', '~>6.1.0'
+    pod '1PasswordExtension', '~> 1.8.5'
 
     target 'OctoPodiumTests' do
       testing_pods

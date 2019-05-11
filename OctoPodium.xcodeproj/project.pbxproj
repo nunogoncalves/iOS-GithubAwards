@@ -191,7 +191,6 @@
 		85E8CC491C3AAE5A001B4129 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E8CC481C3AAE5A001B4129 /* NetworkStatus.swift */; };
 		85EF2E3C1CE71CD100745A68 /* UINib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EF2E3B1CE71CD100745A68 /* UINib.swift */; };
 		85EF2E3E1CE71D7B00745A68 /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EF2E3D1CE71D7B00745A68 /* NibView.swift */; };
-		85EF2E451CE79B8F00745A68 /* OnePasswordExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EF2E441CE79B8F00745A68 /* OnePasswordExtension.m */; };
 		85EF2E4A1CE79CBE00745A68 /* 1Password.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85EF2E491CE79CBE00745A68 /* 1Password.xcassets */; };
 		85FA59631C15C5C00097732B /* UserTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59621C15C5C00097732B /* UserTopCell.swift */; };
 		85FA59651C1645B00097732B /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59641C1645B00097732B /* K.swift */; };
@@ -422,8 +421,6 @@
 		85E8CC481C3AAE5A001B4129 /* NetworkStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
 		85EF2E3B1CE71CD100745A68 /* UINib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINib.swift; sourceTree = "<group>"; };
 		85EF2E3D1CE71D7B00745A68 /* NibView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
-		85EF2E431CE79B8B00745A68 /* OnePasswordExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnePasswordExtension.h; sourceTree = "<group>"; };
-		85EF2E441CE79B8F00745A68 /* OnePasswordExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnePasswordExtension.m; sourceTree = "<group>"; };
 		85EF2E491CE79CBE00745A68 /* 1Password.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = 1Password.xcassets; sourceTree = "<group>"; };
 		85FA59621C15C5C00097732B /* UserTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTopCell.swift; sourceTree = "<group>"; };
 		85FA59641C1645B00097732B /* K.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
@@ -1049,8 +1046,6 @@
 			isa = PBXGroup;
 			children = (
 				85EF2E471CE79B9600745A68 /* Resources */,
-				85EF2E431CE79B8B00745A68 /* OnePasswordExtension.h */,
-				85EF2E441CE79B8F00745A68 /* OnePasswordExtension.m */,
 			);
 			path = 1Password;
 			sourceTree = "<group>";
@@ -1456,6 +1451,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-OctoPodium-OctoPodiumTests/Pods-OctoPodium-OctoPodiumTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/1PasswordExtension/OnePasswordExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/ARSPopover/ARSPopover.framework",
 				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
 				"${BUILT_PRODUCTS_DIR}/Locksmith/Locksmith.framework",
@@ -1467,6 +1463,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OnePasswordExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ARSPopover.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Locksmith.framework",
@@ -1488,6 +1485,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-OctoPodium/Pods-OctoPodium-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/1PasswordExtension/OnePasswordExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/ARSPopover/ARSPopover.framework",
 				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
 				"${BUILT_PRODUCTS_DIR}/Locksmith/Locksmith.framework",
@@ -1496,6 +1494,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OnePasswordExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ARSPopover.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Locksmith.framework",
@@ -1519,7 +1518,6 @@
 				8550758A1D0BF186004FA634 /* UserDetailsPresentAnimation.swift in Sources */,
 				853C48E11C09A28400373A92 /* GetOne.swift in Sources */,
 				85FF115B2284081B00D8B0D1 /* Tweeterific.swift in Sources */,
-				85EF2E451CE79B8F00745A68 /* OnePasswordExtension.m in Sources */,
 				85FA59651C1645B00097732B /* K.swift in Sources */,
 				85E09ED01D0AA36400752BB0 /* Parameterless.swift in Sources */,
 				850585891D0DE2330024C6BC /* CurrentUser.swift in Sources */,
@@ -1845,19 +1843,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
-				"HEADER_SEARCH_PATHS[arch=*]" = (
-					"$(inherited)",
-					"${PODS_ROOT}/Google/Headers",
-					"$(SDKROOT)/usr/include/libxml2",
-					"$(inherited)",
-					"\"${PODS_ROOT}/Headers/Public\"",
-					"\"${PODS_ROOT}/Headers/Public/Google\"",
-					"\"${PODS_ROOT}/Headers/Public/GoogleAnalytics\"",
-					"\"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\"",
-					"\"${PODS_ROOT}/Headers/Public/GoogleNetworkingUtilities\"",
-					"\"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\"",
-					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
-				);
+				"HEADER_SEARCH_PATHS[arch=*]" = "$(inherited) ${PODS_ROOT}/Google/Headers $(SDKROOT)/usr/include/libxml2 $(inherited) \"${PODS_ROOT}/Headers/Public\" \"${PODS_ROOT}/Headers/Public/Google\" \"${PODS_ROOT}/Headers/Public/GoogleAnalytics\" \"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\" \"${PODS_ROOT}/Headers/Public/GoogleNetworkingUtilities\" \"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\" \"${PODS_ROOT}/Headers/Public/GoogleUtilities\"";
 				INFOPLIST_FILE = "OctoPodium/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

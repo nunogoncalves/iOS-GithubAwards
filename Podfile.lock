@@ -1,4 +1,5 @@
 PODS:
+  - 1PasswordExtension (1.8.5)
   - ARSPopover (2.2.1)
   - Google/Analytics (1.3.2):
     - Google/Core
@@ -41,18 +42,20 @@ PODS:
   - Quick (2.1.0)
 
 DEPENDENCIES:
+  - 1PasswordExtension (~> 1.8.5)
   - ARSPopover (~> 2.2.1)
   - Google/Analytics
   - iOSSnapshotTestCase
   - Kanna (from `https://github.com/tid-kijyun/Kanna.git`, branch `master`)
   - Locksmith (= 4.0.0)
   - Nimble (~> 8.0.1)
-  - Nuke
+  - Nuke (~> 7.6)
   - OHHTTPStubs/Swift (~> 6.1.0)
   - Quick (= 2.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - 1PasswordExtension
     - ARSPopover
     - Google
     - GoogleAnalytics
@@ -78,6 +81,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/tid-kijyun/Kanna.git
 
 SPEC CHECKSUMS:
+  1PasswordExtension: 0e95bdea64ec8ff2f4f693be5467a09fac42a83d
   ARSPopover: ec2531fe8f498da1181e00f9ffeaa586a3d16d82
   Google: 55ccf2acbe6f6ade86f872c1cd29a0c44039c349
   GoogleAnalytics: 9be1afdb8deeac4bb5f13ca7f7d3b9db2a1f43dc
@@ -93,6 +97,6 @@ SPEC CHECKSUMS:
   OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
   Quick: 4be43f6634acfa727dd106bdf3929ce125ffa79d
 
-PODFILE CHECKSUM: 467b7a9d6144c4e512ce06cacd6a242e26bc2109
+PODFILE CHECKSUM: 62066ad8377e372e82fcb0dbfacfd8541f50381b
 
 COCOAPODS: 1.6.1
