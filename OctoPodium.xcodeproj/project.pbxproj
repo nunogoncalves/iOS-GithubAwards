@@ -120,6 +120,11 @@
 		858B91111C085B1600B510B3 /* GetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858B91101C085B1600B510B3 /* GetList.swift */; };
 		858B91131C085B4C00B510B3 /* SearchOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858B91121C085B4C00B510B3 /* SearchOptions.swift */; };
 		858B91151C085E6400B510B3 /* SearchOptionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858B91141C085E6400B510B3 /* SearchOptionsTests.swift */; };
+		8597FBDC22855FC700F635A0 /* MedalDisplaySnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8597FBDB22855FC700F635A0 /* MedalDisplaySnapshotTests.swift */; };
+		8597FBDF2285847F00F635A0 /* Medals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8597FBDE2285847F00F635A0 /* Medals.swift */; };
+		8597FBE1228584E800F635A0 /* MedalDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8597FBE0228584E800F635A0 /* MedalDisplayView.swift */; };
+		8597FBE32285851C00F635A0 /* RankingCellHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8597FBE22285851C00F635A0 /* RankingCellHeader.swift */; };
+		8597FBE522858C5300F635A0 /* RankingCellHeaderSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8597FBE422858C5300F635A0 /* RankingCellHeaderSnapshotTests.swift */; };
 		8599284C1C0D9436000ABE8C /* LocationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8599284B1C0D9436000ABE8C /* LocationType.swift */; };
 		8599284E1C0D9579000ABE8C /* LocationTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8599284D1C0D9579000ABE8C /* LocationTypeTests.swift */; };
 		859928511C0DAB23000ABE8C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859928501C0DAB23000ABE8C /* String.swift */; };
@@ -337,6 +342,11 @@
 		858B91101C085B1600B510B3 /* GetList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetList.swift; sourceTree = "<group>"; };
 		858B91121C085B4C00B510B3 /* SearchOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchOptions.swift; sourceTree = "<group>"; };
 		858B91141C085E6400B510B3 /* SearchOptionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchOptionsTests.swift; sourceTree = "<group>"; };
+		8597FBDB22855FC700F635A0 /* MedalDisplaySnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedalDisplaySnapshotTests.swift; sourceTree = "<group>"; };
+		8597FBDE2285847F00F635A0 /* Medals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medals.swift; sourceTree = "<group>"; };
+		8597FBE0228584E800F635A0 /* MedalDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedalDisplayView.swift; sourceTree = "<group>"; };
+		8597FBE22285851C00F635A0 /* RankingCellHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingCellHeader.swift; sourceTree = "<group>"; };
+		8597FBE422858C5300F635A0 /* RankingCellHeaderSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingCellHeaderSnapshotTests.swift; sourceTree = "<group>"; };
 		8599284B1C0D9436000ABE8C /* LocationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationType.swift; sourceTree = "<group>"; };
 		8599284D1C0D9579000ABE8C /* LocationTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTypeTests.swift; sourceTree = "<group>"; };
 		859928501C0DAB23000ABE8C /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -738,11 +748,10 @@
 		858B910B1C085A5700B510B3 /* Custom Cells */ = {
 			isa = PBXGroup;
 			children = (
+				8597FBDD2285845E00F635A0 /* RankingCell */,
 				850585861D0DB2870024C6BC /* CellWithAvatar.swift */,
 				856A72E61C12509F008415A4 /* LanguageCell.swift */,
 				852B43C31C6A3E4000A1B63A /* LanguageCell.xib */,
-				85D321261C022D86001B7C7A /* RankingCell.swift */,
-				85118F1F1C47A802002B452F /* RankingCell.xib */,
 				85BBDA031C5E0BB300229ED2 /* TrendingRepositoryCell.swift */,
 				85BBDA041C5E0BB300229ED2 /* TrendingRepositoryCell.xib */,
 				85D3211D1C0211C2001B7C7A /* UserCell.swift */,
@@ -782,6 +791,17 @@
 				856D676B1C34385F00A77678 /* Users.swift */,
 			);
 			path = Users;
+			sourceTree = "<group>";
+		};
+		8597FBDD2285845E00F635A0 /* RankingCell */ = {
+			isa = PBXGroup;
+			children = (
+				85D321261C022D86001B7C7A /* RankingCell.swift */,
+				85118F1F1C47A802002B452F /* RankingCell.xib */,
+				8597FBE0228584E800F635A0 /* MedalDisplayView.swift */,
+				8597FBE22285851C00F635A0 /* RankingCellHeader.swift */,
+			);
+			path = RankingCell;
 			sourceTree = "<group>";
 		};
 		8599284F1C0DAB0E000ABE8C /* Extensions */ = {
@@ -871,6 +891,8 @@
 			children = (
 				85AD6581206E19DA00B6E8AF /* GithubButtonSnapshotTests.swift */,
 				852ADE57206EDE5A00C5F56C /* UserStatsViewSnapshotTests.swift */,
+				8597FBDB22855FC700F635A0 /* MedalDisplaySnapshotTests.swift */,
+				8597FBE422858C5300F635A0 /* RankingCellHeaderSnapshotTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -891,6 +913,7 @@
 				857C48941C119307000F035C /* LanguageImage.swift */,
 				85E656751C13A23400BB4278 /* LanguageUsersTableDataSource.swift */,
 				8599284B1C0D9436000ABE8C /* LocationType.swift */,
+				8597FBDE2285847F00F635A0 /* Medals.swift */,
 				85E8CC481C3AAE5A001B4129 /* NetworkStatus.swift */,
 				85AFEC1E1C0468CB006FC129 /* Ranking.swift */,
 				85BBD9F81C5CA61000229ED2 /* Repository.swift */,
@@ -1490,10 +1513,12 @@
 				85AF8AFB1C445EAD0022D97F /* LanguageImageView.swift in Sources */,
 				85D321251C022480001B7C7A /* UserDetailsController.swift in Sources */,
 				855825491CAA75C900851967 /* StarChecker.swift in Sources */,
+				8597FBE1228584E800F635A0 /* MedalDisplayView.swift in Sources */,
 				85E656741C139F5100BB4278 /* Page.swift in Sources */,
 				85E389D21C6A307900C68813 /* LanguagesPopoverController.swift in Sources */,
 				856A72E71C12509F008415A4 /* LanguageCell.swift in Sources */,
 				8530ED361C60EA7F00173835 /* TrendingRepositoryDetailsController.swift in Sources */,
+				8597FBDF2285847F00F635A0 /* Medals.swift in Sources */,
 				85E09EDB1D0AC49100752BB0 /* ConfigureImagesCache.swift in Sources */,
 				85EF2E3E1CE71D7B00745A68 /* NibView.swift in Sources */,
 				85E6566F1C1352C600BB4278 /* PaginaTable.swift in Sources */,
@@ -1568,6 +1593,7 @@
 				85FA596B1C1739560097732B /* Get.swift in Sources */,
 				85482E641C96BF9A00E20FDB /* GithubForkButton.swift in Sources */,
 				855913DE1C63879700E356FD /* RepoContentsFetcher.swift in Sources */,
+				8597FBE32285851C00F635A0 /* RankingCellHeader.swift in Sources */,
 				85B501851C10FD8400BBFD56 /* LanguageTitleView.swift in Sources */,
 				854B5BA01CA6FE200070A456 /* ApiResponse.swift in Sources */,
 				850585871D0DB2870024C6BC /* CellWithAvatar.swift in Sources */,
@@ -1590,6 +1616,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8597FBDC22855FC700F635A0 /* MedalDisplaySnapshotTests.swift in Sources */,
 				8599284E1C0D9579000ABE8C /* LocationTypeTests.swift in Sources */,
 				859CE4BF1C2FDF3D008A7856 /* PageTests.swift in Sources */,
 				852F5E0A1C7E1D1F00DEE0D1 /* RankingTests.swift in Sources */,
@@ -1600,6 +1627,7 @@
 				858B91151C085E6400B510B3 /* SearchOptionsTests.swift in Sources */,
 				8517ECBF1C2C1EDB00467985 /* RankingPresenterTests.swift in Sources */,
 				85D321051C02062E001B7C7A /* OctoPodiumTests.swift in Sources */,
+				8597FBE522858C5300F635A0 /* RankingCellHeaderSnapshotTests.swift in Sources */,
 				85A1D2D01C2EB3A800774F49 /* MockNSURLSession.swift in Sources */,
 				854A404B1C3ADCF7005E7FF1 /* NetworkStatusTests.swift in Sources */,
 				857E2C371C1C87370095DCC0 /* ConvertUsersDictionaryToUsersTests.swift in Sources */,

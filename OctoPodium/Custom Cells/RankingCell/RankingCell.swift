@@ -14,6 +14,47 @@ protocol LocationDelegate: class {
     func clickedWorld(forLanguage language: String)
 }
 
+class RankingCell2: UITableViewCell, Reusable {
+
+    private let header = RankingCellHeader.usingAutoLayout()
+
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+        contentView.addSubview(header)
+        header.constrain(referringTo: contentView, bottom: nil)
+        header.heightAnchor.constraint(equalToConstant: 40).isActive = true
+    }
+
+    @available(*, unavailable)
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    func render(with presenter: RankingPresenter) {
+        header.render(with: presenter)
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        header.reset()
+    }
+}
+
+extension RankingPresenter: RankingHeaderModelProtocol {
+    var isPodium: Bool {
+        return hasMedals
+    }
+
+    var numberOfStars: Int {
+        return stars
+    }
+
+    var numberOfRepos: Int {
+        return repositories
+    }
+}
+
 class RankingCell: UITableViewCell, NibReusable {
 
     @IBOutlet weak var header: UIView!
@@ -22,7 +63,7 @@ class RankingCell: UITableViewCell, NibReusable {
     @IBOutlet weak var medalOne: UIImageView!
     @IBOutlet weak var medalTwo: UIImageView!
     @IBOutlet weak var medalThree: UIImageView!
-    
+
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var cityRankingLabel: UILabel!
     @IBOutlet weak var cityTotalLabel: UILabel!
@@ -30,41 +71,41 @@ class RankingCell: UITableViewCell, NibReusable {
     @IBOutlet weak var countryNameLabel: UILabel!
     @IBOutlet weak var countryRankingLabel: UILabel!
     @IBOutlet weak var countryTotalLabel: UILabel!
-    
+
     @IBOutlet weak var worldTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var worldRankingLabel: UILabel!
     @IBOutlet weak var worldTotalLabel: UILabel!
-    
+
     @IBOutlet weak var reposNameLabel: UILabel!
     @IBOutlet weak var reposLabel: UILabel!
     @IBOutlet weak var reposImageView: UIImageView!
-    
+
     @IBOutlet weak var starsNameLabel: UILabel!
     @IBOutlet weak var starsLabel: UILabel!
     @IBOutlet weak var starsImageView: UIImageView!
-    
+
     weak var locationDelegate: LocationDelegate?
-    
+
     @IBAction func cityClicked() {
         if let city = rankingPresenter?.city, city.count != 0,
             let language = rankingPresenter?.language , language.count != 0 {
             locationDelegate?.clickedCity(city, forLanguage: language)
         }
     }
-    
+
     @IBAction func countryClicked() {
         if let country = rankingPresenter?.country , country.count != 0,
             let language = rankingPresenter?.language , language.count != 0 {
             locationDelegate?.clickedCountry(country, forLanguage: language)
         }
     }
-    
+
     @IBAction func worldClicked() {
         if let language = rankingPresenter?.language , language.count != 0 {
             locationDelegate?.clickedWorld(forLanguage: language)
         }
     }
-    
+
     var rankingPresenter: RankingPresenter? {
         didSet {
             fillCell()
@@ -72,27 +113,27 @@ class RankingCell: UITableViewCell, NibReusable {
     }
 
     var visibleMedals = 0
-    
+
     let medalsVsSpace = [
         0: CGFloat(10),
         1: CGFloat(46),
         2: CGFloat(55),
         3: CGFloat(64),
     ]
-    
+
     private func fillCell() {
         guard let rankingPresenter = rankingPresenter else {
             return
         }
-        
+
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showUserLanguageReposInBrowser))
         header.addGestureRecognizer(tapGesture)
-        
+
         if rankingPresenter.country == "" {
             worldTopConstraint.constant = 5
             contentView.layoutIfNeeded()
         }
-        
+
         if rankingPresenter.hasMedals {
             medalOne.hide()
             medalTwo.hide()
@@ -127,37 +168,37 @@ class RankingCell: UITableViewCell, NibReusable {
             medalTwo.hide()
             medalThree.hide()
         }
-        
+
         fillLangReposAndStars(rankingPresenter)
         fillCityLabels(rankingPresenter)
         fillCountryLabels(rankingPresenter)
         fillWorldLabels(rankingPresenter)
-        
+
         paintHeader(rankingPresenter)
     }
 
     private func fillLangReposAndStars(_ rankingPresenter: RankingPresenter) {
         languageLabel.text = "\(rankingPresenter.language) >"
-        reposLabel.text = rankingPresenter.repositories
-        starsLabel.text = rankingPresenter.stars
+        reposLabel.text = "\(rankingPresenter.repositories)"
+        starsLabel.text = "\(rankingPresenter.stars)"
     }
-    
+
     private func fillCityLabels(_ rankingPresenter: RankingPresenter) {
         cityNameLabel.text = rankingPresenter.city
         if rankingPresenter.city == "" {
             cityNameLabel.text =  "city"
         }
-        
+
         cityRankingLabel.text = "\(rankingPresenter.cityRanking)"
         cityTotalLabel.text = "/\(rankingPresenter.cityTotal)"
     }
-    
+
     private func fillCountryLabels(_ rankingPresenter: RankingPresenter) {
         countryNameLabel.text = rankingPresenter.country
         countryRankingLabel.text = "\(rankingPresenter.countryRanking)"
         countryTotalLabel.text = "/\(rankingPresenter.countryTotal)"
     }
-    
+
     private func fillWorldLabels(_ rankingPresenter: RankingPresenter) {
         worldRankingLabel.text = "\(rankingPresenter.worldRanking)"
         worldTotalLabel.text = "/\(rankingPresenter.worldTotal)"
@@ -172,7 +213,7 @@ class RankingCell: UITableViewCell, NibReusable {
         reposLabel.textColor = UIColor(hex: textColor)
         starsLabel.textColor = UIColor(hex: textColor)
     }
-    
+
     @objc private func showUserLanguageReposInBrowser() {
         guard let rankingPresenter = rankingPresenter else { return }
         Browser.openPage("https://github.com/search?q=user:\(rankingPresenter.userLogin)+language:\(rankingPresenter.language)")

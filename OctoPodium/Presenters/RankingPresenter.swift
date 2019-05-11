@@ -31,8 +31,8 @@ struct RankingPresenter {
     let worldTotal: Int
     let rankingOverViewForWorld: String
 
-    let repositories: String
-    let stars: String
+    let repositories: Int
+    let stars: Int
 
     let hasMedals: Bool
     let hasGoldMedal: Bool
@@ -45,6 +45,8 @@ struct RankingPresenter {
 
     let repoImage: UIImage
     let starImage: UIImage
+
+    let medals: Medals
 
     init(ranking: Ranking) {
         self.ranking = ranking
@@ -66,8 +68,8 @@ struct RankingPresenter {
         worldTotal = ranking.worldTotal ?? 0
         rankingOverViewForWorld = SELF.rankingOverview(for: worldRanking, locationTotal: worldTotal)
 
-        repositories = "\(ranking.repositories ?? 0)"
-        stars = "\(ranking.stars)"
+        repositories = ranking.repositories ?? 0
+        stars = ranking.stars
 
         let rankings = [worldRanking, countryRanking, cityRanking]
 
@@ -76,6 +78,12 @@ struct RankingPresenter {
         hasBronzeMedal = rankings.any { $0 == 3 }
         numberOfDifferentMedals = [hasGoldMedal, hasSilverMedal, hasBronzeMedal].count { $0 }
         hasMedals = numberOfDifferentMedals > 0
+
+        var _medals: Medals = []
+        if hasGoldMedal { _medals.insert(.gold) }
+        if hasSilverMedal { _medals.insert(.silver) }
+        if hasBronzeMedal { _medals.insert(.bronze) }
+        medals = _medals
 
         headerColorHex = hasMedals ? 0x03436E : 0xE0E0E0
         textColor = hasMedals ? 0xFFFFFF : 0x313131

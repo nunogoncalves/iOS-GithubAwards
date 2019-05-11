@@ -44,11 +44,11 @@ class RankingPresenterTests: QuickSpec {
                 }
                 
                 it("contains stars") {
-                    expect(rankingPresenter.stars).to(equal("823"))
+                    expect(rankingPresenter.stars).to(equal(823))
                 }
                 
                 it("Contains repositories") {
-                    expect(rankingPresenter.repositories).to(equal("4"))
+                    expect(rankingPresenter.repositories).to(equal(4))
                 }
 
             }
@@ -72,18 +72,6 @@ class RankingPresenterTests: QuickSpec {
                 it("returns -/- ranking for world") {
                     expect(rankingPresenter.worldRanking).to(equal(0))
                 }
-
-                it("returns normal trophy image for city") {
-                    expect(rankingPresenter.cityRankingImage).to(equal("Trophy"))
-                }
-
-                it("returns normal trophy image for country") {
-                    expect(rankingPresenter.countryRankingImage).to(equal("Trophy"))
-                }
-
-                it("returns normal trophy image for world") {
-                    expect(rankingPresenter.worldRankingImage).to(equal("Trophy"))
-                }
             }
             
             context("1st in ranking") {
@@ -104,18 +92,6 @@ class RankingPresenterTests: QuickSpec {
 //                it("returns ranking for world") {
 //                    expect(rankingPresenter.rankingForWorld).to(equal("1/32332"))
 //                }
-                
-                it("returns golden trophy image for city") {
-                    expect(rankingPresenter.cityRankingImage).to(equal("GoldTrophy"))
-                }
-                
-                it("returns golden trophy image for country") {
-                    expect(rankingPresenter.countryRankingImage).to(equal("GoldTrophy"))
-                }
-                
-                it("returns golden trophy image for world") {
-                    expect(rankingPresenter.worldRankingImage).to(equal("GoldTrophy"))
-                }
             }
             
             context("2nd in ranking") {
@@ -135,19 +111,7 @@ class RankingPresenterTests: QuickSpec {
 //                
 //                it("returns ranking for world") {
 //                    expect(rankingPresenter.rankingForWorld).to(equal("2/523"))
-//                }
-                
-                it("returns silver trophy image for city") {
-                    expect(rankingPresenter.cityRankingImage).to(equal("SilverTrophy"))
-                }
-                
-                it("returns silver trophy image for country") {
-                    expect(rankingPresenter.countryRankingImage).to(equal("SilverTrophy"))
-                }
-                
-                it("returns silver trophy image for world") {
-                    expect(rankingPresenter.worldRankingImage).to(equal("SilverTrophy"))
-                }
+//                }                
             }
             
             context("3rd in ranking") {
@@ -167,18 +131,6 @@ class RankingPresenterTests: QuickSpec {
                 
                 it("returns ranking for world") {
                     expect(rankingPresenter.worldRanking).to(equal(3))
-                }
-                
-                it("returns normal trophy image for city") {
-                    expect(rankingPresenter.cityRankingImage).to(equal("BronzeTrophy"))
-                }
-                
-                it("returns bronze trophy image for country") {
-                    expect(rankingPresenter.countryRankingImage).to(equal("BronzeTrophy"))
-                }
-                
-                it("returns bronze trophy image for world") {
-                    expect(rankingPresenter.worldRankingImage).to(equal("BronzeTrophy"))
                 }
             }
             
@@ -200,18 +152,6 @@ class RankingPresenterTests: QuickSpec {
                 it("returns ranking for world") {
                     expect(rankingPresenter.worldRanking).to(equal( 4))
                 }
-                
-                it("returns normal trophy image for city") {
-                    expect(rankingPresenter.cityRankingImage).to(equal("Trophy"))
-                }
-                
-                it("returns normal trophy image for country") {
-                    expect(rankingPresenter.countryRankingImage).to(equal("Trophy"))
-                }
-                
-                it("returns normal trophy image for world") {
-                    expect(rankingPresenter.worldRankingImage).to(equal("Trophy"))
-                }
             }
             
             context("1000th in ranking") {
@@ -232,18 +172,6 @@ class RankingPresenterTests: QuickSpec {
                 it("returns ranking for world") {
                     expect(rankingPresenter.worldRanking).to(equal(1000))
                 }
-                
-                it("returns normal trophy image for city") {
-                    expect(rankingPresenter.cityRankingImage).to(equal("Trophy"))
-                }
-                
-                it("returns normal trophy image for country") {
-                    expect(rankingPresenter.countryRankingImage).to(equal("Trophy"))
-                }
-                
-                it("returns normal trophy image for world") {
-                    expect(rankingPresenter.worldRankingImage).to(equal("Trophy"))
-                }
             }
             
             context("has medals") {
@@ -260,9 +188,9 @@ class RankingPresenterTests: QuickSpec {
                 }
                 
                 it("has no medals") {
-                    expect(zeroPresenter.hasMedals()).to(equal(false))
-                    expect(onePresenter.hasMedals()).to(equal(true))
-                    expect(twoPresenter.hasMedals()).to(equal(true))
+                    expect(zeroPresenter.hasMedals).to(equal(false))
+                    expect(onePresenter.hasMedals).to(equal(true))
+                    expect(twoPresenter.hasMedals).to(equal(true))
                 }
                 
             }
