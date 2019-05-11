@@ -37,6 +37,10 @@
 		851D3C381C09134600870813 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D3C371C09134600870813 /* Requester.swift */; };
 		851D3C3A1C0913E900870813 /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D3C391C0913E900870813 /* ResponseHandler.swift */; };
 		8527DBB91D0F671600D388A4 /* ShareRanking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8527DBB81D0F671600D388A4 /* ShareRanking.swift */; };
+		852A5F522083B44400EF2BBD /* trending_repositories.html in Resources */ = {isa = PBXBuildFile; fileRef = 852A5F512083B44400EF2BBD /* trending_repositories.html */; };
+		852A5F552084704800EF2BBD /* MocksConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852A5F5320846FE400EF2BBD /* MocksConfigurator.swift */; };
+		852A5F57208475A500EF2BBD /* UITestingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852A5F56208475A500EF2BBD /* UITestingConstants.swift */; };
+		852A5F58208475E100EF2BBD /* UITestingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852A5F56208475A500EF2BBD /* UITestingConstants.swift */; };
 		852ADE58206EDE5A00C5F56C /* UserStatsViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852ADE57206EDE5A00C5F56C /* UserStatsViewSnapshotTests.swift */; };
 		852ADE59206EDF3000C5F56C /* NewGithubButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D17565206E251100A4E5E0 /* NewGithubButton.swift */; };
 		852B43C51C6A3E4000A1B63A /* LanguageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 852B43C31C6A3E4000A1B63A /* LanguageCell.xib */; };
@@ -48,6 +52,9 @@
 		853C48DF1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */; };
 		853C48E11C09A28400373A92 /* GetOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48E01C09A28400373A92 /* GetOne.swift */; };
 		853C48E31C09A35F00373A92 /* CreateBasicUserFromDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48E21C09A35F00373A92 /* CreateBasicUserFromDictionary.swift */; };
+		853F6DCF2286C10D00C4F4EC /* LanguageMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F6DCB2286C08300C4F4EC /* LanguageMocks.swift */; };
+		853F6DD02286C11100C4F4EC /* UserMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F6DCD2286C0C800C4F4EC /* UserMocks.swift */; };
+		853F6DD42286CA2A00C4F4EC /* GithubCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F6DD32286CA2A00C4F4EC /* GithubCredentials.swift */; };
 		854813A61C79059C00182C6B /* GitHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854813A51C79059C00182C6B /* GitHub.swift */; };
 		854813A81C7905D200182C6B /* StarsAndForksFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854813A71C7905D200182C6B /* StarsAndForksFetcher.swift */; };
 		85482E621C96BE0800E20FDB /* GithubStarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85482E611C96BE0800E20FDB /* GithubStarButton.swift */; };
@@ -116,6 +123,11 @@
 		858B91111C085B1600B510B3 /* GetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858B91101C085B1600B510B3 /* GetList.swift */; };
 		858B91131C085B4C00B510B3 /* SearchOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858B91121C085B4C00B510B3 /* SearchOptions.swift */; };
 		858B91151C085E6400B510B3 /* SearchOptionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858B91141C085E6400B510B3 /* SearchOptionsTests.swift */; };
+		8597FBDC22855FC700F635A0 /* MedalDisplaySnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8597FBDB22855FC700F635A0 /* MedalDisplaySnapshotTests.swift */; };
+		8597FBDF2285847F00F635A0 /* Medals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8597FBDE2285847F00F635A0 /* Medals.swift */; };
+		8597FBE1228584E800F635A0 /* MedalDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8597FBE0228584E800F635A0 /* MedalDisplayView.swift */; };
+		8597FBE32285851C00F635A0 /* RankingCellHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8597FBE22285851C00F635A0 /* RankingCellHeader.swift */; };
+		8597FBE522858C5300F635A0 /* RankingCellHeaderSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8597FBE422858C5300F635A0 /* RankingCellHeaderSnapshotTests.swift */; };
 		8599284C1C0D9436000ABE8C /* LocationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8599284B1C0D9436000ABE8C /* LocationType.swift */; };
 		8599284E1C0D9579000ABE8C /* LocationTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8599284D1C0D9579000ABE8C /* LocationTypeTests.swift */; };
 		859928511C0DAB23000ABE8C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859928501C0DAB23000ABE8C /* String.swift */; };
@@ -181,25 +193,28 @@
 		85EF2E3E1CE71D7B00745A68 /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EF2E3D1CE71D7B00745A68 /* NibView.swift */; };
 		85EF2E451CE79B8F00745A68 /* OnePasswordExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EF2E441CE79B8F00745A68 /* OnePasswordExtension.m */; };
 		85EF2E4A1CE79CBE00745A68 /* 1Password.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85EF2E491CE79CBE00745A68 /* 1Password.xcassets */; };
-		85F86EA220782AB400639F0F /* GithubCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F86EA120782AB400639F0F /* GithubCredentials.swift */; };
 		85FA59631C15C5C00097732B /* UserTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59621C15C5C00097732B /* UserTopCell.swift */; };
 		85FA59651C1645B00097732B /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59641C1645B00097732B /* K.swift */; };
 		85FA59671C16D6660097732B /* CreateFullUserFromDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59661C16D6660097732B /* CreateFullUserFromDictionary.swift */; };
 		85FA596B1C1739560097732B /* Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA596A1C1739560097732B /* Get.swift */; };
 		85FC70661C244CAA00971081 /* UserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC70651C244CAA00971081 /* UserPresenter.swift */; };
 		85FC70681C2456FF00971081 /* UserPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC70671C2456FF00971081 /* UserPresenterTests.swift */; };
+		85FF11532284078B00D8B0D1 /* TwitterAppProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FF11522284078B00D8B0D1 /* TwitterAppProtocol.swift */; };
+		85FF1157228407F900D8B0D1 /* Twitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FF1156228407F900D8B0D1 /* Twitter.swift */; };
+		85FF11592284080B00D8B0D1 /* TweetBot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FF11582284080B00D8B0D1 /* TweetBot.swift */; };
+		85FF115B2284081B00D8B0D1 /* Tweeterific.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FF115A2284081B00D8B0D1 /* Tweeterific.swift */; };
 		92C755086812E9E10DDE8D5A /* Pods_OctoPodium.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C823A9D3811303944E6F1A39 /* Pods_OctoPodium.framework */; };
 		B70CEECCFCDE6A0FD9473B26 /* Pods_OctoPodiumUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4755415318A2F88E53292ADA /* Pods_OctoPodiumUITests.framework */; };
 		BF82AC34CD11883CCE94A5F5 /* Pods_OctoPodium_OctoPodiumTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B36B4627E8FF825443BE876 /* Pods_OctoPodium_OctoPodiumTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		85D321011C02062E001B7C7A /* PBXContainerItemProxy */ = {
+		85A51D8720C9DED40071032E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 85D320E41C02062E001B7C7A /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 85D320EB1C02062E001B7C7A;
-			remoteInfo = GitHubAwards;
+			remoteInfo = OctoPodium;
 		};
 		85D3210C1C02062E001B7C7A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -247,6 +262,9 @@
 		851D3C371C09134600870813 /* Requester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
 		851D3C391C0913E900870813 /* ResponseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseHandler.swift; sourceTree = "<group>"; };
 		8527DBB81D0F671600D388A4 /* ShareRanking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareRanking.swift; sourceTree = "<group>"; };
+		852A5F512083B44400EF2BBD /* trending_repositories.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = trending_repositories.html; sourceTree = "<group>"; };
+		852A5F5320846FE400EF2BBD /* MocksConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MocksConfigurator.swift; sourceTree = "<group>"; };
+		852A5F56208475A500EF2BBD /* UITestingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestingConstants.swift; sourceTree = "<group>"; };
 		852ADE57206EDE5A00C5F56C /* UserStatsViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatsViewSnapshotTests.swift; sourceTree = "<group>"; };
 		852B43C31C6A3E4000A1B63A /* LanguageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageCell.xib; sourceTree = "<group>"; };
 		852F5E091C7E1D1F00DEE0D1 /* RankingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTests.swift; sourceTree = "<group>"; };
@@ -257,6 +275,9 @@
 		853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertUsersDictionaryToUsers.swift; sourceTree = "<group>"; };
 		853C48E01C09A28400373A92 /* GetOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetOne.swift; sourceTree = "<group>"; };
 		853C48E21C09A35F00373A92 /* CreateBasicUserFromDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBasicUserFromDictionary.swift; sourceTree = "<group>"; };
+		853F6DCB2286C08300C4F4EC /* LanguageMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageMocks.swift; sourceTree = "<group>"; };
+		853F6DCD2286C0C800C4F4EC /* UserMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMocks.swift; sourceTree = "<group>"; };
+		853F6DD32286CA2A00C4F4EC /* GithubCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubCredentials.swift; sourceTree = "<group>"; };
 		854813A51C79059C00182C6B /* GitHub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHub.swift; sourceTree = "<group>"; };
 		854813A71C7905D200182C6B /* StarsAndForksFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarsAndForksFetcher.swift; sourceTree = "<group>"; };
 		85482E611C96BE0800E20FDB /* GithubStarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubStarButton.swift; sourceTree = "<group>"; };
@@ -326,6 +347,11 @@
 		858B91101C085B1600B510B3 /* GetList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetList.swift; sourceTree = "<group>"; };
 		858B91121C085B4C00B510B3 /* SearchOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchOptions.swift; sourceTree = "<group>"; };
 		858B91141C085E6400B510B3 /* SearchOptionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchOptionsTests.swift; sourceTree = "<group>"; };
+		8597FBDB22855FC700F635A0 /* MedalDisplaySnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedalDisplaySnapshotTests.swift; sourceTree = "<group>"; };
+		8597FBDE2285847F00F635A0 /* Medals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medals.swift; sourceTree = "<group>"; };
+		8597FBE0228584E800F635A0 /* MedalDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedalDisplayView.swift; sourceTree = "<group>"; };
+		8597FBE22285851C00F635A0 /* RankingCellHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingCellHeader.swift; sourceTree = "<group>"; };
+		8597FBE422858C5300F635A0 /* RankingCellHeaderSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingCellHeaderSnapshotTests.swift; sourceTree = "<group>"; };
 		8599284B1C0D9436000ABE8C /* LocationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationType.swift; sourceTree = "<group>"; };
 		8599284D1C0D9579000ABE8C /* LocationTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTypeTests.swift; sourceTree = "<group>"; };
 		859928501C0DAB23000ABE8C /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -399,13 +425,16 @@
 		85EF2E431CE79B8B00745A68 /* OnePasswordExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnePasswordExtension.h; sourceTree = "<group>"; };
 		85EF2E441CE79B8F00745A68 /* OnePasswordExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnePasswordExtension.m; sourceTree = "<group>"; };
 		85EF2E491CE79CBE00745A68 /* 1Password.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = 1Password.xcassets; sourceTree = "<group>"; };
-		85F86EA120782AB400639F0F /* GithubCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubCredentials.swift; sourceTree = "<group>"; };
 		85FA59621C15C5C00097732B /* UserTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTopCell.swift; sourceTree = "<group>"; };
 		85FA59641C1645B00097732B /* K.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		85FA59661C16D6660097732B /* CreateFullUserFromDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFullUserFromDictionary.swift; sourceTree = "<group>"; };
 		85FA596A1C1739560097732B /* Get.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Get.swift; sourceTree = "<group>"; };
 		85FC70651C244CAA00971081 /* UserPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPresenter.swift; sourceTree = "<group>"; };
 		85FC70671C2456FF00971081 /* UserPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPresenterTests.swift; sourceTree = "<group>"; };
+		85FF11522284078B00D8B0D1 /* TwitterAppProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAppProtocol.swift; sourceTree = "<group>"; };
+		85FF1156228407F900D8B0D1 /* Twitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Twitter.swift; sourceTree = "<group>"; };
+		85FF11582284080B00D8B0D1 /* TweetBot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetBot.swift; sourceTree = "<group>"; };
+		85FF115A2284081B00D8B0D1 /* Tweeterific.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweeterific.swift; sourceTree = "<group>"; };
 		8F1E07CB34B615F7C6060B67 /* Pods-OctoPodium.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OctoPodium.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OctoPodium/Pods-OctoPodium.debug.xcconfig"; sourceTree = "<group>"; };
 		C0F45FC22C20871A4E2E2B14 /* Pods-OctoPodium-OctoPodiumTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OctoPodium-OctoPodiumTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OctoPodium-OctoPodiumTests/Pods-OctoPodium-OctoPodiumTests.release.xcconfig"; sourceTree = "<group>"; };
 		C823A9D3811303944E6F1A39 /* Pods_OctoPodium.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OctoPodium.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -490,6 +519,17 @@
 				854A404C1C3B369D005E7FF1 /* VerifyRequestStatus.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		852A5F502083B42400EF2BBD /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				852A5F512083B44400EF2BBD /* trending_repositories.html */,
+				852A5F5320846FE400EF2BBD /* MocksConfigurator.swift */,
+				853F6DCB2286C08300C4F4EC /* LanguageMocks.swift */,
+				853F6DCD2286C0C800C4F4EC /* UserMocks.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		852F5E0B1C7E5A6C00DEE0D1 /* Helpers */ = {
@@ -714,11 +754,10 @@
 		858B910B1C085A5700B510B3 /* Custom Cells */ = {
 			isa = PBXGroup;
 			children = (
+				8597FBDD2285845E00F635A0 /* RankingCell */,
 				850585861D0DB2870024C6BC /* CellWithAvatar.swift */,
 				856A72E61C12509F008415A4 /* LanguageCell.swift */,
 				852B43C31C6A3E4000A1B63A /* LanguageCell.xib */,
-				85D321261C022D86001B7C7A /* RankingCell.swift */,
-				85118F1F1C47A802002B452F /* RankingCell.xib */,
 				85BBDA031C5E0BB300229ED2 /* TrendingRepositoryCell.swift */,
 				85BBDA041C5E0BB300229ED2 /* TrendingRepositoryCell.xib */,
 				85D3211D1C0211C2001B7C7A /* UserCell.swift */,
@@ -758,6 +797,17 @@
 				856D676B1C34385F00A77678 /* Users.swift */,
 			);
 			path = Users;
+			sourceTree = "<group>";
+		};
+		8597FBDD2285845E00F635A0 /* RankingCell */ = {
+			isa = PBXGroup;
+			children = (
+				85D321261C022D86001B7C7A /* RankingCell.swift */,
+				85118F1F1C47A802002B452F /* RankingCell.xib */,
+				8597FBE0228584E800F635A0 /* MedalDisplayView.swift */,
+				8597FBE22285851C00F635A0 /* RankingCellHeader.swift */,
+			);
+			path = RankingCell;
 			sourceTree = "<group>";
 		};
 		8599284F1C0DAB0E000ABE8C /* Extensions */ = {
@@ -847,6 +897,8 @@
 			children = (
 				85AD6581206E19DA00B6E8AF /* GithubButtonSnapshotTests.swift */,
 				852ADE57206EDE5A00C5F56C /* UserStatsViewSnapshotTests.swift */,
+				8597FBDB22855FC700F635A0 /* MedalDisplaySnapshotTests.swift */,
+				8597FBE422858C5300F635A0 /* RankingCellHeaderSnapshotTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -854,7 +906,8 @@
 		85AFEC1C1C046898006FC129 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				85F86EA120782AB400639F0F /* GithubCredentials.swift */,
+				853F6DD32286CA2A00C4F4EC /* GithubCredentials.swift */,
+				85FF11512284077400D8B0D1 /* TwitterApps */,
 				856E395B1C60A47C00974330 /* DataSources */,
 				855075861D0B63A4004FA634 /* TransitionAnimators */,
 				854B5B9F1CA6FE200070A456 /* ApiResponse.swift */,
@@ -866,6 +919,7 @@
 				857C48941C119307000F035C /* LanguageImage.swift */,
 				85E656751C13A23400BB4278 /* LanguageUsersTableDataSource.swift */,
 				8599284B1C0D9436000ABE8C /* LocationType.swift */,
+				8597FBDE2285847F00F635A0 /* Medals.swift */,
 				85E8CC481C3AAE5A001B4129 /* NetworkStatus.swift */,
 				85AFEC1E1C0468CB006FC129 /* Ranking.swift */,
 				85BBD9F81C5CA61000229ED2 /* Repository.swift */,
@@ -954,10 +1008,12 @@
 			isa = PBXGroup;
 			children = (
 				8518908D207952B500C1C4A7 /* Extensions */,
-				85679BAB1D135B4100FC20DF /* SnapshotHelper.swift */,
+				852A5F56208475A500EF2BBD /* UITestingConstants.swift */,
 				85D321111C02062E001B7C7A /* Info.plist */,
+				852A5F502083B42400EF2BBD /* Mocks */,
 				85D3210F1C02062E001B7C7A /* OctoPodiumUITests.swift */,
 				85189092207952C000C1C4A7 /* Screens */,
+				85679BAB1D135B4100FC20DF /* SnapshotHelper.swift */,
 			);
 			path = OctoPodiumUITests;
 			sourceTree = "<group>";
@@ -1024,6 +1080,17 @@
 			path = Presenters;
 			sourceTree = "<group>";
 		};
+		85FF11512284077400D8B0D1 /* TwitterApps */ = {
+			isa = PBXGroup;
+			children = (
+				85FF11522284078B00D8B0D1 /* TwitterAppProtocol.swift */,
+				85FF1156228407F900D8B0D1 /* Twitter.swift */,
+				85FF11582284080B00D8B0D1 /* TweetBot.swift */,
+				85FF115A2284081B00D8B0D1 /* Tweeterific.swift */,
+			);
+			path = TwitterApps;
+			sourceTree = "<group>";
+		};
 		EFB98E3A6DA86EAC60A60B49 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1047,11 +1114,11 @@
 				6EBC091E7EAE165BD35DEB27 /* [CP] Check Pods Manifest.lock */,
 				85F86EA720782EB100639F0F /* Add Credentials files */,
 				85D320E81C02062E001B7C7A /* Sources */,
-				85F86EA620782E4300639F0F /* Run Script */,
+				85F86EA620782E4300639F0F /* Update images docs */,
 				85D320E91C02062E001B7C7A /* Frameworks */,
 				85D320EA1C02062E001B7C7A /* Resources */,
 				CDA18B0D159456443E9FE2BE /* [CP] Embed Pods Frameworks */,
-				69E46D3C2C5B083D67D94DD3 /* [CP] Copy Pods Resources */,
+				852A5F4F2083A84D00EF2BBD /* Update read me */,
 			);
 			buildRules = (
 			);
@@ -1072,12 +1139,11 @@
 				85D320FD1C02062E001B7C7A /* Frameworks */,
 				85D320FE1C02062E001B7C7A /* Resources */,
 				AB95A14D361E82491EA85525 /* [CP] Embed Pods Frameworks */,
-				F7AE2B491C9E33D2DC3E0931 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				85D321021C02062E001B7C7A /* PBXTargetDependency */,
+				85A51D8820C9DED40071032E /* PBXTargetDependency */,
 			);
 			name = OctoPodiumTests;
 			productName = GitHubAwardsTests;
@@ -1089,12 +1155,12 @@
 			buildConfigurationList = 85D3211A1C02062E001B7C7A /* Build configuration list for PBXNativeTarget "OctoPodiumUITests" */;
 			buildPhases = (
 				75887C0C2D62A1F2AB671F88 /* [CP] Check Pods Manifest.lock */,
+				853F6DD52286CC5100C4F4EC /* Add Credentials files */,
 				85D321071C02062E001B7C7A /* Sources */,
 				85D321081C02062E001B7C7A /* Frameworks */,
 				85D321091C02062E001B7C7A /* Resources */,
 				85679BAA1D13587A00FC20DF /* ShellScript */,
 				A420602168B08E8C1C47737C /* [CP] Embed Pods Frameworks */,
-				A36F858D26B48CE409219395 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1143,6 +1209,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -1174,6 +1241,7 @@
 				8549ACC81C6C8B1F004D8149 /* TitilliumWeb-Bold.ttf in Resources */,
 				8549ACCD1C6C8B1F004D8149 /* TitilliumWeb-Light.ttf in Resources */,
 				85B501831C10FCC300BBFD56 /* LanguageTitleView.xib in Resources */,
+				852A5F522083B44400EF2BBD /* trending_repositories.html in Resources */,
 				8549ACCE1C6C8B1F004D8149 /* TitilliumWeb-LightItalic.ttf in Resources */,
 				85118F201C47A802002B452F /* RankingCell.xib in Resources */,
 				85820F4D1C0E2C1A0069D085 /* GithubLoading-6.gif in Resources */,
@@ -1237,21 +1305,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		69E46D3C2C5B083D67D94DD3 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OctoPodium/Pods-OctoPodium-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		6EBC091E7EAE165BD35DEB27 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1288,6 +1341,41 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		852A5F4F2083A84D00EF2BBD /* Update read me */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Update read me";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${SRCROOT}/Scripts/UpdateBadges.rb\n";
+		};
+		853F6DD52286CC5100C4F4EC /* Add Credentials files */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Scripts/GenerateCredentials.rb",
+			);
+			name = "Add Credentials files";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${SRCROOT}/OctoPodium/Models/GithubCredentials.swift",
+				"${SRCROOT}/OctoPodium/Supporting Files/GoogleService-Info.plist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n${SRCROOT}/Scripts/GenerateCredentials.rb\n";
+		};
 		85679BAA1D13587A00FC20DF /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1307,22 +1395,25 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Scripts/GenerateCredentials.rb",
 			);
 			name = "Add Credentials files";
 			outputPaths = (
+				"${SRCROOT}/OctoPodium/Models/GithubCredentials.swift",
+				"${SRCROOT}/OctoPodium/Supporting Files/GoogleService-Info.plist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#check if env-vars.sh exists\nif [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n#no `else` case needed if the CI works as expected\n${SRCROOT}/CreateGithubCreds.rb";
+			shellScript = "#check if env-vars.sh exists\nif [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n#no `else` case needed if the CI works as expected\n${SRCROOT}/Scripts/GenerateCredentials.rb\n";
 		};
-		85F86EA620782E4300639F0F /* Run Script */ = {
+		85F86EA620782E4300639F0F /* Update images docs */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Run Script";
+			name = "Update images docs";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1335,28 +1426,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Scripts/GenerateCredentials.rb",
 			);
 			name = "Add Credentials files";
 			outputPaths = (
+				"${SRCROOT}/OctoPodium/Models/GithubCredentials.swift",
+				"${SRCROOT}/OctoPodium/Supporting Files/GoogleService-Info.plist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n${SRCROOT}/CreateGithubCreds.rb";
-		};
-		A36F858D26B48CE409219395 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OctoPodiumUITests/Pods-OctoPodiumUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "if [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n${SRCROOT}/Scripts/GenerateCredentials.rb\n";
 		};
 		A420602168B08E8C1C47737C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1364,7 +1443,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-OctoPodiumUITests/Pods-OctoPodiumUITests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-OctoPodiumUITests/Pods-OctoPodiumUITests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/iOSSnapshotTestCase/FBSnapshotTestCase.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1373,7 +1452,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OctoPodiumUITests/Pods-OctoPodiumUITests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OctoPodiumUITests/Pods-OctoPodiumUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AB95A14D361E82491EA85525 /* [CP] Embed Pods Frameworks */ = {
@@ -1382,10 +1461,11 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-OctoPodium-OctoPodiumTests/Pods-OctoPodium-OctoPodiumTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-OctoPodium-OctoPodiumTests/Pods-OctoPodium-OctoPodiumTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ARSPopover/ARSPopover.framework",
 				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
 				"${BUILT_PRODUCTS_DIR}/Locksmith/Locksmith.framework",
+				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/iOSSnapshotTestCase/FBSnapshotTestCase.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
@@ -1396,6 +1476,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ARSPopover.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Locksmith.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSnapshotTestCase.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
@@ -1403,7 +1484,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OctoPodium-OctoPodiumTests/Pods-OctoPodium-OctoPodiumTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OctoPodium-OctoPodiumTests/Pods-OctoPodium-OctoPodiumTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CDA18B0D159456443E9FE2BE /* [CP] Embed Pods Frameworks */ = {
@@ -1412,10 +1493,11 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-OctoPodium/Pods-OctoPodium-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-OctoPodium/Pods-OctoPodium-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ARSPopover/ARSPopover.framework",
 				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
 				"${BUILT_PRODUCTS_DIR}/Locksmith/Locksmith.framework",
+				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1423,26 +1505,12 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ARSPopover.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Locksmith.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OctoPodium/Pods-OctoPodium-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F7AE2B491C9E33D2DC3E0931 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OctoPodium-OctoPodiumTests/Pods-OctoPodium-OctoPodiumTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OctoPodium/Pods-OctoPodium-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1456,6 +1524,7 @@
 				854B5B9C1CA6EE370070A456 /* AddGithubAccountController.swift in Sources */,
 				8550758A1D0BF186004FA634 /* UserDetailsPresentAnimation.swift in Sources */,
 				853C48E11C09A28400373A92 /* GetOne.swift in Sources */,
+				85FF115B2284081B00D8B0D1 /* Tweeterific.swift in Sources */,
 				85EF2E451CE79B8F00745A68 /* OnePasswordExtension.m in Sources */,
 				85FA59651C1645B00097732B /* K.swift in Sources */,
 				85E09ED01D0AA36400752BB0 /* Parameterless.swift in Sources */,
@@ -1478,10 +1547,13 @@
 				85AF8AFB1C445EAD0022D97F /* LanguageImageView.swift in Sources */,
 				85D321251C022480001B7C7A /* UserDetailsController.swift in Sources */,
 				855825491CAA75C900851967 /* StarChecker.swift in Sources */,
+				8597FBE1228584E800F635A0 /* MedalDisplayView.swift in Sources */,
 				85E656741C139F5100BB4278 /* Page.swift in Sources */,
 				85E389D21C6A307900C68813 /* LanguagesPopoverController.swift in Sources */,
 				856A72E71C12509F008415A4 /* LanguageCell.swift in Sources */,
+				853F6DCF2286C10D00C4F4EC /* LanguageMocks.swift in Sources */,
 				8530ED361C60EA7F00173835 /* TrendingRepositoryDetailsController.swift in Sources */,
+				8597FBDF2285847F00F635A0 /* Medals.swift in Sources */,
 				85E09EDB1D0AC49100752BB0 /* ConfigureImagesCache.swift in Sources */,
 				85EF2E3E1CE71D7B00745A68 /* NibView.swift in Sources */,
 				85E6566F1C1352C600BB4278 /* PaginaTable.swift in Sources */,
@@ -1499,6 +1571,7 @@
 				85E8CC491C3AAE5A001B4129 /* NetworkStatus.swift in Sources */,
 				85BBD9F91C5CA61000229ED2 /* Repository.swift in Sources */,
 				85E09ECC1D0A9CA600752BB0 /* HTTPPutter.swift in Sources */,
+				85FF11592284080B00D8B0D1 /* TweetBot.swift in Sources */,
 				8558253E1CA85DF200851967 /* NSBundle.swift in Sources */,
 				855825451CA9BDC700851967 /* Analytics.swift in Sources */,
 				8558254D1CAAB52900851967 /* NotifySuccess.swift in Sources */,
@@ -1519,6 +1592,7 @@
 				854A404D1C3B369D005E7FF1 /* VerifyRequestStatus.swift in Sources */,
 				85BBD9FE1C5D1AA600229ED2 /* Repositories.swift in Sources */,
 				85EF2E3C1CE71CD100745A68 /* UINib.swift in Sources */,
+				852A5F552084704800EF2BBD /* MocksConfigurator.swift in Sources */,
 				85482E621C96BE0800E20FDB /* GithubStarButton.swift in Sources */,
 				85E656761C13A23400BB4278 /* LanguageUsersTableDataSource.swift in Sources */,
 				851D3C381C09134600870813 /* Requester.swift in Sources */,
@@ -1535,28 +1609,33 @@
 				854B5BA41CA7335E0070A456 /* UserInfoGetter.swift in Sources */,
 				851D3C3A1C0913E900870813 /* ResponseHandler.swift in Sources */,
 				85FA59671C16D6660097732B /* CreateFullUserFromDictionary.swift in Sources */,
-				85F86EA220782AB400639F0F /* GithubCredentials.swift in Sources */,
+				852A5F58208475E100EF2BBD /* UITestingConstants.swift in Sources */,
 				855825511CAB258E00851967 /* UnstarRepository.swift in Sources */,
 				857E2C331C1C37970095DCC0 /* SearchBar.swift in Sources */,
+				853F6DD02286C11100C4F4EC /* UserMocks.swift in Sources */,
 				85FA59631C15C5C00097732B /* UserTopCell.swift in Sources */,
 				85E09ED21D0AA56600752BB0 /* EmptyHeaders.swift in Sources */,
 				85D3211E1C0211C2001B7C7A /* UserCell.swift in Sources */,
 				850585851D0D57170024C6BC /* SwipeInteractionController.swift in Sources */,
+				85FF11532284078B00D8B0D1 /* TwitterAppProtocol.swift in Sources */,
 				856D676C1C34385F00A77678 /* Users.swift in Sources */,
 				85BBDA081C5E702C00229ED2 /* TrendingScope.swift in Sources */,
 				8527DBB91D0F671600D388A4 /* ShareRanking.swift in Sources */,
 				85AFEC1F1C0468CB006FC129 /* Ranking.swift in Sources */,
 				850485311C0FB10C004D952A /* AlertView.swift in Sources */,
 				856D676A1C342C6900A77678 /* Requestable.swift in Sources */,
+				853F6DD42286CA2A00C4F4EC /* GithubCredentials.swift in Sources */,
 				85DB86361CE5C6FA00324A99 /* UIImageView.swift in Sources */,
 				85FA596B1C1739560097732B /* Get.swift in Sources */,
 				85482E641C96BF9A00E20FDB /* GithubForkButton.swift in Sources */,
 				855913DE1C63879700E356FD /* RepoContentsFetcher.swift in Sources */,
+				8597FBE32285851C00F635A0 /* RankingCellHeader.swift in Sources */,
 				85B501851C10FD8400BBFD56 /* LanguageTitleView.swift in Sources */,
 				854B5BA01CA6FE200070A456 /* ApiResponse.swift in Sources */,
 				850585871D0DB2870024C6BC /* CellWithAvatar.swift in Sources */,
 				85B2C2D01C18D07800112D95 /* UIView.swift in Sources */,
 				855825411CA881D600851967 /* Follow.swift in Sources */,
+				85FF1157228407F900D8B0D1 /* Twitter.swift in Sources */,
 				853C48DF1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift in Sources */,
 				85BBDA0A1C5E85E500229ED2 /* Reusable.swift in Sources */,
 				85E6566B1C134B4E00BB4278 /* UsersListResponse.swift in Sources */,
@@ -1573,6 +1652,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8597FBDC22855FC700F635A0 /* MedalDisplaySnapshotTests.swift in Sources */,
 				8599284E1C0D9579000ABE8C /* LocationTypeTests.swift in Sources */,
 				859CE4BF1C2FDF3D008A7856 /* PageTests.swift in Sources */,
 				852F5E0A1C7E1D1F00DEE0D1 /* RankingTests.swift in Sources */,
@@ -1583,6 +1663,7 @@
 				858B91151C085E6400B510B3 /* SearchOptionsTests.swift in Sources */,
 				8517ECBF1C2C1EDB00467985 /* RankingPresenterTests.swift in Sources */,
 				85D321051C02062E001B7C7A /* OctoPodiumTests.swift in Sources */,
+				8597FBE522858C5300F635A0 /* RankingCellHeaderSnapshotTests.swift in Sources */,
 				85A1D2D01C2EB3A800774F49 /* MockNSURLSession.swift in Sources */,
 				854A404B1C3ADCF7005E7FF1 /* NetworkStatusTests.swift in Sources */,
 				857E2C371C1C87370095DCC0 /* ConvertUsersDictionaryToUsersTests.swift in Sources */,
@@ -1599,6 +1680,7 @@
 				8518909E207952C100C1C4A7 /* TrendingScreen.swift in Sources */,
 				851890A820796B6300C1C4A7 /* UIImageView.swift in Sources */,
 				851890A0207952C100C1C4A7 /* NavigationBarScreen.swift in Sources */,
+				852A5F57208475A500EF2BBD /* UITestingConstants.swift in Sources */,
 				851890A4207952C100C1C4A7 /* MainTabBarScreen.swift in Sources */,
 				85D321101C02062E001B7C7A /* OctoPodiumUITests.swift in Sources */,
 				85189091207952B500C1C4A7 /* TimeInterval.swift in Sources */,
@@ -1617,10 +1699,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		85D321021C02062E001B7C7A /* PBXTargetDependency */ = {
+		85A51D8820C9DED40071032E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 85D320EB1C02062E001B7C7A /* OctoPodium */;
-			targetProxy = 85D321011C02062E001B7C7A /* PBXContainerItemProxy */;
+			targetProxy = 85A51D8720C9DED40071032E /* PBXContainerItemProxy */;
 		};
 		85D3210D1C02062E001B7C7A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1695,12 +1777,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1742,12 +1824,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				"PROVISIONING_PROFILE[sdk=*]" = "c38f2666-b663-4a00-91e8-bbd4906faba4";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1783,6 +1865,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.ios.octopodium;
 				PRODUCT_NAME = OctoPodium;
 				PROVISIONING_PROFILE = "";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = "OctoPodium/Supporting Files/OctoPodium-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
@@ -1809,6 +1892,7 @@
 				PRODUCT_NAME = OctoPodium;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=*]" = "";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
 				SWIFT_OBJC_BRIDGING_HEADER = "OctoPodium/Supporting Files/OctoPodium-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;

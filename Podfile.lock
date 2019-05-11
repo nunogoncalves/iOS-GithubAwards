@@ -16,15 +16,28 @@ PODS:
   - GoogleSymbolUtilities (1.0.3)
   - GoogleUtilities (1.1.0):
     - GoogleSymbolUtilities (~> 1.0.0)
-  - iOSSnapshotTestCase (2.2.0):
-    - iOSSnapshotTestCase/SwiftSupport (= 2.2.0)
-  - iOSSnapshotTestCase/Core (2.2.0)
-  - iOSSnapshotTestCase/SwiftSupport (2.2.0):
+  - iOSSnapshotTestCase (6.0.0):
+    - iOSSnapshotTestCase/SwiftSupport (= 6.0.0)
+  - iOSSnapshotTestCase/Core (6.0.0)
+  - iOSSnapshotTestCase/SwiftSupport (6.0.0):
     - iOSSnapshotTestCase/Core
   - Kanna (4.0.0)
   - Locksmith (4.0.0)
-  - Nimble (7.0.2)
-  - Quick (1.2.0)
+  - Nimble (8.0.1)
+  - OHHTTPStubs/Core (6.1.0)
+  - OHHTTPStubs/Default (6.1.0):
+    - OHHTTPStubs/Core
+    - OHHTTPStubs/JSON
+    - OHHTTPStubs/NSURLSession
+    - OHHTTPStubs/OHPathHelpers
+  - OHHTTPStubs/JSON (6.1.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/NSURLSession (6.1.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/OHPathHelpers (6.1.0)
+  - OHHTTPStubs/Swift (6.1.0):
+    - OHHTTPStubs/Default
+  - Quick (2.1.0)
   - SDWebImage (4.2.2):
     - SDWebImage/Core (= 4.2.2)
   - SDWebImage/Core (4.2.2)
@@ -32,25 +45,36 @@ PODS:
 DEPENDENCIES:
   - ARSPopover (~> 2.2.1)
   - Google/Analytics
-  - iOSSnapshotTestCase (from `https://github.com/nunogoncalves/ios-snapshot-test-case.git`, branch `flexible-names`)
+  - iOSSnapshotTestCase
   - Kanna (from `https://github.com/tid-kijyun/Kanna.git`, branch `master`)
   - Locksmith (= 4.0.0)
-  - Nimble
-  - Quick (= 1.2.0)
+  - Nimble (~> 8.0.1)
+  - OHHTTPStubs/Swift (~> 6.1.0)
+  - Quick (= 2.1)
   - SDWebImage (~> 4.2.2)
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ARSPopover
+    - Google
+    - GoogleAnalytics
+    - GoogleInterchangeUtilities
+    - GoogleNetworkingUtilities
+    - GoogleSymbolUtilities
+    - GoogleUtilities
+    - iOSSnapshotTestCase
+    - Locksmith
+    - Nimble
+    - OHHTTPStubs
+    - Quick
+    - SDWebImage
+
 EXTERNAL SOURCES:
-  iOSSnapshotTestCase:
-    :branch: flexible-names
-    :git: https://github.com/nunogoncalves/ios-snapshot-test-case.git
   Kanna:
     :branch: master
     :git: https://github.com/tid-kijyun/Kanna.git
 
 CHECKOUT OPTIONS:
-  iOSSnapshotTestCase:
-    :commit: 74ad4e10f51ba4dc955f86cd5159edd068d6adaf
-    :git: https://github.com/nunogoncalves/ios-snapshot-test-case.git
   Kanna:
     :commit: 235d3347e89cbde75a52601871cf79b6bfd09f13
     :git: https://github.com/tid-kijyun/Kanna.git
@@ -63,13 +87,14 @@ SPEC CHECKSUMS:
   GoogleNetworkingUtilities: 292992ab31b7b4ba32809a0e8b40e324cdfb2c0c
   GoogleSymbolUtilities: 82ad9f93d3615244b3f4ce440f5ab2515e8b4f56
   GoogleUtilities: 8ed9134debe11719097881711464752900668f10
-  iOSSnapshotTestCase: e5355de922ab92a3727b24a6241c3aa8f5195cc3
+  iOSSnapshotTestCase: f592adfdedffe6113a55528ce698ccc457a550f1
   Kanna: d5ae2a26472f7e7a474e7f36a9cd8aa2c8c63ad3
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
-  Nimble: bfe1f814edabba69ff145cb1283e04ed636a67f2
-  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+  Nimble: 45f786ae66faa9a709624227fae502db55a8bdd0
+  OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
+  Quick: 4be43f6634acfa727dd106bdf3929ce125ffa79d
   SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
 
-PODFILE CHECKSUM: 5e053953f519a6340b995b5678ff53b1fb5fb1a3
+PODFILE CHECKSUM: 6419c550cf2bf19fd3fd437a9fa1f0d6155296f8
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.6.1

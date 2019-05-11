@@ -6,23 +6,69 @@
 //  Copyright © 2016 Nuno Gonçalves. All rights reserved.
 //
 
+private func canOpen(_ app: TwitterAppProtocol) -> Bool {
+    return UIApplication.shared.canOpenURL(URL(string: app.scheme)!)
+}
+
 extension Twitter {
-    
+
     struct Share {
-        init(ranking: String, language: String, location: String) {
-            let application = UIApplication.shared
-            let text = "I am the top \(ranking) \(language) developer in \(location). Check your GitHub ranking on #Octopodium #github-awards!".urlEncoded()
-            let twitterUrl = "twitter://post?message=\(text))"
-            
-            if let url = URL(string: twitterUrl) , application.canOpenURL(url) {
-                Analytics.SendToGoogle.shareRankingOnTwitterEvent("Twitter")
-                application.openURL(url)
+
+        private static func appsWithUsername(_ username: String = "") -> [TwitterAppProtocol] {
+            return [
+                TweetBot(account: username),
+                Tweeterific(account: username)
+            ]
+        }
+
+        private static let appsWithoutUsername: [TwitterAppProtocol] = [
+            Twitter()
+        ]
+
+        static var needsUrsername: Bool { return appsWithUsername().first { canOpen($0) } != nil }
+
+        static func perform(ranking: String, language: String, location: String, username: String? = nil) {
+
+            let app: TwitterAppProtocol?
+            if let username = username {
+                app = appsWithUsername(username).first(where: { canOpen($0) })
             } else {
-                Analytics.SendToGoogle.shareRankingOnTwitterEvent("Browser")
-                Browser.openPage("https://twitter.com/intent/tweet?text=\(text)")
+                app = appsWithoutUsername.first(where: { canOpen($0) })
+            }
+
+            let text = message(ranking: ranking, language: language, location: location).urlEncoded()
+
+            guard let twitterApp = app else {
+                postInTwitterBrowser(text)
+                return
+            }
+
+            Analytics.SendToGoogle.shareRankingOnTwitterEvent(twitterApp.name)
+            UIApplication.shared.open(twitterApp.postURL(message: text), options: [:], completionHandler: nil)
+        }
+
+        private static func appToShareContent(_ username: String?) -> TwitterAppProtocol? {
+
+            if let username = username {
+                return appsWithUsername(username).first(where: { canOpen($0) })
+            } else {
+                return appsWithoutUsername.first(where: { canOpen($0) })
             }
         }
-        
+
+        private static func postInTwitterBrowser(_ text: String) {
+            Analytics.SendToGoogle.shareRankingOnTwitterEvent("Browser")
+            Browser.openPage("https://twitter.com/intent/tweet?text=\(text)")
+        }
+
+        private static func message(ranking: String, language: String, location: String) -> String {
+            return
+                """
+                I am the top \(ranking) \(language) developer in \(location).
+                Check your GitHub ranking on #Octopodium #github-awards!
+                """
+        }
     }
-    
 }
+
+

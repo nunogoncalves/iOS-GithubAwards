@@ -13,13 +13,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
-        
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil
+    ) -> Bool {
+
         Style.Decorator().decorateApp()
-        
-        _ = Cache.Configure()
-        _ = Analytics.ConfigureGoogle()
-        
+
+        Cache.configure()
+        Analytics.configureGoogle()
+        Mocks.configure()
+
         return true
     }
 }

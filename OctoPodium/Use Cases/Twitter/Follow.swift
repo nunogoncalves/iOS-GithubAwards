@@ -6,7 +6,7 @@
 //  Copyright © 2016 Nuno Gonçalves. All rights reserved.
 //
 
-struct Twitter {
+extension Twitter {
 
     enum TwitterClient : String {
         case Twitter = "twitter://user?screen_name="

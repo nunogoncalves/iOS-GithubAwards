@@ -10,42 +10,40 @@ import FBSnapshotTestCase
 
 class OctoPodiumUITests: FBSnapshotTestCase {
     
-    let app = XCUIApplication()
-
-    override func getFolderName() -> String {
-
-        return String(describing: type(of: self))
-    }
+    private let app = XCUIApplication()
 
     override func setUp() {
         super.setUp()
+
+        recordMode = false
+        folderName = String(describing: type(of: self))
         setupSnapshot(app: app)
         continueAfterFailure = true
+
+        app.launchArguments.append(UITestingConstants.uiTestingMode)
         app.launch()
     }
     
-    func testBasicNavigationScreen() {
+    func testBasicNavigation() {
 
         let mainTabScreen = MainTabScreen(app: app, testCase: self)
 
         mainTabScreen
             .goToLanguagesScreen()
-            .takeASnapshot(named: "01LanguagesScreen")
             .verifyScreenView(with: "01LanguagesScreen")
             .goToJavascriptRanking()
-            .takeASnapshot(named: "02LanguageRankingScreen")
+            .verifyScreenView(with: "02LanguageRankingScreen", snapshotToAppStore: true)
             .goToFacebookProfile()
-            .takeASnapshot(named: "03FacebookScreen")
+            .verifyScreenView(with: "03FacebookScreen", snapshotToAppStore: true)
 
         mainTabScreen
             .goToTrendingScreen()
-            .takeASnapshot(named: "04TrendingScreen")
+            .verifyScreenView(with: "04TrendingScreen", snapshotToAppStore: true)
 
         mainTabScreen
             .goToSettingsScreen()
             .goToGithubAccountScreen()
             .goToAddGithubAccountScreen()
-            .takeASnapshot(named: "05AddGitHubAccountScreen")
-            .verifyScreenView(with: "05AddGitHubAccountScreen")
+            .verifyScreenView(with: "05AddGitHubAccountScreen", snapshotToAppStore: true)
     }
 }

@@ -13,3 +13,5 @@ build/*
 *.xcbkptlist
 GithubCredentials.swift
 env-vars.sh
+
+OctoPodiumTests/SnapshotTesting/Snapshots/Failures/*

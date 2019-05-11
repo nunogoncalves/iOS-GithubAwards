@@ -7,7 +7,6 @@
 //
 
 import Foundation
-
 @testable import OctoPodium
 import FBSnapshotTestCase
 
@@ -15,17 +14,13 @@ final class UserStatsViewSnapshotTests: FBSnapshotTestCase {
 
     private let userStats = UserStatsView(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
 
-    override func getFolderName() -> String {
-
-        return String(describing: type(of: userStats))
-    }
-
     override func setUp() {
 
         super.setUp()
+        folderName = String(describing: type(of: userStats))
         userStats.backgroundColor = UIColor(hex: 0x03C8F5)
 
-//        self.recordMode = true
+        self.recordMode = false
     }
 
     func testCommon() {
