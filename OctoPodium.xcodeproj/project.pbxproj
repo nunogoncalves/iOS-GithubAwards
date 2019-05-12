@@ -192,6 +192,7 @@
 		85EF2E3C1CE71CD100745A68 /* UINib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EF2E3B1CE71CD100745A68 /* UINib.swift */; };
 		85EF2E3E1CE71D7B00745A68 /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EF2E3D1CE71D7B00745A68 /* NibView.swift */; };
 		85EF2E4A1CE79CBE00745A68 /* 1Password.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85EF2E491CE79CBE00745A68 /* 1Password.xcassets */; };
+		85F334112287F9F900F2C1ED /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F334102287F9F900F2C1ED /* Array.swift */; };
 		85FA59631C15C5C00097732B /* UserTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59621C15C5C00097732B /* UserTopCell.swift */; };
 		85FA59651C1645B00097732B /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59641C1645B00097732B /* K.swift */; };
 		85FA59671C16D6660097732B /* CreateFullUserFromDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59661C16D6660097732B /* CreateFullUserFromDictionary.swift */; };
@@ -422,6 +423,7 @@
 		85EF2E3B1CE71CD100745A68 /* UINib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINib.swift; sourceTree = "<group>"; };
 		85EF2E3D1CE71D7B00745A68 /* NibView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
 		85EF2E491CE79CBE00745A68 /* 1Password.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = 1Password.xcassets; sourceTree = "<group>"; };
+		85F334102287F9F900F2C1ED /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		85FA59621C15C5C00097732B /* UserTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTopCell.swift; sourceTree = "<group>"; };
 		85FA59641C1645B00097732B /* K.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		85FA59661C16D6660097732B /* CreateFullUserFromDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFullUserFromDictionary.swift; sourceTree = "<group>"; };
@@ -810,6 +812,7 @@
 		8599284F1C0DAB0E000ABE8C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				85F3340F2287F9EA00F2C1ED /* Foundation */,
 				8558253D1CA85DF200851967 /* NSBundle.swift */,
 				859928501C0DAB23000ABE8C /* String.swift */,
 				8508B76A1C1593D40024684F /* UIColor.swift */,
@@ -1056,6 +1059,14 @@
 				85EF2E491CE79CBE00745A68 /* 1Password.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		85F3340F2287F9EA00F2C1ED /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				85F334102287F9F900F2C1ED /* Array.swift */,
+			);
+			path = Foundation;
 			sourceTree = "<group>";
 		};
 		85FA596C1C17395C0097732B /* Languages */ = {
@@ -1538,6 +1549,7 @@
 				8508B76B1C1593D40024684F /* UIColor.swift in Sources */,
 				8501F06B1C425674004BEB50 /* SessionConfigurationBuilder.swift in Sources */,
 				85D321211C0219C7001B7C7A /* User.swift in Sources */,
+				85F334112287F9F900F2C1ED /* Array.swift in Sources */,
 				85BBDA021C5D1BDE00229ED2 /* CreateListFromHTML.swift in Sources */,
 				854B5BA21CA718F30070A456 /* GithubToken.swift in Sources */,
 				85AF8AFB1C445EAD0022D97F /* LanguageImageView.swift in Sources */,
@@ -1847,7 +1859,19 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
-				"HEADER_SEARCH_PATHS[arch=*]" = "$(inherited) ${PODS_ROOT}/Google/Headers $(SDKROOT)/usr/include/libxml2 $(inherited) \"${PODS_ROOT}/Headers/Public\" \"${PODS_ROOT}/Headers/Public/Google\" \"${PODS_ROOT}/Headers/Public/GoogleAnalytics\" \"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\" \"${PODS_ROOT}/Headers/Public/GoogleNetworkingUtilities\" \"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\" \"${PODS_ROOT}/Headers/Public/GoogleUtilities\"";
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					"$(inherited)",
+					"${PODS_ROOT}/Google/Headers",
+					"$(SDKROOT)/usr/include/libxml2",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Google\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleNetworkingUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
+				);
 				INFOPLIST_FILE = "OctoPodium/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

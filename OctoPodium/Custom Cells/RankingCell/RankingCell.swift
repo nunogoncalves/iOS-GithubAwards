@@ -18,6 +18,10 @@ class RankingCell2: UITableViewCell, Reusable {
 
     private let header = RankingCellHeader.usingAutoLayout()
 
+    private let rankingsStackView: UIStackView = create {
+        $0.axis = .vertical
+    }
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 

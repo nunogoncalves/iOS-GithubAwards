@@ -17,19 +17,28 @@ struct RankingPresenter {
     var userLogin: String { return ranking.user?.login ?? "" }
     let language: String
 
-    let city: String
-    let cityRanking: Int
-    let cityTotal: Int
+    @available(*, deprecated, message: "to be removed")
+    var city: String { return ranking.city?.name ?? "" }
+    @available(*, deprecated, message: "to be removed")
+    var cityRanking: Int { return ranking.city?.rank ?? 0 }
+    @available(*, deprecated, message: "to be removed")
+    var cityTotal: Int { return ranking.city?.total ?? 0 }
+
     let cityRankingOverView: String
 
-    let country: String
-    let countryRanking: Int
-    let countryTotal: Int
-    let rankingOverViewForCountry: String
+    @available(*, deprecated, message: "to be removed")
+    var country: String  { return ranking.country?.name ?? "" }
+    @available(*, deprecated, message: "to be removed")
+    var countryRanking: Int { return ranking.country?.rank ?? 0 }
+    @available(*, deprecated, message: "to be removed")
+    var countryTotal: Int { return ranking.country?.total ?? 0 }
+    let countryRankingOverView: String
 
-    let worldRanking: Int
-    let worldTotal: Int
-    let rankingOverViewForWorld: String
+    @available(*, deprecated, message: "to be removed")
+    var worldRanking: Int { return ranking.world.rank }
+    @available(*, deprecated, message: "to be removed")
+    var worldTotal: Int { return ranking.world.total }
+    let worldRankingOverView: String
 
     let repositories: Int
     let stars: Int
@@ -53,24 +62,14 @@ struct RankingPresenter {
 
         language = ranking.language ?? ""
 
-        city = ranking.city?.capitalized ?? ""
-        cityRanking = ranking.cityRanking ?? 0
-        cityTotal = ranking.cityTotal ?? 0
-        cityRankingOverView = SELF.rankingOverview(for: cityRanking, locationTotal: cityTotal)
-
-        country = ranking.country?.capitalized ?? ""
-        countryRanking = ranking.countryRanking ?? 0
-        countryTotal = ranking.countryTotal ?? 0
-        rankingOverViewForCountry = SELF.rankingOverview(for: countryRanking, locationTotal: countryTotal)
-
-        worldRanking = ranking.worldRanking ?? 0
-        worldTotal = ranking.worldTotal ?? 0
-        rankingOverViewForWorld = SELF.rankingOverview(for: worldRanking, locationTotal: worldTotal)
+        cityRankingOverView = ranking.city?.description ?? ""
+        countryRankingOverView = ranking.country?.description ?? ""
+        worldRankingOverView = ranking.world.description
 
         repositories = ranking.repositories ?? 0
         stars = ranking.stars
 
-        let rankings = [worldRanking, countryRanking, cityRanking]
+        let rankings: [Int?] = [ranking.world.position, ranking.country?.rank, ranking.city?.rank]
 
         hasGoldMedal = rankings.any { $0 == 1 }
         hasSilverMedal = rankings.any { $0 == 2 }
@@ -93,15 +92,5 @@ struct RankingPresenter {
     private static func rankingOverview(for rank: Int, locationTotal: Int) -> String {
         guard rank > 0 && locationTotal > 0 else { return "-/-" }
         return "\(rank)/\(locationTotal)"
-    }
-}
-
-private extension Array {
-    func count(where predicate: (Element) throws -> Bool) rethrows -> Int {
-        return try reduce(0) { $0 + (try predicate($1) ? 1 : 0) }
-    }
-
-    func any(where predicate: (Element) throws -> Bool) rethrows -> Bool {
-        return try first(where: predicate) != nil
     }
 }

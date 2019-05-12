@@ -42,8 +42,8 @@ class UserDetailsController: UIViewController {
         guard let userPresenter = userPresenter else { return }
         guard rankings.count > 0 else { return }
         
-        let cityRanking = rankings[0].cityRanking ?? 0
-        let countryRanking = rankings[0].countryRanking ?? 0
+        let cityRanking = rankings[0].city?.rank ?? 0
+        let countryRanking = rankings[0].country?.rank ?? 0
         
         var ranking = cityRanking
         if countryRanking >= cityRanking {

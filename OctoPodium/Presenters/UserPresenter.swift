@@ -37,13 +37,13 @@ class UserPresenter {
         self.user = user
         self.ranking = ranking
         
-        let reposStarsTrophies = UserPresenter.getReposStarsAndTrophiesFrom(user)
+        let reposStarsTrophies = UserPresenter.reposStarsAndTrophiesFrom(user)
         totalRepositories = reposStarsTrophies.repos
         totalStars = reposStarsTrophies.stars
         totalTrophies = reposStarsTrophies.trophies
     }
     
-    private static func getReposStarsAndTrophiesFrom(_ user: User) -> (repos: Int, stars: Int, trophies: Int) {
+    private static func reposStarsAndTrophiesFrom(_ user: User) -> (repos: Int, stars: Int, trophies: Int) {
         let initialTuple = (repos: 0, stars: 0, trophies: 0)
         
         return user.rankings.reduce(initialTuple) { (tuple, ranking) -> (repos: Int, stars: Int, trophies: Int) in
@@ -58,7 +58,7 @@ class UserPresenter {
         var ranking = 0
         if user.rankings.count > 0 {
             let topRanking = user.rankings[0]
-            ranking = topRanking.cityRanking ?? (topRanking.countryRanking ?? (topRanking.worldRanking ?? 0))
+            ranking = topRanking.city?.rank ?? (topRanking.country?.rank ?? topRanking.world.rank)
         }
         self.init(user: user, ranking: ranking)
     }

@@ -26,8 +26,14 @@ class RankingPresenterTests: QuickSpec {
             
             context("Podium independent information (stars, repos and language") {
                 beforeEach {
-                    let ranking = Ranking(city: "Lisbon", cityRanking: 0, cityTotal: 102, country: "Portugal", countryTotal: 1234, countryRanking: 0, worldRanking: 0, worldTotal: 12432234, language: "Swift", repositories: 4, stars: 823)
-                    
+                    let ranking = Ranking(
+                        world: WorldRanking(position: 0, total: 12432234),
+                        country: CountryRanking(name: "Portugal", position: 0, total: 1234),
+                        city: CityRanking(name: "Lisbon", position: 0, total: 102),
+                        language: "Swift",
+                        repositories: 4,
+                        stars: 823
+                    )
                     rankingPresenter = RankingPresenter(ranking: ranking)
                }
                 
@@ -56,8 +62,14 @@ class RankingPresenterTests: QuickSpec {
             context("No ranking") {
                 
                 beforeEach {
-                    let ranking = Ranking(city: "Lisbon", cityRanking: 0, cityTotal: 102, country: "Portugal", countryTotal: 1234, countryRanking: 0, worldRanking: 0, worldTotal: 12432234, language: "Swift", repositories: 4, stars: 823)
-                    
+                    let ranking = Ranking(
+                        world: WorldRanking(position: 0, total: 12432234),
+                        country: CountryRanking(name: "Portugal", position: 0, total: 1234),
+                        city: CityRanking(name: "Lisbon", position: 0, total: 102),
+                        language: "Swift",
+                        repositories: 4,
+                        stars: 823
+                    )
                     rankingPresenter = RankingPresenter(ranking: ranking)
                 }
                 
@@ -76,48 +88,68 @@ class RankingPresenterTests: QuickSpec {
             
             context("1st in ranking") {
                 beforeEach {
-                    let ranking = Ranking(city: "Lisbon", cityRanking: 1, cityTotal: 342, country: "Portugal", countryTotal: 5, countryRanking: 1, worldRanking: 1, worldTotal: 32332, language: "Swift", repositories: 4, stars: 823)
-                    
+                    let ranking = Ranking(
+                        world: WorldRanking(position: 1, total: 32332),
+                        country: CountryRanking(name: "Portugal", position: 1, total: 5),
+                        city: CityRanking(name: "Lisbon", position: 1, total: 342),
+                        language: "Swift",
+                        repositories: 4,
+                        stars: 823
+                    )
                     rankingPresenter = RankingPresenter(ranking: ranking)
                 }
                 
-//                it("returns ranking for city") {
-//                    expect(rankingPresenter.rankingForCity).to(equal("1/342"))
-//                }
-//                
-//                it("returns ranking for country") {
-//                    expect(rankingPresenter.rankingForCountry).to(equal("1/5"))
-//                }
-//                
-//                it("returns ranking for world") {
-//                    expect(rankingPresenter.rankingForWorld).to(equal("1/32332"))
-//                }
+                it("returns ranking for city") {
+                    expect(rankingPresenter.cityRankingOverView).to(equal("1/342"))
+                }
+
+                it("returns ranking for country") {
+                    expect(rankingPresenter.countryRankingOverView).to(equal("1/5"))
+                }
+
+                it("returns ranking for world") {
+                    expect(rankingPresenter.worldRankingOverView).to(equal("1/32332"))
+                }
             }
             
             context("2nd in ranking") {
                 beforeEach {
-                    let ranking = Ranking(city: "Lisbon", cityRanking: 2, cityTotal: 432, country: "Portugal", countryTotal: 5, countryRanking: 2, worldRanking: 2, worldTotal: 523, language: "Swift", repositories: 4, stars: 823)
-                    
+                    let ranking = Ranking(
+                        world: WorldRanking(position: 2, total: 523),
+                        country: CountryRanking(name: "Portugal", position: 2, total: 5),
+                        city: CityRanking(name: "Lisbon", position: 2, total: 432),
+                        language: "Swift",
+                        repositories: 4,
+                        stars: 823
+                    )
+
                     rankingPresenter = RankingPresenter(ranking: ranking)
                 }
                 
-//                it("returns ranking for city") {
-//                    expect(rankingPresenter.rankingForCity).to(equal("2/432"))
-//                }
-//                
-//                it("returns ranking for country") {
-//                    expect(rankingPresenter.rankingForCountry).to(equal("2/5"))
-//                }
-//                
-//                it("returns ranking for world") {
-//                    expect(rankingPresenter.rankingForWorld).to(equal("2/523"))
-//                }                
+                it("returns ranking for city") {
+                    expect(rankingPresenter.cityRankingOverView).to(equal("2/432"))
+                }
+
+                it("returns ranking for country") {
+                    expect(rankingPresenter.countryRankingOverView).to(equal("2/5"))
+                }
+
+                it("returns ranking for world") {
+                    expect(rankingPresenter.worldRankingOverView).to(equal("2/523"))
+                }
             }
             
             context("3rd in ranking") {
                 beforeEach {
-                    let ranking = Ranking(city: "Lisbon", cityRanking: 3, cityTotal: 102, country: "Portugal", countryTotal: 456, countryRanking: 3, worldRanking: 3, worldTotal: 343433, language: "Swift", repositories: 4, stars: 823)
-                    
+                    let ranking = Ranking(
+                        world: WorldRanking(position: 3, total: 343433),
+                        country: CountryRanking(name: "Portugal", position: 3, total: 456),
+                        city: CityRanking(name: "Lisbon", position: 3, total: 102),
+                        language: "Swift",
+                        repositories: 4,
+                        stars: 823
+                    )
+
                     rankingPresenter = RankingPresenter(ranking: ranking)
                 }
                 
@@ -136,8 +168,14 @@ class RankingPresenterTests: QuickSpec {
             
             context("4th in ranking") {
                 beforeEach {
-                    let ranking = Ranking(city: "Lisbon", cityRanking: 4, cityTotal: 765, country: "Portugal", countryTotal: 543, countryRanking: 4, worldRanking: 4, worldTotal: 12432234, language: "Swift", repositories: 4, stars: 823)
-                    
+                    let ranking = Ranking(
+                        world: WorldRanking(position: 4, total: 12432234),
+                        country: CountryRanking(name: "Portugal", position: 4, total: 543),
+                        city: CityRanking(name: "Lisbon", position: 4, total: 765),
+                        language: "Swift",
+                        repositories: 4,
+                        stars: 823
+                    )
                     rankingPresenter = RankingPresenter(ranking: ranking)
                 }
                 
@@ -150,13 +188,20 @@ class RankingPresenterTests: QuickSpec {
                 }
                 
                 it("returns ranking for world") {
-                    expect(rankingPresenter.worldRanking).to(equal( 4))
+                    expect(rankingPresenter.worldRanking).to(equal(4))
                 }
             }
             
             context("1000th in ranking") {
                 beforeEach {
-                    let ranking = Ranking(city: "Lisbon", cityRanking: 1000, cityTotal: 12343, country: "Portugal", countryTotal: 5999, countryRanking: 1000, worldRanking: 1000, worldTotal: 23094324, language: "Swift", repositories: 4, stars: 823)
+                    let ranking = Ranking(
+                        world: WorldRanking(position: 1000, total: 23094324),
+                        country: CountryRanking(name: "Portugal", position: 1000, total: 1000),
+                        city: CityRanking(name: "Lisbon", position: 1000, total: 12343),
+                        language: "Swift",
+                        repositories: 4,
+                        stars: 823
+                    )
                     
                     rankingPresenter = RankingPresenter(ranking: ranking)
                 }
@@ -176,15 +221,37 @@ class RankingPresenterTests: QuickSpec {
             
             context("has medals") {
                 beforeEach {
-                    let zeroMedalsRanking = Ranking(city: "Lisbon", cityRanking: 4, cityTotal: 765, country: "Portugal", countryTotal: 543, countryRanking: 4, worldRanking: 4, worldTotal: 12432234, language: "Swift", repositories: 4, stars: 823)
-                    let oneMedalRanking = Ranking(city: "Lisbon", cityRanking: 1, cityTotal: 765, country: "Portugal", countryTotal: 543, countryRanking: 4, worldRanking: 4, worldTotal: 12432234, language: "Swift", repositories: 4, stars: 823)
-                    
-                    let twoMedalsRanking = Ranking(city: "Lisbon", cityRanking: 1, cityTotal: 765, country: "Portugal", countryTotal: 543, countryRanking: 2, worldRanking: 4, worldTotal: 12432234, language: "Swift", repositories: 4, stars: 823)
+
+                    let zeroMedalsRanking = Ranking(
+                        world: WorldRanking(position: 4, total: 12432234),
+                        country: CountryRanking(name: "Portugal", position: 4, total: 543),
+                        city: CityRanking(name: "Lisbon", position: 4, total: 765),
+                        language: "Swift",
+                        repositories: 4,
+                        stars: 823
+                    )
+
+                    let oneMedalRanking = Ranking(
+                        world: WorldRanking(position: 4, total: 12432234),
+                        country: CountryRanking(name: "Portugal", position: 4, total: 543),
+                        city: CityRanking(name: "Lisbon", position: 1, total: 765),
+                        language: "Swift",
+                        repositories: 4,
+                        stars: 823
+                    )
+
+                    let twoMedalsRanking = Ranking(
+                        world: WorldRanking(position: 4, total: 12432234),
+                        country: CountryRanking(name: "Portugal", position: 2, total: 543),
+                        city: CityRanking(name: "Lisbon", position: 1, total: 765),
+                        language: "Swift",
+                        repositories: 4,
+                        stars: 823
+                    )
                     
                     zeroPresenter = RankingPresenter(ranking: zeroMedalsRanking)
                     onePresenter = RankingPresenter(ranking: oneMedalRanking)
                     twoPresenter = RankingPresenter(ranking: twoMedalsRanking)
-                    
                 }
                 
                 it("has no medals") {
