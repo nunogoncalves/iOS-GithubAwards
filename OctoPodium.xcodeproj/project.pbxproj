@@ -193,6 +193,8 @@
 		85EF2E3E1CE71D7B00745A68 /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EF2E3D1CE71D7B00745A68 /* NibView.swift */; };
 		85EF2E4A1CE79CBE00745A68 /* 1Password.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85EF2E491CE79CBE00745A68 /* 1Password.xcassets */; };
 		85F334112287F9F900F2C1ED /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F334102287F9F900F2C1ED /* Array.swift */; };
+		85F33413228818A600F2C1ED /* LocationRankingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F33412228818A600F2C1ED /* LocationRankingView.swift */; };
+		85F334152288D3E700F2C1ED /* LocationRankingViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F334142288D3E700F2C1ED /* LocationRankingViewSnapshotTests.swift */; };
 		85FA59631C15C5C00097732B /* UserTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59621C15C5C00097732B /* UserTopCell.swift */; };
 		85FA59651C1645B00097732B /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59641C1645B00097732B /* K.swift */; };
 		85FA59671C16D6660097732B /* CreateFullUserFromDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59661C16D6660097732B /* CreateFullUserFromDictionary.swift */; };
@@ -424,6 +426,8 @@
 		85EF2E3D1CE71D7B00745A68 /* NibView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
 		85EF2E491CE79CBE00745A68 /* 1Password.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = 1Password.xcassets; sourceTree = "<group>"; };
 		85F334102287F9F900F2C1ED /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		85F33412228818A600F2C1ED /* LocationRankingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRankingView.swift; sourceTree = "<group>"; };
+		85F334142288D3E700F2C1ED /* LocationRankingViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRankingViewSnapshotTests.swift; sourceTree = "<group>"; };
 		85FA59621C15C5C00097732B /* UserTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTopCell.swift; sourceTree = "<group>"; };
 		85FA59641C1645B00097732B /* K.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		85FA59661C16D6660097732B /* CreateFullUserFromDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFullUserFromDictionary.swift; sourceTree = "<group>"; };
@@ -805,6 +809,7 @@
 				85118F1F1C47A802002B452F /* RankingCell.xib */,
 				8597FBE0228584E800F635A0 /* MedalDisplayView.swift */,
 				8597FBE22285851C00F635A0 /* RankingCellHeader.swift */,
+				85F33412228818A600F2C1ED /* LocationRankingView.swift */,
 			);
 			path = RankingCell;
 			sourceTree = "<group>";
@@ -899,6 +904,7 @@
 				852ADE57206EDE5A00C5F56C /* UserStatsViewSnapshotTests.swift */,
 				8597FBDB22855FC700F635A0 /* MedalDisplaySnapshotTests.swift */,
 				8597FBE422858C5300F635A0 /* RankingCellHeaderSnapshotTests.swift */,
+				85F334142288D3E700F2C1ED /* LocationRankingViewSnapshotTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1607,6 +1613,7 @@
 				850495F81FDC39E4006FF726 /* UIFont.swift in Sources */,
 				8558254F1CAAC71D00851967 /* NotifyWarning.swift in Sources */,
 				8558254B1CAA844F00851967 /* Notification.swift in Sources */,
+				85F33413228818A600F2C1ED /* LocationRankingView.swift in Sources */,
 				857EB00C1C5951BB00C315DF /* SendToGoogle.swift in Sources */,
 				85E09ECE1D0A9D0500752BB0 /* HTTPDeleter.swift in Sources */,
 				856E395D1C60A48F00974330 /* TrendingDataSource.swift in Sources */,
@@ -1671,6 +1678,7 @@
 				858B91151C085E6400B510B3 /* SearchOptionsTests.swift in Sources */,
 				8517ECBF1C2C1EDB00467985 /* RankingPresenterTests.swift in Sources */,
 				85D321051C02062E001B7C7A /* OctoPodiumTests.swift in Sources */,
+				85F334152288D3E700F2C1ED /* LocationRankingViewSnapshotTests.swift in Sources */,
 				8597FBE522858C5300F635A0 /* RankingCellHeaderSnapshotTests.swift in Sources */,
 				85A1D2D01C2EB3A800774F49 /* MockNSURLSession.swift in Sources */,
 				854A404B1C3ADCF7005E7FF1 /* NetworkStatusTests.swift in Sources */,
