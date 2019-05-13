@@ -149,9 +149,7 @@ class UserDetailsController: UIViewController {
         applyGradient()
         navigationItem.title = userPresenter!.login
         
-        rankingsTable.registerReusableCell(RankingCell.self)
-        rankingsTable.register(RankingCell2.self, forCellReuseIdentifier: "RankingCell2")
-
+        rankingsTable.registerCell(RankingCell.self)
         Users.GetOne(login: userPresenter!.login).call(success: userSuccess, failure: failure)
     }
     
@@ -373,9 +371,28 @@ extension UserDetailsController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellFor(indexPath) as RankingCell
-//        let cell = tableView.dequeueReusableCellFor(indexPath) as RankingCell2
-//        cell.render(with: RankingPresenter(ranking: rankings[indexPath.row]))
-        cell.rankingPresenter = RankingPresenter(ranking: rankings[indexPath.row])
+        cell.locationDelegate = self
+        cell.render(with: RankingPresenter(ranking: rankings[indexPath.row]))
         return cell
+    }
+}
+
+extension UserDetailsController: LocationDelegate {
+    func clickedCity(_ city: String, forLanguage language: String) {
+
+    }
+
+    func clickedCountry(_ country: String, forLanguage language: String) {
+
+    }
+
+    func clickedWorld(forLanguage language: String) {
+
+    }
+
+    func clickedLanguage(_ language: String) {
+        guard let login = userPresenter?.login else { return }
+        Browser.openPage(URL(string: "https://github.com/search?q=user:\(login)+language:\(language)")!)
+        Analytics.SendToGoogle.viewUserLanguagesOnGithub(login, language: language)
     }
 }

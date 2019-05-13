@@ -47,6 +47,8 @@ class RankingCellHeader: UIView {
     private let stackView: UIStackView = create {
         $0.axis = .horizontal
         $0.distribution = .fill
+        $0.alignment = .center
+        $0.spacing = 5
     }
 
     private let medalDisplay: MedalDisplayView = create {
@@ -63,16 +65,16 @@ class RankingCellHeader: UIView {
     }
 
     private let starsLabel: UILabel = create {
-        $0.font = UIFont.systemFont(ofSize: 15)
+        $0.font = UIFont.systemFont(ofSize: 17)
     }
 
     private let reposImageView: UIImageView = create {
         $0.widthAnchor.constraint(equalToConstant: 20).isActive = true
-        $0.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        $0.heightAnchor.constraint(equalToConstant: 26).isActive = true
     }
 
     private let reposLabel: UILabel = create {
-        $0.font = UIFont.systemFont(ofSize: 15)
+        $0.font = UIFont.systemFont(ofSize: 17)
     }
 
     override init(frame: CGRect) {
@@ -88,7 +90,7 @@ class RankingCellHeader: UIView {
         stackView.bottom(<=, bottomAnchor)
         stackViewToLeadingConstraint = stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5)
         stackViewToMedalsConstraint = stackView.leadingAnchor.constraint(equalTo: medalDisplay.trailingAnchor)
-        stackView.trailing(==, trailingAnchor, -5)
+        stackView.trailing(==, trailingAnchor, -15)
         stackView.centerY(==, centerYAnchor)
 
         stackView.addArrangedSubview(languageLabel)

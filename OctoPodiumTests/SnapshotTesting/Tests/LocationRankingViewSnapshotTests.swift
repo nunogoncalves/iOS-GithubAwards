@@ -28,6 +28,7 @@ final class LocationRankingViewSnapshotTests: FBSnapshotTestCase {
         super.setUp()
         folderName = String(describing: type(of: view))
         view.backgroundColor = .white
+        view.layoutMargins = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
         self.recordMode = false
     }
 

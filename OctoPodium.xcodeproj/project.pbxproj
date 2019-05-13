@@ -15,7 +15,6 @@
 		850585871D0DB2870024C6BC /* CellWithAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850585861D0DB2870024C6BC /* CellWithAvatar.swift */; };
 		850585891D0DE2330024C6BC /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850585881D0DE2330024C6BC /* CurrentUser.swift */; };
 		8508B76B1C1593D40024684F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8508B76A1C1593D40024684F /* UIColor.swift */; };
-		85118F201C47A802002B452F /* RankingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85118F1F1C47A802002B452F /* RankingCell.xib */; };
 		85168C841C0733BA00091553 /* UsersSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85168C831C0733BA00091553 /* UsersSearchController.swift */; };
 		8517ECBD1C2C11AB00467985 /* RankingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8517ECBC1C2C11AB00467985 /* RankingPresenter.swift */; };
 		8517ECBF1C2C1EDB00467985 /* RankingPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8517ECBE1C2C1EDB00467985 /* RankingPresenterTests.swift */; };
@@ -242,7 +241,6 @@
 		850585861D0DB2870024C6BC /* CellWithAvatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellWithAvatar.swift; sourceTree = "<group>"; };
 		850585881D0DE2330024C6BC /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		8508B76A1C1593D40024684F /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		85118F1F1C47A802002B452F /* RankingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingCell.xib; sourceTree = "<group>"; };
 		85168C831C0733BA00091553 /* UsersSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersSearchController.swift; sourceTree = "<group>"; };
 		8517ECBC1C2C11AB00467985 /* RankingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingPresenter.swift; sourceTree = "<group>"; };
 		8517ECBE1C2C1EDB00467985 /* RankingPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingPresenterTests.swift; sourceTree = "<group>"; };
@@ -806,7 +804,6 @@
 			isa = PBXGroup;
 			children = (
 				85D321261C022D86001B7C7A /* RankingCell.swift */,
-				85118F1F1C47A802002B452F /* RankingCell.xib */,
 				8597FBE0228584E800F635A0 /* MedalDisplayView.swift */,
 				8597FBE22285851C00F635A0 /* RankingCellHeader.swift */,
 				85F33412228818A600F2C1ED /* LocationRankingView.swift */,
@@ -1255,7 +1252,6 @@
 				85B501831C10FCC300BBFD56 /* LanguageTitleView.xib in Resources */,
 				852A5F522083B44400EF2BBD /* trending_repositories.html in Resources */,
 				8549ACCE1C6C8B1F004D8149 /* TitilliumWeb-LightItalic.ttf in Resources */,
-				85118F201C47A802002B452F /* RankingCell.xib in Resources */,
 				85820F4D1C0E2C1A0069D085 /* GithubLoading-6.gif in Resources */,
 				85820F4C1C0E2C1A0069D085 /* GithubLoading-5.gif in Resources */,
 				85EF2E4A1CE79CBE00745A68 /* 1Password.xcassets in Resources */,

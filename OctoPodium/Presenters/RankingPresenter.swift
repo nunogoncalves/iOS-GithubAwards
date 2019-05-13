@@ -17,27 +17,13 @@ struct RankingPresenter {
     var userLogin: String { return ranking.user?.login ?? "" }
     let language: String
 
-    @available(*, deprecated, message: "to be removed")
-    var city: String { return ranking.city?.name ?? "" }
-    @available(*, deprecated, message: "to be removed")
-    var cityRanking: Int { return ranking.city?.rank ?? 0 }
-    @available(*, deprecated, message: "to be removed")
-    var cityTotal: Int { return ranking.city?.total ?? 0 }
-
+    let cityRanking: CityRanking?
     let cityRankingOverView: String
 
-    @available(*, deprecated, message: "to be removed")
-    var country: String  { return ranking.country?.name ?? "" }
-    @available(*, deprecated, message: "to be removed")
-    var countryRanking: Int { return ranking.country?.rank ?? 0 }
-    @available(*, deprecated, message: "to be removed")
-    var countryTotal: Int { return ranking.country?.total ?? 0 }
+    let countryRanking: CountryRanking?
     let countryRankingOverView: String
 
-    @available(*, deprecated, message: "to be removed")
-    var worldRanking: Int { return ranking.world.rank }
-    @available(*, deprecated, message: "to be removed")
-    var worldTotal: Int { return ranking.world.total }
+    let worldRanking: WorldRanking
     let worldRankingOverView: String
 
     let repositories: Int
@@ -62,14 +48,19 @@ struct RankingPresenter {
 
         language = ranking.language ?? ""
 
+        cityRanking = ranking.city
         cityRankingOverView = ranking.city?.description ?? ""
+
+        countryRanking = ranking.country
         countryRankingOverView = ranking.country?.description ?? ""
+
+        worldRanking = ranking.world
         worldRankingOverView = ranking.world.description
 
         repositories = ranking.repositories ?? 0
         stars = ranking.stars
 
-        let rankings: [Int?] = [ranking.world.position, ranking.country?.rank, ranking.city?.rank]
+        let rankings: [Int?] = [ranking.world.position, ranking.country?.position, ranking.city?.position]
 
         hasGoldMedal = rankings.any { $0 == 1 }
         hasSilverMedal = rankings.any { $0 == 2 }

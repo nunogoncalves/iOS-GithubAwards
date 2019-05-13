@@ -94,8 +94,9 @@ final class LocationRankingView: UIView {
         cityStack.addArrangedSubview(cityRankingLabel)
         cityRankingLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
 
-        stackView.constrain(referringTo: self, leading: 5, bottom: nil, trailing: -5)
-        stackView.bottom(<=, bottomAnchor)
+        self.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        stackView.constrain(referringTo: layoutMarginsGuide , bottom: nil)
+        stackView.bottom(<=, layoutMarginsGuide.bottomAnchor)
     }
 
     @available(*, unavailable)

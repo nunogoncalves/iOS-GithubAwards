@@ -42,11 +42,11 @@ class RankingPresenterTests: QuickSpec {
                 }
                 
                 it("contains city") {
-                    expect(rankingPresenter.city).to(equal("Lisbon"))
+                    expect(rankingPresenter.cityRanking!.name).to(equal("Lisbon"))
                 }
                 
                 it("contains country") {
-                    expect(rankingPresenter.country).to(equal("Portugal"))
+                    expect(rankingPresenter.countryRanking!.name).to(equal("Portugal"))
                 }
                 
                 it("contains stars") {
@@ -74,15 +74,15 @@ class RankingPresenterTests: QuickSpec {
                 }
                 
                 it("returns -/- ranking for city") {
-                    expect(rankingPresenter.cityRanking).to(equal(0))
+                    expect(rankingPresenter.cityRanking!.position).to(equal(0))
                 }
 
                 it("returns -/- ranking for country") {
-                    expect(rankingPresenter.countryRanking).to(equal(0))
+                    expect(rankingPresenter.countryRanking!.position).to(equal(0))
                 }
                 
                 it("returns -/- ranking for world") {
-                    expect(rankingPresenter.worldRanking).to(equal(0))
+                    expect(rankingPresenter.worldRanking.position).to(equal(0))
                 }
             }
             
@@ -154,15 +154,15 @@ class RankingPresenterTests: QuickSpec {
                 }
                 
                 it("returns ranking for city") {
-                    expect(rankingPresenter.cityRanking).to(equal(3))
+                    expect(rankingPresenter.cityRanking!.position).to(equal(3))
                 }
                 
                 it("returns ranking for country") {
-                    expect(rankingPresenter.countryRanking).to(equal(3))
+                    expect(rankingPresenter.countryRanking!.position).to(equal(3))
                 }
                 
                 it("returns ranking for world") {
-                    expect(rankingPresenter.worldRanking).to(equal(3))
+                    expect(rankingPresenter.worldRanking.position).to(equal(3))
                 }
             }
             
@@ -180,15 +180,15 @@ class RankingPresenterTests: QuickSpec {
                 }
                 
                 it("returns ranking for city") {
-                    expect(rankingPresenter.cityRanking).to(equal(4))
+                    expect(rankingPresenter.cityRanking!.position).to(equal(4))
                 }
                 
                 it("returns ranking for country") {
-                    expect(rankingPresenter.countryRanking).to(equal(4))
+                    expect(rankingPresenter.countryRanking!.position).to(equal(4))
                 }
                 
                 it("returns ranking for world") {
-                    expect(rankingPresenter.worldRanking).to(equal(4))
+                    expect(rankingPresenter.worldRanking.position).to(equal(4))
                 }
             }
             
@@ -207,15 +207,15 @@ class RankingPresenterTests: QuickSpec {
                 }
                 
                 it("returns ranking for city") {
-                    expect(rankingPresenter.cityRanking).to(equal(1000))
+                    expect(rankingPresenter.cityRanking!.position).to(equal(1000))
                 }
                 
                 it("returns ranking for country") {
-                    expect(rankingPresenter.countryRanking).to(equal(1000))
+                    expect(rankingPresenter.countryRanking!.position).to(equal(1000))
                 }
                 
                 it("returns ranking for world") {
-                    expect(rankingPresenter.worldRanking).to(equal(1000))
+                    expect(rankingPresenter.worldRanking.position).to(equal(1000))
                 }
             }
             

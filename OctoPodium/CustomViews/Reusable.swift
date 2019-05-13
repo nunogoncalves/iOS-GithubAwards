@@ -38,4 +38,12 @@ public extension UITableView {
     func dequeueReusableCellFor<T: UITableViewCell>(_ indexPath: IndexPath) -> T where T: Reusable {
         return dequeueReusableCell(withIdentifier: T.reuseIdentifier, for: indexPath) as! T
     }
+
+    func registerCell<T: UITableViewCell>(_ cellType: T.Type) where T: Reusable {
+        register(T.self, forCellReuseIdentifier: T.reuseIdentifier)
+    }
+
+    func dequeueCell<T: UITableViewCell>(for indexPath: IndexPath) -> T where T: Reusable {
+        return dequeueReusableCell(withIdentifier: T.reuseIdentifier, for: indexPath) as! T
+    }
 }
