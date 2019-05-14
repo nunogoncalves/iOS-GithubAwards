@@ -39,7 +39,7 @@ public extension UITableView {
         return dequeueReusableCell(withIdentifier: T.reuseIdentifier, for: indexPath) as! T
     }
 
-    func registerCell<T: UITableViewCell>(_ cellType: T.Type) where T: Reusable {
+    func register<T: UITableViewCell>(_ cellType: T.Type) where T: Reusable {
         register(T.self, forCellReuseIdentifier: T.reuseIdentifier)
     }
 

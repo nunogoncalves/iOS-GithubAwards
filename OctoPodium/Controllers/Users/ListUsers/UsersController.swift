@@ -215,10 +215,14 @@ extension UsersController {
 
 extension UsersController : UINavigationControllerDelegate {
 
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if !CurrentUser.hasAnimationsEnabled {
-            return nil
-        }
+    func navigationController(
+        _ navigationController: UINavigationController,
+        animationControllerFor operation: UINavigationController.Operation,
+        from fromVC: UIViewController,
+        to toVC: UIViewController
+    ) -> UIViewControllerAnimatedTransitioning? {
+
+        guard CurrentUser.hasAnimationsEnabled else { return nil }
         
         if operation == .push {
             return UserDetailsPresentAnimator()
@@ -227,14 +231,20 @@ extension UsersController : UINavigationControllerDelegate {
         }
     }
     
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+    func navigationController(
+        _ navigationController: UINavigationController,
+        didShow viewController: UIViewController,
+        animated: Bool
+    ) {
         (viewController as? LanguageRankingsController)?.navigationController?.delegate = nil
     }
     
-    func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        if !CurrentUser.hasAnimationsEnabled {
-            return nil
-        }
+    func navigationController(
+        _ navigationController: UINavigationController,
+        interactionControllerFor animationController: UIViewControllerAnimatedTransitioning
+    ) -> UIViewControllerInteractiveTransitioning? {
+
+        guard CurrentUser.hasAnimationsEnabled else { return nil }
         return swipeInteractionController.interactionInProgress ? swipeInteractionController : nil
     }
 

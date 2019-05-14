@@ -42,7 +42,6 @@
 		852A5F58208475E100EF2BBD /* UITestingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852A5F56208475A500EF2BBD /* UITestingConstants.swift */; };
 		852ADE58206EDE5A00C5F56C /* UserStatsViewSnapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852ADE57206EDE5A00C5F56C /* UserStatsViewSnapshots.swift */; };
 		852ADE59206EDF3000C5F56C /* NewGithubButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D17565206E251100A4E5E0 /* NewGithubButton.swift */; };
-		852B43C51C6A3E4000A1B63A /* LanguageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 852B43C31C6A3E4000A1B63A /* LanguageCell.xib */; };
 		852F5E0A1C7E1D1F00DEE0D1 /* RankingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F5E091C7E1D1F00DEE0D1 /* RankingTests.swift */; };
 		852F5E0D1C7E6BCA00DEE0D1 /* TestsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F5E0C1C7E6BCA00DEE0D1 /* TestsBuilder.swift */; };
 		8530ED361C60EA7F00173835 /* TrendingRepositoryDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8530ED351C60EA7F00173835 /* TrendingRepositoryDetailsController.swift */; };
@@ -99,6 +98,7 @@
 		856D676A1C342C6900A77678 /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856D67691C342C6900A77678 /* Requestable.swift */; };
 		856D676C1C34385F00A77678 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856D676B1C34385F00A77678 /* Users.swift */; };
 		856E395D1C60A48F00974330 /* TrendingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856E395C1C60A48F00974330 /* TrendingDataSource.swift */; };
+		85702331228AFD110006B8B4 /* LanguageCellSnapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85702330228AFD110006B8B4 /* LanguageCellSnapshots.swift */; };
 		857858521C7618A7009195B8 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857858511C7618A7009195B8 /* StringTests.swift */; };
 		857858541C7625CD009195B8 /* RepositoryOptionsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857858531C7625CD009195B8 /* RepositoryOptionsBuilder.swift */; };
 		857943A41C3DCC8B00824577 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 857943A31C3DCC8B00824577 /* UserCell.xib */; };
@@ -266,7 +266,6 @@
 		852A5F5320846FE400EF2BBD /* MocksConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MocksConfigurator.swift; sourceTree = "<group>"; };
 		852A5F56208475A500EF2BBD /* UITestingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestingConstants.swift; sourceTree = "<group>"; };
 		852ADE57206EDE5A00C5F56C /* UserStatsViewSnapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatsViewSnapshots.swift; sourceTree = "<group>"; };
-		852B43C31C6A3E4000A1B63A /* LanguageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageCell.xib; sourceTree = "<group>"; };
 		852F5E091C7E1D1F00DEE0D1 /* RankingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTests.swift; sourceTree = "<group>"; };
 		852F5E0C1C7E6BCA00DEE0D1 /* TestsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestsBuilder.swift; sourceTree = "<group>"; };
 		8530ED351C60EA7F00173835 /* TrendingRepositoryDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingRepositoryDetailsController.swift; sourceTree = "<group>"; };
@@ -323,6 +322,7 @@
 		856D67691C342C6900A77678 /* Requestable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requestable.swift; sourceTree = "<group>"; };
 		856D676B1C34385F00A77678 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		856E395C1C60A48F00974330 /* TrendingDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingDataSource.swift; sourceTree = "<group>"; };
+		85702330228AFD110006B8B4 /* LanguageCellSnapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCellSnapshots.swift; sourceTree = "<group>"; };
 		857858511C7618A7009195B8 /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
 		857858531C7625CD009195B8 /* RepositoryOptionsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryOptionsBuilder.swift; sourceTree = "<group>"; };
 		857943A31C3DCC8B00824577 /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
@@ -757,7 +757,6 @@
 				8597FBDD2285845E00F635A0 /* RankingCell */,
 				850585861D0DB2870024C6BC /* CellWithAvatar.swift */,
 				856A72E61C12509F008415A4 /* LanguageCell.swift */,
-				852B43C31C6A3E4000A1B63A /* LanguageCell.xib */,
 				85BBDA031C5E0BB300229ED2 /* TrendingRepositoryCell.swift */,
 				85BBDA041C5E0BB300229ED2 /* TrendingRepositoryCell.xib */,
 				85D3211D1C0211C2001B7C7A /* UserCell.swift */,
@@ -897,6 +896,7 @@
 			isa = PBXGroup;
 			children = (
 				85AD6581206E19DA00B6E8AF /* GithubButtonSnapshots.swift */,
+				85702330228AFD110006B8B4 /* LanguageCellSnapshots.swift */,
 				85CF076D228AA28F0029CAD9 /* LanguageImageViewSnapshots.swift */,
 				85F334142288D3E700F2C1ED /* LocationRankingViewSnapshots.swift */,
 				8597FBDB22855FC700F635A0 /* MedalDisplaySnapshots.swift */,
@@ -1262,7 +1262,6 @@
 				8549ACC91C6C8B1F004D8149 /* TitilliumWeb-BoldItalic.ttf in Resources */,
 				8549ACD11C6C8B1F004D8149 /* TitilliumWeb-SemiBoldItalic.ttf in Resources */,
 				853B31B21E27F4E90028345D /* UsersController.xib in Resources */,
-				852B43C51C6A3E4000A1B63A /* LanguageCell.xib in Resources */,
 				8549ACCB1C6C8B1F004D8149 /* TitilliumWeb-ExtraLightItalic.ttf in Resources */,
 				857943A41C3DCC8B00824577 /* UserCell.xib in Resources */,
 				850485331C0FB11A004D952A /* AlertView.xib in Resources */,
@@ -1670,6 +1669,7 @@
 				854A404F1C3B3D16005E7FF1 /* VerifyRequestStatusTests.swift in Sources */,
 				85FC70681C2456FF00971081 /* UserPresenterTests.swift in Sources */,
 				85AD6582206E19DA00B6E8AF /* GithubButtonSnapshots.swift in Sources */,
+				85702331228AFD110006B8B4 /* LanguageCellSnapshots.swift in Sources */,
 				85CF076E228AA28F0029CAD9 /* LanguageImageViewSnapshots.swift in Sources */,
 				858B91151C085E6400B510B3 /* SearchOptionsTests.swift in Sources */,
 				8517ECBF1C2C1EDB00467985 /* RankingPresenterTests.swift in Sources */,

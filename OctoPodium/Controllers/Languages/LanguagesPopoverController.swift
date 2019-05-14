@@ -27,7 +27,7 @@ class LanguagesPopoverController: UIViewController {
         languagesTable.dataSource = self
         languagesTable.delegate = self
         
-        languagesTable.registerReusableCell(LanguageCell.self)
+        languagesTable.register(LanguageCell.self)
         
         getLanguages()
     }
@@ -60,11 +60,8 @@ extension LanguagesPopoverController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         let cell = tableView.dequeueReusableCellFor(indexPath) as LanguageCell
-        
-        cell.language = languages[indexPath.row]
-        
+        cell.render(with: languages[indexPath.row])
         return cell
     }
 }

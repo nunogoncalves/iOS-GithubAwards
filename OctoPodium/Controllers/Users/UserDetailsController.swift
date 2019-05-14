@@ -149,7 +149,7 @@ class UserDetailsController: UIViewController {
         applyGradient()
         navigationItem.title = userPresenter!.login
         
-        rankingsTable.registerCell(RankingCell.self)
+        rankingsTable.register(RankingCell.self)
         Users.GetOne(login: userPresenter!.login).call(success: userSuccess, failure: failure)
     }
     
