@@ -1,5 +1,5 @@
 //
-//  MedalDisplaySnapshotTests.swift
+//  MedalDisplaySnapshots.swift
 //  OctoPodiumTests
 //
 //  Created by Nuno Gonçalves on 10/05/2019.
@@ -10,7 +10,7 @@ import Foundation
 @testable import OctoPodium
 import FBSnapshotTestCase
 
-final class MedalDisplaySnapshotTests: FBSnapshotTestCase {
+final class MedalDisplaySnapshots: FBSnapshotTestCase {
 
     private let medals = MedalDisplayView(frame: CGRect(x: 0, y: 0, width: 50, height: 30))
 

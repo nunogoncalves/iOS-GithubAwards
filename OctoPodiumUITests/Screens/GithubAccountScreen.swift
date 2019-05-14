@@ -26,16 +26,11 @@ struct GithubAccountScreen: NavigationBarScreen {
 
     }
 
-    var addGithubAccountButton: XCUIElement {
-
-        return navigationBar.buttons[.addGithubAccount]
-    }
+    var addGithubAccountButton: XCUIElement { return navigationBar.buttons[.addGithubAccount] }
 
     @discardableResult
     func goToAddGithubAccountScreen() -> GithubLoginScreen {
-
         addGithubAccountButton.tap()
-
         return GithubLoginScreen(app: app, testCase: testCase)
     }
 }

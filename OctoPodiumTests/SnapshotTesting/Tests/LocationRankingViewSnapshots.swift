@@ -1,5 +1,5 @@
 //
-//  LocationRankingViewSnapshotTests.swift
+//  LocationRankingViewSnapshots.swift
 //  OctoPodiumTests
 //
 //  Created by Nuno Gonçalves on 12/05/2019.
@@ -16,9 +16,9 @@ struct LocationRanking: LocationRankingProtocol {
     let cityRanking: CityRanking?
 }
 
-final class LocationRankingViewSnapshotTests: FBSnapshotTestCase {
+final class LocationRankingViewSnapshots: FBSnapshotTestCase {
 
-    private typealias SELF = LocationRankingViewSnapshotTests
+    private typealias SELF = LocationRankingViewSnapshots
 
     private static let targetSize = CGSize(width: 320, height: 10)
     private let view = LocationRankingView(frame: CGRect(origin: .zero, size: SELF.targetSize))

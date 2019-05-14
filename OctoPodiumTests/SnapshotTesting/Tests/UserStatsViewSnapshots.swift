@@ -1,5 +1,5 @@
 //
-//  UserStatsViewSnapshotTests.swift
+//  UserStatsViewSnapshots.swift
 //  OctoPodiumTests
 //
 //  Created by Nuno Gonçalves on 30/03/2018.
@@ -10,7 +10,7 @@ import Foundation
 @testable import OctoPodium
 import FBSnapshotTestCase
 
-final class UserStatsViewSnapshotTests: FBSnapshotTestCase {
+final class UserStatsViewSnapshots: FBSnapshotTestCase {
 
     private let userStats = UserStatsView(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
 

@@ -1,5 +1,5 @@
 //
-//  GithubButtonSnapshotTests.swift
+//  GithubButtonSnapshots.swift
 //  OctoPodiumTests
 //
 //  Created by Nuno Gonçalves on 30/03/2018.
@@ -9,7 +9,7 @@
 @testable import OctoPodium
 import FBSnapshotTestCase
 
-final class GithubButtonSnapshotTests: FBSnapshotTestCase {
+final class GithubButtonSnapshots: FBSnapshotTestCase {
 
     let githubButton = NewGithubButton(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
 

@@ -21,11 +21,14 @@ class DocGenerator
 
     def process
 
+        100.times { p "!" * 100 }
+
         Dir.chdir(snapshots_path)
         component_folders = all_folders_in_directory
 
         @components = component_folders.sort.map do |component_folder|
 
+            p component_folder, swift_files_named(component_folder).empty?
             next if swift_files_named(component_folder).empty?
 
             {
@@ -71,7 +74,7 @@ class DocGenerator
     end
 
     def swift_files_named name
-        Dir.glob("**/#{name}.swift")
+        Dir.glob("#{@project_path}/**/#{name}.swift")
     end
 
     def create_html

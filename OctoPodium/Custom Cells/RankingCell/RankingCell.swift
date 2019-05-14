@@ -17,6 +17,7 @@ protocol LocationDelegate: class {
 
 extension RankingPresenter: LocationRankingProtocol {}
 
+
 class RankingCell: UITableViewCell, Reusable {
 
     weak var locationDelegate: LocationDelegate?
@@ -71,19 +72,5 @@ class RankingCell: UITableViewCell, Reusable {
     override func prepareForReuse() {
         super.prepareForReuse()
         header.reset()
-    }
-}
-
-extension RankingPresenter: RankingHeaderModelProtocol {
-    var isPodium: Bool {
-        return hasMedals
-    }
-
-    var numberOfStars: Int {
-        return stars
-    }
-
-    var numberOfRepos: Int {
-        return repositories
     }
 }

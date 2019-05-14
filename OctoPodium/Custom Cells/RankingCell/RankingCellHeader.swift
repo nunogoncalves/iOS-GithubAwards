@@ -16,6 +16,13 @@ protocol RankingHeaderModelProtocol {
     var numberOfRepos: Int { get }
 }
 
+extension RankingPresenter: RankingHeaderModelProtocol {
+    var isPodium: Bool { return hasMedals }
+    var numberOfStars: Int { return stars }
+    var numberOfRepos: Int { return repositories }
+}
+
+
 class RankingCellHeader: UIView {
 
     private enum RankingHeaderStyle {
@@ -26,8 +33,18 @@ class RankingCellHeader: UIView {
             let starImage: UIImage
             let reposImage: UIImage
 
-            static let podiumStyle = Style(backgroundColor: UIColor(hex: 0x03436E), labelColor: .white, starImage: #imageLiteral(resourceName: "Star"), reposImage: #imageLiteral(resourceName: "Repository"))
-            static let regularStyle = Style(backgroundColor: UIColor(hex: 0xE0E0E0), labelColor: UIColor(hex: 0x313131), starImage: #imageLiteral(resourceName: "StarDark"), reposImage: #imageLiteral(resourceName: "RepositoryDark"))
+            static let podiumStyle = Style(
+                backgroundColor: UIColor(hex: 0x03436E),
+                labelColor: .white,
+                starImage: #imageLiteral(resourceName: "Star"),
+                reposImage: #imageLiteral(resourceName: "Repository")
+            )
+            static let regularStyle = Style(
+                backgroundColor: UIColor(hex: 0xE0E0E0),
+                labelColor: UIColor(hex: 0x313131),
+                starImage: #imageLiteral(resourceName: "StarDark"),
+                reposImage: #imageLiteral(resourceName: "RepositoryDark")
+            )
         }
 
         case podium
