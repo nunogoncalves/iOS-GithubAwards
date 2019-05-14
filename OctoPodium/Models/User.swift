@@ -23,7 +23,7 @@ class User {
     }
     
     var hasLocation: Bool {
-        return  hasCountry || hasCity
+        return hasCountry || hasCity
     }
     
     var hasCountry: Bool {
@@ -35,7 +35,7 @@ class User {
     }
     
     var isSelf: Bool {
-        guard let user = User.getUserInUserDefaults() else { return false }
+        guard let user = User.inUserDefaults else { return false }
         return login == user.login
     }
     
@@ -51,7 +51,7 @@ class User {
         UserDefaults().set(user.avatarUrl, forKey: User.loggedInUserAvatarUrlKey)
     }
 
-    class func getUserInUserDefaults() -> User? {
+    class var inUserDefaults: User? {
         let defs = UserDefaults()
         
         if let login = defs.object(forKey: User.loggedInUserLoginKey) as? String {

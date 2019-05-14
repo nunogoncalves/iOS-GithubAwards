@@ -16,6 +16,13 @@ protocol RankingHeaderModelProtocol {
     var numberOfRepos: Int { get }
 }
 
+extension RankingPresenter: RankingHeaderModelProtocol {
+    var isPodium: Bool { return hasMedals }
+    var numberOfStars: Int { return stars }
+    var numberOfRepos: Int { return repositories }
+}
+
+
 class RankingCellHeader: UIView {
 
     private enum RankingHeaderStyle {
@@ -26,8 +33,18 @@ class RankingCellHeader: UIView {
             let starImage: UIImage
             let reposImage: UIImage
 
-            static let podiumStyle = Style(backgroundColor: UIColor(hex: 0x03436E), labelColor: .white, starImage: #imageLiteral(resourceName: "Star"), reposImage: #imageLiteral(resourceName: "Repository"))
-            static let regularStyle = Style(backgroundColor: UIColor(hex: 0xE0E0E0), labelColor: UIColor(hex: 0x313131), starImage: #imageLiteral(resourceName: "StarDark"), reposImage: #imageLiteral(resourceName: "RepositoryDark"))
+            static let podiumStyle = Style(
+                backgroundColor: UIColor(hex: 0x03436E),
+                labelColor: .white,
+                starImage: #imageLiteral(resourceName: "Star"),
+                reposImage: #imageLiteral(resourceName: "Repository")
+            )
+            static let regularStyle = Style(
+                backgroundColor: UIColor(hex: 0xE0E0E0),
+                labelColor: UIColor(hex: 0x313131),
+                starImage: #imageLiteral(resourceName: "StarDark"),
+                reposImage: #imageLiteral(resourceName: "RepositoryDark")
+            )
         }
 
         case podium
@@ -47,6 +64,8 @@ class RankingCellHeader: UIView {
     private let stackView: UIStackView = create {
         $0.axis = .horizontal
         $0.distribution = .fill
+        $0.alignment = .center
+        $0.spacing = 5
     }
 
     private let medalDisplay: MedalDisplayView = create {
@@ -63,16 +82,16 @@ class RankingCellHeader: UIView {
     }
 
     private let starsLabel: UILabel = create {
-        $0.font = UIFont.systemFont(ofSize: 15)
+        $0.font = UIFont.systemFont(ofSize: 17)
     }
 
     private let reposImageView: UIImageView = create {
         $0.widthAnchor.constraint(equalToConstant: 20).isActive = true
-        $0.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        $0.heightAnchor.constraint(equalToConstant: 26).isActive = true
     }
 
     private let reposLabel: UILabel = create {
-        $0.font = UIFont.systemFont(ofSize: 15)
+        $0.font = UIFont.systemFont(ofSize: 17)
     }
 
     override init(frame: CGRect) {
@@ -88,7 +107,7 @@ class RankingCellHeader: UIView {
         stackView.bottom(<=, bottomAnchor)
         stackViewToLeadingConstraint = stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5)
         stackViewToMedalsConstraint = stackView.leadingAnchor.constraint(equalTo: medalDisplay.trailingAnchor)
-        stackView.trailing(==, trailingAnchor, -5)
+        stackView.trailing(==, trailingAnchor, -15)
         stackView.centerY(==, centerYAnchor)
 
         stackView.addArrangedSubview(languageLabel)

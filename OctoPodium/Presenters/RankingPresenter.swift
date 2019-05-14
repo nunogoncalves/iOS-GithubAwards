@@ -17,19 +17,14 @@ struct RankingPresenter {
     var userLogin: String { return ranking.user?.login ?? "" }
     let language: String
 
-    let city: String
-    let cityRanking: Int
-    let cityTotal: Int
+    let cityRanking: CityRanking?
     let cityRankingOverView: String
 
-    let country: String
-    let countryRanking: Int
-    let countryTotal: Int
-    let rankingOverViewForCountry: String
+    let countryRanking: CountryRanking?
+    let countryRankingOverView: String
 
-    let worldRanking: Int
-    let worldTotal: Int
-    let rankingOverViewForWorld: String
+    let worldRanking: WorldRanking
+    let worldRankingOverView: String
 
     let repositories: Int
     let stars: Int
@@ -53,24 +48,19 @@ struct RankingPresenter {
 
         language = ranking.language ?? ""
 
-        city = ranking.city?.capitalized ?? ""
-        cityRanking = ranking.cityRanking ?? 0
-        cityTotal = ranking.cityTotal ?? 0
-        cityRankingOverView = SELF.rankingOverview(for: cityRanking, locationTotal: cityTotal)
+        cityRanking = ranking.city
+        cityRankingOverView = ranking.city?.description ?? ""
 
-        country = ranking.country?.capitalized ?? ""
-        countryRanking = ranking.countryRanking ?? 0
-        countryTotal = ranking.countryTotal ?? 0
-        rankingOverViewForCountry = SELF.rankingOverview(for: countryRanking, locationTotal: countryTotal)
+        countryRanking = ranking.country
+        countryRankingOverView = ranking.country?.description ?? ""
 
-        worldRanking = ranking.worldRanking ?? 0
-        worldTotal = ranking.worldTotal ?? 0
-        rankingOverViewForWorld = SELF.rankingOverview(for: worldRanking, locationTotal: worldTotal)
+        worldRanking = ranking.world
+        worldRankingOverView = ranking.world.description
 
         repositories = ranking.repositories ?? 0
         stars = ranking.stars
 
-        let rankings = [worldRanking, countryRanking, cityRanking]
+        let rankings: [Int?] = [ranking.world.position, ranking.country?.position, ranking.city?.position]
 
         hasGoldMedal = rankings.any { $0 == 1 }
         hasSilverMedal = rankings.any { $0 == 2 }
@@ -93,15 +83,5 @@ struct RankingPresenter {
     private static func rankingOverview(for rank: Int, locationTotal: Int) -> String {
         guard rank > 0 && locationTotal > 0 else { return "-/-" }
         return "\(rank)/\(locationTotal)"
-    }
-}
-
-private extension Array {
-    func count(where predicate: (Element) throws -> Bool) rethrows -> Int {
-        return try reduce(0) { $0 + (try predicate($1) ? 1 : 0) }
-    }
-
-    func any(where predicate: (Element) throws -> Bool) rethrows -> Bool {
-        return try first(where: predicate) != nil
     }
 }

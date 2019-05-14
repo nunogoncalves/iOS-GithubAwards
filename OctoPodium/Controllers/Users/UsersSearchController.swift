@@ -41,8 +41,8 @@ class UsersSearchController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        if let _ = User.getUserInUserDefaults() {
-            let meButton = UIBarButtonItem(title: "Me", style: UIBarButtonItem.Style.plain, target: self, action: #selector(selectMe))
+        if let _ = User.inUserDefaults {
+            let meButton = UIBarButtonItem(title: "Me", style: .plain, target: self, action: #selector(selectMe))
             navigationItem.rightBarButtonItem = meButton
         } else {
             navigationItem.rightBarButtonItem = nil
@@ -50,7 +50,7 @@ class UsersSearchController: UIViewController {
     }
     
     @objc private func selectMe() {
-        if let user = User.getUserInUserDefaults() {
+        if let user = User.inUserDefaults {
             searchField.text = user.login
             searchUserFor(user.login)
             searchField.resignFirstResponder()

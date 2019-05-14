@@ -6,57 +6,69 @@
 //  Copyright © 2015 Nuno Gonçalves. All rights reserved.
 //
 
+protocol RankingProtocol {
+    var position: Int { get }
+    var total: Int { get }
+}
+
+extension RankingProtocol {
+    @available(*, deprecated, message: "to be removed")
+    var rank: Int { return position }
+
+    var description: String {
+        guard position > 0 && total > 0 else { return "-/-" }
+        return "\(position)/\(total)"
+    }
+}
+
+struct WorldRanking: RankingProtocol {
+    let position: Int
+    let total: Int
+}
+
+struct LocationRanking: RankingProtocol {
+    let name: String
+    let position: Int
+    let total: Int
+}
+
+typealias CityRanking = LocationRanking
+typealias CountryRanking = LocationRanking
+
 class Ranking {
     
     weak var user: User?
-    
-    var city: String?
-    var cityRanking: Int?
-    var cityTotal: Int?
-    var country: String?
-    var countryTotal: Int?
-    var countryRanking: Int?
-    var worldRanking: Int?
-    var worldTotal: Int?
-    
+
+    var world: WorldRanking
+    var country: CountryRanking?
+    var city: CityRanking?
+
     var language: String?
     var repositories: Int?
     var stars: Int
     
-    init(city: String?,
-        cityRanking: Int?,
-        cityTotal: Int?,
-        country: String?,
-        countryTotal: Int?,
-        countryRanking: Int?,
-        worldRanking: Int?,
-        worldTotal: Int?,
+    init(
+        world: WorldRanking,
+        country: CountryRanking?,
+        city: CityRanking?,
         language: String?, 
         repositories: Int?, 
-        stars: Int?) {
+        stars: Int?
+    ) {
         
-            self.city = city
-            self.cityRanking = cityRanking
-            self.cityTotal = cityTotal
-            self.country = country
-            self.countryTotal = countryTotal
-            self.countryRanking = countryRanking
-            self.worldRanking = worldRanking
-            self.worldTotal = worldTotal
-            self.language = language
-            self.repositories = repositories
-            self.stars = stars ?? 0
+        self.city = city
+        self.country = country
+        self.world = world
+        self.language = language
+        self.repositories = repositories
+        self.stars = stars ?? 0
     }
     
     var trophies: Int {
-        return (isPodium(worldRanking) ? 1 : 0) + (isPodium(cityRanking) ? 1 : 0) + (isPodium(countryRanking) ? 1 : 0)
-    }
-        
-    private func isPodium(_ rank: Int?) -> Bool {
-        return rank?.belongsInPodium() ?? false
+        return [world.rank, city?.rank, country?.rank].count { $0?.inPodium == true }
     }
 }
 
 private extension Int {
-    func belongsInPodium() -> Bool { return self < 4 && self > 0 }
+    var inPodium: Bool { return self < 4 && self > 0 }
 }

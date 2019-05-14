@@ -8,24 +8,21 @@
 
 @testable import OctoPodium
 
-class TestsBuilder {
+struct TestsBuilder {
     
     static func buildRankingWith(
         cityRanking: Int?,
         countryRanking: Int?,
-        worldRanking: Int?) -> Ranking {
-        
-        let ranking = Ranking(city: "",
-            cityRanking: cityRanking,
-            cityTotal: 123,
-            country: "",
-            countryTotal: 1000,
-            countryRanking: countryRanking,
-            worldRanking: worldRanking,
-            worldTotal: 1000,
+        worldRanking: Int
+    ) -> Ranking {
+
+        return Ranking(
+            world: WorldRanking(position: worldRanking, total: 1000),
+            country: countryRanking != nil ? CountryRanking(name: "", position: countryRanking!, total: 1000) : nil,
+            city: cityRanking != nil ? CityRanking(name: "", position: cityRanking!, total: 123) : nil,
             language: "",
-            repositories: 123, stars: 1234)
-        return ranking
-    }
-    
+            repositories: 123,
+            stars: 1234
+        )
+    }    
 }

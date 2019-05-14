@@ -18,7 +18,7 @@ struct HeaderModel: RankingHeaderModelProtocol {
     var medals: Medals
 }
 
-final class RankingCellHeaderSnapshotTests: FBSnapshotTestCase {
+final class RankingCellHeaderSnapshots: FBSnapshotTestCase {
 
     let model = HeaderModel(isPodium: true, language: "Swift", numberOfStars: 15352, numberOfRepos: 53, medals: .gold)
     let model1 = HeaderModel(isPodium: true, language: "Javascript", numberOfStars: 243, numberOfRepos: 23, medals: [.gold, .silver])

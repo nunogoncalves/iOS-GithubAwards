@@ -34,7 +34,7 @@ class SettingsController : UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let user = User.getUserInUserDefaults() {
+        if let user = User.inUserDefaults {
             userLabel.text = user.login
             userImage.fetchAndLoad(user.avatarUrl) {
                 self.tableView.reloadData()
