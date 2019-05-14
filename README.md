@@ -23,8 +23,8 @@ Check how you rank on your location based on your number of stars of your reposi
 ![Xcode Version](https://img.shields.io/badge/Xcode-10.2.1-blue.svg) ![Swift Version](https://img.shields.io/badge/swift-5.0.1-orange.svg)
 
 ### Requirements
-- iOS 10+
-- Xcode 9.3
+- iOS 12+
+- Xcode 10.0
 - Cocoapods 1.5
 - Read [this post](https://medium.com/@nunogonalves/handling-secrets-in-ios-open-source-projects-b5a212f4e28c) to know how to use GithubCredentials. The names present in that post are the same used here. Start by having your env-vars.sh contain your github and google secrets.
 
@@ -51,10 +51,17 @@ It uses the API provided by [GithubAwards](http://github-awards.com/) ([docs](ht
 - View Github trending repositories, for all languages or a specific language.
 
 ## Technical features:
-- UITesting
+- UITesting using the PageObject pattern
 - Snapshot testing
 - CI integration using Travis
 - Code coverage report generation using CodeCov.io
+- Script creating an HTML page with all snapshoted views. You can view it [here:](/Scripts/ImagesDocumentation/output/index.html)
+
+Snapshot of that html:
+
+<p align="center">
+  <img width="700" src="https://user-images.githubusercontent.com/3007012/57693987-78e98600-7642-11e9-953e-a6e3590bce04.png">
+</p>
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/3007012/33797028-5a4b25b2-dcf8-11e7-8516-47dcdde83c03.png" width="20px"></br>
