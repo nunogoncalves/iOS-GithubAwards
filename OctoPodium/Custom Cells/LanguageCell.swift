@@ -17,7 +17,7 @@ class LanguageCell: UITableViewCell, NibReusable {
         didSet {
             let lang = language ?? ""
             nameLabel.text = lang
-            languageImageView.language = lang
+            languageImageView.render(with: lang)
         }
     }
 }

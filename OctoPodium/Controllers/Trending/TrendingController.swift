@@ -92,7 +92,7 @@ class TrendingController : UIViewController {
     }
     
     fileprivate func updateLanguageIcon() {
-        languageImageView.language = language
+        languageImageView.render(with: language)
         let image = LanguageImage.load(for: language, orLanguageImageView: languageImageView)
         languageButton.setBackgroundImage(image, for: UIControl.State())
     }

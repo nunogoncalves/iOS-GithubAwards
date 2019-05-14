@@ -33,7 +33,7 @@ final class LanguageImageViewSnapshots: FBSnapshotTestCase {
 
         languageCases.enumerated().forEach { i, language in
             let view = LanguageImageView.usingAutoLayout()
-            view.language = language
+            view.render(with: language)
             container.addArrangedSubview(view)
         }
 

@@ -141,7 +141,6 @@
 		85A731821C95F900002C721B /* GithubButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85A731811C95F900002C721B /* GithubButton.xib */; };
 		85AD6582206E19DA00B6E8AF /* GithubButtonSnapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AD6581206E19DA00B6E8AF /* GithubButtonSnapshots.swift */; };
 		85AD6584206E1C8000B6E8AF /* Snapshots in Resources */ = {isa = PBXBuildFile; fileRef = 85AD6583206E1C7F00B6E8AF /* Snapshots */; };
-		85AF8AF91C445E5F0022D97F /* LanguageImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85AF8AF81C445E5F0022D97F /* LanguageImageView.xib */; };
 		85AF8AFB1C445EAD0022D97F /* LanguageImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AF8AFA1C445EAD0022D97F /* LanguageImageView.swift */; };
 		85AFEC1F1C0468CB006FC129 /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AFEC1E1C0468CB006FC129 /* Ranking.swift */; };
 		85B2C2D01C18D07800112D95 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B2C2CF1C18D07800112D95 /* UIView.swift */; };
@@ -367,7 +366,6 @@
 		85A731811C95F900002C721B /* GithubButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GithubButton.xib; sourceTree = "<group>"; };
 		85AD6581206E19DA00B6E8AF /* GithubButtonSnapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubButtonSnapshots.swift; sourceTree = "<group>"; };
 		85AD6583206E1C7F00B6E8AF /* Snapshots */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Snapshots; sourceTree = "<group>"; };
-		85AF8AF81C445E5F0022D97F /* LanguageImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageImageView.xib; sourceTree = "<group>"; };
 		85AF8AFA1C445EAD0022D97F /* LanguageImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageImageView.swift; sourceTree = "<group>"; };
 		85AFEC1E1C0468CB006FC129 /* Ranking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
 		85B2C2CF1C18D07800112D95 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -700,7 +698,6 @@
 				85820F3B1C0E2BCE0069D085 /* GithubLoadingView.xib */,
 				85482E611C96BE0800E20FDB /* GithubStarButton.swift */,
 				85AF8AFA1C445EAD0022D97F /* LanguageImageView.swift */,
-				85AF8AF81C445E5F0022D97F /* LanguageImageView.xib */,
 				85B501841C10FD8400BBFD56 /* LanguageTitleView.swift */,
 				85B501821C10FCC300BBFD56 /* LanguageTitleView.xib */,
 				85EF2E3D1CE71D7B00745A68 /* NibView.swift */,
@@ -1270,7 +1267,6 @@
 				857943A41C3DCC8B00824577 /* UserCell.xib in Resources */,
 				850485331C0FB11A004D952A /* AlertView.xib in Resources */,
 				8518908120783A8000C1C4A7 /* GoogleService-Info.plist in Resources */,
-				85AF8AF91C445E5F0022D97F /* LanguageImageView.xib in Resources */,
 				85820F4A1C0E2C1A0069D085 /* GithubLoading-3.gif in Resources */,
 				85BBDA061C5E0BB300229ED2 /* TrendingRepositoryCell.xib in Resources */,
 				85820F491C0E2C1A0069D085 /* GithubLoading-2.gif in Resources */,

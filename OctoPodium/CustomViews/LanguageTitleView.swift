@@ -18,7 +18,7 @@ class LanguageTitleView: UIView {
         didSet {
             let lang = language ?? ""
             name.text = lang
-            languageImageView.language = lang
+            languageImageView.render(with: lang)
         }
     }
     
