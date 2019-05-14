@@ -376,4 +376,12 @@ extension UIView {
     static func set(_ dimension: NSLayoutDimension, _ constant: CGFloat) {
         dimension.constraint(equalToConstant: constant).isActive = true
     }
+
+    static func loadFromNib<T>() -> T? {
+        return Bundle.main.loadNibNamed(
+            String(describing: T.self),
+            owner: nil,
+            options: nil
+        )?.first as? T
+    }
 }

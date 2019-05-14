@@ -99,6 +99,7 @@
 		856D676C1C34385F00A77678 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856D676B1C34385F00A77678 /* Users.swift */; };
 		856E395D1C60A48F00974330 /* TrendingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856E395C1C60A48F00974330 /* TrendingDataSource.swift */; };
 		85702331228AFD110006B8B4 /* LanguageCellSnapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85702330228AFD110006B8B4 /* LanguageCellSnapshots.swift */; };
+		85702333228B0F350006B8B4 /* LanguageTitleViewSnapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85702332228B0F350006B8B4 /* LanguageTitleViewSnapshots.swift */; };
 		857858521C7618A7009195B8 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857858511C7618A7009195B8 /* StringTests.swift */; };
 		857858541C7625CD009195B8 /* RepositoryOptionsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857858531C7625CD009195B8 /* RepositoryOptionsBuilder.swift */; };
 		857943A41C3DCC8B00824577 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 857943A31C3DCC8B00824577 /* UserCell.xib */; };
@@ -144,7 +145,6 @@
 		85AF8AFB1C445EAD0022D97F /* LanguageImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AF8AFA1C445EAD0022D97F /* LanguageImageView.swift */; };
 		85AFEC1F1C0468CB006FC129 /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AFEC1E1C0468CB006FC129 /* Ranking.swift */; };
 		85B2C2D01C18D07800112D95 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B2C2CF1C18D07800112D95 /* UIView.swift */; };
-		85B501831C10FCC300BBFD56 /* LanguageTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85B501821C10FCC300BBFD56 /* LanguageTitleView.xib */; };
 		85B501851C10FD8400BBFD56 /* LanguageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B501841C10FD8400BBFD56 /* LanguageTitleView.swift */; };
 		85BBD9F71C5C2DCD00229ED2 /* TrendingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BBD9F61C5C2DCD00229ED2 /* TrendingController.swift */; };
 		85BBD9F91C5CA61000229ED2 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BBD9F81C5CA61000229ED2 /* Repository.swift */; };
@@ -323,6 +323,7 @@
 		856D676B1C34385F00A77678 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		856E395C1C60A48F00974330 /* TrendingDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingDataSource.swift; sourceTree = "<group>"; };
 		85702330228AFD110006B8B4 /* LanguageCellSnapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCellSnapshots.swift; sourceTree = "<group>"; };
+		85702332228B0F350006B8B4 /* LanguageTitleViewSnapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTitleViewSnapshots.swift; sourceTree = "<group>"; };
 		857858511C7618A7009195B8 /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
 		857858531C7625CD009195B8 /* RepositoryOptionsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryOptionsBuilder.swift; sourceTree = "<group>"; };
 		857943A31C3DCC8B00824577 /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
@@ -369,7 +370,6 @@
 		85AF8AFA1C445EAD0022D97F /* LanguageImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageImageView.swift; sourceTree = "<group>"; };
 		85AFEC1E1C0468CB006FC129 /* Ranking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
 		85B2C2CF1C18D07800112D95 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		85B501821C10FCC300BBFD56 /* LanguageTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageTitleView.xib; sourceTree = "<group>"; };
 		85B501841C10FD8400BBFD56 /* LanguageTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageTitleView.swift; sourceTree = "<group>"; };
 		85BBD9F61C5C2DCD00229ED2 /* TrendingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingController.swift; sourceTree = "<group>"; };
 		85BBD9F81C5CA61000229ED2 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
@@ -699,7 +699,6 @@
 				85482E611C96BE0800E20FDB /* GithubStarButton.swift */,
 				85AF8AFA1C445EAD0022D97F /* LanguageImageView.swift */,
 				85B501841C10FD8400BBFD56 /* LanguageTitleView.swift */,
-				85B501821C10FCC300BBFD56 /* LanguageTitleView.xib */,
 				85EF2E3D1CE71D7B00745A68 /* NibView.swift */,
 				85E6566E1C1352C600BB4278 /* PaginaTable.swift */,
 				85BBDA091C5E85E500229ED2 /* Reusable.swift */,
@@ -898,6 +897,7 @@
 				85AD6581206E19DA00B6E8AF /* GithubButtonSnapshots.swift */,
 				85702330228AFD110006B8B4 /* LanguageCellSnapshots.swift */,
 				85CF076D228AA28F0029CAD9 /* LanguageImageViewSnapshots.swift */,
+				85702332228B0F350006B8B4 /* LanguageTitleViewSnapshots.swift */,
 				85F334142288D3E700F2C1ED /* LocationRankingViewSnapshots.swift */,
 				8597FBDB22855FC700F635A0 /* MedalDisplaySnapshots.swift */,
 				8597FBE422858C5300F635A0 /* RankingCellHeaderSnapshots.swift */,
@@ -1249,7 +1249,6 @@
 				85820F3D1C0E2BCE0069D085 /* GithubLoadingView.xib in Resources */,
 				8549ACC81C6C8B1F004D8149 /* TitilliumWeb-Bold.ttf in Resources */,
 				8549ACCD1C6C8B1F004D8149 /* TitilliumWeb-Light.ttf in Resources */,
-				85B501831C10FCC300BBFD56 /* LanguageTitleView.xib in Resources */,
 				852A5F522083B44400EF2BBD /* trending_repositories.html in Resources */,
 				8549ACCE1C6C8B1F004D8149 /* TitilliumWeb-LightItalic.ttf in Resources */,
 				85820F4D1C0E2C1A0069D085 /* GithubLoading-6.gif in Resources */,
@@ -1667,6 +1666,7 @@
 				852F5E0A1C7E1D1F00DEE0D1 /* RankingTests.swift in Sources */,
 				857858521C7618A7009195B8 /* StringTests.swift in Sources */,
 				854A404F1C3B3D16005E7FF1 /* VerifyRequestStatusTests.swift in Sources */,
+				85702333228B0F350006B8B4 /* LanguageTitleViewSnapshots.swift in Sources */,
 				85FC70681C2456FF00971081 /* UserPresenterTests.swift in Sources */,
 				85AD6582206E19DA00B6E8AF /* GithubButtonSnapshots.swift in Sources */,
 				85702331228AFD110006B8B4 /* LanguageCellSnapshots.swift in Sources */,

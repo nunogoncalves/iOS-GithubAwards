@@ -65,7 +65,7 @@ class Ranking {
     }
     
     var trophies: Int {
-        return [world.rank, city?.rank, country?.rank].count { $0?.inPodium == true }
+        return [world.position, city?.position, country?.position].count { $0?.inPodium == true }
     }
 }
 

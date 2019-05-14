@@ -33,7 +33,7 @@ class LanguageImageView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     func render(with language: String) {
         var lang = language
         if lang == "" { lang = "Language" }

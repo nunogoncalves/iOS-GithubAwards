@@ -80,7 +80,7 @@ class LanguageRankingsController: UIViewController {
         didSet {
             let lang = language ?? ""
             navigationItem.title = lang
-            languageTitleView.language = lang
+            languageTitleView.render(with: lang)
         }
     }
     
