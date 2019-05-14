@@ -1423,7 +1423,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${SRCROOT}/Scripts/ImagesDocumentation/CreateImagesDocumentation.rb -g https://github.com/nunogoncalves/iOS-OctoPodium/blob/master -p /${SRCROOT} -t Scripts/ImagesDocumentation/lib/images.html.erb -s OctoPodiumTests/SnapshotTesting/Snapshots/Reference_64/\n";
+			shellScript = "${SRCROOT}/Scripts/ImagesDocumentation/CreateImagesDocumentation.rb -g https://github.com/nunogoncalves/iOS-OctoPodium/blob/master -p /${SRCROOT} -t Scripts/ImagesDocumentation/lib/index.html.erb -s OctoPodiumTests/SnapshotTesting/Snapshots/Reference_64/\n";
 		};
 		85F86EA720782EB100639F0F /* Add Credentials files */ = {
 			isa = PBXShellScriptBuildPhase;

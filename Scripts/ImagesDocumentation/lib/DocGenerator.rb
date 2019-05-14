@@ -74,7 +74,8 @@ class DocGenerator
     end
 
     def swift_files_named name
-        Dir.glob("#{@project_path}/**/#{name}.swift")
+        Dir.chdir(project_path)
+        Dir.glob("**/#{name}.swift")
     end
 
     def create_html
@@ -86,7 +87,7 @@ class DocGenerator
 
         template = File.basename(template_file, '.erb')
 
-        File.open("#{File.dirname(template_file)}/../html/#{template}", 'w') do |f|
+        File.open("#{File.dirname(template_file)}/../output/#{template}", 'w') do |f|
             f.write(result)
         end
     end
