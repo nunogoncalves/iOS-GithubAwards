@@ -66,8 +66,8 @@ class UserRankingCell: UITableViewCell, Reusable {
     }
 
     private let starsLabel: UILabel = create {
-        $0.font = UIFont.systemFont(ofSize: 11, weight: .light)
-        $0.text = "stars"
+        $0.font = UIFont.systemFont(ofSize: 9, weight: .light)
+        $0.text = "★"
     }
 
     private var presenter: UserPresenter?
@@ -108,7 +108,8 @@ class UserRankingCell: UITableViewCell, Reusable {
 
         stackView.setCustomSpacing(13, after: userAvatarSmallImageView)
         stackView.setCustomSpacing(13, after: userAvatarBigImageView)
-        stackView.constrain(referringTo: contentView, leading: nil, trailing: -19)
+        stackView.setCustomSpacing(0, after: numberOfStarsLabel)
+        stackView.constrain(referringTo: contentView, leading: nil, trailing: -5)
     }
 
     @available(*, unavailable)

@@ -43,7 +43,7 @@
                 <% component[:images].each do |image| %>
                   <div style="padding-right: 20px; max-width: 250px">
                     <div>
-                      <p align="center"><%= image[:name] %></p>
+                      <p align="center"><%= image[:name].sub("test", "") %></p>
                     </div>
                     <img src="<%= image[:path] %>" class="component">
                   </div>

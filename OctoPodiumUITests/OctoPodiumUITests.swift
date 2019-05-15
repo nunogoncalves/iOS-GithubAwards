@@ -30,20 +30,20 @@ class OctoPodiumUITests: FBSnapshotTestCase {
 
         mainTabScreen
             .goToLanguagesScreen()
-            .verifyScreenView(with: "01LanguagesScreen")
+            .verifyScreenView(with: "01Languages")
             .goToJavascriptRanking()
-            .verifyScreenView(with: "02LanguageRankingScreen", snapshotToAppStore: true)
+            .verifyScreenView(with: "02LanguageRanking", snapshotToAppStore: true)
             .goToFacebookProfile()
-            .verifyScreenView(with: "03FacebookScreen", snapshotToAppStore: true)
+            .verifyScreenView(with: "03Facebook", snapshotToAppStore: true)
 
         mainTabScreen
             .goToTrendingScreen()
-            .verifyScreenView(with: "04TrendingScreen", snapshotToAppStore: true)
+            .verifyScreenView(with: "04Trending", snapshotToAppStore: true)
 
         mainTabScreen
             .goToSettingsScreen()
             .goToGithubAccountScreen()
             .goToAddGithubAccountScreen()
-            .verifyScreenView(with: "05AddGitHubAccountScreen", snapshotToAppStore: true)
+            .verifyScreenView(with: "05AddGitHubAccount", snapshotToAppStore: true)
     }
 }

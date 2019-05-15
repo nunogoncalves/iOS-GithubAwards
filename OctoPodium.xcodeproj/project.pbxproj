@@ -46,7 +46,6 @@
 		852F5E0D1C7E6BCA00DEE0D1 /* TestsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F5E0C1C7E6BCA00DEE0D1 /* TestsBuilder.swift */; };
 		8530ED361C60EA7F00173835 /* TrendingRepositoryDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8530ED351C60EA7F00173835 /* TrendingRepositoryDetailsController.swift */; };
 		85379A92206ED86B00CD0A4C /* UserStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85379A91206ED86B00CD0A4C /* UserStatsView.swift */; };
-		853B31B21E27F4E90028345D /* UsersController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 853B31B01E27F4E90028345D /* UsersController.xib */; };
 		853C48DF1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */; };
 		853C48E11C09A28400373A92 /* GetOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48E01C09A28400373A92 /* GetOne.swift */; };
 		853C48E31C09A35F00373A92 /* CreateBasicUserFromDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48E21C09A35F00373A92 /* CreateBasicUserFromDictionary.swift */; };
@@ -270,7 +269,6 @@
 		852F5E0C1C7E6BCA00DEE0D1 /* TestsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestsBuilder.swift; sourceTree = "<group>"; };
 		8530ED351C60EA7F00173835 /* TrendingRepositoryDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingRepositoryDetailsController.swift; sourceTree = "<group>"; };
 		85379A91206ED86B00CD0A4C /* UserStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatsView.swift; sourceTree = "<group>"; };
-		853B31B01E27F4E90028345D /* UsersController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UsersController.xib; sourceTree = "<group>"; };
 		853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertUsersDictionaryToUsers.swift; sourceTree = "<group>"; };
 		853C48E01C09A28400373A92 /* GetOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetOne.swift; sourceTree = "<group>"; };
 		853C48E21C09A35F00373A92 /* CreateBasicUserFromDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBasicUserFromDictionary.swift; sourceTree = "<group>"; };
@@ -846,7 +844,6 @@
 				85A4F0181C3F1BE4002F3405 /* CountryUsersController.swift */,
 				85A4F01C1C3F1C4D002F3405 /* UsersController.swift */,
 				85A4F0161C3F1BBB002F3405 /* WorldUsersController.swift */,
-				853B31B01E27F4E90028345D /* UsersController.xib */,
 			);
 			path = ListUsers;
 			sourceTree = "<group>";
@@ -1268,7 +1265,6 @@
 				85820F471C0E2C1A0069D085 /* GithubLoading-0.gif in Resources */,
 				8549ACC91C6C8B1F004D8149 /* TitilliumWeb-BoldItalic.ttf in Resources */,
 				8549ACD11C6C8B1F004D8149 /* TitilliumWeb-SemiBoldItalic.ttf in Resources */,
-				853B31B21E27F4E90028345D /* UsersController.xib in Resources */,
 				8549ACCB1C6C8B1F004D8149 /* TitilliumWeb-ExtraLightItalic.ttf in Resources */,
 				850485331C0FB11A004D952A /* AlertView.xib in Resources */,
 				8518908120783A8000C1C4A7 /* GoogleService-Info.plist in Resources */,
