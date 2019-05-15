@@ -100,11 +100,12 @@
 		856E395D1C60A48F00974330 /* TrendingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856E395C1C60A48F00974330 /* TrendingDataSource.swift */; };
 		85702331228AFD110006B8B4 /* LanguageCellSnapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85702330228AFD110006B8B4 /* LanguageCellSnapshots.swift */; };
 		85702333228B0F350006B8B4 /* LanguageTitleViewSnapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85702332228B0F350006B8B4 /* LanguageTitleViewSnapshots.swift */; };
+		85702339228BE6250006B8B4 /* UserCellSnapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85702338228BE6250006B8B4 /* UserCellSnapshots.swift */; };
+		8570233B228BE9540006B8B4 /* nuno.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8570233A228BE9510006B8B4 /* nuno.jpeg */; };
+		8570233D228C40AB0006B8B4 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570233C228C40AB0006B8B4 /* Helpers.swift */; };
 		857858521C7618A7009195B8 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857858511C7618A7009195B8 /* StringTests.swift */; };
 		857858541C7625CD009195B8 /* RepositoryOptionsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857858531C7625CD009195B8 /* RepositoryOptionsBuilder.swift */; };
-		857943A41C3DCC8B00824577 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 857943A31C3DCC8B00824577 /* UserCell.xib */; };
 		857943A81C3E5A8D00824577 /* UsersTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857943A71C3E5A8D00824577 /* UsersTable.swift */; };
-		857943AC1C3E5D3100824577 /* UserTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 857943AB1C3E5D3100824577 /* UserTopCell.xib */; };
 		857C48951C119307000F035C /* LanguageImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C48941C119307000F035C /* LanguageImage.swift */; };
 		857E2C331C1C37970095DCC0 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857E2C321C1C37970095DCC0 /* SearchBar.swift */; };
 		857E2C371C1C87370095DCC0 /* ConvertUsersDictionaryToUsersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857E2C361C1C87370095DCC0 /* ConvertUsersDictionaryToUsersTests.swift */; };
@@ -194,7 +195,6 @@
 		85F334112287F9F900F2C1ED /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F334102287F9F900F2C1ED /* Array.swift */; };
 		85F33413228818A600F2C1ED /* LocationRankingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F33412228818A600F2C1ED /* LocationRankingView.swift */; };
 		85F334152288D3E700F2C1ED /* LocationRankingViewSnapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F334142288D3E700F2C1ED /* LocationRankingViewSnapshots.swift */; };
-		85FA59631C15C5C00097732B /* UserTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59621C15C5C00097732B /* UserTopCell.swift */; };
 		85FA59651C1645B00097732B /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59641C1645B00097732B /* K.swift */; };
 		85FA59671C16D6660097732B /* CreateFullUserFromDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA59661C16D6660097732B /* CreateFullUserFromDictionary.swift */; };
 		85FA596B1C1739560097732B /* Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA596A1C1739560097732B /* Get.swift */; };
@@ -324,11 +324,12 @@
 		856E395C1C60A48F00974330 /* TrendingDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingDataSource.swift; sourceTree = "<group>"; };
 		85702330228AFD110006B8B4 /* LanguageCellSnapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCellSnapshots.swift; sourceTree = "<group>"; };
 		85702332228B0F350006B8B4 /* LanguageTitleViewSnapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTitleViewSnapshots.swift; sourceTree = "<group>"; };
+		85702338228BE6250006B8B4 /* UserCellSnapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellSnapshots.swift; sourceTree = "<group>"; };
+		8570233A228BE9510006B8B4 /* nuno.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nuno.jpeg; sourceTree = "<group>"; };
+		8570233C228C40AB0006B8B4 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		857858511C7618A7009195B8 /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
 		857858531C7625CD009195B8 /* RepositoryOptionsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryOptionsBuilder.swift; sourceTree = "<group>"; };
-		857943A31C3DCC8B00824577 /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		857943A71C3E5A8D00824577 /* UsersTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTable.swift; sourceTree = "<group>"; };
-		857943AB1C3E5D3100824577 /* UserTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTopCell.xib; sourceTree = "<group>"; };
 		857C48941C119307000F035C /* LanguageImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageImage.swift; sourceTree = "<group>"; };
 		857E2C321C1C37970095DCC0 /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		857E2C361C1C87370095DCC0 /* ConvertUsersDictionaryToUsersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertUsersDictionaryToUsersTests.swift; sourceTree = "<group>"; };
@@ -426,7 +427,6 @@
 		85F334102287F9F900F2C1ED /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		85F33412228818A600F2C1ED /* LocationRankingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRankingView.swift; sourceTree = "<group>"; };
 		85F334142288D3E700F2C1ED /* LocationRankingViewSnapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRankingViewSnapshots.swift; sourceTree = "<group>"; };
-		85FA59621C15C5C00097732B /* UserTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTopCell.swift; sourceTree = "<group>"; };
 		85FA59641C1645B00097732B /* K.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		85FA59661C16D6660097732B /* CreateFullUserFromDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFullUserFromDictionary.swift; sourceTree = "<group>"; };
 		85FA596A1C1739560097732B /* Get.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Get.swift; sourceTree = "<group>"; };
@@ -667,6 +667,14 @@
 			path = DataSources;
 			sourceTree = "<group>";
 		};
+		8570233E228C40B80006B8B4 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8570233C228C40AB0006B8B4 /* Helpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		857858551C7633E1009195B8 /* AlertController */ = {
 			isa = PBXGroup;
 			children = (
@@ -712,6 +720,7 @@
 		85820F3E1C0E2BDE0069D085 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8570233A228BE9510006B8B4 /* nuno.jpeg */,
 				85A9E55D1C351CAD0011DAA4 /* GithubLoading */,
 			);
 			path = Images;
@@ -759,9 +768,6 @@
 				85BBDA031C5E0BB300229ED2 /* TrendingRepositoryCell.swift */,
 				85BBDA041C5E0BB300229ED2 /* TrendingRepositoryCell.xib */,
 				85D3211D1C0211C2001B7C7A /* UserCell.swift */,
-				857943A31C3DCC8B00824577 /* UserCell.xib */,
-				85FA59621C15C5C00097732B /* UserTopCell.swift */,
-				857943AB1C3E5D3100824577 /* UserTopCell.xib */,
 			);
 			path = "Custom Cells";
 			sourceTree = "<group>";
@@ -901,6 +907,7 @@
 				85F334142288D3E700F2C1ED /* LocationRankingViewSnapshots.swift */,
 				8597FBDB22855FC700F635A0 /* MedalDisplaySnapshots.swift */,
 				8597FBE422858C5300F635A0 /* RankingCellHeaderSnapshots.swift */,
+				85702338228BE6250006B8B4 /* UserCellSnapshots.swift */,
 				852ADE57206EDE5A00C5F56C /* UserStatsViewSnapshots.swift */,
 			);
 			path = Tests;
@@ -1001,6 +1008,7 @@
 		85D321031C02062E001B7C7A /* OctoPodiumTests */ = {
 			isa = PBXGroup;
 			children = (
+				8570233E228C40B80006B8B4 /* Helpers */,
 				85AD657E206E189E00B6E8AF /* SnapshotTesting */,
 				85AD657D206E182E00B6E8AF /* UnitTesting */,
 			);
@@ -1240,7 +1248,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8549ACCF1C6C8B1F004D8149 /* TitilliumWeb-Regular.ttf in Resources */,
-				857943AC1C3E5D3100824577 /* UserTopCell.xib in Resources */,
 				85D320FA1C02062E001B7C7A /* LaunchScreen.storyboard in Resources */,
 				85D320F71C02062E001B7C7A /* Assets.xcassets in Resources */,
 				8549ACC71C6C8B1F004D8149 /* TitilliumWeb-Black.ttf in Resources */,
@@ -1251,6 +1258,7 @@
 				8549ACCD1C6C8B1F004D8149 /* TitilliumWeb-Light.ttf in Resources */,
 				852A5F522083B44400EF2BBD /* trending_repositories.html in Resources */,
 				8549ACCE1C6C8B1F004D8149 /* TitilliumWeb-LightItalic.ttf in Resources */,
+				8570233B228BE9540006B8B4 /* nuno.jpeg in Resources */,
 				85820F4D1C0E2C1A0069D085 /* GithubLoading-6.gif in Resources */,
 				85820F4C1C0E2C1A0069D085 /* GithubLoading-5.gif in Resources */,
 				85EF2E4A1CE79CBE00745A68 /* 1Password.xcassets in Resources */,
@@ -1262,7 +1270,6 @@
 				8549ACD11C6C8B1F004D8149 /* TitilliumWeb-SemiBoldItalic.ttf in Resources */,
 				853B31B21E27F4E90028345D /* UsersController.xib in Resources */,
 				8549ACCB1C6C8B1F004D8149 /* TitilliumWeb-ExtraLightItalic.ttf in Resources */,
-				857943A41C3DCC8B00824577 /* UserCell.xib in Resources */,
 				850485331C0FB11A004D952A /* AlertView.xib in Resources */,
 				8518908120783A8000C1C4A7 /* GoogleService-Info.plist in Resources */,
 				85820F4A1C0E2C1A0069D085 /* GithubLoading-3.gif in Resources */,
@@ -1621,7 +1628,6 @@
 				855825511CAB258E00851967 /* UnstarRepository.swift in Sources */,
 				857E2C331C1C37970095DCC0 /* SearchBar.swift in Sources */,
 				853F6DD02286C11100C4F4EC /* UserMocks.swift in Sources */,
-				85FA59631C15C5C00097732B /* UserTopCell.swift in Sources */,
 				85E09ED21D0AA56600752BB0 /* EmptyHeaders.swift in Sources */,
 				85D3211E1C0211C2001B7C7A /* UserCell.swift in Sources */,
 				850585851D0D57170024C6BC /* SwipeInteractionController.swift in Sources */,
@@ -1663,6 +1669,7 @@
 				8597FBDC22855FC700F635A0 /* MedalDisplaySnapshots.swift in Sources */,
 				8599284E1C0D9579000ABE8C /* LocationTypeTests.swift in Sources */,
 				859CE4BF1C2FDF3D008A7856 /* PageTests.swift in Sources */,
+				85702339228BE6250006B8B4 /* UserCellSnapshots.swift in Sources */,
 				852F5E0A1C7E1D1F00DEE0D1 /* RankingTests.swift in Sources */,
 				857858521C7618A7009195B8 /* StringTests.swift in Sources */,
 				854A404F1C3B3D16005E7FF1 /* VerifyRequestStatusTests.swift in Sources */,
@@ -1678,6 +1685,7 @@
 				8597FBE522858C5300F635A0 /* RankingCellHeaderSnapshots.swift in Sources */,
 				85A1D2D01C2EB3A800774F49 /* MockNSURLSession.swift in Sources */,
 				854A404B1C3ADCF7005E7FF1 /* NetworkStatusTests.swift in Sources */,
+				8570233D228C40AB0006B8B4 /* Helpers.swift in Sources */,
 				857E2C371C1C87370095DCC0 /* ConvertUsersDictionaryToUsersTests.swift in Sources */,
 				85A1D2D21C2EB53500774F49 /* NetworkRequesterTests.swift in Sources */,
 				852ADE58206EDE5A00C5F56C /* UserStatsViewSnapshots.swift in Sources */,

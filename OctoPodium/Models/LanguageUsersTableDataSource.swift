@@ -33,24 +33,11 @@ class LanguageUsersTableDataSource : NSObject, TableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return page.localCount
     }
-    
-    func cellIdentifier(for indexPath: IndexPath) -> String {
-        let cellType = indexPath.row < 3 ? UserTopCell.self : UserCell.self
-        return String(describing: cellType)
-    }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row < 3 {
-            let cell: UserTopCell = tableView.dequeueReusableCellFor(indexPath)
-            let user = item(at: indexPath)
-            cell.userPresenter = UserPresenter(user: user, ranking: indexPath.row + 1)
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCellFor(indexPath) as UserCell
-            cell.position = indexPath.row + 1
-            cell.user = item(at: indexPath)
-            return cell
-        }
+        let cell: UserRankingCell = tableView.dequeueReusableCellFor(indexPath)
+        cell.render(with: UserPresenter(user: item(at: indexPath), ranking: indexPath.row + 1))
+        return cell
     }
     
     func searchUsers(_ reset: Bool = false) {

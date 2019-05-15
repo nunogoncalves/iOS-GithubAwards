@@ -77,7 +77,7 @@ class SettingsController : UITableViewController {
         }
     }
     
-    func developerTwitter() {
+    @objc func developerTwitter() {
         let _ = Twitter.Follow(username: K.twitterHandle)
     }
     
@@ -86,16 +86,16 @@ class SettingsController : UITableViewController {
         Analytics.SendToGoogle.showDeveloperOnGithubEvent()
     }
     
-    func reviewOctoPodium() {
+    @objc func reviewOctoPodium() {
         Analytics.SendToGoogle.reviewInAppStoreEvent()
         Browser.openPage(URL(string: "itms-apps://itunes.apple.com/app/id\(K.appId)")!)
     }
     
-    func showOctoPodiumReadMe() {
+    @objc func showOctoPodiumReadMe() {
         Analytics.SendToGoogle.viewOctoPodiumReadMeEvent()
     }
     
-    func starOctoPodium() {
+    @objc func starOctoPodium() {
         Analytics.SendToGoogle.starOctopodiumEvent()
         GitHub.StarRepository(repoOwner: K.appOwnerName, repoName: K.appRepositoryName)
             .doStar(success: starSuccessfull, failure: starFailed)
