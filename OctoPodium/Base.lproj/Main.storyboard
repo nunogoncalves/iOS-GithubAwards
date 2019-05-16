@@ -1056,46 +1056,11 @@
                         <outlet property="loadingView" destination="IJt-Zt-Hai" id="LDY-5f-qe9"/>
                         <outlet property="starsGithubButton" destination="yoP-GI-v8A" id="fNo-pG-1KL"/>
                         <outlet property="webView" destination="qTd-WH-70g" id="bC2-pt-PaA"/>
-                        <segue destination="EqV-WG-Q1d" kind="show" identifier="ShowLanguagesInPopoverSegueNotUsed" id="tbi-yR-SZX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cs6-Rf-xzi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2998" y="1057"/>
-        </scene>
-        <!--Languages-->
-        <scene sceneID="BLh-4p-7ec">
-            <objects>
-                <viewController storyboardIdentifier="LanguagesPopoverController" id="EqV-WG-Q1d" customClass="LanguagesPopoverController" customModule="OctoPodium" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jjV-NY-frP"/>
-                        <viewControllerLayoutGuide type="bottom" id="jO9-B0-eSR"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="uwf-9z-Nct">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="BmF-Q7-aKC">
-                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="BmF-Q7-aKC" secondAttribute="trailing" id="0Af-pc-WP4"/>
-                            <constraint firstItem="BmF-Q7-aKC" firstAttribute="top" secondItem="jjV-NY-frP" secondAttribute="bottom" id="3cA-JX-ccK"/>
-                            <constraint firstItem="jO9-B0-eSR" firstAttribute="top" secondItem="BmF-Q7-aKC" secondAttribute="bottom" id="Pw0-fE-gU5"/>
-                            <constraint firstItem="BmF-Q7-aKC" firstAttribute="leading" secondItem="uwf-9z-Nct" secondAttribute="leading" id="Wjn-FX-aVm"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Languages" id="niP-nV-1ej"/>
-                    <connections>
-                        <outlet property="languagesTable" destination="BmF-Q7-aKC" id="mUL-Ht-9vv"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Smk-sk-aNU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3749" y="1058"/>
         </scene>
         <!--Add Github Account Controller-->
         <scene sceneID="pgm-im-yED">

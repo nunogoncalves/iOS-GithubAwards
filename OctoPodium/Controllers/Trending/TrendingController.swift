@@ -98,8 +98,7 @@ class TrendingController : UIViewController {
     }
     
     private func buildPopoverElements() {
-        let sb = UIStoryboard.main()
-        languagesPopoverController = sb.languagesPopoverController()
+        languagesPopoverController = LanguagesPopoverController()
         languagesPopoverController.modalPresentationStyle = .popover
         languagesPopoverController.languageSelectorDelegate = self
     }
@@ -175,16 +174,5 @@ extension TrendingController : LanguageSelectedProtocol {
     func noLanguagesAvailable() {
         popoverController?.dismiss(animated: true, completion: nil)
         Notification.shared.display(.error("No Languages to select. Check your internet connection"))
-    }
-}
-
-private extension UIStoryboard {
-    
-    static func main() -> UIStoryboard {
-        return UIStoryboard(name: "Main", bundle: nil)
-    }
-    
-    func languagesPopoverController() -> LanguagesPopoverController {
-        return instantiateViewController(withIdentifier: String(describing: LanguagesPopoverController.self)) as! LanguagesPopoverController
     }
 }
