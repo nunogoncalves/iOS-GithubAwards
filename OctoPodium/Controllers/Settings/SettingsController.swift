@@ -77,7 +77,7 @@ class SettingsController : UITableViewController {
         }
     }
     
-    func developerTwitter() {
+    @objc func developerTwitter() {
         let _ = Twitter.Follow(username: K.twitterHandle)
     }
     
@@ -86,27 +86,27 @@ class SettingsController : UITableViewController {
         Analytics.SendToGoogle.showDeveloperOnGithubEvent()
     }
     
-    func reviewOctoPodium() {
+    @objc func reviewOctoPodium() {
         Analytics.SendToGoogle.reviewInAppStoreEvent()
         Browser.openPage(URL(string: "itms-apps://itunes.apple.com/app/id\(K.appId)")!)
     }
     
-    func showOctoPodiumReadMe() {
+    @objc func showOctoPodiumReadMe() {
         Analytics.SendToGoogle.viewOctoPodiumReadMeEvent()
     }
     
-    func starOctoPodium() {
+    @objc func starOctoPodium() {
         Analytics.SendToGoogle.starOctopodiumEvent()
         GitHub.StarRepository(repoOwner: K.appOwnerName, repoName: K.appRepositoryName)
             .doStar(success: starSuccessfull, failure: starFailed)
     }
     
     private func starSuccessfull() {
-        NotifySuccess.display("OctoPodium starred successfully")
+        Notification.shared.display(.success("OctoPodium starred successfully"))
     }
     
     private func starFailed(_ apiResponse: ApiResponse) {
-        NotifyError.display(apiResponse.status.message())
+        Notification.shared.display(.error(apiResponse.status.message()))
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

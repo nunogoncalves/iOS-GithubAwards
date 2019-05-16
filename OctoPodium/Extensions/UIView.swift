@@ -16,6 +16,12 @@ func create<T: UIView>(usingAutoLayout: Bool = true, configure: (T) -> Void) -> 
 }
 
 extension UIView {
+    static var name: String {
+        return String(describing: self)
+    }
+}
+
+extension UIView {
 
     func show() {
         isHidden = false
@@ -116,6 +122,9 @@ extension UIView {
         translatesAutoresizingMaskIntoConstraints = false
         return self
     }
+}
+
+extension UIView {
 
     func pinToBounds(
         of view: UIView,
@@ -250,14 +259,14 @@ extension UIView {
         return anchor(topAnchor, equality, other, constant)
     }
 
-//    @discardableResult
-//    func top(
-//        _ equality: (Int, Int) -> (Bool),
-//        _ view: UIView,
-//        _ constant: CGFloat = 0
-//    ) -> NSLayoutConstraint {
-//        return anchor(topAnchor, equality, view.topAnchor, constant)
-//    }
+    @discardableResult
+    func top(
+        _ equality: (Int, Int) -> (Bool),
+        _ view: UIView,
+        _ constant: CGFloat = 0
+    ) -> NSLayoutConstraint {
+        return anchor(topAnchor, equality, view.topAnchor, constant)
+    }
 
     @discardableResult
     func bottom(
@@ -268,14 +277,14 @@ extension UIView {
         return anchor(bottomAnchor, equality, other, constant)
     }
 
-//    @discardableResult
-//    func bottom(
-//        _ equality: (Int, Int) -> (Bool),
-//        _ view: UIView,
-//        _ constant: CGFloat = 0
-//    ) -> NSLayoutConstraint {
-//        return anchor(bottomAnchor, equality, view.bottomAnchor, constant)
-//    }
+    @discardableResult
+    func bottom(
+        _ equality: (Int, Int) -> (Bool),
+        _ view: UIView,
+        _ constant: CGFloat = 0
+    ) -> NSLayoutConstraint {
+        return anchor(bottomAnchor, equality, view.bottomAnchor, constant)
+    }
 
     @discardableResult
     func leading(
@@ -286,23 +295,23 @@ extension UIView {
         return anchor(leadingAnchor, equality, other, constant)
     }
 
-//    @discardableResult
-//    func leading(
-//        _ equality: (Int, Int) -> (Bool),
-//        _ view: UIView,
-//        _ constant: CGFloat = 0
-//    ) -> NSLayoutConstraint {
-//        return anchor(leadingAnchor, equality, view.leadingAnchor, constant)
-//    }
+    @discardableResult
+    func leading(
+        _ equality: (Int, Int) -> (Bool),
+        _ view: UIView,
+        _ constant: CGFloat = 0
+    ) -> NSLayoutConstraint {
+        return anchor(leadingAnchor, equality, view.leadingAnchor, constant)
+    }
 
-//    @discardableResult
-//    func trailing(
-//        _ equality: (Int, Int) -> (Bool),
-//        _ view: UIView,
-//        _ constant: CGFloat = 0
-//    ) -> NSLayoutConstraint {
-//        return anchor(trailingAnchor, equality, view.trailingAnchor, constant)
-//    }
+    @discardableResult
+    func trailing(
+        _ equality: (Int, Int) -> (Bool),
+        _ view: UIView,
+        _ constant: CGFloat = 0
+    ) -> NSLayoutConstraint {
+        return anchor(trailingAnchor, equality, view.trailingAnchor, constant)
+    }
 
     @discardableResult
     func trailing(
@@ -322,14 +331,14 @@ extension UIView {
         return anchor(centerXAnchor, equality, other, constant)
     }
 
-//    @discardableResult
-//    func centerX(
-//        _ equality: (Int, Int) -> (Bool),
-//        _ view: UIView,
-//        _ constant: CGFloat = 0
-//    ) -> NSLayoutConstraint {
-//        return anchor(centerXAnchor, equality, view.centerXAnchor, constant)
-//    }
+    @discardableResult
+    func centerX(
+        _ equality: (Int, Int) -> (Bool),
+        _ view: UIView,
+        _ constant: CGFloat = 0
+    ) -> NSLayoutConstraint {
+        return anchor(centerXAnchor, equality, view.centerXAnchor, constant)
+    }
 
     @discardableResult
     func centerY(
@@ -340,14 +349,14 @@ extension UIView {
         return anchor(centerYAnchor, equality, other, constant)
     }
 
-//    @discardableResult
-//    func centerY(
-//        _ equality: (Int, Int) -> (Bool),
-//        _ view: UIView,
-//        _ constant: CGFloat = 0
-//    ) -> NSLayoutConstraint {
-//        return anchor(centerYAnchor, equality, view.centerYAnchor, constant)
-//    }
+    @discardableResult
+    func centerY(
+        _ equality: (Int, Int) -> (Bool),
+        _ view: UIView,
+        _ constant: CGFloat = 0
+    ) -> NSLayoutConstraint {
+        return anchor(centerYAnchor, equality, view.centerYAnchor, constant)
+    }
 
     func anchor<T>(
         _ anchor: NSLayoutAnchor<T>,

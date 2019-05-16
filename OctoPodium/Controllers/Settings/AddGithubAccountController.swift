@@ -33,7 +33,7 @@ class AddGithubAccountController : UIViewController {
         ) { [weak self] loginData, error in
             if let error = error {
                 if error._code == Int(AppExtensionErrorCodeCancelledByUser) {
-                    NotifyWarning.display("There was a problem loading 1Password credentials")
+                    Notification.shared.display(.warning("There was a problem loading 1Password credentials"))
                 }
             } else {
                 self?.loginTextView.text = loginData![AppExtensionUsernameKey] as? String
@@ -70,13 +70,13 @@ class AddGithubAccountController : UIViewController {
                 self.showAlertFor2FactorAuthenticationCode()
             } else {
                 if let message = apiResponse.json?["message"] as? String {
-                    NotifyError.display(message)
+                    Notification.shared.display(.error(message))
                 } else {
-                    NotifyError.display(apiResponse.status.message())
+                    Notification.shared.display(.error(apiResponse.status.message()))
                 }
             }
         } else {
-            NotifyError.display(apiResponse.status.message())
+            Notification.shared.display(.error(apiResponse.status.message()))
         }
     }
     

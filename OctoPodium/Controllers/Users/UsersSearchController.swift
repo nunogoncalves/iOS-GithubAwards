@@ -130,7 +130,7 @@ class UsersSearchController: UIViewController {
         showEyeCrosses()
         
         if apiResponse.status.isTechnicalError() {
-            NotifyError.display(apiResponse.status.message())
+            Notification.shared.display(.error(apiResponse.status.message()))
         }
     }
     

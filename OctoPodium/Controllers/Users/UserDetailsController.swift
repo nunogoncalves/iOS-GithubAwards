@@ -42,8 +42,8 @@ class UserDetailsController: UIViewController {
         guard let userPresenter = userPresenter else { return }
         guard rankings.count > 0 else { return }
         
-        let cityRanking = rankings[0].city?.rank ?? 0
-        let countryRanking = rankings[0].country?.rank ?? 0
+        let cityRanking = rankings[0].city?.position ?? 0
+        let countryRanking = rankings[0].country?.position ?? 0
         
         var ranking = cityRanking
         if countryRanking >= cityRanking {
@@ -149,7 +149,7 @@ class UserDetailsController: UIViewController {
         applyGradient()
         navigationItem.title = userPresenter!.login
         
-        rankingsTable.registerCell(RankingCell.self)
+        rankingsTable.register(RankingCell.self)
         Users.GetOne(login: userPresenter!.login).call(success: userSuccess, failure: failure)
     }
     
@@ -271,7 +271,7 @@ extension UserDetailsController {
     
     func failure(_ apiResponse: ApiResponse) {
         loadingView.isHidden = true
-        NotifyError.display()
+        Notification.shared.display(.error("Failed to get user details"))
     }
     
     private func applyReposStarsAndTrophiesLabelsFor(_ user: User) {

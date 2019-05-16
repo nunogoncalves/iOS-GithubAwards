@@ -29,7 +29,7 @@ class LanguagesController: UIViewController {
         searchBar.searchDelegate = self
         languagesTable.contentInset.top = 44
         searchLanguages()
-        languagesTable.registerReusableCell(LanguageCell.self)
+        languagesTable.register(LanguageCell.self)
         Analytics.SendToGoogle.enteredScreen(kAnalytics.languagesScreen)
     }
     
@@ -70,7 +70,7 @@ extension LanguagesController {
     fileprivate func failedToLoadLanguages(_ apiResponse: ApiResponse) {
         tryAgainButton.show()
         loadingIndicator?.hide()
-        NotifyError.display(apiResponse.status.message())
+        Notification.shared.display(.error(apiResponse.status.message()))
     }
 }
 
@@ -90,8 +90,8 @@ extension LanguagesController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: LanguageCell = tableView.dequeueReusableCellFor(indexPath)
-        cell.language = displayingLanguages[indexPath.row]
+        let cell: LanguageCell = tableView.dequeueCell(for: indexPath)
+        cell.render(with: displayingLanguages[indexPath.row])
         return cell
     }
 }

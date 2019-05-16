@@ -13,8 +13,6 @@ protocol TableViewDataSource: UITableViewDataSource {
     associatedtype PaginatedItem
 
     var page: Page<PaginatedItem> { get }
-    
-    func cellIdentifier(for indexPath: IndexPath) -> String
-    
+        
     func item(at indexPath: IndexPath) -> PaginatedItem
 }

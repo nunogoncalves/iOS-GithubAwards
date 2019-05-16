@@ -92,14 +92,13 @@ class TrendingController : UIViewController {
     }
     
     fileprivate func updateLanguageIcon() {
-        languageImageView.language = language
+        languageImageView.render(with: language)
         let image = LanguageImage.load(for: language, orLanguageImageView: languageImageView)
         languageButton.setBackgroundImage(image, for: UIControl.State())
     }
     
     private func buildPopoverElements() {
-        let sb = UIStoryboard.main()
-        languagesPopoverController = sb.languagesPopoverController()
+        languagesPopoverController = LanguagesPopoverController()
         languagesPopoverController.modalPresentationStyle = .popover
         languagesPopoverController.languageSelectorDelegate = self
     }
@@ -174,17 +173,6 @@ extension TrendingController : LanguageSelectedProtocol {
     
     func noLanguagesAvailable() {
         popoverController?.dismiss(animated: true, completion: nil)
-        NotifyError.display("No Languages to select. Check your internet connection")
-    }
-}
-
-private extension UIStoryboard {
-    
-    static func main() -> UIStoryboard {
-        return UIStoryboard(name: "Main", bundle: nil)
-    }
-    
-    func languagesPopoverController() -> LanguagesPopoverController {
-        return instantiateViewController(withIdentifier: String(describing: LanguagesPopoverController.self)) as! LanguagesPopoverController
+        Notification.shared.display(.error("No Languages to select. Check your internet connection"))
     }
 }

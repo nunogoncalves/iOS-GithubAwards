@@ -45,7 +45,7 @@ class UserPresenterTests: QuickSpec {
                 }
                 
                 it("is in podium") {
-                    XCTAssertEqual(userPresenter.isPodiumRanking(), true)
+                    XCTAssertEqual(userPresenter.isInPodium, true)
                 }
                 
                 it("has 1st place background color") {
@@ -65,7 +65,7 @@ class UserPresenterTests: QuickSpec {
                 }
 
                 it("returns gold trophy image name") {
-                    XCTAssertEqual(userPresenter.rankingImageName(), "GoldMedal", "Expected image name to be GoldMedal")
+                    XCTAssertEqual(userPresenter.rankingImageName, "GoldMedal", "Expected image name to be GoldMedal")
                 }
                 
                 it("returns login") {
@@ -84,7 +84,7 @@ class UserPresenterTests: QuickSpec {
                 }
                 
                 it("is in podium") {
-                    XCTAssertEqual(userPresenter.isPodiumRanking(), true)
+                    XCTAssertEqual(userPresenter.isInPodium, true)
                 }
                 
                 it("has 1st place background color") {
@@ -104,7 +104,7 @@ class UserPresenterTests: QuickSpec {
                 }
                 
                 it("returns silver trophy image name") {
-                    XCTAssertEqual(userPresenter.rankingImageName(), "SilverMedal", "Expected image name to be SilverMedal")
+                    XCTAssertEqual(userPresenter.rankingImageName, "SilverMedal", "Expected image name to be SilverMedal")
                 }
                 
                 it("returns login") {
@@ -123,7 +123,7 @@ class UserPresenterTests: QuickSpec {
                 }
                 
                 it("is in podium") {
-                    XCTAssertEqual(userPresenter.isPodiumRanking(), true)
+                    XCTAssertEqual(userPresenter.isInPodium, true)
                 }
                 
                 it("has 3rd place background color") {
@@ -144,7 +144,7 @@ class UserPresenterTests: QuickSpec {
                 
                 it("returns bronze trophy image name") {
                     XCTAssertEqual(
-                        userPresenter.rankingImageName(),
+                        userPresenter.rankingImageName,
                         "BronzeMedal",
                         "Expected image name to be BronzeMedal"
                     )
@@ -174,7 +174,7 @@ class UserPresenterTests: QuickSpec {
                 }
                 
                 it("is not in podium") {
-                    XCTAssertEqual(userPresenter.isPodiumRanking(), false)
+                    XCTAssertEqual(userPresenter.isInPodium, false)
                 }
                 
                 it("has 4th place background color") {
@@ -195,7 +195,7 @@ class UserPresenterTests: QuickSpec {
                 
                 it("returns regular trophy image name") {
                     XCTAssertEqual(
-                        userPresenter.rankingImageName(),
+                        userPresenter.rankingImageName,
                         nil,
                         "Expected image name to be nil")
                 }
@@ -216,7 +216,7 @@ class UserPresenterTests: QuickSpec {
                 }
                 
                 it("is not in podium") {
-                    XCTAssertEqual(userPresenter.isPodiumRanking(), false)
+                    XCTAssertEqual(userPresenter.isInPodium, false)
                 }
                 
                 it("has regular place background color") {
@@ -237,9 +237,10 @@ class UserPresenterTests: QuickSpec {
                 
                 it("returns regular trophy image name") {
                     XCTAssertEqual(
-                        userPresenter.rankingImageName(),
+                        userPresenter.rankingImageName,
                         nil,
-                        "Expected image name to be nil")
+                        "Expected image name to be nil"
+                    )
                 }
                 
                 it("returns login") {

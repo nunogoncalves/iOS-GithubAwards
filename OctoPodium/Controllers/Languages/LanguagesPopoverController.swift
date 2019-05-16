@@ -15,20 +15,34 @@ protocol LanguageSelectedProtocol: class {
 
 class LanguagesPopoverController: UIViewController {
 
-    @IBOutlet weak var languagesTable: UITableView!
-    
+    private let languagesTable: UITableView = {
+        let table = UITableView(frame: .zero, style: .plain).usingAutoLayout()
+        table.register(LanguageCell.self)
+        return table
+    }()
+
     weak var languageSelectorDelegate: LanguageSelectedProtocol?
 
     fileprivate var languages = [Language]()
 
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+
+        view.addSubview(languagesTable)
+        languagesTable.pinTo(marginsGuide: view.safeAreaLayoutGuide)
+    }
+
+    @available(*, unavailable)
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+
         languagesTable.dataSource = self
         languagesTable.delegate = self
-        
-        languagesTable.registerReusableCell(LanguageCell.self)
-        
+
         getLanguages()
     }
     
@@ -60,11 +74,8 @@ extension LanguagesPopoverController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         let cell = tableView.dequeueReusableCellFor(indexPath) as LanguageCell
-        
-        cell.language = languages[indexPath.row]
-        
+        cell.render(with: languages[indexPath.row])
         return cell
     }
 }

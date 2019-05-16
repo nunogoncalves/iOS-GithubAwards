@@ -58,31 +58,31 @@ class UserPresenter {
         var ranking = 0
         if user.rankings.count > 0 {
             let topRanking = user.rankings[0]
-            ranking = topRanking.city?.rank ?? (topRanking.country?.rank ?? topRanking.world.rank)
+            ranking = topRanking.city?.position ?? (topRanking.country?.position ?? topRanking.world.position)
         }
         self.init(user: user, ranking: ranking)
     }
     
-    func isPodiumRanking() -> Bool {
+    var isInPodium: Bool {
         return ranking < 4 && ranking > 0
     }
 
-    func rankingImageName() -> String? {
-        if isPodiumRanking() {
+    var rankingImageName: String? {
+        if isInPodium {
             return medalImages[ranking - 1]
         }
         return nil
     }
     
     func backgroundColor() -> UInt? {
-        if isPodiumRanking() {
+        if isInPodium {
             return positionColors[ranking - 1]
         }
         return nil
     }
     
     func avatarBackgroundColor() -> UInt? {
-        if isPodiumRanking() {
+        if isInPodium {
             return avatarBGColors[ranking - 1]
         }
         return nil

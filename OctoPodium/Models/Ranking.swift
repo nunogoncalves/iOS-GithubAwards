@@ -12,9 +12,6 @@ protocol RankingProtocol {
 }
 
 extension RankingProtocol {
-    @available(*, deprecated, message: "to be removed")
-    var rank: Int { return position }
-
     var description: String {
         guard position > 0 && total > 0 else { return "-/-" }
         return "\(position)/\(total)"
@@ -65,7 +62,7 @@ class Ranking {
     }
     
     var trophies: Int {
-        return [world.rank, city?.rank, country?.rank].count { $0?.inPodium == true }
+        return [world.position, city?.position, country?.position].count { $0?.inPodium == true }
     }
 }
 
