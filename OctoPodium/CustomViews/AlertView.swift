@@ -8,50 +8,62 @@
 
 import UIKit
 
-enum AlertType : UInt {
-    case error = 0xFF0000
-    case success = 0x00C10C
-    case warning = 0xF2BF00
+enum AlertType {
+
+    case error(String)
+    case success(String)
+    case warning(String)
+
+    var backgroundColor: UIColor {
+        switch self {
+        case .error: return UIColor(hex: 0xFF0000)
+        case .success: return UIColor(hex: 0x00C10C)
+        case .warning: return UIColor(hex: 0xF2BF00)
+        }
+    }
+
+    var message: String {
+        switch self {
+        case let .error(message), let .success(message), let .warning(message): return message
+        }
+    }
 }
 
-class AlertView: UIView, NibView {
-    
-    var type: String? = nil
+class AlertView: UIView {
 
-    @IBOutlet weak var view: UIView!
-    @IBOutlet weak var blurView: UIView!
-    @IBOutlet weak var messageLabel: UILabel!
-    
+    private let blurView = UIView.usingAutoLayout()
+    private let messageLabel: UILabel = create {
+        $0.font = UIFont.systemFont(ofSize: 15)
+        $0.textColor = .white
+        $0.textAlignment = .center
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        commonInit()
-    }
-    
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)!
-        commonInit()
-    }
-    
-    func afterCommonInit() {
-        view.layoutIfNeeded()
+
+        addSubview(blurView)
+        addSubview(messageLabel)
+        blurView.pinToBounds(of: self)
+        messageLabel.constrain(referringTo: self, top: nil, leading: 8, bottom: -20, trailing: -8)
+
         blurView.layoutIfNeeded()
-        view.frame = bounds
-        view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
+        autoresizingMask = [.flexibleHeight, .flexibleWidth]
+
         let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .light)) as UIVisualEffectView
         visualEffectView.frame = bounds
         visualEffectView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         visualEffectView.frame = CGRect(x: 0, y: 0, width: blurView.frame.width, height: blurView.frame.height)
-        
+
         blurView.addSubview(visualEffectView)
     }
-    
-    func setStyle(_ style: AlertType) {
-        view.backgroundColor = UIColor(hex: style.rawValue)
+
+    @available(*, unavailable)
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-    
-    func setMessage(_ message: String) {
-        messageLabel.text = message
+
+    func render(with type: AlertType) {
+        backgroundColor = type.backgroundColor
+        messageLabel.text = type.message
     }
-    
 }

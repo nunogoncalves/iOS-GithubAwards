@@ -111,7 +111,7 @@ class TrendingRepositoryDetailsController: UIViewController {
     
     fileprivate func hideLoadingAndDisplay(_ error: String) {
         loadingView.hide()
-        NotifyError.display(error)
+        Notification.shared.display(.error(error))
     }
     
     @objc private func starsButtonClicked() {
@@ -140,7 +140,7 @@ class TrendingRepositoryDetailsController: UIViewController {
                     self?.starSuccess()
                 },
                 failure: { apiResponse  in
-                    NotifyError.display("It was not possible to star the repository")
+                    Notification.shared.display(.error("It was not possible to star the repository"))
                 }
             )
     }
@@ -161,7 +161,7 @@ class TrendingRepositoryDetailsController: UIViewController {
                     self?.unstarSuccess()
                 },
                 failure: { apiResponse  in
-                    NotifyError.display("It was not possible to star the repository")
+                    Notification.shared.display(.error("It was not possible to star the repository"))
                 }
             )
     }

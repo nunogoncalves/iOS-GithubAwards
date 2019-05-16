@@ -271,7 +271,7 @@ extension UserDetailsController {
     
     func failure(_ apiResponse: ApiResponse) {
         loadingView.isHidden = true
-        NotifyError.display()
+        Notification.shared.display(.error("Failed to get user details"))
     }
     
     private func applyReposStarsAndTrophiesLabelsFor(_ user: User) {

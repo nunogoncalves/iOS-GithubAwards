@@ -174,7 +174,7 @@ extension TrendingController : LanguageSelectedProtocol {
     
     func noLanguagesAvailable() {
         popoverController?.dismiss(animated: true, completion: nil)
-        NotifyError.display("No Languages to select. Check your internet connection")
+        Notification.shared.display(.error("No Languages to select. Check your internet connection"))
     }
 }
 

@@ -102,11 +102,11 @@ class SettingsController : UITableViewController {
     }
     
     private func starSuccessfull() {
-        NotifySuccess.display("OctoPodium starred successfully")
+        Notification.shared.display(.success("OctoPodium starred successfully"))
     }
     
     private func starFailed(_ apiResponse: ApiResponse) {
-        NotifyError.display(apiResponse.status.message())
+        Notification.shared.display(.error(apiResponse.status.message()))
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

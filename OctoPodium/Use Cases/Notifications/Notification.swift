@@ -11,24 +11,20 @@ class Notification : NSObject {
     let errorDuration: TimeInterval = 0.75
     let window = UIApplication.shared.keyWindow!
  
-    static let instance = Notification()
+    static let shared = Notification()
     
     private override init() {}
     
     var isDisplaying = false
     
-    func display(_ message: String? = nil, alertType: AlertType) {
+    func display(_ alertType: AlertType) {
         if isDisplaying {
             return
         }
         isDisplaying = true
         
         let alertView = AlertView(frame: CGRect(x: 0, y: -80, width: window.width, height: 84))
-        alertView.setStyle(alertType)
-        
-        if let message = message {
-            alertView.setMessage(message)
-        }
+        alertView.render(with: alertType)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onTap(_:)))
         alertView.addGestureRecognizer(tapGesture)
@@ -36,16 +32,17 @@ class Notification : NSObject {
         window.addSubview(alertView)
         let windowWidth = window.frame.width
         
-        UIView.animate(withDuration: 0.5,
-                           delay: 0,
-                           usingSpringWithDamping: 0.4,
-                           initialSpringVelocity: 1,
-                           options: [],
-                           animations: {
-                             alertView.frame = CGRect(x: 0, y: -20, width: windowWidth, height: 84)
-                           }, completion: { _ in
-                                self.perform(#selector(self.dismiss(_:)), with: alertView, afterDelay: 1.25)
-                           }
+        UIView.animate(
+            withDuration: 0.5,
+            delay: 0,
+            usingSpringWithDamping: 0.4,
+            initialSpringVelocity: 1,
+            options: [],
+            animations: {
+                alertView.frame = CGRect(x: 0, y: -20, width: windowWidth, height: 84)
+            }, completion: { _ in
+                self.perform(#selector(self.dismiss(_:)), with: alertView, afterDelay: 1.25)
+            }
         )
     }
     
@@ -54,9 +51,12 @@ class Notification : NSObject {
     }
     
     @objc func dismiss(_ view: UIView) {
-        UIView.animate(withDuration: 0.3, animations: {
-            view.frame = view.frame.offsetBy(dx: 0, dy: -128)
-            }, completion: { [weak self] _ in
+        UIView.animate(
+            withDuration: 0.3,
+            animations: {
+                view.frame = view.frame.offsetBy(dx: 0, dy: -128)
+            },
+            completion: { [weak self] _ in
                 view.removeFromSuperview()
                 self?.isDisplaying = false
             }

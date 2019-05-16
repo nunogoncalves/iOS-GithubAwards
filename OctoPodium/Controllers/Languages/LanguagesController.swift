@@ -70,7 +70,7 @@ extension LanguagesController {
     fileprivate func failedToLoadLanguages(_ apiResponse: ApiResponse) {
         tryAgainButton.show()
         loadingIndicator?.hide()
-        NotifyError.display(apiResponse.status.message())
+        Notification.shared.display(.error(apiResponse.status.message()))
     }
 }
 

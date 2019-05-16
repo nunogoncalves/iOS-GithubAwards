@@ -89,7 +89,7 @@ class GithubAccountController : UIViewController {
         GitHub.UserInfoGetter().call(success: { user in
             self.gotUser(user)
             }, failure: { apiResponse in
-                NotifyError.display(apiResponse.status.message())
+                Notification.shared.display(.error(apiResponse.status.message()))
         })
     }
     

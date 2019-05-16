@@ -16,6 +16,12 @@ func create<T: UIView>(usingAutoLayout: Bool = true, configure: (T) -> Void) -> 
 }
 
 extension UIView {
+    static var name: String {
+        return String(describing: self)
+    }
+}
+
+extension UIView {
 
     func show() {
         isHidden = false
@@ -116,6 +122,9 @@ extension UIView {
         translatesAutoresizingMaskIntoConstraints = false
         return self
     }
+}
+
+extension UIView {
 
     func pinToBounds(
         of view: UIView,

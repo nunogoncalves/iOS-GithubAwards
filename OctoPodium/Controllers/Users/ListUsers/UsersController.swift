@@ -183,7 +183,7 @@ extension UsersController : TableStateListener {
     func failedToGetData(_ status: NetworkStatus) {
 //        stopLoadingIndicator()
         usersTable.show()
-        NotifyError.display(status.message())
+        Notification.shared.display(.error(status.message()))
     }
     
 }
