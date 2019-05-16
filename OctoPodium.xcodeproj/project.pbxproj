@@ -52,6 +52,7 @@
 		853F6DD02286C11100C4F4EC /* UserMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F6DCD2286C0C800C4F4EC /* UserMocks.swift */; };
 		853F6DD42286CA2A00C4F4EC /* GithubCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F6DD32286CA2A00C4F4EC /* GithubCredentials.swift */; };
 		854151CB228C96E3001CB015 /* AlertViewSnapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854151CA228C96E3001CB015 /* AlertViewSnapshots.swift */; };
+		854151CD228D641C001CB015 /* GithubLoadingViewSnapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854151CC228D641C001CB015 /* GithubLoadingViewSnapshots.swift */; };
 		854813A61C79059C00182C6B /* GitHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854813A51C79059C00182C6B /* GitHub.swift */; };
 		854813A81C7905D200182C6B /* StarsAndForksFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854813A71C7905D200182C6B /* StarsAndForksFetcher.swift */; };
 		85482E621C96BE0800E20FDB /* GithubStarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85482E611C96BE0800E20FDB /* GithubStarButton.swift */; };
@@ -108,7 +109,6 @@
 		857E2C371C1C87370095DCC0 /* ConvertUsersDictionaryToUsersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857E2C361C1C87370095DCC0 /* ConvertUsersDictionaryToUsersTests.swift */; };
 		857EB00C1C5951BB00C315DF /* SendToGoogle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857EB00B1C5951BB00C315DF /* SendToGoogle.swift */; };
 		85820F3C1C0E2BCE0069D085 /* GithubLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85820F3A1C0E2BCE0069D085 /* GithubLoadingView.swift */; };
-		85820F3D1C0E2BCE0069D085 /* GithubLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85820F3B1C0E2BCE0069D085 /* GithubLoadingView.xib */; };
 		85820F471C0E2C1A0069D085 /* GithubLoading-0.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85820F3F1C0E2C1A0069D085 /* GithubLoading-0.gif */; };
 		85820F481C0E2C1A0069D085 /* GithubLoading-1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85820F401C0E2C1A0069D085 /* GithubLoading-1.gif */; };
 		85820F491C0E2C1A0069D085 /* GithubLoading-2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85820F411C0E2C1A0069D085 /* GithubLoading-2.gif */; };
@@ -272,6 +272,7 @@
 		853F6DCD2286C0C800C4F4EC /* UserMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMocks.swift; sourceTree = "<group>"; };
 		853F6DD32286CA2A00C4F4EC /* GithubCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubCredentials.swift; sourceTree = "<group>"; };
 		854151CA228C96E3001CB015 /* AlertViewSnapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewSnapshots.swift; sourceTree = "<group>"; };
+		854151CC228D641C001CB015 /* GithubLoadingViewSnapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubLoadingViewSnapshots.swift; sourceTree = "<group>"; };
 		854813A51C79059C00182C6B /* GitHub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHub.swift; sourceTree = "<group>"; };
 		854813A71C7905D200182C6B /* StarsAndForksFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarsAndForksFetcher.swift; sourceTree = "<group>"; };
 		85482E611C96BE0800E20FDB /* GithubStarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubStarButton.swift; sourceTree = "<group>"; };
@@ -328,7 +329,6 @@
 		857E2C361C1C87370095DCC0 /* ConvertUsersDictionaryToUsersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertUsersDictionaryToUsersTests.swift; sourceTree = "<group>"; };
 		857EB00B1C5951BB00C315DF /* SendToGoogle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendToGoogle.swift; sourceTree = "<group>"; };
 		85820F3A1C0E2BCE0069D085 /* GithubLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubLoadingView.swift; sourceTree = "<group>"; };
-		85820F3B1C0E2BCE0069D085 /* GithubLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GithubLoadingView.xib; sourceTree = "<group>"; };
 		85820F3F1C0E2C1A0069D085 /* GithubLoading-0.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "GithubLoading-0.gif"; sourceTree = "<group>"; };
 		85820F401C0E2C1A0069D085 /* GithubLoading-1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "GithubLoading-1.gif"; sourceTree = "<group>"; };
 		85820F411C0E2C1A0069D085 /* GithubLoading-2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "GithubLoading-2.gif"; sourceTree = "<group>"; };
@@ -694,7 +694,6 @@
 				85A731811C95F900002C721B /* GithubButton.xib */,
 				85482E631C96BF9A00E20FDB /* GithubForkButton.swift */,
 				85820F3A1C0E2BCE0069D085 /* GithubLoadingView.swift */,
-				85820F3B1C0E2BCE0069D085 /* GithubLoadingView.xib */,
 				85482E611C96BE0800E20FDB /* GithubStarButton.swift */,
 				85AF8AFA1C445EAD0022D97F /* LanguageImageView.swift */,
 				85B501841C10FD8400BBFD56 /* LanguageTitleView.swift */,
@@ -889,6 +888,7 @@
 			children = (
 				854151CA228C96E3001CB015 /* AlertViewSnapshots.swift */,
 				85AD6581206E19DA00B6E8AF /* GithubButtonSnapshots.swift */,
+				854151CC228D641C001CB015 /* GithubLoadingViewSnapshots.swift */,
 				85702330228AFD110006B8B4 /* LanguageCellSnapshots.swift */,
 				85CF076D228AA28F0029CAD9 /* LanguageImageViewSnapshots.swift */,
 				85702332228B0F350006B8B4 /* LanguageTitleViewSnapshots.swift */,
@@ -1241,7 +1241,6 @@
 				8549ACC71C6C8B1F004D8149 /* TitilliumWeb-Black.ttf in Resources */,
 				85820F4E1C0E2C1A0069D085 /* GithubLoading-7.gif in Resources */,
 				85820F481C0E2C1A0069D085 /* GithubLoading-1.gif in Resources */,
-				85820F3D1C0E2BCE0069D085 /* GithubLoadingView.xib in Resources */,
 				8549ACC81C6C8B1F004D8149 /* TitilliumWeb-Bold.ttf in Resources */,
 				8549ACCD1C6C8B1F004D8149 /* TitilliumWeb-Light.ttf in Resources */,
 				852A5F522083B44400EF2BBD /* trending_repositories.html in Resources */,
@@ -1671,6 +1670,7 @@
 				8570233D228C40AB0006B8B4 /* Helpers.swift in Sources */,
 				857E2C371C1C87370095DCC0 /* ConvertUsersDictionaryToUsersTests.swift in Sources */,
 				85A1D2D21C2EB53500774F49 /* NetworkRequesterTests.swift in Sources */,
+				854151CD228D641C001CB015 /* GithubLoadingViewSnapshots.swift in Sources */,
 				852ADE58206EDE5A00C5F56C /* UserStatsViewSnapshots.swift in Sources */,
 				854151CB228C96E3001CB015 /* AlertViewSnapshots.swift in Sources */,
 				852F5E0D1C7E6BCA00DEE0D1 /* TestsBuilder.swift in Sources */,

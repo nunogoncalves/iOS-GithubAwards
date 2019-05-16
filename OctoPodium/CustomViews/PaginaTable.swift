@@ -46,7 +46,7 @@ class PaginaTable: UITableView {
     
     private func addLoadingViewToRefreshControl() {
         loadingView = GithubLoadingView(frame: refreshController.bounds)
-        refreshController.addSubview(loadingView.view)
+        refreshController.addSubview(loadingView)
     }
     
     private func addRefreshControl() {
@@ -60,7 +60,7 @@ class PaginaTable: UITableView {
         } else {
             let y = contentOffset.y
             let perc = y * 100 / 220
-            loadingView.setStaticWith(Int(abs(perc)), offset: y)
+            loadingView.fix(at: Int(abs(perc)), offset: y)
         }
     }
     

@@ -8,69 +8,70 @@
 
 import UIKit
 
-class GithubLoadingView: UIView, NibView {
+class GithubLoadingView: UIView {
 
-    var type: String? = nil
-    @IBOutlet weak var view: UIView!
-    @IBOutlet weak var loadingIndicatorImageView: UIImageView!
-    @IBOutlet weak var staticImage: UIImageView!
+    private let animatedImageView = UIImageView.usingAutoLayout()
+    private let staticImageView = UIImageView.usingAutoLayout()
     
-    private let images = [
-        UIImage(named: "GithubLoading-0.gif")!,
-        UIImage(named: "GithubLoading-1.gif")!,
-        UIImage(named: "GithubLoading-2.gif")!,
-        UIImage(named: "GithubLoading-3.gif")!,
-        UIImage(named: "GithubLoading-4.gif")!,
-        UIImage(named: "GithubLoading-5.gif")!,
-        UIImage(named: "GithubLoading-6.gif")!,
-        UIImage(named: "GithubLoading-7.gif")!,
-    ]
+    private let images = (0...7).map { UIImage(named: "GithubLoading-\($0).gif")! }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+
         commonInit()
-        view.frame = frame
-    }
-    
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)!
-        commonInit()
-        view.frame = bounds
-    }
-    
-    func afterCommonInit() {
-        view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
-        staticImage.isHidden = true
-        
+
+        staticImageView.isHidden = true
         setAnimation()
     }
-    
-    private func setAnimation() {
-        loadingIndicatorImageView.image = images[0]
-        loadingIndicatorImageView.animationImages = images
-        loadingIndicatorImageView.animationDuration = 0.75
-        loadingIndicatorImageView.startAnimating()
+
+    @available(*, unavailable)
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+
+        staticImageView.isHidden = true
+        setAnimation()
     }
 
-    func setStaticWith(_ percentage: Int, offset: CGFloat) {
+    private func commonInit() {
+        [animatedImageView, staticImageView].forEach {
+            addSubview($0)
+
+            UIView.set($0.widthAnchor, 30)
+            UIView.set($0.heightAnchor, 30)
+
+            $0.centerX(==, self)
+            $0.centerY(==, self)
+        }
+    }
+
+    private func setAnimation() {
+        animatedImageView.image = images[0]
+        animatedImageView.animationImages = images
+        animatedImageView.animationDuration = 0.75
+        animatedImageView.startAnimating()
+    }
+
+    func fix(at percentage: Int, offset: CGFloat) {
         
-        staticImage.show()
+        staticImageView.show()
         
-        staticImage.isHidden = abs(offset) < 30
-        loadingIndicatorImageView.isHidden = abs(offset) < 30
+        staticImageView.isHidden = abs(offset) < 30
+        animatedImageView.isHidden = abs(offset) < 30
         
         var x = (100 / images.count) * percentage / 100
         if x > 7 { x = 7 }
-        staticImage.image = images[x]
+        staticImageView.image = images[x]
     }
     
     func stop() {
-        staticImage.show()
+        staticImageView.show()
+        animatedImageView.stopAnimating()
     }
-    
+
     func setLoading() {
-        staticImage.hide()
+        staticImageView.hide()
+        animatedImageView.startAnimating()
     }
     
 }

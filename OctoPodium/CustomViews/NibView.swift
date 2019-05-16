@@ -26,7 +26,6 @@ extension NibView where Self : UIView {
         afterCommonInit()
     }
     
-    
     private func loadViewFromNib() {
         if let type = type {
             Bundle.main.loadNibNamed(type, owner: self, options: nil)
