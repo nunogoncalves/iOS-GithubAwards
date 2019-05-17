@@ -8,94 +8,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Languages-->
-        <scene sceneID="f38-4K-jRK">
-            <objects>
-                <viewController storyboardIdentifier="LanguagesController" id="gza-o9-9bA" customClass="LanguagesController" customModule="OctoPodium" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Bnq-0K-UDK"/>
-                        <viewControllerLayoutGuide type="bottom" id="2XL-SE-Yyp"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Jq3-3W-WTg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IOW-bw-wLx" customClass="GithubLoadingView" customModule="OctoPodium" customModuleProvider="target">
-                                <rect key="frame" x="142.66666666666666" y="361" width="90" height="90"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="IDo-2Y-jtR"/>
-                                    <constraint firstAttribute="height" constant="90" id="xLb-MG-6wG"/>
-                                </constraints>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDn-g3-b3A">
-                                <rect key="frame" x="0.0" y="-12" width="375" height="839"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="gza-o9-9bA" id="dPt-5m-5c0"/>
-                                    <outlet property="delegate" destination="gza-o9-9bA" id="RDA-g7-TRx"/>
-                                </connections>
-                            </tableView>
-                            <searchBar contentMode="redraw" placeholder="Filter" translatesAutoresizingMaskIntoConstraints="NO" id="AAR-44-pJD" customClass="SearchBar" customModule="OctoPodium" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                                <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="WgZ-Lf-ea1"/>
-                                </constraints>
-                                <color key="tintColor" red="0.56470588239999997" green="0.56470588239999997" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="barTintColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
-                            </searchBar>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Le-Wb-FvH">
-                                <rect key="frame" x="156" y="149" width="63" height="30"/>
-                                <state key="normal" title="Try again"/>
-                                <connections>
-                                    <action selector="tryAgainClicked" destination="gza-o9-9bA" eventType="touchUpInside" id="Hsu-7u-RTc"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="jDn-g3-b3A" firstAttribute="top" secondItem="AAR-44-pJD" secondAttribute="bottom" id="7bb-pD-b6r"/>
-                            <constraint firstItem="jDn-g3-b3A" firstAttribute="top" secondItem="Bnq-0K-UDK" secondAttribute="bottom" constant="-56" id="HQe-7t-0MQ"/>
-                            <constraint firstItem="AAR-44-pJD" firstAttribute="top" secondItem="Bnq-0K-UDK" secondAttribute="bottom" id="HVo-qV-JcL"/>
-                            <constraint firstAttribute="trailing" secondItem="jDn-g3-b3A" secondAttribute="trailing" id="PZQ-v4-4D3"/>
-                            <constraint firstItem="AAR-44-pJD" firstAttribute="leading" secondItem="Jq3-3W-WTg" secondAttribute="leading" id="Thi-B6-yK3"/>
-                            <constraint firstAttribute="trailing" secondItem="AAR-44-pJD" secondAttribute="trailing" id="alm-sr-egy"/>
-                            <constraint firstItem="jDn-g3-b3A" firstAttribute="top" secondItem="Jq3-3W-WTg" secondAttribute="top" id="dIY-Gj-9Jk"/>
-                            <constraint firstItem="IOW-bw-wLx" firstAttribute="centerY" secondItem="jDn-g3-b3A" secondAttribute="centerY" id="e3g-wf-alS"/>
-                            <constraint firstItem="2XL-SE-Yyp" firstAttribute="top" secondItem="AAR-44-pJD" secondAttribute="bottom" constant="169" id="fkh-RZ-jNY"/>
-                            <constraint firstItem="IOW-bw-wLx" firstAttribute="centerX" secondItem="jDn-g3-b3A" secondAttribute="centerX" id="hD4-mi-fiY"/>
-                            <constraint firstItem="jDn-g3-b3A" firstAttribute="leading" secondItem="Jq3-3W-WTg" secondAttribute="leading" id="hut-O1-4be"/>
-                            <constraint firstItem="7Le-Wb-FvH" firstAttribute="centerX" secondItem="jDn-g3-b3A" secondAttribute="centerX" id="imm-Gr-cb9"/>
-                            <constraint firstItem="jDn-g3-b3A" firstAttribute="top" secondItem="Bnq-0K-UDK" secondAttribute="bottom" id="kw3-99-xnl"/>
-                            <constraint firstItem="jDn-g3-b3A" firstAttribute="bottom" secondItem="2XL-SE-Yyp" secondAttribute="top" constant="49" id="trk-SR-X8u"/>
-                            <constraint firstItem="2XL-SE-Yyp" firstAttribute="top" secondItem="jDn-g3-b3A" secondAttribute="bottom" constant="-49" id="vMY-fe-EPC"/>
-                            <constraint firstItem="IOW-bw-wLx" firstAttribute="centerY" secondItem="Jq3-3W-WTg" secondAttribute="centerY" id="z34-sg-opQ"/>
-                            <constraint firstItem="jDn-g3-b3A" firstAttribute="top" secondItem="7Le-Wb-FvH" secondAttribute="bottom" constant="-191" id="z36-6C-DCI"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="7bb-pD-b6r"/>
-                                <exclude reference="dIY-Gj-9Jk"/>
-                                <exclude reference="kw3-99-xnl"/>
-                                <exclude reference="trk-SR-X8u"/>
-                                <exclude reference="e3g-wf-alS"/>
-                                <exclude reference="fkh-RZ-jNY"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <navigationItem key="navigationItem" title="Languages" id="HCk-6x-duK"/>
-                    <connections>
-                        <outlet property="languagesTable" destination="jDn-g3-b3A" id="kEG-sa-Mha"/>
-                        <outlet property="loadingIndicator" destination="IOW-bw-wLx" id="o0y-Nv-0nr"/>
-                        <outlet property="searchBar" destination="AAR-44-pJD" id="nnm-94-zvL"/>
-                        <outlet property="tryAgainButton" destination="7Le-Wb-FvH" id="LPz-x9-M2l"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gtS-g7-kZV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1458" y="-960"/>
-        </scene>
         <!--Swift - Lisbon-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -822,7 +734,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1274" y="903"/>
+            <point key="canvasLocation" x="2825" y="715"/>
         </scene>
         <!--Trending-->
         <scene sceneID="cA7-ah-6OM">
@@ -869,7 +781,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0NP-b2-o3k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2529" y="1057"/>
+            <point key="canvasLocation" x="4527" y="-507"/>
         </scene>
         <!--Repository Details Controller-->
         <scene sceneID="Gup-Bs-6Ci">
@@ -1017,7 +929,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cs6-Rf-xzi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3690" y="1057"/>
+            <point key="canvasLocation" x="5254" y="-508"/>
         </scene>
         <!--Add Github Account Controller-->
         <scene sceneID="pgm-im-yED">
@@ -1199,7 +1111,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J21-Qa-3YC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2276" y="-161"/>
+            <point key="canvasLocation" x="1234" y="136"/>
         </scene>
         <!--Country Users Controller-->
         <scene sceneID="ow8-eg-dOK">
@@ -1300,7 +1212,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nyq-K5-hLU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3670" y="-959"/>
+            <point key="canvasLocation" x="3625" y="-961"/>
         </scene>
         <!--City Users Controller-->
         <scene sceneID="GVf-cH-dI1">
@@ -1401,7 +1313,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c4C-3H-ScX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1274" y="235"/>
+            <point key="canvasLocation" x="2273" y="-192"/>
         </scene>
         <!--Github Account-->
         <scene sceneID="gcS-4W-s7B">
@@ -1917,6 +1829,6 @@
         <image name="X" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PF5-Nm-xyF"/>
+        <segue reference="82b-ih-YU7"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -25,7 +25,6 @@ extension UIStoryboard {
     }
     
     func controller<T: UIViewController>(_ controller: T.Type) -> T {
-        print(String(describing: controller))
         return instantiateViewController(withIdentifier: String(describing: controller)) as! T
     }
     

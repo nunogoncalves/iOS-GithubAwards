@@ -21,8 +21,7 @@ class MainCoordinator: Coordinator {
     }
 
     func start() {
-        let languagesController = UIStoryboard(storyboard: .main).controller(LanguagesController.self)
-        languagesController.coordinator = self
+        let languagesController = LanguagesController(coordinator: self)
         navigationController.pushViewController(languagesController, animated: false)
     }
 
