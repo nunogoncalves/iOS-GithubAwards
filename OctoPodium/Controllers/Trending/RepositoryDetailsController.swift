@@ -1,5 +1,5 @@
 //
-//  TrendingRepositoryDetailsController.swift
+//  RepositoryDetailsController.swift
 //  OctoPodium
 //
 //  Created by Nuno Gonçalves on 02/02/16.
@@ -16,7 +16,7 @@ private enum StarState {
     
 }
 
-class TrendingRepositoryDetailsController: UIViewController {
+class RepositoryDetailsController: UIViewController {
 
     @IBOutlet weak var starsGithubButton: GithubStarButton!
     @IBOutlet weak var forksGithubButton: GithubForkButton!
@@ -27,14 +27,14 @@ class TrendingRepositoryDetailsController: UIViewController {
     var repository: Repository?
     
     private var starState = StarState.undefined
-    
+
     override func viewDidLoad() {
         webView.navigationDelegate = self
         navigationItem.title = repository?.name
         loadWebView()
         fetchStarsAndForks()
         checkIfIsStarted()
-        Analytics.SendToGoogle.enteredScreen(String(describing: type(of: TrendingRepositoryDetailsController.self)))
+        Analytics.SendToGoogle.enteredScreen(String(describing: type(of: self)))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(showRepoOptions))
         
         let githubButtonsFrame = CGRect(x: 0, y: 0, width: 138, height: 33)
@@ -175,7 +175,7 @@ class TrendingRepositoryDetailsController: UIViewController {
     }
 }
 
-extension TrendingRepositoryDetailsController : WKNavigationDelegate {
+extension RepositoryDetailsController : WKNavigationDelegate {
 
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         animateLoadingToCorner()

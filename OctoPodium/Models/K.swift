@@ -63,9 +63,7 @@ struct K {
         }
     }
     
-    struct Segues {
-        static let showLanguageRankingSegue = "ShowLanguageRankingSegue"
-        
+    struct Segues {        
         static let userDetailsSegue = "UserDetailsSegue"
         
         static let worldUsersSegue = "WorldUsersSegue"
@@ -77,8 +75,6 @@ struct K {
         static let showTrendingRepositoryDetailsSegue = "ShowTrendingRepositoryDetailsSegue"
         
         static let goToLoginSegue = "GoToLoginSegue"
-        
-        static let gotToTrendingDetailsFromSettingsSegue = "ShowOctoPodiumDetailsSegue"
     }
     
     struct Timeouts {

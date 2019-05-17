@@ -30,7 +30,9 @@ class UsersSearchController: UIViewController {
     var user: User?
     
     let userMovementAnimationDuration: TimeInterval = 0.3
-    
+
+    weak var coordinator: UsersCoordinator?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         searchField.searchDelegate = self

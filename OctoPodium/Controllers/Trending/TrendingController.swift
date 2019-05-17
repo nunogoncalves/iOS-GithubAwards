@@ -30,7 +30,9 @@ class TrendingController : UIViewController {
     
     fileprivate var language = ""
     private var isSearching = false
-    
+
+    weak var coordinator: TrendingCoordinator?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         Analytics.SendToGoogle.enteredScreen(String(describing: TrendingController.self))
@@ -153,7 +155,7 @@ class TrendingController : UIViewController {
         }
         
         if segue.identifier == kSegues.showTrendingRepositoryDetailsSegue {
-            let vc = segue.destination as! TrendingRepositoryDetailsController
+            let vc = segue.destination as! RepositoryDetailsController
             vc.repository = selectedRepository
         }
     }

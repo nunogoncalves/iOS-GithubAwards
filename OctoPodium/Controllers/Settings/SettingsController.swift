@@ -15,6 +15,8 @@ class SettingsController : UITableViewController {
     @IBOutlet weak var versionLabel: UILabel!
     
     @IBOutlet weak var animationsSwitch: UISwitch!
+
+    weak var coordinator: SettingsCoordinator?
     
     @IBAction func animationsSwitchToggled(_ animationsSwitch: UISwitch) {
         if animationsSwitch.isOn {
@@ -36,11 +38,13 @@ class SettingsController : UITableViewController {
         super.viewWillAppear(animated)
         if let user = User.inUserDefaults {
             userLabel.text = user.login
+            userImage.cornerRadius = 22
             userImage.fetchAndLoad(user.avatarUrl) {
                 self.tableView.reloadData()
             }
         } else {
             userImage.image = UIImage(named: "GitHub")
+            userImage.cornerRadius = 0
             userLabel.text = ""
         }
     }
@@ -50,7 +54,7 @@ class SettingsController : UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        if (indexPath as NSIndexPath).section == 1 && (indexPath as NSIndexPath).row == 4 {
+        if indexPath.section == 1 && indexPath.row == 4 {
             tableView.deselectRow(at: indexPath, animated: false)
             return nil
         }
@@ -58,22 +62,22 @@ class SettingsController : UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSelectorBasedOn(indexPath)
+        performSelector(basedOn: indexPath)
     }
     
     let indexPathSelectors = [
-        "section1row1" : "showOctoPodiumReadMe",
-        "section1row2" : "starOctoPodium",
-        "section1row3" : "reviewOctoPodium",
+        "section1row1" : #selector(showOctoPodiumReadMe),
+        "section1row2" : #selector(starOctoPodium),
+        "section1row3" : #selector(reviewOctoPodium),
         
-        "section2row0" : "developerTwitter",
-        "section2row1" : "developerGithub",
+        "section2row0" : #selector(developerTwitter),
+        "section2row1" : #selector(developerGithub),
     ]
     
-    func performSelectorBasedOn(_ indexPath: IndexPath) {
-        let key = "section\((indexPath as NSIndexPath).section)row\((indexPath as NSIndexPath).row)"
+    func performSelector(basedOn indexPath: IndexPath) {
+        let key = "section\(indexPath.section)row\(indexPath.row)"
         if let selector = indexPathSelectors[key] {
-            perform(Selector(selector))
+            perform(selector)
         }
     }
     
@@ -81,7 +85,7 @@ class SettingsController : UITableViewController {
         let _ = Twitter.Follow(username: K.twitterHandle)
     }
     
-    func developerGithub() {
+    @objc func developerGithub() {
         Browser.openPage(K.appOwnerGithub)
         Analytics.SendToGoogle.showDeveloperOnGithubEvent()
     }
@@ -93,28 +97,26 @@ class SettingsController : UITableViewController {
     
     @objc func showOctoPodiumReadMe() {
         Analytics.SendToGoogle.viewOctoPodiumReadMeEvent()
+        let repository = Repository(
+            name: "\(K.appOwnerName)/\(K.appRepositoryName)",
+            stars: "0",
+            description: "",
+            language: "Swift"
+        )
+        coordinator?.showDetails(of: repository)
     }
-    
+
     @objc func starOctoPodium() {
         Analytics.SendToGoogle.starOctopodiumEvent()
         GitHub.StarRepository(repoOwner: K.appOwnerName, repoName: K.appRepositoryName)
             .doStar(success: starSuccessfull, failure: starFailed)
     }
-    
+
     private func starSuccessfull() {
         Notification.shared.display(.success("OctoPodium starred successfully"))
     }
-    
+
     private func starFailed(_ apiResponse: ApiResponse) {
         Notification.shared.display(.error(apiResponse.status.message()))
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       
-        if segue.identifier == kSegues.gotToTrendingDetailsFromSettingsSegue {
-            let vc = segue.destination as! TrendingRepositoryDetailsController
-            vc.repository = Repository(name: "\(K.appOwnerName)/\(K.appRepositoryName)", stars: "0", description: "", language: "Swift")
-        }
-    }
-    
 }

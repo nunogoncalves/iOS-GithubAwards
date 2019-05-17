@@ -43,7 +43,7 @@
 		852ADE59206EDF3000C5F56C /* NewGithubButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D17565206E251100A4E5E0 /* NewGithubButton.swift */; };
 		852F5E0A1C7E1D1F00DEE0D1 /* RankingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F5E091C7E1D1F00DEE0D1 /* RankingTests.swift */; };
 		852F5E0D1C7E6BCA00DEE0D1 /* TestsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F5E0C1C7E6BCA00DEE0D1 /* TestsBuilder.swift */; };
-		8530ED361C60EA7F00173835 /* TrendingRepositoryDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8530ED351C60EA7F00173835 /* TrendingRepositoryDetailsController.swift */; };
+		8530ED361C60EA7F00173835 /* RepositoryDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8530ED351C60EA7F00173835 /* RepositoryDetailsController.swift */; };
 		85379A92206ED86B00CD0A4C /* UserStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85379A91206ED86B00CD0A4C /* UserStatsView.swift */; };
 		853C48DF1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */; };
 		853C48E11C09A28400373A92 /* GetOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48E01C09A28400373A92 /* GetOne.swift */; };
@@ -53,6 +53,13 @@
 		853F6DD42286CA2A00C4F4EC /* GithubCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F6DD32286CA2A00C4F4EC /* GithubCredentials.swift */; };
 		854151CB228C96E3001CB015 /* AlertViewSnapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854151CA228C96E3001CB015 /* AlertViewSnapshots.swift */; };
 		854151CD228D641C001CB015 /* GithubLoadingViewSnapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854151CC228D641C001CB015 /* GithubLoadingViewSnapshots.swift */; };
+		854151CF228E7E05001CB015 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854151CE228E7E05001CB015 /* MainTabBarController.swift */; };
+		854151D2228E7F87001CB015 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854151D1228E7F87001CB015 /* Router.swift */; };
+		854151D4228E8247001CB015 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854151D3228E8247001CB015 /* MainCoordinator.swift */; };
+		854151D6228E8251001CB015 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854151D5228E8251001CB015 /* Coordinator.swift */; };
+		854151D8228E829D001CB015 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854151D7228E829D001CB015 /* SettingsCoordinator.swift */; };
+		854151DA228E82AD001CB015 /* TrendingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854151D9228E82AD001CB015 /* TrendingCoordinator.swift */; };
+		854151DC228E82BB001CB015 /* UsersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854151DB228E82BB001CB015 /* UsersCoordinator.swift */; };
 		854813A61C79059C00182C6B /* GitHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854813A51C79059C00182C6B /* GitHub.swift */; };
 		854813A81C7905D200182C6B /* StarsAndForksFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854813A71C7905D200182C6B /* StarsAndForksFetcher.swift */; };
 		85482E621C96BE0800E20FDB /* GithubStarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85482E611C96BE0800E20FDB /* GithubStarButton.swift */; };
@@ -263,7 +270,7 @@
 		852ADE57206EDE5A00C5F56C /* UserStatsViewSnapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatsViewSnapshots.swift; sourceTree = "<group>"; };
 		852F5E091C7E1D1F00DEE0D1 /* RankingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTests.swift; sourceTree = "<group>"; };
 		852F5E0C1C7E6BCA00DEE0D1 /* TestsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestsBuilder.swift; sourceTree = "<group>"; };
-		8530ED351C60EA7F00173835 /* TrendingRepositoryDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingRepositoryDetailsController.swift; sourceTree = "<group>"; };
+		8530ED351C60EA7F00173835 /* RepositoryDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryDetailsController.swift; sourceTree = "<group>"; };
 		85379A91206ED86B00CD0A4C /* UserStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatsView.swift; sourceTree = "<group>"; };
 		853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertUsersDictionaryToUsers.swift; sourceTree = "<group>"; };
 		853C48E01C09A28400373A92 /* GetOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetOne.swift; sourceTree = "<group>"; };
@@ -273,6 +280,13 @@
 		853F6DD32286CA2A00C4F4EC /* GithubCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubCredentials.swift; sourceTree = "<group>"; };
 		854151CA228C96E3001CB015 /* AlertViewSnapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewSnapshots.swift; sourceTree = "<group>"; };
 		854151CC228D641C001CB015 /* GithubLoadingViewSnapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubLoadingViewSnapshots.swift; sourceTree = "<group>"; };
+		854151CE228E7E05001CB015 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		854151D1228E7F87001CB015 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		854151D3228E8247001CB015 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		854151D5228E8251001CB015 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		854151D7228E829D001CB015 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		854151D9228E82AD001CB015 /* TrendingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCoordinator.swift; sourceTree = "<group>"; };
+		854151DB228E82BB001CB015 /* UsersCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersCoordinator.swift; sourceTree = "<group>"; };
 		854813A51C79059C00182C6B /* GitHub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHub.swift; sourceTree = "<group>"; };
 		854813A71C7905D200182C6B /* StarsAndForksFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarsAndForksFetcher.swift; sourceTree = "<group>"; };
 		85482E611C96BE0800E20FDB /* GithubStarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubStarButton.swift; sourceTree = "<group>"; };
@@ -543,6 +557,19 @@
 			path = DictionaryModelMappers;
 			sourceTree = "<group>";
 		};
+		854151D0228E7F76001CB015 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				854151D1228E7F87001CB015 /* Router.swift */,
+				854151D3228E8247001CB015 /* MainCoordinator.swift */,
+				854151D5228E8251001CB015 /* Coordinator.swift */,
+				854151D7228E829D001CB015 /* SettingsCoordinator.swift */,
+				854151D9228E82AD001CB015 /* TrendingCoordinator.swift */,
+				854151DB228E82BB001CB015 /* UsersCoordinator.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		8549ACBB1C6C8B10004D8149 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -586,7 +613,7 @@
 			isa = PBXGroup;
 			children = (
 				85BBD9F61C5C2DCD00229ED2 /* TrendingController.swift */,
-				8530ED351C60EA7F00173835 /* TrendingRepositoryDetailsController.swift */,
+				8530ED351C60EA7F00173835 /* RepositoryDetailsController.swift */,
 			);
 			path = Trending;
 			sourceTree = "<group>";
@@ -938,6 +965,7 @@
 				854B5B951CA6E71F0070A456 /* Settings */,
 				854B5B971CA6E73B0070A456 /* Trending */,
 				854B5B961CA6E7330070A456 /* Users */,
+				854151CE228E7E05001CB015 /* MainTabBarController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -983,6 +1011,7 @@
 				85820F391C0E2B900069D085 /* CustomViews */,
 				8599284F1C0DAB0E000ABE8C /* Extensions */,
 				85AFEC1C1C046898006FC129 /* Models */,
+				854151D0228E7F76001CB015 /* Navigation */,
 				85FC70641C244C4900971081 /* Presenters */,
 				858B910A1C085A3300B510B3 /* Resources */,
 				858B91091C0859F900B510B3 /* Supporting Files */,
@@ -1543,6 +1572,7 @@
 				85F334112287F9F900F2C1ED /* Array.swift in Sources */,
 				85BBDA021C5D1BDE00229ED2 /* CreateListFromHTML.swift in Sources */,
 				854B5BA21CA718F30070A456 /* GithubToken.swift in Sources */,
+				854151D8228E829D001CB015 /* SettingsCoordinator.swift in Sources */,
 				85AF8AFB1C445EAD0022D97F /* LanguageImageView.swift in Sources */,
 				85D321251C022480001B7C7A /* UserDetailsController.swift in Sources */,
 				855825491CAA75C900851967 /* StarChecker.swift in Sources */,
@@ -1551,11 +1581,13 @@
 				85E389D21C6A307900C68813 /* LanguagesPopoverController.swift in Sources */,
 				856A72E71C12509F008415A4 /* LanguageCell.swift in Sources */,
 				853F6DCF2286C10D00C4F4EC /* LanguageMocks.swift in Sources */,
-				8530ED361C60EA7F00173835 /* TrendingRepositoryDetailsController.swift in Sources */,
+				8530ED361C60EA7F00173835 /* RepositoryDetailsController.swift in Sources */,
 				8597FBDF2285847F00F635A0 /* Medals.swift in Sources */,
 				85E09EDB1D0AC49100752BB0 /* ConfigureImagesCache.swift in Sources */,
 				85EF2E3E1CE71D7B00745A68 /* NibView.swift in Sources */,
+				854151D2228E7F87001CB015 /* Router.swift in Sources */,
 				85E6566F1C1352C600BB4278 /* PaginaTable.swift in Sources */,
+				854151D4228E8247001CB015 /* MainCoordinator.swift in Sources */,
 				8599284C1C0D9436000ABE8C /* LocationType.swift in Sources */,
 				85198B761C05CE6C007ACC73 /* LanguagesController.swift in Sources */,
 				85D3B80C1CA80A130004D276 /* SettingsController.swift in Sources */,
@@ -1567,6 +1599,7 @@
 				855825431CA9BD3000851967 /* CofigureGoogleAnalytics.swift in Sources */,
 				85D3B80A1CA7DF020004D276 /* HTTPMethod.swift in Sources */,
 				85E8CC491C3AAE5A001B4129 /* NetworkStatus.swift in Sources */,
+				854151DA228E82AD001CB015 /* TrendingCoordinator.swift in Sources */,
 				85BBD9F91C5CA61000229ED2 /* Repository.swift in Sources */,
 				85E09ECC1D0A9CA600752BB0 /* HTTPPutter.swift in Sources */,
 				85FF11592284080B00D8B0D1 /* TweetBot.swift in Sources */,
@@ -1579,6 +1612,7 @@
 				854813A61C79059C00182C6B /* GitHub.swift in Sources */,
 				85FC70661C244CAA00971081 /* UserPresenter.swift in Sources */,
 				85E09ED41D0AA57800752BB0 /* EmptyBody.swift in Sources */,
+				854151D6228E8251001CB015 /* Coordinator.swift in Sources */,
 				8558253C1CA8526500851967 /* AboutController.swift in Sources */,
 				85E09EDE1D0AC52D00752BB0 /* Decorator.swift in Sources */,
 				85A731801C95F8B1002C721B /* GithubButton.swift in Sources */,
@@ -1590,6 +1624,7 @@
 				85BBD9FE1C5D1AA600229ED2 /* Repositories.swift in Sources */,
 				85EF2E3C1CE71CD100745A68 /* UINib.swift in Sources */,
 				852A5F552084704800EF2BBD /* MocksConfigurator.swift in Sources */,
+				854151DC228E82BB001CB015 /* UsersCoordinator.swift in Sources */,
 				85482E621C96BE0800E20FDB /* GithubStarButton.swift in Sources */,
 				85E656761C13A23400BB4278 /* LanguageUsersTableDataSource.swift in Sources */,
 				851D3C381C09134600870813 /* Requester.swift in Sources */,
@@ -1632,6 +1667,7 @@
 				85B2C2D01C18D07800112D95 /* UIView.swift in Sources */,
 				855825411CA881D600851967 /* Follow.swift in Sources */,
 				85FF1157228407F900D8B0D1 /* Twitter.swift in Sources */,
+				854151CF228E7E05001CB015 /* MainTabBarController.swift in Sources */,
 				853C48DF1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift in Sources */,
 				85BBDA0A1C5E85E500229ED2 /* Reusable.swift in Sources */,
 				85E6566B1C134B4E00BB4278 /* UsersListResponse.swift in Sources */,

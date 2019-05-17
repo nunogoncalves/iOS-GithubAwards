@@ -24,19 +24,15 @@ class LanguagesController: UIViewController {
     fileprivate var allLanguages: [Language] = []
     fileprivate var displayingLanguages: [String] = []
     fileprivate var selectedLanguage: Language!
-    
+
+    weak var coordinator: MainCoordinator?
+
     override func viewDidLoad() {
         searchBar.searchDelegate = self
         languagesTable.contentInset.top = 44
         searchLanguages()
         languagesTable.register(LanguageCell.self)
         Analytics.SendToGoogle.enteredScreen(kAnalytics.languagesScreen)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == kSegues.showLanguageRankingSegue {
-            segue.rankingsController.language = selectedLanguage
-        }
     }
     
     private func searchLanguages() {
@@ -78,8 +74,9 @@ extension LanguagesController : UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedLanguage = displayingLanguages[indexPath.row]
-        performSegue(withIdentifier: kSegues.showLanguageRankingSegue, sender: self)
         languagesTable.deselectRow(at: indexPath, animated: false)
+
+        coordinator?.showDetails(of: selectedLanguage!)
     }
 }
 

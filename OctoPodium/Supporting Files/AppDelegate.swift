@@ -26,6 +26,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NFX.sharedInstance().start()
         Mocks.configure()
 
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = MainTabBarController(
+            main: MainCoordinator(navigationController: UINavigationController()),
+            users: UsersCoordinator(navigationController: UINavigationController()),
+            trending: TrendingCoordinator(navigationController: UINavigationController()),
+            settings: SettingsCoordinator(navigationController: UINavigationController())
+        )
+        window?.makeKeyAndVisible()
+
         return true
     }
 }

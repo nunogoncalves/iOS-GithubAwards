@@ -17,7 +17,7 @@ class LanguageRankingsController: UIViewController {
     @IBOutlet weak var worldContainer: UIView!
     @IBOutlet weak var countryContainer: UIView!
     @IBOutlet weak var cityContainer: UIView!
-    
+
     lazy var listContainers: [UIView] = {
         return [self.worldContainer, self.countryContainer, self.cityContainer]
     }()
