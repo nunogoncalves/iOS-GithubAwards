@@ -7,7 +7,9 @@
 //
 
 import UIKit
+#if DEBUG
 import netfox
+#endif
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,11 +25,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         Cache.configure()
         Analytics.configureGoogle()
-        NFX.sharedInstance().start()
 
+        #if DEBUG
+        NFX.sharedInstance().start()
         ["", "0", "1", "2", "3"]
             .map { "https://avatars\($0).githubusercontent.com" }
             .forEach { NFX.sharedInstance().ignoreURL($0) }
+        #endif
 
         Mocks.configure()
 

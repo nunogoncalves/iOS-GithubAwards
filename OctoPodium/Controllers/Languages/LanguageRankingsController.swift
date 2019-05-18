@@ -47,6 +47,7 @@ class LanguageRankingsController: UIViewController {
 
     private let worldContainer: UIView = create {
         $0.backgroundColor = .clear
+        $0.isHidden = true
     }
     private let countryContainer: UIView = create {
         $0.backgroundColor = .clear
@@ -127,6 +128,20 @@ class LanguageRankingsController: UIViewController {
 
         title = language
         languageTitleView.render(with: language)
+
+        switch locationType {
+        case .city:
+            locationSegment.selectedSegmentIndex = 2
+            cityController.freshSearchUsers()
+        case .country:
+            locationSegment.selectedSegmentIndex = 1
+            countryController.freshSearchUsers()
+        case .world:
+            locationSegment.selectedSegmentIndex = 0
+            worldController.freshSearchUsers()
+        }
+        locationTypeChanged(locationSegment)
+        searchBar.text = locationType.nameOrEmpty
     }
 
     @available(*, unavailable)

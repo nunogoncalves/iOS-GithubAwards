@@ -8,19 +8,18 @@
 
 import UIKit
 
-protocol LocationDelegate: class {
-    func clickedCity(_ city: String, forLanguage language: String)
-    func clickedCountry(_ country: String, forLanguage language: String)
-    func clickedWorld(forLanguage language: String)
-    func clickedLanguage(_ language: String)
+protocol RankingSelectionDelegate: AnyObject {
+    func tappedLanguage(_ language: String)
+    func tappedCity(_ city: String, forLanguage: String)
+    func tappedCountry(_ country: String, forLanguage: String)
+    func tappedWorld(forLanguage: String)
 }
 
 extension RankingPresenter: LocationRankingProtocol {}
 
-
 class RankingCell: UITableViewCell, Reusable {
 
-    weak var locationDelegate: LocationDelegate?
+    weak var delegate: RankingSelectionDelegate?
     private var presenter: RankingPresenter?
 
     private let header: RankingCellHeader = create {
@@ -49,13 +48,15 @@ class RankingCell: UITableViewCell, Reusable {
         rankingsStackView.addArrangedSubview(locationsRankingView)
         rankingsStackView.sendSubviewToBack(locationsRankingView)
 
+        locationsRankingView.delegate = self
+
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showUserLanguage))
         header.addGestureRecognizer(tapGesture)
     }
 
     @objc private func showUserLanguage() {
         guard let language = presenter?.language else { return }
-        locationDelegate?.clickedLanguage(language)
+        delegate?.tappedLanguage(language)
     }
 
     @available(*, unavailable)
@@ -72,5 +73,23 @@ class RankingCell: UITableViewCell, Reusable {
     override func prepareForReuse() {
         super.prepareForReuse()
         header.reset()
+    }
+}
+
+extension RankingCell: LocationSelectionProtocol {
+
+    func tappedCity(_ city: String) {
+        guard let presenter = presenter else { return }
+        delegate?.tappedCity(city, forLanguage: presenter.language)
+    }
+
+    func tappedCountry(_ country: String) {
+        guard let presenter = presenter else { return }
+        delegate?.tappedCountry(country, forLanguage: presenter.language)
+    }
+
+    func tappedWorld() {
+        guard let presenter = presenter else { return }
+        delegate?.tappedWorld(forLanguage: presenter.language)
     }
 }

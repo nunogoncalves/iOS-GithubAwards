@@ -60,6 +60,7 @@ class UsersController : UIViewController {
 
     init(language: String, locationType: LocationType) {
         self.language = language
+        self.locationName = locationType.nameOrEmpty
         selectedLocationType = locationType
 
         userSearchOptions = SearchOptions(language: language, locationType: locationType, page: 1)

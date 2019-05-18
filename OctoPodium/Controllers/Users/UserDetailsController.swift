@@ -371,26 +371,40 @@ extension UserDetailsController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellFor(indexPath) as RankingCell
-        cell.locationDelegate = self
+        cell.delegate = self
         cell.render(with: RankingPresenter(ranking: rankings[indexPath.row]))
         return cell
     }
 }
 
-extension UserDetailsController: LocationDelegate {
-    func clickedCity(_ city: String, forLanguage language: String) {
+extension UserDetailsController: RankingSelectionDelegate {
 
+    func tappedCity(_ city: String, forLanguage language: String) {
+        #warning("Coordinator please")
+        let languageRankingController = LanguageRankingsController(
+            language: language,
+            locationType: .city(name: city)
+        )
+        navigationController?.pushViewController(languageRankingController, animated: true)
     }
 
-    func clickedCountry(_ country: String, forLanguage language: String) {
-
+    func tappedCountry(_ country: String, forLanguage language: String) {
+        let languageRankingController = LanguageRankingsController(
+            language: language,
+            locationType: .country(name: country)
+        )
+        navigationController?.pushViewController(languageRankingController, animated: true)
     }
 
-    func clickedWorld(forLanguage language: String) {
-
+    func tappedWorld(forLanguage language: String) {
+        let languageRankingController = LanguageRankingsController(
+            language: language,
+            locationType: .world
+        )
+        navigationController?.pushViewController(languageRankingController, animated: true)
     }
 
-    func clickedLanguage(_ language: String) {
+    func tappedLanguage(_ language: String) {
         guard let login = userPresenter?.login else { return }
         Browser.openPage(URL(string: "https://github.com/search?q=user:\(login)+language:\(language)")!)
         Analytics.SendToGoogle.viewUserLanguagesOnGithub(login, language: language)

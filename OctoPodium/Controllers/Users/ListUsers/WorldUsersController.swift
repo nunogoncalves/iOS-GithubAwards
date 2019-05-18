@@ -17,7 +17,6 @@ class WorldUsersController : UsersController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        freshSearchUsers()
     }
     
     override func sendUserPaginatedToAnalytics(_ page: String) {
