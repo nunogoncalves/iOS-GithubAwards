@@ -17,8 +17,8 @@ extension Users {
             self.login = login
         }
         
-        var url: String {
-            return "\(kUrls.usersBaseUrl)/\(self.login)"
+        var url: URL {
+            return URL(string: "\(kUrls.usersBaseUrl)/\(self.login)".urlEncoded())!
         }
         
         func parse(_ json: JSON) -> User {

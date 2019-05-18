@@ -23,8 +23,8 @@ extension GitHub {
             "Authorization" : "token \(GithubToken.instance.token ?? "")"
         ]
         
-        var url: String {
-            return kUrls.doStarRepoUrl(repoOwner, repoName)
+        var url: URL {
+            return URL(string: kUrls.doStarRepoUrl(repoOwner, repoName).urlEncoded())!
         }
 
         func parse(_ json: JSON) -> Void {}

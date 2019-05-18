@@ -26,8 +26,10 @@ class MainCoordinator: Coordinator {
     }
 
     func showDetails(of language: Language) {
-        let languageRankingController = UIStoryboard(storyboard: .main).controller(LanguageRankingsController.self)
-        languageRankingController.language = language
+        let languageRankingController = LanguageRankingsController(language: language)
         navigationController.pushViewController(languageRankingController, animated: true)
+    }
+
+    func showDetails(of user: User) {
     }
 }

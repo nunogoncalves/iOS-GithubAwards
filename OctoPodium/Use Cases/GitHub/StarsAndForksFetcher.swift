@@ -15,8 +15,8 @@ extension GitHub {
             self.repoName = repositoryName
         }
         
-        var url: String {
-            return "https://api.github.com/repos/\(repoName)"
+        var url: URL {
+            return URL(string: "https://api.github.com/repos/\(repoName)".urlEncoded())!
         }
         
         func parse(_ json: JSON) -> (Int, Int) {

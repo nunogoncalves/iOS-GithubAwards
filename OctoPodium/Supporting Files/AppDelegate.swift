@@ -24,6 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Cache.configure()
         Analytics.configureGoogle()
         NFX.sharedInstance().start()
+
+        ["", "0", "1", "2", "3"]
+            .map { "https://avatars\($0).githubusercontent.com" }
+            .forEach { NFX.sharedInstance().ignoreURL($0) }
+
         Mocks.configure()
 
         window = UIWindow(frame: UIScreen.main.bounds)

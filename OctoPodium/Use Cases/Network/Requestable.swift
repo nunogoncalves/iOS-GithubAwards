@@ -10,7 +10,7 @@ typealias JSON = [String: Any]
 protocol Requestable {
     associatedtype Element
     
-    var url: String { get }
+    var url: URL { get }
     var httpMethod: HTTPMethod { get }
     var headers: HeadParams? { get }
     var bodyParams: BodyParams? { get }

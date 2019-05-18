@@ -63,13 +63,7 @@ struct K {
         }
     }
     
-    struct Segues {        
-        static let userDetailsSegue = "UserDetailsSegue"
-        
-        static let worldUsersSegue = "WorldUsersSegue"
-        static let countryUsersSegue = "CountryUsersSegue"
-        static let cityUsersSegue = "CityUsersSegue"
-        
+    struct Segues {
         static let userSearchToDetail = "UsersSearchToDetailSegue"
         static let trendingToUserDetailsSegue = "TrendingToUserDetailsSegue"
         static let showTrendingRepositoryDetailsSegue = "ShowTrendingRepositoryDetailsSegue"

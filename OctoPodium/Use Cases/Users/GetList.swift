@@ -17,11 +17,13 @@ extension Users {
             self.searchOptions = searchOptions
         }
         
-        var url: String {
-            
-            var str = "\(kUrls.usersBaseUrl)/?\(searchOptions.urlParams())"
-            str = str.replacingOccurrences(of: "+", with: "%2B")
-            return str
+        var url: URL {
+
+            let url = URL(string: kUrls.usersBaseUrl)!
+            var components = URLComponents(url: url, resolvingAgainstBaseURL: true)!
+            components.queryItems = searchOptions.queryItems
+
+            return components.url!
         }
         
         func parse(_ json: JSON) -> Page<User> {

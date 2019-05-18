@@ -28,8 +28,8 @@ class UserDetailsDismissAnimator : NSObject, UIViewControllerAnimatedTransitioni
         
         let cell = languagesC.selectedCell() as! CellWithAvatar
         let destinationAvatar = cell.avatar
-        let destinationFrame = destinationAvatar?.convert((destinationAvatar?.frame)!, to: languagesC.view)
-        destinationAvatar?.hide()
+        let destinationFrame = destinationAvatar.convert((destinationAvatar.frame), to: languagesC.view)
+        destinationAvatar.hide()
         
         //make a snapshot of the selected cell
         userDetailsC.view.setNeedsLayout()
@@ -51,13 +51,13 @@ class UserDetailsDismissAnimator : NSObject, UIViewControllerAnimatedTransitioni
         
         let duration = transitionDuration(using: transitionContext)
         
-        let imageScaleX = destinationAvatar!.frame.width / movingImageView!.frame.width
-        let imageScaleY = destinationAvatar!.frame.height / movingImageView!.frame.height
+        let imageScaleX = destinationAvatar.frame.width / movingImageView!.frame.width
+        let imageScaleY = destinationAvatar.frame.height / movingImageView!.frame.height
         
         let path = UIBezierPath()
         path.move(to: (movingImageView?.center)!)
         
-        let destinationCenter = CGPoint(x: destinationFrame!.midX - 2, y: destinationFrame!.midY - 2)
+        let destinationCenter = CGPoint(x: destinationFrame.midX - 2, y: destinationFrame.midY - 2)
         let controlPoint = CGPoint(x: (movingImageView?.center.x)!, y: (movingImageView?.center.y)!)
         path.addQuadCurve(to: destinationCenter, controlPoint: controlPoint)
         movingImageView?.animateInPath(path, withDuration: duration)
@@ -76,7 +76,7 @@ class UserDetailsDismissAnimator : NSObject, UIViewControllerAnimatedTransitioni
             completion: { _ in
                 userDetailsC.avatarImageView.show()
                 movingImageView?.hide()
-                destinationAvatar?.show()
+                destinationAvatar.show()
                 languagesC.view.transform = CGAffineTransform.identity
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })

@@ -27,24 +27,30 @@ struct Network {
             session = urlSession.init(configuration: sessionConfBuilder.sessionConfiguration())
         }
         
-        func call(_ urlStr: String,
-                  httpMethod method: HTTPMethod,
-                  headers: HeadParams?,
-                  bodyParams: BodyParams?) {
+        func call(
+            _ url: URL,
+            httpMethod method: HTTPMethod,
+            headers: HeadParams?,
+            bodyParams: BodyParams?
+        ) {
                     
-            let task = buildRequesterTaskFor(urlStr,
-                    httpMethod: method,
-                    headers: headers,
-                    bodyParameters: bodyParams)
+            let task = buildRequesterTask(
+                with: url,
+                httpMethod: method,
+                headers: headers,
+                bodyParameters: bodyParams
+            )
             task.resume()
         }
         
-        private func buildRequesterTaskFor(_ urlStr: String,
-                                           httpMethod: HTTPMethod,
-                                           headers: HeadParams?,
-                                           bodyParameters: BodyParams?) -> URLSessionDataTask {
-                                            
-            let request = buildURLRequestFor(urlStr)
+        private func buildRequesterTask(
+            with url: URL,
+            httpMethod: HTTPMethod,
+            headers: HeadParams?,
+            bodyParameters: BodyParams?
+        ) -> URLSessionDataTask {
+
+            let request = NSMutableURLRequest(url: url)
             request.httpMethod = httpMethod.rawValue
             
             addIfNecessary(bodyParameters, to: request)
@@ -52,13 +58,7 @@ struct Network {
 
             return session.dataTask(with: request as URLRequest, completionHandler: completionHandler)
         }
-        
-        private func buildURLRequestFor(_ url: String) -> NSMutableURLRequest {
-            let url = URL(string: url.urlEncoded())
-            let request = NSMutableURLRequest(url: url!)
-            return request
-        }
-        
+
         private func addIfNecessary(_ bodyParameters: BodyParams?, to request: NSMutableURLRequest) {
             if let parameters = bodyParameters {
                 let postData = try! JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)

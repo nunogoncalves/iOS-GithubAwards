@@ -8,37 +8,30 @@
 
 class SearchOptions {
     
-    var language = "JavaScript"
-    var location = "San Francisco"
-    var locationType = LocationType.world
+    var language: String
+    var locationType: LocationType
     
-    var page = 1
-    
-    func urlParams() -> String {
+    var page: Int
 
-        return "\(languageParam)\(locationParam)\(typeParam)\(pageParam)"
+    init(language: String, locationType: LocationType, page: Int) {
+        self.language = language
+        self.locationType = locationType
+        self.page = page
     }
-    
-    private var languageParam: String {
 
-        let lang = language.lowercased()
-        return "language=\(lang)"
-    }
-    
-    private var locationParam: String {
+    var queryItems: [URLQueryItem] {
+        var queryItems = [
+            URLQueryItem(name: "language", value: language.lowercased().urlEncoded()),
+            URLQueryItem(name: "type", value: locationType.type),
+        ]
 
-        let type = locationType.rawValue
-        if type == "world" { return "" }
-        return "&\(type)=\(location.lowercased())"
-    }
-    
-    private var typeParam: String {
+        if !locationType.nameOrEmpty.isEmpty {
+            queryItems.append(URLQueryItem(name: locationType.type, value: locationType.nameOrEmpty))
+        }
+        if page > 0 {
+            queryItems.append(URLQueryItem(name: "page", value: "\(page)"))
+        }
 
-        return "&type=\(locationType.rawValue)"
-    }
-    
-    private var pageParam: String {
-
-        return page > 0 ? "&page=\(page)" : ""
+        return queryItems
     }
 }

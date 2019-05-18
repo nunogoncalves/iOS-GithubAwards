@@ -30,8 +30,8 @@ struct Languages {
             successLangs?(languages)
         }
 
-        var url: String {
-            return "\(kUrls.languagesBaseUrl)?sort=popularity"
+        var url: URL {
+            return URL(string: "\(kUrls.languagesBaseUrl)?sort=popularity".urlEncoded())!
         }
         
         func parse(_ json: JSON) -> [Language] {

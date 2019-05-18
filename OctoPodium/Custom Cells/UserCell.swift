@@ -89,9 +89,9 @@ class UserRankingCell: UITableViewCell, Reusable {
         bigImageBorderView.addSubview(userAvatarBigImageView)
         smallImageBorderView.addSubview(userAvatarSmallImageView)
 
-        stackViewWithBigImageLeadingConstraint = stackView.leading(==, contentView.leadingAnchor, 54)
         stackViewWithSmallImageConstraint = stackView.leading(==, contentView.leadingAnchor, 60)
         stackViewWithSmallImageConstraint.isActive = false
+        stackViewWithBigImageLeadingConstraint = stackView.leading(==, contentView.leadingAnchor, 54)
 
         rankingLabel.leading(==, rankingImageView, 1)
         rankingLabel.trailing(==, rankingImageView)
@@ -117,6 +117,13 @@ class UserRankingCell: UITableViewCell, Reusable {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        userAvatarBigImageView.image = nil
+        userAvatarSmallImageView.image = nil
+    }
+
     func render(with userPresenter: UserPresenter) {
         presenter = userPresenter
         let isPodium = userPresenter.isInPodium
@@ -124,6 +131,9 @@ class UserRankingCell: UITableViewCell, Reusable {
         bigImageBorderView.isHidden = !isPodium
         smallImageBorderView.isHidden = isPodium
         rankingLabel.isHidden = isPodium
+
+        stackViewWithBigImageLeadingConstraint.isActive = false
+        stackViewWithSmallImageConstraint.isActive = false
 
         stackViewWithBigImageLeadingConstraint.isActive = isPodium
         stackViewWithSmallImageConstraint.isActive = !isPodium
@@ -153,7 +163,7 @@ class UserRankingCell: UITableViewCell, Reusable {
 
 extension UserRankingCell: CellWithAvatar {
     
-    var avatar: UIImageView! {
+    var avatar: UIImageView {
         return presenter?.isInPodium == true ? userAvatarBigImageView : userAvatarSmallImageView
     }
 }
