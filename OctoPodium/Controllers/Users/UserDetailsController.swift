@@ -67,7 +67,7 @@ class UserDetailsController: UIViewController {
                 Twitter.Share.perform(
                     ranking: "\(ranking)",
                     language: self.rankings[0].language!,
-                    location: userPresenter.cityOrCountryOrWorld.capitalized,
+                    location: userPresenter.locationName.capitalized,
                     username: alert.textFields?.first?.text
                 )
             }
@@ -184,7 +184,7 @@ class UserDetailsController: UIViewController {
     }
     
     private func buidGradientOfColors() -> [CGColor] {
-        return kColors.userGradientColors.map { UIColor(hex: $0).cgColor }
+        return UIColor.userGradientColors.map { $0.cgColor }
     }
     
     private func calculateScrollerConstants() {
@@ -198,7 +198,7 @@ class UserDetailsController: UIViewController {
     }
     
     private func calculateLocationTransformMin() -> CGFloat {
-        if locationLabelFitsWithImageAndButton() {
+        if doesLocationLabelFitsBetweenImageAndButton {
             return 1.0
         }
         
@@ -210,7 +210,7 @@ class UserDetailsController: UIViewController {
         return fitRelation
     }
     
-    private func locationLabelFitsWithImageAndButton() -> Bool {
+    private var doesLocationLabelFitsBetweenImageAndButton: Bool {
         let labelWidth = countryAndCityLabel.width
         let avatarSmallWidth = avatarBackground.width * avatarTransformMin
         let totalWidth = labelWidth + viewOnGithubButton.width + avatarSmallWidth
@@ -327,27 +327,20 @@ extension UserDetailsController: UITableViewDataSource {
 extension UserDetailsController: RankingSelectionDelegate {
 
     func tappedCity(_ city: String, forLanguage language: String) {
-        #warning("Coordinator please")
-        let languageRankingController = LanguageRankingsController(
-            language: language,
-            locationType: .city(name: city)
-        )
-        navigationController?.pushViewController(languageRankingController, animated: true)
+        navigateToRanking(of: language, for: .city(name: city))
     }
 
     func tappedCountry(_ country: String, forLanguage language: String) {
-        let languageRankingController = LanguageRankingsController(
-            language: language,
-            locationType: .country(name: country)
-        )
-        navigationController?.pushViewController(languageRankingController, animated: true)
+        navigateToRanking(of: language, for: .country(name: country))
     }
 
     func tappedWorld(forLanguage language: String) {
-        let languageRankingController = LanguageRankingsController(
-            language: language,
-            locationType: .world
-        )
+        navigateToRanking(of: language, for: .world)
+    }
+
+    private func navigateToRanking(of language: String, for locationType: LocationType) {
+        #warning("Coordinator please")
+        let languageRankingController = LanguageRankingsController(language: language, locationType: locationType)
         navigationController?.pushViewController(languageRankingController, animated: true)
     }
 

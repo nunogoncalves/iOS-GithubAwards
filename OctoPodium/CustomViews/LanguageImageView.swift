@@ -14,7 +14,7 @@ class LanguageImageView: UIView {
 
     private let label: UILabel = create {
         $0.textColor = .white
-        $0.backgroundColor = UIColor(hex: 0x2F9DE6)
+        $0.backgroundColor = .systemBlue
         $0.textAlignment = .center
         $0.cornerRadius = 15
     }

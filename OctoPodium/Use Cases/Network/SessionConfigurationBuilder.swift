@@ -25,8 +25,7 @@ extension Network {
         }
         
         private func setupTimeouts(_ configuration: URLSessionConfiguration) {
-            configuration.timeoutIntervalForRequest = kTimeout.request
-            configuration.timeoutIntervalForResource = kTimeout.resource
+            configuration.timeoutIntervalForRequest = .timeout
         }
         
     }

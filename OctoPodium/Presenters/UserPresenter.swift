@@ -6,10 +6,6 @@
 //  Copyright © 2015 Nuno Gonçalves. All rights reserved.
 //
 
-protocol TopUserView {
-    
-}
-
 class UserPresenter {
     
     let user: User
@@ -21,16 +17,16 @@ class UserPresenter {
     
     private let medalImages = ["GoldMedal", "SilverMedal", "BronzeMedal"]
     
-    private let positionColors: [UInt] = [
-        kColors.firstInRankingColor,
-        kColors.secondInRankingColor,
-        kColors.thirdInRankingColor
+    private let positionColors: [UIColor] = [
+        .firstInRankingColor,
+        .secondInRankingColor,
+        .thirdInRankingColor
     ]
     
-    private let avatarBGColors: [UInt] = [
-        kColors.secondInRankingColor,
-        kColors.thirdInRankingColor,
-        0xE5E5FF
+    private let avatarBGColors: [UIColor] = [
+        .secondInRankingColor,
+        .thirdInRankingColor,
+        UIColor(hex: 0xE5E5FF)
     ]
     
     init(user: User, ranking: Int) {
@@ -74,14 +70,14 @@ class UserPresenter {
         return nil
     }
     
-    func backgroundColor() -> UInt? {
+    func backgroundColor() -> UIColor? {
         if isInPodium {
             return positionColors[ranking - 1]
         }
         return nil
     }
     
-    func avatarBackgroundColor() -> UInt? {
+    func avatarBackgroundColor() -> UIColor? {
         if isInPodium {
             return avatarBGColors[ranking - 1]
         }
@@ -104,7 +100,7 @@ class UserPresenter {
         return user.hasLocation
     }
     
-    var cityOrCountryOrWorld: String {
+    var locationName: String {
         if let city = user.city { return city }
         if let country = user.country { return country }
         return "the world"
