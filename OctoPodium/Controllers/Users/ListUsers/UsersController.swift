@@ -170,7 +170,7 @@ class UsersController : UIViewController {
 
 extension UsersController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return (indexPath as NSIndexPath).row < 3 ? 60 : 44
+        return indexPath.row < 3 ? 60 : 44
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

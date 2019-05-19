@@ -43,10 +43,10 @@ class RankingCell: UITableViewCell, Reusable {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         contentView.addSubview(rankingsStackView)
-        rankingsStackView.constrain(referringTo: contentView, top: 5, leading: 5, bottom: nil, trailing: -5)
+        rankingsStackView.constrain(referringTo: contentView, top: 5, leading: 5, bottom: 0, trailing: -5)
         rankingsStackView.addArrangedSubview(header)
         rankingsStackView.addArrangedSubview(locationsRankingView)
-        rankingsStackView.sendSubviewToBack(locationsRankingView)
+        rankingsStackView.sendSubviewToBack(locationsRankingView) //Hide the gray line
 
         locationsRankingView.delegate = self
 

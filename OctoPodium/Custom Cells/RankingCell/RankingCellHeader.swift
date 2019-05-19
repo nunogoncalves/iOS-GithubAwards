@@ -125,6 +125,9 @@ class RankingCellHeader: UIView {
     func render(with model: RankingHeaderModelProtocol) {
         updateStyle(isPodium: model.isPodium)
 
+        stackViewToLeadingConstraint.isActive = false
+        stackViewToMedalsConstraint.isActive = false
+        
         stackViewToLeadingConstraint.isActive = !model.isPodium
         stackViewToMedalsConstraint.isActive = !stackViewToLeadingConstraint.isActive
         layoutIfNeeded()

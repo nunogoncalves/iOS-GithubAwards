@@ -60,7 +60,7 @@ class TrendingDataSource : NSObject, UITableViewDataSource {
 extension TrendingDataSource : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        repositoryCellClicked?(repositories[(indexPath as NSIndexPath).row])
+        repositoryCellClicked?(repositories[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {

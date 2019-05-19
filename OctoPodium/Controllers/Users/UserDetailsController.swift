@@ -105,16 +105,10 @@ class UserDetailsController: UIViewController {
     
     @IBOutlet weak var loading: UIActivityIndicatorView!
     
-    var rankings = [Ranking]()
-    
-    weak var timer: Timer!
-    fileprivate var tempRankings = [Ranking]()
-    
-//    var user: User?
+    private var rankings: [Ranking] = []
+
     var userPresenter: UserPresenter?
-    
-    fileprivate var animateCells = true
-    
+
     fileprivate let cellInsertionInterval: TimeInterval = 0.2
     fileprivate let cellAnimationDuration: TimeInterval = 0.1
     
@@ -150,6 +144,8 @@ class UserDetailsController: UIViewController {
         navigationItem.title = userPresenter!.login
         
         rankingsTable.register(RankingCell.self)
+        rankingsTable.estimatedRowHeight = 150
+        rankingsTable.rowHeight = UITableView.automaticDimension
         Users.GetOne(login: userPresenter!.login).call(success: userSuccess, failure: failure)
     }
     
@@ -162,14 +158,7 @@ class UserDetailsController: UIViewController {
         }
         present(actionsBuilder, animated: true, completion: nil)
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        if timer != nil {
-            invalidateTimer()
-        }
-    }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
        
@@ -242,33 +231,9 @@ extension UserDetailsController {
         countryAndCityLabel.text = userPresenter!.fullLocation
         rankings = user.rankings
         loadingView.isHidden = true
-        addItemsToTable()
         rankingsTable.reloadData()
-        
     }
-    
-    func addItemsToTable() {
-        addAnotherCell()
-        timer = Timer.scheduledTimer(timeInterval: cellInsertionInterval, target: self, selector: #selector(addAnotherCell), userInfo: nil, repeats: true)
-    }
- 
-    @objc private func addAnotherCell() {
-        if tempRankings.count == rankings.count {
-            invalidateTimer()
-            return
-        }
-        
-        tempRankings.append(rankings[tempRankings.count])
-        rankingsTable.insertRows(at: [IndexPath(row: (tempRankings.count - 1), section: 0)], with: .automatic)
-    }
-    
-    fileprivate func invalidateTimer() {
-        if timer != nil {
-            timer.invalidate()
-            timer = nil
-        }
-    }
-    
+
     func failure(_ apiResponse: ApiResponse) {
         loadingView.isHidden = true
         Notification.shared.display(.error("Failed to get user details"))
@@ -283,23 +248,9 @@ extension UserDetailsController {
 }
 
 extension UserDetailsController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if !animateCells {
-            return
-        }
 
-        let center = cell.center
-        cell.center = CGPoint(x: center.x - (view.frame.width), y: center.y)
-        
-        UIView.beginAnimations("position", context: nil)
-        UIView.setAnimationDuration(cellAnimationDuration)
-        cell.center = center
-        UIView.commitAnimations()
-    }
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        animateCells = false
-        
+
         let contentHeight = scrollView.contentSize.height
         let rowsHeight = contentHeight - profileMinBGHeight
 
@@ -357,16 +308,12 @@ extension UserDetailsController: UITableViewDelegate {
         buttonCenterConstraint.constant = (((halfWidth - viewOnGithubButton.halfWidth - 10) / profileExtendedBGHeight) * y)
         buttonTopConstraint.constant = 118 - ((102 / profileExtendedBGHeight) * y)
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return userPresenter!.hasLocation ? 158 : 78
-    }
 }
 
 extension UserDetailsController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tempRankings.count
+        return rankings.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -82,6 +82,6 @@ extension LanguagesPopoverController : UITableViewDataSource {
 
 extension LanguagesPopoverController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        languageSelectorDelegate?.didSelectLanguage(languages[(indexPath as NSIndexPath).row])
+        languageSelectorDelegate?.didSelectLanguage(languages[indexPath.row])
     }
 }
