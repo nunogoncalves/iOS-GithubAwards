@@ -8,6 +8,24 @@
 
 import UIKit
 
+enum ScrollingArea {
+    case pullingDown
+    case animationArea
+    case pastUpThreshold
+
+    init(offset: CGFloat, upThreshold: CGFloat) {
+        if offset <= 0 {
+            self = .pullingDown
+        } else {
+            if offset <= upThreshold {
+                self = .animationArea
+            } else {
+                self = .pastUpThreshold
+            }
+        }
+    }
+}
+
 class UserDetailsController: UIViewController {
 
     @IBOutlet weak var avatarBackground: UIView!
@@ -29,13 +47,8 @@ class UserDetailsController: UIViewController {
     
     @IBOutlet weak var loadingView: GithubLoadingView!
     
-    @IBOutlet weak var statsContainer: UIView!
-    
-    @IBOutlet weak var totalReposLabel: UILabel!
-    @IBOutlet weak var totalStarsLabel: UILabel!
-    @IBOutlet weak var totalLanguagesLabel: UILabel!
-    @IBOutlet weak var totalTrophiesLabel: UILabel!
-    
+    @IBOutlet weak var statsContainer: UserStatsView!
+
     @IBOutlet weak var twitterButton: UIBarButtonItem!
     
     @IBAction func tweetButtonTapped(_ sender: UIBarButtonItem) {
@@ -78,7 +91,7 @@ class UserDetailsController: UIViewController {
                 Twitter.Share.perform(
                     ranking: "\(ranking)",
                     language: self.rankings[0].language!,
-                    location: userPresenter.cityOrCountryOrWorld.capitalized
+                    location: userPresenter.locationName.capitalized
                 )
             }
             alert.addAction(cancelAction)
@@ -89,7 +102,7 @@ class UserDetailsController: UIViewController {
             Twitter.Share.perform(
                 ranking: "\(ranking)",
                 language: rankings[0].language!,
-                location: userPresenter.cityOrCountryOrWorld.capitalized
+                location: userPresenter.locationName.capitalized
             )
         }
 
@@ -109,19 +122,15 @@ class UserDetailsController: UIViewController {
 
     var userPresenter: UserPresenter?
 
-    fileprivate let cellInsertionInterval: TimeInterval = 0.2
-    fileprivate let cellAnimationDuration: TimeInterval = 0.1
-    
     fileprivate var halfWidth: CGFloat!
     
     fileprivate var originalAvatarTransform: CGAffineTransform!
-    fileprivate var originalAvatarBackgroundWidth: CGFloat!
 
     fileprivate var originalLocationTransform: CGAffineTransform!
     fileprivate var locationTransformRelation: CGFloat!
     
-    fileprivate let profileExtendedBGHeight: CGFloat = 182
-    fileprivate let profileMinBGHeight: CGFloat = 117
+    fileprivate let profileMaxHeight: CGFloat = 182
+    fileprivate let profileMinHeight: CGFloat = 117
     
     fileprivate let avatarTransformMin: CGFloat = 0.5
     fileprivate var avatarTransformRelation: CGFloat!
@@ -129,7 +138,7 @@ class UserDetailsController: UIViewController {
     override func viewDidLoad() {
         Analytics.SendToGoogle.enteredScreen(kAnalytics.userDetailsScreenFor(userPresenter!.user))
         
-        if !(userPresenter?.user.isSelf ?? false) {
+        if userPresenter?.user.isSelf == false {
             navigationItem.rightBarButtonItems = [navigationItem.rightBarButtonItems![0]]
             twitterButton = nil
         }
@@ -153,7 +162,10 @@ class UserDetailsController: UIViewController {
         let userUrl = userPresenter!.gitHubUrl
         let actionsBuilder = RepositoryOptionsBuilder.build(URL(string: userUrl)!) { [weak self] in
             guard let s = self else { return }
-            let activityViewController = UIActivityViewController(activityItems: [userUrl as NSString], applicationActivities: nil)
+            let activityViewController = UIActivityViewController(
+                activityItems: [userUrl as NSString],
+                applicationActivities: nil
+            )
             s.present(activityViewController, animated: true, completion: {})
         }
         present(actionsBuilder, animated: true, completion: nil)
@@ -161,17 +173,13 @@ class UserDetailsController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-       
-        let locationTransformMin = calculateLocationTransformMin()
-        locationTransformRelation = (locationTransformMin - 1) / profileExtendedBGHeight
+        locationTransformRelation = (minimumLocationTransform - 1) / profileMaxHeight
     }
     
     fileprivate func loadAvatar() {
-        if let avatarUrl = userPresenter!.avatarUrl {
-            guard avatarUrl != "" else { return }
-            avatarImageView.fetchAndLoad(avatarUrl) {
-                self.loading.stopAnimating()
-            }
+        guard let avatarUrl = userPresenter!.avatarUrl, avatarUrl != "" else { return }
+        avatarImageView.fetchAndLoad(avatarUrl) {
+            self.loading.stopAnimating()
         }
     }
     
@@ -190,24 +198,19 @@ class UserDetailsController: UIViewController {
     private func calculateScrollerConstants() {
         halfWidth = view.width / 2
         
-        avatarTransformRelation = (avatarTransformMin - 1) / profileExtendedBGHeight
-        originalAvatarBackgroundWidth = avatarBackground.frame.width
+        avatarTransformRelation = (avatarTransformMin - 1) / profileMaxHeight
         originalAvatarTransform = avatarBackground.transform
-        
+
         originalLocationTransform = countryAndCityLabel.transform
     }
     
-    private func calculateLocationTransformMin() -> CGFloat {
-        if doesLocationLabelFitsBetweenImageAndButton {
-            return 1.0
-        }
+    private var minimumLocationTransform: CGFloat {
+        guard doesLocationLabelFitsBetweenImageAndButton == false else { return 1.0 }
         
         let labelWidth = countryAndCityLabel.width
         let freeSpace = view.width - (avatarTransformMin * avatarBackground.width) - viewOnGithubButton.width - 40
         
-        let fitRelation = freeSpace / labelWidth
-        
-        return fitRelation
+        return freeSpace / labelWidth
     }
     
     private var doesLocationLabelFitsBetweenImageAndButton: Bool {
@@ -227,7 +230,7 @@ extension UserDetailsController {
     func userSuccess(_ user: User) {
         userPresenter = UserPresenter(user: user)
         loadAvatar()
-        applyReposStarsAndTrophiesLabelsFor(user)
+        statsContainer.render(with: userPresenter!.rankingInfo)
         countryAndCityLabel.text = userPresenter!.fullLocation
         rankings = user.rankings
         loadingView.isHidden = true
@@ -238,13 +241,6 @@ extension UserDetailsController {
         loadingView.isHidden = true
         Notification.shared.display(.error("Failed to get user details"))
     }
-    
-    private func applyReposStarsAndTrophiesLabelsFor(_ user: User) {
-        totalReposLabel.text = "\(userPresenter!.totalRepositories)"
-        totalStarsLabel.text = "\(userPresenter!.totalStars)"
-        totalLanguagesLabel.text = "\(user.rankings.count)"
-        totalTrophiesLabel.text = "\(userPresenter!.totalTrophies)"
-    }
 }
 
 extension UserDetailsController: UITableViewDelegate {
@@ -252,61 +248,61 @@ extension UserDetailsController: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
         let contentHeight = scrollView.contentSize.height
-        let rowsHeight = contentHeight - profileMinBGHeight
+        let rowsHeight = contentHeight - profileMinHeight
 
-        if rowsHeight <= scrollView.height + profileExtendedBGHeight {
-            return
-        }
+        // if there are not enough rows we don't animate the header
+        guard rowsHeight > scrollView.height + profileMaxHeight else { return }
         
         let y = scrollView.contentOffset.y
-        
-        if y < profileExtendedBGHeight && y >= 0 {
-            moveFor(y)
-        } else {
-            if y > profileExtendedBGHeight {
-                moveFor(CGFloat(profileExtendedBGHeight))
-            } else if y < 0 {
-                moveFor(CGFloat(0))
-            }
+
+        let scrollingArea = ScrollingArea(offset: y, upThreshold: profileMaxHeight)
+
+        switch scrollingArea {
+        case .pullingDown:
+            setPosition(basedOnOffset: 0)
+        case .animationArea:
+            setPosition(basedOnOffset: y)
+        case .pastUpThreshold:
+            setPosition(basedOnOffset: profileMaxHeight)
         }
     }
     
-    fileprivate func moveFor(_ offset: CGFloat) {
+    fileprivate func setPosition(basedOnOffset y: CGFloat) {
         // Plenty of y = mx + b now.
         
-        let profileBgHeight = (profileMinBGHeight / profileExtendedBGHeight) * offset + profileExtendedBGHeight
-        profileTopConstraint.constant = profileExtendedBGHeight - profileBgHeight
-        statsContainer.alpha = 1 - (offset / profileExtendedBGHeight)
+        let profileBgHeight = (profileMinHeight / profileMaxHeight) * y + profileMaxHeight
+        profileTopConstraint.constant = profileMaxHeight - profileBgHeight
+        statsContainer.alpha = 1 - (y / profileMaxHeight)
         
-        if userPresenter!.hasLocation { moveLocationLabel(offset) }
-        moveAvatar(offset)
-        moveButton(offset)
+        if userPresenter!.hasLocation { setLocationLabelPosition(basedOn: y) }
+        setAvatarPosition(basedOn: y)
+        setButtonPosition(basedOn: y)
     }
     
-    fileprivate func moveLocationLabel(_ y: CGFloat) {
+    fileprivate func setLocationLabelPosition(basedOn y: CGFloat) {
         if locationTransformRelation == nil {
             locationTransformRelation = avatarTransformRelation
         }
         let transformSize = locationTransformRelation * y + 1
         countryAndCityLabel.transform = originalLocationTransform.scaledBy(x: transformSize, y: transformSize)
         
-        locationTopConstraint.constant = -(70 / profileExtendedBGHeight) * y + 90
+        locationTopConstraint.constant = -(70 / profileMaxHeight) * y + 90
 
-        let xPos = (halfWidth - countryAndCityLabel.halfWidth - avatarBackground.frame.width - 20) / profileExtendedBGHeight
+        let xPos = (halfWidth - countryAndCityLabel.halfWidth - avatarBackground.frame.width - 20) / profileMaxHeight
         locationCenterConstraint.constant = -xPos * y
     }
     
-    fileprivate func moveAvatar(_ y: CGFloat) {
+    fileprivate func setAvatarPosition(basedOn y: CGFloat) {
         let transformSize = avatarTransformRelation * y + 1
         avatarBackground.transform = originalAvatarTransform.scaledBy(x: transformSize, y: transformSize)
         
-        avatarTopConstraint.constant = -(15 / profileExtendedBGHeight) * y + 10
-        avatarCenterXConstraint.constant = -((halfWidth - avatarBackground.halfWidth - 10) / profileExtendedBGHeight) * y
+        avatarTopConstraint.constant = -(15 / profileMaxHeight) * y + 10
+        avatarCenterXConstraint.constant = -((halfWidth - avatarBackground.halfWidth - 10) / profileMaxHeight) * y
     }
     
-    fileprivate func moveButton(_ y: CGFloat) {
-        buttonCenterConstraint.constant = (((halfWidth - viewOnGithubButton.halfWidth - 10) / profileExtendedBGHeight) * y)
-        buttonTopConstraint.constant = 118 - ((102 / profileExtendedBGHeight) * y)
+    fileprivate func setButtonPosition(basedOn y: CGFloat) {
+        buttonCenterConstraint.constant = (((halfWidth - viewOnGithubButton.halfWidth - 10) / profileMaxHeight) * y)
+        buttonTopConstraint.constant = 118 - ((102 / profileMaxHeight) * y)
     }
 }
 

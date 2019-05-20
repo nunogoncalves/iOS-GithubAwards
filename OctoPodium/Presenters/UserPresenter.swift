@@ -115,5 +115,8 @@ class UserPresenter {
     var gitHubUrl: String {
         return "https://www.github.com/\(user.login)"
     }
-    
+
+    var rankingInfo: (repositories: Int?, stars: Int?, languages: Int?, medals: Int?) {
+        return (repositories: totalRepositories, stars: totalStars, languages: user.rankings.count, medals: totalTrophies)
+    }
 }

@@ -33,7 +33,7 @@ final class UserStatsView: UIView {
     private static var label: UILabel {
         let label = UILabel.usingAutoLayout()
         label.textColor = .white
-        label.font = UIFont.TitilliumWeb.regular.ofSize(12)
+        label.font = UIFont.systemFont(ofSize: 12)
         return label
     }
 
@@ -57,7 +57,9 @@ final class UserStatsView: UIView {
     }
 
     required init(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)!
+        addSubviews()
+        addSubviewsConstraints()
     }
 
     private func addSubviews() {

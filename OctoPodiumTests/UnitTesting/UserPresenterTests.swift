@@ -51,16 +51,16 @@ class UserPresenterTests: QuickSpec {
                 it("has 1st place background color") {
                     XCTAssertEqual(
                         userPresenter.backgroundColor(),
-                        kColors.firstInRankingColor,
-                        "Expected 1st place color to be \(kColors.firstInRankingColor)"
+                        UIColor.firstInRankingColor,
+                        "Expected 1st place color to be \(UIColor.firstInRankingColor)"
                     )
                 }
                 
                 it("has 1st place avatar background color") {
                     XCTAssertEqual(
                         userPresenter.avatarBackgroundColor(),
-                        kColors.secondInRankingColor,
-                        "Expected 1st place color to be \(kColors.secondInRankingColor)"
+                        UIColor.secondInRankingColor,
+                        "Expected 1st place color to be \(UIColor.secondInRankingColor)"
                     )
                 }
 
@@ -90,16 +90,16 @@ class UserPresenterTests: QuickSpec {
                 it("has 1st place background color") {
                     XCTAssertEqual(
                         userPresenter.backgroundColor(),
-                        kColors.secondInRankingColor,
-                        "Expected 1st place color to be \(kColors.secondInRankingColor)"
+                        UIColor.secondInRankingColor,
+                        "Expected 1st place color to be \(UIColor.secondInRankingColor)"
                     )
                 }
                 
                 it("has 2nd place avatar background color") {
                     XCTAssertEqual(
                         userPresenter.avatarBackgroundColor(),
-                        kColors.thirdInRankingColor,
-                        "Expected 2nd place color to be \(kColors.thirdInRankingColor)"
+                        UIColor.thirdInRankingColor,
+                        "Expected 2nd place color to be \(UIColor.thirdInRankingColor)"
                     )
                 }
                 
@@ -129,16 +129,16 @@ class UserPresenterTests: QuickSpec {
                 it("has 3rd place background color") {
                     XCTAssertEqual(
                         userPresenter.backgroundColor(),
-                        kColors.thirdInRankingColor,
-                        "Expected 3rd place color to be \(kColors.thirdInRankingColor)"
+                        UIColor.thirdInRankingColor,
+                        "Expected 3rd place color to be \(UIColor.thirdInRankingColor)"
                     )
                 }
                 
                 it("has 3rd place avatar background color") {
                     XCTAssertEqual(
                         userPresenter.avatarBackgroundColor(),
-                        0xE5E5FF,
-                        "Expected 3rd place color to be \(0xE5E5FF)"
+                        UIColor(hex: 0xE5E5FF),
+                        "Expected 3rd place color to be \(UIColor(hex: 0xE5E5FF))"
                     )
                 }
                 
