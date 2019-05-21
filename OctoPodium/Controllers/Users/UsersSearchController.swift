@@ -31,7 +31,7 @@ class UsersSearchController: UIViewController {
     
     let userMovementAnimationDuration: TimeInterval = 0.3
 
-    weak var coordinator: UsersCoordinator?
+    weak var coordinator: UserDisplayCoordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,18 +60,10 @@ class UsersSearchController: UIViewController {
     }
     
     @objc private func showUser() {
-        performSegue(withIdentifier: kSegues.userSearchToDetail, sender: self)
+        guard let user = user else { return }
+        coordinator?.showDetails(of: user)
     }
    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == kSegues.userSearchToDetail {
-            let vc = segue.destination as! UserDetailsController
-            if let user = user {
-                vc.userPresenter = UserPresenter(user: user)
-            }
-        }
-    }
-    
     fileprivate func searchUserFor(_ login: String) {
         userSearchContainer.hide()
         loadingIndicator.show()

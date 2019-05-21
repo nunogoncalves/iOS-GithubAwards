@@ -358,6 +358,21 @@ extension UIView {
         return anchor(centerYAnchor, equality, view.centerYAnchor, constant)
     }
 
+    func center(
+        _ equality: (Int, Int) -> (Bool),
+        _ view: UIView,
+        _ constant: CGFloat = 0
+    ) {
+        anchor(centerYAnchor, equality, view.centerYAnchor, constant)
+        anchor(centerXAnchor, equality, view.centerXAnchor, constant)
+    }
+
+    func constrainSize(equalTo constant: CGFloat) {
+        widthAnchor.constraint(equalToConstant: constant).isActive = true
+        heightAnchor.constraint(equalToConstant: constant).isActive = true
+    }
+
+    @discardableResult
     func anchor<T>(
         _ anchor: NSLayoutAnchor<T>,
         _ equality: (Int, Int) -> (Bool),

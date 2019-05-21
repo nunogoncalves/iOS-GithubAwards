@@ -139,21 +139,15 @@ class TrendingController : UIViewController {
     }
     
     private func userClicked(_ user: String) {
-        performSegue(withIdentifier: kSegues.trendingToUserDetailsSegue, sender: user)
+        coordinator?.showDetails(of: User(login: user, avatarUrl: ""))
     }
-    
+
     private func repositoryCellClicked(_ repository: Repository) {
         selectedRepository = repository
         performSegue(withIdentifier: kSegues.showTrendingRepositoryDetailsSegue, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == kSegues.trendingToUserDetailsSegue {
-            let vc = segue.destination as! UserDetailsController
-            let user = User(login: sender as! String, avatarUrl: "")
-            vc.userPresenter = UserPresenter(user: user)
-        }
-        
         if segue.identifier == kSegues.showTrendingRepositoryDetailsSegue {
             let vc = segue.destination as! RepositoryDetailsController
             vc.repository = selectedRepository

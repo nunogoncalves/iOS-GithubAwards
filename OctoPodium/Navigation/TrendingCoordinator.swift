@@ -8,7 +8,8 @@
 
 import Foundation
 
-class TrendingCoordinator: Coordinator {
+class TrendingCoordinator: Coordinator, UserDisplayCoordinator {
+    
     let navigationController: UINavigationController
     let children: [Coordinator] = []
 

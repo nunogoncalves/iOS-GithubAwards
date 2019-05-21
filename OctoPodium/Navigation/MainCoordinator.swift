@@ -8,7 +8,19 @@
 
 import Foundation
 
-class MainCoordinator: Coordinator {
+protocol UserDisplayCoordinator: Coordinator {
+    func showDetails(of user: User)
+}
+
+extension UserDisplayCoordinator {
+
+    func showDetails(of user: User) {
+        let userDetailsController = UserDetailsController(user: user)
+        navigationController.pushViewController(userDetailsController, animated: true)
+    }
+}
+
+class MainCoordinator: Coordinator, UserDisplayCoordinator {
 
     var children: [Coordinator] = [
 
@@ -28,8 +40,5 @@ class MainCoordinator: Coordinator {
     func showDetails(of language: Language) {
         let languageRankingController = LanguageRankingsController(language: language)
         navigationController.pushViewController(languageRankingController, animated: true)
-    }
-
-    func showDetails(of user: User) {
     }
 }

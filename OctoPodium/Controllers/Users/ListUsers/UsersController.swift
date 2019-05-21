@@ -206,8 +206,7 @@ extension UsersController : UITableViewDelegate {
         imageViewForSelectedIndexPath = cell.avatar
 
         let user = usersTableDataSource.item(at: indexPath)
-        let userController = UIStoryboard(storyboard: .main).controller(UserDetailsController.self)
-        userController.userPresenter = UserPresenter(user: user)
+        let userController = UserDetailsController(user: user)
         navigationController?.pushViewController(userController, animated: true)
     }
     

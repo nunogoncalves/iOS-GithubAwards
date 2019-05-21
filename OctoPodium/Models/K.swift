@@ -44,8 +44,6 @@ struct K {
     }
     
     struct Segues {
-        static let userSearchToDetail = "UsersSearchToDetailSegue"
-        static let trendingToUserDetailsSegue = "TrendingToUserDetailsSegue"
         static let showTrendingRepositoryDetailsSegue = "ShowTrendingRepositoryDetailsSegue"
         
         static let goToLoginSegue = "GoToLoginSegue"
@@ -59,7 +57,7 @@ struct K {
         }
         
         static let userSearchScreen = "User Search Screen"
-        static func userDetailsScreenFor(_ user: User?) -> String {
+        static func userDetailsScreen(for user: User?) -> String {
             if let login = user?.login {
                 return "User Details Screen <\(login)>"
             } else {

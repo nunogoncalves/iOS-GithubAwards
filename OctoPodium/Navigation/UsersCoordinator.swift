@@ -8,7 +8,8 @@
 
 import Foundation
 
-class UsersCoordinator: Coordinator {
+class UsersCoordinator: Coordinator, UserDisplayCoordinator {
+    
     let navigationController: UINavigationController
     let children: [Coordinator] = []
 

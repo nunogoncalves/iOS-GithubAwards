@@ -43,7 +43,7 @@ final class UserInfoViewSnapshots: FBSnapshotTestCase, ImageMocker {
 
     func testCommon() {
 
-        let container = UIView(frame: CGRect(x: 0, y: 0, width: 375, height: 381))
+        let container = UIView(frame: CGRect(x: 0, y: 0, width: 375, height: 411))
         container.backgroundColor = .white
         container.addSubview(userInfoView)
 
