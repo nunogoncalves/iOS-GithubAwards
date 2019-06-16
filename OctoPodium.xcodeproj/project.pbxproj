@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -44,6 +44,8 @@
 		852F5E0A1C7E1D1F00DEE0D1 /* RankingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F5E091C7E1D1F00DEE0D1 /* RankingTests.swift */; };
 		852F5E0D1C7E6BCA00DEE0D1 /* TestsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F5E0C1C7E6BCA00DEE0D1 /* TestsBuilder.swift */; };
 		8530ED361C60EA7F00173835 /* RepositoryDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8530ED351C60EA7F00173835 /* RepositoryDetailsController.swift */; };
+		853618F72294668D00195FED /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853618F62294668D00195FED /* CGRect.swift */; };
+		853618F92294AE9800195FED /* UserLanguageRepositoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853618F82294AE9800195FED /* UserLanguageRepositoriesController.swift */; };
 		85379A92206ED86B00CD0A4C /* UserStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85379A91206ED86B00CD0A4C /* UserStatsView.swift */; };
 		853C48DF1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */; };
 		853C48E11C09A28400373A92 /* GetOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48E01C09A28400373A92 /* GetOne.swift */; };
@@ -140,6 +142,7 @@
 		8599284E1C0D9579000ABE8C /* LocationTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8599284D1C0D9579000ABE8C /* LocationTypeTests.swift */; };
 		859928511C0DAB23000ABE8C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859928501C0DAB23000ABE8C /* String.swift */; };
 		859CE4BF1C2FDF3D008A7856 /* PageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859CE4BE1C2FDF3D008A7856 /* PageTests.swift */; };
+		859EE81222B45F9700971855 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 859EE81122B45F9700971855 /* Nuke */; };
 		85A1D2D01C2EB3A800774F49 /* MockNSURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A1D2CF1C2EB3A800774F49 /* MockNSURLSession.swift */; };
 		85A1D2D21C2EB53500774F49 /* NetworkRequesterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A1D2D11C2EB53500774F49 /* NetworkRequesterTests.swift */; };
 		85A4F0171C3F1BBB002F3405 /* WorldUsersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A4F0161C3F1BBB002F3405 /* WorldUsersController.swift */; };
@@ -275,6 +278,8 @@
 		852F5E091C7E1D1F00DEE0D1 /* RankingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTests.swift; sourceTree = "<group>"; };
 		852F5E0C1C7E6BCA00DEE0D1 /* TestsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestsBuilder.swift; sourceTree = "<group>"; };
 		8530ED351C60EA7F00173835 /* RepositoryDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryDetailsController.swift; sourceTree = "<group>"; };
+		853618F62294668D00195FED /* CGRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
+		853618F82294AE9800195FED /* UserLanguageRepositoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLanguageRepositoriesController.swift; sourceTree = "<group>"; };
 		85379A91206ED86B00CD0A4C /* UserStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatsView.swift; sourceTree = "<group>"; };
 		853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertUsersDictionaryToUsers.swift; sourceTree = "<group>"; };
 		853C48E01C09A28400373A92 /* GetOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetOne.swift; sourceTree = "<group>"; };
@@ -462,6 +467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92C755086812E9E10DDE8D5A /* Pods_OctoPodium.framework in Frameworks */,
+				859EE81222B45F9700971855 /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,6 +619,7 @@
 				85A4F0151C3F1B97002F3405 /* ListUsers */,
 				85D321241C022480001B7C7A /* UserDetailsController.swift */,
 				85168C831C0733BA00091553 /* UsersSearchController.swift */,
+				853618F82294AE9800195FED /* UserLanguageRepositoriesController.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -1105,6 +1112,7 @@
 			children = (
 				85F334102287F9F900F2C1ED /* Array.swift */,
 				85605A572292C9FA00303B97 /* CGFloat.swift */,
+				853618F62294668D00195FED /* CGRect.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -1171,6 +1179,9 @@
 			dependencies = (
 			);
 			name = OctoPodium;
+			packageProductDependencies = (
+				859EE81122B45F9700971855 /* Nuke */,
+			);
 			productName = GitHubAwards;
 			productReference = 85D320EC1C02062E001B7C7A /* OctoPodium.app */;
 			productType = "com.apple.product-type.application";
@@ -1260,6 +1271,9 @@
 				Base,
 			);
 			mainGroup = 85D320E31C02062E001B7C7A;
+			packageReferences = (
+				859EE81022B45F9700971855 /* XCRemoteSwiftPackageReference "Nuke" */,
+			);
 			productRefGroup = 85D320ED1C02062E001B7C7A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1498,7 +1512,6 @@
 				"${BUILT_PRODUCTS_DIR}/ARSPopover/ARSPopover.framework",
 				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
 				"${BUILT_PRODUCTS_DIR}/Locksmith/Locksmith.framework",
-				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
 				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
 				"${BUILT_PRODUCTS_DIR}/netfox/netfox.framework",
 				"${BUILT_PRODUCTS_DIR}/iOSSnapshotTestCase/FBSnapshotTestCase.framework",
@@ -1511,7 +1524,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ARSPopover.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Locksmith.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/netfox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSnapshotTestCase.framework",
@@ -1534,7 +1546,6 @@
 				"${BUILT_PRODUCTS_DIR}/ARSPopover/ARSPopover.framework",
 				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
 				"${BUILT_PRODUCTS_DIR}/Locksmith/Locksmith.framework",
-				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
 				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
 				"${BUILT_PRODUCTS_DIR}/netfox/netfox.framework",
 			);
@@ -1544,7 +1555,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ARSPopover.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Locksmith.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/netfox.framework",
 			);
@@ -1568,6 +1578,7 @@
 				85FA59651C1645B00097732B /* K.swift in Sources */,
 				85E09ED01D0AA36400752BB0 /* Parameterless.swift in Sources */,
 				850585891D0DE2330024C6BC /* CurrentUser.swift in Sources */,
+				853618F92294AE9800195FED /* UserLanguageRepositoriesController.swift in Sources */,
 				858B91131C085B4C00B510B3 /* SearchOptions.swift in Sources */,
 				85BBDA051C5E0BB300229ED2 /* TrendingRepositoryCell.swift in Sources */,
 				85E656781C13AB8A00BB4278 /* TableStateListener.swift in Sources */,
@@ -1608,6 +1619,7 @@
 				8517ECBD1C2C11AB00467985 /* RankingPresenter.swift in Sources */,
 				854813A81C7905D200182C6B /* StarsAndForksFetcher.swift in Sources */,
 				85168C841C0733BA00091553 /* UsersSearchController.swift in Sources */,
+				853618F72294668D00195FED /* CGRect.swift in Sources */,
 				855825471CA9E28200851967 /* StarRepository.swift in Sources */,
 				855825431CA9BD3000851967 /* CofigureGoogleAnalytics.swift in Sources */,
 				85605A522292085500303B97 /* UserInfoView.swift in Sources */,
@@ -1890,7 +1902,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				"PROVISIONING_PROFILE[sdk=*]" = "c38f2666-b663-4a00-91e8-bbd4906faba4";
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1922,7 +1935,10 @@
 				);
 				INFOPLIST_FILE = "OctoPodium/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				"OTHER_SWIFT_FLAGS[arch=*]" = "\"-D\" \"DEVELOPMENT\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.ios.octopodium;
 				PRODUCT_NAME = OctoPodium;
@@ -1948,7 +1964,10 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "OctoPodium/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				"OTHER_SWIFT_FLAGS[arch=*]" = "\"-D\" \"RELEASE\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.ios.octopodium;
 				PRODUCT_NAME = OctoPodium;
@@ -1981,7 +2000,11 @@
 					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
 				);
 				INFOPLIST_FILE = OctoPodiumTests/UnitTesting/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.ios.OctoPodiumTests;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = OctoPodiumTests;
@@ -1997,7 +2020,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = OctoPodiumTests/UnitTesting/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.ios.OctoPodiumTests;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = OctoPodiumTests;
@@ -2012,7 +2039,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				INFOPLIST_FILE = OctoPodiumUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.ios.OctoPodiumUITests;
 				PRODUCT_NAME = OctoPodiumUITests;
 				SWIFT_VERSION = 5.0;
@@ -2027,7 +2058,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				INFOPLIST_FILE = OctoPodiumUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.ios.OctoPodiumUITests;
 				PRODUCT_NAME = OctoPodiumUITests;
 				SWIFT_VERSION = 5.0;
@@ -2076,6 +2111,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		859EE81022B45F9700971855 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nunogoncalves/Nuke";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.6.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		859EE81122B45F9700971855 /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 859EE81022B45F9700971855 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 85D320E41C02062E001B7C7A /* Project object */;
 }

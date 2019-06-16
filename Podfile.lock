@@ -26,7 +26,6 @@ PODS:
   - Locksmith (4.0.0)
   - netfox (1.15.0)
   - Nimble (8.0.1)
-  - Nuke (7.6.3)
   - OHHTTPStubs/Core (6.1.0)
   - OHHTTPStubs/Default (6.1.0):
     - OHHTTPStubs/Core
@@ -51,7 +50,6 @@ DEPENDENCIES:
   - Locksmith (= 4.0.0)
   - netfox (~> 1.15.0)
   - Nimble (~> 8.0.1)
-  - Nuke (~> 7.6)
   - OHHTTPStubs/Swift (~> 6.1.0)
   - Quick (= 2.1)
 
@@ -69,7 +67,6 @@ SPEC REPOS:
     - Locksmith
     - netfox
     - Nimble
-    - Nuke
     - OHHTTPStubs
     - Quick
 
@@ -97,10 +94,9 @@ SPEC CHECKSUMS:
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
   netfox: 6ddcca687ad0a58550054fea481cb487461b5e0c
   Nimble: 45f786ae66faa9a709624227fae502db55a8bdd0
-  Nuke: 44130e95e09463f8773ae4b96b90de1eba6b3350
   OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
   Quick: 4be43f6634acfa727dd106bdf3929ce125ffa79d
 
-PODFILE CHECKSUM: 6f8aff835d7831beae39e36b67df0e5a47b5fcac
+PODFILE CHECKSUM: e72c91724378173a18c6041bc5da8387bd1e5186
 
 COCOAPODS: 1.6.1

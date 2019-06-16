@@ -95,3 +95,15 @@ extension TimeInterval {
     static let timeout: TimeInterval = 5
     static let resource: TimeInterval = 5
 }
+
+extension CGSize {
+    static let loadingViewSize: CGSize = CGSize(floatLiteral: 90)
+}
+
+struct Layout {
+    private init() {}
+    enum Size {
+        static let searchBarHeight: CGFloat = 44
+        static let loadingView: CGFloat = CGSize.loadingViewSize.height
+    }
+}

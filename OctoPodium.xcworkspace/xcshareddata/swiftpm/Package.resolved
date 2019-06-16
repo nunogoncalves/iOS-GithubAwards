@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Nuke",
+        "repositoryURL": "https://github.com/nunogoncalves/Nuke",
+        "state": {
+          "branch": null,
+          "revision": "9318d02a8a6d20af56505c9673261c1fd3b3aebe",
+          "version": "7.6.3"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

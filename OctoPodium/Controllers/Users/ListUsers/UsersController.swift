@@ -25,8 +25,7 @@ class UsersController : UIViewController {
         $0.textAlignment = .center
     }
     var loadingView: GithubLoadingView = create {
-        UIView.set($0.widthAnchor, 90)
-        UIView.set($0.heightAnchor, 90)
+        $0.constrainSize(equalTo: Layout.Size.loadingView)
     }
 
     var startSearchingLabel: UILabel = create {

@@ -25,7 +25,7 @@ extension Twitter {
             Twitter()
         ]
 
-        static var needsUrsername: Bool { return appsWithUsername().first { canOpen($0) } != nil }
+        static var needsUrsername: Bool { return appsWithUsername().any { canOpen($0) } }
 
         static func perform(ranking: String, language: String, location: String, username: String? = nil) {
 

@@ -47,9 +47,12 @@ class RepositoryDetailsController: UIViewController {
     }
     
     @objc private func showRepoOptions() {        
-        let repoBuilder = RepositoryOptionsBuilder.build(URL(string: repository!.url)!) { [weak self] in
+        let repoBuilder = RepositoryOptionsBuilder.build(repository!.url) { [weak self] in
             guard let s = self else { return }
-            let activityViewController = UIActivityViewController(activityItems: [s.repository!.url as NSString], applicationActivities: nil)
+            let activityViewController = UIActivityViewController(
+                activityItems: [s.repository!.url.absoluteString as NSString],
+                applicationActivities: nil
+            )
             s.present(activityViewController, animated: true, completion: {})
         }
         present(repoBuilder, animated: true, completion: nil)
@@ -62,13 +65,13 @@ class RepositoryDetailsController: UIViewController {
     private func getReadMeLocation() {
         guard let repository = repository else { return }
         
-        GitHub.RepoContentFetcher(repositoryName: repository.completeName)
+        GitHub.RepoContentFetcher(repositoryName: repository.fullName)
             .call(success: gotGithubApiResponse, failure: gitHubApiFailed)
     }
     
     private func fetchStarsAndForks() {
         guard let repository = repository else { return }
-        GitHub.StarsAndForksFetcher(repositoryName: repository.completeName).call(success: gotStarsAndForks, failure: gitHubApiFailed)
+        GitHub.StarsAndForksFetcher(repositoryName: repository.fullName).call(success: gotStarsAndForks, failure: gitHubApiFailed)
     }
     
     private func gotStarsAndForks(_ starsAndForks: (stars: Int, forks: Int)) {
@@ -150,7 +153,7 @@ class RepositoryDetailsController: UIViewController {
         starsGithubButton.setTitleToUnstar()
         starsGithubButton.stopLoading()
         starsGithubButton.increaseNumber()
-        Analytics.SendToGoogle.starRepoEvent(repository!.completeName)
+        Analytics.SendToGoogle.starRepoEvent(repository!.fullName)
     }
 
     private func unstarRepo() {
@@ -171,7 +174,7 @@ class RepositoryDetailsController: UIViewController {
         starsGithubButton.decreaseNumber()
         starsGithubButton.setTitleToStars()
         starsGithubButton.stopLoading()
-        Analytics.SendToGoogle.unstarRepoEvent(repository!.completeName)
+        Analytics.SendToGoogle.unstarRepoEvent(repository!.fullName)
     }
 }
 

@@ -73,5 +73,4 @@ class GithubLoadingView: UIView {
         staticImageView.hide()
         animatedImageView.startAnimating()
     }
-    
 }

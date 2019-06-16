@@ -105,7 +105,7 @@ final class LocationRankingView: UIView {
         cityRankingLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
 
         self.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        stackView.constrain(referringTo: layoutMarginsGuide , bottom: nil)
+        stackView.constrain(referringTo: layoutMarginsGuide, bottom: nil)
         stackView.bottom(<=, layoutMarginsGuide.bottomAnchor)
 
         let cityGesture = UITapGestureRecognizer(target: self, action: #selector(tappedCity))

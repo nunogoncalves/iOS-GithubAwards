@@ -8,6 +8,14 @@
 
 import Foundation
 
+extension CGPoint {
+    //This sugar looks like a good idea now... let's see if it ages well...
+    static func min(_ value: CGFloat) -> CGPoint { return .init(x: .minHeight, y: value) }
+    static func max(_ value: CGFloat) -> CGPoint { return .init(x: .maxHeight, y: value) }
+}
+
+private typealias SELF = UserInfoView
+
 final class UserInfoView: UIView {
 
     static let minHeight: CGFloat = .minHeight
@@ -18,22 +26,16 @@ final class UserInfoView: UIView {
     private var avatarXConstraint: NSLayoutConstraint!
 
     private let avatarYFunction = linearFunction(
-        for: CGPoint(x: .minHeight, y: -.avatarSmallSize / 2 + .avatarTopSpacingAtMinHeight),
-        and: CGPoint(x: .maxHeight, y: .avatarTopSpacingAtMaxHeight)
+        for: .min(-.avatarSmallSize / 2 + .avatarTopSpacingAtMinHeight),
+        and: .max(.avatarTopSpacingAtMaxHeight)
     )
 
     private var avatarXFunction: LinearFunction {
         let positionAtMinHeight = -(width / 2) + .avatarSmallSize / 2 + .margin
-        return linearFunction(
-            for: CGPoint(x: .minHeight, y: positionAtMinHeight),
-            and: CGPoint(x: .maxHeight, y: 0)
-        )
+        return linearFunction(for: .min(positionAtMinHeight), and: .max(0))
     }
 
-    private let avatarScaleFunction = linearFunction(
-        for: CGPoint(x: .minHeight, y: .minimumAvatarScale),
-        and: CGPoint(x: .maxHeight, y: 1)
-    )
+    private let avatarScaleFunction = linearFunction(for: .min(.minimumAvatarScale), and: .max(1))
 
     private let avatarBackground: UIView = create {
         $0.backgroundColor = .white
@@ -58,10 +60,7 @@ final class UserInfoView: UIView {
 
     private lazy var locationLabelScaleFunction: LinearFunction = {
         let witdhRatioAtMinHeight = locationLabelWidthSpaceRatio < 1 ? 1 : 1 / locationLabelWidthSpaceRatio
-        return linearFunction(
-            for: CGPoint(x: .minHeight, y: witdhRatioAtMinHeight),
-            and: CGPoint(x: .maxHeight, y: 1)
-        )
+        return linearFunction(for: .min(witdhRatioAtMinHeight), and: .max(1))
     }()
 
     private var locationLabelWidthSpaceRatio: CGFloat {
@@ -69,30 +68,25 @@ final class UserInfoView: UIView {
         return locationLabel.width / availableSpace
     }
 
-    private let locationYFunction = linearFunction(
-        for: CGPoint(x: .minHeight, y: 0),
-        and: CGPoint(x: .maxHeight, y: .avatarBigSize / 2 + .space + .textsHeight / 2)
-    )
+    private static let originalLocationLabelCenterY: CGFloat = .avatarBigSize / 2 + .space + .textsHeight / 2
+
+    private let locationYFunction = linearFunction(for: .min(0), and: .max(originalLocationLabelCenterY))
 
     private var locationXFunction: LinearFunction {
-        return linearFunction(
-            for: CGPoint(x: .minHeight, y: .avatarSmallSize / 2 + .space + locationLabel.width / 2),
-            and: CGPoint(x: .maxHeight, y: 0)
-        )
+        return linearFunction(for: .min(.avatarSmallSize / 2 + .space + locationLabel.width / 2), and: .max(0))
     }
 
     private var githubButtonYConstraint: NSLayoutConstraint!
     private var githubButtonXConstraint: NSLayoutConstraint!
 
-    private let githubButtonYFunction = linearFunction(
-        for: CGPoint(x: .minHeight, y: 0),
-        and: CGPoint(x: .maxHeight, y: .textsHeight + .space)
-    )
+    private let githubButtonYFunction = linearFunction(for: .min(0), and: .max(originalGithubButtonOriginalCenterY))
+
+    private static let originalGithubButtonOriginalCenterY = .textsHeight + .space
 
     private var githubButtonXFunction: LinearFunction {
         return linearFunction(
-            for: CGPoint(x: .minHeight, y: frame.width / 2 - githubButton.width / 2 - .margin),
-            and: CGPoint(x: .maxHeight, y: 0)
+            for: .min(frame.width / 2 - githubButton.width / 2 - .margin),
+            and: .max(0)
         )
     }
 
@@ -105,46 +99,10 @@ final class UserInfoView: UIView {
         $0.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
     }
 
-    private let userStatsAlphaFunc = linearFunction(
-        for: CGPoint(x: .minHeight, y: 0),
-        and: CGPoint(x: .maxHeight, y: 1)
-    )
-    private let userStats: UserStatsView = create {
-        UIView.set($0.heightAnchor, 20)
-    }
+    private let userStatsAlphaFunc = linearFunction(for: .min(0), and: .max(1))
+    private let userStats: UserStatsView = create { $0.constrain(height: 20) }
 
     private var heightConstraint: NSLayoutConstraint!
-
-    func setHeight(_ value: CGFloat) {
-
-        var height = value
-        if value > .maxHeight {
-            height = .maxHeight
-        }
-
-        if value < .minHeight {
-            height = .minHeight
-        }
-
-        guard heightConstraint.constant != height else { return }
-
-        heightConstraint.constant = height
-
-        let avatarScale = avatarScaleFunction(height)
-        avatarBackground.transform = avatarIdentityTransform.scaledBy(x: avatarScale, y: avatarScale)
-        avatarYConstraint.constant = avatarYFunction(height)
-        avatarXConstraint.constant = avatarXFunction(height)
-
-        let locationLabelScale: CGFloat = locationLabelScaleFunction(height)
-        locationLabel.transform = locationLabelIdentityTransform.scaledBy(x: locationLabelScale, y: locationLabelScale)
-        locationLabelYConstraint.constant = locationYFunction(height)
-        locationLabelXConstraint.constant = locationXFunction(height)
-
-        githubButtonYConstraint.constant = githubButtonYFunction(height)
-        githubButtonXConstraint.constant = githubButtonXFunction(height)
-
-        userStats.alpha = userStatsAlphaFunc(height)
-    }
 
     override init(frame: CGRect) {
 
@@ -171,12 +129,12 @@ final class UserInfoView: UIView {
         avatarImageView.centerY(==, avatarBackground)
 
         // 1/2 avatar + space + 1/2 height
-        locationLabelYConstraint = locationLabel.centerY(==, avatarBackground, .avatarBigSize / 2 + .space + .textsHeight / 2)
+        locationLabelYConstraint = locationLabel.centerY(==, avatarBackground, SELF.originalLocationLabelCenterY)
         locationLabelXConstraint = locationLabel.centerX(==, avatarBackground)
         locationLabel.leading(>=, self, .margin)
         locationLabel.trailing(<=, self, -.margin)
 
-        githubButtonYConstraint = githubButton.centerY(==, locationLabel, .textsHeight + .space)
+        githubButtonYConstraint = githubButton.centerY(==, locationLabel, SELF.originalGithubButtonOriginalCenterY)
         githubButtonXConstraint = githubButton.centerX(==, self)
         githubButton.leading(>=, self, .margin)
         githubButton.trailing(<=, self, -.margin)
@@ -187,48 +145,39 @@ final class UserInfoView: UIView {
 
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
-        avatarIdentityTransform = avatarBackground.transform
-        locationLabelIdentityTransform = locationLabel.transform
-
-        super.init(coder: aDecoder)
-
-        addSubview(avatarBackground)
-        avatarBackground.addSubview(avatarImageView)
-        addSubview(githubButton)
-        addSubview(locationLabel)
-        addSubview(userStats)
-
-        heightAnchor.constraint(greaterThanOrEqualToConstant: .minHeight).isActive = true
-        heightAnchor.constraint(lessThanOrEqualToConstant: .maxHeight).isActive = true
-        heightConstraint = heightAnchor.constraint(equalToConstant: .maxHeight)
-        heightConstraint.isActive = true
-
-        avatarXConstraint = avatarBackground.centerX(==, self)
-        avatarYConstraint = avatarBackground.top(==, self, .margin)
-
-        avatarImageView.centerX(==, avatarBackground)
-        avatarImageView.centerY(==, avatarBackground)
-
-        // 1/2 avatar + space + 1/2 height
-        locationLabelYConstraint = locationLabel.centerY(==, avatarBackground, .avatarBigSize / 2 + .space + .textsHeight / 2)
-        locationLabelXConstraint = locationLabel.centerX(==, avatarBackground)
-        locationLabel.leading(>=, self, .margin)
-        locationLabel.trailing(<=, self, -.margin)
-
-        githubButtonYConstraint = githubButton.centerY(==, locationLabel, .textsHeight / 2 + .space + .textsHeight / 2)
-        githubButtonXConstraint = githubButton.centerX(==, self)
-        githubButton.leading(>=, self, .margin)
-        githubButton.trailing(<=, self, -.margin)
-
-        userStats.centerX(==, self)
-        userStats.bottom(==, self, -.margin)
+        fatalError("init(coder:) has not been implemented")
     }
-
+    
     func render(with userPresenter: UserPresenter) {
         loadAvatar(userPresenter)
         userStats.render(with: userPresenter.rankingInfo)
         locationLabel.text = userPresenter.fullLocation
     }
+
+    func render(with heightValue: CGFloat) {
+
+        let height = max(.minHeight, min(.maxHeight, heightValue))
+
+        guard heightConstraint.constant != height else { return }
+
+        heightConstraint.constant = height
+
+        let avatarScale = avatarScaleFunction(height)
+        avatarBackground.transform = avatarIdentityTransform.scaledBy(x: avatarScale, y: avatarScale)
+        avatarYConstraint.constant = avatarYFunction(height)
+        avatarXConstraint.constant = avatarXFunction(height)
+
+        let locationLabelScale: CGFloat = locationLabelScaleFunction(height)
+        locationLabel.transform = locationLabelIdentityTransform.scaledBy(x: locationLabelScale, y: locationLabelScale)
+        locationLabelYConstraint.constant = locationYFunction(height)
+        locationLabelXConstraint.constant = locationXFunction(height)
+
+        githubButtonYConstraint.constant = githubButtonYFunction(height)
+        githubButtonXConstraint.constant = githubButtonXFunction(height)
+
+        userStats.alpha = userStatsAlphaFunc(height)
+    }
+
 
     private func loadAvatar(_ presenter: UserPresenter) {
         guard let avatarUrl = presenter.avatarUrl, avatarUrl != "" else { return }

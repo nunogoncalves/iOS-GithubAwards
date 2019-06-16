@@ -37,12 +37,11 @@ class UserDetailsController: UIViewController {
         table.estimatedRowHeight = .estimatedCellHeight
         table.rowHeight = UITableView.automaticDimension
         table.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: UserInfoView.maxHeight))
+        table.separatorStyle = .none
         return table
     }()
 
-    private let loadingView: GithubLoadingView = create {
-        $0.constrainSize(equalTo: 90)
-    }
+    private let loadingView: GithubLoadingView = create { $0.constrainSize(equalTo: Layout.Size.loadingView) }
 
     private var userPresenter: UserPresenter
     private var rankings: [Ranking] = []
@@ -66,10 +65,7 @@ class UserDetailsController: UIViewController {
 
     private func addSubviews() {
         view.backgroundColor = .white
-        view.addSubview(tableView)
-        view.addSubview(gradientView)
-        view.addSubview(userInfoView)
-        view.addSubview(loadingView)
+        view.addSubviews(tableView, gradientView, userInfoView, loadingView)
     }
 
     private func addSubviewConstraints() {
@@ -78,8 +74,8 @@ class UserDetailsController: UIViewController {
         userInfoView.constrain(referringTo: view.safeAreaLayoutGuide, bottom: nil)
         gradientView.constrain(referringTo: view.safeAreaLayoutGuide, top: nil, bottom: nil)
         gradientBottomConstraint = gradientView.bottom(==, userInfoView)
-        UIView.set(gradientView.heightAnchor, profileMaxHeight)
-        userInfoView.setHeight(UserInfoView.maxHeight)
+        gradientView.constrain(height: profileMaxHeight)
+        userInfoView.render(with: UserInfoView.maxHeight)
 
         loadingView.center(==, tableView)
     }
@@ -150,53 +146,35 @@ class UserDetailsController: UIViewController {
         let cityRanking = rankings[0].city?.position ?? 0
         let countryRanking = rankings[0].country?.position ?? 0
 
-        var ranking = cityRanking
-        if countryRanking >= cityRanking {
-            ranking = countryRanking
-        }
+        let ranking = max(cityRanking, countryRanking)
 
         if Twitter.Share.needsUrsername {
 
-            let alert = UIAlertController(
-                title: "Enter your twitter account name",
-                message: nil,
-                preferredStyle: .alert
-            )
-            alert.addTextField { (textField) in
-                // optionally configure the text field
-                textField.keyboardType = .alphabet
-            }
+            let alert = UIAlertController(title: "Enter your twitter account name", message: nil, preferredStyle: .alert )
+            alert.addTextField { textField in textField.keyboardType = .alphabet }
 
-            let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+                self.shareOnTwitter(username: alert.textFields?.first?.text, ranking: "\(ranking)")
+            })
 
-                Twitter.Share.perform(
-                    ranking: "\(ranking)",
-                    language: self.rankings[0].language!,
-                    location: self.userPresenter.locationName.capitalized,
-                    username: alert.textFields?.first?.text
-                )
-            }
-            alert.addAction(okAction)
-
-            let cancelAction = UIAlertAction(title: "Cancel", style: .default) { _ in
-
-                Twitter.Share.perform(
-                    ranking: "\(ranking)",
-                    language: self.rankings[0].language!,
-                    location: self.userPresenter.locationName.capitalized
-                )
-            }
-            alert.addAction(cancelAction)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .default) { _ in
+                self.shareOnTwitter(ranking: "\(ranking)")
+            })
 
             self.present(alert, animated: true, completion: nil)
 
         } else {
-            Twitter.Share.perform(
-                ranking: "\(ranking)",
-                language: rankings[0].language!,
-                location: userPresenter.locationName.capitalized
-            )
+            shareOnTwitter(ranking: "\(ranking)")
         }
+    }
+
+    private func shareOnTwitter(username: String? = nil, ranking: String) {
+        Twitter.Share.perform(
+            ranking: ranking,
+            language: rankings[0].language!,
+            location: userPresenter.locationName.capitalized,
+            username: username
+        )
     }
 
     @objc private func showUserOptions() {
@@ -242,15 +220,9 @@ extension UserDetailsController: UITableViewDelegate {
         let scrollingArea = ScrollingArea(offset: y, upThreshold: profileMaxHeight)
 
         switch scrollingArea {
-        case .pullingDown:
-            userInfoView.setHeight(profileMaxHeight)
-            gradientBottomConstraint.constant = 0
-        case .animationArea:
-            userInfoView.setHeight(profileMaxHeight - y)
-            gradientBottomConstraint.constant = 0
-        case .pastUpThreshold:
-            userInfoView.setHeight(profileMinHeight)
-            gradientBottomConstraint.constant = 0
+        case .pullingDown: userInfoView.render(with: profileMaxHeight)
+        case .animationArea: userInfoView.render(with: profileMaxHeight - y)
+        case .pastUpThreshold: userInfoView.render(with: profileMinHeight)
         }
     }
 }
@@ -276,9 +248,10 @@ extension UserDetailsController: RankingSelectionDelegate {
     }
 
     func tappedLanguage(_ language: String) {
-        let login = userPresenter.login
-        Browser.openPage(URL(string: "https://github.com/search?q=user:\(login)+language:\(language)")!)
-        Analytics.SendToGoogle.viewUserLanguagesOnGithub(login, language: language)
+        Analytics.SendToGoogle.viewUserLanguagesOnGithub(userPresenter.login, language: language)
+
+        let controller = UserLanguageReposotoriesController(user: userPresenter.user, language: language)
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
 

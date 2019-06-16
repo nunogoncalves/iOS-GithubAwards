@@ -23,7 +23,7 @@ class RankingCell: UITableViewCell, Reusable {
     private var presenter: RankingPresenter?
 
     private let header: RankingCellHeader = create {
-        $0.heightAnchor.constraint(equalToConstant: 38).isActive = true
+        $0.constrain(height: 38)
     }
 
     private let locationsRankingView: LocationRankingView = create {

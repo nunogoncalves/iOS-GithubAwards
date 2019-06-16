@@ -397,6 +397,28 @@ extension UIView {
         return constraint
     }
 
+    func constrain(width: CGFloat, height: CGFloat) {
+        NSLayoutConstraint.activate([
+            widthAnchor.constraint(equalToConstant: width),
+            heightAnchor.constraint(equalToConstant: height)
+        ])
+    }
+
+    func constrain(toCenterOf view: UIView) {
+        NSLayoutConstraint.activate([
+            centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
+
+    func constrain(height: CGFloat) {
+        return heightAnchor.constraint(equalToConstant: height).isActive = true
+    }
+
+    func constrain(width: CGFloat) {
+        return widthAnchor.constraint(equalToConstant: width).isActive = true
+    }
+
     static func set(_ dimension: NSLayoutDimension, _ constant: CGFloat) {
         dimension.constraint(equalToConstant: constant).isActive = true
     }

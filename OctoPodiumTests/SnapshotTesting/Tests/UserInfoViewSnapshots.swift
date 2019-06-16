@@ -32,18 +32,17 @@ final class UserInfoViewSnapshots: FBSnapshotTestCase, ImageMocker {
         return user
     }()
 
-
     override func setUp() {
 
         super.setUp()
         folderName = String(describing: UserInfoView.self)
-        self.recordMode = true
+        self.recordMode = false
         mockImages()
     }
 
     func testCommon() {
 
-        let container = UIView(frame: CGRect(x: 0, y: 0, width: 375, height: 411))
+        let container = UIView(frame: CGRect(x: 0, y: 0, width: 375, height: 391))
         container.backgroundColor = .white
         container.addSubview(userInfoView)
 
@@ -52,7 +51,8 @@ final class UserInfoViewSnapshots: FBSnapshotTestCase, ImageMocker {
         userInfoView.backgroundColor = #colorLiteral(red: 0.6745098039, green: 0.6745098039, blue: 0.6745098039, alpha: 1)
         userInfoView.render(with: UserPresenter(user: user))
         userInfoView.layoutIfNeeded()
-        userInfoView.setHeight(50)
+        userInfoView.constrain(height: 50)
+        userInfoView.render(with: 50)
 
         let userInfoView1 = UserInfoView.usingAutoLayout()
         container.addSubview(userInfoView1)
@@ -62,7 +62,8 @@ final class UserInfoViewSnapshots: FBSnapshotTestCase, ImageMocker {
         userInfoView1.backgroundColor = #colorLiteral(red: 0.6745098039, green: 0.6745098039, blue: 0.6745098039, alpha: 1)
         userInfoView1.render(with: UserPresenter(user: user))
         userInfoView1.layoutIfNeeded()
-        userInfoView1.setHeight(120)
+        userInfoView1.constrain(height: 120)
+        userInfoView1.render(with: 120)
 
         let userInfoView2 = UserInfoView.usingAutoLayout()
         container.addSubview(userInfoView2)

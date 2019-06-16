@@ -11,4 +11,5 @@ import Foundation
 struct UITestingConstants {
 
     static let uiTestingMode = "UI_TESTING_MODE"
+    static let recordRequests = "UI_TESTING_RECORD_REQUESTS"
 }

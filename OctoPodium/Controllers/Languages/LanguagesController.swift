@@ -13,7 +13,7 @@ typealias Language = String
 class LanguagesController: UIViewController {
 
     private let searchBar: SearchBar = create {
-        UIView.set($0.heightAnchor, 44)
+        UIView.set($0.heightAnchor, Layout.Size.searchBarHeight)
         $0.barTintColor = UIColor(hex: 0xF3F3F3)
         $0.tintColor = UIColor(hex: 0x909095)
         $0.placeholder = "Filter"
@@ -25,8 +25,7 @@ class LanguagesController: UIViewController {
         return table
     }()
     private let loadingIndicator: GithubLoadingView = create {
-        UIView.set($0.widthAnchor, 90)
-        UIView.set($0.heightAnchor, 90)
+        $0.constrainSize(equalTo: Layout.Size.loadingView)
     }
 
     private let tryAgainButton: UIButton = create {

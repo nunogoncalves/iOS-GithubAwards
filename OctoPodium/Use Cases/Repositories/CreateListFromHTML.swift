@@ -26,7 +26,7 @@ extension Repositories {
             let description = getDescriptionFrom(repoHTML)
             let language = getLanguageFrom(repoHTML)
 
-            return Repository(name: repoName, stars: stars, description: description, language: language)
+            return GitAwardsRepository(name: repoName, stars: stars, description: description, language: language)
         }
 
         private static func getRepositoriesHTML(_ document: HTMLDocument) -> XPathObject {

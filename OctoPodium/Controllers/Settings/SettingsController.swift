@@ -97,7 +97,7 @@ class SettingsController : UITableViewController {
     
     @objc func showOctoPodiumReadMe() {
         Analytics.SendToGoogle.viewOctoPodiumReadMeEvent()
-        let repository = Repository(
+        let repository = GitAwardsRepository(
             name: "\(K.appOwnerName)/\(K.appRepositoryName)",
             stars: "0",
             description: "",

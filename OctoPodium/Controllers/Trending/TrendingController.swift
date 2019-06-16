@@ -21,7 +21,7 @@ class TrendingController : UIViewController {
     fileprivate var popoverController: ARSPopover?
     
     private var languageButton: UIButton!
-    private let languageImageView = LanguageImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+    private let languageImageView = LanguageImageView(frame: 30.0)
     
     private var repositories: [Repository] = []
     private var selectedRepository: Repository?
@@ -82,7 +82,7 @@ class TrendingController : UIViewController {
     }
     
     private func buildLanguageButton() {
-        languageButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        languageButton = UIButton(frame: 30.0)
         languageButton.addTarget(self, action: #selector(clickedLanguage), for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: languageButton)
     }
@@ -104,14 +104,18 @@ class TrendingController : UIViewController {
         languagesPopoverController.modalPresentationStyle = .popover
         languagesPopoverController.languageSelectorDelegate = self
     }
-    
-    
+
     private func showPopover() {
         popoverController = ARSPopover()
         popoverController!.sourceView = languageButton
-        popoverController!.sourceRect = CGRect(x: (languageButton.bounds).midX, y: (languageButton.bounds).maxY, width: 0, height: 0)
+        popoverController!.sourceRect = CGRect(
+            x: languageButton.bounds.midX,
+            y: languageButton.bounds.maxY,
+            width: 0,
+            height: 0
+        )
         popoverController!.contentSize = CGSize(width: view.width - 50, height: 300)
-        popoverController!.arrowDirection = .up;
+        popoverController!.arrowDirection = .up
         
         present(popoverController!, animated: true) { [weak self] in
             self?.popoverController!.insertContent(intoPopover: { [weak self] (popover, _, _) in
