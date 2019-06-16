@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Xtensions
 
 class UsersController : UIViewController {
     
@@ -14,7 +15,7 @@ class UsersController : UIViewController {
 
     var paginationContainer: UIView = create {
         $0.backgroundColor = UIColor(hex: 0xACACAC)
-        UIView.set($0.heightAnchor, 30)
+        $0.constrain(height: 30)
         $0.layer.cornerRadius = 5
         $0.layer.masksToBounds = true
         $0.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]

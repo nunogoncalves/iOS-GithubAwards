@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Xtensions
 
 class LanguageRankingsController: UIViewController {
 
@@ -20,7 +21,7 @@ class LanguageRankingsController: UIViewController {
 
     private let locationSegmentContainer: UIView = create {
         $0.backgroundColor = .white
-        UIView.set($0.heightAnchor, .locationTypeSelectorHeight)
+        $0.constrain(height: .locationTypeSelectorHeight)
     }
 
     private var previousSelectedSegmentIndex = 0
@@ -39,7 +40,7 @@ class LanguageRankingsController: UIViewController {
     }
 
     private let searchBar: SearchBar = create {
-        UIView.set($0.heightAnchor, .searchBarHeight)
+        $0.constrain(width: .searchBarHeight)
         $0.barTintColor = UIColor(hex: 0xF3F3F3)
         $0.placeholder = "Filter"
         $0.tintColor = UIColor(hex: 0x909095)

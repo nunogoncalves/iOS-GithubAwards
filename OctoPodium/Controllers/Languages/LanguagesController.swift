@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import Xtensions
 
 typealias Language = String
 
 class LanguagesController: UIViewController {
 
     private let searchBar: SearchBar = create {
-        UIView.set($0.heightAnchor, Layout.Size.searchBarHeight)
+        $0.constrain(height: Layout.Size.searchBarHeight)
         $0.barTintColor = UIColor(hex: 0xF3F3F3)
         $0.tintColor = UIColor(hex: 0x909095)
         $0.placeholder = "Filter"

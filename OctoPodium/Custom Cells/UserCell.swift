@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Xtensions
 
 class UserRankingCell: UITableViewCell, Reusable {
 
@@ -20,8 +21,8 @@ class UserRankingCell: UITableViewCell, Reusable {
     }
 
     private let rankingImageView: UIImageView = create {
-        UIView.set($0.widthAnchor, 34)
-        UIView.set($0.heightAnchor, 40)
+        $0.constrain(width: 34)
+        $0.constrain(height: 40)
     }
     private let rankingLabel: UILabel = create {
         $0.textColor = UIColor(hex: 0xAAAAAA)
@@ -31,27 +32,23 @@ class UserRankingCell: UITableViewCell, Reusable {
 
     private let bigImageBorderView: UIView = create {
         $0.backgroundColor = UIColor(hex: 0xF7F7F7)
-        UIView.set($0.heightAnchor, 40)
-        UIView.set($0.widthAnchor, 40)
+        $0.constrainSize(equalTo: 40)
         $0.cornerRadius = 20
     }
 
     private let userAvatarBigImageView: UIImageView = create {
-        UIView.set($0.heightAnchor, 34)
-        UIView.set($0.widthAnchor, 34)
+        $0.constrainSize(equalTo: 34)
         $0.cornerRadius = 34 / 2
     }
 
     private let smallImageBorderView: UIView = create {
         $0.backgroundColor = UIColor(hex: 0xECF0F1)
-        UIView.set($0.heightAnchor, 30)
-        UIView.set($0.widthAnchor, 30)
+        $0.constrainSize(equalTo: 30)
         $0.cornerRadius = 15
     }
 
     private let userAvatarSmallImageView: UIImageView = create {
-        UIView.set($0.heightAnchor, 26)
-        UIView.set($0.widthAnchor, 26)
+        $0.constrainSize(equalTo: 26)
         $0.cornerRadius = 26 / 2
     }
 

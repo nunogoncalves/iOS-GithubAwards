@@ -14,6 +14,7 @@
 		850585871D0DB2870024C6BC /* CellWithAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850585861D0DB2870024C6BC /* CellWithAvatar.swift */; };
 		850585891D0DE2330024C6BC /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850585881D0DE2330024C6BC /* CurrentUser.swift */; };
 		8508B76B1C1593D40024684F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8508B76A1C1593D40024684F /* UIColor.swift */; };
+		850D3F1322B61B8E00054E93 /* Xtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 850D3F1222B61B8E00054E93 /* Xtensions */; };
 		85168C841C0733BA00091553 /* UsersSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85168C831C0733BA00091553 /* UsersSearchController.swift */; };
 		8517ECBD1C2C11AB00467985 /* RankingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8517ECBC1C2C11AB00467985 /* RankingPresenter.swift */; };
 		8517ECBF1C2C1EDB00467985 /* RankingPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8517ECBE1C2C1EDB00467985 /* RankingPresenterTests.swift */; };
@@ -466,6 +467,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				850D3F1322B61B8E00054E93 /* Xtensions in Frameworks */,
 				92C755086812E9E10DDE8D5A /* Pods_OctoPodium.framework in Frameworks */,
 				859EE81222B45F9700971855 /* Nuke in Frameworks */,
 			);
@@ -1181,6 +1183,7 @@
 			name = OctoPodium;
 			packageProductDependencies = (
 				859EE81122B45F9700971855 /* Nuke */,
+				850D3F1222B61B8E00054E93 /* Xtensions */,
 			);
 			productName = GitHubAwards;
 			productReference = 85D320EC1C02062E001B7C7A /* OctoPodium.app */;
@@ -1273,6 +1276,7 @@
 			mainGroup = 85D320E31C02062E001B7C7A;
 			packageReferences = (
 				859EE81022B45F9700971855 /* XCRemoteSwiftPackageReference "Nuke" */,
+				850D3F1122B61B8E00054E93 /* XCRemoteSwiftPackageReference "Xtensions" */,
 			);
 			productRefGroup = 85D320ED1C02062E001B7C7A /* Products */;
 			projectDirPath = "";
@@ -2113,6 +2117,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		850D3F1122B61B8E00054E93 /* XCRemoteSwiftPackageReference "Xtensions" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:nunogoncalves/Xtensions.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.0;
+			};
+		};
 		859EE81022B45F9700971855 /* XCRemoteSwiftPackageReference "Nuke" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/nunogoncalves/Nuke";
@@ -2124,6 +2136,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		850D3F1222B61B8E00054E93 /* Xtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 850D3F1122B61B8E00054E93 /* XCRemoteSwiftPackageReference "Xtensions" */;
+			productName = Xtensions;
+		};
 		859EE81122B45F9700971855 /* Nuke */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 859EE81022B45F9700971855 /* XCRemoteSwiftPackageReference "Nuke" */;

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Xtensions
 
 protocol RankingHeaderModelProtocol {
     var medals: Medals { get }

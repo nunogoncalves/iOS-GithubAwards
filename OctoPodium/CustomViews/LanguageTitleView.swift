@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Xtensions
 
 class LanguageTitleView: UIView {
 

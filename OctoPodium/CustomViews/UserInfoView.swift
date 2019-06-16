@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import Xtensions
 
-extension CGPoint {
+private extension CGPoint {
     //This sugar looks like a good idea now... let's see if it ages well...
     static func min(_ value: CGFloat) -> CGPoint { return .init(x: .minHeight, y: value) }
     static func max(_ value: CGFloat) -> CGPoint { return .init(x: .maxHeight, y: value) }

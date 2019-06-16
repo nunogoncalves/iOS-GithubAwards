@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Xtensions
 
 protocol RankingSelectionDelegate: AnyObject {
     func tappedLanguage(_ language: String)

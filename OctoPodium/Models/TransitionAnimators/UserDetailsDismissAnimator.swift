@@ -18,9 +18,9 @@ class UserDetailsDismissAnimator : NSObject, UIViewControllerAnimatedTransitioni
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
 
-        guard let languagesC = transitionContext.languageRankingC, let userDetailsC = transitionContext.userDetailsC else {
-            return
-        }
+//        guard let languagesC = transitionContext.languageRankingC, let userDetailsC = transitionContext.userDetailsC else {
+//            return
+//        }
         
 //        let containerView = transitionContext.containerView
 //        

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Xtensions
 
 private enum ScrollingArea {
     case pullingDown
@@ -41,7 +42,9 @@ class UserDetailsController: UIViewController {
         return table
     }()
 
-    private let loadingView: GithubLoadingView = create { $0.constrainSize(equalTo: Layout.Size.loadingView) }
+    private let loadingView: GithubLoadingView = create {
+        $0.constrainSize(equalTo: Layout.Size.loadingView)
+    }
 
     private var userPresenter: UserPresenter
     private var rankings: [Ranking] = []

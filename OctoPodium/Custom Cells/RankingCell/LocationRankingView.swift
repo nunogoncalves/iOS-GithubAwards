@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Xtensions
 
 protocol LocationRankingProtocol {
     var worldRanking: WorldRanking { get }

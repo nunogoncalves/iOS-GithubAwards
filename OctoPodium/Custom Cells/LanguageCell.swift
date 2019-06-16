@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Xtensions
 
 class LanguageCell: UITableViewCell, Reusable {
 
