@@ -32,7 +32,9 @@ final class UserInfoView: UIView {
     )
 
     private var avatarXFunction: LinearFunction {
-        let positionAtMinHeight = -(width / 2) + .avatarSmallSize / 2 + .margin
+        let halfWidth = width / 2
+        let halfSmallSize = .avatarSmallSize / 2
+        let positionAtMinHeight = -halfWidth + halfSmallSize + .margin
         return linearFunction(for: .min(positionAtMinHeight), and: .max(0))
     }
 

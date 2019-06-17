@@ -14,7 +14,7 @@
 		850585871D0DB2870024C6BC /* CellWithAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850585861D0DB2870024C6BC /* CellWithAvatar.swift */; };
 		850585891D0DE2330024C6BC /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850585881D0DE2330024C6BC /* CurrentUser.swift */; };
 		8508B76B1C1593D40024684F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8508B76A1C1593D40024684F /* UIColor.swift */; };
-		850D3F1322B61B8E00054E93 /* Xtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 850D3F1222B61B8E00054E93 /* Xtensions */; };
+		85108C7322B6913A00B9CCEA /* UserSearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85108C7222B6913A00B9CCEA /* UserSearchResultView.swift */; };
 		85168C841C0733BA00091553 /* UsersSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85168C831C0733BA00091553 /* UsersSearchController.swift */; };
 		8517ECBD1C2C11AB00467985 /* RankingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8517ECBC1C2C11AB00467985 /* RankingPresenter.swift */; };
 		8517ECBF1C2C1EDB00467985 /* RankingPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8517ECBE1C2C1EDB00467985 /* RankingPresenterTests.swift */; };
@@ -45,7 +45,6 @@
 		852F5E0A1C7E1D1F00DEE0D1 /* RankingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F5E091C7E1D1F00DEE0D1 /* RankingTests.swift */; };
 		852F5E0D1C7E6BCA00DEE0D1 /* TestsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F5E0C1C7E6BCA00DEE0D1 /* TestsBuilder.swift */; };
 		8530ED361C60EA7F00173835 /* RepositoryDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8530ED351C60EA7F00173835 /* RepositoryDetailsController.swift */; };
-		853618F72294668D00195FED /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853618F62294668D00195FED /* CGRect.swift */; };
 		853618F92294AE9800195FED /* UserLanguageRepositoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853618F82294AE9800195FED /* UserLanguageRepositoriesController.swift */; };
 		85379A92206ED86B00CD0A4C /* UserStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85379A91206ED86B00CD0A4C /* UserStatsView.swift */; };
 		853C48DF1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */; };
@@ -90,6 +89,8 @@
 		854B5BA41CA7335E0070A456 /* UserInfoGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854B5BA31CA7335E0070A456 /* UserInfoGetter.swift */; };
 		855075881D0B63DB004FA634 /* UserDetailsDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855075871D0B63DB004FA634 /* UserDetailsDismissAnimator.swift */; };
 		8550758A1D0BF186004FA634 /* UserDetailsPresentAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855075891D0BF186004FA634 /* UserDetailsPresentAnimation.swift */; };
+		85562ACB22B6F8FF001F4379 /* UserSearchResultViewSnapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85562ACA22B6F8FF001F4379 /* UserSearchResultViewSnapshots.swift */; };
+		85562ACE22B703D6001F4379 /* Xtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 85562ACD22B703D6001F4379 /* Xtensions */; };
 		8558253C1CA8526500851967 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558253B1CA8526500851967 /* AboutController.swift */; };
 		8558253E1CA85DF200851967 /* NSBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558253D1CA85DF200851967 /* NSBundle.swift */; };
 		855825411CA881D600851967 /* Follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855825401CA881D600851967 /* Follow.swift */; };
@@ -251,6 +252,7 @@
 		850585861D0DB2870024C6BC /* CellWithAvatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellWithAvatar.swift; sourceTree = "<group>"; };
 		850585881D0DE2330024C6BC /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		8508B76A1C1593D40024684F /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		85108C7222B6913A00B9CCEA /* UserSearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchResultView.swift; sourceTree = "<group>"; };
 		85168C831C0733BA00091553 /* UsersSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersSearchController.swift; sourceTree = "<group>"; };
 		8517ECBC1C2C11AB00467985 /* RankingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingPresenter.swift; sourceTree = "<group>"; };
 		8517ECBE1C2C1EDB00467985 /* RankingPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingPresenterTests.swift; sourceTree = "<group>"; };
@@ -279,7 +281,6 @@
 		852F5E091C7E1D1F00DEE0D1 /* RankingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTests.swift; sourceTree = "<group>"; };
 		852F5E0C1C7E6BCA00DEE0D1 /* TestsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestsBuilder.swift; sourceTree = "<group>"; };
 		8530ED351C60EA7F00173835 /* RepositoryDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryDetailsController.swift; sourceTree = "<group>"; };
-		853618F62294668D00195FED /* CGRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
 		853618F82294AE9800195FED /* UserLanguageRepositoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLanguageRepositoriesController.swift; sourceTree = "<group>"; };
 		85379A91206ED86B00CD0A4C /* UserStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatsView.swift; sourceTree = "<group>"; };
 		853C48DE1C0923A700373A92 /* ConvertUsersDictionaryToUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertUsersDictionaryToUsers.swift; sourceTree = "<group>"; };
@@ -324,6 +325,7 @@
 		854B5BA31CA7335E0070A456 /* UserInfoGetter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoGetter.swift; sourceTree = "<group>"; };
 		855075871D0B63DB004FA634 /* UserDetailsDismissAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDetailsDismissAnimator.swift; path = TransitionAnimators/UserDetailsDismissAnimator.swift; sourceTree = "<group>"; };
 		855075891D0BF186004FA634 /* UserDetailsPresentAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailsPresentAnimation.swift; sourceTree = "<group>"; };
+		85562ACA22B6F8FF001F4379 /* UserSearchResultViewSnapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchResultViewSnapshots.swift; sourceTree = "<group>"; };
 		8558253B1CA8526500851967 /* AboutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
 		8558253D1CA85DF200851967 /* NSBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSBundle.swift; sourceTree = "<group>"; };
 		855825401CA881D600851967 /* Follow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Follow.swift; sourceTree = "<group>"; };
@@ -467,7 +469,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				850D3F1322B61B8E00054E93 /* Xtensions in Frameworks */,
+				85562ACE22B703D6001F4379 /* Xtensions in Frameworks */,
 				92C755086812E9E10DDE8D5A /* Pods_OctoPodium.framework in Frameworks */,
 				859EE81222B45F9700971855 /* Nuke in Frameworks */,
 			);
@@ -748,6 +750,7 @@
 				857943A71C3E5A8D00824577 /* UsersTable.swift */,
 				85379A91206ED86B00CD0A4C /* UserStatsView.swift */,
 				85605A512292085500303B97 /* UserInfoView.swift */,
+				85108C7222B6913A00B9CCEA /* UserSearchResultView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -943,6 +946,7 @@
 				85702338228BE6250006B8B4 /* UserCellSnapshots.swift */,
 				85605A532292088200303B97 /* UserInfoViewSnapshots.swift */,
 				852ADE57206EDE5A00C5F56C /* UserStatsViewSnapshots.swift */,
+				85562ACA22B6F8FF001F4379 /* UserSearchResultViewSnapshots.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1114,7 +1118,6 @@
 			children = (
 				85F334102287F9F900F2C1ED /* Array.swift */,
 				85605A572292C9FA00303B97 /* CGFloat.swift */,
-				853618F62294668D00195FED /* CGRect.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -1183,7 +1186,7 @@
 			name = OctoPodium;
 			packageProductDependencies = (
 				859EE81122B45F9700971855 /* Nuke */,
-				850D3F1222B61B8E00054E93 /* Xtensions */,
+				85562ACD22B703D6001F4379 /* Xtensions */,
 			);
 			productName = GitHubAwards;
 			productReference = 85D320EC1C02062E001B7C7A /* OctoPodium.app */;
@@ -1276,7 +1279,7 @@
 			mainGroup = 85D320E31C02062E001B7C7A;
 			packageReferences = (
 				859EE81022B45F9700971855 /* XCRemoteSwiftPackageReference "Nuke" */,
-				850D3F1122B61B8E00054E93 /* XCRemoteSwiftPackageReference "Xtensions" */,
+				85562ACC22B703D6001F4379 /* XCRemoteSwiftPackageReference "Xtensions" */,
 			);
 			productRefGroup = 85D320ED1C02062E001B7C7A /* Products */;
 			projectDirPath = "";
@@ -1578,6 +1581,7 @@
 				854B5B9C1CA6EE370070A456 /* AddGithubAccountController.swift in Sources */,
 				8550758A1D0BF186004FA634 /* UserDetailsPresentAnimation.swift in Sources */,
 				853C48E11C09A28400373A92 /* GetOne.swift in Sources */,
+				85108C7322B6913A00B9CCEA /* UserSearchResultView.swift in Sources */,
 				85FF115B2284081B00D8B0D1 /* Tweeterific.swift in Sources */,
 				85FA59651C1645B00097732B /* K.swift in Sources */,
 				85E09ED01D0AA36400752BB0 /* Parameterless.swift in Sources */,
@@ -1623,7 +1627,6 @@
 				8517ECBD1C2C11AB00467985 /* RankingPresenter.swift in Sources */,
 				854813A81C7905D200182C6B /* StarsAndForksFetcher.swift in Sources */,
 				85168C841C0733BA00091553 /* UsersSearchController.swift in Sources */,
-				853618F72294668D00195FED /* CGRect.swift in Sources */,
 				855825471CA9E28200851967 /* StarRepository.swift in Sources */,
 				855825431CA9BD3000851967 /* CofigureGoogleAnalytics.swift in Sources */,
 				85605A522292085500303B97 /* UserInfoView.swift in Sources */,
@@ -1723,6 +1726,7 @@
 				857858521C7618A7009195B8 /* StringTests.swift in Sources */,
 				854A404F1C3B3D16005E7FF1 /* VerifyRequestStatusTests.swift in Sources */,
 				85702333228B0F350006B8B4 /* LanguageTitleViewSnapshots.swift in Sources */,
+				85562ACB22B6F8FF001F4379 /* UserSearchResultViewSnapshots.swift in Sources */,
 				85FC70681C2456FF00971081 /* UserPresenterTests.swift in Sources */,
 				85AD6582206E19DA00B6E8AF /* GithubButtonSnapshots.swift in Sources */,
 				85702331228AFD110006B8B4 /* LanguageCellSnapshots.swift in Sources */,
@@ -1852,7 +1856,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1902,7 +1906,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				"PROVISIONING_PROFILE[sdk=*]" = "c38f2666-b663-4a00-91e8-bbd4906faba4";
 				SDKROOT = iphoneos;
@@ -1938,7 +1942,7 @@
 					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
 				);
 				INFOPLIST_FILE = "OctoPodium/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1967,7 +1971,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "OctoPodium/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2117,12 +2121,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		850D3F1122B61B8E00054E93 /* XCRemoteSwiftPackageReference "Xtensions" */ = {
+		85562ACC22B703D6001F4379 /* XCRemoteSwiftPackageReference "Xtensions" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:nunogoncalves/Xtensions.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.0;
+				minimumVersion = 0.3.0;
 			};
 		};
 		859EE81022B45F9700971855 /* XCRemoteSwiftPackageReference "Nuke" */ = {
@@ -2136,9 +2140,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		850D3F1222B61B8E00054E93 /* Xtensions */ = {
+		85562ACD22B703D6001F4379 /* Xtensions */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 850D3F1122B61B8E00054E93 /* XCRemoteSwiftPackageReference "Xtensions" */;
+			package = 85562ACC22B703D6001F4379 /* XCRemoteSwiftPackageReference "Xtensions" */;
 			productName = Xtensions;
 		};
 		859EE81122B45F9700971855 /* Nuke */ = {
