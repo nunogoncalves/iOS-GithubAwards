@@ -34,6 +34,7 @@
 		85198B761C05CE6C007ACC73 /* LanguagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85198B751C05CE6C007ACC73 /* LanguagesController.swift */; };
 		851D3C381C09134600870813 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D3C371C09134600870813 /* Requester.swift */; };
 		851D3C3A1C0913E900870813 /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D3C391C0913E900870813 /* ResponseHandler.swift */; };
+		851FF39D22BBF4A700D8A0DA /* OctoCatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851FF39C22BBF4A700D8A0DA /* OctoCatView.swift */; };
 		8527DBB91D0F671600D388A4 /* ShareRanking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8527DBB81D0F671600D388A4 /* ShareRanking.swift */; };
 		852A5F522083B44400EF2BBD /* trending_repositories.html in Resources */ = {isa = PBXBuildFile; fileRef = 852A5F512083B44400EF2BBD /* trending_repositories.html */; };
 		852A5F552084704800EF2BBD /* MocksConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852A5F5320846FE400EF2BBD /* MocksConfigurator.swift */; };
@@ -271,6 +272,7 @@
 		85198B751C05CE6C007ACC73 /* LanguagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguagesController.swift; sourceTree = "<group>"; };
 		851D3C371C09134600870813 /* Requester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
 		851D3C391C0913E900870813 /* ResponseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseHandler.swift; sourceTree = "<group>"; };
+		851FF39C22BBF4A700D8A0DA /* OctoCatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OctoCatView.swift; sourceTree = "<group>"; };
 		8527DBB81D0F671600D388A4 /* ShareRanking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareRanking.swift; sourceTree = "<group>"; };
 		852A5F512083B44400EF2BBD /* trending_repositories.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = trending_repositories.html; sourceTree = "<group>"; };
 		852A5F5320846FE400EF2BBD /* MocksConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MocksConfigurator.swift; sourceTree = "<group>"; };
@@ -749,6 +751,7 @@
 				85379A91206ED86B00CD0A4C /* UserStatsView.swift */,
 				85605A512292085500303B97 /* UserInfoView.swift */,
 				85108C7222B6913A00B9CCEA /* UserSearchResultView.swift */,
+				851FF39C22BBF4A700D8A0DA /* OctoCatView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -1491,13 +1494,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OctoPodiumUITests/Pods-OctoPodiumUITests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/iOSSnapshotTestCase/FBSnapshotTestCase.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OctoPodiumUITests/Pods-OctoPodiumUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSnapshotTestCase.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OctoPodiumUITests/Pods-OctoPodiumUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1509,29 +1511,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OctoPodium-OctoPodiumTests/Pods-OctoPodium-OctoPodiumTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/1PasswordExtension/OnePasswordExtension.framework",
-				"${BUILT_PRODUCTS_DIR}/ARSPopover/ARSPopover.framework",
-				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
-				"${BUILT_PRODUCTS_DIR}/Locksmith/Locksmith.framework",
-				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
-				"${BUILT_PRODUCTS_DIR}/netfox/netfox.framework",
-				"${BUILT_PRODUCTS_DIR}/iOSSnapshotTestCase/FBSnapshotTestCase.framework",
-				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
-				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OctoPodium-OctoPodiumTests/Pods-OctoPodium-OctoPodiumTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OnePasswordExtension.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ARSPopover.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Locksmith.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/netfox.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSnapshotTestCase.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OctoPodium-OctoPodiumTests/Pods-OctoPodium-OctoPodiumTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1543,23 +1528,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OctoPodium/Pods-OctoPodium-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/1PasswordExtension/OnePasswordExtension.framework",
-				"${BUILT_PRODUCTS_DIR}/ARSPopover/ARSPopover.framework",
-				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
-				"${BUILT_PRODUCTS_DIR}/Locksmith/Locksmith.framework",
-				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
-				"${BUILT_PRODUCTS_DIR}/netfox/netfox.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OctoPodium/Pods-OctoPodium-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OnePasswordExtension.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ARSPopover.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Locksmith.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/netfox.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OctoPodium/Pods-OctoPodium-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1692,6 +1666,7 @@
 				855913DE1C63879700E356FD /* RepoContentsFetcher.swift in Sources */,
 				8597FBE32285851C00F635A0 /* RankingCellHeader.swift in Sources */,
 				85B501851C10FD8400BBFD56 /* LanguageTitleView.swift in Sources */,
+				851FF39D22BBF4A700D8A0DA /* OctoCatView.swift in Sources */,
 				854B5BA01CA6FE200070A456 /* ApiResponse.swift in Sources */,
 				850585871D0DB2870024C6BC /* CellWithAvatar.swift in Sources */,
 				85B2C2D01C18D07800112D95 /* UIView.swift in Sources */,
@@ -2042,6 +2017,10 @@
 			baseConfigurationReference = 112E72C776C123C297F8444C /* Pods-OctoPodiumUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = OctoPodiumUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2050,6 +2029,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.ios.OctoPodiumUITests;
 				PRODUCT_NAME = OctoPodiumUITests;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = OctoPodium;
 				USES_XCTRUNNER = YES;
@@ -2061,6 +2042,10 @@
 			baseConfigurationReference = 1D3ADA13FD104BF381089E4E /* Pods-OctoPodiumUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = OctoPodiumUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2069,6 +2054,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.ios.OctoPodiumUITests;
 				PRODUCT_NAME = OctoPodiumUITests;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = OctoPodium;
 				USES_XCTRUNNER = YES;
