@@ -18,7 +18,6 @@
 		85168C841C0733BA00091553 /* UsersSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85168C831C0733BA00091553 /* UsersSearchController.swift */; };
 		8517ECBD1C2C11AB00467985 /* RankingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8517ECBC1C2C11AB00467985 /* RankingPresenter.swift */; };
 		8517ECBF1C2C1EDB00467985 /* RankingPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8517ECBE1C2C1EDB00467985 /* RankingPresenterTests.swift */; };
-		8518908120783A8000C1C4A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8518908020783A8000C1C4A7 /* GoogleService-Info.plist */; };
 		85189090207952B500C1C4A7 /* XCTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8518908E207952B500C1C4A7 /* XCTestCase.swift */; };
 		85189091207952B500C1C4A7 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8518908F207952B500C1C4A7 /* TimeInterval.swift */; };
 		8518909D207952C100C1C4A7 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85189093207952C000C1C4A7 /* SettingsScreen.swift */; };
@@ -256,7 +255,6 @@
 		85168C831C0733BA00091553 /* UsersSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersSearchController.swift; sourceTree = "<group>"; };
 		8517ECBC1C2C11AB00467985 /* RankingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingPresenter.swift; sourceTree = "<group>"; };
 		8517ECBE1C2C1EDB00467985 /* RankingPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingPresenterTests.swift; sourceTree = "<group>"; };
-		8518908020783A8000C1C4A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8518908E207952B500C1C4A7 /* XCTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestCase.swift; sourceTree = "<group>"; };
 		8518908F207952B500C1C4A7 /* TimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
 		85189093207952C000C1C4A7 /* SettingsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
@@ -775,7 +773,6 @@
 		858B91091C0859F900B510B3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8518908020783A8000C1C4A7 /* GoogleService-Info.plist */,
 				85EF2E421CE79B8000745A68 /* 1Password */,
 				85D320EF1C02062E001B7C7A /* AppDelegate.swift */,
 				85D320FB1C02062E001B7C7A /* Info.plist */,
@@ -1318,7 +1315,6 @@
 				8549ACC91C6C8B1F004D8149 /* TitilliumWeb-BoldItalic.ttf in Resources */,
 				8549ACD11C6C8B1F004D8149 /* TitilliumWeb-SemiBoldItalic.ttf in Resources */,
 				8549ACCB1C6C8B1F004D8149 /* TitilliumWeb-ExtraLightItalic.ttf in Resources */,
-				8518908120783A8000C1C4A7 /* GoogleService-Info.plist in Resources */,
 				85820F4A1C0E2C1A0069D085 /* GithubLoading-3.gif in Resources */,
 				85BBDA061C5E0BB300229ED2 /* TrendingRepositoryCell.xib in Resources */,
 				85820F491C0E2C1A0069D085 /* GithubLoading-2.gif in Resources */,

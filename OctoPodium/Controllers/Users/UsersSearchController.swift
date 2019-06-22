@@ -23,7 +23,6 @@ class UsersSearchController: UIViewController {
     @IBOutlet weak var xEyeLeft: UIImageView!
     @IBOutlet weak var xEyeRight: UIImageView!
     
-    
     @IBOutlet weak var userContainerTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var loadingIndicator: GithubLoadingView!
     

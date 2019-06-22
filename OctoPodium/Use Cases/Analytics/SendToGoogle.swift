@@ -10,7 +10,7 @@ extension Analytics {
     
     struct SendToGoogle {
         
-        private static let tracker = GAI.sharedInstance().defaultTracker
+//        private static let tracker = GAI.sharedInstance().defaultTracker
         private static let qos = Int(QOS_CLASS_USER_INTERACTIVE.rawValue)
         
         static func enteredScreen(_ screenName: String) {
@@ -113,26 +113,26 @@ extension Analytics {
         }
         
         private static func sendScreenView(_ screenName: String) {
-            callAsync {
-                executeIfRelease {
-                    tracker?.set(kGAIScreenName, value: screenName)
-                    let builder = GAIDictionaryBuilder.createScreenView()
-                    if let builder = builder {
-                        tracker?.send(builder.build() as [NSObject : AnyObject])
-                    }
-                }
-            }
+//            callAsync {
+//                executeIfRelease {
+//                    tracker?.set(kGAIScreenName, value: screenName)
+//                    let builder = GAIDictionaryBuilder.createScreenView()
+//                    if let builder = builder {
+//                        tracker?.send(builder.build() as [NSObject : AnyObject])
+//                    }
+//                }
+//            }
         }
         
         private static func sendEvent(_ category: String, action: String, label: String? = nil) {
-            callAsync {
-                executeIfRelease {
-                    let l = label == nil ? action : label
-                    if let builder = GAIDictionaryBuilder.createEvent(withCategory: category, action: action, label: l, value: nil) {
-                        tracker?.send(builder.build() as [NSObject : AnyObject])
-                    }
-                }
-            }
+//            callAsync {
+//                executeIfRelease {
+//                    let l = label == nil ? action : label
+//                    if let builder = GAIDictionaryBuilder.createEvent(withCategory: category, action: action, label: l, value: nil) {
+//                        tracker?.send(builder.build() as [NSObject : AnyObject])
+//                    }
+//                }
+//            }
         }
         
         private static func executeIfRelease(_ action: () -> () = {}) {
