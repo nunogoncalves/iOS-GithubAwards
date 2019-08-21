@@ -10,6 +10,40 @@ import Xtensions
 
 class UserRankingCell: UITableViewCell, Reusable {
 
+    private let userListItemView = UserListItemView.usingAutoLayout()
+    private var presenter: UserPresenter?
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+        contentView.addSubview(userListItemView)
+        userListItemView.pinToBounds(of: contentView)
+    }
+
+    @available(*, unavailable)
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        userListItemView.clear()
+    }
+
+    func render(with userPresenter: UserPresenter) {
+        userListItemView.render(with: userPresenter)
+    }
+}
+
+extension UserRankingCell: CellWithAvatar {
+
+    var avatar: UIImageView { userListItemView.avatar }
+}
+
+final class UserListItemView: UIView {
+
     private var stackViewWithSmallImageConstraint: NSLayoutConstraint!
     private var stackViewWithBigImageLeadingConstraint: NSLayoutConstraint!
 
@@ -36,7 +70,7 @@ class UserRankingCell: UITableViewCell, Reusable {
         $0.cornerRadius = 20
     }
 
-    private let userAvatarBigImageView: UIImageView = create {
+    let userAvatarBigImageView: UIImageView = create {
         $0.constrainSize(equalTo: 34)
         $0.cornerRadius = 34 / 2
     }
@@ -47,55 +81,75 @@ class UserRankingCell: UITableViewCell, Reusable {
         $0.cornerRadius = 15
     }
 
-    private let userAvatarSmallImageView: UIImageView = create {
+    let userAvatarSmallImageView: UIImageView = create {
         $0.constrainSize(equalTo: 26)
         $0.cornerRadius = 26 / 2
     }
 
-    private let userLoginLabel: UILabel = create {
+    private let loginLocationStackView: UIStackView = create {
+        $0.axis = .vertical
+        $0.setContentHuggingPriority(.defaultLow, for: .horizontal)
+    }
+
+    private let loginLabel: UILabel = create {
         $0.setContentHuggingPriority(.defaultLow, for: .horizontal)
         $0.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         $0.textColor = UIColor(hex: 0x313131)
     }
-    private let numberOfStarsLabel: UILabel = create {
-        $0.font = UIFont.systemFont(ofSize: 17, weight: .light)
+
+    private let locationLabel: UILabel = create {
+        $0.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        $0.font = UIFont.systemFont(ofSize: 17)
         $0.textColor = UIColor(hex: 0x313131)
     }
 
+    private let numberOfStarsLabel: UILabel = create {
+        $0.font = UIFont.systemFont(ofSize: 17, weight: .light)
+        $0.textColor = UIColor(hex: 0x313131)
+        $0.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+    }
+
     private let starsLabel: UILabel = create {
+        $0.setContentHuggingPriority(.required, for: .horizontal)
         $0.font = UIFont.systemFont(ofSize: 9, weight: .light)
         $0.text = "★"
     }
 
+    var avatar: UIImageView {
+        return presenter?.isInPodium == true ? userAvatarBigImageView : userAvatarSmallImageView
+    }
+
     private var presenter: UserPresenter?
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    init() {
+        super.init(frame: .zero)
 
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-
-        contentView.addSubview(rankingImageView)
-        contentView.addSubview(rankingLabel)
-        contentView.addSubview(stackView)
+        addSubview(rankingImageView)
+        addSubview(rankingLabel)
+        addSubview(stackView)
 
         stackView.addArrangedSubview(bigImageBorderView)
         stackView.addArrangedSubview(smallImageBorderView)
-        stackView.addArrangedSubview(userLoginLabel)
+        stackView.addArrangedSubview(loginLocationStackView)
         stackView.addArrangedSubview(numberOfStarsLabel)
         stackView.addArrangedSubview(starsLabel)
+
+        loginLocationStackView.addArrangedSubview(loginLabel)
+        loginLocationStackView.addArrangedSubview(locationLabel)
 
         bigImageBorderView.addSubview(userAvatarBigImageView)
         smallImageBorderView.addSubview(userAvatarSmallImageView)
 
-        stackViewWithSmallImageConstraint = stackView.leading(==, contentView.leadingAnchor, 60)
+        stackViewWithSmallImageConstraint = stackView.leading(==, self, 60)
         stackViewWithSmallImageConstraint.isActive = false
-        stackViewWithBigImageLeadingConstraint = stackView.leading(==, contentView.leadingAnchor, 54)
+        stackViewWithBigImageLeadingConstraint = stackView.leading(==, self, 54)
 
         rankingLabel.leading(==, rankingImageView, 1)
         rankingLabel.trailing(==, rankingImageView)
-        rankingLabel.centerY(==, contentView)
+        rankingLabel.centerY(==, self)
 
-        rankingImageView.leading(==, contentView, 10)
-        rankingImageView.top(==, contentView)
+        rankingImageView.leading(==, self, 10)
+        rankingImageView.top(==, self)
 
         userAvatarBigImageView.centerX(==, bigImageBorderView)
         userAvatarBigImageView.centerY(==, bigImageBorderView)
@@ -106,7 +160,7 @@ class UserRankingCell: UITableViewCell, Reusable {
         stackView.setCustomSpacing(13, after: userAvatarSmallImageView)
         stackView.setCustomSpacing(13, after: userAvatarBigImageView)
         stackView.setCustomSpacing(0, after: numberOfStarsLabel)
-        stackView.constrain(referringTo: contentView, leading: nil, trailing: -5)
+        stackView.constrain(referringTo: self, leading: nil, trailing: -5)
     }
 
     @available(*, unavailable)
@@ -114,15 +168,9 @@ class UserRankingCell: UITableViewCell, Reusable {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func prepareForReuse() {
-        super.prepareForReuse()
+    func render(with userPresenter: UserPresenter, withLocation: Bool = false) {
+        self.presenter = userPresenter
 
-        userAvatarBigImageView.image = nil
-        userAvatarSmallImageView.image = nil
-    }
-
-    func render(with userPresenter: UserPresenter) {
-        presenter = userPresenter
         let isPodium = userPresenter.isInPodium
         rankingImageView.isHidden = !isPodium
         bigImageBorderView.isHidden = !isPodium
@@ -138,10 +186,12 @@ class UserRankingCell: UITableViewCell, Reusable {
 
         starsLabel.textColor = isPodium ? UIColor(hex: 0x313131) : UIColor(hex: 0xAAAAAA)
         numberOfStarsLabel.textColor = isPodium ? UIColor(hex: 0x313131) : UIColor(hex: 0x555555)
-        userLoginLabel.textColor = isPodium ? UIColor(hex: 0x313131) : .black
-        userLoginLabel.font = isPodium ? UIFont.systemFont(ofSize: 16, weight: .semibold) : UIFont.systemFont(ofSize: 17)
+        loginLabel.textColor = isPodium ? UIColor(hex: 0x313131) : .black
+        loginLabel.font = isPodium ? UIFont.systemFont(ofSize: 16, weight: .semibold) : UIFont.systemFont(ofSize: 17)
 
-        contentView.backgroundColor = isPodium ? UIColor(hex: 0xF7F7F7) : .clear
+        locationLabel.text = withLocation ? userPresenter.fullLocation : ""
+
+        backgroundColor = isPodium ? UIColor(hex: 0xF7F7F7) : .clear
 
         if isPodium, let imageName = userPresenter.rankingImageName {
             rankingImageView.image = UIImage(named: imageName)
@@ -153,14 +203,20 @@ class UserRankingCell: UITableViewCell, Reusable {
         }
 
         rankingLabel.text = "\(userPresenter.ranking)"
-        userLoginLabel.text = userPresenter.login
+        loginLabel.text = userPresenter.login
         numberOfStarsLabel.text = "\(userPresenter.stars)"
     }
-}
 
-extension UserRankingCell: CellWithAvatar {
-    
-    var avatar: UIImageView {
-        return presenter?.isInPodium == true ? userAvatarBigImageView : userAvatarSmallImageView
+    func updateStars() {
+        if let stars = presenter?.calculatedStars {
+            numberOfStarsLabel.text = stars
+        } else {
+            numberOfStarsLabel.text = ""
+        }
+    }
+
+    func clear() {
+        userAvatarBigImageView.image = nil
+        userAvatarSmallImageView.image = nil
     }
 }

@@ -18,8 +18,7 @@ class UsersCoordinator: Coordinator, UserDisplayCoordinator {
     }
 
     func start() {
-        let usersController = UIStoryboard(storyboard: .main).controller(with: "UsersSearchController") as UsersSearchController
-        usersController.coordinator = self
+        let usersController = UsersSearchController(coordinator: self)
         navigationController.pushViewController(usersController, animated: false)
     }
 }

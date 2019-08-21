@@ -95,7 +95,15 @@ class UserPresenter {
     var stars: String {
         return "\(user.starsCount ?? 0)"
     }
-    
+
+    var calculatedStars: String {
+        let number = user.rankings.reduce(0) { (value, ranking) -> Int in
+            return value + ranking.stars
+        }
+
+        return "\(number)"
+    }
+
     var hasLocation: Bool {
         return user.hasLocation
     }

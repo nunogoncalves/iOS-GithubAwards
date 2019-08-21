@@ -44,6 +44,8 @@ final class UserSearchResultView: UIView {
             rightEyeImageView
         )
 
+        octoCatImageView.center(==, self)
+
         leadingEyeConstraint = leftEyeImageView.leading(==, self, .foundEyesMargin)
         topEyeConstraint = leftEyeImageView.top(==, self, .foundEyesTopMargin)
         trailingEyeConstraint = rightEyeImageView.trailing(==, self, -.foundEyesMargin)
