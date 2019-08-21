@@ -13,7 +13,6 @@ private enum StarState {
     case undefined
     case starred
     case unstarred
-    
 }
 
 class RepositoryDetailsController: UIViewController {

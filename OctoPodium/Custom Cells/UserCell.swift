@@ -94,18 +94,15 @@ final class UserListItemView: UIView {
     private let loginLabel: UILabel = create {
         $0.setContentHuggingPriority(.defaultLow, for: .horizontal)
         $0.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
-        $0.textColor = UIColor(hex: 0x313131)
     }
 
     private let locationLabel: UILabel = create {
         $0.setContentHuggingPriority(.defaultLow, for: .horizontal)
         $0.font = UIFont.systemFont(ofSize: 17)
-        $0.textColor = UIColor(hex: 0x313131)
     }
 
     private let numberOfStarsLabel: UILabel = create {
         $0.font = UIFont.systemFont(ofSize: 17, weight: .light)
-        $0.textColor = UIColor(hex: 0x313131)
         $0.setContentHuggingPriority(.defaultHigh, for: .horizontal)
     }
 
@@ -184,14 +181,11 @@ final class UserListItemView: UIView {
         stackViewWithSmallImageConstraint.isActive = !isPodium
         layoutIfNeeded()
 
-        starsLabel.textColor = isPodium ? UIColor(hex: 0x313131) : UIColor(hex: 0xAAAAAA)
-        numberOfStarsLabel.textColor = isPodium ? UIColor(hex: 0x313131) : UIColor(hex: 0x555555)
-        loginLabel.textColor = isPodium ? UIColor(hex: 0x313131) : .black
-        loginLabel.font = isPodium ? UIFont.systemFont(ofSize: 16, weight: .semibold) : UIFont.systemFont(ofSize: 17)
+        loginLabel.font = isPodium ? .systemFont(ofSize: 16, weight: .semibold) : .systemFont(ofSize: 17)
 
         locationLabel.text = withLocation ? userPresenter.fullLocation : ""
 
-        backgroundColor = isPodium ? UIColor(hex: 0xF7F7F7) : .clear
+        backgroundColor = isPodium ? .secondarySystemBackground : .systemBackground
 
         if isPodium, let imageName = userPresenter.rankingImageName {
             rankingImageView.image = UIImage(named: imageName)

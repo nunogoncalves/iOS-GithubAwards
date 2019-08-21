@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BDA253B2BABCB4CD78AA96F41F4FF591"
+               BlueprintIdentifier = "480AB62F09561D667328E283B740AC68"
                BuildableName = "ARSPopover.framework"
                BlueprintName = "ARSPopover"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1E0B9DFE11A3B2711C371DDBBA9BDAA6"
+               BlueprintIdentifier = "93AC747EDE1EE56F89BBF405C1D67027"
                BuildableName = "Kanna.framework"
                BlueprintName = "Kanna"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -42,7 +42,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3569379D9BD1D94F25C628F740C609E3"
+               BlueprintIdentifier = "F1A43A0FFC2FFBC81E90917B5E198DB6"
                BuildableName = "Locksmith.framework"
                BlueprintName = "Locksmith"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -56,7 +56,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F554EA343D656E7FB0C1ACC045EB2666"
+               BlueprintIdentifier = "6F13695E06195A78EA8A95F8C7ED0D2F"
                BuildableName = "Nimble.framework"
                BlueprintName = "Nimble"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -84,7 +84,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "46F9F921EEE04B256DB21CBD95F9D4DD"
+               BlueprintIdentifier = "C4E977B70BD3B220D13104727E28951B"
                BuildableName = "Pods_OctoPodium.framework"
                BlueprintName = "Pods-OctoPodium"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -112,7 +112,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E555AF30BC52BDD5E6F611C17FC3F407"
+               BlueprintIdentifier = "3FDE04589C7346DFF1B3F60584E49F37"
                BuildableName = "Pods_OctoPodiumUITests.framework"
                BlueprintName = "Pods-OctoPodiumUITests"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -126,7 +126,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EBE37355E5004F8B8D5DB51DB06D297D"
+               BlueprintIdentifier = "C82891EAB7293DBEE916B21F57E8474D"
                BuildableName = "Quick.framework"
                BlueprintName = "Quick"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -168,7 +168,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E0D5773C6DEB06357ABB396EF13BB2CD"
+               BlueprintIdentifier = "C393038B0BEF088C1B93E6528005862D"
                BuildableName = "FBSnapshotTestCase.framework"
                BlueprintName = "iOSSnapshotTestCase"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">

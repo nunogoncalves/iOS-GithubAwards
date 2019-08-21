@@ -20,7 +20,7 @@ class LanguageRankingsController: UIViewController {
     }
 
     private let locationSegmentContainer: UIView = create {
-        $0.backgroundColor = .white
+        $0.backgroundColor = .systemBackground
         $0.constrain(height: .locationTypeSelectorHeight)
     }
 
@@ -28,22 +28,20 @@ class LanguageRankingsController: UIViewController {
 
     private let locationSegment: UISegmentedControl = {
         let segmentControl = UISegmentedControl(items: ["World", "Country", "City"]).usingAutoLayout()
-        segmentControl.tintColor = UIColor(hex: 0x2F9DE6)
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(locationTypeChanged), for: .valueChanged)
         return segmentControl
     }()
 
     private let searchContainer: UIView = create {
-        $0.backgroundColor = .white
+        $0.backgroundColor = .secondarySystemBackground
         $0.isHidden = true
     }
 
     private let searchBar: SearchBar = create {
         $0.constrain(width: .searchBarHeight)
-        $0.barTintColor = UIColor(hex: 0xF3F3F3)
+        $0.barTintColor = .systemBackground
         $0.placeholder = "Filter"
-        $0.tintColor = UIColor(hex: 0x909095)
     }
 
     private let worldContainer: UIView = create {
@@ -87,7 +85,9 @@ class LanguageRankingsController: UIViewController {
 
         super.init(nibName: nil, bundle: nil)
 
-        view.backgroundColor = .white
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = .secondarySystemBackground
+
+        view.backgroundColor = .systemBackground
         view.addSubview(countryContainer)
         view.addSubview(cityContainer)
         view.addSubview(worldContainer)
