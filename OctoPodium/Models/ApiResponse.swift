@@ -6,6 +6,16 @@
 //  Copyright © 2016 Nuno Gonçalves. All rights reserved.
 //
 
+enum ApiResponseError: Error {
+    case any(apiResponse: ApiResponse)
+
+    var apiResponse: ApiResponse {
+        switch self {
+        case let .any(apiResponse): return apiResponse
+        }
+    }
+}
+
 struct ApiResponse {
     
     let status: NetworkStatus

@@ -37,10 +37,12 @@ class LanguagesController: UIViewController {
     fileprivate var allLanguages: [Language] = []
     fileprivate var filteredLanguages: [String] = []
     fileprivate var selectedLanguage: Language?
+    private let languagesFetcher: LanguageServiceProtocol
 
     private weak var coordinator: MainCoordinator?
 
-    init(coordinator: MainCoordinator?) {
+    init(languagesFetcher: LanguageServiceProtocol, coordinator: MainCoordinator?) {
+        self.languagesFetcher = languagesFetcher
         self.coordinator = coordinator
 
         super.init(nibName: nil, bundle: nil)
@@ -81,7 +83,12 @@ class LanguagesController: UIViewController {
 
     @objc private func searchLanguages() {
         setSearching()
-        Languages.Get().getAll(success: got, failure: failedToLoadLanguages)
+        languagesFetcher.getAll { result in
+            switch result {
+            case let .success(languages): self.got(languages: languages)
+            case let .failure(error): self.failedToLoadLanguages(error.apiResponse)
+            }
+        }
     }
 
     private func setSearching() {

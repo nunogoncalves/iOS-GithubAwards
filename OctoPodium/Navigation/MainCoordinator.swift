@@ -33,7 +33,7 @@ class MainCoordinator: Coordinator, UserDisplayCoordinator {
     }
 
     func start() {
-        let languagesController = LanguagesController(coordinator: self)
+        let languagesController = LanguagesController(languagesFetcher: Languages.Get(), coordinator: self)
         navigationController.pushViewController(languagesController, animated: false)
     }
 

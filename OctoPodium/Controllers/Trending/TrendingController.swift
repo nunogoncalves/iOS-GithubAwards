@@ -100,7 +100,8 @@ class TrendingController : UIViewController {
     }
     
     private func buildPopoverElements() {
-        languagesPopoverController = LanguagesPopoverController()
+        #warning("TODO Nuno: Add to coordinator")
+        languagesPopoverController = LanguagesPopoverController(languagesFetcher: Languages.Get())
         languagesPopoverController.modalPresentationStyle = .popover
         languagesPopoverController.languageSelectorDelegate = self
     }
