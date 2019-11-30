@@ -17,13 +17,13 @@ struct Style {
         private func setUpTabsAppearance() {
             let tabBarAppearance = UITabBar.appearance()
             tabBarAppearance.tintColor = .white
-            tabBarAppearance.barTintColor = UIColor(hex: kColors.tabBarColor)
+            tabBarAppearance.barTintColor = .tabBarColor
         }
         
         private func setUpNavigationAppearance() {
             let appearance = UINavigationBar.appearance()
             appearance.barStyle = .black
-            appearance.barTintColor = UIColor(hex: kColors.navigationBarColor)
+            appearance.barTintColor = .navigationBarColor
             appearance.tintColor = .white
             
             appearance.titleTextAttributes = [

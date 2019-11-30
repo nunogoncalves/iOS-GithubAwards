@@ -7,24 +7,24 @@
 //
 
 import UIKit
+import Xtensions
 
-protocol LocationDelegate: class {
-    func clickedCity(_ city: String, forLanguage language: String)
-    func clickedCountry(_ country: String, forLanguage language: String)
-    func clickedWorld(forLanguage language: String)
-    func clickedLanguage(_ language: String)
+protocol RankingSelectionDelegate: AnyObject {
+    func tappedLanguage(_ language: String)
+    func tappedCity(_ city: String, forLanguage: String)
+    func tappedCountry(_ country: String, forLanguage: String)
+    func tappedWorld(forLanguage: String)
 }
 
 extension RankingPresenter: LocationRankingProtocol {}
 
-
 class RankingCell: UITableViewCell, Reusable {
 
-    weak var locationDelegate: LocationDelegate?
+    weak var delegate: RankingSelectionDelegate?
     private var presenter: RankingPresenter?
 
     private let header: RankingCellHeader = create {
-        $0.heightAnchor.constraint(equalToConstant: 38).isActive = true
+        $0.constrain(height: 38)
     }
 
     private let locationsRankingView: LocationRankingView = create {
@@ -44,10 +44,12 @@ class RankingCell: UITableViewCell, Reusable {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         contentView.addSubview(rankingsStackView)
-        rankingsStackView.constrain(referringTo: contentView, top: 5, leading: 5, bottom: nil, trailing: -5)
+        rankingsStackView.constrain(referringTo: contentView, top: 5, leading: 5, bottom: 0, trailing: -5)
         rankingsStackView.addArrangedSubview(header)
         rankingsStackView.addArrangedSubview(locationsRankingView)
-        rankingsStackView.sendSubviewToBack(locationsRankingView)
+        rankingsStackView.sendSubviewToBack(locationsRankingView) //Hide the gray line
+
+        locationsRankingView.delegate = self
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showUserLanguage))
         header.addGestureRecognizer(tapGesture)
@@ -55,7 +57,7 @@ class RankingCell: UITableViewCell, Reusable {
 
     @objc private func showUserLanguage() {
         guard let language = presenter?.language else { return }
-        locationDelegate?.clickedLanguage(language)
+        delegate?.tappedLanguage(language)
     }
 
     @available(*, unavailable)
@@ -72,5 +74,23 @@ class RankingCell: UITableViewCell, Reusable {
     override func prepareForReuse() {
         super.prepareForReuse()
         header.reset()
+    }
+}
+
+extension RankingCell: LocationSelectionProtocol {
+
+    func tappedCity(_ city: String) {
+        guard let presenter = presenter else { return }
+        delegate?.tappedCity(city, forLanguage: presenter.language)
+    }
+
+    func tappedCountry(_ country: String) {
+        guard let presenter = presenter else { return }
+        delegate?.tappedCountry(country, forLanguage: presenter.language)
+    }
+
+    func tappedWorld() {
+        guard let presenter = presenter else { return }
+        delegate?.tappedWorld(forLanguage: presenter.language)
     }
 }

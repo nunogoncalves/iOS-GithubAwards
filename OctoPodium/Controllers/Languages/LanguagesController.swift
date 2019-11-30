@@ -7,69 +7,117 @@
 //
 
 import UIKit
+import Xtensions
 
 typealias Language = String
 
 class LanguagesController: UIViewController {
-    
-    @IBOutlet weak var searchBar: SearchBar!
-    @IBOutlet weak var languagesTable: UITableView!
-    @IBOutlet weak var loadingIndicator: GithubLoadingView?
-    @IBOutlet weak var tryAgainButton: UIButton!
-    
-    @IBAction func tryAgainClicked() {
-        searchLanguages()
+
+    private let searchBar: SearchBar = create {
+        $0.constrain(height: Layout.Size.searchBarHeight)
+        $0.barTintColor = .systemBackground
+        $0.placeholder = "Filter"
     }
-    
+    private let tableView: UITableView = {
+        let table = UITableView(frame: .zero, style: .plain).usingAutoLayout()
+        table.contentInset.top = 44
+        table.register(LanguageCell.self)
+        return table
+    }()
+    private let loadingIndicator: GithubLoadingView = create {
+        $0.constrainSize(equalTo: Layout.Size.loadingView)
+    }
+
+    private let tryAgainButton: UIButton = create {
+        $0.setTitle("Try again", for: .normal)
+        $0.setTitleColor(UIColor(hex: 0x0A60FE), for: .normal)
+        $0.addTarget(self, action: #selector(LanguagesController.searchLanguages), for: .touchUpInside)
+    }
+
     fileprivate var allLanguages: [Language] = []
-    fileprivate var displayingLanguages: [String] = []
-    fileprivate var selectedLanguage: Language!
-    
-    override func viewDidLoad() {
+    fileprivate var filteredLanguages: [String] = []
+    fileprivate var selectedLanguage: Language?
+    private let languagesFetcher: LanguageServiceProtocol
+
+    private weak var coordinator: MainCoordinator?
+
+    init(languagesFetcher: LanguageServiceProtocol, coordinator: MainCoordinator?) {
+        self.languagesFetcher = languagesFetcher
+        self.coordinator = coordinator
+
+        super.init(nibName: nil, bundle: nil)
+
+        view.backgroundColor = .systemBackground
+        view.addSubview(tableView)
+        view.addSubview(searchBar)
+        view.addSubview(loadingIndicator)
+        view.addSubview(tryAgainButton)
+
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = .secondarySystemBackground
+
+        searchBar.constrain(referringTo: view.safeAreaLayoutGuide, bottom: nil)
+
+        tableView.pinToBounds(of: view)
+
+        loadingIndicator.centerX(==, view)
+        loadingIndicator.centerY(==, view)
+
+        tryAgainButton.centerX(==, view)
+        tryAgainButton.centerY(==, view)
+
+        tableView.delegate = self
+        tableView.dataSource = self
         searchBar.searchDelegate = self
-        languagesTable.contentInset.top = 44
+    }
+
+    @available(*, unavailable)
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func viewDidLoad() {
+        title = "Languages"
         searchLanguages()
-        languagesTable.register(LanguageCell.self)
         Analytics.SendToGoogle.enteredScreen(kAnalytics.languagesScreen)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == kSegues.showLanguageRankingSegue {
-            segue.rankingsController.language = selectedLanguage
+
+    @objc private func searchLanguages() {
+        setSearching()
+        languagesFetcher.getAll { result in
+            switch result {
+            case let .success(languages): self.got(languages: languages)
+            case let .failure(error): self.failedToLoadLanguages(error.apiResponse)
+            }
         }
     }
-    
-    private func searchLanguages() {
-        setSearching()
-        Languages.Get().getAll(success: got, failure: failedToLoadLanguages)
-    }
-    
+
     private func setSearching() {
-        languagesTable.hide()
+        tableView.hide()
         tryAgainButton.hide()
-        loadingIndicator?.show()
+        loadingIndicator.show()
     }
-    
+
     fileprivate func endSearching() {
-        languagesTable.show()
+        tableView.show()
         tryAgainButton.hide()
-        loadingIndicator?.hide()
+        loadingIndicator.hide()
     }
 }
 
 extension LanguagesController {
 
     fileprivate func got(languages: [Language]) {
+
         self.allLanguages = languages
-        self.displayingLanguages = allLanguages
+        self.filteredLanguages = allLanguages
         
-        languagesTable.reloadData()
+        tableView.reloadData()
         endSearching()
     }
     
     fileprivate func failedToLoadLanguages(_ apiResponse: ApiResponse) {
         tryAgainButton.show()
-        loadingIndicator?.hide()
+        loadingIndicator.hide()
         Notification.shared.display(.error(apiResponse.status.message()))
     }
 }
@@ -77,21 +125,21 @@ extension LanguagesController {
 extension LanguagesController : UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedLanguage = displayingLanguages[indexPath.row]
-        performSegue(withIdentifier: kSegues.showLanguageRankingSegue, sender: self)
-        languagesTable.deselectRow(at: indexPath, animated: false)
+        selectedLanguage = filteredLanguages[indexPath.row]
+        tableView.deselectRow(at: indexPath, animated: false)
+        coordinator?.showDetails(of: selectedLanguage!)
     }
 }
 
 extension LanguagesController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return displayingLanguages.count
+        return filteredLanguages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: LanguageCell = tableView.dequeueCell(for: indexPath)
-        cell.render(with: displayingLanguages[indexPath.row])
+        cell.render(with: filteredLanguages[indexPath.row])
         return cell
     }
 }
@@ -99,18 +147,11 @@ extension LanguagesController : UITableViewDataSource {
 extension LanguagesController : UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == "" {
-            displayingLanguages = allLanguages
+            filteredLanguages = allLanguages
         } else {
             let resultPredicate = NSPredicate(format: "self contains[c] %@", searchText)
-            displayingLanguages = allLanguages.filter { resultPredicate.evaluate(with: $0) }
+            filteredLanguages = allLanguages.filter { resultPredicate.evaluate(with: $0) }
         }
-        languagesTable.reloadData()
-    }
-}
-
-extension UIStoryboardSegue {
-    
-    fileprivate var rankingsController: LanguageRankingsController {
-        return destination as! LanguageRankingsController
+        tableView.reloadData()
     }
 }

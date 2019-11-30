@@ -39,10 +39,7 @@ class GithubAccountController : UIViewController {
     }
     
     private func applyGradient() {
-        gradientView.applyGradient([
-            UIColor(hex: kColors.navigationBarColor),
-            UIColor(hex: kColors.tabBarColor)
-        ])
+        gradientView.applyGradient([.navigationBarColor, .tabBarColor])
     }
     
     override func viewWillAppear(_ animated: Bool) {

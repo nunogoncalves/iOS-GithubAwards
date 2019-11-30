@@ -7,392 +7,257 @@
 //
 
 import UIKit
+import Xtensions
+
+private enum ScrollingArea {
+    case pullingDown
+    case animationArea
+    case pastUpThreshold
+
+    init(offset: CGFloat, upThreshold: CGFloat) {
+        if offset <= 0 {
+            self = .pullingDown
+        } else {
+            if offset <= upThreshold {
+                self = .animationArea
+            } else {
+                self = .pastUpThreshold
+            }
+        }
+    }
+}
 
 class UserDetailsController: UIViewController {
 
-    @IBOutlet weak var avatarBackground: UIView!
-    @IBOutlet weak var avatarImageView: UIImageView!
-    @IBOutlet weak var profileBackgroundView: UIView!
-    @IBOutlet weak var countryAndCityLabel: UILabel!
-    
-    @IBOutlet weak var locationTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var locationCenterConstraint: NSLayoutConstraint!
-    
-    @IBOutlet weak var profileTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var avatarCenterXConstraint: NSLayoutConstraint!
-    @IBOutlet weak var avatarTopConstraint: NSLayoutConstraint!
-    
-    @IBOutlet weak var buttonTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var buttonCenterConstraint: NSLayoutConstraint!
-    
-    @IBOutlet weak var viewOnGithubButton: UIButton!
-    
-    @IBOutlet weak var loadingView: GithubLoadingView!
-    
-    @IBOutlet weak var statsContainer: UIView!
-    
-    @IBOutlet weak var totalReposLabel: UILabel!
-    @IBOutlet weak var totalStarsLabel: UILabel!
-    @IBOutlet weak var totalLanguagesLabel: UILabel!
-    @IBOutlet weak var totalTrophiesLabel: UILabel!
-    
-    @IBOutlet weak var twitterButton: UIBarButtonItem!
-    
-    @IBAction func tweetButtonTapped(_ sender: UIBarButtonItem) {
-        guard let userPresenter = userPresenter else { return }
+    private let userInfoView = UserInfoView.usingAutoLayout()
+    private let gradientView = UIView.usingAutoLayout()
+
+    private let tableView: UITableView = {
+        let table = UITableView(frame: .zero, style: .plain).usingAutoLayout()
+        table.register(RankingCell.self)
+        table.estimatedRowHeight = .estimatedCellHeight
+        table.rowHeight = UITableView.automaticDimension
+        table.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: UserInfoView.maxHeight))
+        table.separatorStyle = .none
+        return table
+    }()
+
+    private let loadingView: GithubLoadingView = create {
+        $0.constrainSize(equalTo: Layout.Size.loadingView)
+    }
+
+    private var userPresenter: UserPresenter
+    private var rankings: [Ranking] = []
+
+    private let profileMinHeight = UserInfoView.minHeight
+    private let profileMaxHeight = UserInfoView.maxHeight
+
+    private var gradientBottomConstraint: NSLayoutConstraint!
+
+    init(user: User) {
+        userPresenter = UserPresenter(user: user)
+
+        super.init(nibName: nil, bundle: nil)
+
+        addSubviews()
+        addSubviewConstraints()
+
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+
+    private func addSubviews() {
+        view.backgroundColor = .white
+        view.addSubviews(tableView, gradientView, userInfoView, loadingView)
+    }
+
+    private func addSubviewConstraints() {
+        tableView.pinTo(marginsGuide: view.safeAreaLayoutGuide)
+
+        userInfoView.constrain(referringTo: view.safeAreaLayoutGuide, bottom: nil)
+        gradientView.constrain(referringTo: view.safeAreaLayoutGuide, top: nil, bottom: nil)
+        gradientBottomConstraint = gradientView.bottom(==, userInfoView)
+        gradientView.constrain(height: profileMaxHeight)
+        userInfoView.render(with: UserInfoView.maxHeight)
+
+        loadingView.center(==, tableView)
+    }
+
+    @available(*, unavailable)
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func viewDidLoad() {
+        Analytics.SendToGoogle.enteredScreen(kAnalytics.userDetailsScreen(for: userPresenter.user))
+
+        setupNavigationBar()
+
+        userInfoView.render(with: userPresenter)
+        navigationItem.title = userPresenter.login
+
+        applyGradient()
+
+        Users.GetOne(login: userPresenter.login).call(success: userSuccess, failure: failure)
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        applyGradient()
+    }
+
+    private func setupNavigationBar() {
+        navigationItem.rightBarButtonItems = [
+            .init(barButtonSystemItem: .action, target: self, action: #selector(showUserOptions))
+        ]
+        guard userPresenter.user.isSelf else { return }
+        navigationItem.rightBarButtonItems?.insert(
+            .init(image: #imageLiteral(resourceName: "TwitterIcon"), style: .plain, target: self, action: #selector(shareUserRankingOnTwitter)),
+            at: 0
+        )
+    }
+
+    private var gradientSetup = false
+
+    private func applyGradient() {
+        guard gradientSetup == false else { return }
+        view.layoutIfNeeded()
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = userInfoView.bounds
+        guard gradientLayer.frame.width > 0 else { return }
+        gradientLayer.colors = UIColor.userGradientColors.map { $0.cgColor }
+        gradientView.layer.insertSublayer(gradientLayer, at: 0)
+        gradientSetup = true
+    }
+
+    private func userSuccess(_ user: User) {
+        userPresenter = UserPresenter(user: user)
+        userInfoView.render(with: userPresenter)
+        rankings = user.rankings
+        loadingView.isHidden = true
+        tableView.reloadData()
+    }
+
+    private func failure(_ apiResponse: ApiResponse) {
+        loadingView.isHidden = true
+        Notification.shared.display(.error("Failed to get user details"))
+    }
+
+    @objc private func shareUserRankingOnTwitter() {
         guard rankings.count > 0 else { return }
-        
+
         let cityRanking = rankings[0].city?.position ?? 0
         let countryRanking = rankings[0].country?.position ?? 0
-        
-        var ranking = cityRanking
-        if countryRanking >= cityRanking {
-            ranking = countryRanking
-        }
+
+        let ranking = max(cityRanking, countryRanking)
 
         if Twitter.Share.needsUrsername {
 
-            let alert = UIAlertController(
-                title: "Enter your twitter account name",
-                message: nil,
-                preferredStyle: .alert
-            )
-            alert.addTextField { (textField) in
-                // optionally configure the text field
-                textField.keyboardType = .alphabet
-            }
+            let alert = UIAlertController(title: "Enter your twitter account name", message: nil, preferredStyle: .alert )
+            alert.addTextField { textField in textField.keyboardType = .alphabet }
 
-            let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-                
-                Twitter.Share.perform(
-                    ranking: "\(ranking)",
-                    language: self.rankings[0].language!,
-                    location: userPresenter.cityOrCountryOrWorld.capitalized,
-                    username: alert.textFields?.first?.text
-                )
-            }
-            alert.addAction(okAction)
+            alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+                self.shareOnTwitter(username: alert.textFields?.first?.text, ranking: "\(ranking)")
+            })
 
-            let cancelAction = UIAlertAction(title: "Cancel", style: .default) { _ in
-
-                Twitter.Share.perform(
-                    ranking: "\(ranking)",
-                    language: self.rankings[0].language!,
-                    location: userPresenter.cityOrCountryOrWorld.capitalized
-                )
-            }
-            alert.addAction(cancelAction)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .default) { _ in
+                self.shareOnTwitter(ranking: "\(ranking)")
+            })
 
             self.present(alert, animated: true, completion: nil)
 
         } else {
-            Twitter.Share.perform(
-                ranking: "\(ranking)",
-                language: rankings[0].language!,
-                location: userPresenter.cityOrCountryOrWorld.capitalized
-            )
+            shareOnTwitter(ranking: "\(ranking)")
         }
+    }
 
+    private func shareOnTwitter(username: String? = nil, ranking: String) {
+        Twitter.Share.perform(
+            ranking: ranking,
+            language: rankings[0].language!,
+            location: userPresenter.locationName.capitalized,
+            username: username
+        )
     }
-    @IBAction func viewGithubProfileClicked() {
-        if let login = userPresenter?.login {
-            Browser.openPage(URL(string: "http://github.com/\(login)")!)
-            Analytics.SendToGoogle.viewUserOnGithub(login)
-        }
-    }
-    
-    @IBOutlet weak var rankingsTable: UITableView!
-    
-    @IBOutlet weak var loading: UIActivityIndicatorView!
-    
-    var rankings = [Ranking]()
-    
-    weak var timer: Timer!
-    fileprivate var tempRankings = [Ranking]()
-    
-//    var user: User?
-    var userPresenter: UserPresenter?
-    
-    fileprivate var animateCells = true
-    
-    fileprivate let cellInsertionInterval: TimeInterval = 0.2
-    fileprivate let cellAnimationDuration: TimeInterval = 0.1
-    
-    fileprivate var halfWidth: CGFloat!
-    
-    fileprivate var originalAvatarTransform: CGAffineTransform!
-    fileprivate var originalAvatarBackgroundWidth: CGFloat!
 
-    fileprivate var originalLocationTransform: CGAffineTransform!
-    fileprivate var locationTransformRelation: CGFloat!
-    
-    fileprivate let profileExtendedBGHeight: CGFloat = 182
-    fileprivate let profileMinBGHeight: CGFloat = 117
-    
-    fileprivate let avatarTransformMin: CGFloat = 0.5
-    fileprivate var avatarTransformRelation: CGFloat!
-    
-    override func viewDidLoad() {
-        Analytics.SendToGoogle.enteredScreen(kAnalytics.userDetailsScreenFor(userPresenter!.user))
-        
-        if !(userPresenter?.user.isSelf ?? false) {
-            navigationItem.rightBarButtonItems = [navigationItem.rightBarButtonItems![0]]
-            twitterButton = nil
-        }
-        
-        countryAndCityLabel.text = userPresenter!.fullLocation
-        countryAndCityLabel.layoutIfNeeded()
-        
-        calculateScrollerConstants()
-        
-        loadAvatar()
-        applyGradient()
-        navigationItem.title = userPresenter!.login
-        
-        rankingsTable.register(RankingCell.self)
-        Users.GetOne(login: userPresenter!.login).call(success: userSuccess, failure: failure)
-    }
-    
-    @IBAction private func showUserOptions() {
-        let userUrl = userPresenter!.gitHubUrl
+    @objc private func showUserOptions() {
+        let userUrl = userPresenter.gitHubUrl
         let actionsBuilder = RepositoryOptionsBuilder.build(URL(string: userUrl)!) { [weak self] in
             guard let s = self else { return }
-            let activityViewController = UIActivityViewController(activityItems: [userUrl as NSString], applicationActivities: nil)
+            let activityViewController = UIActivityViewController(
+                activityItems: [userUrl as NSString],
+                applicationActivities: nil
+            )
             s.present(activityViewController, animated: true, completion: {})
         }
         present(actionsBuilder, animated: true, completion: nil)
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        if timer != nil {
-            invalidateTimer()
-        }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-       
-        let locationTransformMin = calculateLocationTransformMin()
-        locationTransformRelation = (locationTransformMin - 1) / profileExtendedBGHeight
-    }
-    
-    fileprivate func loadAvatar() {
-        if let avatarUrl = userPresenter!.avatarUrl {
-            guard avatarUrl != "" else { return }
-            avatarImageView.fetchAndLoad(avatarUrl) {
-                self.loading.stopAnimating()
-            }
-        }
-    }
-    
-    private func applyGradient() {
-        view.layoutIfNeeded()
-        let gradient: CAGradientLayer = CAGradientLayer()
-        gradient.frame = profileBackgroundView.bounds
-        gradient.colors = buidGradientOfColors()
-        profileBackgroundView.layer.insertSublayer(gradient, at: 0)
-    }
-    
-    private func buidGradientOfColors() -> [CGColor] {
-        return kColors.userGradientColors.map { UIColor(hex: $0).cgColor }
-    }
-    
-    private func calculateScrollerConstants() {
-        halfWidth = view.width / 2
-        
-        avatarTransformRelation = (avatarTransformMin - 1) / profileExtendedBGHeight
-        originalAvatarBackgroundWidth = avatarBackground.frame.width
-        originalAvatarTransform = avatarBackground.transform
-        
-        originalLocationTransform = countryAndCityLabel.transform
-    }
-    
-    private func calculateLocationTransformMin() -> CGFloat {
-        if locationLabelFitsWithImageAndButton() {
-            return 1.0
-        }
-        
-        let labelWidth = countryAndCityLabel.width
-        let freeSpace = view.width - (avatarTransformMin * avatarBackground.width) - viewOnGithubButton.width - 40
-        
-        let fitRelation = freeSpace / labelWidth
-        
-        return fitRelation
-    }
-    
-    private func locationLabelFitsWithImageAndButton() -> Bool {
-        let labelWidth = countryAndCityLabel.width
-        let avatarSmallWidth = avatarBackground.width * avatarTransformMin
-        let totalWidth = labelWidth + viewOnGithubButton.width + avatarSmallWidth
-        let totalSpacingBetweenViews: CGFloat = 40
-        if totalWidth + totalSpacingBetweenViews > view.width {
-            return false
-        }
-        return true
-    }
-}
-
-// Mark - Fetch callbacks
-extension UserDetailsController {
-    func userSuccess(_ user: User) {
-        userPresenter = UserPresenter(user: user)
-        loadAvatar()
-        applyReposStarsAndTrophiesLabelsFor(user)
-        countryAndCityLabel.text = userPresenter!.fullLocation
-        rankings = user.rankings
-        loadingView.isHidden = true
-        addItemsToTable()
-        rankingsTable.reloadData()
-        
-    }
-    
-    func addItemsToTable() {
-        addAnotherCell()
-        timer = Timer.scheduledTimer(timeInterval: cellInsertionInterval, target: self, selector: #selector(addAnotherCell), userInfo: nil, repeats: true)
-    }
- 
-    @objc private func addAnotherCell() {
-        if tempRankings.count == rankings.count {
-            invalidateTimer()
-            return
-        }
-        
-        tempRankings.append(rankings[tempRankings.count])
-        rankingsTable.insertRows(at: [IndexPath(row: (tempRankings.count - 1), section: 0)], with: .automatic)
-    }
-    
-    fileprivate func invalidateTimer() {
-        if timer != nil {
-            timer.invalidate()
-            timer = nil
-        }
-    }
-    
-    func failure(_ apiResponse: ApiResponse) {
-        loadingView.isHidden = true
-        Notification.shared.display(.error("Failed to get user details"))
-    }
-    
-    private func applyReposStarsAndTrophiesLabelsFor(_ user: User) {
-        totalReposLabel.text = "\(userPresenter!.totalRepositories)"
-        totalStarsLabel.text = "\(userPresenter!.totalStars)"
-        totalLanguagesLabel.text = "\(user.rankings.count)"
-        totalTrophiesLabel.text = "\(userPresenter!.totalTrophies)"
-    }
-}
-
-extension UserDetailsController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if !animateCells {
-            return
-        }
-
-        let center = cell.center
-        cell.center = CGPoint(x: center.x - (view.frame.width), y: center.y)
-        
-        UIView.beginAnimations("position", context: nil)
-        UIView.setAnimationDuration(cellAnimationDuration)
-        cell.center = center
-        UIView.commitAnimations()
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        animateCells = false
-        
-        let contentHeight = scrollView.contentSize.height
-        let rowsHeight = contentHeight - profileMinBGHeight
-
-        if rowsHeight <= scrollView.height + profileExtendedBGHeight {
-            return
-        }
-        
-        let y = scrollView.contentOffset.y
-        
-        if y < profileExtendedBGHeight && y >= 0 {
-            moveFor(y)
-        } else {
-            if y > profileExtendedBGHeight {
-                moveFor(CGFloat(profileExtendedBGHeight))
-            } else if y < 0 {
-                moveFor(CGFloat(0))
-            }
-        }
-    }
-    
-    fileprivate func moveFor(_ offset: CGFloat) {
-        // Plenty of y = mx + b now.
-        
-        let profileBgHeight = (profileMinBGHeight / profileExtendedBGHeight) * offset + profileExtendedBGHeight
-        profileTopConstraint.constant = profileExtendedBGHeight - profileBgHeight
-        statsContainer.alpha = 1 - (offset / profileExtendedBGHeight)
-        
-        if userPresenter!.hasLocation { moveLocationLabel(offset) }
-        moveAvatar(offset)
-        moveButton(offset)
-    }
-    
-    fileprivate func moveLocationLabel(_ y: CGFloat) {
-        if locationTransformRelation == nil {
-            locationTransformRelation = avatarTransformRelation
-        }
-        let transformSize = locationTransformRelation * y + 1
-        countryAndCityLabel.transform = originalLocationTransform.scaledBy(x: transformSize, y: transformSize)
-        
-        locationTopConstraint.constant = -(70 / profileExtendedBGHeight) * y + 90
-
-        let xPos = (halfWidth - countryAndCityLabel.halfWidth - avatarBackground.frame.width - 20) / profileExtendedBGHeight
-        locationCenterConstraint.constant = -xPos * y
-    }
-    
-    fileprivate func moveAvatar(_ y: CGFloat) {
-        let transformSize = avatarTransformRelation * y + 1
-        avatarBackground.transform = originalAvatarTransform.scaledBy(x: transformSize, y: transformSize)
-        
-        avatarTopConstraint.constant = -(15 / profileExtendedBGHeight) * y + 10
-        avatarCenterXConstraint.constant = -((halfWidth - avatarBackground.halfWidth - 10) / profileExtendedBGHeight) * y
-    }
-    
-    fileprivate func moveButton(_ y: CGFloat) {
-        buttonCenterConstraint.constant = (((halfWidth - viewOnGithubButton.halfWidth - 10) / profileExtendedBGHeight) * y)
-        buttonTopConstraint.constant = 118 - ((102 / profileExtendedBGHeight) * y)
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return userPresenter!.hasLocation ? 158 : 78
-    }
 }
 
 extension UserDetailsController: UITableViewDataSource {
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tempRankings.count
+        return rankings.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellFor(indexPath) as RankingCell
-        cell.locationDelegate = self
+        let cell: RankingCell = tableView.dequeueCell(for: indexPath)
+        cell.delegate = self
         cell.render(with: RankingPresenter(ranking: rankings[indexPath.row]))
         return cell
     }
 }
 
-extension UserDetailsController: LocationDelegate {
-    func clickedCity(_ city: String, forLanguage language: String) {
+extension UserDetailsController: UITableViewDelegate {
 
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+
+        let contentHeight = scrollView.contentSize.height
+        let rowsHeight = contentHeight - profileMinHeight
+
+        // if there are not enough rows we don't animate the header
+        guard rowsHeight > scrollView.height + profileMaxHeight else { return }
+
+        let y = scrollView.contentOffset.y
+
+        let scrollingArea = ScrollingArea(offset: y, upThreshold: profileMaxHeight)
+
+        switch scrollingArea {
+        case .pullingDown: userInfoView.render(with: profileMaxHeight)
+        case .animationArea: userInfoView.render(with: profileMaxHeight - y)
+        case .pastUpThreshold: userInfoView.render(with: profileMinHeight)
+        }
+    }
+}
+
+extension UserDetailsController: RankingSelectionDelegate {
+
+    func tappedCity(_ city: String, forLanguage language: String) {
+        navigateToRanking(of: language, for: .city(name: city))
     }
 
-    func clickedCountry(_ country: String, forLanguage language: String) {
-
+    func tappedCountry(_ country: String, forLanguage language: String) {
+        navigateToRanking(of: language, for: .country(name: country))
     }
 
-    func clickedWorld(forLanguage language: String) {
-
+    func tappedWorld(forLanguage language: String) {
+        navigateToRanking(of: language, for: .world)
     }
 
-    func clickedLanguage(_ language: String) {
-        guard let login = userPresenter?.login else { return }
-        Browser.openPage(URL(string: "https://github.com/search?q=user:\(login)+language:\(language)")!)
-        Analytics.SendToGoogle.viewUserLanguagesOnGithub(login, language: language)
+    private func navigateToRanking(of language: String, for locationType: LocationType) {
+        #warning("Coordinator please")
+        let languageRankingController = LanguageRankingsController(language: language, locationType: locationType)
+        navigationController?.pushViewController(languageRankingController, animated: true)
     }
+
+    func tappedLanguage(_ language: String) {
+        Analytics.SendToGoogle.viewUserLanguagesOnGithub(userPresenter.login, language: language)
+
+        let controller = UserLanguageReposotoriesController(user: userPresenter.user, language: language)
+        navigationController?.pushViewController(controller, animated: true)
+    }
+}
+
+private extension CGFloat {
+    static let estimatedCellHeight: CGFloat = 150
 }

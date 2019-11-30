@@ -9,7 +9,7 @@
 extension UIStoryboard {
     
     enum Storyboard : String {
-        case Main
+        case main = "Main"
     }
     
     convenience init(storyboard: Storyboard, bundle: Bundle? = nil) {
@@ -24,12 +24,11 @@ extension UIStoryboard {
         return UIStoryboard(name: storyboard.rawValue, bundle: bundle)
     }
     
-    func controller(controller: UIViewController.Type) -> UIViewController {
-        return viewControllerWith(id: String(describing: controller))
+    func controller<T: UIViewController>(_ controller: T.Type) -> T {
+        return instantiateViewController(withIdentifier: String(describing: controller)) as! T
     }
     
-    func viewControllerWith(id: String) -> UIViewController {
-        return instantiateViewController(withIdentifier: id) as UIViewController
+    func controller<T: UIViewController>(with id: String) -> T {
+        return instantiateViewController(withIdentifier: id) as! T
     }
-    
 }

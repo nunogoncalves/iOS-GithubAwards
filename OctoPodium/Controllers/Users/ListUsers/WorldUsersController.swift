@@ -9,30 +9,14 @@
 import UIKit
 
 class WorldUsersController : UsersController {
-    
-    @IBOutlet weak var pageContainer: UIView! {
-        didSet { paginationContainer = pageContainer }
-    }
-    
-    @IBOutlet weak var table: UsersTable! {
-        didSet { usersTable = table }
-    }
-    
-    @IBOutlet weak var paginatorLabel: UILabel! {
-        didSet { paginationLabel = paginatorLabel }
-    }
-    
-    @IBOutlet weak var githubLoadingIndicator: GithubLoadingView! {
-        didSet { loadingView = githubLoadingIndicator }
-    }
-    
-    @IBOutlet weak var noResultsLabel: UILabel! {
-        didSet { noResultsLabl = noResultsLabel }
+
+    init(language: String, topInset: CGFloat) {
+        super.init(language: language, locationType: .world)
+        usersTable.contentInset = UIEdgeInsets(top: topInset, left: 0, bottom: 0, right: 0)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        freshSearchUsers()
     }
     
     override func sendUserPaginatedToAnalytics(_ page: String) {

@@ -11,7 +11,7 @@ extension GitHub {
         
         var headers: HeadParams?
 
-        let url = kUrls.userUrl
+        let url = URL(string: kUrls.userUrl.urlEncoded())!
 
         init() {
             if let token = GithubToken.instance.token {

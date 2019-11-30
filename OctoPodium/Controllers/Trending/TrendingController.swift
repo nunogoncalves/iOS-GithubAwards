@@ -21,7 +21,7 @@ class TrendingController : UIViewController {
     fileprivate var popoverController: ARSPopover?
     
     private var languageButton: UIButton!
-    private let languageImageView = LanguageImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+    private let languageImageView = LanguageImageView(frame: 30.0)
     
     private var repositories: [Repository] = []
     private var selectedRepository: Repository?
@@ -30,7 +30,9 @@ class TrendingController : UIViewController {
     
     fileprivate var language = ""
     private var isSearching = false
-    
+
+    weak var coordinator: TrendingCoordinator?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         Analytics.SendToGoogle.enteredScreen(String(describing: TrendingController.self))
@@ -80,7 +82,7 @@ class TrendingController : UIViewController {
     }
     
     private func buildLanguageButton() {
-        languageButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        languageButton = UIButton(frame: 30.0)
         languageButton.addTarget(self, action: #selector(clickedLanguage), for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: languageButton)
     }
@@ -98,18 +100,23 @@ class TrendingController : UIViewController {
     }
     
     private func buildPopoverElements() {
-        languagesPopoverController = LanguagesPopoverController()
+        #warning("TODO Nuno: Add to coordinator")
+        languagesPopoverController = LanguagesPopoverController(languagesFetcher: Languages.Get())
         languagesPopoverController.modalPresentationStyle = .popover
         languagesPopoverController.languageSelectorDelegate = self
     }
-    
-    
+
     private func showPopover() {
         popoverController = ARSPopover()
         popoverController!.sourceView = languageButton
-        popoverController!.sourceRect = CGRect(x: (languageButton.bounds).midX, y: (languageButton.bounds).maxY, width: 0, height: 0)
+        popoverController!.sourceRect = CGRect(
+            x: languageButton.bounds.midX,
+            y: languageButton.bounds.maxY,
+            width: 0,
+            height: 0
+        )
         popoverController!.contentSize = CGSize(width: view.width - 50, height: 300)
-        popoverController!.arrowDirection = .up;
+        popoverController!.arrowDirection = .up
         
         present(popoverController!, animated: true) { [weak self] in
             self?.popoverController!.insertContent(intoPopover: { [weak self] (popover, _, _) in
@@ -137,23 +144,17 @@ class TrendingController : UIViewController {
     }
     
     private func userClicked(_ user: String) {
-        performSegue(withIdentifier: kSegues.trendingToUserDetailsSegue, sender: user)
+        coordinator?.showDetails(of: User(login: user, avatarUrl: ""))
     }
-    
+
     private func repositoryCellClicked(_ repository: Repository) {
         selectedRepository = repository
         performSegue(withIdentifier: kSegues.showTrendingRepositoryDetailsSegue, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == kSegues.trendingToUserDetailsSegue {
-            let vc = segue.destination as! UserDetailsController
-            let user = User(login: sender as! String, avatarUrl: "")
-            vc.userPresenter = UserPresenter(user: user)
-        }
-        
         if segue.identifier == kSegues.showTrendingRepositoryDetailsSegue {
-            let vc = segue.destination as! TrendingRepositoryDetailsController
+            let vc = segue.destination as! RepositoryDetailsController
             vc.repository = selectedRepository
         }
     }

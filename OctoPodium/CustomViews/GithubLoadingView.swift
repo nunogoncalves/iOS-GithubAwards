@@ -37,11 +37,8 @@ class GithubLoadingView: UIView {
         [animatedImageView, staticImageView].forEach {
             addSubview($0)
 
-            UIView.set($0.widthAnchor, 30)
-            UIView.set($0.heightAnchor, 30)
-
-            $0.centerX(==, self)
-            $0.centerY(==, self)
+            $0.constrainSize(equalTo: 30)
+            $0.center(==, self)
         }
     }
 
@@ -73,5 +70,4 @@ class GithubLoadingView: UIView {
         staticImageView.hide()
         animatedImageView.startAnimating()
     }
-    
 }

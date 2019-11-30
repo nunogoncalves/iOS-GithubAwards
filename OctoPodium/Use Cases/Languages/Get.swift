@@ -8,30 +8,30 @@
 
 import Foundation
 
+protocol LanguageServiceProtocol {
+
+    func getAll(then: @escaping (Result<[Language], ApiResponseError>) -> ())
+}
+
 struct Languages {
     
-    class Get: Requestable, Parameterless, HTTPGetter {
+    class Get: LanguageServiceProtocol, Requestable, Parameterless, HTTPGetter {
         
-        private static var languages = [Language]()
-        
-        private var successLangs: (([Language]) -> ())?
-        
-        func getAll(success: @escaping ([Language]) -> (), failure: @escaping (ApiResponse) -> ()) {
-            successLangs = success
-            if Languages.Get.languages.count == 0 {
-                call(success: gotLanguages, failure: failure)
+        private static var languages: [Language] = []
+
+        func getAll(then: @escaping (Result<[Language], ApiResponseError>) -> ()) {
+            if Languages.Get.languages.isEmpty {
+                call(
+                    success: { then(.success($0)) },
+                    failure: { then(.failure(.any(apiResponse: $0))) }
+                )
             } else {
-                success(Languages.Get.languages)
+                then(.success(Languages.Get.languages))
             }
         }
-        
-        private func gotLanguages(_ languages: [Language]) {
-            Languages.Get.languages = languages
-            successLangs?(languages)
-        }
 
-        var url: String {
-            return "\(kUrls.languagesBaseUrl)?sort=popularity"
+        var url: URL {
+            return URL(string: "\(kUrls.languagesBaseUrl)?sort=popularity".urlEncoded())!
         }
         
         func parse(_ json: JSON) -> [Language] {

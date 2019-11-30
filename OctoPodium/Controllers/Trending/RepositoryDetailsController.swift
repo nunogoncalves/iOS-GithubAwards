@@ -1,5 +1,5 @@
 //
-//  TrendingRepositoryDetailsController.swift
+//  RepositoryDetailsController.swift
 //  OctoPodium
 //
 //  Created by Nuno Gonçalves on 02/02/16.
@@ -13,10 +13,9 @@ private enum StarState {
     case undefined
     case starred
     case unstarred
-    
 }
 
-class TrendingRepositoryDetailsController: UIViewController {
+class RepositoryDetailsController: UIViewController {
 
     @IBOutlet weak var starsGithubButton: GithubStarButton!
     @IBOutlet weak var forksGithubButton: GithubForkButton!
@@ -27,14 +26,14 @@ class TrendingRepositoryDetailsController: UIViewController {
     var repository: Repository?
     
     private var starState = StarState.undefined
-    
+
     override func viewDidLoad() {
         webView.navigationDelegate = self
         navigationItem.title = repository?.name
         loadWebView()
         fetchStarsAndForks()
         checkIfIsStarted()
-        Analytics.SendToGoogle.enteredScreen(String(describing: type(of: TrendingRepositoryDetailsController.self)))
+        Analytics.SendToGoogle.enteredScreen(String(describing: type(of: self)))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(showRepoOptions))
         
         let githubButtonsFrame = CGRect(x: 0, y: 0, width: 138, height: 33)
@@ -47,9 +46,12 @@ class TrendingRepositoryDetailsController: UIViewController {
     }
     
     @objc private func showRepoOptions() {        
-        let repoBuilder = RepositoryOptionsBuilder.build(URL(string: repository!.url)!) { [weak self] in
+        let repoBuilder = RepositoryOptionsBuilder.build(repository!.url) { [weak self] in
             guard let s = self else { return }
-            let activityViewController = UIActivityViewController(activityItems: [s.repository!.url as NSString], applicationActivities: nil)
+            let activityViewController = UIActivityViewController(
+                activityItems: [s.repository!.url.absoluteString as NSString],
+                applicationActivities: nil
+            )
             s.present(activityViewController, animated: true, completion: {})
         }
         present(repoBuilder, animated: true, completion: nil)
@@ -62,13 +64,13 @@ class TrendingRepositoryDetailsController: UIViewController {
     private func getReadMeLocation() {
         guard let repository = repository else { return }
         
-        GitHub.RepoContentFetcher(repositoryName: repository.completeName)
+        GitHub.RepoContentFetcher(repositoryName: repository.fullName)
             .call(success: gotGithubApiResponse, failure: gitHubApiFailed)
     }
     
     private func fetchStarsAndForks() {
         guard let repository = repository else { return }
-        GitHub.StarsAndForksFetcher(repositoryName: repository.completeName).call(success: gotStarsAndForks, failure: gitHubApiFailed)
+        GitHub.StarsAndForksFetcher(repositoryName: repository.fullName).call(success: gotStarsAndForks, failure: gitHubApiFailed)
     }
     
     private func gotStarsAndForks(_ starsAndForks: (stars: Int, forks: Int)) {
@@ -150,7 +152,7 @@ class TrendingRepositoryDetailsController: UIViewController {
         starsGithubButton.setTitleToUnstar()
         starsGithubButton.stopLoading()
         starsGithubButton.increaseNumber()
-        Analytics.SendToGoogle.starRepoEvent(repository!.completeName)
+        Analytics.SendToGoogle.starRepoEvent(repository!.fullName)
     }
 
     private func unstarRepo() {
@@ -171,11 +173,11 @@ class TrendingRepositoryDetailsController: UIViewController {
         starsGithubButton.decreaseNumber()
         starsGithubButton.setTitleToStars()
         starsGithubButton.stopLoading()
-        Analytics.SendToGoogle.unstarRepoEvent(repository!.completeName)
+        Analytics.SendToGoogle.unstarRepoEvent(repository!.fullName)
     }
 }
 
-extension TrendingRepositoryDetailsController : WKNavigationDelegate {
+extension RepositoryDetailsController : WKNavigationDelegate {
 
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         animateLoadingToCorner()

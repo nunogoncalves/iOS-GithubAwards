@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Xtensions
 
 class LanguageCell: UITableViewCell, Reusable {
 
@@ -15,13 +16,14 @@ class LanguageCell: UITableViewCell, Reusable {
         $0.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
     private let nameLabel: UILabel = create {
-        $0.textColor = UIColor(hex: 0x565656)
+        $0.textColor = .label
         $0.font = UIFont.systemFont(ofSize: 17)
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
+        backgroundColor = .systemBackground
         contentView.addSubview(languageImageView)
         contentView.addSubview(nameLabel)
 

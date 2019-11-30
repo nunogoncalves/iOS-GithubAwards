@@ -44,7 +44,7 @@ final class UserCellSnapshots: FBSnapshotTestCase, ImageMocker {
         let cell = UserRankingCell.usingAutoLayout()
         cell.render(with: userPresenter)
 
-        waitSync(for: .loadingTimeInterval)
+        waitSync(for: .loadingTime)
 
         let user1 = User(login: "nunogoncalves", avatarUrl: "https://avatars.githubusercontent.com/u/9892522.jpeg")
         user1.starsCount = 380
@@ -69,41 +69,3 @@ final class UserCellSnapshots: FBSnapshotTestCase, ImageMocker {
     }
 }
 
-import OHHTTPStubs
-
-protocol ImageMocker {
-    func mockImages()
-}
-
-extension ImageMocker {
-
-    func mockImages() {
-        stub(
-            condition: { request in request.isImageResource },
-            response: { request in self.imageMock }
-        )
-    }
-
-    private var imageMock: OHHTTPStubsResponse {
-        let stubPath = OHPathForFileInBundle("nuno.jpeg", Bundle.main)!
-        return fixture(filePath: stubPath, headers: ["Content-Type":"image/jpeg"])
-    }
-}
-
-extension TimeInterval {
-
-    static let loadingTimeInterval: TimeInterval = 0.3
-    static let longLoadingTimeInterval: TimeInterval = 1.0
-}
-
-extension URLRequest {
-
-    private static let imageTypes = ["jpg", "png", "jpeg"]
-
-    var isImageResource: Bool {
-
-        guard let url = self.url else { return false }
-
-        return URLRequest.imageTypes.contains(url.pathExtension)
-    }
-}

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Xtensions
 
 final class UserStatsView: UIView {
 
@@ -38,16 +39,10 @@ final class UserStatsView: UIView {
     }
 
     private static func imageView(with image: UIImage) -> UIImageView {
-
-        let imageView = UIImageView.usingAutoLayout()
-        imageView.image = image
-        return imageView
+        return create { $0.image = image }
     }
 
-    private static var separator: UIView {
-        let view = UIView.usingAutoLayout()
-        return view
-    }
+    private static var separator: UIView { return UIView.usingAutoLayout() }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -86,16 +81,13 @@ final class UserStatsView: UIView {
         subviews.forEach { $0.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true }
 
         repositoriesImageView.constrain(width: 16, height: 20)
-        [starsImageView, languagesImageView, medalsImageView].forEach { $0.constrain(width: 20, height: 20) }
-
+        [starsImageView, languagesImageView, medalsImageView].forEach { $0.constrainSize(equalTo: 20) }
 
         [leftSeperator, reposAndStarsSeperator, starsAndLangsSeperator, langsAndMedalsSeperator, rightSeperator].forEach {
-
             $0.constrain(height: 1)
         }
 
         [reposAndStarsSeperator, starsAndLangsSeperator, langsAndMedalsSeperator, rightSeperator].forEach {
-
             $0.widthAnchor.constraint(equalTo: leftSeperator.widthAnchor).isActive = true
         }
 
@@ -123,23 +115,6 @@ private extension Optional where Wrapped == Int {
         case .none: return "-"
         }
     }
-}
-
-private extension UIView {
-
-    func constrain(width: CGFloat, height: CGFloat) {
-
-        NSLayoutConstraint.activate([
-            widthAnchor.constraint(equalToConstant: width),
-            heightAnchor.constraint(equalToConstant: height)
-        ])
-    }
-
-    func constrain(height: CGFloat) {
-
-        heightAnchor.constraint(equalToConstant: height).isActive = true
-    }
-
 }
 
 precedencegroup EffectfulComposition {

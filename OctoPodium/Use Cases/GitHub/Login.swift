@@ -45,9 +45,8 @@ extension GitHub {
             }
         }
         
-        var url: String {
-            return kUrls.githubLoginUrl
-        }
+        var url: URL { return URL(string: kUrls.githubLoginUrl.urlEncoded())! }
+
         func parse(_ json: JSON) -> String {
             return json["token"] as! String
         }

@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Nuke",
+        "repositoryURL": "https://github.com/nunogoncalves/Nuke",
+        "state": {
+          "branch": null,
+          "revision": "9318d02a8a6d20af56505c9673261c1fd3b3aebe",
+          "version": "7.6.3"
+        }
+      },
+      {
+        "package": "Xtensions",
+        "repositoryURL": "git@github.com:nunogoncalves/Xtensions.git",
+        "state": {
+          "branch": null,
+          "revision": "0458818dc17e8e71b6cc60c9b808a64e55edaac7",
+          "version": "0.3.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

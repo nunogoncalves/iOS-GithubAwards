@@ -9,36 +9,14 @@
 import UIKit
 
 class CityUsersController : UsersController {
-    
-    @IBOutlet weak var pageContainer: UIView! {
-        didSet { paginationContainer = pageContainer }
-    }
-    
-    @IBOutlet weak var table: UsersTable! {
-        didSet { usersTable = table }
-    }
-    
-    @IBOutlet weak var paginatorLabel: UILabel! {
-        didSet { paginationLabel = paginatorLabel }
-    }
-    
-    @IBOutlet weak var githubLoadingIndicator: GithubLoadingView! {
-        didSet { loadingView = githubLoadingIndicator }
+
+    init(language: String, name: String = "", topInset: CGFloat) {
+        super.init(language: language, locationType: .city(name: name))
+        usersTable.contentInset = UIEdgeInsets(top: topInset, left: 0, bottom: 0, right: 0)
+        startSearchingLabel.text = "Search for a city"
+        setStartSearching()
     }
 
-    @IBOutlet weak var emptyMessageLabel: UILabel! {
-        didSet { emptyMessageLabl = emptyMessageLabel }
-    }
-    
-    @IBOutlet weak var noResultsLabel: UILabel! {
-        didSet { noResultsLabl = noResultsLabel }
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        selectedLocationType = .city
-    }
-    
     override func sendSearchedLocationToAnalytics() {
         Analytics.SendToGoogle.citySearched(locationName, forLanguage: language)
     }

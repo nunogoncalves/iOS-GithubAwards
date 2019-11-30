@@ -22,8 +22,8 @@ extension GitHub {
             "Authorization" : "token \(GithubToken.instance.token ?? "")"
         ]
         
-        var url: String {
-            return kUrls.doUnstarRepoUrl(repoOwner, repoName)
+        var url: URL {
+            return URL(string: kUrls.doUnstarRepoUrl(repoOwner, repoName).urlEncoded())!
         }
         
         func parse(_ json: JSON) -> Void {}

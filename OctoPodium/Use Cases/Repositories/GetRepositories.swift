@@ -19,7 +19,7 @@ extension Repositories {
 
                 let html = try String(contentsOf: URL(string: url)!, encoding: .utf8)
 
-                return Repositories.HTMLParser.list(from: html)
+                return Repositories.HTMLParser.repositories(containedIn: html)
 
             } catch _ {
                 return []

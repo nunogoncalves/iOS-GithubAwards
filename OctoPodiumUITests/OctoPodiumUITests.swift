@@ -31,6 +31,7 @@ class OctoPodiumUITests: FBSnapshotTestCase {
         mainTabScreen
             .goToLanguagesScreen()
             .verifyScreenView(with: "01Languages")
+            .search(for: "Javascript")
             .goToJavascriptRanking()
             .verifyScreenView(with: "02LanguageRanking", snapshotToAppStore: true)
             .goToFacebookProfile()

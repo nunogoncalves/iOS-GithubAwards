@@ -24,9 +24,11 @@ class LanguagesPopoverController: UIViewController {
     weak var languageSelectorDelegate: LanguageSelectedProtocol?
 
     fileprivate var languages = [Language]()
+    private let languagesFetcher: LanguageServiceProtocol
 
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    init(languagesFetcher: LanguageServiceProtocol) {
+        self.languagesFetcher = languagesFetcher
+        super.init(nibName: nil, bundle: nil)
 
         view.addSubview(languagesTable)
         languagesTable.pinTo(marginsGuide: view.safeAreaLayoutGuide)
@@ -54,16 +56,16 @@ class LanguagesPopoverController: UIViewController {
     }
     
     private func getLanguages() {
-        Languages.Get().getAll(
-            success: { [weak self] languages in
-                self?.languages = languages
-                self?.languages.insert("All Languages", at: 0)
-                self?.languagesTable.reloadData()
-            },
-            failure: { [weak self] _ in
-                self?.languageSelectorDelegate?.noLanguagesAvailable()
+        self.languagesFetcher.getAll { result in
+            switch result {
+            case let .success(languages):
+                self.languages = languages
+                self.languages.insert("All Languages", at: 0)
+                self.languagesTable.reloadData()
+            case .failure(_):
+                self.languageSelectorDelegate?.noLanguagesAvailable()
             }
-        )
+        }
     }
 }
 
@@ -82,6 +84,6 @@ extension LanguagesPopoverController : UITableViewDataSource {
 
 extension LanguagesPopoverController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        languageSelectorDelegate?.didSelectLanguage(languages[(indexPath as NSIndexPath).row])
+        languageSelectorDelegate?.didSelectLanguage(languages[indexPath.row])
     }
 }

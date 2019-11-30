@@ -18,28 +18,8 @@ struct K {
     static let appRepositoryName = "iOS-OctoPodium"
     static let appOwnerGithub = URL(string: "https://github.com/\(appOwnerName)")!
     static let appGithubRepository = "\(appOwnerGithub)/\(appRepositoryName)"
-    
-    
+
     static let twitterHandle = "goncalvescmnuno"
-    
-    struct Colors {
-        static let tabBarColor: UInt = 0x03436E
-        static let navigationBarColor: UInt = 0x2F9DE6
-        
-        static let userGradientColors: [UInt] = [
-            0x2F9DE6,
-            0x3890C9,
-            0x1468A1,
-            0x03436E,
-        ]
-        
-        static let userStartGradientColor: UInt = 0x338AC3
-        static let userEndGradientColor: UInt = 0x2F9DE6
-    
-        static let firstInRankingColor: UInt = 0x5C43AC
-        static let secondInRankingColor: UInt = 0x7C68BC
-        static let thirdInRankingColor: UInt = 0x9D8ECD        
-    }
     
     struct Urls {
         private static let apiBaseUrl = "http://git-awards.com"
@@ -64,28 +44,11 @@ struct K {
     }
     
     struct Segues {
-        static let showLanguageRankingSegue = "ShowLanguageRankingSegue"
-        
-        static let userDetailsSegue = "UserDetailsSegue"
-        
-        static let worldUsersSegue = "WorldUsersSegue"
-        static let countryUsersSegue = "CountryUsersSegue"
-        static let cityUsersSegue = "CityUsersSegue"
-        
-        static let userSearchToDetail = "UsersSearchToDetailSegue"
-        static let trendingToUserDetailsSegue = "TrendingToUserDetailsSegue"
         static let showTrendingRepositoryDetailsSegue = "ShowTrendingRepositoryDetailsSegue"
         
         static let goToLoginSegue = "GoToLoginSegue"
-        
-        static let gotToTrendingDetailsFromSettingsSegue = "ShowOctoPodiumDetailsSegue"
     }
-    
-    struct Timeouts {
-        static let request: TimeInterval = 5
-        static let resource: TimeInterval = 5
-    }
-    
+
     struct Analytics {
         static let languagesScreen = "Languages Screen"
         
@@ -94,7 +57,7 @@ struct K {
         }
         
         static let userSearchScreen = "User Search Screen"
-        static func userDetailsScreenFor(_ user: User?) -> String {
+        static func userDetailsScreen(for user: User?) -> String {
             if let login = user?.login {
                 return "User Details Screen <\(login)>"
             } else {
@@ -104,8 +67,43 @@ struct K {
     }
 }
 
-typealias kColors = K.Colors
 typealias kUrls = K.Urls
 typealias kSegues = K.Segues
-typealias kTimeout = K.Timeouts
 typealias kAnalytics = K.Analytics
+
+extension UIColor {
+    static let tabBarColor = UIColor(hex: 0x03436E)
+    static let navigationBarColor = UIColor(hex: 0x2F9DE6)
+
+    static let userGradientColors: [UIColor] = [
+        UIColor(hex: 0x2F9DE6),
+        UIColor(hex: 0x3890C9),
+        UIColor(hex: 0x1468A1),
+        UIColor(hex: 0x03436E),
+    ]
+
+    static let userStartGradientColor = UIColor(hex: 0x338AC3)
+    static let systemBlue = UIColor(hex: 0x2F9DE6)
+    static let userEndGradientColor = systemBlue
+
+    static let firstInRankingColor = UIColor(hex: 0x5C43AC)
+    static let secondInRankingColor = UIColor(hex: 0x7C68BC)
+    static let thirdInRankingColor = UIColor(hex: 0x9D8ECD)
+}
+
+extension TimeInterval {
+    static let timeout: TimeInterval = 5
+    static let resource: TimeInterval = 5
+}
+
+extension CGSize {
+    static let loadingViewSize: CGSize = CGSize(floatLiteral: 90)
+}
+
+struct Layout {
+    private init() {}
+    enum Size {
+        static let searchBarHeight: CGFloat = 44
+        static let loadingView: CGFloat = CGSize.loadingViewSize.height
+    }
+}

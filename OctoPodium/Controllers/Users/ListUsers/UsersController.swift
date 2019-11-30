@@ -7,20 +7,45 @@
 //
 
 import UIKit
+import Xtensions
 
 class UsersController : UIViewController {
     
-    var usersTable: UsersTable!
-    var paginationLabel: UILabel!
-    var paginationContainer: UIView!
-    var loadingView: GithubLoadingView!
-    var emptyMessageLabl: UILabel?
-    var noResultsLabl: UILabel!
+    var usersTable = UsersTable(frame: .zero, style: .plain).usingAutoLayout()
+
+    var paginationContainer: UIView = create {
+        $0.backgroundColor = UIColor(hex: 0xACACAC)
+        $0.constrain(height: 30)
+        $0.layer.cornerRadius = 5
+        $0.layer.masksToBounds = true
+        $0.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+    }
+    var paginationLabel: UILabel = create {
+        $0.font = UIFont.systemFont(ofSize: 17)
+        $0.textColor = .white
+        $0.textAlignment = .center
+    }
+    var loadingView: GithubLoadingView = create {
+        $0.constrainSize(equalTo: Layout.Size.loadingView)
+    }
+
+    var startSearchingLabel: UILabel = create {
+        $0.textColor = UIColor(hex: 0xAAAAAA)
+        $0.font = UIFont.systemFont(ofSize: 17)
+        $0.isHidden = true
+    }
+
+    var noResultsLabel: UILabel = create {
+        $0.textColor = UIColor(hex: 0xAAAAAA)
+        $0.font = UIFont.systemFont(ofSize: 17)
+        $0.isHidden = true
+        $0.text = "No results found"
+    }
     
-    var usersTableDataSource: LanguageUsersTableDataSource!
-    let userSearchOptions = SearchOptions()
+    let usersTableDataSource: LanguageUsersTableDataSource
+    private let userSearchOptions: SearchOptions
     
-    var selectedLocationType = LocationType.world
+    var selectedLocationType: LocationType
     
     var navigationControl: UINavigationController?
     
@@ -30,26 +55,57 @@ class UsersController : UIViewController {
     
     var imageViewForSelectedIndexPath: UIImageView!
     
-    var language: String = "" {
-        didSet {
-            userSearchOptions.language = language
-        }
+    let language: String
+    var locationName: String = ""
+
+    init(language: String, locationType: LocationType) {
+        self.language = language
+        self.locationName = locationType.nameOrEmpty
+        selectedLocationType = locationType
+
+        userSearchOptions = SearchOptions(language: language, locationType: locationType, page: 1)
+
+        usersTableDataSource = LanguageUsersTableDataSource(searchOptions: userSearchOptions)
+        usersTable.dataSource = usersTableDataSource
+        usersTable.hideFooter()
+
+        super.init(nibName: nil, bundle: nil)
+
+        view.addSubview(startSearchingLabel)
+        view.addSubview(noResultsLabel)
+        view.addSubview(usersTable)
+        view.addSubview(paginationContainer)
+        paginationContainer.addSubview(paginationLabel)
+        view.addSubview(loadingView)
+
+        usersTable.pinToBounds(of: view)
+        paginationContainer.constrain(
+            referringTo: view.safeAreaLayoutGuide, top: nil, leading: nil, trailing: -10
+        )
+
+        paginationLabel.constrain(referringTo: paginationContainer, leading: 10, trailing: -10)
+
+        loadingView.centerX(==, usersTable)
+        loadingView.centerY(==, usersTable)
+
+        startSearchingLabel.centerX(==, usersTable)
+        startSearchingLabel.centerY(==, usersTable)
+
+        noResultsLabel.centerX(==, usersTable)
+        noResultsLabel.centerY(==, usersTable)
+
+        usersTableDataSource.tableStateListener = self
+        usersTable.delegate = self
+
     }
-    var locationName: String = "" {
-        didSet {
-            userSearchOptions.location = locationName
-        }
+
+    @available(*, unavailable)
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        usersTableDataSource = LanguageUsersTableDataSource(searchOptions: userSearchOptions)
-        usersTableDataSource.tableStateListener = self
-        usersTable.dataSource = usersTableDataSource
-        usersTable.delegate = self
-        usersTable.hideFooter()
-        
 //        usersTable.addRefreshController(self, action: "freshSearchUsers")
     }
     
@@ -59,26 +115,27 @@ class UsersController : UIViewController {
     
     func search(_ locationName: String? = "") {
         setNewSearchingState()
-        self.locationName = locationName!
+        self.locationName = locationName ?? ""
         searchUsers(true)
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let selectedIndex = usersTable.indexPathForSelectedRow
+    #warning("handle animation code with the coordinator")
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let selectedIndex = usersTable.indexPathForSelectedRow
+//
+//        if (segue.identifier == kSegues.userDetailsSegue && selectedIndex != nil) {
+//            usersTable.deselectRow(at: selectedIndex!, animated: true)
+//            let destVC = segue.destination as! UserDetailsController
+//            let user = usersTableDataSource.item(at: selectedIndex!)
+//            destVC.userPresenter = UserPresenter(user: user)
+//
+//            if CurrentUser.hasAnimationsEnabled {
+//                swipeInteractionController.wireToViewController(destVC)
+//                navigationController?.delegate = self
+//            }
+//        }
+//    }
 
-        if (segue.identifier == kSegues.userDetailsSegue && selectedIndex != nil) {
-            usersTable.deselectRow(at: selectedIndex!, animated: true)
-            let destVC = segue.destination as! UserDetailsController
-            let user = usersTableDataSource.item(at: selectedIndex!)
-            destVC.userPresenter = UserPresenter(user: user)
-
-            if CurrentUser.hasAnimationsEnabled {
-                swipeInteractionController.wireToViewController(destVC)
-                navigationController?.delegate = self
-            }
-        }
-    }
-    
     @objc func freshSearchUsers() {
         searchUsers(true)
     }
@@ -88,9 +145,8 @@ class UsersController : UIViewController {
             usersTable.hide()
         }
         
-        userSearchOptions.locationType = selectedLocationType
-        userSearchOptions.location = locationName
-        
+        userSearchOptions.locationType = selectedLocationType.with(name: locationName)
+
         usersTableDataSource.searchUsers(reset)
         sendSearchedLocationToAnalytics()
     }
@@ -100,11 +156,11 @@ class UsersController : UIViewController {
     }
     
     func stopLoadingIndicator() {
-        usersTable.stopLoadingIndicator()
+//        usersTable.stopLoadingIndicator()
     }
     
     private func updateRefreshControl() {
-        usersTable.updateRefreshControl()
+//        usersTable.updateRefreshControl()
     }
     
     func sendUserPaginatedToAnalytics(_ page: String) {
@@ -114,7 +170,7 @@ class UsersController : UIViewController {
 
 extension UsersController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return (indexPath as NSIndexPath).row < 3 ? 60 : 44
+        return indexPath.row < 3 ? 60 : 44
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -148,8 +204,10 @@ extension UsersController : UITableViewDelegate {
 
         let cell = tableView.cellForRow(at: indexPath) as! CellWithAvatar
         imageViewForSelectedIndexPath = cell.avatar
-        
-        performSegue(withIdentifier: kSegues.userDetailsSegue, sender: self)
+
+        let user = usersTableDataSource.item(at: indexPath)
+        let userController = UserDetailsController(user: user)
+        navigationController?.pushViewController(userController, animated: true)
     }
     
 }
@@ -169,19 +227,19 @@ extension UsersController : TableStateListener {
         usersTable.reloadData()
         if page.totalCount == 0 {
             paginationContainer.hide()
-            noResultsLabl.show()
+            noResultsLabel.show()
             usersTable.hide()
         } else {
             paginationContainer.show()
             usersTable.show()
-            noResultsLabl.hide()
+            noResultsLabel.hide()
         }
         loadingView.hide()
-//        stopLoadingIndicator()
+        stopLoadingIndicator()
     }
     
     func failedToGetData(_ status: NetworkStatus) {
-//        stopLoadingIndicator()
+        stopLoadingIndicator()
         usersTable.show()
         Notification.shared.display(.error(status.message()))
     }
@@ -190,26 +248,38 @@ extension UsersController : TableStateListener {
 
 // MARK: - States
 extension UsersController {
+
+    func setStartSearching() {
+        loadingView.hide()
+        noResultsLabel.hide()
+        loadingView.stop()
+        usersTable.hide()
+        startSearchingLabel.show()
+        paginationContainer.hide()
+    }
+
     func setNewSearchingState() {
         loadingView.show()
-        noResultsLabl.hide()
+        noResultsLabel.hide()
         loadingView.setLoading()
         usersTable.hide()
-        emptyMessageLabl?.hide()
+        startSearchingLabel.hide()
     }
-    
+
     func setHasDataState() {
         loadingView.show()
         loadingView.setLoading()
         usersTable.hide()
-        emptyMessageLabl?.hide()
+        startSearchingLabel.hide()
+        paginationContainer.show()
     }
-    
+
     func setEmptyState() {
         loadingView.show()
         loadingView.setLoading()
         usersTable.hide()
-        emptyMessageLabl?.hide()
+        startSearchingLabel.hide()
+        paginationContainer.hide()
     }
 }
 

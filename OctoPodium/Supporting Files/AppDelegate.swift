@@ -7,7 +7,9 @@
 //
 
 import UIKit
+#if DEBUG
 import netfox
+#endif
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,8 +25,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         Cache.configure()
         Analytics.configureGoogle()
+
+        #if DEBUG
         NFX.sharedInstance().start()
+        ["", "0", "1", "2", "3"]
+            .map { "https://avatars\($0).githubusercontent.com" }
+            .forEach { NFX.sharedInstance().ignoreURL($0) }
+        #endif
+
         Mocks.configure()
+
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = MainTabBarController(
+            main: MainCoordinator(navigationController: UINavigationController()),
+            users: UsersCoordinator(navigationController: UINavigationController()),
+            trending: TrendingCoordinator(navigationController: UINavigationController()),
+            settings: SettingsCoordinator(navigationController: UINavigationController())
+        )
+        window?.makeKeyAndVisible()
 
         return true
     }

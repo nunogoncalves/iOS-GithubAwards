@@ -7,5 +7,5 @@
 //
 
 protocol CellWithAvatar {
-    var avatar: UIImageView! { get }
+    var avatar: UIImageView { get }
 }

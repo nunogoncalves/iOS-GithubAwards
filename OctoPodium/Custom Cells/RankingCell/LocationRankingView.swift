@@ -7,11 +7,18 @@
 //
 
 import UIKit
+import Xtensions
 
 protocol LocationRankingProtocol {
     var worldRanking: WorldRanking { get }
     var countryRanking: CountryRanking? { get }
     var cityRanking: CityRanking? { get }
+}
+
+protocol LocationSelectionProtocol: AnyObject {
+    func tappedCity(_ city: String)
+    func tappedCountry(_ country: String)
+    func tappedWorld()
 }
 
 extension RankingProtocol {
@@ -58,6 +65,8 @@ final class LocationRankingView: UIView {
     private let worldLabel = SELF.nameLabel
     private let worldRankingLabel = UILabel.usingAutoLayout()
 
+    weak var delegate: LocationSelectionProtocol?
+
     private static var locationStackView: UIStackView {
         return create {
             $0.axis = .horizontal
@@ -72,6 +81,8 @@ final class LocationRankingView: UIView {
             $0.font = UIFont.systemFont(ofSize: 13)
         }
     }
+
+    private var presenter: LocationRankingProtocol?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -95,8 +106,20 @@ final class LocationRankingView: UIView {
         cityRankingLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
 
         self.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        stackView.constrain(referringTo: layoutMarginsGuide , bottom: nil)
+        stackView.constrain(referringTo: layoutMarginsGuide, bottom: nil)
         stackView.bottom(<=, layoutMarginsGuide.bottomAnchor)
+
+        let cityGesture = UITapGestureRecognizer(target: self, action: #selector(tappedCity))
+        cityStack.addGestureRecognizer(cityGesture)
+        cityStack.isUserInteractionEnabled = true
+
+        let countryGesture = UITapGestureRecognizer(target: self, action: #selector(tappedCountry))
+        countryStack.addGestureRecognizer(countryGesture)
+        countryStack.isUserInteractionEnabled = true
+
+        let worldGesture = UITapGestureRecognizer(target: self, action: #selector(tappedWorld))
+        worldStack.addGestureRecognizer(worldGesture)
+        worldStack.isUserInteractionEnabled = true
     }
 
     @available(*, unavailable)
@@ -104,7 +127,24 @@ final class LocationRankingView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    @objc func tappedCity() {
+        guard let cityName = presenter?.cityRanking?.name else { return }
+        delegate?.tappedCity(cityName)
+    }
+
+    @objc func tappedCountry() {
+        guard let countryName = presenter?.countryRanking?.name else { return }
+        delegate?.tappedCountry(countryName)
+    }
+
+    @objc func tappedWorld() {
+        guard presenter?.worldRanking != nil else { return }
+        delegate?.tappedWorld()
+    }
+
     func render(with presenter: LocationRankingProtocol) {
+        self.presenter = presenter
+        
         worldRankingLabel.attributedText = presenter.worldRanking.formattedDescription
 
         countryStack.isHidden = presenter.countryRanking == nil
