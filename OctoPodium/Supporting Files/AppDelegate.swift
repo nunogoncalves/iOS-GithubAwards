@@ -7,9 +7,6 @@
 //
 
 import UIKit
-#if DEBUG
-import netfox
-#endif
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,19 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
     ) -> Bool {
 
-        Style.Decorator().decorateApp()
-
-        Cache.configure()
-        Analytics.configureGoogle()
-
-        #if DEBUG
-        NFX.sharedInstance().start()
-        ["", "0", "1", "2", "3"]
-            .map { "https://avatars\($0).githubusercontent.com" }
-            .forEach { NFX.sharedInstance().ignoreURL($0) }
-        #endif
-
-        Mocks.configure()
+        initialSetup()
 
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = MainTabBarController(

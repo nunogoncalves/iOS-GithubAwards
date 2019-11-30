@@ -26,7 +26,8 @@ final class MainTabBarController: UITabBarController {
 
         super.init(nibName: nil, bundle: nil)
 
-        viewControllers = ([main, users, trending, settings] as [Coordinator]).map { $0.navigationController }
+        viewControllers = ([main, users, trending, settings] as [Coordinator])
+            .map { $0.navigationController }
 
         main.navigationController.tabBarItem = UITabBarItem(title: "Languages", image: #imageLiteral(resourceName: "Language")).vOffset(by: -5)
         users.navigationController.tabBarItem = UITabBarItem(title: "Users", image: #imageLiteral(resourceName: "UserActive")).vOffset(by: -5)

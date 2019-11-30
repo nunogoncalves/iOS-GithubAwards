@@ -159,6 +159,7 @@
 		85AF8AFB1C445EAD0022D97F /* LanguageImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AF8AFA1C445EAD0022D97F /* LanguageImageView.swift */; };
 		85AFEC1F1C0468CB006FC129 /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AFEC1E1C0468CB006FC129 /* Ranking.swift */; };
 		85B2C2D01C18D07800112D95 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B2C2CF1C18D07800112D95 /* UIView.swift */; };
+		85B35E8723926F810021B76C /* InitialSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B35E8623926F810021B76C /* InitialSetup.swift */; };
 		85B501851C10FD8400BBFD56 /* LanguageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B501841C10FD8400BBFD56 /* LanguageTitleView.swift */; };
 		85BBD9F71C5C2DCD00229ED2 /* TrendingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BBD9F61C5C2DCD00229ED2 /* TrendingController.swift */; };
 		85BBD9F91C5CA61000229ED2 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BBD9F81C5CA61000229ED2 /* Repository.swift */; };
@@ -395,6 +396,7 @@
 		85AF8AFA1C445EAD0022D97F /* LanguageImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageImageView.swift; sourceTree = "<group>"; };
 		85AFEC1E1C0468CB006FC129 /* Ranking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
 		85B2C2CF1C18D07800112D95 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		85B35E8623926F810021B76C /* InitialSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSetup.swift; sourceTree = "<group>"; };
 		85B501841C10FD8400BBFD56 /* LanguageTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageTitleView.swift; sourceTree = "<group>"; };
 		85BBD9F61C5C2DCD00229ED2 /* TrendingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingController.swift; sourceTree = "<group>"; };
 		85BBD9F81C5CA61000229ED2 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
@@ -790,6 +792,7 @@
 				85D320EF1C02062E001B7C7A /* AppDelegate.swift */,
 				85D320FB1C02062E001B7C7A /* Info.plist */,
 				858654F61C49BF3A0025B4F0 /* OctoPodium-Bridging-Header.h */,
+				85B35E8623926F810021B76C /* InitialSetup.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -1258,7 +1261,6 @@
 				TargetAttributes = {
 					85D320EB1C02062E001B7C7A = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = 9D23XSN84S;
 						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -1598,6 +1600,7 @@
 				8597FBDF2285847F00F635A0 /* Medals.swift in Sources */,
 				85E09EDB1D0AC49100752BB0 /* ConfigureImagesCache.swift in Sources */,
 				85EF2E3E1CE71D7B00745A68 /* NibView.swift in Sources */,
+				85B35E8723926F810021B76C /* InitialSetup.swift in Sources */,
 				854151D2228E7F87001CB015 /* Router.swift in Sources */,
 				85E6566F1C1352C600BB4278 /* PaginaTable.swift in Sources */,
 				854151D4228E8247001CB015 /* MainCoordinator.swift in Sources */,
@@ -1910,6 +1913,7 @@
 				CODE_SIGN_ENTITLEMENTS = OctoPodium/OctoPodium.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 9D23XSN84S;
 				ENABLE_BITCODE = NO;
 				"HEADER_SEARCH_PATHS[arch=*]" = (
 					"$(inherited)",
@@ -1952,6 +1956,7 @@
 				CODE_SIGN_ENTITLEMENTS = OctoPodium/OctoPodium.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 9D23XSN84S;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "OctoPodium/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
