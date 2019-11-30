@@ -37,7 +37,7 @@ DEPENDENCIES:
   - Quick (= 2.1)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - 1PasswordExtension
     - ARSPopover
     - iOSSnapshotTestCase
@@ -68,6 +68,6 @@ SPEC CHECKSUMS:
   OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
   Quick: 4be43f6634acfa727dd106bdf3929ce125ffa79d
 
-PODFILE CHECKSUM: ad414cf718e2795ac943145f036cf0198c7f9f28
+PODFILE CHECKSUM: 0e3eb1ca15f331c9b46e4be5c7e37dab26e01571
 
-COCOAPODS: 1.7.2
+COCOAPODS: 1.8.4
