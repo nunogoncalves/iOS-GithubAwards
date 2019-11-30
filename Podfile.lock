@@ -6,10 +6,8 @@ PODS:
   - iOSSnapshotTestCase/Core (6.0.0)
   - iOSSnapshotTestCase/SwiftSupport (6.0.0):
     - iOSSnapshotTestCase/Core
-  - Kanna (4.0.0)
   - Locksmith (4.0.0)
   - netfox (1.15.0)
-  - Nimble (8.0.1)
   - OHHTTPStubs/Core (6.1.0)
   - OHHTTPStubs/Default (6.1.0):
     - OHHTTPStubs/Core
@@ -23,18 +21,14 @@ PODS:
   - OHHTTPStubs/OHPathHelpers (6.1.0)
   - OHHTTPStubs/Swift (6.1.0):
     - OHHTTPStubs/Default
-  - Quick (2.1.0)
 
 DEPENDENCIES:
   - 1PasswordExtension (~> 1.8.5)
   - ARSPopover (~> 2.2.1)
   - iOSSnapshotTestCase
-  - Kanna (from `https://github.com/tid-kijyun/Kanna.git`, branch `master`)
   - Locksmith (= 4.0.0)
   - netfox (~> 1.15.0)
-  - Nimble (~> 8.0.1)
   - OHHTTPStubs/Swift (~> 6.1.0)
-  - Quick (= 2.1)
 
 SPEC REPOS:
   trunk:
@@ -43,31 +37,16 @@ SPEC REPOS:
     - iOSSnapshotTestCase
     - Locksmith
     - netfox
-    - Nimble
     - OHHTTPStubs
-    - Quick
-
-EXTERNAL SOURCES:
-  Kanna:
-    :branch: master
-    :git: https://github.com/tid-kijyun/Kanna.git
-
-CHECKOUT OPTIONS:
-  Kanna:
-    :commit: 235d3347e89cbde75a52601871cf79b6bfd09f13
-    :git: https://github.com/tid-kijyun/Kanna.git
 
 SPEC CHECKSUMS:
   1PasswordExtension: 0e95bdea64ec8ff2f4f693be5467a09fac42a83d
   ARSPopover: ec2531fe8f498da1181e00f9ffeaa586a3d16d82
   iOSSnapshotTestCase: f592adfdedffe6113a55528ce698ccc457a550f1
-  Kanna: d5ae2a26472f7e7a474e7f36a9cd8aa2c8c63ad3
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
   netfox: 6ddcca687ad0a58550054fea481cb487461b5e0c
-  Nimble: 45f786ae66faa9a709624227fae502db55a8bdd0
   OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
-  Quick: 4be43f6634acfa727dd106bdf3929ce125ffa79d
 
-PODFILE CHECKSUM: 0e3eb1ca15f331c9b46e4be5c7e37dab26e01571
+PODFILE CHECKSUM: 7850282f282204364664f000185214df5320e259
 
 COCOAPODS: 1.8.4

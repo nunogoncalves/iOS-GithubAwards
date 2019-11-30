@@ -160,6 +160,8 @@
 		85AFEC1F1C0468CB006FC129 /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AFEC1E1C0468CB006FC129 /* Ranking.swift */; };
 		85B2C2D01C18D07800112D95 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B2C2CF1C18D07800112D95 /* UIView.swift */; };
 		85B35E8723926F810021B76C /* InitialSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B35E8623926F810021B76C /* InitialSetup.swift */; };
+		85B35E8A239276790021B76C /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 85B35E89239276790021B76C /* Quick */; };
+		85B35E8D239276FD0021B76C /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 85B35E8C239276FD0021B76C /* Nimble */; };
 		85B501851C10FD8400BBFD56 /* LanguageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B501841C10FD8400BBFD56 /* LanguageTitleView.swift */; };
 		85BBD9F71C5C2DCD00229ED2 /* TrendingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BBD9F61C5C2DCD00229ED2 /* TrendingController.swift */; };
 		85BBD9F91C5CA61000229ED2 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BBD9F81C5CA61000229ED2 /* Repository.swift */; };
@@ -170,6 +172,7 @@
 		85BBDA061C5E0BB300229ED2 /* TrendingRepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85BBDA041C5E0BB300229ED2 /* TrendingRepositoryCell.xib */; };
 		85BBDA081C5E702C00229ED2 /* TrendingScope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BBDA071C5E702C00229ED2 /* TrendingScope.swift */; };
 		85BBDA0A1C5E85E500229ED2 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BBDA091C5E85E500229ED2 /* Reusable.swift */; };
+		85BCF84C23927B2200F65519 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 85BCF84B23927B2200F65519 /* SwiftSoup */; };
 		85CF076E228AA28F0029CAD9 /* LanguageImageViewSnapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CF076D228AA28F0029CAD9 /* LanguageImageViewSnapshots.swift */; };
 		85D320F01C02062E001B7C7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D320EF1C02062E001B7C7A /* AppDelegate.swift */; };
 		85D320F21C02062E001B7C7A /* LanguageRankingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D320F11C02062E001B7C7A /* LanguageRankingsController.swift */; };
@@ -474,6 +477,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85562ACE22B703D6001F4379 /* Xtensions in Frameworks */,
+				85BCF84C23927B2200F65519 /* SwiftSoup in Frameworks */,
 				92C755086812E9E10DDE8D5A /* Pods_OctoPodium.framework in Frameworks */,
 				859EE81222B45F9700971855 /* Nuke in Frameworks */,
 			);
@@ -483,6 +487,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85B35E8D239276FD0021B76C /* Nimble in Frameworks */,
+				85B35E8A239276790021B76C /* Quick in Frameworks */,
 				BF82AC34CD11883CCE94A5F5 /* Pods_OctoPodium_OctoPodiumTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1201,6 +1207,7 @@
 			packageProductDependencies = (
 				859EE81122B45F9700971855 /* Nuke */,
 				85562ACD22B703D6001F4379 /* Xtensions */,
+				85BCF84B23927B2200F65519 /* SwiftSoup */,
 			);
 			productName = GitHubAwards;
 			productReference = 85D320EC1C02062E001B7C7A /* OctoPodium.app */;
@@ -1223,6 +1230,10 @@
 				85A51D8820C9DED40071032E /* PBXTargetDependency */,
 			);
 			name = OctoPodiumTests;
+			packageProductDependencies = (
+				85B35E89239276790021B76C /* Quick */,
+				85B35E8C239276FD0021B76C /* Nimble */,
+			);
 			productName = GitHubAwardsTests;
 			productReference = 85D321001C02062E001B7C7A /* OctoPodiumTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -1293,6 +1304,9 @@
 			packageReferences = (
 				859EE81022B45F9700971855 /* XCRemoteSwiftPackageReference "Nuke" */,
 				85562ACC22B703D6001F4379 /* XCRemoteSwiftPackageReference "Xtensions" */,
+				85B35E88239276790021B76C /* XCRemoteSwiftPackageReference "Quick" */,
+				85B35E8B239276FD0021B76C /* XCRemoteSwiftPackageReference "Nimble" */,
+				85BCF84A23927B2200F65519 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 			);
 			productRefGroup = 85D320ED1C02062E001B7C7A /* Products */;
 			projectDirPath = "";
@@ -2137,6 +2151,30 @@
 				minimumVersion = 7.6.3;
 			};
 		};
+		85B35E88239276790021B76C /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:Quick/Quick.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
+		85B35E8B239276FD0021B76C /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:Quick/Nimble.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+		85BCF84A23927B2200F65519 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:scinfu/SwiftSoup.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.7.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2149,6 +2187,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 859EE81022B45F9700971855 /* XCRemoteSwiftPackageReference "Nuke" */;
 			productName = Nuke;
+		};
+		85B35E89239276790021B76C /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85B35E88239276790021B76C /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
+		};
+		85B35E8C239276FD0021B76C /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85B35E8B239276FD0021B76C /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+		85BCF84B23927B2200F65519 /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85BCF84A23927B2200F65519 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
